@@ -138,6 +138,33 @@ tr
 .pro{font-size:12.8px;color:var(--green);margin-top:9px}
 .con{font-size:12.8px;color:var(--amber);margin-top:5px}
 
+/* ---------- blockers ---------- */
+.bk{background:linear-gradient(180deg,rgba(255,93,115,.10),var(--bg2));border:1px solid rgba(255,93,115,.42);
+  border-radius:14px;padding:16px 18px;margin-bottom:12px}
+.bk.amber{background:linear-gradient(180deg,rgba(255,180,77,.09),var(--bg2));border-color:rgba(255,180,77,.42)}
+.bk .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bk .bid{font:800 12px/1 ui-monospace,monospace;color:#08101f;background:var(--red);
+  border-radius:6px;padding:5px 7px}
+.bk.amber .bid{background:var(--amber)}
+.bk h3{margin:0;font-size:17px;flex:1;min-width:260px}
+.bk .blocks{font-size:13px;color:var(--red);font-weight:650;margin:8px 0 0}
+.bk.amber .blocks{color:var(--amber)}
+.bkg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
+.bkg .box h4{color:var(--tx3)}
+.bkg .box.ifun{border-color:rgba(255,93,115,.32);background:rgba(255,93,115,.05)}
+.bkg .box.ifun h4{color:var(--red)}
+.bkg .box.now{border-color:rgba(74,217,145,.3);background:rgba(74,217,145,.05)}
+.bkg .box.now h4{color:var(--green)}
+.src{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;line-height:1.75}
+.src b{color:var(--cy);font-weight:600}
+.daybadge{display:inline-block;font:700 11px/1 ui-monospace,monospace;padding:4px 7px;border-radius:6px;
+  background:var(--bg3);border:1px solid var(--line);color:var(--tx2);margin:0 5px 5px 0;cursor:pointer}
+.daybadge:hover{border-color:var(--cy);color:var(--cy)}
+.dayitem .warnb{display:inline-block;font-size:10.5px;font-weight:700;color:var(--red);
+  background:rgba(255,93,115,.16);border-radius:20px;padding:1px 6px;margin-left:5px;vertical-align:1px}
+@keyframes pulse{0%{transform:scale(.85);opacity:.85}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+.ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--red);animation:pulse 2.1s ease-out infinite}
+
 abbr{text-decoration:none;border-bottom:1px dotted var(--tx3);cursor:help}
 .gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:8px 20px;font-size:13px}
 .gl div{padding:6px 0;border-bottom:1px solid var(--line)}
@@ -158,10 +185,34 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
      <b>抢库存</b>阶段。真正会卡住的是三个稀缺资源（<b>10/2 的 Havila 舱位</b>、<b>9/27 冰河湖那一晚</b>、
      <b>EVE→Svolvær 异地还车的 6 个车源</b>），不是每晚多花 50 欧。所以下面的清单按「谁会先卖光」排序，
      而不是按天数顺序。</div>
+  <div style="margin-top:12px"><a href="#decide" style="display:inline-block;background:var(--red);color:#1a0308;
+     font-weight:700;font-size:14px;padding:9px 16px;border-radius:10px;text-decoration:none">
+     🔴 先看这个：需要你拍板的 6 件事 →</a>
+     <a href="#map-sec" style="display:inline-block;margin-left:8px;border:1px solid var(--line);
+     color:var(--tx2);font-size:14px;padding:9px 16px;border-radius:10px;text-decoration:none">🗺 直接看行程地图</a></div>
   <div class="stats" id="stats"></div>
 </div></div>
 
 <div class="wrap">
+
+<!-- ============ 0. 要人拍板的 ============ -->
+<section id="decide" style="border-top:none">
+  <h2><span class="n">00</span>🔴 需要人拍板的 6 件事 —— 不定就没法订，或订了要重订</h2>
+  <p class="lede">这一段是<b>整份计划里唯一卡住的东西</b>。下面每一条都写清了：<b>卡住什么</b> ·
+     <b>不定会怎样</b> · <b>找谁</b> · <b>出处（哪份文档第几行）</b> · <b>影响哪几天</b>（点日期徽章会跳到地图并选中那天）。
+     地图上受影响的日期圆点带<b>红色呼吸圈</b>。<br>
+     再往下还有两组：<b>只影响某一项的细节</b>（7 条，不定也能先订，反正都可免费取消）和
+     <b>已经拍板 / 已经查实的</b>（8 条，<b>别再重新讨论一遍</b>）。</p>
+  <div id="blockers"></div>
+
+  <h3 style="font-size:17px;margin:30px 0 4px">🟠 只影响某一项的细节 —— 不定也能先订</h3>
+  <p class="lede">这 7 条不会改行程结构，只影响某一项的钱或舒适度。全部预订都选可免费取消，所以可以先占住、边等回信。</p>
+  <div class="tw"><table id="dettab"></table></div>
+
+  <h3 style="font-size:17px;margin:30px 0 4px">✅ 已经拍板 / 已经查实 —— 别再重新讨论</h3>
+  <p class="lede">留在这里是为了<b>别再重新担心一遍</b>。其中 4 条原本是文档里问 Steve 的问题，已经被后续检索答掉了。</p>
+  <div class="tw"><table id="settab"></table></div>
+</section>
 
 <!-- ============ 1. MAP ============ -->
 <section id="map-sec">
@@ -384,6 +435,11 @@ const nights=DAYS.filter(d=>d.region!=='cruise').length;
  ['23 天','距出发（今天 2026-09-01）']
 ].forEach(([b,s])=>{const d=el('div','stat');d.appendChild(el('b',null,b));d.appendChild(el('span',null,s));$('#stats').appendChild(d);});
 
+/* ============ 把 blocker 挂到天上 ============ */
+const BYDAY={};
+BLOCKERS.filter(b=>b.scope!=='global').forEach(b=>b.days.forEach(d=>{(BYDAY[d]=BYDAY[d]||[]).push(b)}));
+const hardDays=new Set(BLOCKERS.filter(b=>b.sev==='red'&&b.scope!=='global').flatMap(b=>b.days));
+
 /* ============ MAP ============ */
 const map=L.map('map',{zoomControl:true,scrollWheelZoom:true}).setView([66.5,-3],4);
 const ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/';
@@ -426,7 +482,9 @@ DAYS.forEach(d=>{
   const col=REGCOL[d.region];
   const sz=d.supply==='red'?30:26;
   L.marker(d.anchor,{icon:L.divIcon({className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],
-      html:`<div class="dot" style="width:${sz}px;height:${sz}px;background:${col}">${d.id.replace('D','')}</div>`}),
+      html:`<div style="position:relative;width:${sz}px;height:${sz}px">
+        ${hardDays.has(d.id)?'<div class="ring"></div>':''}
+        <div class="dot" style="width:${sz}px;height:${sz}px;background:${col}">${d.id.replace('D','')}</div></div>`}),
       zIndexOffset:500}).addTo(g)
    .bindPopup(`<b>${d.id} · ${d.date} ${d.wd}</b><br>${d.title}<br>
      <span style="color:#a7b2cd">📍 ${d.base}</span><br>
@@ -442,8 +500,10 @@ map.fitBounds(FULL);
 /* ============ day list ============ */
 DAYS.forEach(d=>{
   const it=el('div','dayitem');it.id='li-'+d.id;
+  const bs=BYDAY[d.id]||[];
   it.innerHTML=`<div class="id">${d.id}<div style="font-size:10px;color:var(--tx3);font-weight:600;margin-top:2px">${d.date}</div></div>
-    <div><div class="t">${d.title}<span class="pill ${d.supply}">${d.supply==='red'?'紧':d.supply==='amber'?'中':'松'}</span></div>
+    <div><div class="t">${d.title}<span class="pill ${d.supply}">${d.supply==='red'?'紧':d.supply==='amber'?'中':'松'}</span>${
+      bs.length?`<span class="warnb">待拍板 ${bs.map(b=>b.id).join(' ')}</span>`:''}</div>
     <div class="m">📍 ${d.base} · 🚗 ${d.drive}</div></div>`;
   it.onclick=()=>select(d.id,true);
   $('#daylist').appendChild(it);
@@ -483,6 +543,11 @@ function renderDetail(d){
     if(d.car.note)ch+=`<div class="note">${d.car.note}</div>`;
     g.appendChild(el('div','box','<h4>租车</h4>'+ch));
   }
+  // blockers for this day
+  const bs=BYDAY[d.id]||[];
+  if(bs.length)g.appendChild(el('div','box ifun','<h4>🔴 这天等着人拍板</h4><ul>'+
+    bs.map(b=>`<li><b>${b.id}</b> · ${b.q}<br><span style="color:var(--tx3);font-size:12.5px">卡住：${b.blocks} · 找 ${b.who.replace(/<[^>]+>/g,'')}</span></li>`).join('')+
+    '</ul><div style="margin-top:6px"><a href="#decide" style="font-size:12.5px">↑ 跳到「需要人拍板的 6 件事」看全文和出处</a></div>'));
   // highlights
   if(d.hi.length)g.appendChild(el('div','box','<h4>看什么 / 要点</h4><ul>'+d.hi.map(x=>`<li>${x}</li>`).join('')+'</ul>'));
   // watch
@@ -625,6 +690,32 @@ tbl('risktab',['风险','影响','现在能做什么'],
 
 tbl('provtab',['数据','怎么拿到的','脚本'],
   PROV.map(p=>({c:[`<b>${p[0]}</b>`,p[1],`<span class="mono">${p[2]}</span>`]})));
+
+/* ============ blockers 渲染 ============ */
+const srcHtml=(src)=>src.map(([f,l])=>`<div><b>${f}</b> : ${l}</div>`).join('');
+$('#blockers').innerHTML=BLOCKERS.map(b=>`
+  <div class="bk ${b.sev==='amber'?'amber':''}">
+    <div class="top"><span class="bid">${b.id}</span><h3>${b.q}</h3>${b.scope==='global'?'<span class="tag" style="border-color:var(--red);color:var(--red)">全局 · 影响 10 晚</span>':''}</div>
+    <div class="blocks">⛔ 卡住：${b.blocks}</div>
+    <div class="bkg">
+      <div class="box"><h4>背景</h4><div style="font-size:13.5px">${b.detail}</div></div>
+      <div class="box ifun"><h4>不定会怎样</h4><div style="font-size:13.5px">${b.ifUnknown}</div></div>
+      <div class="box now"><h4>现在能做什么</h4><div style="font-size:13.5px">${b.nowdo}</div>
+        <div class="note"><b>找谁：</b>${b.who}</div></div>
+      <div class="box"><h4>出处（文档 : 行号）</h4><div class="src">${srcHtml(b.src)}</div>
+        <div style="margin-top:9px"><h4 style="margin-bottom:6px">影响哪几天</h4>
+        ${b.days.map(d=>`<span class="daybadge" data-day="${d}">${d} · ${(DAYS.find(x=>x.id===d)||{}).date||''}</span>`).join('')}</div></div>
+    </div></div>`).join('');
+document.querySelectorAll('.daybadge').forEach(n=>n.onclick=()=>{
+  document.getElementById('map-sec').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>select(n.dataset.day,true),450);
+});
+
+tbl('dettab',['问题','为什么想知道','找谁','出处（文档 : 行号）'],
+  DETAILS.map(d=>({c:[`<b>${d.q}</b>`,d.why,d.who,`<span class="src">${srcHtml(d.src)}</span>`]})));
+
+tbl('settab',['原问题','已定的答案','出处（文档 : 行号）'],
+  SETTLED.map(s=>({c:[`<span class="sev green"></span><b>${s.q}</b>`,s.a,`<span class="src">${srcHtml(s.src)}</span>`]})));
 
 $('#pit').innerHTML=PITFALLS.map(p=>`<li>${p}</li>`).join('');
 $('#gl').innerHTML=GLOSSARY.map(([k,v])=>`<div><b>${k}</b> — ${v}</div>`).join('');
