@@ -1,0 +1,82 @@
+[
+{
+"slug": "tos-thon-polar",
+"hotel": "no/thon-polar",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"adults": 4,
+"rooms": 2
+},
+{
+"slug": "tos-ishavshotel",
+"hotel": "no/scandic-ishavshotel",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"adults": 4,
+"rooms": 2
+},
+{
+"slug": "tos-amalie",
+"hotel": "no/enter-amalie-apartments",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"adults": 4,
+"rooms": 1
+},
+{
+"slug": "tos-viking",
+"hotel": "no/enter-viking-apartments",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"adults": 4,
+"rooms": 1
+},
+{
+"slug": "tos-vervet",
+"hotel": "no/ta-vervet-apartment",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"adults": 4,
+"rooms": 1
+},
+{
+"slug": "tos-elisabeth",
+"hotel": "no/enter-st-elisabeth-suites",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"adults": 4,
+"rooms": 2
+},
+{
+"slug": "d12-thon-gardermoen",
+"hotel": "no/thon-gardermoen",
+"checkin": "2026-10-06",
+"checkout": "2026-10-07",
+"adults": 4,
+"rooms": 2
+},
+{
+"slug": "d12-clarion",
+"hotel": "no/clarion-oslo-airport",
+"checkin": "2026-10-06",
+"checkout": "2026-10-07",
+"adults": 4,
+"rooms": 2
+},
+{
+"slug": "d12-scandic",
+"hotel": "no/scandic-oslo-airport",
+"checkin": "2026-10-06",
+"checkout": "2026-10-07",
+"adults": 4,
+"rooms": 2
+},
+{
+"slug": "d12-parkinn",
+"hotel": "no/park-inn-oslo-airport",
+"checkin": "2026-10-06",
+"checkout": "2026-10-07",
+"adults": 4,
+"rooms": 2
+}
+]

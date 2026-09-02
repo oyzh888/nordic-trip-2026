@@ -1,0 +1,45 @@
+{
+ "title": "Enter Amalie Apartment Hotel, Tromsø (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/enter-amalie-apartments.html?checkin=2026-10-02&checkout=2026-10-06&group_adults=4&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "One-Bedroom Apartment",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    216,
+    863,
+    863,
+    863
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "One-Bedroom Apartment ¶ To fit 4 adults, you'll need to select 2 of these ¶ We have 3 left ¶ Bedroom 1: 1 queen bed ¶ Living room: 1 sofa bed ¶ Entire apartment ¶ 538 feet² ¶ Private kitchen ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Max. people: 3 ¶ € 216 per night ¶ € 863 ¶ Price € 863 ¶ 4 nights ¶ Excluded: 8 % VAT ¶ Wonderful breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 863) ¶ 2          (€ 1,726) ¶ 3   "
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    196,
+    785,
+    785,
+    785
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 196 per night ¶ € 785 ¶ Price € 785 ¶ 4 nights ¶ Excluded: 8 % VAT ¶ Wonderful breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 785) ¶ 2          (€ 1,570) ¶ 3          (€ 2,354)"
+  }
+ ],
+ "job": {
+  "slug": "tos-amalie",
+  "hotel": "no/enter-amalie-apartments",
+  "checkin": "2026-10-02",
+  "checkout": "2026-10-06",
+  "adults": 4,
+  "rooms": 1
+ }
+}

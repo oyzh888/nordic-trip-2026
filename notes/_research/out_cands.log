@@ -1,0 +1,92 @@
+== osl-eidsvoll 
+   cfg=3 bedrooms · 4 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== osl-jessheim 
+   cfg=4 bedrooms · 5 beds · 2 baths | br=4 bath=2 guests=7
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== osl-gjerdrum 
+   cfg=2 bedrooms · 2 beds · 2 baths | br=2 bath=2 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== rvk-huge-apt 
+   cfg=4 bedrooms · 6 beds · 2 baths | br=4 bath=2 guests=11
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 18 for a partial refund. min=None unavail=False
+== rvk-mani 
+   cfg=4 bedrooms · 9 beds · 3 baths | br=4 bath=3 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €961.20 total min=None unavail=False
+== rvk-tower-soley 
+   cfg=2 bedrooms · 3 beds · 2 baths | br=2 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 20. After that, the reservation is non-refundable. min=None unavail=False
+== sc-hvols-4br 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=9
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 21. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== kef-alt-3br 
+   cfg=3 bedrooms · 3 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. After that, the reservation is non-refundable. min=None unavail=False
+== kef-njardvik 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €444.13 total min=None unavail=False
+== osl2-ullensaker 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== lof-nordic-lodge 
+   cfg=4 bedrooms · 8 beds · 2 baths | br=4 bath=2 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== lof-pool 
+   cfg=5 bedrooms · 6 beds · 2 baths | br=5 bath=2 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €895.17 total min=None unavail=False
+== lof-func-arch 
+   cfg=4 bedrooms · 4 beds · 2.5 baths | br=4 bath=2.5 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== lof-golf 
+   cfg=7 bedrooms · 8 beds · 2.5 baths | br=7 bath=2.5 guests=15
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== lof-seafront-rorbu 
+   cfg=3 bedrooms · 5 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 25. Cancel before check-in on September 30 for a p min=None unavail=False
+== lof-havgapet 
+   cfg=7 bedrooms · 7 beds · 2 baths | br=7 bath=2 guests=13
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €957.47 total min=None unavail=False
+== lof-valen-reine 
+   cfg=4 bedrooms · 5 beds · 2 baths | br=4 bath=2 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €1,112.79 total min=None unavail=False
+== lof-flakstad 
+   cfg=2 bedrooms · 4 beds · 2 baths | br=2 bath=2 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== tos-5br-4n 
+   cfg=5 bedrooms · 5 beds · 2.5 baths | br=5 bath=2.5 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 25 for a partial refund. min=None unavail=False
+== tos-3br-4n 
+   cfg=3 bedrooms · 3 beds · 2 baths | br=3 bath=2 guests=7
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €1,398.00 total min=None unavail=False
+== tos-tomasjord-4n 
+   cfg=3 bedrooms · 4 beds · 2 baths | br=3 bath=2 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 25 for a partial refund. min=None unavail=False
+== tos-gorgeous-4n 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before October 1. Cancel before check-in on October 2 for a partial min=None unavail=False
+== tos-loft-4n 
+   cfg=4 bedrooms · 5 beds · 2.5 baths | br=4 bath=2 guests=9
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. After that, the reservation is non-refundable. min=None unavail=False

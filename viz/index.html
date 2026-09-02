@@ -335,16 +335,25 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   <div class="cards" id="carseg"></div>
   <div class="cards" style="margin-top:14px">
     <div class="card pick"><h3>① 挪威一台车连开 6 天，<b>不</b>拆两段</h3>
-      <p style="font-size:13.5px;color:var(--tx2);margin:0 0 8px">拆开算过：EVE→TOS 3 天 $440 + 特罗姆瑟本地 3 天 $215 = <b>$655</b>，
-      看着比 $762 便宜 $107。</p>
-      <p class="con">但要多跑一次租车柜台、多一次押金冻结，而且 10/2 到特罗姆瑟已是傍晚 —— 还完车再取车会拖到晚上。$107 不值。</p>
+      <div class="kv"><span><b>一台车</b> EVE→TOS 6 天 · Suzuki Vitara 燃油 4WD</span><span><b style="color:var(--green)">$762</b></span></div>
+      <div class="kv"><span>拆开：EVE→TOS 3 天（同款 Vitara）</span><span>$568</span></div>
+      <div class="kv"><span>拆开：TOS→TOS 2 天（同款 Vitara）</span><span>$222</span></div>
+      <div class="kv"><span>拆开合计</span><span><b style="color:var(--red)">$790（贵 $28）</b></span></div>
+      <p class="pro">✅ <b>拆开既更贵又更麻烦</b>，而且 10/3 那天空着没车。所以不拆是双赢，不是「花钱买省事」。</p>
+      <p class="con">🔴 <b>2026-09-02 修正</b>：这张卡原来写「拆开省 $107」是<b>算错的</b> ——
+      那是拿纯电车的报价（$440 / $215）去比燃油车的 $762。同档对齐后拆开反而贵 $28。
+      <a href="#carevid">↓ 见证据表</a></p>
       <p class="pro">✅ 顺带干掉了原方案里两个大麻烦：<b>$320 的 EVE→Svolvær 异地还车费</b>（实测，网上说 500–1,500 NOK 是低估的）
       和「异地还车只有 6 个车源、同地还车有 23 个」的库存风险。</p></div>
     <div class="card pick"><h3>② 冰岛<b>落地就取车</b>，不等第二天</h3>
-      <div class="kv"><span>9/25 17:00 落地就取（5 天）</span><span><b>$258</b></span></div>
-      <div class="kv"><span>9/26 才取（4 天）</span><span>$254</span></div>
-      <p class="pro">只贵 <b>$4</b>，但省掉 4 个人的机场大巴（KEF↔雷市约 ¥170/人 ×4 ×2 程 ≈ <b>¥1,360</b>）——
-      <b>实际是净省钱</b>，还免了拖箱子换乘。</p></div>
+      <div class="kv"><span>🥇 9/25 <b>17:00</b> 落地就取 → 9/29 18:00 还</span><span><b style="color:var(--green)">$258</b></span></div>
+      <div class="kv"><span>9/26 09:00 才取（原方案）</span><span>$253</span></div>
+      <p class="pro">只贵 <b>$5</b>，但省掉 4 个人的机场大巴（KEF↔雷市约 ¥170/人 ×4 ×2 程 ≈ <b>¥1,360</b>）——
+      <b>实际是净省钱</b>，还免了拖箱子换乘，9/29 早上 05:30 出发也自然成立（车就停在住处楼下）。</p>
+      <div class="kv" style="border-top:1px dashed var(--line);padding-top:8px"><span>⚠️ 同一天 <b>14:00</b> 取（早 3 小时）</span><span><b style="color:var(--red)">$323</b></span></div>
+      <p class="con">🔴 <b>取车时间点有个 $65 的悬崖</b>：还车定在 9/29 18:00，取车只要早于约 17:00
+      就跨进<b>第 5 个计费日</b>。→ <b>订的时候把取车时间填 17:00 或更晚，别填下午早些时候</b>，
+      白多付 $65。（航班落地时间要对得上，见 B1。）</p></div>
     <div class="card"><h3>③ 🔴 更便宜的那几台<b>全是纯电</b> → 排除</h3>
       <div class="kv"><span>Toyota Urban Cruiser</span><span>$569 · <b style="color:var(--red)">纯电</b></span></div>
       <div class="kv"><span>Peugeot 2008</span><span>$581 · <b style="color:var(--red)">纯电</b></span></div>
@@ -363,6 +372,43 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
       <p class="pro">👉 自驾省 NOK 7,000–14,000。挪威租车基本不限里程，而且车本来就在手上（6 天连租），
       Senja 这天的边际成本只有渡轮 + 油。</p></div>
   </div>
+
+  <h3 id="carevid" style="font-size:17px;margin:30px 0 4px">📊 证据表 —— 这两个决定背后的实价对比</h3>
+  <p class="lede">起因是 Steve 提的一个思路：<b>「同地租 N 天 + 最后 1 天再单租异地」，只要距离不离谱应该最划算。</b>
+     这个模型本身是对的（只要「异地费 &gt; 多开一张合约的边际成本」就该拆），
+     所以我把它<b>当假设去实测</b>了 —— 冰岛 7 个方案 + 挪威 5 个方案。
+     <br>🔴 <b>方法上最要紧的一条</b>：同一次对比里只能比<b>同一档动力</b>。
+     纯电车在挪威永远是最便宜的那几台，拿它的价去比燃油车就会得出反的结论 —— 下面第二张表就是这么被算错的。
+     全部报价为 <b>USD 裸车价</b>（不含冰岛必买三险 $25–40/<b>天</b>），可免费取消、不限里程、美国驾照、35 岁。</p>
+
+  <div style="font-size:12.5px;color:var(--tx3);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:16px 0 6px">
+     冰岛 · 拆分 vs 单租（Steve 的方案 = B1 + B2）</div>
+  <div class="tw"><table id="evis"></table></div>
+  <div class="cards" style="margin-top:12px">
+    <div class="card pick"><h3>冰岛结论</h3>
+      <div class="kv"><span>🥇 V1 单租（KEF 9/25 17:00 → 9/29）</span><span><b style="color:var(--green)">$258</b></span></div>
+      <div class="kv"><span>Steve 的拆分方案 B1 + B2</span><span><b style="color:var(--red)">$251 + $175 = $426</b></span></div>
+      <div class="kv"><span>差额</span><span><b>拆开贵 $168</b>（还没算 9/25 的机场大巴 ≈¥1,360）</span></div>
+      <p class="con">🔴 <b>而且拆分还有个更严重的问题：9/29 早上拿不到车。</b>
+      B2 要你那天早上去雷市市区门店提新车，而<b>市区门店普遍 08:00–09:00 才开</b>（机场柜台为早班机会开早，市区不会）。
+      斯奈山半岛整个可行性建立在 <b>05:30 出发</b>上 → 08:30 出发 + 11–12 小时行程 = 20:00 后才回 KEF，
+      连 20:05 那班飞机都赶不上。<b>这不是省钱的取舍，是把一个大景点换掉了。</b>
+      （门店时间是通例，下单前按具体门店确认；但没有市区门店 05:30 开门这点是确定的。）</p>
+      <p class="pro">✅ 单租则 9/29 早上车就在住处楼下，05:30 出发自然成立。</p></div>
+  </div>
+
+  <div style="font-size:12.5px;color:var(--tx3);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:22px 0 6px">
+     挪威 · 一台车连开 vs 拆两段（含被推翻的旧算法）</div>
+  <div class="tw"><table id="evno"></table></div>
+
+  <div style="font-size:12.5px;color:var(--tx3);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:22px 0 6px">
+     🔴 两条被实测推翻的旧说法</div>
+  <div id="carfix"></div>
+
+  <p class="lede" style="margin-top:16px">✅ <b>可复算性先验过</b>：把 9/1 那次的 KEF→KEF 4 天原样重跑，
+     <b>$253 vs 当时的 $254</b> —— 差 1 美元，所以上面的对比是信号不是噪声。
+     完整推导在 <span class="mono">notes/OPTIONS-cars-split.md</span>，原始 JSON 在
+     <span class="mono">notes/_research/out_split/</span> 和 <span class="mono">out_verify/</span>。</p>
 </section>
 
 <!-- ============ 6. 住宿全景 ============ -->
@@ -390,23 +436,42 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   </table></div>
 </section>
 
-<!-- ============ 7. 未决 ============ -->
+<!-- ============ 7. 每晚候选（一起选） ============ -->
+<section id="cands">
+  <h2><span class="n">07</span>🗂 每晚候选 —— 一起选</h2>
+  <p class="lede">上面那张是<b>我的一套推荐组合</b>；这一节把<b>每晚还有哪些能选</b>都摊开。
+     每行名字都能点直接跳详情页，<b>左边的圆点是可以点的</b> —— 换一个选择，上面那条汇总会当场重算总价和 ¥/房/晚，
+     所以可以坐在一起边点边看钱怎么变。</p>
+  <p class="lede">🔴 <b>先说清楚三件事，不然这张表会看错：</b></p>
+  <ul class="lede" style="margin-top:-6px">
+    <li><b>「实测」列是最重要的一列。</b> <span class="ok">房源页已核</span> = 用我们的真实日期打开过房源页、确认能订；
+        <span style="color:var(--amber)">仅搜索页</span> = 只有搜索卡片上的价，<b>没验证过能不能订</b>（吃过亏：两个 🥇 就是这么死的）；
+        <span style="color:var(--red)">⛔ 已验证订不到</span> = 打开过、明确不可用，留在表里是为了别再回头看。</li>
+    <li><b>酒店的 ¥/房/晚 = 每间房每晚的价</b>（不是两间总价）。<b>冰岛的酒店价已经加过 11% VAT + 城市税</b>；
+        挪威酒店和 Airbnb 是含税含清洁费的。</li>
+    <li><b>Airbnb 的 ¥/房/晚 = 整套总价 ÷ 2 ÷ 晚数</b>（保守口径）。3 房那几套如果两个男生各住一间就是 ÷3，实际还要低三分之一。</li>
+  </ul>
+  <div id="candsum" class="pickbar"></div>
+  <div id="candlist"></div>
+</section>
+
+<!-- ============ 8. 未决 ============ -->
 <section id="open">
-  <h2><span class="n">07</span>未决问题 —— 网页答不了，要人去问</h2>
+  <h2><span class="n">08</span>未决问题 —— 网页答不了，要人去问</h2>
   <p class="lede">按会不会真的搞砸排序。红点这四条<b>今天就要动</b>。</p>
   <div class="tw"><table id="opentab"></table></div>
 </section>
 
 <!-- ============ 8. 风险 ============ -->
 <section id="risk">
-  <h2><span class="n">08</span>风险清单（含已消除的）</h2>
+  <h2><span class="n">09</span>风险清单（含已消除的）</h2>
   <p class="lede">灰掉划线的是<b>已经查实、可以划掉</b>的 —— 留着是为了别再重新担心一遍。</p>
   <div class="tw"><table id="risktab"></table></div>
 </section>
 
 <!-- ============ 9. 出处 ============ -->
 <section id="prov">
-  <h2><span class="n">09</span>数据怎么来的（可复算）+ 踩过的坑</h2>
+  <h2><span class="n">10</span>数据怎么来的（可复算）+ 踩过的坑</h2>
   <div class="tw"><table id="provtab"></table></div>
   <p class="lede" style="margin-top:18px"><b>🔴 踩过的坑，别重踩：</b></p>
   <div class="box warn"><ul id="pit"></ul></div>
@@ -414,7 +479,7 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 
 <!-- ============ 10. 黑话 ============ -->
 <section id="gloss">
-  <h2><span class="n">10</span>黑话表</h2>
+  <h2><span class="n">11</span>黑话表</h2>
   <div class="gl" id="gl"></div>
 </section>
 
@@ -787,6 +852,25 @@ tbl('dettab',['问题','为什么想知道','找谁','出处（文档 : 行号�
 
 tbl('settab',['原问题','已定的答案','出处（文档 : 行号）'],
   SETTLED.map(s=>({c:[`<span class="sev green"></span><b>${s.q}</b>`,s.a,`<span class="src">${srcHtml(s.src)}</span>`]})));
+
+/* ---- 租车证据表 ---- */
+const vcol=v=>v==='best'?'var(--green)':v==='bad'?'var(--red)':'var(--tx2)';
+tbl('evis',['代号','取 → 还','时间','计费天','最便宜 4x4 自动<br>燃油/混动','报价数','说明'],
+  EVID_IS.map(r=>({cls:r.verdict==='bad'?'done':'',
+    c:[`<b style="color:${vcol(r.verdict)}">${r.id}</b>`,r.route,r.when,{v:r.days,n:1},
+       {v:`<b style="color:${vcol(r.verdict)}">$${r.fuel}</b>`,n:1},{v:r.n,n:1},r.note]})));
+tbl('evno',['代号','取 → 还','时间','计费天','燃油/混动 4x4 自动','🔋 纯电 4x4 自动','报价数','说明'],
+  EVID_NO.map(r=>({cls:r.verdict==='bad'?'done':'',
+    c:[`<b style="color:${vcol(r.verdict)}">${r.id}</b>`,r.route,r.when,{v:r.days,n:1},
+       {v:r.fuel?`<b style="color:${vcol(r.verdict)}">$${r.fuel}</b>`:'—',n:1},
+       {v:r.ev?`<span style="color:var(--tx3)">$${r.ev}</span>`:'—',n:1},{v:r.n,n:1},r.note]})));
+$('#carfix').innerHTML=CARFIX.map(c=>`
+  <div class="bk amber"><div class="top"><span class="bid">修正</span>
+    <h3 style="font-size:15.5px">${c.was}</h3></div>
+    <div class="bkg">
+      <div class="box ifun"><h4>实测是</h4><div style="font-size:13.5px">${c.now}</div></div>
+      <div class="box now"><h4>对结论的影响</h4><div style="font-size:13.5px">${c.why}</div></div>
+    </div></div>`).join('');
 
 $('#pit').innerHTML=PITFALLS.map(p=>`<li>${p}</li>`).join('');
 $('#gl').innerHTML=GLOSSARY.map(([k,v])=>`<div><b>${k}</b> — ${v}</div>`).join('');

@@ -1,0 +1,163 @@
+[
+{
+"slug": "osl-eidsvoll",
+"room": "1517311976763731826",
+"checkin": "2026-09-24",
+"checkout": "2026-09-25",
+"note": "Eidsvoll 3BR/2BA E426/2n (min-stay 2?)"
+},
+{
+"slug": "osl-jessheim",
+"room": "1739223395983398156",
+"checkin": "2026-09-24",
+"checkout": "2026-09-25",
+"note": "Jessheim 4BR/2BA E759/2n (min-stay 2?)"
+},
+{
+"slug": "osl-gjerdrum",
+"room": "955510432915478016",
+"checkin": "2026-09-24",
+"checkout": "2026-09-25",
+"note": "Gjerdrum 2BR/2BA E503/2n (min-stay 2?)"
+},
+{
+"slug": "rvk-huge-apt",
+"room": "1164355089969462702",
+"checkin": "2026-09-25",
+"checkout": "2026-09-26",
+"note": "RVK Huge Apartment 4BR/2BA E535"
+},
+{
+"slug": "rvk-mani",
+"room": "639631862185278229",
+"checkin": "2026-09-25",
+"checkout": "2026-09-26",
+"note": "RVK Mani Apartments 4BR/3BA E962"
+},
+{
+"slug": "rvk-tower-soley",
+"room": "35826875",
+"checkin": "2026-09-25",
+"checkout": "2026-09-26",
+"note": "RVK Tower Apartments Soley 2BR/2BA E677"
+},
+{
+"slug": "sc-hvols-4br",
+"room": "1081195144537663933",
+"checkin": "2026-09-26",
+"checkout": "2026-09-27",
+"note": "Hvolsvollur 4BR/2BA E2089/2n (min-stay 2?)"
+},
+{
+"slug": "kef-alt-3br",
+"room": "1302095139759149342",
+"checkin": "2026-09-28",
+"checkout": "2026-09-29",
+"note": "Reykjanesbaer 3BR/2BA E498"
+},
+{
+"slug": "kef-njardvik",
+"room": "1468029290775302593",
+"checkin": "2026-09-28",
+"checkout": "2026-09-29",
+"note": "Njardvik 4BR/2BA E445"
+},
+{
+"slug": "osl2-ullensaker",
+"room": "1204471771405405295",
+"checkin": "2026-09-29",
+"checkout": "2026-09-30",
+"note": "Ullensaker 4BR/2BA E541/2n (min-stay 2?)"
+},
+{
+"slug": "lof-nordic-lodge",
+"room": "1303545546783105490",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Nordic Lodge Retreat 4BR/2BA E898/2n"
+},
+{
+"slug": "lof-pool",
+"room": "1441200146734024595",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Secluded house private pool 5BR/2BA E896/2n"
+},
+{
+"slug": "lof-func-arch",
+"room": "574286379531171221",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Functional architecture 4BR/2.5BA E1041/2n"
+},
+{
+"slug": "lof-golf",
+"room": "45665373",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Group stay golf+beach 7BR/2.5BA E1634/2n"
+},
+{
+"slug": "lof-seafront-rorbu",
+"room": "35072091",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Seafront fisherman cabin 3BR/2BA E900/2n"
+},
+{
+"slug": "lof-havgapet",
+"room": "1259549145786305745",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Villa Havgapet 7BR/2BA E958/2n"
+},
+{
+"slug": "lof-valen-reine",
+"room": "1314514220654606262",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Valen house in Reine 4BR/2BA E1113/2n"
+},
+{
+"slug": "lof-flakstad",
+"room": "43494853",
+"checkin": "2026-09-30",
+"checkout": "2026-10-02",
+"note": "Guest suite Flakstad 2BR/2BA E740/2n"
+},
+{
+"slug": "tos-5br-4n",
+"room": "1763946111917505608",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"note": "Tromso 5BR/2.5BA (was E1155/3n) -> 4n"
+},
+{
+"slug": "tos-3br-4n",
+"room": "805864934151694916",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"note": "Tromso 3BR/2BA (was E1111/3n) -> 4n"
+},
+{
+"slug": "tos-tomasjord-4n",
+"room": "938536829410600780",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"note": "Tomasjord 3BR/2BA (was E1171/3n) -> 4n"
+},
+{
+"slug": "tos-gorgeous-4n",
+"room": "880420426360588834",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"note": "Gorgeous views 4BR/2BA (was E1600/3n) -> 4n"
+},
+{
+"slug": "tos-loft-4n",
+"room": "1480974381910568232",
+"checkin": "2026-10-02",
+"checkout": "2026-10-06",
+"note": "The Loft 4BR/2BA (was E1734/3n) -> 4n"
+}
+]
