@@ -1,0 +1,329 @@
+{
+ "url": "https://www.discovercars.com/search/e4f3f7b8-e4d4-4a4f-858d-f4ff6636de18?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozMDkyLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI5VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Tue, Sep 29",
+  "Tue, Sep 29"
+ ],
+ "n_offers": 24,
+ "rows": [
+  {
+   "car": "Kia Picanto",
+   "supplier": null,
+   "prices": [
+    107
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $107.60 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    116
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Automatic | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $116.69 | Free cancellation | View deal | Prices are even better in the app | Scan to download and book on your phone"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    124
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $124.65 | Free cancellation | View deal"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    115
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Manual | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $115.56 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    145
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $145.09 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    150
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $150.77 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    153
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $153.04 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    166
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact Crossover | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $166.66 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    175
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $175.77 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    150
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Swift | or similar Economy | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $150.77 | Free cancellation | View deal"
+  },
+  {
+   "car": "All-wheel drive",
+   "supplier": null,
+   "prices": [
+    181
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "All-wheel drive | Toyota Yaris Cross | or similar Compact Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $181.43 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    185
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Vitara | or similar Compact Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $185.98 | Free cancellation | View deal"
+  },
+  {
+   "car": "Dacia Jogger 5+2",
+   "supplier": null,
+   "prices": [
+    158
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Dacia Jogger 5+2 | or similar Standard Estate/Wagon | Manual | 7 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $158.70 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    160
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $160.99 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    203
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sportage | or similar Intermediate Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $203.02 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    158
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $158.70 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    222
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.4 | or similar Intermediate Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $222.07 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    250
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Toyota RAV4 | or similar Standard Crossover | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $250.84 | Free cancellation | View deal"
+  },
+  {
+   "car": "All-wheel drive",
+   "supplier": null,
+   "prices": [
+    259
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "All-wheel drive | Mitsubishi Outlander | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $259.24 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    338
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sorento | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $338.36 | Free cancellation | View deal"
+  },
+  {
+   "car": "Skoda Octavia",
+   "supplier": null,
+   "prices": [
+    199
+   ],
+   "total_days": "1",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Skoda Octavia | or similar Intermediate | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $199.61 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    367
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sorento | or similar Standard SUV | Automatic | 5 seats | 5 doors | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $367.12 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    497
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Mercedes-Benz GLE-Class | or similar Luxury SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $497.81 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    536
+   ],
+   "total_days": "1",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Toyota Land Cruiser | or similar Premium SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 9.0 | Excellent | 371 ratings | Total for 1 day | $536.16 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "B2-rvk-kef-1d",
+  "pick_id": 3092,
+  "drop_id": 1787,
+  "pick_dt": "2026-09-29T08:00:00",
+  "drop_dt": "2026-09-29T18:00:00"
+ }
+}

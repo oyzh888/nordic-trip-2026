@@ -68,6 +68,19 @@ h2 .n{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.1em;
 .dot{border-radius:50%;border:2px solid #0b1020;box-shadow:0 0 0 1.5px rgba(255,255,255,.28),0 3px 10px rgba(0,0,0,.5);
   display:flex;align-items:center;justify-content:center;font:700 11px/1 -apple-system,sans-serif;color:#08101f}
 .wp{width:9px;height:9px;border-radius:50%;background:#8fa0c4;border:1.5px solid #0b1020;opacity:.85}
+/* 住宿 / 取还车图钉 */
+.pin{width:26px;height:26px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);
+  display:flex;align-items:center;justify-content:center;border:2px solid #0b1020;
+  box-shadow:0 3px 10px rgba(0,0,0,.55)}
+.pin span{transform:rotate(45deg);font-size:13px;line-height:1}
+.pin.stay{background:#3ee6d0}
+.pin.stayph{background:#7f8aa8}            /* 占位（还没定的那晚） */
+.pin.pick{background:#a98bff;border-radius:50%}
+.pin.drop{background:#ff5d73;border-radius:50%}
+.pin.pick span,.pin.drop span{transform:rotate(45deg);font-size:12px}
+.pp{font-size:13px;line-height:1.55}
+.pp b{color:#fff}
+.pp .k{color:#6f7b99}
 
 /* map side panel */
 .side{display:flex;flex-direction:column;gap:10px;max-height:min(72vh,720px);min-height:480px}
@@ -178,16 +191,21 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 <div class="hero"><div class="wrap">
   <div class="kicker">Nordic Trip · 2026-09-24 → 10-06 · 4 人（两男 + 一对夫妻）</div>
   <h1>北欧行 2026 —— 行程地图 & 落地计划</h1>
-  <p class="sub">奥斯陆中转 → 冰岛环南岸 5 天 → 回奥斯陆 → 罗弗敦群岛自驾 3 天 →
-     <b>Havila 海岸邮轮夜航</b> → 特罗姆瑟 + Senja 3 天。全部报价为 <b>2026-09-01 用 Playwright 实时抓的</b>，
-     不是估算；每个数字都能回到 <span class="mono">notes/_research/</span> 下的脚本重算。</p>
-  <div class="tldr"><b>一句话</b>：今天 2026-09-01，出发 9/24 —— 只剩 <b>23 天</b>。这不是「比价」阶段，是
-     <b>抢库存</b>阶段。真正会卡住的是三个稀缺资源（<b>10/2 的 Havila 舱位</b>、<b>9/27 冰河湖那一晚</b>、
-     <b>EVE→Svolvær 异地还车的 6 个车源</b>），不是每晚多花 50 欧。所以下面的清单按「谁会先卖光」排序，
-     而不是按天数顺序。</div>
+  <p class="sub">奥斯陆中转 → 冰岛环南岸 5 天 → 回奥斯陆 → <b>罗弗敦东侧</b>自驾 2 晚 →
+     <b>10/2 自驾去特罗姆瑟</b>（邮轮已整段 pass）→ 特罗姆瑟船屋 4 晚 + Senja。
+     全部报价为 <b>2026-09-01 用 Playwright 打开真实页面、按真实日期抓的</b>，不是估算；
+     每晚住宿都<b>逐个开过房源页复核</b>并截图（<span class="mono">notes/shots/</span>），
+     每个数字都能回到 <span class="mono">notes/_research/</span> 下的脚本重算。</p>
+  <div class="tldr" style="border-left-color:var(--green);background:rgba(74,217,145,.08);color:#d6f7e6">
+     <b>一句话</b>：<b>方案已经定完了，可以开始下单。</b>12 晚住宿 + 2 台车全部有实价、实测可订，
+     合计 <b>≈ ¥40,900（4 人）</b>，住宿折 <b>¥1,326 / 房 / 晚</b> —— 只有你预算下沿（¥2,000）的 <b>2/3</b>；
+     8 项里 <b>7 项可免费取消</b>。地图上每个 <b>🛏 住宿图钉</b>和 <b>🚗 取/还车图钉</b>都能点，直接跳详情页。
+     剩下只有 <b>4 件事要人去问</b>（3 件在 Kevin 那边），且都不改结构。<br>
+     现在是<b>抢库存</b>阶段：真正会先没的是 <b>罗弗敦东侧那套 5 房</b>、<b>Árnanes 的 2 间</b>、
+     <b>Hvolsvöllur 那句「We have 2 left」</b> —— 所以清单按「谁会先卖光」排，不按天数顺序。</div>
   <div style="margin-top:12px"><a href="#decide" style="display:inline-block;background:var(--red);color:#1a0308;
      font-weight:700;font-size:14px;padding:9px 16px;border-radius:10px;text-decoration:none">
-     🔴 先看这个：需要你拍板的 6 件事 →</a>
+     🔴 先看这个：还要人去问的 4 件事 →</a>
      <a href="#map-sec" style="display:inline-block;margin-left:8px;border:1px solid var(--line);
      color:var(--tx2);font-size:14px;padding:9px 16px;border-radius:10px;text-decoration:none">🗺 直接看行程地图</a></div>
   <div class="stats" id="stats"></div>
@@ -197,12 +215,13 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 
 <!-- ============ 0. 要人拍板的 ============ -->
 <section id="decide" style="border-top:none">
-  <h2><span class="n">00</span>🔴 需要人拍板的 6 件事 —— 不定就没法订，或订了要重订</h2>
-  <p class="lede">这一段是<b>整份计划里唯一卡住的东西</b>。下面每一条都写清了：<b>卡住什么</b> ·
-     <b>不定会怎样</b> · <b>找谁</b> · <b>出处（哪份文档第几行）</b> · <b>影响哪几天</b>（点日期徽章会跳到地图并选中那天）。
+  <h2><span class="n">00</span>🔴 还卡着的 4 件事 —— 其他都定完了</h2>
+  <p class="lede">住宿和车已经<b>全部选定</b>（见地图上的 🛏 / 🚗 图钉，点了直接跳详情页）。剩下这 4 条要人去问，
+     其中 <b>3 条在 Kevin 那边</b>。每一条都写清了：<b>卡住什么</b> · <b>不定会怎样</b> · <b>找谁</b> ·
+     <b>出处（哪份文档第几行）</b> · <b>影响哪几天</b>（点日期徽章会跳到地图并选中那天）。
      地图上受影响的日期圆点带<b>红色呼吸圈</b>。<br>
-     再往下还有两组：<b>只影响某一项的细节</b>（7 条，不定也能先订，反正都可免费取消）和
-     <b>已经拍板 / 已经查实的</b>（8 条，<b>别再重新讨论一遍</b>）。</p>
+     🟢 <b>关键是：这 4 条都不改结构</b> —— 全部预订都可免费取消，所以<b>现在就能先订，等回信再调</b>。<br>
+     再往下还有两组：<b>只影响某一项的细节</b>（7 条）和 <b>已经拍板 / 已经查实的</b>（10 条，<b>别再重新讨论一遍</b>）。</p>
   <div id="blockers"></div>
 
   <h3 style="font-size:17px;margin:30px 0 4px">🟠 只影响某一项的细节 —— 不定也能先订</h3>
@@ -210,16 +229,21 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   <div class="tw"><table id="dettab"></table></div>
 
   <h3 style="font-size:17px;margin:30px 0 4px">✅ 已经拍板 / 已经查实 —— 别再重新讨论</h3>
-  <p class="lede">留在这里是为了<b>别再重新担心一遍</b>。其中 4 条原本是文档里问 Steve 的问题，已经被后续检索答掉了。</p>
+  <p class="lede">留在这里是为了<b>别再重新担心一遍</b>。包括你交给我的<b>两个决定</b>（罗弗敦东西侧、冰河湖住哪），
+     理由展开在第 04 节。</p>
   <div class="tw"><table id="settab"></table></div>
 </section>
 
 <!-- ============ 1. MAP ============ -->
 <section id="map-sec">
   <h2><span class="n">01</span>行程地图</h2>
-  <p class="lede">点右侧任意一天（或地图上的圆点）→ 地图飞到那天，下面的卡片换成那天的住宿 / 车 / 亮点 / 要盯的事。
+  <p class="lede">点右侧任意一天（或地图上的日期圆点）→ 地图飞到那天，下面的卡片换成那天的住宿 / 车 / 亮点 / 要盯的事。<br>
+     🥇 <b>地图上还有两类可点的图钉</b>：<b style="color:var(--cy)">🛏 住宿</b>（<b>点弹窗里的名字直接跳 Airbnb / Booking 详情页</b>，
+     灰色的是<b>占位</b>，即还没定、先随便填了个可退的酒店）和
+     <b style="color:var(--violet)">🚗↑ 取车</b> / <b style="color:var(--red)">🚗↓ 还车</b>（带具体时间）。
+     右上角图层开关可以单独关掉这两组。<br>
      线条按交通方式着色：<b style="color:var(--cy)">自驾</b> · <b style="color:var(--violet)">飞行</b> ·
-     <b style="color:var(--amber)">邮轮</b> · <b style="color:var(--blue)">渡轮</b>。</p>
+     <b style="color:var(--blue)">渡轮</b>。</p>
   <div class="maprow">
     <div>
       <div id="map"></div>
@@ -230,8 +254,19 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
         <div class="row">
           <em><i style="background:var(--cy)"></i>自驾</em>
           <em><i style="background:var(--violet);border-top:2px dashed var(--violet);height:0"></i>飞行</em>
-          <em><i style="background:var(--amber)"></i>邮轮</em>
           <em><i style="background:var(--blue)"></i>渡轮</em>
+        </div>
+        <div class="row" style="margin-top:9px">
+          <em><span style="display:inline-block;width:11px;height:11px;border-radius:50% 50% 50% 2px;
+            transform:rotate(-45deg);background:#3ee6d0;margin-right:6px;vertical-align:0"></span>住宿（可点 → 详情页）</em>
+          <em><span style="display:inline-block;width:11px;height:11px;border-radius:50% 50% 50% 2px;
+            transform:rotate(-45deg);background:#7f8aa8;margin-right:6px;vertical-align:0"></span>住宿 · <b>占位</b></em>
+        </div>
+        <div class="row" style="margin-top:7px">
+          <em><span style="display:inline-block;width:11px;height:11px;border-radius:50%;
+            background:#a98bff;margin-right:6px;vertical-align:0"></span>取车</em>
+          <em><span style="display:inline-block;width:11px;height:11px;border-radius:50%;
+            background:#ff5d73;margin-right:6px;vertical-align:0"></span>还车</em>
         </div>
         <div class="row" style="margin-top:9px">
           <em><span class="sev red"></span>库存紧 / 要今天订</em>
@@ -249,9 +284,11 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 <section id="cost">
   <h2><span class="n">02</span>累计花费曲线 vs 预算上限</h2>
   <p class="lede">先看这条线，再看后面的表。<b>灰色虚线 = 预算上限基线</b>（¥4,000/room/晚 × 2 room = ¥8,000/晚，
-     住宿口径）；<b>灰色点线 = 预算下沿</b>（¥2,000/room/晚）。青线是按下面「最优组合」走的实际累计支出
-     （含住宿 + 三段租车 + 邮轮 + 渡轮油费，<b>不含机票、餐饮、门票/tour</b>）。
-     台阶陡的地方就是钱花在哪一天：9/26 提车、9/30 提车 + 罗弗敦、10/2 邮轮。</p>
+     住宿口径）；<b>灰色点线 = 预算下沿</b>（¥2,000/room/晚）。青线是按最终方案走的实际累计支出
+     （含住宿 + 两台车 + Senja 渡轮，<b>不含机票、餐饮、门票/tour</b>）。
+     <b>青线全程贴在下沿附近、离上限越来越远</b> —— 这就是「住宿只花到预算 2/3」这句话的图形版。
+     两个台阶就是两次提车：<b>9/25 冰岛提车</b>、<b>9/30 挪威提车</b>（整段车费都记在提车日）。
+     10/2 原来那个 +¥12k 的邮轮台阶<b>已经消失了</b> —— 那一段 pass 掉了。</p>
   <div class="chartcard">
     <svg class="chart" id="cum" viewBox="0 0 980 340" preserveAspectRatio="xMidYMid meet"></svg>
     <div class="ck">
@@ -266,7 +303,6 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
     <div class="ck">
       <em><b style="background:#3ee6d0"></b>住宿</em>
       <em><b style="background:#a98bff"></b>租车（整段费用记在提车日）</em>
-      <em><b style="background:#ffb44d"></b>邮轮</em>
       <em><b style="background:#5bc8ff"></b>渡轮/油</em>
       <em style="color:var(--tx3)">虚线 = 住宿预算上限 ¥8,000/晚</em>
     </div>
@@ -281,90 +317,77 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   <div class="tw"><table id="urg"></table></div>
 </section>
 
-<!-- ============ 4. 邮轮 ============ -->
-<section id="cruise">
-  <h2><span class="n">04</span>10/2 那段船 —— 整个行程的单点故障</h2>
-  <p class="lede"><b>10/2 那班船不是 Hurtigruten，是 Havila。</b> Hurtigruten 10 月 2 日根本没有从 Svolvær 出发的船 ——
-     这不是「卖光了」，是那天没有它的船。两条独立证据：① 官网 <abbr title="港到港：只买海岸邮轮的一段船票">port-to-port</abbr>
-     订票页填 10/02/2026 → "We could not find any departures that match this date"；
-     ② 直接打它的可用性 API 查 9/20–10/10 三个整周，返回的班期是 9/22、23、25、27、30、10/3、4、6、8 —— <b>10/1、10/2、10/5、10/7 全部没有</b>。
-     原因是排班机制：Hurtigruten 7 条船 + Havila 4 条船 = 11 条，整个 Bergen→Kirkenes→Bergen 往返正好 11 天 →
-     <b>每天都有船，但每天只有一家公司的船</b>。10/2 从 Svolvær 北上 22:15 那条按轮转推算是 <b>Havila Polaris</b>。</p>
-  <div class="cards" id="cruiseopt"></div>
-  <p class="lede" style="margin-top:18px">Havila 的价格<b>本机拿不到</b>——Cloudflare 把这个 pod 挡在它的订票引擎外
-     （<span class="mono">/en/port-to-port</span> 404、<span class="mono">/nb/ruteplan</span> 403、
-     订票按钮跳到另一个域的 <b>Flutter/CanvasKit 应用（画在 canvas 上、零 DOM）</b>，而它的
-     <span class="mono">main.dart.js</span> 返回 403 → 应用根本没启动，截图纯空白）。所以下面这张
-     Hurtigruten 实时表是<b>价格锚</b>：Havila 若报到 4 人 ¥12,000 以内属正常，明显更高就先谈或走备选。</p>
-  <div class="tw"><table id="hrg"></table></div>
-  <p class="lede" style="margin-top:12px">🔴 <b>一间舱装不下 4 个人</b> —— 用 1 舱 4 人查，API 返回 200 但结果为空。
-     必须 2 间舱，正好也匹配「两个男生 + 一对夫妻」。</p>
+<!-- ============ 4. 两个交给我的决定 ============ -->
+<section id="decisions">
+  <h2><span class="n">04</span>你交给我的两个决定 —— 答案 + 真实理由</h2>
+  <p class="lede">这两个是你明确说「你来定」的。我把<b>真实理由</b>写在这儿，因为它们和「省钱」是两件事 ——
+     两个答案都<b>顺便</b>更便宜，但那不是选它们的原因。<br>
+     🔴 顺带说明：<b>10/2 那段邮轮已按你的话整段 pass 掉</b>，改成 Svolvær→特罗姆瑟自驾 6h30、那一晚并进船屋。
+     <b>这一步顺手消掉了整个行程唯一的单点故障</b>（Havila 的价这台机器拿不到、舱位随时可能卖光），还省下约 ¥12,000。</p>
+  <div id="decs"></div>
 </section>
 
 <!-- ============ 5. 租车 ============ -->
 <section id="cars">
-  <h2><span class="n">05</span>三段自驾 —— 推荐车 + 三条会改变决定的结论</h2>
+  <h2><span class="n">05</span>两台车（分两国）—— 推荐车 + 三条会改变决定的结论</h2>
+  <p class="lede">原方案是<b>三段</b>（冰岛 + 罗弗敦 + Senja 本地），现在合成<b>两段</b>：挪威一台车从 EVE 开到特罗姆瑟机场、
+     连开 6 天。取/还车点都画在地图上了（<b style="color:var(--violet)">🚗↑</b> / <b style="color:var(--red)">🚗↓</b>，带时间）。</p>
   <div class="cards" id="carseg"></div>
   <div class="cards" style="margin-top:14px">
-    <div class="card"><h3>① EVE→Svolvær 的<abbr title="挪威语「异地还车费」">异地还车费</abbr>实测 ≈ $320（NOK 3,400）</h3>
-      <p style="font-size:13.5px;color:var(--tx2);margin:0 0 8px">网上说法是 500–1,500 NOK，<b>实测偏高一倍以上</b>。同款车两种还法直接对比出来的：</p>
-      <div class="kv"><span>Toyota Yaris Cross 4WD</span><span>Svolvær 还 $762 / EVE 还 $441 → <b>+$321</b></span></div>
-      <div class="kv"><span>Toyota RAV 4WD</span><span>Svolvær 还 $941 / EVE 还 $619 → <b>+$322</b></span></div>
-      <p class="con">而且异地还车的车源只有 6 个，同地还车有 23 个 —— 库存也少得多。</p></div>
-    <div class="card pick"><h3>② 最便宜的异地还车车 = 最大的那台车</h3>
-      <p style="font-size:13.5px;color:var(--tx2);margin:0">异地还车 6 个报价里，最便宜的 <b>$644 是 Ford Explorer 4WD（full-size SUV）</b>，
-      比 Toyota Yaris Cross（compact SUV）的 $762 还便宜 $118。</p>
-      <p class="pro">👉 4 个人 + 行李，直接订 Ford Explorer $644，这一段的最优解，不用再比。</p></div>
-    <div class="card pick"><h3>③ Senja 那天：租 2 天几乎和租 1 天一样贵 → 直接租 2 天</h3>
-      <div class="kv"><span>只租 10/5 一天 · Ford Explorer 4WD</span><span>$141</span></div>
-      <div class="kv"><span>10/4–10/6 两天 · VW ID.4 4WD</span><span>$170（$85/天）</span></div>
-      <div class="kv"><span>10/4–10/6 两天 · Toyota RAV4 4WD 混动</span><span><b>$261</b>（$130/天）</span></div>
-      <p class="pro">多花 $30–120 换一个「10/4 晚也能自己开车去追极光」的晚上，非常值。</p>
-      <p class="con">🔴 但别贪便宜订电车：最便宜的几台（Dongfeng Nammi Box $163、VW ID.4 $170）都是纯电，
-      Senja 往返 ~500 km、10 月初、岛上充电桩很稀 → 选汽油/混动。</p></div>
+    <div class="card pick"><h3>① 挪威一台车连开 6 天，<b>不</b>拆两段</h3>
+      <p style="font-size:13.5px;color:var(--tx2);margin:0 0 8px">拆开算过：EVE→TOS 3 天 $440 + 特罗姆瑟本地 3 天 $215 = <b>$655</b>，
+      看着比 $762 便宜 $107。</p>
+      <p class="con">但要多跑一次租车柜台、多一次押金冻结，而且 10/2 到特罗姆瑟已是傍晚 —— 还完车再取车会拖到晚上。$107 不值。</p>
+      <p class="pro">✅ 顺带干掉了原方案里两个大麻烦：<b>$320 的 EVE→Svolvær 异地还车费</b>（实测，网上说 500–1,500 NOK 是低估的）
+      和「异地还车只有 6 个车源、同地还车有 23 个」的库存风险。</p></div>
+    <div class="card pick"><h3>② 冰岛<b>落地就取车</b>，不等第二天</h3>
+      <div class="kv"><span>9/25 17:00 落地就取（5 天）</span><span><b>$258</b></span></div>
+      <div class="kv"><span>9/26 才取（4 天）</span><span>$254</span></div>
+      <p class="pro">只贵 <b>$4</b>，但省掉 4 个人的机场大巴（KEF↔雷市约 ¥170/人 ×4 ×2 程 ≈ <b>¥1,360</b>）——
+      <b>实际是净省钱</b>，还免了拖箱子换乘。</p></div>
+    <div class="card"><h3>③ 🔴 更便宜的那几台<b>全是纯电</b> → 排除</h3>
+      <div class="kv"><span>Toyota Urban Cruiser</span><span>$569 · <b style="color:var(--red)">纯电</b></span></div>
+      <div class="kv"><span>Peugeot 2008</span><span>$581 · <b style="color:var(--red)">纯电</b></span></div>
+      <div class="kv"><span>VW ID.4</span><span>$694 · <b style="color:var(--red)">纯电</b></span></div>
+      <div class="kv"><span>Toyota Corolla</span><span>$730 · <b style="color:var(--amber)">两驱</b></span></div>
+      <div class="kv"><span>✅ Suzuki Vitara 4WD 自动</span><span><b style="color:var(--green)">$762</b></span></div>
+      <p class="con">10/5 去 Senja 单程 ~250 km、往返 ~500 km，沿途充电桩稀 + 10 月低温掉续航 → 电车排除。
+      Vitara 是<b>最便宜的合适燃油四驱自动</b>。</p>
+      <p class="con">⛔ 冰岛那边同理别订 Suzuki Jimny（$247/$251）：装不下 4 人 + 4 个大箱子。</p></div>
     <div class="card"><h3>Senja 自驾 vs 跟团（4 人总花费）</h3>
-      <div class="kv"><span><b>自驾 2 天</b>（RAV4 $261 + 渡轮 NOK 228 + 油 ~NOK 400）</span><span><b style="color:var(--green)">≈ NOK 3,400 / ¥2,300</b></span></div>
+      <div class="kv"><span><b>自驾</b>（车已在手上 · 渡轮往返 NOK 456 + 油 ~NOK 500）</span><span><b style="color:var(--green)">≈ NOK 950 / ¥640</b></span></div>
       <div class="kv"><span>Best Arctic（半自助）NOK 1,990 ×4</span><span>7,960</span></div>
       <div class="kv"><span>Arctic Explorers NOK 2,000 ×4</span><span>8,000</span></div>
       <div class="kv"><span>FRAM NOK 2,900–3,400 ×4</span><span>11,600–13,600</span></div>
       <div class="kv"><span>Northern Norway Travel NOK 3,750 ×4</span><span>15,000</span></div>
-      <p class="pro">👉 自驾省 NOK 4,500–11,600。挪威租车基本不限里程。</p></div>
+      <p class="pro">👉 自驾省 NOK 7,000–14,000。挪威租车基本不限里程，而且车本来就在手上（6 天连租），
+      Senja 这天的边际成本只有渡轮 + 油。</p></div>
   </div>
 </section>
 
 <!-- ============ 6. 住宿全景 ============ -->
 <section id="stay">
   <h2><span class="n">06</span>住宿 —— 「2 个卫生间」是整个需求里最难满足的一条</h2>
-  <p class="lede">北欧酒店套房基本都是 1 卫。能真正拿到 2 卫的只有三条路，默认策略是 <b>A 优先、抢不到就 C 兜底</b>，
-     而不是死守「必须一套带 2 卫的公寓」。</p>
-  <div class="cards">
-    <div class="card pick"><h3>A · 公寓 / aparthotel（2 房 2 卫）</h3>
-      <p style="font-size:13.5px;color:var(--tx2);margin:0">Tromsø 的 Enter / Modern Tromsø Apartments、雷市 Reykjavik Residence 的 Two-Bedroom Two-Bathroom。</p>
-      <p class="pro">最贴需求</p><p class="con">库存最少、这个时间点最容易被订完</p></div>
-    <div class="card"><h3>B · 大号 <abbr title="罗弗敦传统红色渔屋改的自炊小屋，通常带厨房">rorbu</abbr>（罗弗敦特有）</h3>
-      <p style="font-size:13.5px;color:var(--tx2);margin:0">Svinøya Rorbuer 的 Rorbu M+/L+；Hattvika Lodge 部分小屋；
-      <b>Nusfjord「Village Cabin Suite Plus」是唯一在 Booking 页面上明写「2 bathrooms」的罗弗敦房源</b>（€723/2晚，¥1,446，free-cxl 9/16）。</p>
-      <p class="con">🔴 Suite ≠ 2 卧 —— 订之前必须问清卧室数</p></div>
-    <div class="card"><h3>C · 两间相连酒店房（connecting rooms）</h3>
-      <p style="font-size:13.5px;color:var(--tx2);margin:0">Thon Hotel Polar、Radisson Blu Tromsø「Family Stay = 2 connected rooms」。</p>
-      <p class="pro">2 个卫生间自动成立，常常比一套 2 卫公寓还便宜</p><p class="con">没厨房（挪威 4 人自炊能省很多）</p></div>
-  </div>
-  <p class="lede" style="margin-top:20px"><b>三条会改变决策的实测发现：</b></p>
+  <p class="lede">北欧酒店套房基本都是 1 卫。你说<b>非常 prefer Airbnb</b> —— 已经执行到底了：
+     <b>12 晚里 10 晚是 Airbnb 整套房</b>，只有 9/26、9/27 两晚因为冰岛乡下确实没有可订的 2房2卫整套房源，才用酒店 2 间房。</p>
+  <p class="lede"><b>最终逐晚方案</b>（¥/房/晚 一律按<b>保守的 ÷2</b> 算；3 房那几晚如果两个男生各住一间 = ÷3，还要再低三分之一）。
+     <b>名字都能点，直接跳详情页。</b></p>
+  <div class="tw"><table id="staytab"></table></div>
+  <p class="lede" style="margin-top:20px"><b>四条会改变决策的实测发现：</b></p>
   <div class="tw"><table>
     <thead><tr><th>发现</th><th>后果</th></tr></thead>
     <tbody>
-      <tr><td><b>9/27 冰河湖那一晚，Airbnb 里 0 个</b>符合 2房2卫的整套房源（搜索覆盖 Höfn–Jökulsárlón–Skaftafell，返回 0 张卡）</td>
-          <td>这一晚<b>只能是「酒店 + 2 间房」</b>。全程唯一没有 Airbnb 方案的一晚，也是最该今天就下单的一晚</td></tr>
-      <tr><td><b>Borgarnes 1 晚订不到</b> —— 8 个 2房2卫房源<b>全部 <abbr title="房东设的最少入住晚数">min-stay</abbr> ≥ 2 晚</b></td>
-          <td>「D4 改住 Borgarnes 省 1.5h 车程」<b>在 Airbnb 上不可执行</b> → 9/28 只能住 Keflavík，斯奈山必须靠早出发解决</td></tr>
-      <tr><td><b>Vík 镇内 0 个</b> 2房2卫整套房源；最近的都在 Hvolsvöllur（Vík 西 1h15）</td>
-          <td>若 D3 改 Katla 冰洞（Vík 出发），住 Hvolsvöllur 要早起多开 1h15 → 考虑改成 Vík 的酒店 2 间房</td></tr>
-      <tr><td>✅ <b>Vervet Apartments 没有闭店</b> —— 之前有 listing 显示「2026-08 → 2027-08 关闭」</td>
-          <td>实测 10/3–10/6 正常放房正常报价（€535/3晚起，free-cxl 到 9/19）→ 那条闭店信息是错的或已作废</td></tr>
+      <tr><td>🔴 <b>南岸 9/26 的 4 个 Airbnb 候选全部订不到</b> —— 两个「日期不可用」、一个也不可用、一个 <abbr title="房东设的最少入住晚数">min-stay</abbr> ≥2 晚</td>
+          <td>结论：<b>冰岛南岸乡下基本不接 1 晚</b> → 9/26 只能住酒店。定 <b>Hotel Hvolsvöllur ×2 间</b>（¥1,496/房，到店付，退到 9/24）</td></tr>
+      <tr><td>🔴 <b>9/27 冰河湖那一晚，Airbnb 里 0 个</b>符合 2房2卫的整套房源（搜索覆盖 Höfn–Jökulsárlón–Skaftafell，返回 0 张卡）；
+              而离冰河湖最近的 Fosshotel <b>只剩 1 间</b></td>
+          <td>这一晚只能是「酒店 + 2 间房」，而且不能是冰河湖旁那家（凑 2 间 ¥4,776/房超预算）→ <b>Árnanes（Höfn）¥2,504/房</b>，含早 + 私卫 + 可要相连房</td></tr>
+      <tr><td><b>Borgarnes 1 晚订不到</b> —— 8 个 2房2卫房源<b>全部 min-stay ≥ 2 晚</b></td>
+          <td>「9/28 改住 Borgarnes 省 1.5h 车程」<b>在 Airbnb 上不可执行</b> → 只能住 KEF 旁，斯奈山必须靠早出发解决（见 B1）</td></tr>
+      <tr><td>✅ <b>10/2 并进特罗姆瑟船屋比单独找一晚便宜</b> —— 船屋 4 晚 €1,033 vs 3 晚 €825</td>
+          <td>多住这一晚只多付 <b>€208（¥832/房）</b>，比任何单独一晚都便宜，还少搬一次行李。船屋 <b>3 房 3 卫 = 卫生间比人多</b></td></tr>
     </tbody>
   </table></div>
-  <p class="lede" style="margin-top:20px"><b>逐晚最优组合</b>（¥/room/晚，4 人 = 2 room）：</p>
-  <div class="tw"><table id="staytab"></table></div>
 </section>
 
 <!-- ============ 7. 未决 ============ -->
@@ -416,6 +439,9 @@ const $=(s)=>document.querySelector(s);
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
 const fmt=(n)=>n.toLocaleString('en-US');
 const REGCOL={oslo:'#a98bff',iceland:'#3ee6d0',lofoten:'#ffb44d',cruise:'#ff9f43',tromso:'#5bc8ff'};
+const DEPART=new Date('2026-09-24T00:00:00');
+const TODAY=new Date(new Date().toDateString());
+const DLEFT=Math.max(0,Math.round((DEPART-TODAY)/864e5));
 
 /* ============ stats ============ */
 const totalStay=DAYS.reduce((a,d)=>a+(d.spend.stay||0),0);
@@ -423,16 +449,16 @@ const totalCar =DAYS.reduce((a,d)=>a+(d.spend.car ||0),0);
 const totalCru =DAYS.reduce((a,d)=>a+(d.spend.cruise||0),0);
 const totalOth =DAYS.reduce((a,d)=>a+(d.spend.other||0),0);
 const GRAND=totalStay+totalCar+totalCru+totalOth;
-const nights=DAYS.filter(d=>d.region!=='cruise').length;
-[['13 天 / 12 晚','9/24 → 10/6'],
- ['4','人（2 room / 2 cabin）'],
- ['3 段','自驾：冰岛 · 罗弗敦 · Senja'],
- ['¥'+fmt(totalStay),'住宿合计（4 人）'],
- ['¥'+fmt(totalCar+totalOth),'三段租车 + 渡轮油费'],
- ['¥'+fmt(totalCru),'邮轮 2 舱（对标价）'],
+const nights=STAYTAB.length;
+[['13 天 / 12 晚','9/24 → 10/6（+ 条件性第 13 晚）'],
+ ['4','人（两男 + 一对夫妻）= 2 房口径'],
+ ['10 / 12','晚是 Airbnb 整套房（只 2 晚酒店）'],
+ ['¥'+fmt(totalStay),'住宿合计 12 晚（4 人）'],
+ ['¥1,326','/ 房 / 晚 —— 预算下沿的 2/3'],
+ ['¥'+fmt(totalCar+totalOth),'两台车 + Senja 渡轮'],
  ['¥'+fmt(GRAND),'合计（不含机票/餐饮/tour）'],
  ['¥'+fmt(Math.round(GRAND/4)),'人均（同上口径）'],
- ['23 天','距出发（今天 2026-09-01）']
+ [DLEFT+' 天','距出发（今天 '+TODAY.toISOString().slice(0,10)+'）']
 ].forEach(([b,s])=>{const d=el('div','stat');d.appendChild(el('b',null,b));d.appendChild(el('span',null,s));$('#stats').appendChild(d);});
 
 /* ============ 把 blocker 挂到天上 ============ */
@@ -453,7 +479,7 @@ const baseSat = L.layerGroup([
 ]);
 const baseOsm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
   {maxZoom:18,attribution:'© OpenStreetMap contributors',opacity:.85});
-L.control.layers({'深色地形':baseDark,'卫星影像':baseSat,'OSM 标准（含路名）':baseOsm},null,
+const layerCtl=L.control.layers({'深色地形':baseDark,'卫星影像':baseSat,'OSM 标准（含路名）':baseOsm},null,
   {position:'topright',collapsed:true}).addTo(map);
 
 const LEGCOL={drive:'#3ee6d0',fly:'#a98bff',cruise:'#ffb44d',ferry:'#5bc8ff'};
@@ -489,13 +515,54 @@ DAYS.forEach(d=>{
    .bindPopup(`<b>${d.id} · ${d.date} ${d.wd}</b><br>${d.title}<br>
      <span style="color:#a7b2cd">📍 ${d.base}</span><br>
      <span style="color:#a7b2cd">🚗 ${d.drive}</span><br>
-     <span style="color:#3ee6d0">🛏 ${d.stay.name}</span>`)
+     <span style="color:#3ee6d0">🛏 ${d.stay.url?`<a href="${d.stay.url}" target="_blank" rel="noopener">${d.stay.name}</a>`:d.stay.name}</span>`)
    .on('click',()=>select(d.id,false));
   layers[d.id]={g,bounds:L.latLngBounds(pts)};
   pts.forEach(p=>allBounds.push(p));
 });
 const FULL=L.latLngBounds(allBounds).pad(.08);
 map.fitBounds(FULL);
+
+/* ---- 🛏 住宿图钉（连住的合成一个，日期合并）+ 🚗 取/还车图钉 ---- */
+const stayLayer=L.layerGroup().addTo(map);
+const carLayer =L.layerGroup().addTo(map);
+
+const stayGroups=[];
+DAYS.forEach(d=>{
+  const s=d.stay; if(!s||!s.pt) return;
+  const key=(s.url||s.name)+'@'+s.pt.join(',');
+  const last=stayGroups[stayGroups.length-1];
+  if(last&&last.key===key) last.dates.push(d.date);
+  else stayGroups.push({key,s,dates:[d.date],ph:!!d.cond});
+});
+stayGroups.forEach(gp=>{
+  const s=gp.s, ph=gp.ph||s.type.indexOf('占位')>=0;
+  const dates=gp.dates.length>1?gp.dates[0]+'–'+gp.dates[gp.dates.length-1]:gp.dates[0];
+  L.marker(s.pt,{icon:L.divIcon({className:'',iconSize:[26,26],iconAnchor:[13,26],
+      html:`<div class="pin ${ph?'stayph':'stay'}"><span>${ph?'🅿️':'🛏'}</span></div>`}),
+      zIndexOffset:700}).addTo(stayLayer)
+   .bindTooltip(`${dates} · ${s.name}`,{direction:'top',offset:[0,-24]})
+   .bindPopup(`<div class="pp"><div class="k">${dates}${ph?' · 🅿️ 占位，还没定':''} · ${gp.dates.length} 晚</div>
+     <b>${s.url?`<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a> ↗`:s.name}</b>
+     <div class="k" style="margin-top:3px">${s.place||''}</div>
+     <div style="margin-top:5px">${s.type} · ${s.rb}${s.rating?' · ★ '+s.rating:''}</div>
+     <div><b>${s.price}</b></div>
+     <div style="color:#4ad991">${s.cxl||''}</div>
+     <div class="k" style="margin-top:5px">👆 点名字直接开详情页</div></div>`,{maxWidth:290});
+});
+
+CARPTS.forEach(c=>{
+  L.marker(c.c,{icon:L.divIcon({className:'',iconSize:[26,26],iconAnchor:[13,13],
+      html:`<div class="pin ${c.k}"><span>${c.k==='pick'?'🚗':'🅿'}</span></div>`}),
+      zIndexOffset:800}).addTo(carLayer)
+   .bindTooltip(`${c.label} · ${c.when}`,{direction:'top',offset:[0,-14]})
+   .bindPopup(`<div class="pp"><div class="k">${c.k==='pick'?'🚗↑ 取车':'🚗↓ 还车'}</div>
+     <b>${c.label} · ${c.when}</b>
+     <div style="margin-top:4px">${c.car}</div>
+     <div class="k" style="margin-top:5px">${c.note}</div></div>`,{maxWidth:290});
+});
+layerCtl.addOverlay(stayLayer,'🛏 住宿（可点 → 详情页）');
+layerCtl.addOverlay(carLayer,'🚗 取车 / 还车点');
 
 /* ============ day list ============ */
 DAYS.forEach(d=>{
