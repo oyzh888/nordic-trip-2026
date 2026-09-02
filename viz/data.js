@@ -554,29 +554,3 @@ const SETTLED = [
    src:[['notes/OPTIONS-cars.md','189']]}
 ];
 
-/* ---------- 以下两个数组 index.html 仍在用，2026-09-02 并行改动误删，已补回 ---------- */
-/* ---------- 邮轮三方案 ---------- */
-const CRUISE_OPT = [
-  {name:'✅ Havila 10/2 + 2 舱（推荐）', transport:'未知（对标 ¥12,000）', dropfee:'+$320', total:'≈¥14,300?',
-   pro:'唯一不动其它任何预订的选项；保持原行程、省一晚酒店、整个上午看 Vesterålen 海岸线', con:'价格未验证'},
-  {name:'备选 A：Hurtigruten 10/3', transport:'$2,252（只剩 ArcticSuperior $563/人）', dropfee:'+$320', total:'≈¥18,200',
-   pro:'舱位实时可订', con:'⛔ 整段后移一天 → Lofoten 多住一晚、Tromsø 少一晚，选好的 3 晚要整段重订。贵还要动住宿'},
-  {name:'备选 B：飞 SVJ→TOS（Widerøe 直飞，待查）', transport:'~NOK 3,200–14,800', dropfee:'$0（省掉异地费）', total:'≈¥3,000–14,000',
-   pro:'快（直飞 ~50 min）；同地还车最便宜 4x4 自动挡 Toyota Urban Cruiser 只 $167/3天',
-   con:'Google Flights 卖不了 Widerøe 支线（不进 GDS）→ 必须去 wideroe.no 自己查。LKN/SVJ 班次极少，少了海岸线'}
-];
-
-/* ---------- Hurtigruten 价格锚（已验证，API 可复算） ---------- */
-const HRG = [
-  {d:'9/22', ship:'Nordlys',      inside:null, outside:418, sup:null},
-  {d:'9/23', ship:'Nordkapp',     inside:null, outside:351, sup:540},
-  {d:'9/25', ship:'Polarlys',     inside:310,  outside:364, sup:563},
-  {d:'9/27', ship:'Richard With', inside:null, outside:418, sup:null},
-  {d:'9/30', ship:'Kong Harald',  inside:null, outside:418, sup:563},
-  {d:'10/1', ship:'— 无船（Havila 日）', inside:null, outside:null, sup:null},
-  {d:'10/2', ship:'— 无船（Havila 日）★我们要坐的那天', inside:null, outside:null, sup:null},
-  {d:'10/3', ship:'Nordlys',      inside:null, outside:null, sup:563},
-  {d:'10/4', ship:'Nordkapp',     inside:null, outside:418, sup:563},
-  {d:'10/6', ship:'Polarlys',     inside:310,  outside:364, sup:563},
-  {d:'10/8', ship:'Richard With', inside:310,  outside:418, sup:563}
-];

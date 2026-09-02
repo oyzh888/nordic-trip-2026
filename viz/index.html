@@ -420,12 +420,12 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 
 <footer>
   <b>北欧行 2026</b> · 数据抓取日 <b>2026-09-01</b> · 汇率 €1=¥8.0 · $1=¥7.1 · NOK1=¥0.67 ·
-  4 人（两男 + 一对夫妻）= 2 room / 2 cabin<br>
-  源仓库 <span class="mono">nordic-trip-2026</span> —— 明细见
-  <span class="mono">notes/PLAN-booking.md</span> ·
+  4 人（两男 + 一对夫妻）· <b>¥/房 一律按保守的 ÷2 算</b><br>
+  源仓库 <span class="mono">nordic-trip-2026</span> —— 权威方案见
+  <span class="mono">notes/PLAN-final.md</span>；候选池
   <span class="mono">notes/OPTIONS-stay.md</span> ·
-  <span class="mono">notes/OPTIONS-cars.md</span> ·
-  <span class="mono">notes/OPTIONS-cruise.md</span>；抓取脚本在 <span class="mono">notes/_research/</span><br><br>
+  <span class="mono">notes/OPTIONS-cars.md</span>；
+  截图 <span class="mono">notes/shots/</span>（14 张）；抓取脚本 <span class="mono">notes/_research/</span><br><br>
   ⚠️ 所有价格是抓取那一刻的实时报价，<b>会变</b>。下单前在页面上再核一眼 —— 尤其是
   「€/$ 是单间价还是两间总价」和「货币是不是被网站忽略成了 USD」。
 </footer>
@@ -710,21 +710,22 @@ tbl('urg',['#','要抢什么','为什么排这个位置','截止','怎么订'],
   URGENCY.map(u=>({c:[`<span class="sev ${u.sev}"></span>${u.rank}`,`<b>${u.what}</b>`,u.why,
     `<b style="color:${u.sev==='red'?'var(--red)':u.sev==='amber'?'var(--amber)':'var(--tx2)'}">${u.deadline}</b>`,u.how]})));
 
-tbl('hrg',['出发日','船','PolarInside','PolarOutside','ArcticSuperior','4 人 2 舱（最便宜可订档）≈ RMB'],
-  HRG.map(h=>{
-    const best=h.inside||h.outside||h.sup;
-    return {cls:h.ship.startsWith('—')?'done':'',
-      c:[`<b>${h.d}</b>`,h.ship,
-        {v:h.inside?'$'+h.inside:'—',n:1},{v:h.outside?'$'+h.outside:'—',n:1},{v:h.sup?'$'+h.sup:'—',n:1},
-        {v:best?'¥'+fmt(Math.round(best*4*7.1)):'—',n:1}]};
-  }));
-
-$('#cruiseopt').innerHTML=CRUISE_OPT.map((o,i)=>`
-  <div class="card ${i===0?'pick':''}"><h3>${o.name}</h3>
-    <div class="kv"><span>交通</span><span>${o.transport}</span></div>
-    <div class="kv"><span>异地还车费</span><span>${o.dropfee}</span></div>
-    <div class="kv"><span>合计（4 人）</span><span><b>${o.total}</b></span></div>
-    <p class="pro">✓ ${o.pro}</p><p class="con">✗ ${o.con}</p></div>`).join('');
+/* ============ 两个交给我做的决定 ============ */
+/* 数据里用了 **粗体** 的 markdown 写法（和 notes/ 里的文案同源）→ 这里转成 <b> */
+const md=s=>String(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+$('#decs').innerHTML=DECISIONS.map(d=>`
+  <div class="bk">
+    <div class="top"><span class="bid">${d.id}</span><h3>${d.q}</h3></div>
+    <div class="blocks" style="border-color:var(--cy);color:var(--cy)">✅ 我的答案：${d.a}</div>
+    <div class="bkg">
+      <div class="box now"><h4>为什么（真正的理由）</h4><div style="font-size:13.5px">${md(d.why)}</div></div>
+      <div class="box"><h4>两边对比</h4>
+        ${d.rows.map(r=>`<div class="kv"><span>${md(r[0])}</span><span>${md(r[1])}</span></div>`).join('')}</div>
+      <div class="box ifun"><h4>附带的好处 / 代价</h4>
+        <div style="font-size:13.5px">${d.plus.map(p=>`<div style="margin-bottom:4px">• ${md(p)}</div>`).join('')}</div>
+        ${d.keep?`<div class="note">${md(d.keep)}</div>`:''}</div>
+    </div>
+  </div>`).join('');
 
 $('#carseg').innerHTML=DAYS.filter(d=>d.car).map(d=>`
   <div class="card pick"><h3>🚗 ${d.car.seg}</h3>
@@ -742,17 +743,14 @@ $('#carseg').innerHTML=DAYS.filter(d=>d.car).map(d=>`
     选 4x4 是为了 9 月末的大风暴雨和可能的早雪。9 月底不需要冬胎（11/1 才强制）。
     在 KEF 取车比在雷市取更划算（雷市取/KEF 还要付 ~€50 异地费，机场大巴 €30/人×4 更贵）。</p></div>`;
 
-tbl('staytab',['日期','选择','房/卫','¥/room/晚','类型'],
-  [['9/24','Nannestad · Modern Quiet Large','3BR/2BA','1,040','Airbnb'],
-   ['9/25','Aurora view 3BR 2BATH 雷市市中心','3BR/2BA','1,788','Airbnb'],
-   ['9/26','Hlíðarból Guest House（Hvolsvöllur）','5BR/2BA','3,000','Airbnb'],
-   ['9/27','<b>Fosshotel Glacier Lagoon ×2 间</b>','2 房 2 卫','2,032','酒店（唯一选择）'],
-   ['9/28','Reykjanesbær 3BR/2BA','3BR/2BA','1,696','Airbnb'],
-   ['9/29','Nannestad（同 9/24，可连订）','3BR/2BA','1,040','Airbnb'],
-   ['9/30–10/1','The heart of Ramberg（西侧）／ Vågan 5BR（东侧）','4BR/2.5BA','1,296','Airbnb'],
-   ['10/2','<b>Havila 邮轮 ×2 舱</b>（不算陆上住宿）','2 舱 4 人','—','邮轮'],
-   ['10/3–10/5','Houseboat in Tromsø','3BR/3BA','1,100','Airbnb']
-  ].map(r=>({c:[`<b>${r[0]}</b>`,r[1],r[2],{v:r[3]==='—'?'—':'¥'+r[3],n:1},r[4]]})));
+tbl('staytab',['日期','地点','住哪（点名字 → 详情页）','房/卫','总价','¥/房/晚','退改'],
+  STAYTAB.map(r=>({c:[
+    `<b>${r.d}</b>`, r.place,
+    r.url?`<a href="${r.url}" target="_blank" rel="noopener">${r.name}</a> ↗`:r.name,
+    `${r.rb}<br><span class="mono" style="color:var(--tx2);font-size:11.5px">${r.type}</span>`,
+    {v:r.tot,n:1},
+    {v:r.room,n:1},
+    r.cxl]})));
 
 tbl('opentab',['问题','为什么重要','找谁'],
   OPEN.map(o=>({c:[`<span class="sev ${o.sev}"></span><b>${o.q}</b>`,o.why,o.who]})));
