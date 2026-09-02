@@ -435,7 +435,10 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 <script src="data.js"></script>
 <script>
 /* ============ 工具 ============ */
-const $=(s)=>document.querySelector(s);
+/* 空安全 $()：section 被增删时不会让整个脚本挂掉（曾经 #hrg 被删 → 后面全部不渲染） */
+const NOOP={set innerHTML(_){},get innerHTML(){return''},classList:{add(){},remove(){},toggle(){}},
+  appendChild(){},addEventListener(){},set onclick(_){},style:{},dataset:{},scrollIntoView(){}};
+const $=(s)=>document.querySelector(s)||(console.warn('$: '+s+' 不在页面上，跳过'),NOOP);
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
 const fmt=(n)=>n.toLocaleString('en-US');
 const REGCOL={oslo:'#a98bff',iceland:'#3ee6d0',lofoten:'#ffb44d',cruise:'#ff9f43',tromso:'#5bc8ff'};
@@ -658,10 +661,12 @@ map.fitBounds(FULL);
   s+=`<text x="${mL+iw+9}" y="${y(pts[N-1].cum)+4}" fill="#3ee6d0" font-size="12" font-weight="700">¥${fmt(pts[N-1].cum)} 实际</text>`;
   s+=`<text x="${mL+iw+9}" y="${y(capHi[N-1])+4}" fill="#5b678a" font-size="11">¥${fmt(capHi[N-1])} 上限</text>`;
   s+=`<text x="${mL+iw+9}" y="${y(capLo[N-1])+4}" fill="#3a445e" font-size="11">¥${fmt(capLo[N-1])} 下沿</text>`;
-  // annotate the two step days
-  const cruiseIdx=DAYS.findIndex(d=>d.spend.cruise);
-  s+=`<line x1="${x(cruiseIdx)}" x2="${x(cruiseIdx)}" y1="${mT}" y2="${mT+ih}" stroke="#ffb44d" stroke-width="1" stroke-dasharray="3 4" opacity=".55"/>
-      <text x="${x(cruiseIdx)}" y="${mT-4}" fill="#ffb44d" font-size="10.5" text-anchor="middle">10/2 邮轮 +¥12k</text>`;
+  // annotate the two step days = 两次提车
+  DAYS.forEach((d,i)=>{
+    if(!d.spend.car) return;
+    s+=`<line x1="${x(i)}" x2="${x(i)}" y1="${mT}" y2="${mT+ih}" stroke="#a98bff" stroke-width="1" stroke-dasharray="3 4" opacity=".55"/>
+        <text x="${x(i)}" y="${mT-4}" fill="#a98bff" font-size="10.5" text-anchor="middle">${d.date} 提车 +¥${fmt(d.spend.car)}</text>`;
+  });
   document.getElementById('cum').innerHTML=s;
 })();
 
@@ -696,6 +701,7 @@ map.fitBounds(FULL);
 /* ============ 表格 ============ */
 function tbl(id,head,rows){
   const t=document.getElementById(id);
+  if(!t){console.warn('tbl: #'+id+' 不在页面上，跳过');return;}   /* section 被删掉也不整页崩 */
   t.innerHTML='<thead><tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>'+
     rows.map(r=>`<tr${r.cls?` class="${r.cls}"`:''}>`+r.c.map(c=>`<td${c.n?' class="num"':''}>${c.v!==undefined?c.v:c}</td>`).join('')+'</tr>').join('')+'</tbody>';
 }
