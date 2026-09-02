@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/no/park-inn-oslo-airport-hotel-gardermoen.html?checkin=2026-09-24&checkout=2026-09-25&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "park-inn-gardermoen-0924",
+  "hotel": "no/park-inn-oslo-airport-hotel-gardermoen",
+  "checkin": "2026-09-24",
+  "checkout": "2026-09-25",
+  "adults": 4,
+  "rooms": 2
+ }
+}

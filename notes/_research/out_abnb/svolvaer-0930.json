@@ -1,0 +1,275 @@
+{
+ "job": {
+  "slug": "svolvaer-0930",
+  "place": "Svolvaer, Norway",
+  "checkin": "2026-09-30",
+  "checkout": "2026-10-02"
+ },
+ "url": "https://www.airbnb.com/s/Svolvaer--Norway/homes?checkin=2026-09-30&checkout=2026-10-02&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en",
+ "rows": [
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Lyngvær Arctic Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1088,
+   "rating": "4.95",
+   "raw": "Guest favorite | Cabin in Vågan | Lyngvær Arctic Lodge | Jacuzzi & Sauna | No. 14 | 3 bedrooms | , | · | 5 beds | 2 baths | €1,088 | Show price breakdown | for 2 nights | €1,088 for 2 nights | 4.95 out of 5 average rating, 59 reviews | 4.95 (59)",
+   "url": "https://www.airbnb.com/rooms/1258848712541940268"
+  },
+  {
+   "kind": "Home in Vågan",
+   "title": "Lyngvær Arctic Pearl Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1201,
+   "rating": "5.0",
+   "raw": "Guest favorite | Home in Vågan | Lyngvær Arctic Pearl Lodge | Jacuzzi & Sauna | 17 | 3 bedrooms | , | · | 1 king bed | 2 baths | €1,201 | Show price breakdown | for 2 nights | €1,201 for 2 nights | 5.0 out of 5 average rating, 6 reviews | 5.0 (6)",
+   "url": "https://www.airbnb.com/rooms/1683936522638301457"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Lyngvær Horizon Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 983,
+   "rating": "4.88",
+   "raw": "Guest favorite | Cabin in Vågan | Lyngvær Horizon Lodge | Jacuzzi & Sauna | No. 08 | 3 bedrooms | , | · | 5 beds | 2 baths | €983 | Show price breakdown | for 2 nights | €983 for 2 nights | 4.88 out of 5 average rating, 41 reviews | 4.88 (41)",
+   "url": "https://www.airbnb.com/rooms/1346394645859717694"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Nordic Lodge Retreat in Lofoten",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 898,
+   "rating": "4.92",
+   "raw": "Superhost | Cabin in Vågan | Nordic Lodge Retreat in Lofoten | 4 bedrooms | , | · | 8 beds | 2 baths | €1,239 | €898 | Show price breakdown | for 2 nights | 4.92 out of 5 average rating, 38 reviews | 4.92 (38)",
+   "url": "https://www.airbnb.com/rooms/1303545546783105490"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "Lyngvær Serenity Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 943,
+   "rating": "4.95",
+   "raw": "Top guest favorite | Guest favorite | Cabin in Lyngvær | Lyngvær Serenity Lodge | Jacuzzi & Sauna | No. 12 | 3 bedrooms | , | · | 5 beds | 2 baths | €943 | Show price breakdown | for 2 nights | €943 for 2 nights | 4.95 out of 5 average rating, 44 reviews | 4.95 (44)",
+   "url": "https://www.airbnb.com/rooms/1222124414806432653"
+  },
+  {
+   "kind": "Guest favorite",
+   "title": "Vacation home in Vågan",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 935,
+   "rating": "4.98",
+   "raw": "Guest favorite | Vacation home in Vågan | Spectacular rorbu in the ocean gap - magic&luxury | 2 bedrooms | , | · | 5 beds | 2 baths | €1,009 | €935 | Show price breakdown | for 2 nights | 4.98 out of 5 average rating, 184 reviews | 4.98 (184)",
+   "url": "https://www.airbnb.com/rooms/760917316783812413"
+  },
+  {
+   "kind": "Apartment in Vågan",
+   "title": "Modern sea front apartment in Henningsvær sleeps 8",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 624,
+   "rating": "4.83",
+   "raw": "Apartment in Vågan | Modern sea front apartment in Henningsvær sleeps 8 | 2 bedrooms | , | · | 5 beds | 2 baths | €781 | €624 | Show price breakdown | for 2 nights | 4.83 out of 5 average rating, 114 reviews | 4.83 (114)",
+   "url": "https://www.airbnb.com/rooms/49141183"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "New Lofoten luxury with seaview sauna and jacuzzi",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 930,
+   "rating": "4.89",
+   "raw": "Guest favorite | Cabin in Lyngvær | New Lofoten luxury with seaview sauna and jacuzzi | 3 bedrooms | , | · | 10 beds | 2 baths | €930 | Show price breakdown | for 2 nights | €930 for 2 nights | 4.89 out of 5 average rating, 19 reviews | 4.89 (19)",
+   "url": "https://www.airbnb.com/rooms/1199014301037550713"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Lyngvær SeaBreeze Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1250,
+   "rating": "4.93",
+   "raw": "Guest favorite | Cabin in Vågan | Lyngvær SeaBreeze Lodge | Jacuzzi & Sauna | No. 29 | 3 bedrooms | , | · | 5 beds | 2 baths | €1,250 | Show price breakdown | for 2 nights | €1,250 for 2 nights | 4.93 out of 5 average rating, 97 reviews | 4.93 (97)",
+   "url": "https://www.airbnb.com/rooms/815725315176285749"
+  },
+  {
+   "kind": "Home in Vågan",
+   "title": "Cozy house in Henningsvær with sea view",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 583,
+   "rating": "4.78",
+   "raw": "Superhost | Home in Vågan | Cozy house in Henningsvær with sea view | 3 bedrooms | , | · | 4 beds | 2 baths | €923 | €583 | Show price breakdown | for 2 nights | 4.78 out of 5 average rating, 23 reviews | 4.78 (23)",
+   "url": "https://www.airbnb.com/rooms/49545662"
+  },
+  {
+   "kind": "Condo in Vågan",
+   "title": "Modern apartment with stunning views",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1039,
+   "rating": "5.0",
+   "raw": "Top guest favorite | Guest favorite | Condo in Vågan | Modern apartment with stunning views | 3 bedrooms | , | · | 2 baths | €1,283 | €1,039 | Show price breakdown | for 2 nights | 5.0 out of 5 average rating, 7 reviews | 5.0 (7)",
+   "url": "https://www.airbnb.com/rooms/1523146556175939672"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Stay in a real, historic gem in Henningsvær",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 887,
+   "rating": "4.95",
+   "raw": "Top guest favorite | Guest favorite | Cabin in Vågan | Stay in a real, historic gem in Henningsvær | 4 bedrooms | , | · | 6 beds | 2 baths | €887 | Show price breakdown | for 2 nights | €887 for 2 nights | Free cancellation | 4.95 out of 5 average rating, 20 reviews | 4.95 (20)",
+   "url": "https://www.airbnb.com/rooms/1064309315105731324"
+  },
+  {
+   "kind": "Home in Vågan",
+   "title": "Show price breakdown",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 637,
+   "rating": "4.8",
+   "raw": "Sep 29  to  Oct 2 | Sep 29 – Oct 2 | Home in Vågan | Idyll | 4 bedrooms | , | · | 5 beds | 2 baths | €637 | Show price breakdown | for 3 nights | €637 for 3 nights | 4.8 out of 5 average rating, 35 reviews | 4.8 (35)",
+   "url": "https://www.airbnb.com/rooms/1208039307088533328"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Hopen Sea Lodge - Seafront, secluded, no neighbors",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 4,
+   "total_eur": 3809,
+   "rating": "5.0",
+   "raw": "Sep 29  to  Oct 3 | Sep 29 – Oct 3 | Cabin in Vågan | Hopen Sea Lodge - Seafront, secluded, no neighbors | 4 bedrooms | , | · | 11 beds | 2 baths | €3,809 | Show price breakdown | for 4 nights | €3,809 for 4 nights | 5.0 out of 5 average rating, 137 reviews | 5.0 (137)",
+   "url": "https://www.airbnb.com/rooms/602481187962603978"
+  },
+  {
+   "kind": "Home in Laukvik",
+   "title": "Lofoten. Svolvær, Laukvik, 20 min from Svolvær.",
+   "bedrooms": 5,
+   "baths": 2.5,
+   "nights": 4,
+   "total_eur": 908,
+   "rating": "4.96",
+   "raw": "Sep 29  to  Oct 3 | Sep 29 – Oct 3 | Home in Laukvik | Lofoten. Svolvær, Laukvik, 20 min from Svolvær. | 5 bedrooms | , | · | 10 beds | 2.5 baths | €908 | Show price breakdown | for 4 nights | €908 for 4 nights | 4.96 out of 5 average rating, 89 reviews | 4.96 (89)",
+   "url": "https://www.airbnb.com/rooms/20652665"
+  },
+  {
+   "kind": "Apartment in Henningsvær",
+   "title": "World Class i Lofoten!",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 1482,
+   "rating": "5.0",
+   "raw": "Sep 29  to  Oct 2 | Sep 29 – Oct 2 | Apartment in Henningsvær | World Class i Lofoten! | 2 bedrooms | , | · | 4 beds | 2 baths | €1,955 | €1,482 | Show price breakdown | for 3 nights | 5.0 out of 5 average rating, 46 reviews | 5.0 (46)",
+   "url": "https://www.airbnb.com/rooms/918690206216760641"
+  },
+  {
+   "kind": "Home in Vestvågøy",
+   "title": "Seafront fisherman's cabin in Lofoten",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 900,
+   "rating": "4.98",
+   "raw": "Sep 29  to  Oct 1 | Sep 29 – Oct 1 | Home in Vestvågøy | Seafront fisherman's cabin in Lofoten | 3 bedrooms | , | · | 3 double beds | 2 baths | €900 | Show price breakdown | for 2 nights | €900 for 2 nights | 4.98 out of 5 average rating, 65 reviews | 4.98 (65)",
+   "url": "https://www.airbnb.com/rooms/35072091"
+  },
+  {
+   "kind": "Home in Vågan",
+   "title": "Charming pier in the heart of Svolvær",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 853,
+   "rating": "4.8",
+   "raw": "Sep 29  to  Oct 2 | Sep 29 – Oct 2 | Home in Vågan | Charming pier in the heart of Svolvær | 4 bedrooms | , | · | 4 beds | 2 baths | €853 | Show price breakdown | for 3 nights | €853 for 3 nights | 4.8 out of 5 average rating, 5 reviews | 4.8 (5)",
+   "url": "https://www.airbnb.com/rooms/1675568320873449894"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "Seafront Luxury Villa near Henningsvær",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1476,
+   "rating": "4.96",
+   "raw": "Guest favorite | Cabin in Lyngvær | Seafront Luxury Villa near Henningsvær | 3 bedrooms | , | · | 10 beds | 2 baths | €1,476 | Show price breakdown | for 2 nights | €1,476 for 2 nights | 4.96 out of 5 average rating, 26 reviews | 4.96 (26)",
+   "url": "https://www.airbnb.com/rooms/1202823603415059646"
+  },
+  {
+   "kind": "Home in Vågan",
+   "title": "Functional architecture close to nature",
+   "bedrooms": 4,
+   "baths": 2.5,
+   "nights": 2,
+   "total_eur": 1041,
+   "rating": "5.0",
+   "raw": "Top guest favorite | Guest favorite | Home in Vågan | Functional architecture close to nature | 4 bedrooms | , | · | 4 beds | 2.5 baths | €1,041 | Show price breakdown | for 2 nights | €1,041 for 2 nights | 5.0 out of 5 average rating, 33 reviews | 5.0 (33)",
+   "url": "https://www.airbnb.com/rooms/574286379531171221"
+  },
+  {
+   "kind": "Apartment in Vågan",
+   "title": "Ocean front apartment in Henningsvær",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 882,
+   "rating": "4.81",
+   "raw": "Guest favorite | Apartment in Vågan | Ocean front apartment in Henningsvær | 2 bedrooms | , | · | 5 beds | 2 baths | €882 | Show price breakdown | for 2 nights | €882 for 2 nights | 4.81 out of 5 average rating, 52 reviews | 4.81 (52)",
+   "url": "https://www.airbnb.com/rooms/882370818267987741"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "Lyngvær Serene Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 960,
+   "rating": "4.82",
+   "raw": "Superhost | Cabin in Lyngvær | Lyngvær Serene Lodge | Jacuzzi & Sauna | No. 09 | 3 bedrooms | , | · | 6 beds | 2 baths | €960 | Show price breakdown | for 2 nights | €960 for 2 nights | 4.82 out of 5 average rating, 50 reviews | 4.82 (50)",
+   "url": "https://www.airbnb.com/rooms/1087484591164072397"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "NEW! High end cabin Lofoten 2",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1003,
+   "rating": "4.98",
+   "raw": "Guest favorite | Cabin in Lyngvær | NEW! High end cabin Lofoten 2 | 4 bedrooms | , | · | 12 beds | 2 baths | €1,003 | Show price breakdown | for 2 nights | €1,003 for 2 nights | 4.98 out of 5 average rating, 44 reviews | 4.98 (44)",
+   "url": "https://www.airbnb.com/rooms/1306526564885974788"
+  },
+  {
+   "kind": "Apartment in Vågan",
+   "title": "Rorbus apartment on the top floor in Henningsvær",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 575,
+   "rating": "4.74",
+   "raw": "Apartment in Vågan | Rorbus apartment on the top floor in Henningsvær | 2 bedrooms | , | · | 4 beds | 2 baths | €712 | €575 | Show price breakdown | for 2 nights | 4.74 out of 5 average rating, 23 reviews | 4.74 (23)",
+   "url": "https://www.airbnb.com/rooms/746807477636033821"
+  }
+ ]
+}

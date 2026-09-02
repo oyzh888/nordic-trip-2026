@@ -1,0 +1,75 @@
+{
+ "title": "Thon Hotel Polar, Tromsø (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/thon-polar.html?checkin=2026-10-03&checkout=2026-10-06&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    131,
+    394,
+    394,
+    394
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Standard Double Room ¶ Bed: 1 queen bed ¶ Attached bathroom ¶ Flat-screen TV ¶ Soundproofing ¶ Free Wifi ¶ Max. people: 2 ¶ € 131 per night ¶ € 394 ¶ Price € 394 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Good breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 394) ¶ 2          (€ 789) ¶ 3          (€ 1,183) ¶ 4          (€ 1,578) ¶ 5          (€ 1,972) ¶ 6          (€ 2,367) ¶ 7          (€ 2,761) ¶ 8          (€ 3,156) ¶ 9   "
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    151,
+    454,
+    454,
+    454
+   ],
+   "cancel": "Free cancellation before October 2, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 151 per night ¶ € 454 ¶ Price € 454 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Good breakfast included ¶ Includes high-speed internet ¶ Free cancellation before October 2, 2026 ¶ • ¶ Pay nothing until September 30, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 454) ¶ 2          (€ 908) ¶ 3          (€ 1,361) ¶ 4          (€ 1,815) ¶ 5          (€ 2,269) ¶ 6          (€ 2,723) ¶ 7          (€ 3,177) ¶ 8          (€ 3,630) ¶ 9          (€ 4,084) ¶ 10          (€ 4,538)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    115,
+    345,
+    345,
+    345
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 115 per night ¶ € 345 ¶ Price € 345 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Good breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 345) ¶ 2          (€ 690) ¶ 3          (€ 1,035) ¶ 4          (€ 1,380) ¶ 5          (€ 1,725) ¶ 6          (€ 2,069) ¶ 7          (€ 2,414) ¶ 8          (€ 2,759) ¶ 9          (€ 3,104) ¶ 10          (€ 3,449)"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    132,
+    397,
+    397,
+    397
+   ],
+   "cancel": "Free cancellation before October 2, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 132 per night ¶ € 397 ¶ Price € 397 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Good breakfast included ¶ Includes high-speed internet ¶ Free cancellation before October 2, 2026 ¶ • ¶ Pay nothing until September 30, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 397) ¶ 2          (€ 794) ¶ 3          (€ 1,190) ¶ 4          (€ 1,587) ¶ 5          (€ 1,984) ¶ 6          (€ 2,381) ¶ 7          (€ 2,778) ¶ 8          (€ 3,174) ¶ 9          (€ 3,571) ¶ 10          (€ 3,968)"
+  }
+ ],
+ "job": {
+  "slug": "thon-polar-1003",
+  "hotel": "no/thon-polar",
+  "checkin": "2026-10-03",
+  "checkout": "2026-10-06",
+  "adults": 4,
+  "rooms": 2
+ }
+}

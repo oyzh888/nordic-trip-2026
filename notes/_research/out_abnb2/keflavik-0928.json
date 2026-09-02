@@ -1,0 +1,102 @@
+{
+ "job": {
+  "slug": "keflavik-0928",
+  "place": "Keflavik, Iceland",
+  "checkin": "2026-09-28",
+  "checkout": "2026-09-29",
+  "bbox": [
+   63.92,
+   -22.8,
+   64.08,
+   -22.2
+  ],
+  "zoom": 11
+ },
+ "url": "https://www.airbnb.com/s/Keflavik--Iceland/homes?checkin=2026-09-28&checkout=2026-09-29&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.92&sw_lng=-22.8&ne_lat=64.08&ne_lng=-22.2&search_by_map=true&zoom=11",
+ "rows": [
+  {
+   "kind": "Cabin in Suðurnesjabær",
+   "loc": "Suðurnesjabær",
+   "title": "Holiday Home with Hot tub & Sauna - Ocean Break",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.89",
+   "raw": "Guest favorite | Cabin in Suðurnesjabær | Holiday Home with Hot tub & Sauna - Ocean Break | 3 bedrooms | , | · | 7 beds | 2 baths | €604 | Show price breakdown | for 1 night | €604 for 1 night | Pay €0 today | Free cancellation | 4.89 out of 5 average rating, 175 reviews | 4.89 (175)",
+   "url": "https://www.airbnb.com/rooms/650642807959936125"
+  },
+  {
+   "kind": "Home in Njarðvík",
+   "loc": "Njarðvík",
+   "title": "Cozy home in Njardvik",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 445,
+   "rating": "4.54",
+   "raw": "Home in Njarðvík | Cozy home in Njardvik | 4 bedrooms | , | · | 4 beds | 2 baths | €511 | €445 | Show price breakdown | for 1 night | 4.54 out of 5 average rating, 24 reviews | 4.54 (24)",
+   "url": "https://www.airbnb.com/rooms/1468029290775302593"
+  },
+  {
+   "kind": "Apartment in Reykjanesbær",
+   "loc": "Reykjanesbær",
+   "title": "Show price breakdown",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 424,
+   "rating": "4.92",
+   "raw": "Apartment in Reykjanesbær | IQ Apartments 2 | 3 bedrooms | , | · | 4 beds | 2 baths | €424 | Show price breakdown | for 1 night | €424 for 1 night | 4.92 out of 5 average rating, 13 reviews | 4.92 (13)",
+   "url": "https://www.airbnb.com/rooms/1231709933827491677"
+  },
+  {
+   "kind": "Camper/RV in Reykjanesbær",
+   "loc": "Reykjanesbær",
+   "title": "Cozy Tindra Campervan",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 171,
+   "rating": "4.63",
+   "raw": "Camper/RV in Reykjanesbær | Cozy Tindra Campervan | 2 bedrooms | , | · | 5 beds | 2 baths | €193 | €171 | Show price breakdown | for 1 night | 4.63 out of 5 average rating, 109 reviews | 4.63 (109)",
+   "url": "https://www.airbnb.com/rooms/1182805893311594233"
+  },
+  {
+   "kind": "Home in Reykjanesbær",
+   "loc": "Reykjanesbær",
+   "title": "Villa in Keflavík 5 minutes from airport hot tub",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Reykjanesbær | Villa in Keflavík 5 minutes from airport hot tub | 3 bedrooms | , | · | 3 beds | 2 baths | €3,883 | €3,106 | Show price breakdown | for 1 night | Pay €0 today | Free cancellation | New place to stay | New",
+   "url": "https://www.airbnb.com/rooms/1747041101694121464"
+  },
+  {
+   "kind": "Home in Njarðvík",
+   "loc": "Njarðvík",
+   "title": "Peaceful Spacious Home in Reykjanesbær",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Njarðvík | Peaceful Spacious Home in Reykjanesbær | 3 bedrooms | , | · | 5 beds | 2 baths | €2,486 | Show price breakdown | for 1 night | €2,486 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1678353097481187956"
+  },
+  {
+   "kind": "Apartment in Reykjanesbær",
+   "loc": "Reykjanesbær",
+   "title": "Show price breakdown",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 498,
+   "rating": "4.91",
+   "raw": "Apartment in Reykjanesbær | IQ Apartments 1 | 3 bedrooms | , | · | 3 beds | 2 baths | €498 | Show price breakdown | for 1 night | €498 for 1 night | 4.91 out of 5 average rating, 33 reviews | 4.91 (33)",
+   "url": "https://www.airbnb.com/rooms/1302095139759149342"
+  }
+ ]
+}

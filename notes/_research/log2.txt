@@ -1,0 +1,3 @@
+snaefellsnes-timing: 7226 chars, 19 sources
+cruise-svolvaer-tromso: 7085 chars, 26 sources
+ice-cave-sept: 5614 chars, 30 sources

@@ -1,0 +1,126 @@
+{
+ "job": {
+  "slug": "gardermoen-0929",
+  "place": "Gardermoen, Norway",
+  "checkin": "2026-09-29",
+  "checkout": "2026-09-30",
+  "bbox": [
+   60.05,
+   10.9,
+   60.35,
+   11.35
+  ],
+  "zoom": 11
+ },
+ "url": "https://www.airbnb.com/s/Gardermoen--Norway/homes?checkin=2026-09-29&checkout=2026-09-30&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=60.05&sw_lng=10.9&ne_lat=60.35&ne_lng=11.35&search_by_map=true&zoom=11",
+ "rows": [
+  {
+   "kind": "Cabin in Eidsvoll",
+   "loc": "Eidsvoll",
+   "title": "Eidsvollhytta - a unique place for unique experiences",
+   "bedrooms": 7,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 814,
+   "rating": "5.0",
+   "raw": "Top guest favorite | Guest favorite | Cabin in Eidsvoll | Eidsvollhytta - a unique place for unique experiences | 7 bedrooms | , | · | 12 beds | 2 baths | €814 | Show price breakdown | for 1 night | €814 for 1 night | 5.0 out of 5 average rating, 105 reviews | 5.0 (105)",
+   "url": "https://www.airbnb.com/rooms/854392334690876619"
+  },
+  {
+   "kind": "Apartment in Nannestad",
+   "loc": "Nannestad",
+   "title": "Modern. Quiet area. Large space.",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 260,
+   "rating": null,
+   "raw": "Apartment in Nannestad | Modern. Quiet area. Large space. | 3 bedrooms | , | · | 5 beds | 2 baths | €260 | Show price breakdown | for 1 night | €260 for 1 night",
+   "url": "https://www.airbnb.com/rooms/1616864516592253636"
+  },
+  {
+   "kind": "Home in Nes",
+   "loc": "Nes",
+   "title": "An oasis on Neskollen (with air conditioning)",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Nes | An oasis on Neskollen (with air conditioning) | 3 bedrooms | , | · | 3 beds | 2 baths | €438 | Show price breakdown | for 1 night | €438 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1702001962854881171"
+  },
+  {
+   "kind": "Home in Nannestad",
+   "loc": "Nannestad",
+   "title": "Well-kept semi-detached house close to Oslo Airport",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Nannestad | Well-kept semi-detached house close to Oslo Airport | 4 bedrooms | , | · | 4 beds | 2 baths | €409 | Show price breakdown | for 1 night | €409 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1590426157088400272"
+  },
+  {
+   "kind": "Home in Eidsvoll",
+   "loc": "Eidsvoll",
+   "title": "Show price breakdown",
+   "bedrooms": 4,
+   "baths": 3.0,
+   "nights": 1,
+   "total_eur": 1866,
+   "rating": null,
+   "raw": "Home in Eidsvoll | Wergeland's eyes | 4 bedrooms | , | · | 6 beds | 3 baths | €1,866 | Show price breakdown | for 1 night | €1,866 for 1 night",
+   "url": "https://www.airbnb.com/rooms/1135395756319373727"
+  },
+  {
+   "kind": "Home in Ullensaker",
+   "loc": "Ullensaker",
+   "title": "Show price breakdown",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 541,
+   "rating": "4.97",
+   "raw": "Sep 28  to  30 | Sep 28 – 30 | Home in Ullensaker | Detached house - perfect for families - 4 bedrooms | 4 bedrooms | , | · | 4 beds | 2 baths | €541 | Show price breakdown | for 2 nights | €541 for 2 nights | 4.97 out of 5 average rating, 35 reviews | 4.97 (35)",
+   "url": "https://www.airbnb.com/rooms/1204471771405405295"
+  },
+  {
+   "kind": "Home in Eidsvoll",
+   "loc": "Eidsvoll",
+   "title": "A cozy house near Gardermoen, Oslo and nature.",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 426,
+   "rating": "5.0",
+   "raw": "Sep 28  to  30 | Sep 28 – 30 | Home in Eidsvoll | A cozy house near Gardermoen, Oslo and nature. | 3 bedrooms | , | · | 4 beds | 2 baths | €426 | Show price breakdown | for 2 nights | €426 for 2 nights | 5.0 out of 5 average rating, 3 reviews | 5.0 (3)",
+   "url": "https://www.airbnb.com/rooms/1517311976763731826"
+  },
+  {
+   "kind": "Home in Ullensaker",
+   "loc": "Ullensaker",
+   "title": "Central Jessheim - 10 minutes from OSL Gardermoen",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 759,
+   "rating": "5.0",
+   "raw": "Sep 28  to  30 | Sep 28 – 30 | Home in Ullensaker | Central Jessheim - 10 minutes from OSL Gardermoen | 4 bedrooms | , | · | 5 beds | 2 baths | €759 | Show price breakdown | for 2 nights | €759 for 2 nights | 5.0 out of 5 average rating, 3 reviews | 5.0 (3)",
+   "url": "https://www.airbnb.com/rooms/1739223395983398156"
+  },
+  {
+   "kind": "Home in Gjerdrum",
+   "loc": "Gjerdrum",
+   "title": "Semi-detached house rented out",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 503,
+   "rating": "5.0",
+   "raw": "Sep 28  to  30 | Sep 28 – 30 | Home in Gjerdrum | Semi-detached house rented out | 2 bedrooms | , | · | 2 beds | 2 baths | €503 | Show price breakdown | for 2 nights | €503 for 2 nights | 5.0 out of 5 average rating, 12 reviews | 5.0 (12)",
+   "url": "https://www.airbnb.com/rooms/955510432915478016"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "job": {
+  "slug": "hofn-0927",
+  "place": "Hofn, Iceland",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28"
+ },
+ "url": "https://www.airbnb.com/s/Hofn--Iceland/homes?checkin=2026-09-27&checkout=2026-09-28&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en",
+ "rows": [
+  {
+   "kind": "Home in Múlaþing",
+   "title": "Show price breakdown",
+   "bedrooms": 5,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 609,
+   "rating": "4.9",
+   "raw": "Home in Múlaþing | Countryside Villa | 5 bedrooms | , | · | 16 beds | 2 baths | €683 | €609 | Show price breakdown | for 1 night | 4.9 out of 5 average rating, 29 reviews | 4.9 (29)",
+   "url": "https://www.airbnb.com/rooms/1243307312504668039"
+  }
+ ]
+}

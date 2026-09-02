@@ -1,0 +1,114 @@
+{
+ "job": {
+  "slug": "borgarnes-0928",
+  "place": "Borgarnes, Iceland",
+  "checkin": "2026-09-28",
+  "checkout": "2026-09-29",
+  "bbox": [
+   64.28,
+   -22.45,
+   64.8,
+   -21.45
+  ],
+  "zoom": 10
+ },
+ "url": "https://www.airbnb.com/s/Borgarnes--Iceland/homes?checkin=2026-09-28&checkout=2026-09-29&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=64.28&sw_lng=-22.45&ne_lat=64.8&ne_lng=-21.45&search_by_map=true&zoom=10",
+ "rows": [
+  {
+   "kind": "Home in Mosfellsbær",
+   "loc": "Mosfellsbær",
+   "title": "The Club House by Hvammsvik Hot Springs",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 901,
+   "rating": "4.9",
+   "raw": "Top guest favorite | Guest favorite | Home in Mosfellsbær | The Club House by Hvammsvik Hot Springs | 3 bedrooms | , | · | 5 beds | 2 baths | €901 | Show price breakdown | for 1 night | €901 for 1 night | 4.9 out of 5 average rating, 63 reviews | 4.9 (63)",
+   "url": "https://www.airbnb.com/rooms/53340139"
+  },
+  {
+   "kind": "Home in Mosfellsbær",
+   "loc": "Mosfellsbær",
+   "title": "The Farm House by Hvammsvik Hot Springs",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 991,
+   "rating": "4.94",
+   "raw": "Superhost | Home in Mosfellsbær | The Farm House by Hvammsvik Hot Springs | 3 bedrooms | , | · | 6 beds | 2 baths | €991 | Show price breakdown | for 1 night | €991 for 1 night | 4.94 out of 5 average rating, 104 reviews | 4.94 (104)",
+   "url": "https://www.airbnb.com/rooms/35754351"
+  },
+  {
+   "kind": "Cottage in Borgarnes",
+   "loc": "Borgarnes",
+   "title": "West Iceland -Spacious - Great View - Hot tub",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 715,
+   "rating": "4.85",
+   "raw": "Sep 28  to  30 | Sep 28 – 30 | Cottage in Borgarnes | West Iceland -Spacious - Great View - Hot tub | 3 bedrooms | , | · | 5 beds | 2 baths | €799 | €715 | Show price breakdown | for 2 nights | 4.85 out of 5 average rating, 260 reviews | 4.85 (260)",
+   "url": "https://www.airbnb.com/rooms/2733398"
+  },
+  {
+   "kind": "Apartment in Borgarnes",
+   "loc": "Borgarnes",
+   "title": "Scandinavian home apartment",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 971,
+   "rating": "5.0",
+   "raw": "Sep 27  to  29 | Sep 27 – 29 | Apartment in Borgarnes | Scandinavian home apartment | 2 bedrooms | , | · | 4 beds | 2 baths | €1,223 | €971 | Show price breakdown | for 2 nights | 5.0 out of 5 average rating, 3 reviews | 5.0 (3)",
+   "url": "https://www.airbnb.com/rooms/1679595136645030166"
+  },
+  {
+   "kind": "Home in Hvalfjörður",
+   "loc": "Hvalfjörður",
+   "title": "Glass House · Fjord Views & Northern Lights",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1790,
+   "rating": "5.0",
+   "raw": "Sep 27  to  29 | Sep 27 – 29 | Home in Hvalfjörður | Glass House · Fjord Views & Northern Lights | 3 bedrooms | , | · | 3 beds | 2 baths | €1,790 | Show price breakdown | for 2 nights | €1,790 for 2 nights | 5.0 out of 5 average rating, 7 reviews | 5.0 (7)",
+   "url": "https://www.airbnb.com/rooms/1704564943425389892"
+  },
+  {
+   "kind": "Home in Kjósarhreppur",
+   "loc": "Kjósarhreppur",
+   "title": "Himri the mountain villa",
+   "bedrooms": 4,
+   "baths": 2.5,
+   "nights": 2,
+   "total_eur": 1132,
+   "rating": "4.98",
+   "raw": "Sep 28  to  30 | Sep 28 – 30 | Home in Kjósarhreppur | Himri the mountain villa | 4 bedrooms | , | · | 7 beds | 2.5 baths | €1,327 | €1,132 | Show price breakdown | for 2 nights | 4.98 out of 5 average rating, 136 reviews | 4.98 (136)",
+   "url": "https://www.airbnb.com/rooms/846449298286390993"
+  },
+  {
+   "kind": "Home in Hraundalur",
+   "loc": "Hraundalur",
+   "title": "Contemporary Farmhouse With Amazing Views",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 2502,
+   "rating": "5.0",
+   "raw": "Sep 27  to  29 | Sep 27 – 29 | Home in Hraundalur | Contemporary Farmhouse With Amazing Views | 3 bedrooms | , | · | 3 double beds | 2 baths | €2,502 | Show price breakdown | for 2 nights | €2,502 for 2 nights | 5.0 out of 5 average rating, 25 reviews | 5.0 (25)",
+   "url": "https://www.airbnb.com/rooms/1192619965172188452"
+  },
+  {
+   "kind": "Cabin in Kjósahreppur",
+   "loc": "Kjósahreppur",
+   "title": "Exclusive 150 sqm year-round luxury villa.",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1439,
+   "rating": "5.0",
+   "raw": "Sep 27  to  29 | Sep 27 – 29 | Cabin in Kjósahreppur | Exclusive 150 sqm year-round luxury villa. | 3 bedrooms | , | · | 3 beds | 2 baths | €1,439 | Show price breakdown | for 2 nights | €1,439 for 2 nights | 5.0 out of 5 average rating, 8 reviews | 5.0 (8)",
+   "url": "https://www.airbnb.com/rooms/1424910311419736825"
+  }
+ ]
+}

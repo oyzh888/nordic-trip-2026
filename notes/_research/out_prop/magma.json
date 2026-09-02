@@ -1,0 +1,45 @@
+{
+ "title": "Magma Hotel, Kirkjubæjarklaustur (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/magma.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Family Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    760,
+    845,
+    760,
+    845
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Family Room ¶ We have 1 left ¶ Beds: 1 twin bed , 1 queen bed ¶ 377 feet² ¶ View ¶ Patio ¶ Attached bathroom ¶ Flat-screen TV ¶ Soundproofing ¶ Coffee machine ¶ Free Wifi ¶ Max. people: 3 ¶ € 760 per night ¶ € 845 € 760 ¶ Original price € 845 Current price € 760 ¶ 1 night ¶ 10% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Wonderful breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 760)"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    836,
+    930,
+    836,
+    930
+   ],
+   "cancel": "Free cancellation before September 20, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 3 ¶ € 836 per night ¶ € 930 € 836 ¶ Original price € 930 Current price € 836 ¶ 1 night ¶ 10% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Wonderful breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 20, 2026 ¶ • ¶ Pay nothing until September 18, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 836)"
+  }
+ ],
+ "job": {
+  "slug": "magma",
+  "hotel": "is/magma",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 4,
+  "rooms": 2
+ }
+}

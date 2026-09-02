@@ -1,0 +1,105 @@
+{
+ "title": "Clarion Hotel Oslo Airport, Gardermoen (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/clarion-oslo-airport.html?checkin=2026-09-24&checkout=2026-09-25&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    113,
+    122,
+    113,
+    122
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Standard Twin Room ¶ Beds: 2 twin beds ¶ 194 feet² ¶ Attached bathroom ¶ Flat-screen TV ¶ Minibar ¶ Free Wifi ¶ Max. people: 2 ¶ € 113 per night ¶ € 122 € 113 ¶ Original price € 122 Current price € 113 ¶ 1 night ¶ 7% off ¶ Excluded: 12 % VAT ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 113) ¶ 2          (€ 226) ¶ 3          (€ 339) ¶ 4          (€ 453) ¶ 5          (€ 566)"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    122,
+    122,
+    122,
+    122
+   ],
+   "cancel": "Free cancellation before September 23, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 122 per night ¶ € 122 ¶ Price € 122 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Free cancellation before September 23, 2026 ¶ No prepayment needed – pay at the property ¶ Select Rooms ¶ 0 ¶ 1          (€ 122) ¶ 2          (€ 243) ¶ 3          (€ 365) ¶ 4          (€ 487) ¶ 5          (€ 608)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    108,
+    117,
+    108,
+    117
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 108 per night ¶ € 117 € 108 ¶ Original price € 117 Current price € 108 ¶ 1 night ¶ 7% off ¶ Excluded: 12 % VAT ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 108) ¶ 2          (€ 217) ¶ 3          (€ 325) ¶ 4          (€ 434) ¶ 5          (€ 542)"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    117,
+    117,
+    117,
+    117
+   ],
+   "cancel": "Free cancellation before September 23, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 117 per night ¶ € 117 ¶ Price € 117 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Free cancellation before September 23, 2026 ¶ No prepayment needed – pay at the property ¶ Select Rooms ¶ 0 ¶ 1          (€ 117) ¶ 2          (€ 233) ¶ 3          (€ 350) ¶ 4          (€ 466) ¶ 5          (€ 583)"
+  },
+  {
+   "row": 4,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    118,
+    126,
+    118,
+    126
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Superior Single Room ¶ Bed: 1 twin bed ¶ 194 feet² ¶ Attached bathroom ¶ Flat-screen TV ¶ Minibar ¶ Free Wifi ¶ Max. people: 1 ¶ € 118 per night ¶ € 126 € 118 ¶ Original price € 126 Current price € 118 ¶ 1 night ¶ 7% off ¶ Excluded: 12 % VAT ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 118) ¶ 2          (€ 235) ¶ 3          (€ 353) ¶ 4          (€ 470) ¶ 5          (€ 588)"
+  },
+  {
+   "row": 5,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    126,
+    126,
+    126,
+    126
+   ],
+   "cancel": "Free cancellation before September 23, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 126 per night ¶ € 126 ¶ Price € 126 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Free cancellation before September 23, 2026 ¶ No prepayment needed – pay at the property ¶ Select Rooms ¶ 0 ¶ 1          (€ 126) ¶ 2          (€ 253) ¶ 3          (€ 379) ¶ 4          (€ 505) ¶ 5          (€ 632)"
+  }
+ ],
+ "job": {
+  "slug": "clarion-gardermoen-0924",
+  "hotel": "no/clarion-oslo-airport",
+  "checkin": "2026-09-24",
+  "checkout": "2026-09-25",
+  "adults": 4,
+  "rooms": 2
+ }
+}

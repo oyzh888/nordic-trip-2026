@@ -1,0 +1,14 @@
+{
+ "title": "Hali Country Hotel, Jökulsárlón (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/hali-country.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "hali-country",
+  "hotel": "is/hali-country",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 4,
+  "rooms": 2
+ }
+}

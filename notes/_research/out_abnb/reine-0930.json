@@ -1,0 +1,275 @@
+{
+ "job": {
+  "slug": "reine-0930",
+  "place": "Reine, Norway",
+  "checkin": "2026-09-30",
+  "checkout": "2026-10-02"
+ },
+ "url": "https://www.airbnb.com/s/Reine--Norway/homes?checkin=2026-09-30&checkout=2026-10-02&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en",
+ "rows": [
+  {
+   "kind": "Guest favorite",
+   "title": "Vacation home in Sørvågen",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": "4.88",
+   "raw": "Guest favorite | Vacation home in Sørvågen | Cozy and spacious holiday home by the lake | 4 bedrooms | , | · | 9 beds | 2 baths | €1,097 | €848 | Show price breakdown | for 2 nights | Pay €0 today | Free cancellation | 4.88 out of 5 average rating, 60 reviews | 4.88 (60)",
+   "url": "https://www.airbnb.com/rooms/623894829115370849"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Lyngvær Arctic Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1088,
+   "rating": "4.95",
+   "raw": "Guest favorite | Cabin in Vågan | Lyngvær Arctic Lodge | Jacuzzi & Sauna | No. 14 | 3 bedrooms | , | · | 5 beds | 2 baths | €1,088 | Show price breakdown | for 2 nights | €1,088 for 2 nights | 4.95 out of 5 average rating, 59 reviews | 4.95 (59)",
+   "url": "https://www.airbnb.com/rooms/1258848712541940268"
+  },
+  {
+   "kind": "Home in Vågan",
+   "title": "Lyngvær Arctic Pearl Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1201,
+   "rating": "5.0",
+   "raw": "Guest favorite | Home in Vågan | Lyngvær Arctic Pearl Lodge | Jacuzzi & Sauna | 17 | 3 bedrooms | , | · | 1 king bed | 2 baths | €1,201 | Show price breakdown | for 2 nights | €1,201 for 2 nights | 5.0 out of 5 average rating, 6 reviews | 5.0 (6)",
+   "url": "https://www.airbnb.com/rooms/1683936522638301457"
+  },
+  {
+   "kind": "Villa in Vestvågøy",
+   "title": "House by the sea, Ballstad Lofoten",
+   "bedrooms": 4,
+   "baths": 2.5,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": "5.0",
+   "raw": "Top guest favorite | Guest favorite | Villa in Vestvågøy | House by the sea, Ballstad Lofoten | 4 bedrooms | , | · | 9 beds | 2.5 baths | €587 | Show price breakdown | for 2 nights | €587 for 2 nights | Pay €0 today | Free cancellation | 5.0 out of 5 average rating, 12 reviews | 5.0 (12)",
+   "url": "https://www.airbnb.com/rooms/1484932960933539709"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "Lyngvær Serenity Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 943,
+   "rating": "4.95",
+   "raw": "Top guest favorite | Guest favorite | Cabin in Lyngvær | Lyngvær Serenity Lodge | Jacuzzi & Sauna | No. 12 | 3 bedrooms | , | · | 5 beds | 2 baths | €943 | Show price breakdown | for 2 nights | €943 for 2 nights | 4.95 out of 5 average rating, 44 reviews | 4.95 (44)",
+   "url": "https://www.airbnb.com/rooms/1222124414806432653"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Lyngvær Horizon Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 983,
+   "rating": "4.88",
+   "raw": "Guest favorite | Cabin in Vågan | Lyngvær Horizon Lodge | Jacuzzi & Sauna | No. 08 | 3 bedrooms | , | · | 5 beds | 2 baths | €983 | Show price breakdown | for 2 nights | €983 for 2 nights | 4.88 out of 5 average rating, 41 reviews | 4.88 (41)",
+   "url": "https://www.airbnb.com/rooms/1346394645859717694"
+  },
+  {
+   "kind": "Guest favorite",
+   "title": "Vacation home in Vågan",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 935,
+   "rating": "4.98",
+   "raw": "Guest favorite | Vacation home in Vågan | Spectacular rorbu in the ocean gap - magic&luxury | 2 bedrooms | , | · | 5 beds | 2 baths | €1,009 | €935 | Show price breakdown | for 2 nights | 4.98 out of 5 average rating, 184 reviews | 4.98 (184)",
+   "url": "https://www.airbnb.com/rooms/760917316783812413"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Nordic Lodge Retreat in Lofoten",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 898,
+   "rating": "4.92",
+   "raw": "Superhost | Cabin in Vågan | Nordic Lodge Retreat in Lofoten | 4 bedrooms | , | · | 8 beds | 2 baths | €1,239 | €898 | Show price breakdown | for 2 nights | 4.92 out of 5 average rating, 38 reviews | 4.92 (38)",
+   "url": "https://www.airbnb.com/rooms/1303545546783105490"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Lyngvær SeaBreeze Lodge",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1250,
+   "rating": "4.93",
+   "raw": "Guest favorite | Cabin in Vågan | Lyngvær SeaBreeze Lodge | Jacuzzi & Sauna | No. 29 | 3 bedrooms | , | · | 5 beds | 2 baths | €1,250 | Show price breakdown | for 2 nights | €1,250 for 2 nights | 4.93 out of 5 average rating, 97 reviews | 4.93 (97)",
+   "url": "https://www.airbnb.com/rooms/815725315176285749"
+  },
+  {
+   "kind": "Home in Moskenes",
+   "title": "Valen house in famous Reine",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 1113,
+   "rating": "4.25",
+   "raw": "Superhost | Home in Moskenes | Valen house in famous Reine | 4 bedrooms | , | · | 5 beds | 2 baths | €1,113 | Show price breakdown | for 2 nights | €1,113 for 2 nights | 4.25 out of 5 average rating, 8 reviews | 4.25 (8)",
+   "url": "https://www.airbnb.com/rooms/1314514220654606262"
+  },
+  {
+   "kind": "Villa in Vestvågøy",
+   "title": "Superior Villa with Superb View",
+   "bedrooms": 3,
+   "baths": 2.5,
+   "nights": 2,
+   "total_eur": 1214,
+   "rating": "4.57",
+   "raw": "Superhost | Villa in Vestvågøy | Superior Villa with Superb View | 3 bedrooms | , | · | 4 beds | 2.5 baths | €1,214 | Show price breakdown | for 2 nights | €1,214 for 2 nights | 4.57 out of 5 average rating, 7 reviews | 4.57 (7)",
+   "url": "https://www.airbnb.com/rooms/1394120209901159681"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "title": "New Lofoten luxury with seaview sauna and jacuzzi",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 930,
+   "rating": "4.89",
+   "raw": "Guest favorite | Cabin in Lyngvær | New Lofoten luxury with seaview sauna and jacuzzi | 3 bedrooms | , | · | 10 beds | 2 baths | €930 | Show price breakdown | for 2 nights | €930 for 2 nights | 4.89 out of 5 average rating, 19 reviews | 4.89 (19)",
+   "url": "https://www.airbnb.com/rooms/1199014301037550713"
+  },
+  {
+   "kind": "Chalet in Flakstad",
+   "title": "Lofoten Arctic Home| Fjord Views & Northern Lights",
+   "bedrooms": 5,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": "5.0",
+   "raw": "Chalet in Flakstad | Lofoten Arctic Home| Fjord Views & Northern Lights | 5 bedrooms | , | · | 11 beds | 2 baths | €1,251 | Show price breakdown | for 2 nights | €1,251 for 2 nights | Pay €0 today | Free cancellation | 5.0 out of 5 average rating, 4 reviews | 5.0 (4)",
+   "url": "https://www.airbnb.com/rooms/1638441508668401322"
+  },
+  {
+   "kind": "Apartment in Moskenes",
+   "title": "The house by the ferry dock in Moskenes",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": "4.8",
+   "raw": "Guest favorite | Apartment in Moskenes | The house by the ferry dock in Moskenes | 3 bedrooms | , | · | 6 beds | 2 baths | €843 | Show price breakdown | for 2 nights | €843 for 2 nights | Pay €0 today | Free cancellation | 4.8 out of 5 average rating, 15 reviews | 4.8 (15)",
+   "url": "https://www.airbnb.com/rooms/1126069782755591220"
+  },
+  {
+   "kind": "Home in Vestvågøy",
+   "title": "Seafront fisherman's cabin in Lofoten",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 900,
+   "rating": "4.98",
+   "raw": "Sep 29  to  Oct 1 | Sep 29 – Oct 1 | Home in Vestvågøy | Seafront fisherman's cabin in Lofoten | 3 bedrooms | , | · | 3 double beds | 2 baths | €900 | Show price breakdown | for 2 nights | €900 for 2 nights | 4.98 out of 5 average rating, 65 reviews | 4.98 (65)",
+   "url": "https://www.airbnb.com/rooms/35072091"
+  },
+  {
+   "kind": "Home in Ramberg",
+   "title": "Private Quiet Beach Central View Midnight Sun",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 1009,
+   "rating": "4.85",
+   "raw": "Sep 30  to  Oct 3 | Sep 30 – Oct 3 | Home in Ramberg | Private Quiet Beach Central View Midnight Sun | 4 bedrooms | , | · | 5 beds | 2 baths | €1,009 | Show price breakdown | for 3 nights | €1,009 for 3 nights | 4.85 out of 5 average rating, 53 reviews | 4.85 (53)",
+   "url": "https://www.airbnb.com/rooms/887445901202412796"
+  },
+  {
+   "kind": "Apartment in Henningsvær",
+   "title": "World Class i Lofoten!",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 1482,
+   "rating": "5.0",
+   "raw": "Sep 29  to  Oct 2 | Sep 29 – Oct 2 | Apartment in Henningsvær | World Class i Lofoten! | 2 bedrooms | , | · | 4 beds | 2 baths | €1,955 | €1,482 | Show price breakdown | for 3 nights | 5.0 out of 5 average rating, 46 reviews | 5.0 (46)",
+   "url": "https://www.airbnb.com/rooms/918690206216760641"
+  },
+  {
+   "kind": "Cabin in Vestvågøy",
+   "title": "Waterfront house in Ballstad, Lofoten",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 288,
+   "rating": "4.85",
+   "raw": "Sep 30  to  Oct 1 | Sep 30 – Oct 1 | Cabin in Vestvågøy | Waterfront house in Ballstad, Lofoten | 2 bedrooms | , | · | 2 double beds | 2 baths | €288 | Show price breakdown | for 1 night | €288 for 1 night | 4.85 out of 5 average rating, 54 reviews | 4.85 (54)",
+   "url": "https://www.airbnb.com/rooms/1590675851093571996"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "title": "Hopen Sea Lodge - Seafront, secluded, no neighbors",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 4,
+   "total_eur": 3809,
+   "rating": "5.0",
+   "raw": "Sep 29  to  Oct 3 | Sep 29 – Oct 3 | Cabin in Vågan | Hopen Sea Lodge - Seafront, secluded, no neighbors | 4 bedrooms | , | · | 11 beds | 2 baths | €3,809 | Show price breakdown | for 4 nights | €3,809 for 4 nights | 5.0 out of 5 average rating, 137 reviews | 5.0 (137)",
+   "url": "https://www.airbnb.com/rooms/602481187962603978"
+  },
+  {
+   "kind": "Oct 1  to  3",
+   "title": "Guest suite in Flakstad",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 740,
+   "rating": "4.93",
+   "raw": "Oct 1  to  3 | Oct 1 – 3 | Guest suite in Flakstad | where the ocean meets land | 2 bedrooms | , | · | 4 beds | 2 baths | €814 | €740 | Show price breakdown | for 2 nights | 4.93 out of 5 average rating, 205 reviews | 4.93 (205)",
+   "url": "https://www.airbnb.com/rooms/43494853"
+  },
+  {
+   "kind": "Villa in Flakstad",
+   "title": "The Chess House Lofoten - Luxury Arctic Villa",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 546,
+   "rating": null,
+   "raw": "Villa in Flakstad | The Chess House Lofoten - Luxury Arctic Villa | 4 bedrooms | , | · | 6 beds | 2 baths | €733 | €546 | Show price breakdown | for 2 nights | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1702749792011069585"
+  },
+  {
+   "kind": "Home in Flakstad",
+   "title": "Show price breakdown",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": "4.67",
+   "raw": "Superhost | Home in Flakstad | Nubben | 4 bedrooms | , | · | 4 beds | 2 baths | €533 | Show price breakdown | for 2 nights | €533 for 2 nights | Pay €0 today | Free cancellation | 4.67 out of 5 average rating, 3 reviews | 4.67 (3)",
+   "url": "https://www.airbnb.com/rooms/1637950426929891042"
+  },
+  {
+   "kind": "Apartment in Vågan",
+   "title": "Modern sea front apartment in Henningsvær sleeps 8",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 624,
+   "rating": "4.83",
+   "raw": "Apartment in Vågan | Modern sea front apartment in Henningsvær sleeps 8 | 2 bedrooms | , | · | 5 beds | 2 baths | €781 | €624 | Show price breakdown | for 2 nights | 4.83 out of 5 average rating, 114 reviews | 4.83 (114)",
+   "url": "https://www.airbnb.com/rooms/49141183"
+  },
+  {
+   "kind": "Apartment in Vestvågøy",
+   "title": "Show price breakdown",
+   "bedrooms": 2,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 814,
+   "rating": null,
+   "raw": "Apartment in Vestvågøy | Gjermundsøya Jetty | 2 bedrooms | , | · | 2 queen beds | 2 baths | €814 | Show price breakdown | for 2 nights | €814 for 2 nights | New place to stay | New",
+   "url": "https://www.airbnb.com/rooms/1746318660533153998"
+  }
+ ]
+}

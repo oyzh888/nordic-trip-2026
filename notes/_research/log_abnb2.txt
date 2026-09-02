@@ -1,0 +1,10 @@
+reykjavik-0925: 22 listings, 11 with 3+ bedrooms
+southcoast-0926: 5 listings, 4 with 3+ bedrooms
+glacierlagoon-0927: 0 listings, 0 with 3+ bedrooms
+keflavik-0928: 7 listings, 6 with 3+ bedrooms
+borgarnes-0928: 8 listings, 7 with 3+ bedrooms
+lofoten-west-0930: 24 listings, 21 with 3+ bedrooms
+lofoten-east-0930: 24 listings, 21 with 3+ bedrooms
+tromso-1003: 22 listings, 17 with 3+ bedrooms
+gardermoen-0924: 9 listings, 8 with 3+ bedrooms
+gardermoen-0929: 9 listings, 8 with 3+ bedrooms

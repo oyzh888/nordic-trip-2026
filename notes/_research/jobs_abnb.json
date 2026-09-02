@@ -1,0 +1,14 @@
+[
+{"slug":"reykjavik-0925","place":"Reykjavik, Iceland","checkin":"2026-09-25","checkout":"2026-09-26"},
+{"slug":"vik-0926","place":"Vik, Iceland","checkin":"2026-09-26","checkout":"2026-09-27"},
+{"slug":"hvolsvollur-0926","place":"Hvolsvollur, Iceland","checkin":"2026-09-26","checkout":"2026-09-27"},
+{"slug":"hofn-0927","place":"Hofn, Iceland","checkin":"2026-09-27","checkout":"2026-09-28"},
+{"slug":"klaustur-0927","place":"Kirkjubaejarklaustur, Iceland","checkin":"2026-09-27","checkout":"2026-09-28"},
+{"slug":"keflavik-0928","place":"Keflavik, Iceland","checkin":"2026-09-28","checkout":"2026-09-29"},
+{"slug":"borgarnes-0928","place":"Borgarnes, Iceland","checkin":"2026-09-28","checkout":"2026-09-29"},
+{"slug":"svolvaer-0930","place":"Svolvaer, Norway","checkin":"2026-09-30","checkout":"2026-10-02"},
+{"slug":"reine-0930","place":"Reine, Norway","checkin":"2026-09-30","checkout":"2026-10-02"},
+{"slug":"leknes-0930","place":"Leknes, Norway","checkin":"2026-09-30","checkout":"2026-10-02"},
+{"slug":"tromso-1003","place":"Tromso, Norway","checkin":"2026-10-03","checkout":"2026-10-06"},
+{"slug":"gardermoen-0924","place":"Gardermoen, Norway","checkin":"2026-09-24","checkout":"2026-09-25"}
+]

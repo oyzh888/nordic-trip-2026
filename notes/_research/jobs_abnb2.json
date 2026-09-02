@@ -1,0 +1,12 @@
+[
+{"slug":"reykjavik-0925","place":"Reykjavik, Iceland","checkin":"2026-09-25","checkout":"2026-09-26","bbox":[64.09,-22.05,64.18,-21.78],"zoom":12},
+{"slug":"southcoast-0926","place":"Vik, Iceland","checkin":"2026-09-26","checkout":"2026-09-27","bbox":[63.38,-20.40,63.90,-18.75],"zoom":9},
+{"slug":"glacierlagoon-0927","place":"Hofn, Iceland","checkin":"2026-09-27","checkout":"2026-09-28","bbox":[63.72,-18.20,64.40,-15.05],"zoom":8},
+{"slug":"keflavik-0928","place":"Keflavik, Iceland","checkin":"2026-09-28","checkout":"2026-09-29","bbox":[63.92,-22.80,64.08,-22.20],"zoom":11},
+{"slug":"borgarnes-0928","place":"Borgarnes, Iceland","checkin":"2026-09-28","checkout":"2026-09-29","bbox":[64.28,-22.45,64.80,-21.45],"zoom":10},
+{"slug":"lofoten-west-0930","place":"Reine, Norway","checkin":"2026-09-30","checkout":"2026-10-02","bbox":[67.75,12.85,68.32,14.05],"zoom":9},
+{"slug":"lofoten-east-0930","place":"Svolvaer, Norway","checkin":"2026-09-30","checkout":"2026-10-02","bbox":[68.05,13.95,68.35,14.85],"zoom":10},
+{"slug":"tromso-1003","place":"Tromso, Norway","checkin":"2026-10-03","checkout":"2026-10-06","bbox":[69.60,18.80,69.75,19.20],"zoom":12},
+{"slug":"gardermoen-0924","place":"Gardermoen, Norway","checkin":"2026-09-24","checkout":"2026-09-25","bbox":[60.05,10.90,60.35,11.35],"zoom":11},
+{"slug":"gardermoen-0929","place":"Gardermoen, Norway","checkin":"2026-09-29","checkout":"2026-09-30","bbox":[60.05,10.90,60.35,11.35],"zoom":11}
+]

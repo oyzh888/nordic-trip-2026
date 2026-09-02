@@ -1,0 +1,11 @@
+{
+ "job": {
+  "slug": "tromso-test",
+  "ss": "Tromso, Norway",
+  "checkin": "2026-10-03",
+  "checkout": "2026-10-06",
+  "scrolls": 3
+ },
+ "url": "https://www.booking.com/searchresults.html?ss=Tromso%2C+Norway&checkin=2026-10-03&checkout=2026-10-06&group_adults=4&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us&order=price",
+ "rows": []
+}

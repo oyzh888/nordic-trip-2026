@@ -1,0 +1,5 @@
+[
+ {"slug":"iceland-kef-4d","pickup":"Keflavik Airport","pick_date":"2026-09-26","pick_time":"09:00","drop_date":"2026-09-29","drop_time":"18:00"},
+ {"slug":"lofoten-eve-svolvaer","pickup":"Evenes Harstad Narvik Airport","dropoff":"Svolvaer","pick_date":"2026-09-30","pick_time":"11:00","drop_date":"2026-10-02","drop_time":"17:00"},
+ {"slug":"tromso-1day","pickup":"Tromso Airport","pick_date":"2026-10-05","pick_time":"07:00","drop_date":"2026-10-05","drop_time":"21:00"}
+]

@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/no/sakrisoy-rorbuer.html?checkin=2026-09-30&checkout=2026-10-02&group_adults=4&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "sakrisoy-rorbuer",
+  "hotel": "no/sakrisoy-rorbuer",
+  "checkin": "2026-09-30",
+  "checkout": "2026-10-02",
+  "adults": 4,
+  "rooms": 1
+ }
+}

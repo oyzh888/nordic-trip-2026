@@ -1,0 +1,88 @@
+{
+ "job": {
+  "slug": "vik-0926",
+  "place": "Vik, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27"
+ },
+ "url": "https://www.airbnb.com/s/Vik--Iceland/homes?checkin=2026-09-26&checkout=2026-09-27&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en",
+ "rows": [
+  {
+   "kind": "Home in Vestmannaeyjar",
+   "title": "Ofanleiti - amazing view",
+   "bedrooms": 3,
+   "baths": 2.5,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.87",
+   "raw": "Guest favorite | Home in Vestmannaeyjar | Ofanleiti - amazing view | 3 bedrooms | , | · | 7 beds | 2.5 baths | €604 | Show price breakdown | for 1 night | €604 for 1 night | Pay €0 today | Free cancellation | 4.87 out of 5 average rating, 15 reviews | 4.87 (15)",
+   "url": "https://www.airbnb.com/rooms/1676684443269632477"
+  },
+  {
+   "kind": "Villa in Laugarás",
+   "title": "Luxury villa with a river view in south Iceland",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.97",
+   "raw": "Guest favorite | Villa in Laugarás | Luxury villa with a river view in south Iceland | 4 bedrooms | , | · | 8 beds | 2 baths | €1,130 | Show price breakdown | for 1 night | €1,130 for 1 night | Pay €0 today | Free cancellation | 4.97 out of 5 average rating, 79 reviews | 4.97 (79)",
+   "url": "https://www.airbnb.com/rooms/16405983"
+  },
+  {
+   "kind": "Apartment in Selfoss",
+   "title": "SAGA Circle Villas - 4 Bedroom for 8 Guests",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 710,
+   "rating": "4.63",
+   "raw": "Apartment in Selfoss | SAGA Circle Villas - 4 Bedroom for 8 Guests | 4 bedrooms | , | · | 5 beds | 2 baths | €710 | Show price breakdown | for 1 night | €710 for 1 night | 4.63 out of 5 average rating, 19 reviews | 4.63 (19)",
+   "url": "https://www.airbnb.com/rooms/1436904884144380348"
+  },
+  {
+   "kind": "Farm stay in Selfoss",
+   "title": "Kjarnholt Farm By Náttúra Studio",
+   "bedrooms": 10,
+   "baths": 3.0,
+   "nights": 1,
+   "total_eur": 1370,
+   "rating": null,
+   "raw": "Farm stay in Selfoss | Kjarnholt Farm By Náttúra Studio | 10 bedrooms | , | · | 22 beds | 3 baths | €1,601 | €1,370 | Show price breakdown | for 1 night | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1696263355566324106"
+  },
+  {
+   "kind": "Home in Hella",
+   "title": "Lake house with two hot pools and glacier view",
+   "bedrooms": 2,
+   "baths": 3.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Hella | Lake house with two hot pools and glacier view | 2 bedrooms | , | · | 2 beds | 3 baths | €3,956 | Show price breakdown | for 1 night | €3,956 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1707213711579879176"
+  },
+  {
+   "kind": "Home in Klausturholar",
+   "title": "Mossberg Luxury Villa",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Klausturholar | Mossberg Luxury Villa | 3 bedrooms | , | · | 3 beds | 2 baths | €682 | Show price breakdown | for 1 night | €682 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1188028566062198414"
+  },
+  {
+   "kind": "Cabin in Rangárþing ytra",
+   "title": "Aurora Guesthouse - Large Cabin - Private forest",
+   "bedrooms": 12,
+   "baths": 6.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "3.67",
+   "raw": "Cabin in Rangárþing ytra | Aurora Guesthouse - Large Cabin - Private forest | 12 bedrooms | , | · | 23 beds | 6 baths | €846 | Show price breakdown | for 1 night | €846 for 1 night | Pay €0 today | Free cancellation | 3.67 out of 5 average rating, 3 reviews | 3.67 (3)",
+   "url": "https://www.airbnb.com/rooms/1064646067856977563"
+  }
+ ]
+}
