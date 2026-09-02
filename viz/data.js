@@ -47,7 +47,9 @@ const P = {
 /* ---------- 住宿详情页链接（点了直接跳） ----------
  * Airbnb 用 rooms/<id> 并带上我们真实的入住日期；
  * 酒店用 Booking 物业页并带 checkin/checkout/2 间房/4 人/EUR。
- * ⚠️ Thon Gardermoen 那条是**搜索链接**（Booking 的 slug 猜不出来，只能采；这家还没采过）。
+ * ✅ 2026-09-02：Thon Gardermoen / Clarion / Scandic Oslo Airport 的 slug 已采到
+ *    （no/thon-gardermoen · no/clarion-oslo-airport · no/scandic-oslo-airport），
+ *    三条都从搜索链接换成了真正的物业页。
  */
 const U = {
   nannestad:  'https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-09-24&check_out=2026-09-25&adults=4&currency=EUR',
@@ -60,8 +62,10 @@ const U = {
   vagan:      'https://www.airbnb.com/rooms/1362321193877972891?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
   ramberg:    'https://www.airbnb.com/rooms/1170849828585814519?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
   houseboat:  'https://www.airbnb.com/rooms/1607078897559083655?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR',
-  thon:       'https://www.booking.com/searchresults.html?ss=Thon+Hotel+Gardermoen&checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
-  scandicosl: 'https://www.booking.com/searchresults.html?ss=Scandic+Oslo+Airport&checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
+  clarion:    'https://www.booking.com/hotel/no/clarion-oslo-airport.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
+  thon:       'https://www.booking.com/hotel/no/thon-gardermoen.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
+  scandicosl: 'https://www.booking.com/hotel/no/scandic-oslo-airport.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
+  parkinn:    'https://www.booking.com/hotel/no/park-inn-oslo-airport.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
   dcars:      'https://www.discovercars.com/'
 };
 
@@ -316,12 +320,14 @@ const DAYS = [
            {n:'OSL',c:P.osl},{n:'（若 10/7 才飞北京）Nannestad / Thon Gardermoen',c:P.nannestad}],
     legs:[{k:'drive',pts:[P.houseboat,P.tromso,P.tosair]},{k:'fly',from:P.tosair,to:P.osl}],
     drive:'船屋 → TOS 机场 15 min',
-    stay:{name:'🅿️ 占位：Thon Hotel Gardermoen ×2 间（只在需要时才订）',type:'占位 · 酒店',rb:'2 房 / 2 卫',
-          price:'€172–280（≈¥1,376–2,240）· **未计入总账**',cxl:'✅ 退到 9/23',
-          url:U.thon, pt:P.nannestad, place:'OSL 机场旁（占位，等 Kevin 机票日期）',
+    stay:{name:'🅿️ 占位：Clarion Hotel Oslo Airport ×2 Standard Double（只在需要时才订）',type:'占位 · 酒店',rb:'2 房 / 2 卫',
+          price:'€86/间 +12% VAT = €193（≈¥1,544 · ¥772/房）· **未计入总账**',cxl:'✅ 退到 **10/5**',
+          url:U.clarion, pt:P.nannestad, place:'OSL 机场旁（占位，等 Kevin 机票日期）',
           note:'🔴 **这一晚是条件性的**：若 Kevin 的 Oslo→北京 是 **10/6** 起飞就不需要；若是 **10/7** '+
-               '就要多住第 13 晚。按你说的「不确定就先填个酒店」，这里先占 Thon Gardermoen（可退）。'+
-               '也可以订同一家 <a href="'+U.nannestad+'" target="_blank">Nannestad Airbnb</a>（+€260，但不可退）'},
+               '就要多住第 13 晚。2026-09-02 把机场旁四家全抓了一遍，**Clarion 是最便宜的可退档，而且退到 10/5** '+
+               '（正好晚于「Kevin 该回信」的时间）→ 占位换成它。'+
+               '想退得更晚就用 <a href="'+U.parkinn+'" target="_blank">Radisson（退到当天 18:00，€157/间）</a>；'+
+               '第 07 节列了全部 5 个选项'},
     spend:{}, supply:'amber',
     hi:['TOS→OSL 常见班次很多，还车 10:00 后从容','若当天直飞北京，行程在这里结束'],
     watch:['🔴 等 Kevin 确认 Oslo→北京 是 10/6 还是 10/7（见 B2）—— 这是唯一还会改结构的一条']
@@ -338,7 +344,7 @@ const STAYTAB = [
   {d:'9/29',       place:'Oslo Gardermoen', name:'同 9/24 · Nannestad',              url:U.nannestad2,type:'Airbnb', rb:'3房/5床/2卫', tot:'€260',  room:'1,040', cxl:'⛔ 不可退'},
   {d:'9/30–10/1',  place:'罗弗敦东侧 Vågan', name:'Waterfront Nordic house ★4.93',    url:U.vagan,     type:'Airbnb', rb:'5房/8床/2卫', tot:'€602→€553/2晚', room:'1,106', cxl:'✅ 24h / 9/23'},
   {d:'10/2–10/5',  place:'特罗姆瑟',         name:'Houseboat "Grosso" ★5.0',          url:U.houseboat, type:'Airbnb', rb:'3房/7床/3卫', tot:'€1,818→€1,033/4晚', room:'1,033', cxl:'✅ 24h'},
-  {d:'10/6',       place:'（条件性）奥斯陆',  name:'🅿️ 占位 Thon Hotel Gardermoen ×2', url:U.thon,      type:'占位',   rb:'2 房 2 卫',   tot:'€172–280', room:'688–1,120', cxl:'✅ 9/23'}
+  {d:'10/6',       place:'（条件性）奥斯陆',  name:'🅿️ 占位 Clarion Oslo Airport ×2',   url:U.clarion,   type:'占位',   rb:'2 房 2 卫',   tot:'€193 含 VAT', room:'772', cxl:'✅ 10/5'}
 ];
 
 /* ---------- 我替你做的两个决定 ---------- */
@@ -455,9 +461,10 @@ const PROV = [
 ];
 
 const PITFALLS = [
-  '🔴 <b>Airbnb 搜索卡片会撒谎</b>：4 个候选在搜索页有价、打开房源页却是 "Those dates are not available"（换干净浏览器复现过，不是反爬）。其中 2 个原本是 🥇 首选 —— 直接照搜索结果下单会以为订到了。<b>必须逐个开房源页复核。</b>',
+  '🔴 <b>Airbnb 搜索卡片会撒谎，而且比想象的严重</b>：2026-09-02 又把 23 个候选逐个开了房源页，<b>10 个订不到 —— 5 个「Those dates are not available」+ 5 个 min-stay 2 晚</b>（换干净浏览器复现过，不是反爬）。加上前一轮的 4 个，<b>累计 9 个房源在搜索页有价、实际订不到</b>，其中 2 个原本是 🥇 首选。第 07 节的「实测」列就是为这件事存在的。',
   '🔴 <b>Booking 的房价行是「每间每晚」，不是「两间总价」</b>。我一开始记错了，导致所有酒店的 ¥/房 少算一半。三条独立证据：<code>no_rooms=1</code> 与 <code>no_rooms=2</code> 抓回的数字完全一样；截图里明写 "1 room / We have 1 left"；Árnanes 的 "Select Rooms" 下拉框写着 1→€276 / 2→€553。',
-  '🔴 <b>冰岛酒店报价不含税</b>：页面小字写 "Excluded: 11 % VAT, ISK 800 / €6 City tax per night"。真实支出比标价高 11%+。挪威和 Airbnb 的价是含税含清洁费的（东侧那套还明写 "Prices include all fees"）。',
+  '🔴 <b>冰岛酒店报价不含税</b>：页面小字写 "Excluded: 11 % VAT, ISK 800 / €6 City tax per night"。真实支出比标价高 11%+。',
+  '🔴 <b>2026-09-02 新发现的自我修正：挪威酒店的 Booking 房价行也不含税</b> —— 每一行都写着 "Excluded: 12 % VAT"。我之前说过「挪威的价是含税的」，<b>那句只对 Airbnb 成立，对 Booking 上的挪威酒店是错的</b>。第 07 节所有挪威酒店/公寓的 ¥ 都已 ×1.12 重算（例：Thon Polar €153/间/晚 → 实际 ¥1,371/房而不是 ¥1,224）。Airbnb 仍然是全含（东侧那套明写 "Prices include all fees"）。',
   '<b>剩余间数要单独看</b>：一家酒店「有房」不等于「有 2 间」。Fosshotel Glacier Lagoon 和 Boutique Hotel Anna 都是 "We have 1 left" —— 凑第 2 间就跳到更贵的房型，直接顶破预算。',
   'Airbnb 不锁经纬度框就会把「Vík」搜成 2.5 小时外的 Selfoss，返回一堆看起来合格实际开不到的房源。',
   'DiscoverCars 首页表单点日历点不动（react-date-range），日期没生效 → 拿到的是默认 9/04–9/12 的价，看起来正常其实全错。<b>每次都要回读页面上的日期。</b>'
@@ -602,4 +609,108 @@ const CARFIX = [
   {was:'挪威「拆两段省 <b>$107</b>」（EVE→TOS 3 天 $440 + 特罗姆瑟 3 天 $215 = $655 vs $762）',
    now:'❌ <b>算错了 —— 那是拿纯电的价去比燃油车的价。</b>同档（燃油 4WD 自动）重算：<b>$568 + $222 = $790 vs 一台车 $762 → 拆开反而贵 $28</b>',
    why:'结论没变（不拆），但理由更强：拆开<b>既更贵又更麻烦</b>，而且中间 10/3 那天没车。原来的「省 $107 但不值」其实根本没省'}
+];
+
+/* ================================================================
+ *  每晚候选池 —— 「一起选」用的那张表
+ *  2026-09-02 全部重抓：23 个 Airbnb 房源页 + 10 家 Booking 物业页。
+ *
+ *  v（实测状态）三档，这是全表最重要的一列：
+ *    'ok'     房源页/房型页已核 —— 用我们的真实日期打开过，确认能订
+ *    'search' 只有搜索页/旧抓的价 —— 能不能订**没验证过**
+ *    'dead'   已验证订不到（留着是为了别再回头看）
+ *
+ *  cny  = 这个住宿块（整段晚数）的 4 人总价，¥，**税费已按国别补齐**
+ *  room = ¥/房/晚。整套房源一律按保守的 ÷2 房；酒店 = 每间每晚 × 2 间。
+ *  🔴 挪威 Booking 房型行写着 "Excluded: 12 % VAT" → 本表挪威酒店价**已 ×1.12**。
+ *     冰岛是 11% VAT + €6/间/晚城市税，也已加。Airbnb 全含（页面明写含所有费用）。
+ * ================================================================ */
+const A = (id,ci,co) => `https://www.airbnb.com/rooms/${id}?check_in=${ci}&check_out=${co}&adults=4&currency=EUR`;
+const B = (slug,ci,co,rooms) => `https://www.booking.com/hotel/${slug}.html?checkin=${ci}&checkout=${co}&group_adults=4&no_rooms=${rooms||2}&selected_currency=EUR`;
+
+const CANDS = [
+{ g:'G1', d:'9/24 四', n:1, place:'Oslo Gardermoen（落地就睡）', note:'当晚 21:30 落地，只求近 + 有 2 卫。三个 3–4 房的 Airbnb 全部实测 min-stay 2 晚 → 订不了。',
+  opts:[
+  {t:'pick', n:'Modern. Quiet area. Large space. · Nannestad', u:A('1616864516592253636','2026-09-24','2026-09-25'), loc:'Nannestad，OSL 车程 20 min', rb:'3房/5床/2卫', p:'€260 / 1晚', cny:2080, room:1040, r:'—', cxl:'⛔ 不可退', v:'ok', why:'唯一能只订 1 晚的 3房2卫，价格碾压。代价是不可退（€260 敞口）'},
+  {t:'alt',  n:'Thon Hotel Gardermoen ×2 间', u:B('no/thon-gardermoen','2026-09-24','2026-09-25'), loc:'机场旁，有班车', rb:'2房/2卫', p:'€86–140/间（+12% VAT）', cny:1541, room:771, r:'—', cxl:'✅ 退到 9/23', v:'search', why:'最便宜的**可退**方案，也是「机票没定就别买不可退」的解。¥ 按下沿 €86 算，实际会在 771–1,254 之间'},
+  {t:'alt',  n:'Clarion Hotel Oslo Airport ×2 间', u:B('no/clarion-oslo-airport','2026-09-24','2026-09-25'), loc:'机场旁', rb:'2房/2卫', p:'€108–126/间（+12% VAT）', cny:1935, room:968, r:'—', cxl:'✅ 退到 9/23', v:'search', why:'比 Thon 贵一点，房间新一些；同样可退'},
+  {t:'dead', n:'A cozy house near Gardermoen · Eidsvoll', u:A('1517311976763731826','2026-09-24','2026-09-25'), loc:'Eidsvoll', rb:'3房/4床/2卫', p:'€426 / 2晚', cny:0, room:0, r:'5.0', cxl:'—', v:'dead', why:'⛔ 房源页明写 **Minimum stay is 2 nights** → 我们只住 1 晚'},
+  {t:'dead', n:'Central Jessheim - 10 min from OSL', u:A('1739223395983398156','2026-09-24','2026-09-25'), loc:'Ullensaker', rb:'4房/5床/2卫', p:'€759 / 2晚', cny:0, room:0, r:'5.0', cxl:'—', v:'dead', why:'⛔ 同样 min-stay 2 晚'},
+  {t:'dead', n:'Semi-detached house · Gjerdrum', u:A('955510432915478016','2026-09-24','2026-09-25'), loc:'Gjerdrum', rb:'2房/2床/2卫', p:'€503 / 2晚', cny:0, room:0, r:'5.0', cxl:'—', v:'dead', why:'⛔ 同样 min-stay 2 晚'}]},
+
+{ g:'G2', d:'9/25 五', n:1, place:'雷克雅未克', note:'🔴 这一晚是本轮最大的修正：之前列在候选池里的两个（Huge Apartment ★4.87、Tower Sóley ★4.9）**打开房源页发现都订不到**。',
+  opts:[
+  {t:'pick', n:'Aurora view 3BR 2BATH Luxury down town', u:A('1729852848905770040','2026-09-25','2026-09-26'), loc:'雷市市中心，走路吃饭', rb:'3房/3床/2卫', p:'€647→€447 / 1晚', cny:3576, room:1788, r:'5.0', cxl:'✅ 24h 内免费 · 9/18 前部分退', v:'ok', why:'€647 打到 €447，★5.0，市中心。抓到的最大折扣之一'},
+  {t:'alt',  n:'3BR 2BA · Garðabær', u:A('1329176066208833432','2026-09-25','2026-09-26'), loc:'Garðabær，市区南 15 min', rb:'3房/2卫', p:'€337 / 1晚', cny:2696, room:1348, r:'—', cxl:'—', v:'search', why:'**最便宜**，但只有搜索页的价 —— 这一晚已经有两个搜索页骗过我们，订前必须先开房源页'},
+  {t:'alt',  n:'Mani Apartments - Four Bedroom', u:A('639631862185278229','2026-09-25','2026-09-26'), loc:'雷市', rb:'4房/9床/3卫', p:'€962 flex / €961 非退', cny:7696, room:3848, r:'4.51', cxl:'✅ 24h 内免费', v:'ok', why:'实测能订、**3 个卫生间 + 9 张床**，但 ¥3,848/房已到预算上沿，评分也只有 4.51'},
+  {t:'dead', n:'Huge Apartment - Best Location', u:A('1164355089969462702','2026-09-25','2026-09-26'), loc:'雷市市中心', rb:'4房/6床/2卫', p:'€535（搜索页）', cny:0, room:0, r:'4.87', cxl:'—', v:'dead', why:'⛔ **2026-09-02 实测：Those dates are not available。** 搜索页仍在报 €535 —— 这就是不能照搜索卡片下单的原因'},
+  {t:'dead', n:'Tower Apartments - Sóley', u:A('35826875','2026-09-25','2026-09-26'), loc:'雷市', rb:'2房/3床/2卫', p:'€677（搜索页）', cny:0, room:0, r:'4.9', cxl:'—', v:'dead', why:'⛔ 同样 **日期不可用**（本轮新发现）'}]},
+
+{ g:'G3', d:'9/26 六', n:1, place:'南岸 Hvolsvöllur / Vík', note:'全程供给最紧的一晚。冰岛南岸乡下**基本不接 1 晚** → 4 个 Airbnb 全灭，只能酒店 2 间房。',
+  opts:[
+  {t:'pick', n:'Hotel Hvolsvöllur ×2 Double/Twin', u:B('is/hvolvollur','2026-09-26','2026-09-27'), loc:'Hvolsvöllur，正在两个瀑布中间', rb:'2房/2卫', p:'€326 + 税 = €374', cny:2992, room:1496, r:'—', cxl:'✅ 退到 9/24 · **到店付**', v:'ok', why:'页面写 "We have 2 left" —— 正好我们要的数量。到店付 = 零风险。含早、有 hot tub'},
+  {t:'alt',  n:'Hotel Katla ×2 间（Vík 镇内）', u:'https://www.booking.com/searchresults.html?ss=Hotel+Katla+Vik&checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR', loc:'Vík 镇内，省次日 1h15 回头路', rb:'2房/2卫', p:'€615–683/间 + 税', cny:11016, room:5508, r:'—', cxl:'—', v:'search', why:'🔴 **超预算 ¥5,508/房**。唯一价值是「住在 Vík 就不用第二天往东多开 1h15」—— 为了这 1h15 多花 ¥8,000，我不建议'},
+  {t:'dead', n:'Hlíðarból Guest House', u:A('1554437248972293986','2026-09-26','2026-09-27'), loc:'Hvolsvöllur', rb:'5房/2卫', p:'€750（搜索页）', cny:0, room:0, r:'4.64', cxl:'—', v:'dead', why:'⛔ 房源页 **日期不可用**（截图 x2）。原本是这一晚的 🥇'},
+  {t:'dead', n:'4BR/2BA · Hvolsvöllur', u:A('1081195144537663933','2026-09-26','2026-09-27'), loc:'Hvolsvöllur', rb:'4房/4床/2卫', p:'€2,089 / 2晚', cny:0, room:0, r:'4.8', cxl:'—', v:'dead', why:'⛔ 实测 **min-stay 2 晚**，而且 ¥4,178/房本来就超预算'},
+  {t:'dead', n:'Boutique Hotel Anna（Holt）', u:'https://www.booking.com/searchresults.html?ss=Boutique+Hotel+Anna+Iceland&checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR', loc:'Holt', rb:'4 人套房', p:'€664', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ Double/Twin 只剩 1 间；4 人套房便宜但**只有 1 个卫生间**（等于两个男生睡客厅）'}]},
+
+{ g:'G4', d:'9/27 日', n:1, place:'冰河湖一带（Höfn）', note:'Airbnb 在 Höfn–Jökulsárlón–Skaftafell 一带返回 **0 个** 2房2卫整套房源 → 这一晚只有酒店。',
+  opts:[
+  {t:'pick', n:'Árnanes Sveitagisting ×2 Double/Twin 私卫', u:B('is/arnanes-sveitagisting','2026-09-27','2026-09-28'), loc:'Höfn 西，离冰河湖 ~45 min', rb:'2房/2卫', p:'€553 + 税 = €626', cny:5008, room:2504, r:'—', cxl:'✅ 退到 9/20 · 9/18 前不付钱', v:'ok', why:'还有 4 间、含早、页面明写**可要相连的两间**。换来冰河湖看两次 + Stokksnes 只 15 min'},
+  {t:'alt',  n:'Árnanes ×2 Triple 私卫', u:B('is/arnanes-sveitagisting','2026-09-27','2026-09-28'), loc:'同上', rb:'2房/2卫（3 人房）', p:'€770 + 税 ≈ €867', cny:6936, room:3468, r:'—', cxl:'✅ 退到 9/20', v:'ok', why:'同一家的大房型 —— 只有「想睡宽一点」才值得多 ¥1,900'},
+  {t:'alt',  n:'Fosshotel Vatnajökull ×2 Mountain View', u:B('is/vatnajokull','2026-09-27','2026-09-28'), loc:'Höfn 镇，离冰河湖 ~55 min', rb:'2房/2卫', p:'€776 含税', cny:6208, room:3104, r:'—', cxl:'✅ 退到 **9/25**', v:'ok', why:'想住「正规连锁」而不是乡村 guesthouse 就选这个。退改期还更晚，只剩 2 间'},
+  {t:'dead', n:'Fosshotel Glacier Lagoon（离湖 10 min）', u:'https://www.booking.com/searchresults.html?ss=Fosshotel+Glacier+Lagoon&checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR', loc:'冰河湖旁 10 min', rb:'需 2 间', p:'凑 2 间 €1,194 含税', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ Standard **只剩 1 间**（截图 x3），凑 2 间 = **¥4,776/房超预算**。是被算术排除的，不是被口味排除的'},
+  {t:'dead', n:'Hótel Klaustur / Magma / Laki', u:'https://www.booking.com/searchresults.html?ss=Kirkjubaejarklaustur&checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR', loc:'Kirkjubæjarklaustur，更远', rb:'—', p:'€713–1,264', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ 多数只剩 1 间，而且离冰河湖更远'}]},
+
+{ g:'G5', d:'9/28 一', n:1, place:'Reykjanesbær / Njarðvík（KEF 旁）', note:'✅ 这一晚**三个都实测能订**，是全程最没风险的一晚 —— 可以最后再订。',
+  opts:[
+  {t:'pick', n:'3BR/2BA ★4.92 · Reykjanesbær', u:A('1231709933827491677','2026-09-28','2026-09-29'), loc:'KEF 旁，次日 05:30 出发跑斯奈山最顺', rb:'3房/4床/2卫', p:'€424 / 1晚', cny:3392, room:1696, r:'4.92', cxl:'✅ 24h 内免费', v:'ok', why:'最便宜 + 评分最高的组合'},
+  {t:'alt',  n:'3BR/2BA ★4.91 · Reykjanesbær', u:A('1302095139759149342','2026-09-28','2026-09-29'), loc:'同区', rb:'3房/3床/2卫', p:'€498 / 1晚', cny:3984, room:1992, r:'4.91', cxl:'✅ 24h 内免费', v:'ok', why:'实测能订。比 🥇 贵 €74、床还少一张 —— 纯备胎'},
+  {t:'alt',  n:'Cozy home in Njardvik', u:A('1468029290775302593','2026-09-28','2026-09-29'), loc:'Njarðvík，KEF 5 min', rb:'4房/4床/2卫', p:'€445 flex / €444 非退', cny:3560, room:1780, r:'4.54', cxl:'✅ 24h 内免费', v:'ok', why:'**离机场最近**（4 个人一人一间房）。代价是评分 4.54 偏低'}]},
+
+{ g:'G6', d:'9/29 二', n:1, place:'Oslo Gardermoen（冰岛飞回来）', note:'和 9/24 同一批。唯一那个 2 晚起的 Airbnb 也实测 min-stay 2 → 灭。',
+  opts:[
+  {t:'pick', n:'同 9/24 那套 · Nannestad', u:A('1616864516592253636','2026-09-29','2026-09-30'), loc:'Nannestad', rb:'3房/5床/2卫', p:'€260 / 1晚', cny:2080, room:1040, r:'—', cxl:'⛔ 不可退', v:'ok', why:'两晚订同一家，最省事也最便宜。**但两晚合起来是 €520 不可退敞口** → 等 Kevin 机票定了再订'},
+  {t:'alt',  n:'Thon Hotel Gardermoen ×2 间', u:B('no/thon-gardermoen','2026-09-29','2026-09-30'), loc:'机场旁', rb:'2房/2卫', p:'€86–140/间（+12% VAT）', cny:1541, room:771, r:'—', cxl:'✅ 退到 9/28', v:'search', why:'可退，而且**可能比 Airbnb 还便宜**。9/29 是飞机日，住机场旁本身也更合理'},
+  {t:'alt',  n:'Scandic Oslo Airport ×2 间', u:B('no/scandic-oslo-airport','2026-09-29','2026-09-30'), loc:'机场旁', rb:'2房/2卫', p:'€141–188/间（+12% VAT）', cny:2526, room:1263, r:'—', cxl:'✅ 退到 9/28', v:'search', why:'34 个房型行有货 = 最不会卖光的兜底'},
+  {t:'dead', n:'4BR/2BA · Ullensaker', u:A('1204471771405405295','2026-09-29','2026-09-30'), loc:'Ullensaker', rb:'4房/4床/2卫', p:'€541 / 2晚', cny:0, room:0, r:'4.97', cxl:'—', v:'dead', why:'⛔ 实测 **min-stay 2 晚**'}]},
+
+{ g:'G7', d:'9/30–10/1', n:2, place:'罗弗敦 2 晚', note:'✅ **供给最好的一段：8 个替代全部实测能订。**（另有 3 个搜索页看着能订、实测订不到，列在最后。）东侧 = 10/2 只开 6h30；西侧 = 8h30。',
+  opts:[
+  {t:'pick', n:'Waterfront Nordic house, Vågan ★4.93', u:A('1362321193877972891','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan · EVE→2h30 · 10/2→6h30', rb:'5房/8床/2卫', p:'€602→€553 / 2晚', cny:4424, room:1106, r:'4.93', cxl:'✅ 24h 内免费 · 9/23 前部分退', v:'ok', why:'Guest favorite + Superhost + 页面明写含所有费用。**最便宜 + 能退 + 在东侧**，三样都占'},
+  {t:'alt',  n:'Nordic Lodge Retreat in Lofoten ★4.92', u:A('1303545546783105490','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'4房/8床/2卫', p:'€1,239→€898 / 2晚', cny:7184, room:1796, r:'4.92', cxl:'✅ 24h 内免费 · 9/23 前部分退', v:'ok', why:'同样在东侧、评分同档，房子更「lodge」一点。多花 ¥2,760'},
+  {t:'alt',  n:'The heart of Ramberg ★4.76', u:A('1170849828585814519','2026-09-30','2026-10-02'), loc:'🟠 西侧 Ramberg · EVE→4h（黑天）· 10/2→8h30', rb:'4房/2.5卫', p:'€647 / 2晚', cny:5176, room:1294, r:'4.76', cxl:'⛔ **完全不可退**', v:'ok', why:'想睡在明信片那一侧就选它。代价：贵 €94 + 不可退 + 10/2 要开 8h30（E10 风暴封路很常见 → 最西头 + 不可退是最差组合）'},
+  {t:'alt',  n:'Secluded house · Private swimming pool', u:A('1441200146734024595','2026-09-30','2026-10-02'), loc:'🟡 中部 Vestvågøy', rb:'5房/6床/2卫', p:'€896 / 2晚（非退 €895）', cny:7168, room:1792, r:'4.6', cxl:'✅ 24h 内免费', v:'ok', why:'**有私人泳池** —— 极光季泡池子是很硬的体验。评分 4.6 偏低、位置在中部（东西都要开）'},
+  {t:'alt',  n:'Villa - Havgapet ★5.0', u:A('1259549145786305745','2026-09-30','2026-10-02'), loc:'🟡 中部 Vestvågøy', rb:'7房/7床/2卫', p:'€958 / 2晚（非退 €957）', cny:7664, room:1916, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'★5.0 · 7 间房 —— 4 个人住这个非常空。位置在中部'},
+  {t:'alt',  n:'Functional architecture close to nature ★5.0', u:A('574286379531171221','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'4房/4床/2.5卫', p:'€1,041 / 2晚', cny:8328, room:2084, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'★5.0 + 2.5 卫 + 在东侧 —— 「要好房子又要东侧」的答案。比 🥇 贵 ¥3,900'},
+  {t:'alt',  n:'Valen house in famous Reine ★4.25', u:A('1314514220654606262','2026-09-30','2026-10-02'), loc:'🔴 最西 Moskenes/Reine', rb:'4房/5床/2卫', p:'€1,113 / 2晚', cny:8904, room:2226, r:'4.25', cxl:'✅ 24h 内免费', v:'ok', why:'**就在 Reine**（那张明信片本身）。但评分只有 4.25、最贵那档、10/2 车程最长'},
+  {t:'alt',  n:'Unique group stay next to golf and beach ★5.0', u:A('45665373','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'7房/8床/2.5卫', p:'€1,797→€1,634 / 2晚', cny:13072, room:3268, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'最贵，但仍在预算内。4 个人订 7 间房的农场没什么必要 —— 除非想请客'},
+  {t:'alt',  n:'Nusfjord Arctic Resort · Village Cabin Suite Plus', u:B('no/nusfjord-as','2026-09-30','2026-10-02',1), loc:'🟠 西侧 Nusfjord（离 Ramberg 15 min）', rb:'**2 卫（页面明写）· 卧室数未写**', p:'€743 flex（+12% VAT）', cny:6656, room:1664, r:'—', cxl:'✅ 退到 9/16', v:'search', why:'唯一在 Booking 页面上**明写 2 bathrooms** 的罗弗敦房源。🔴 但 "Suite" 不等于 2 卧 —— **订前必须问卧室数**'},
+  {t:'alt',  n:'Hattvika Lodge · Nordbua #2（3 卧）', u:B('no/hattvika-lodge','2026-09-30','2026-10-02',1), loc:'🟡 Ballstad（中西部）', rb:'3 卧 · **卫生间数未写**', p:'€715 flex（+12% VAT）', cny:6408, room:1602, r:'—', cxl:'✅ 退到 **9/16**', v:'search', why:'真 rorbu 体验、3 卧。🔴 Booking 页面没写几个卫生间 → 「一定要 2 卫」这条它答不上来'},
+  {t:'dead', n:'House with 5 bedrooms overlooking Svolværgeita', u:A('1382960789125435389','2026-09-30','2026-10-02'), loc:'东侧 Vågan', rb:'5房/2卫', p:'€674（搜索页）', cny:0, room:0, r:'4.78', cxl:'—', v:'dead', why:'⛔ 原本的东侧 🥇。房源页 **Those dates are not available**，换干净浏览器复现过（截图 x1）'},
+  {t:'dead', n:"Seafront fisherman's cabin in Lofoten ★4.98", u:A('35072091','2026-09-30','2026-10-02'), loc:'中部 Vestvågøy', rb:'3房/5床/2卫', p:'€900（搜索页）', cny:0, room:0, r:'4.98', cxl:'—', v:'dead', why:'⛔ **2026-09-02 新发现：日期不可用。** ★4.98 的真 rorbu，很可惜'},
+  {t:'dead', n:'where the ocean meets land · Flakstad ★4.93', u:A('43494853','2026-09-30','2026-10-02'), loc:'西侧 Flakstad', rb:'2房/4床/2卫', p:'€740（搜索页）', cny:0, room:0, r:'4.93', cxl:'—', v:'dead', why:'⛔ **本轮新发现：日期不可用。** 顺带一条：即便能订，房东自己住在同一栋房子的另一半（有连通门）'}]},
+
+{ g:'G8', d:'10/2–10/5', n:4, place:'特罗姆瑟 4 晚', note:'🔴 **游轮 pass 掉之后这里是 4 晚（10/2–10/6），不是原来的 3 晚** —— 所以这一组的价全部按 4 晚重抓过。挪威酒店/公寓行**已 ×1.12 补 VAT**。',
+  opts:[
+  {t:'pick', n:'Houseboat "Grosso" ★5.0（住船上）', u:A('1607078897559083655','2026-10-02','2026-10-06'), loc:'特罗姆瑟市区水上', rb:'3房/7床/**3卫**', p:'€1,818→€1,033 / 4晚', cny:8264, room:1033, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'**全程单价最低**，而且卫生间比人多。多住 10/2 那一晚只多付 €208，比另找一晚便宜得多'},
+  {t:'alt',  n:'TA Vervet · Two-Bedroom Apartment', u:B('no/ta-vervet-apartment','2026-10-02','2026-10-06',1), loc:'Vervet 新区，走路到市中心', rb:'2 卧 · **卫生间数未写**', p:'€199/晚 flex（+VAT）= €891', cny:7128, room:891, r:'—', cxl:'✅ 退到 9/18', v:'ok', why:'**唯一比船屋更便宜的**（¥891/房/晚）。🔴 但 Enter/Vervet 的 Two-Bedroom 多为 **1 卫** —— 要 2 卫就得先问'},
+  {t:'alt',  n:'3BR/2BA Tromsø ★4.86', u:A('805864934151694916','2026-10-02','2026-10-06'), loc:'特罗姆瑟', rb:'3房/3床/2卫', p:'€1,645→€1,398 / 4晚（不可退）', cny:11184, room:1398, r:'4.86', cxl:'⛔ 不可退', v:'ok', why:'实测能订。比船屋贵 ¥2,900 且不可退 —— 除非不想住船上'},
+  {t:'alt',  n:'Cozy house on Tomasjord ★5.0', u:A('938536829410600780','2026-10-02','2026-10-06'), loc:'Tomasjord（跨桥，市区 10 min）', rb:'3房/4床/2卫', p:'€1,660→€1,524 / 4晚', cny:12192, room:1524, r:'5.0', cxl:'✅ 24h 内免费 · 9/25 前部分退', v:'ok', why:'★5.0 的独栋 + 可退。要「住陆地上的正常房子」就是这个'},
+  {t:'alt',  n:'5BR/2.5BA Tromsø', u:A('1763946111917505608','2026-10-02','2026-10-06'), loc:'特罗姆瑟', rb:'5房/5床/2.5卫', p:'€1,924→€1,539 / 4晚', cny:12312, room:1539, r:'新房源', cxl:'✅ 24h 内免费 · 9/25 前部分退', v:'ok', why:'房间最多 + 2.5 卫 + 可退。**没有评价**（新房源）是唯一的不确定'},
+  {t:'alt',  n:'Thon Hotel Polar ×2 Standard Double', u:B('no/thon-polar','2026-10-02','2026-10-06'), loc:'市中心', rb:'2房/2卫', p:'€153/间/晚 flex（+VAT）= €1,371', cny:10968, room:1371, r:'—', cxl:'✅ 退到 10/1 · 9/29 前不付钱', v:'ok', why:'最省心的酒店兜底：含早、市中心、退到 10/1。非退档 €133/间/晚 = ¥1,192/房'},
+  {t:'alt',  n:'Scandic Ishavshotel ×2 Twin', u:B('no/scandic-ishavshotel','2026-10-02','2026-10-06'), loc:'港口边（那栋帆船造型的）', rb:'2房/2卫', p:'€183/间/晚 flex（+VAT）= €1,640', cny:13120, room:1640, r:'—', cxl:'✅ 退到 10/1', v:'ok', why:'位置和早餐是特罗姆瑟最好的一档，54 个房型行有货 = 最不会卖光'},
+  {t:'alt',  n:'Enter Viking · Three-Bedroom Apartment', u:B('no/enter-viking-apartments','2026-10-02','2026-10-06',1), loc:'市中心', rb:'3 卧 · 卫生间数未写', p:'€402/晚（+VAT）= €1,802', cny:14416, room:1802, r:'—', cxl:'⛔ 不可退', v:'ok', why:'3 卧整套公寓，但**不可退 + 贵 ¥6,150**。只在别的都没了才考虑'},
+  {t:'dead', n:'Gorgeous views, close to downtown ★4.95', u:A('880420426360588834','2026-10-02','2026-10-06'), loc:'特罗姆瑟', rb:'4房/4床/2卫', p:'€1,600 / 3晚（搜索页）', cny:0, room:0, r:'4.95', cxl:'—', v:'dead', why:'⛔ **本轮新发现：换成 4 晚窗口（10/2–10/6）后日期不可用。** 3 晚时它是能订的 —— 多住 10/2 那一晚的代价之一'},
+  {t:'alt',  n:'The Loft I 4BR/2 Bath ★5.0', u:A('1480974381910568232','2026-10-02','2026-10-06'), loc:'市中心', rb:'4房/5床/2.5卫', p:'€4,405→€2,252 / 4晚', cny:18016, room:2252, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'能订，但 ¥2,252/房 —— 是 🥇 的 2.2 倍。列在这里只为封住「有没有更好的市中心大房子」这个问题'},
+  {t:'dead', n:'Enter Amalie · Three-Bedroom Loft', u:B('no/enter-amalie-apartments','2026-10-02','2026-10-06',1), loc:'市中心', rb:'3 卧', p:'原 €925 / 3晚', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ **已没了** —— 10/2–10/6 整个物业只剩 One-Bedroom（€785/4晚）。它曾是 3 晚方案的 🥇'},
+  {t:'dead', n:'Enter St Elisabeth · Suite ×2 间', u:B('no/enter-st-elisabeth-suites','2026-10-02','2026-10-06'), loc:'市中心，带 spa', rb:'2 套房', p:'€358/间/晚（+VAT）', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ **¥3,208/房超预算**。带 spa，但不值这个价'}]},
+
+{ g:'G9', d:'10/6 二', n:1, place:'（条件性）奥斯陆机场 —— 只在 Kevin 的回程是 10/7 时才需要', note:'🔴 这一晚**没计入总账**，因为它取决于 Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞。四家全部实测有货，选的这个可以退到 10/5 —— 等回信也不亏。',
+  opts:[
+  {t:'pick', n:'Clarion Hotel Oslo Airport ×2 Standard Double', u:B('no/clarion-oslo-airport','2026-10-06','2026-10-07'), loc:'机场旁', rb:'2房/2卫', p:'€86/间 flex（+VAT）= €193', cny:1544, room:772, r:'—', cxl:'✅ 退到 **10/5**', v:'ok', why:'**四家里最便宜的可退档**，而且退到 10/5 —— 正好晚于「Kevin 该回信」的时间。占位就用它'},
+  {t:'alt',  n:'Scandic Oslo Airport ×2 Standard Twin', u:B('no/scandic-oslo-airport','2026-10-06','2026-10-07'), loc:'机场旁', rb:'2房/2卫', p:'€96/间 flex = €215 · 非退 €73/间 = €164', cny:1720, room:860, r:'—', cxl:'✅ 退到 10/5', v:'ok', why:'非退档 ¥656/房 是**全程最便宜的一晚** —— 但只有等 Kevin 确认了才敢买不可退'},
+  {t:'alt',  n:'Thon Hotel Gardermoen ×2 Standard Twin', u:B('no/thon-gardermoen','2026-10-06','2026-10-07'), loc:'机场旁', rb:'2房/2卫', p:'€109/间 flex（+VAT）= €244', cny:1953, room:977, r:'—', cxl:'✅ 退到 10/5', v:'ok', why:'和 9/24 同一家，行李和路线都熟。贵一点'},
+  {t:'alt',  n:'Radisson Hotel & Conference Centre ×2 Standard', u:B('no/park-inn-oslo-airport','2026-10-06','2026-10-07'), loc:'机场旁', rb:'2房/2卫', p:'€157/间（+VAT）= €351', cny:2806, room:1403, r:'—', cxl:'✅ 退到 **当天 18:00**', v:'ok', why:'唯一能**退到当天傍晚**的 —— 如果 Kevin 到最后一刻还没定，这个最保险。19 个房型行有货'},
+  {t:'alt',  n:'同 9/24 那套 Airbnb · Nannestad', u:A('1616864516592253636','2026-10-06','2026-10-07'), loc:'Nannestad', rb:'3房/5床/2卫', p:'€260 / 1晚', cny:2080, room:1040, r:'—', cxl:'⛔ 不可退', v:'search', why:'一间整套房，但**不可退**，而且 10/6 这个日期我**没有复核过**。条件性的一晚买不可退没道理'}]}
 ];

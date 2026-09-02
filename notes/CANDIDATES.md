@@ -1,0 +1,226 @@
+# 每晚候选清单 —— 一起选（表格版）
+
+> 🔴 **这份是 [`viz/index.html`](../viz/index.html) 第 07 节「候选池」的 Markdown 镜像**，
+> 两边同一份数据（`viz/data.js` 的 `CANDS`）。**网页版能点选并当场重算总账**，
+> 这份只是为了能在 git 里 review / 在手机上看。改数字请改 `data.js`，别只改这里。
+>
+> **每行都是实价**，2026-09-01/09-02 用 Playwright 按我们的真实日期抓的。
+> 汇率固定 **€1 = ¥8.0 · NOK 1 = ¥0.67**。
+>
+> **「实测」列是本文最重要的一列** —— Airbnb 搜索卡片会撒谎：23 个候选逐个打开房源页后，
+> **10 个订不到**（5 个「Those dates are not available」+ 5 个 min-stay 2 晚）。
+> `✅ 房源页已核` = 打开过房源页、日期真的放房；`🟠 仅搜索页` = 只在搜索/列表页见过价，**下单前要自己再点一次**。
+>
+> **黑话**：**¥/房/晚**（= 整段总价 ÷ 2 房 ÷ 晚数，一律按保守的 ÷2 算；3 房那几晚实际会更低）·
+> **min-stay**（房东设的最少入住晚数）· **non-ref**（不可退）· **free-cxl**（免费取消截止日）·
+> **VAT**（增值税 —— 🔴 冰岛酒店报价不含 11% + 城市税，**挪威酒店也不含 12%**，下表的 ¥ 都已加过）。
+
+## 我的推荐组合（网页版的默认选中项）
+
+| | |
+|---|---:|
+| 住宿合计（12 晚 · 4 人） | **¥31,816** |
+| 折算 | **¥1,326 / 房 / 晚** |
+| 你的预算 | ¥2,000–4,000 / 房 |
+| 结论 | ✅ 低于下沿 34% |
+| 条件性的 10/6 那一晚（未计入，等 Kevin 机票） | ¥1,544 |
+
+---
+
+## 9/24 四 · Oslo Gardermoen（落地就睡）
+
+> 当晚 21:30 落地，只求近 + 有 2 卫。三个 3–4 房的 Airbnb 全部实测 min-stay 2 晚 → 订不了。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Modern. Quiet area. Large space. · Nannestad](https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-09-24&check_out=2026-09-25&adults=4&currency=EUR) | 3房/5床/2卫 | €260 / 1晚 | **¥1,040** | — | ⛔ 不可退 | ✅ 房源页已核 | Nannestad，OSL 车程 20 min |
+|  | [Thon Hotel Gardermoen ×2 间](https://www.booking.com/hotel/no/thon-gardermoen.html?checkin=2026-09-24&checkout=2026-09-25&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €86–140/间（+12% VAT） | **¥771** | — | ✅ 退到 9/23 | 🟠 仅搜索页 | 机场旁，有班车 |
+|  | [Clarion Hotel Oslo Airport ×2 间](https://www.booking.com/hotel/no/clarion-oslo-airport.html?checkin=2026-09-24&checkout=2026-09-25&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €108–126/间（+12% VAT） | **¥968** | — | ✅ 退到 9/23 | 🟠 仅搜索页 | 机场旁 |
+| ⛔ | ~~A cozy house near Gardermoen · Eidsvoll~~ | 3房/4床/2卫 | €426 / 2晚 | — | 5.0 | — | ⛔ 已验证订不到 | Eidsvoll |
+| ⛔ | ~~Central Jessheim - 10 min from OSL~~ | 4房/5床/2卫 | €759 / 2晚 | — | 5.0 | — | ⛔ 已验证订不到 | Ullensaker |
+| ⛔ | ~~Semi-detached house · Gjerdrum~~ | 2房/2床/2卫 | €503 / 2晚 | — | 5.0 | — | ⛔ 已验证订不到 | Gjerdrum |
+
+- **Modern. Quiet area. Large space. · Nannestad** — 唯一能只订 1 晚的 3房2卫，价格碾压。代价是不可退（€260 敞口）
+- **Thon Hotel Gardermoen ×2 间** — 最便宜的**可退**方案，也是「机票没定就别买不可退」的解。¥ 按下沿 €86 算，实际会在 771–1,254 之间
+- **Clarion Hotel Oslo Airport ×2 间** — 比 Thon 贵一点，房间新一些；同样可退
+- **A cozy house near Gardermoen · Eidsvoll** — ⛔ 房源页明写 **Minimum stay is 2 nights** → 我们只住 1 晚
+- **Central Jessheim - 10 min from OSL** — ⛔ 同样 min-stay 2 晚
+- **Semi-detached house · Gjerdrum** — ⛔ 同样 min-stay 2 晚
+
+## 9/25 五 · 雷克雅未克
+
+> 🔴 这一晚是本轮最大的修正：之前列在候选池里的两个（Huge Apartment ★4.87、Tower Sóley ★4.9）**打开房源页发现都订不到**。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Aurora view 3BR 2BATH Luxury down town](https://www.airbnb.com/rooms/1729852848905770040?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR) | 3房/3床/2卫 | €647→€447 / 1晚 | **¥1,788** | 5.0 | ✅ 24h 内免费 · 9/18 前部分退 | ✅ 房源页已核 | 雷市市中心，走路吃饭 |
+|  | [3BR 2BA · Garðabær](https://www.airbnb.com/rooms/1329176066208833432?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR) | 3房/2卫 | €337 / 1晚 | **¥1,348** | — | — | 🟠 仅搜索页 | Garðabær，市区南 15 min |
+|  | [Mani Apartments - Four Bedroom](https://www.airbnb.com/rooms/639631862185278229?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR) | 4房/9床/3卫 | €962 flex / €961 非退 | **¥3,848** | 4.51 | ✅ 24h 内免费 | ✅ 房源页已核 | 雷市 |
+| ⛔ | ~~Huge Apartment - Best Location~~ | 4房/6床/2卫 | €535（搜索页） | — | 4.87 | — | ⛔ 已验证订不到 | 雷市市中心 |
+| ⛔ | ~~Tower Apartments - Sóley~~ | 2房/3床/2卫 | €677（搜索页） | — | 4.9 | — | ⛔ 已验证订不到 | 雷市 |
+
+- **Aurora view 3BR 2BATH Luxury down town** — €647 打到 €447，★5.0，市中心。抓到的最大折扣之一
+- **3BR 2BA · Garðabær** — **最便宜**，但只有搜索页的价 —— 这一晚已经有两个搜索页骗过我们，订前必须先开房源页
+- **Mani Apartments - Four Bedroom** — 实测能订、**3 个卫生间 + 9 张床**，但 ¥3,848/房已到预算上沿，评分也只有 4.51
+- **Huge Apartment - Best Location** — ⛔ **2026-09-02 实测：Those dates are not available。** 搜索页仍在报 €535 —— 这就是不能照搜索卡片下单的原因
+- **Tower Apartments - Sóley** — ⛔ 同样 **日期不可用**（本轮新发现）
+
+## 9/26 六 · 南岸 Hvolsvöllur / Vík
+
+> 全程供给最紧的一晚。冰岛南岸乡下**基本不接 1 晚** → 4 个 Airbnb 全灭，只能酒店 2 间房。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Hotel Hvolsvöllur ×2 Double/Twin](https://www.booking.com/hotel/is/hvolvollur.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €326 + 税 = €374 | **¥1,496** | — | ✅ 退到 9/24 · **到店付** | ✅ 房源页已核 | Hvolsvöllur，正在两个瀑布中间 |
+|  | [Hotel Katla ×2 间（Vík 镇内）](https://www.booking.com/searchresults.html?ss=Hotel+Katla+Vik&checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €615–683/间 + 税 | **¥5,508** | — | — | 🟠 仅搜索页 | Vík 镇内，省次日 1h15 回头路 |
+| ⛔ | ~~Hlíðarból Guest House~~ | 5房/2卫 | €750（搜索页） | — | 4.64 | — | ⛔ 已验证订不到 | Hvolsvöllur |
+| ⛔ | ~~4BR/2BA · Hvolsvöllur~~ | 4房/4床/2卫 | €2,089 / 2晚 | — | 4.8 | — | ⛔ 已验证订不到 | Hvolsvöllur |
+| ⛔ | ~~Boutique Hotel Anna（Holt）~~ | 4 人套房 | €664 | — | — | — | ⛔ 已验证订不到 | Holt |
+
+- **Hotel Hvolsvöllur ×2 Double/Twin** — 页面写 "We have 2 left" —— 正好我们要的数量。到店付 = 零风险。含早、有 hot tub
+- **Hotel Katla ×2 间（Vík 镇内）** — 🔴 **超预算 ¥5,508/房**。唯一价值是「住在 Vík 就不用第二天往东多开 1h15」—— 为了这 1h15 多花 ¥8,000，我不建议
+- **Hlíðarból Guest House** — ⛔ 房源页 **日期不可用**（截图 x2）。原本是这一晚的 🥇
+- **4BR/2BA · Hvolsvöllur** — ⛔ 实测 **min-stay 2 晚**，而且 ¥4,178/房本来就超预算
+- **Boutique Hotel Anna（Holt）** — ⛔ Double/Twin 只剩 1 间；4 人套房便宜但**只有 1 个卫生间**（等于两个男生睡客厅）
+
+## 9/27 日 · 冰河湖一带（Höfn）
+
+> Airbnb 在 Höfn–Jökulsárlón–Skaftafell 一带返回 **0 个** 2房2卫整套房源 → 这一晚只有酒店。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Árnanes Sveitagisting ×2 Double/Twin 私卫](https://www.booking.com/hotel/is/arnanes-sveitagisting.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €553 + 税 = €626 | **¥2,504** | — | ✅ 退到 9/20 · 9/18 前不付钱 | ✅ 房源页已核 | Höfn 西，离冰河湖 ~45 min |
+|  | [Árnanes ×2 Triple 私卫](https://www.booking.com/hotel/is/arnanes-sveitagisting.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫（3 人房） | €770 + 税 ≈ €867 | **¥3,468** | — | ✅ 退到 9/20 | ✅ 房源页已核 | 同上 |
+|  | [Fosshotel Vatnajökull ×2 Mountain View](https://www.booking.com/hotel/is/vatnajokull.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €776 含税 | **¥3,104** | — | ✅ 退到 **9/25** | ✅ 房源页已核 | Höfn 镇，离冰河湖 ~55 min |
+| ⛔ | ~~Fosshotel Glacier Lagoon（离湖 10 min）~~ | 需 2 间 | 凑 2 间 €1,194 含税 | — | — | — | ⛔ 已验证订不到 | 冰河湖旁 10 min |
+| ⛔ | ~~Hótel Klaustur / Magma / Laki~~ | — | €713–1,264 | — | — | — | ⛔ 已验证订不到 | Kirkjubæjarklaustur，更远 |
+
+- **Árnanes Sveitagisting ×2 Double/Twin 私卫** — 还有 4 间、含早、页面明写**可要相连的两间**。换来冰河湖看两次 + Stokksnes 只 15 min
+- **Árnanes ×2 Triple 私卫** — 同一家的大房型 —— 只有「想睡宽一点」才值得多 ¥1,900
+- **Fosshotel Vatnajökull ×2 Mountain View** — 想住「正规连锁」而不是乡村 guesthouse 就选这个。退改期还更晚，只剩 2 间
+- **Fosshotel Glacier Lagoon（离湖 10 min）** — ⛔ Standard **只剩 1 间**（截图 x3），凑 2 间 = **¥4,776/房超预算**。是被算术排除的，不是被口味排除的
+- **Hótel Klaustur / Magma / Laki** — ⛔ 多数只剩 1 间，而且离冰河湖更远
+
+## 9/28 一 · Reykjanesbær / Njarðvík（KEF 旁）
+
+> ✅ 这一晚**三个都实测能订**，是全程最没风险的一晚 —— 可以最后再订。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [3BR/2BA ★4.92 · Reykjanesbær](https://www.airbnb.com/rooms/1231709933827491677?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR) | 3房/4床/2卫 | €424 / 1晚 | **¥1,696** | 4.92 | ✅ 24h 内免费 | ✅ 房源页已核 | KEF 旁，次日 05:30 出发跑斯奈山最顺 |
+|  | [3BR/2BA ★4.91 · Reykjanesbær](https://www.airbnb.com/rooms/1302095139759149342?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR) | 3房/3床/2卫 | €498 / 1晚 | **¥1,992** | 4.91 | ✅ 24h 内免费 | ✅ 房源页已核 | 同区 |
+|  | [Cozy home in Njardvik](https://www.airbnb.com/rooms/1468029290775302593?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR) | 4房/4床/2卫 | €445 flex / €444 非退 | **¥1,780** | 4.54 | ✅ 24h 内免费 | ✅ 房源页已核 | Njarðvík，KEF 5 min |
+
+- **3BR/2BA ★4.92 · Reykjanesbær** — 最便宜 + 评分最高的组合
+- **3BR/2BA ★4.91 · Reykjanesbær** — 实测能订。比 🥇 贵 €74、床还少一张 —— 纯备胎
+- **Cozy home in Njardvik** — **离机场最近**（4 个人一人一间房）。代价是评分 4.54 偏低
+
+## 9/29 二 · Oslo Gardermoen（冰岛飞回来）
+
+> 和 9/24 同一批。唯一那个 2 晚起的 Airbnb 也实测 min-stay 2 → 灭。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [同 9/24 那套 · Nannestad](https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-09-29&check_out=2026-09-30&adults=4&currency=EUR) | 3房/5床/2卫 | €260 / 1晚 | **¥1,040** | — | ⛔ 不可退 | ✅ 房源页已核 | Nannestad |
+|  | [Thon Hotel Gardermoen ×2 间](https://www.booking.com/hotel/no/thon-gardermoen.html?checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €86–140/间（+12% VAT） | **¥771** | — | ✅ 退到 9/28 | 🟠 仅搜索页 | 机场旁 |
+|  | [Scandic Oslo Airport ×2 间](https://www.booking.com/hotel/no/scandic-oslo-airport.html?checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €141–188/间（+12% VAT） | **¥1,263** | — | ✅ 退到 9/28 | 🟠 仅搜索页 | 机场旁 |
+| ⛔ | ~~4BR/2BA · Ullensaker~~ | 4房/4床/2卫 | €541 / 2晚 | — | 4.97 | — | ⛔ 已验证订不到 | Ullensaker |
+
+- **同 9/24 那套 · Nannestad** — 两晚订同一家，最省事也最便宜。**但两晚合起来是 €520 不可退敞口** → 等 Kevin 机票定了再订
+- **Thon Hotel Gardermoen ×2 间** — 可退，而且**可能比 Airbnb 还便宜**。9/29 是飞机日，住机场旁本身也更合理
+- **Scandic Oslo Airport ×2 间** — 34 个房型行有货 = 最不会卖光的兜底
+- **4BR/2BA · Ullensaker** — ⛔ 实测 **min-stay 2 晚**
+
+## 9/30–10/1 · 罗弗敦 2 晚（2 晚）
+
+> ✅ **供给最好的一段：8 个替代全部实测能订。**（另有 3 个搜索页看着能订、实测订不到，列在最后。）东侧 = 10/2 只开 6h30；西侧 = 8h30。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Waterfront Nordic house, Vågan ★4.93](https://www.airbnb.com/rooms/1362321193877972891?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 5房/8床/2卫 | €602→€553 / 2晚 | **¥1,106** | 4.93 | ✅ 24h 内免费 · 9/23 前部分退 | ✅ 房源页已核 | 🟢 东侧 Vågan · EVE→2h30 · 10/2→6h30 |
+|  | [Nordic Lodge Retreat in Lofoten ★4.92](https://www.airbnb.com/rooms/1303545546783105490?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/8床/2卫 | €1,239→€898 / 2晚 | **¥1,796** | 4.92 | ✅ 24h 内免费 · 9/23 前部分退 | ✅ 房源页已核 | 🟢 东侧 Vågan |
+|  | [The heart of Ramberg ★4.76](https://www.airbnb.com/rooms/1170849828585814519?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/2.5卫 | €647 / 2晚 | **¥1,294** | 4.76 | ⛔ **完全不可退** | ✅ 房源页已核 | 🟠 西侧 Ramberg · EVE→4h（黑天）· 10/2→8h30 |
+|  | [Secluded house · Private swimming pool](https://www.airbnb.com/rooms/1441200146734024595?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 5房/6床/2卫 | €896 / 2晚（非退 €895） | **¥1,792** | 4.6 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟡 中部 Vestvågøy |
+|  | [Villa - Havgapet ★5.0](https://www.airbnb.com/rooms/1259549145786305745?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 7房/7床/2卫 | €958 / 2晚（非退 €957） | **¥1,916** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟡 中部 Vestvågøy |
+|  | [Functional architecture close to nature ★5.0](https://www.airbnb.com/rooms/574286379531171221?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/4床/2.5卫 | €1,041 / 2晚 | **¥2,084** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟢 东侧 Vågan |
+|  | [Valen house in famous Reine ★4.25](https://www.airbnb.com/rooms/1314514220654606262?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/5床/2卫 | €1,113 / 2晚 | **¥2,226** | 4.25 | ✅ 24h 内免费 | ✅ 房源页已核 | 🔴 最西 Moskenes/Reine |
+|  | [Unique group stay next to golf and beach ★5.0](https://www.airbnb.com/rooms/45665373?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 7房/8床/2.5卫 | €1,797→€1,634 / 2晚 | **¥3,268** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟢 东侧 Vågan |
+|  | [Nusfjord Arctic Resort · Village Cabin Suite Plus](https://www.booking.com/hotel/no/nusfjord-as.html?checkin=2026-09-30&checkout=2026-10-02&group_adults=4&no_rooms=1&selected_currency=EUR) | **2 卫（页面明写）· 卧室数未写** | €743 flex（+12% VAT） | **¥1,664** | — | ✅ 退到 9/16 | 🟠 仅搜索页 | 🟠 西侧 Nusfjord（离 Ramberg 15 min） |
+|  | [Hattvika Lodge · Nordbua #2（3 卧）](https://www.booking.com/hotel/no/hattvika-lodge.html?checkin=2026-09-30&checkout=2026-10-02&group_adults=4&no_rooms=1&selected_currency=EUR) | 3 卧 · **卫生间数未写** | €715 flex（+12% VAT） | **¥1,602** | — | ✅ 退到 **9/16** | 🟠 仅搜索页 | 🟡 Ballstad（中西部） |
+| ⛔ | ~~House with 5 bedrooms overlooking Svolværgeita~~ | 5房/2卫 | €674（搜索页） | — | 4.78 | — | ⛔ 已验证订不到 | 东侧 Vågan |
+| ⛔ | ~~Seafront fisherman's cabin in Lofoten ★4.98~~ | 3房/5床/2卫 | €900（搜索页） | — | 4.98 | — | ⛔ 已验证订不到 | 中部 Vestvågøy |
+| ⛔ | ~~where the ocean meets land · Flakstad ★4.93~~ | 2房/4床/2卫 | €740（搜索页） | — | 4.93 | — | ⛔ 已验证订不到 | 西侧 Flakstad |
+
+- **Waterfront Nordic house, Vågan ★4.93** — Guest favorite + Superhost + 页面明写含所有费用。**最便宜 + 能退 + 在东侧**，三样都占
+- **Nordic Lodge Retreat in Lofoten ★4.92** — 同样在东侧、评分同档，房子更「lodge」一点。多花 ¥2,760
+- **The heart of Ramberg ★4.76** — 想睡在明信片那一侧就选它。代价：贵 €94 + 不可退 + 10/2 要开 8h30（E10 风暴封路很常见 → 最西头 + 不可退是最差组合）
+- **Secluded house · Private swimming pool** — **有私人泳池** —— 极光季泡池子是很硬的体验。评分 4.6 偏低、位置在中部（东西都要开）
+- **Villa - Havgapet ★5.0** — ★5.0 · 7 间房 —— 4 个人住这个非常空。位置在中部
+- **Functional architecture close to nature ★5.0** — ★5.0 + 2.5 卫 + 在东侧 —— 「要好房子又要东侧」的答案。比 🥇 贵 ¥3,900
+- **Valen house in famous Reine ★4.25** — **就在 Reine**（那张明信片本身）。但评分只有 4.25、最贵那档、10/2 车程最长
+- **Unique group stay next to golf and beach ★5.0** — 最贵，但仍在预算内。4 个人订 7 间房的农场没什么必要 —— 除非想请客
+- **Nusfjord Arctic Resort · Village Cabin Suite Plus** — 唯一在 Booking 页面上**明写 2 bathrooms** 的罗弗敦房源。🔴 但 "Suite" 不等于 2 卧 —— **订前必须问卧室数**
+- **Hattvika Lodge · Nordbua #2（3 卧）** — 真 rorbu 体验、3 卧。🔴 Booking 页面没写几个卫生间 → 「一定要 2 卫」这条它答不上来
+- **House with 5 bedrooms overlooking Svolværgeita** — ⛔ 原本的东侧 🥇。房源页 **Those dates are not available**，换干净浏览器复现过（截图 x1）
+- **Seafront fisherman's cabin in Lofoten ★4.98** — ⛔ **2026-09-02 新发现：日期不可用。** ★4.98 的真 rorbu，很可惜
+- **where the ocean meets land · Flakstad ★4.93** — ⛔ **本轮新发现：日期不可用。** 顺带一条：即便能订，房东自己住在同一栋房子的另一半（有连通门）
+
+## 10/2–10/5 · 特罗姆瑟 4 晚（4 晚）
+
+> 🔴 **游轮 pass 掉之后这里是 4 晚（10/2–10/6），不是原来的 3 晚** —— 所以这一组的价全部按 4 晚重抓过。挪威酒店/公寓行**已 ×1.12 补 VAT**。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Houseboat "Grosso" ★5.0（住船上）](https://www.airbnb.com/rooms/1607078897559083655?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR) | 3房/7床/**3卫** | €1,818→€1,033 / 4晚 | **¥1,033** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 特罗姆瑟市区水上 |
+|  | [TA Vervet · Two-Bedroom Apartment](https://www.booking.com/hotel/no/ta-vervet-apartment.html?checkin=2026-10-02&checkout=2026-10-06&group_adults=4&no_rooms=1&selected_currency=EUR) | 2 卧 · **卫生间数未写** | €199/晚 flex（+VAT）= €891 | **¥891** | — | ✅ 退到 9/18 | ✅ 房源页已核 | Vervet 新区，走路到市中心 |
+|  | [3BR/2BA Tromsø ★4.86](https://www.airbnb.com/rooms/805864934151694916?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR) | 3房/3床/2卫 | €1,645→€1,398 / 4晚（不可退） | **¥1,398** | 4.86 | ⛔ 不可退 | ✅ 房源页已核 | 特罗姆瑟 |
+|  | [Cozy house on Tomasjord ★5.0](https://www.airbnb.com/rooms/938536829410600780?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR) | 3房/4床/2卫 | €1,660→€1,524 / 4晚 | **¥1,524** | 5.0 | ✅ 24h 内免费 · 9/25 前部分退 | ✅ 房源页已核 | Tomasjord（跨桥，市区 10 min） |
+|  | [5BR/2.5BA Tromsø](https://www.airbnb.com/rooms/1763946111917505608?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR) | 5房/5床/2.5卫 | €1,924→€1,539 / 4晚 | **¥1,539** | 新房源 | ✅ 24h 内免费 · 9/25 前部分退 | ✅ 房源页已核 | 特罗姆瑟 |
+|  | [Thon Hotel Polar ×2 Standard Double](https://www.booking.com/hotel/no/thon-polar.html?checkin=2026-10-02&checkout=2026-10-06&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €153/间/晚 flex（+VAT）= €1,371 | **¥1,371** | — | ✅ 退到 10/1 · 9/29 前不付钱 | ✅ 房源页已核 | 市中心 |
+|  | [Scandic Ishavshotel ×2 Twin](https://www.booking.com/hotel/no/scandic-ishavshotel.html?checkin=2026-10-02&checkout=2026-10-06&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €183/间/晚 flex（+VAT）= €1,640 | **¥1,640** | — | ✅ 退到 10/1 | ✅ 房源页已核 | 港口边（那栋帆船造型的） |
+|  | [Enter Viking · Three-Bedroom Apartment](https://www.booking.com/hotel/no/enter-viking-apartments.html?checkin=2026-10-02&checkout=2026-10-06&group_adults=4&no_rooms=1&selected_currency=EUR) | 3 卧 · 卫生间数未写 | €402/晚（+VAT）= €1,802 | **¥1,802** | — | ⛔ 不可退 | ✅ 房源页已核 | 市中心 |
+| ⛔ | ~~Gorgeous views, close to downtown ★4.95~~ | 4房/4床/2卫 | €1,600 / 3晚（搜索页） | — | 4.95 | — | ⛔ 已验证订不到 | 特罗姆瑟 |
+|  | [The Loft I 4BR/2 Bath ★5.0](https://www.airbnb.com/rooms/1480974381910568232?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR) | 4房/5床/2.5卫 | €4,405→€2,252 / 4晚 | **¥2,252** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 市中心 |
+| ⛔ | ~~Enter Amalie · Three-Bedroom Loft~~ | 3 卧 | 原 €925 / 3晚 | — | — | — | ⛔ 已验证订不到 | 市中心 |
+| ⛔ | ~~Enter St Elisabeth · Suite ×2 间~~ | 2 套房 | €358/间/晚（+VAT） | — | — | — | ⛔ 已验证订不到 | 市中心，带 spa |
+
+- **Houseboat "Grosso" ★5.0（住船上）** — **全程单价最低**，而且卫生间比人多。多住 10/2 那一晚只多付 €208，比另找一晚便宜得多
+- **TA Vervet · Two-Bedroom Apartment** — **唯一比船屋更便宜的**（¥891/房/晚）。🔴 但 Enter/Vervet 的 Two-Bedroom 多为 **1 卫** —— 要 2 卫就得先问
+- **3BR/2BA Tromsø ★4.86** — 实测能订。比船屋贵 ¥2,900 且不可退 —— 除非不想住船上
+- **Cozy house on Tomasjord ★5.0** — ★5.0 的独栋 + 可退。要「住陆地上的正常房子」就是这个
+- **5BR/2.5BA Tromsø** — 房间最多 + 2.5 卫 + 可退。**没有评价**（新房源）是唯一的不确定
+- **Thon Hotel Polar ×2 Standard Double** — 最省心的酒店兜底：含早、市中心、退到 10/1。非退档 €133/间/晚 = ¥1,192/房
+- **Scandic Ishavshotel ×2 Twin** — 位置和早餐是特罗姆瑟最好的一档，54 个房型行有货 = 最不会卖光
+- **Enter Viking · Three-Bedroom Apartment** — 3 卧整套公寓，但**不可退 + 贵 ¥6,150**。只在别的都没了才考虑
+- **Gorgeous views, close to downtown ★4.95** — ⛔ **本轮新发现：换成 4 晚窗口（10/2–10/6）后日期不可用。** 3 晚时它是能订的 —— 多住 10/2 那一晚的代价之一
+- **The Loft I 4BR/2 Bath ★5.0** — 能订，但 ¥2,252/房 —— 是 🥇 的 2.2 倍。列在这里只为封住「有没有更好的市中心大房子」这个问题
+- **Enter Amalie · Three-Bedroom Loft** — ⛔ **已没了** —— 10/2–10/6 整个物业只剩 One-Bedroom（€785/4晚）。它曾是 3 晚方案的 🥇
+- **Enter St Elisabeth · Suite ×2 间** — ⛔ **¥3,208/房超预算**。带 spa，但不值这个价
+
+## 10/6 二 · （条件性）奥斯陆机场 —— 只在 Kevin 的回程是 10/7 时才需要
+
+> 🔴 这一晚**没计入总账**，因为它取决于 Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞。四家全部实测有货，选的这个可以退到 10/5 —— 等回信也不亏。
+
+| | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
+|---|---|---|---|---:|---|---|---|---|
+| 🥇 | [Clarion Hotel Oslo Airport ×2 Standard Double](https://www.booking.com/hotel/no/clarion-oslo-airport.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €86/间 flex（+VAT）= €193 | **¥772** | — | ✅ 退到 **10/5** | ✅ 房源页已核 | 机场旁 |
+|  | [Scandic Oslo Airport ×2 Standard Twin](https://www.booking.com/hotel/no/scandic-oslo-airport.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €96/间 flex = €215 · 非退 €73/间 = €164 | **¥860** | — | ✅ 退到 10/5 | ✅ 房源页已核 | 机场旁 |
+|  | [Thon Hotel Gardermoen ×2 Standard Twin](https://www.booking.com/hotel/no/thon-gardermoen.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €109/间 flex（+VAT）= €244 | **¥977** | — | ✅ 退到 10/5 | ✅ 房源页已核 | 机场旁 |
+|  | [Radisson Hotel & Conference Centre ×2 Standard](https://www.booking.com/hotel/no/park-inn-oslo-airport.html?checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR) | 2房/2卫 | €157/间（+VAT）= €351 | **¥1,403** | — | ✅ 退到 **当天 18:00** | ✅ 房源页已核 | 机场旁 |
+|  | [同 9/24 那套 Airbnb · Nannestad](https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-10-06&check_out=2026-10-07&adults=4&currency=EUR) | 3房/5床/2卫 | €260 / 1晚 | **¥1,040** | — | ⛔ 不可退 | 🟠 仅搜索页 | Nannestad |
+
+- **Clarion Hotel Oslo Airport ×2 Standard Double** — **四家里最便宜的可退档**，而且退到 10/5 —— 正好晚于「Kevin 该回信」的时间。占位就用它
+- **Scandic Oslo Airport ×2 Standard Twin** — 非退档 ¥656/房 是**全程最便宜的一晚** —— 但只有等 Kevin 确认了才敢买不可退
+- **Thon Hotel Gardermoen ×2 Standard Twin** — 和 9/24 同一家，行李和路线都熟。贵一点
+- **Radisson Hotel & Conference Centre ×2 Standard** — 唯一能**退到当天傍晚**的 —— 如果 Kevin 到最后一刻还没定，这个最保险。19 个房型行有货
+- **同 9/24 那套 Airbnb · Nannestad** — 一间整套房，但**不可退**，而且 10/6 这个日期我**没有复核过**。条件性的一晚买不可退没道理
+
+---
+
+## 怎么用这份表
+
+1. **打开网页版第 07 节**（`viz/index.html`），每组点一个 radio → 顶上的粘性条会当场重算
+   「住宿合计 / ¥每房每晚 / 和我的推荐差多少」。默认选中的就是我的推荐组合。
+2. **⛔ 那几行不用看** —— 已经逐个打开房源页验证过订不到，留着是为了别人再去踩一遍。
+3. **🟠 那几行下单前必须自己再点一次链接** —— 它们只在搜索/列表页见过价。
+4. 下单顺序按会先卖光排，见 [`PLAN-final.md`](PLAN-final.md) 第六节；原则是**全部按可免费取消下单**。

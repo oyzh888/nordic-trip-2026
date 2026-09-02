@@ -138,6 +138,41 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .sev.green{background:var(--green)} .sev.done{background:var(--tx3)}
 tr.done td{color:var(--tx3)}
 #risktab tr.done td:first-child{text-decoration:line-through}
+
+/* ---------- 候选选择器（07 节） ---------- */
+.pickbar{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(62,230,208,.10),var(--bg2));
+  border:1px solid rgba(62,230,208,.42);border-radius:14px;padding:13px 17px;margin-bottom:14px;
+  display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline}
+.pickbar .pb{font-size:13px;color:var(--tx3)}
+.pickbar .pb b{display:block;font-size:20px;color:var(--tx);font-variant-numeric:tabular-nums;margin-top:2px}
+.pickbar .pb b.up{color:var(--red)} .pickbar .pb b.dn{color:var(--green)}
+.pickbar .rst{margin-left:auto;font-size:12.5px;color:var(--cy);cursor:pointer;
+  border:1px solid rgba(62,230,208,.42);border-radius:8px;padding:5px 11px;background:transparent}
+.cg{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:13px}
+.cg h3{margin:0 0 3px;font-size:15.5px}
+.cg h3 .dt{color:var(--cy);font-variant-numeric:tabular-nums;margin-right:9px}
+.cg .gn{font-size:12.8px;color:var(--tx2);margin:5px 0 11px;line-height:1.6}
+.co{display:grid;grid-template-columns:22px 1fr;gap:0 11px;padding:10px 0;border-top:1px dashed var(--line);
+  cursor:pointer;align-items:start}
+.co:hover{background:rgba(255,255,255,.022)}
+.co input{margin:3px 0 0;accent-color:#3ee6d0;cursor:pointer}
+.co.sel{background:rgba(62,230,208,.06)}
+.co.dead{opacity:.55;cursor:not-allowed}
+.co.dead input{visibility:hidden}
+.co .hd{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:13.8px}
+.co .hd .nm{font-weight:650}
+.co.dead .hd .nm{text-decoration:line-through}
+.co .mt{font-size:12.4px;color:var(--tx3);margin-top:3px;display:flex;flex-wrap:wrap;gap:3px 14px}
+.co .wy{font-size:12.6px;color:var(--tx2);margin-top:5px;line-height:1.55}
+.co .pr{font-variant-numeric:tabular-nums;font-weight:700;color:var(--cy)}
+.co.dead .pr{color:var(--tx3)}
+.vt{font-size:11px;padding:1.5px 6px;border-radius:6px;white-space:nowrap;font-weight:700}
+.vt.ok{background:rgba(74,222,128,.14);color:var(--green);border:1px solid rgba(74,222,128,.35)}
+.vt.search{background:rgba(255,180,77,.13);color:var(--amber);border:1px solid rgba(255,180,77,.35)}
+.vt.dead{background:rgba(255,93,115,.13);color:var(--red);border:1px solid rgba(255,93,115,.35)}
+.ok{color:var(--green)}
+.badge{font-size:11px;padding:1.5px 6px;border-radius:6px;background:rgba(169,139,255,.15);
+  color:#a98bff;border:1px solid rgba(169,139,255,.35);white-space:nowrap}
 tr
 
 /* ---------- cards grid ---------- */
@@ -816,6 +851,64 @@ tbl('staytab',['日期','地点','住哪（点名字 → 详情页）','房/卫'
     {v:r.tot,n:1},
     {v:r.room,n:1},
     r.cxl]})));
+
+/* ================= 07 每晚候选 —— 可点选，汇总当场重算 ================= */
+(function(){
+  const list=$('#candlist'), sum=$('#candsum');
+  if(!list||!sum||typeof CANDS==='undefined') return;
+  const VL={ok:'房源页已核',search:'仅搜索页',dead:'⛔ 已验证订不到'};
+  /* 默认选中 = 我推荐的那一套（t==='pick'） */
+  const pickIdx=CANDS.map(g=>Math.max(0,g.opts.findIndex(o=>o.t==='pick')));
+  const sel=pickIdx.slice();
+  /* 基准（我的推荐组合）：¥/房/晚 只按计入总账的那几晚算，条件性的 G9 单独显示 */
+  const counted=g=>!/条件性/.test(g.place);
+  const baseTot=CANDS.reduce((a,g,i)=>a+(counted(g)?g.opts[pickIdx[i]].cny:0),0);
+  const nightsAll=CANDS.reduce((a,g)=>a+(counted(g)?g.n:0),0);
+
+  list.innerHTML=CANDS.map((g,gi)=>`
+    <div class="cg">
+      <h3><span class="dt">${g.d}</span>${g.place}${g.n>1?` <span class="badge">${g.n} 晚</span>`:''}</h3>
+      <div class="gn">${md(g.note)}</div>
+      ${g.opts.map((o,oi)=>`
+        <label class="co ${o.t==='dead'?'dead':''}" data-g="${gi}" data-o="${oi}">
+          <input type="radio" name="cg${gi}" value="${oi}" ${oi===pickIdx[gi]?'checked':''} ${o.t==='dead'?'disabled':''}>
+          <div>
+            <div class="hd">
+              ${o.t==='pick'?'<span class="badge">🥇 我的推荐</span>':''}
+              <span class="nm"><a href="${o.u}" target="_blank" rel="noopener">${o.n}</a> ↗</span>
+              <span class="vt ${o.v}">${VL[o.v]}</span>
+              ${o.room?`<span class="pr">¥${o.room.toLocaleString()} / 房 / 晚</span>`:''}
+            </div>
+            <div class="mt"><span>${md(o.rb)}</span><span>${o.p}</span><span>★ ${o.r}</span>
+              <span>${o.cxl}</span><span>${o.loc}</span></div>
+            <div class="wy">${md(o.why)}</div>
+          </div>
+        </label>`).join('')}
+    </div>`).join('');
+
+  function render(){
+    let tot=0, cond=0;
+    CANDS.forEach((g,i)=>{ const c=g.opts[sel[i]].cny; counted(g)?tot+=c:cond+=c; });
+    const per=Math.round(tot/(2*nightsAll)), d=tot-baseTot;
+    const inb=per>=2000&&per<=4000;
+    sum.innerHTML=`
+      <div class="pb">住宿合计（12 晚 · 4 人）<b>¥${tot.toLocaleString()}</b></div>
+      <div class="pb">¥ / 房 / 晚<b class="${inb?'':'dn'}">¥${per.toLocaleString()}</b></div>
+      <div class="pb">对预算 ¥2,000–4,000<b class="dn">${inb?'在区间内':'低于下沿 '+Math.round((1-per/2000)*100)+'%'}</b></div>
+      <div class="pb">和我的推荐组合比<b class="${d>0?'up':(d<0?'dn':'')}">${d===0?'完全一致':(d>0?'+':'−')+'¥'+Math.abs(d).toLocaleString()}</b></div>
+      <div class="pb">条件性的 10/6 那晚（未计入）<b>¥${cond.toLocaleString()}</b></div>
+      <button class="rst" id="candrst">↺ 恢复我的推荐</button>`;
+    $('#candrst').onclick=()=>{ CANDS.forEach((g,i)=>{ sel[i]=pickIdx[i];
+        const el=list.querySelector(`input[name="cg${i}"][value="${pickIdx[i]}"]`); if(el) el.checked=true; });
+      mark(); render(); };
+  }
+  function mark(){ list.querySelectorAll('.co').forEach(el=>
+    el.classList.toggle('sel', sel[+el.dataset.g]===+el.dataset.o)); }
+
+  list.addEventListener('change',e=>{ const i=e.target.name&&+e.target.name.slice(2);
+    if(Number.isInteger(i)){ sel[i]=+e.target.value; mark(); render(); } });
+  mark(); render();
+})();
 
 tbl('opentab',['问题','为什么重要','找谁'],
   OPEN.map(o=>({c:[`<span class="sev ${o.sev}"></span><b>${o.q}</b>`,o.why,o.who]})));

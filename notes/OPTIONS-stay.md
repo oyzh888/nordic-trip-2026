@@ -18,6 +18,24 @@
 > "Those dates are not available"。**已找到更好的替代，见 `PLAN-final.md`。**
 > 教训：Airbnb 搜索卡片不可信，必须逐个打开房源页复核（`_research/abnb_detail.py`）。
 
+> **④ 2026-09-02 补：又有 5 个房源实测订不到，且整个特罗姆瑟段的价是过期的。**
+> 逐个开房源页复核候选池（不只是首选）之后新发现 —— D1 的 **Huge Apartment ★4.87** 和
+> **Tower Sóley ★4.9**、D6–D7 的 **Seafront fisherman's cabin ★4.98** 和
+> **Guest suite in Flakstad ★4.93**、D8–D10 的 **Gorgeous views ★4.95**，
+> 全是「搜索页有价、房源页 Those dates are not available」。**累计 9 个假货。**
+> 🔴 **另外：游轮 pass 掉之后特罗姆瑟从 3 晚（10/3–10/6）变成 4 晚（10/2–10/6）**，
+> 所以下面 D8–D10 那两张表的所有价格**都是按 3 晚算的，已过期**。
+> 4 晚的实价见 [`CANDIDATES.md`](CANDIDATES.md)（顺便：Gorgeous views 在 3 晚能订、**4 晚订不到**）。
+>
+> **⑤ 挪威酒店的 Booking 房价行也不含税** —— 每行都写 "Excluded: 12 % VAT"。
+> 本文所有挪威酒店/公寓行（Thon Polar / Ishavshotel / Vervet / Enter 系列 / Nusfjord /
+> Hattvika / Svinøya / Scandic / Clarion / Thon Gardermoen）的 ¥ **都要再 ×1.12**。
+> 我之前说过「挪威的价是含税的」—— **那句只对 Airbnb 成立。**
+
+> **🥇 想一起挑房 → 看 [`CANDIDATES.md`](CANDIDATES.md)**（每晚多个候选、带「实测」列、
+> 数字全部按上面五条修正过），或者直接开 [`../viz/index.html`](../viz/index.html) 第 07 节点选，
+> 总账会当场重算。**本文保留作为原始候选池 + 错误留档，不要直接引用它的数字。**
+
 > **数据来源**：2026-09-01 用 Playwright 实时抓的 **Airbnb**（已在 URL 里强制
 > `min_bedrooms≥2 & min_bathrooms≥2 & 整套房源`，并用**经纬度框**锁死地理范围，
 > 避免 Airbnb 把「Vík」搜成 2.5 小时外的 Selfoss）+ **Booking.com 房型页**（酒店/rorbu 的真实房价行）。
@@ -84,9 +102,9 @@ Borgarnes 一带 8 个 2房2卫房源里，**全部 min-stay ≥ 2 晚**。
 |---|---|---|---|---|---|
 | 🥇 [Aurora view 3BR 2BATH Luxury down town](https://www.airbnb.com/rooms/1729852848905770040) | **3BR / 2BA** | €447 | **¥1,788** | **5.0** | 雷市市中心 |
 | [3BR 2BA](https://www.airbnb.com/rooms/1329176066208833432) | 3BR / 2BA | €337 | ¥1,348 | — | Garðabær（市区南 15 min） |
-| [Huge Apartment - Best Location](https://www.airbnb.com/rooms/1164355089969462702) | 4BR / 2BA | €535 | ¥2,140 | 4.87 | 雷市市中心 |
+| ⛔ ~~[Huge Apartment - Best Location](https://www.airbnb.com/rooms/1164355089969462702)~~ | 4BR / 2BA | ~~€535~~ | — | 4.87 | 雷市市中心 ｜🔴 **09-02 实测日期不可用** |
 | [Mani Apartments - Four Bedroom](https://www.airbnb.com/rooms/639631862185278229) | 4BR / **3BA** | €962 | ¥3,848 | 4.51 | 雷市 |
-| [Tower Apartments - Sóley](https://www.airbnb.com/rooms/35826875) | 2BR / 2BA | €677 | ¥2,708 | 4.9 | 雷市 |
+| ⛔ ~~[Tower Apartments - Sóley](https://www.airbnb.com/rooms/35826875)~~ | 2BR / 2BA | ~~€677~~ | — | 4.9 | 雷市 ｜🔴 **09-02 实测日期不可用** |
 
 ### D2 · 9/26（六）南岸（Vík / Hvolsvöllur）—— **只有 3 个选项，供给很紧**
 
@@ -166,10 +184,10 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 | 房源 | 房/卫 | 2晚总价 | €/晚 | ¥/room/晚 | 评分 |
 |---|---|---|---|---|---|
 | 🥇 [The heart of Ramberg](https://www.airbnb.com/rooms/1170849828585814519) | **4BR / 2.5BA** | €647 | €324 | **¥1,296** | 4.76 |
-| [Seafront fisherman's cabin in Lofoten](https://www.airbnb.com/rooms/35072091) | 3BR / 2BA | €900 | €450 | ¥1,800 | **4.98**（真 rorbu 体验） |
+| ⛔ ~~[Seafront fisherman's cabin in Lofoten](https://www.airbnb.com/rooms/35072091)~~ | 3BR / 2BA | ~~€900~~ | — | — | **4.98** ｜🔴 **09-02 实测日期不可用**（可惜，是唯一的真 rorbu） |
 | [Villa - Havgapet](https://www.airbnb.com/rooms/1259549145786305745) | 7BR / 2BA | €958 | €479 | ¥1,916 | 5.0 |
 | [Valen house in famous Reine](https://www.airbnb.com/rooms/1314514220654606262) | 4BR / 2BA | €1,113 | €557 | ¥2,228 | 4.25（**就在 Reine**） |
-| [Guest suite in Flakstad](https://www.airbnb.com/rooms/43494853) | 2BR / 2BA | €740 | €370 | ¥1,480 | 4.93 |
+| ⛔ ~~[Guest suite in Flakstad](https://www.airbnb.com/rooms/43494853)~~ | 2BR / 2BA | ~~€740~~ | — | — | 4.93 ｜🔴 **09-02 实测日期不可用**（而且房东住另一半，不是整栋） |
 
 **rorbu / 酒店路线（Booking 实时房型行）**
 
@@ -206,7 +224,10 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
 这两家 9/30–10/1 **确实卖完了**。`statles-rorbu` 虽然出现在 Lofoten 页面上，
 但它其实在 **Møre og Romsdal 的 Bud，不在罗弗敦**，排除。）
 
-### D8–D10 · 10/3–10/5（六–一）特罗姆瑟 3 晚 —— 18 个合格房源
+### D8–D10 · ~~10/3–10/5~~ 特罗姆瑟 —— 🔴 **下面两张表按 3 晚算，已过期**
+
+游轮 pass 掉之后这段是 **10/2–10/6 共 4 晚**。4 晚的实价（含 12% VAT）见 [`CANDIDATES.md`](CANDIDATES.md)。
+保留本表只为看候选池有多大（18 个合格房源）。
 
 | 房源 | 房/卫 | 3晚总价 | €/晚 | ¥/room/晚 | 评分 |
 |---|---|---|---|---|---|
@@ -214,7 +235,7 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
 | 🥇 [5BR/2.5BA Tromsø](https://www.airbnb.com/rooms/1763946111917505608) | **5BR / 2.5BA** | €1,155 | €385 | ¥1,540 | — |
 | [3BR/2BA Tromsø](https://www.airbnb.com/rooms/805864934151694916) | 3BR / 2BA | €1,111 | €370 | ¥1,480 | 4.86 |
 | [Cozy house on Tomasjord](https://www.airbnb.com/rooms/938536829410600780) | 3BR / 2BA | €1,171 | €390 | ¥1,560 | 5.0 |
-| [Gorgeous views, close to downtown](https://www.airbnb.com/rooms/880420426360588834) | 4BR / 2BA | €1,600 | €533 | ¥2,132 | 4.95 |
+| ⛔ ~~[Gorgeous views, close to downtown](https://www.airbnb.com/rooms/880420426360588834)~~ | 4BR / 2BA | ~~€1,600 / 3晚~~ | — | — | 4.95 ｜🔴 **3 晚能订，改成我们真正要的 4 晚（10/2–10/6）就不可用** |
 | [The Loft I 4BR/2 Bath](https://www.airbnb.com/rooms/1480974381910568232) | 4BR / 2BA | €1,734 | €578 | ¥2,312 | 5.0 ｜市中心 |
 | **酒店兜底**：Thon Hotel Polar | 2 间房 · 3 晚 | €690–908 | ¥920–1,210 | 到 10/2 |
 | **酒店兜底**：Scandic Ishavshotel | 2 间房 · 3 晚 | €898–1,238 | ¥1,197–1,650 | 到 10/2 |
@@ -223,7 +244,7 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
 
 | 物业 | 房型 | 3 晚总价 | ¥/room/晚 | free-cxl |
 |---|---|---|---|---|
-| 🥇 **Enter Amalie Apartments** | **Three-Bedroom Loft** | €925 | **¥1,233** | 不可退 |
+| ⛔ ~~**Enter Amalie Apartments**~~ | ~~Three-Bedroom Loft~~ | ~~€925 / 3晚~~ | — | 🔴 **09-02 重抓：该房型已下架** |
 | **Enter Viking Apartments** | **Three-Bedroom** | €1,206 / €2,172(free-cxl) | ¥1,608–2,896 | 到 **9/3** ⚠️ 只剩 2 天 |
 | Enter Viking Apartments | Four-Bedroom | €1,520 / €2,735 | ¥2,027–3,647 | 到 9/3 |
 | Enter Viking Apartments | Two-Bedroom | €768–904 / €1,627 | ¥1,024–2,169 | 到 9/3 |
