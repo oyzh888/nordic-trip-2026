@@ -1,0 +1,74 @@
+{
+ "title": "Thon Hotel Oslo Airport, Gardermoen (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/thon-oslo-airport.html?checkin=2026-09-29&checkout=2026-09-30&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Standard Twin Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    133,
+    133,
+    133,
+    133
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Standard Twin Room ¶ We have 4 left ¶ 2 twin beds ¶ 344 feet² ¶ Private bathroom ¶ Free Wifi ¶ Max. people: 2 ¶ € 133 per night ¶ € 133 ¶ Price € 133 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 133) ¶ 2          (€ 266) ¶ 3          (€ 399) ¶ 4          (€ 532)"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    140,
+    140,
+    140,
+    140
+   ],
+   "cancel": "Free cancellation before September 28, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 140 per night ¶ € 140 ¶ Price € 140 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Free cancellation before September 28, 2026 ¶ • ¶ Pay nothing until September 26, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 140) ¶ 2          (€ 279) ¶ 3          (€ 419) ¶ 4          (€ 559)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    117,
+    117,
+    117,
+    117
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 117 per night ¶ € 117 ¶ Price € 117 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 117) ¶ 2          (€ 235) ¶ 3          (€ 352) ¶ 4          (€ 469)"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    123,
+    123,
+    123,
+    123
+   ],
+   "cancel": "Free cancellation before September 28, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 123 per night ¶ € 123 ¶ Price € 123 ¶ 1 night ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Free cancellation before September 28, 2026 ¶ • ¶ Pay nothing until September 26, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 123) ¶ 2          (€ 246) ¶ 3          (€ 370) ¶ 4          (€ 493)"
+  }
+ ],
+ "job": {
+  "slug": "thon-oslo-airport-0929",
+  "hotel": "no/thon-oslo-airport",
+  "checkin": "2026-09-29",
+  "checkout": "2026-09-30",
+  "rooms": 2
+ }
+}

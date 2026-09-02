@@ -1,0 +1,316 @@
+{
+ "url": "https://www.discovercars.com/search/af0be94d-61ce-41ea-b72f-7a9fcd316c69?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA4OCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwVDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMlQxNzowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Wed, Sep 30",
+  "Fri, Oct 02"
+ ],
+ "n_offers": 23,
+ "rows": [
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    131
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Dongfeng Nammi Box | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $131.13 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    139
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $139.24 | Free cancellation | View deal | Prices are even better in the app | Scan to"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    145
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $145.86 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    167
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Toyota Urban Cruiser | or similar Compact SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $167.10 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    183
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Peugeot 2008 | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Instant confirmation! | Unlimited mileage | 8.2 | Good | Total for 3 days | $183.04 | Free cancellation | View deal"
+  },
+  {
+   "car": "Suzuki Vitara",
+   "supplier": null,
+   "prices": [
+    344
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Vitara | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $344.15 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    353
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Vitara | or similar Compact SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $353.85 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    297
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Suzuki Vitara | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $297.44 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    305
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | 4x4 | Suzuki Vitara | or similar Compact SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $305.79 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota Yaris",
+   "supplier": null,
+   "prices": [
+    315
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota Yaris | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $315.08 | Free cancellation | View deal"
+  },
+  {
+   "car": "Suzuki S-Cross",
+   "supplier": null,
+   "prices": [
+    409
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki S-Cross | or similar Intermediate SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $409.61 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota RAV4",
+   "supplier": null,
+   "prices": [
+    431
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota RAV4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $431.24 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    444
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Toyota Corolla Cross | or similar Intermediate SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $444.22 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    296
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $296.10 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    272
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Toyota Yaris | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $272.39 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    299
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | 4x4 | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $299.10 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    256
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $256.02 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    258
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | 4x4 | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $258.61 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota Corolla",
+   "supplier": null,
+   "prices": [
+    321
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota Corolla | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.8 | Very Good | 127 ratings | Total for 3 days | $321.55 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota Yaris Cross 4WD",
+   "supplier": null,
+   "prices": [
+    441
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota Yaris Cross 4WD | or similar Compact SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 3 days | $441.09 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    619
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Toyota RAV 4WD | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 3 days | $619.96 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    277
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Toyota Corolla | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 712 ratings | Total for 3 days | $277.96 | Free cancellation | View deal"
+  },
+  {
+   "car": "Save 10%",
+   "supplier": null,
+   "prices": [
+    305,
+    339
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Save 10% | Toyota Corolla | or similar Compact | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Debit card accepted | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | Total for 3 days | $305.92 | $339.91 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "lofoten-eve-eve-0930",
+  "pick_id": 2088,
+  "pick_dt": "2026-09-30T11:00:00",
+  "drop_dt": "2026-10-02T17:00:00"
+ }
+}

@@ -1,0 +1,4 @@
+iceland-kef-4d: 12 cards | dates=('Fri, Sep 04', 'Sat, Sep 12') | https://www.discovercars.com/search/1ad38b71-9e32-45af-adce-b6d096f324da?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LC 
+lofoten-eve-svolvaer: 0 cards | dates=('Fri, Sep 04', 'Sat, Sep 12') | https://www.discovercars.com/search/ec1cb017-75f7-418e-8f1b-519bcb623d03?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LC 
+lofoten-eve-eve: 1 cards | dates=('Fri, Sep 04', 'Sat, Sep 12') | https://www.discovercars.com/search/14abbac6-a552-43b7-b3a4-34c221f1ec2e?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LC 
+tromso-2day: 12 cards | dates=('Fri, Sep 04', 'Sat, Sep 12') | https://www.discovercars.com/search/6de09dee-fcce-4a73-a6d6-00dbc7166dfb?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LC 

@@ -1,0 +1,5 @@
+iceland-kef-0926: 16 offers | dates=('Sat, Sep 26', 'Tue, Sep 29') 
+lofoten-eve-svolvaer-0930: 6 offers | dates=('Wed, Sep 30', 'Fri, Oct 02') 
+lofoten-eve-eve-0930: 23 offers | dates=('Wed, Sep 30', 'Fri, Oct 02') 
+tromso-senja-1005: 16 offers | dates=('Mon, Oct 05', 'Mon, Oct 05') 
+tromso-senja-2d: 24 offers | dates=('Sun, Oct 04', 'Tue, Oct 06') 

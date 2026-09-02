@@ -1,24 +1,25 @@
 {
  "log": {
-  "pick_sugg": null,
-  "drop_err": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#DropoffLocation, input[name=\\\"DropoffLocati",
-  "n_text_inputs": 2,
-  "text_inputs": [
-   "PickupLocation",
-   "_R_2icdb8oltsivb_"
+  "pickup": "Harstad Evenes Airport (EVE), Evenes, Norway",
+  "dropoff": "Svolvaer Airport (SVJ), Svolvaer, Norway",
+  "pick_click": false,
+  "drop_click": false,
+  "dates_shown": [
+   "Fri, Sep 04",
+   "Sat, Sep 12"
   ],
-  "url_after": "https://www.discovercars.com/",
-  "n_cards": 0
+  "url_after": "https://www.discovercars.com/search/ec1cb017-75f7-418e-8f1b-519bcb623d03?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MiwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTA0VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0xMlQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ%3D%3D&searchVersion=2",
+  "n_cards": 6
  },
  "rows": [],
- "body": "USD\nEnglish\nHelp\nManage booking\nLog in\nSave up to 70% on car rentals\nClear prices, no surprises\nTrusted by 7M travelers\n24/7 Support\nFree Cancellation\nArriving by plane? Search by flight\nPick-up location\nReturn car in same location\nPick-up date\nFri, Sep 04\nTime\n11:00 AM\nDrop-off date\nSat, Sep 12\nTime\n11:00 AM\nSelect a pick-up location\nDriver's country of residence is\nUnited States of America (USA)\nand age is\n30-65\nRated Excellent\n284,284 reviews on\n1,000+ brands\nWorld's #1 Car Rental Comparison & Booking Site\nThe most-visited car rental comparison website, recognized with multiple industry awards.\nWorld Travel Tech Awards - World's Best Car Rental Booking Website 2025\nWorld Travel Tech Awards - World's Best Car Rental Booking App 2025\nMagellan Awards Gold Winner 2025\nFT 1000: Europe's Fastest Growing Companies - Top 300 Companies 2025\nUzakrota Travel Awards - World’s Leading Car Rental Website 2022\nTravel & Hospitality Awards 2021\nFT 1000: Europe's Fastest Growing Companies - Top 300 Companies 2021\nHighly recommended by our customers\nGreat value\nReally fast booking and value for money. Thanks.\nRadin,\nSep 2, 2026\nQuick to book\nQuick to book\nMr John Adams,\nSep 2, 2026\nExcellent experience with Discover Cars…\nExcellent experience with Discover Cars customer service. Aurora was extremely kind,...\nLuca LB,\nSep 2, 2026\nOverall a very nice and modern\nOverall a very nice and modern experience. No noise and transparent\nAmir Taheri,\nSep 2, 2026\nAll perfect :)\nAll perfect :)\nSvilen Gate",
+ "body": "USD\nEnglish\nHelp\nManage booking\nLog in\nPick-up location\nHarstad Evenes Airport (EVE), Evenes, Norway\nReturn car in same location\nDrop-off location\nSvolvaer Airport (SVJ), Svolvaer, Norway\nPick-up date\nFri, Sep 04\nTime\n11:00 AM\nDrop-off date\nSat, Sep 12\nTime\n11:00 AM\nDriver's country of residence is\nUnited States of America (USA)\nand age is\n30-65\nSearch\nInclude Full Coverage in total booking cost. Learn more\nPrice range\n\nPer trip\n\nPer day\n\nMinimum\n\nUSD\n\nMaximum\n\nUSD\nCross-border policy\nCross-border allowed\n$2,978.61\nFerry allowed\n$2,978.61\nNumber of seats\n8 seats\n$2,978.61\n9 seats\n$3,109.68\nCar Specifications\nAir Conditioning\n$2,978.61\n4+ doors\n$2,978.61\nOptional extras\nSee deals that have available extras at an additional cost.\nAdditional driver\n$3,028.32\nBaby seat (0-13 kg)\n$3,034.86\nBooster seat (15-45 kg)\n$3,017.72\nShow more\nSmall cars\nNo offers\nMedium cars\nNo offers\nLarge cars\nfrom $2,978.61\nSUVs\nNo offers\nVans\nfrom $2,978.61\nStation wagons\nNo offers\nPremium cars\nNo offers\nConvertibles\nNo offers\n2 offers found\nSort by\nMost popular\nMost popular\nPrice\nSupplier rating\n\nToyota ProAce 8 seater\n\nor similar Standard Van\nAutomatic\n8 seats\n4 doors\nAir Conditioning\nFair conditions\nCompar",
  "job": {
   "slug": "lofoten-eve-svolvaer",
-  "pickup": "Evenes Harstad Narvik Airport",
+  "pickup": "Evenes Airport",
   "dropoff": "Svolvaer",
   "pick_date": "2026-09-30",
-  "pick_time": "11:00",
   "drop_date": "2026-10-02",
-  "drop_time": "17:00"
+  "pick_month_idx": 0,
+  "drop_month_idx": 1
  }
 }

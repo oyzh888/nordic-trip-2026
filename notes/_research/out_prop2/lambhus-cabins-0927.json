@@ -1,0 +1,59 @@
+{
+ "title": "Lambhus Glacier View Cabins, Höfn (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/lambhus-cabins.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Family Studio",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    399,
+    399,
+    399,
+    6
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Family Studio ¶ Recommended for 4 adults ¶ We have 1 left ¶ 1 bunk bed  and 1 sofa bed ¶ Entire studio ¶ 215 feet² ¶ Private kitchenette ¶ Attached bathroom ¶ Mountain view ¶ Landmark view ¶ Free Wifi ¶ Max. people: 4 ¶ € 399 per night ¶ € 399 ¶ Price € 399 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Flexible to reschedule if plans change ¶ Non-refundable ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 399)"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    315,
+    315,
+    315,
+    6
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 3 ¶ € 315 per night ¶ € 315 ¶ Price € 315 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Flexible to reschedule if plans change ¶ Non-refundable ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 315)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    232,
+    232,
+    232,
+    6
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 232 per night ¶ € 232 ¶ Price € 232 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Flexible to reschedule if plans change ¶ Non-refundable ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 232)"
+  }
+ ],
+ "job": {
+  "slug": "lambhus-cabins-0927",
+  "hotel": "is/lambhus-cabins",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "rooms": 1
+ }
+}

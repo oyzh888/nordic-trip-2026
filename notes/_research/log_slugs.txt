@@ -1,0 +1,7 @@
+lofoten: 40 slugs; hits=['nusfjord-as', 'sakrisa-y-rorbuer-as', 'scandic-svolvaer', 'statles-rorbu-og-konferansesenter', 'svinoya', 'thon-lofoten', 'thon-svolvaer']
+lofoten-apt: 38 slugs; hits=['reinefjorden-sjohus']
+tromso: 29 slugs; hits=['enter-skansen', 'enter-st-elisabeth', 'enter-st-elisabeth-suites', 'quality-saga', 'radisson-blu-hotel-tromso', 'scandic-ishavshotel', 'ta-vervet-gjoa-i-amp-j', 'the-dock-69-39-by-scandic', 'thon-polar', 'thon-tromso']
+tromso-apt: 43 slugs; hits=['cozy-studio-apartment-near-tromso-city-center', 'enter-amalie-apartments', 'enter-viking-apartments', 'half-of-a-semi-detached-house-with-2-bedrooms-1100-m-to-city-center', 'ta-vervet-apartment', 'ta-vervet-gjoa-i-amp-j', 'tromso-quality-beds-and-near-attractions']
+gardermoen: 14 slugs; hits=['clarion-oslo-airport', 'comfort-runway', 'letohallen-hotell-gardermoen-messe-og-konfereansesenter', 'park-inn-oslo-airport', 'radisson-blu-airport-oslo', 'radisson-red-oslo-airport', 'scandic-gardermoen', 'scandic-oslo-airport', 'thon-gardermoen', 'thon-oslo-airport']
+hofn: 13 slugs; hits=[]
+vik: 30 slugs; hits=['center']

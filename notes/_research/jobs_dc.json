@@ -1,0 +1,7 @@
+[
+ {"slug":"iceland-kef-0926","pick_id":1787,"pick_dt":"2026-09-26T09:00:00","drop_dt":"2026-09-29T18:00:00"},
+ {"slug":"lofoten-eve-svolvaer-0930","pick_id":2088,"drop_id":2092,"pick_dt":"2026-09-30T11:00:00","drop_dt":"2026-10-02T17:00:00"},
+ {"slug":"lofoten-eve-eve-0930","pick_id":2088,"pick_dt":"2026-09-30T11:00:00","drop_dt":"2026-10-02T17:00:00"},
+ {"slug":"tromso-senja-1005","pick_id":2195,"pick_dt":"2026-10-05T07:00:00","drop_dt":"2026-10-05T21:00:00"},
+ {"slug":"tromso-senja-2d","pick_id":2195,"pick_dt":"2026-10-04T09:00:00","drop_dt":"2026-10-06T09:00:00"}
+]

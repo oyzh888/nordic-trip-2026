@@ -1,22 +1,118 @@
 {
  "log": {
-  "pick_sugg": null,
-  "n_text_inputs": 2,
-  "text_inputs": [
-   "PickupLocation",
-   "_R_2icdb8oltsivb_"
+  "pickup": "Keflavik Airport (KEF), Keflavik, Iceland",
+  "pick_click": false,
+  "drop_click": false,
+  "dates_shown": [
+   "Fri, Sep 04",
+   "Sat, Sep 12"
   ],
-  "url_after": "https://www.discovercars.com/",
-  "n_cards": 0
+  "url_after": "https://www.discovercars.com/search/1ad38b71-9e32-45af-adce-b6d096f324da?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTA0VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0xMlQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ%3D%3D&searchVersion=2",
+  "n_cards": 251
  },
- "rows": [],
- "body": "USD\nEnglish\nHelp\nManage booking\nLog in\nSave up to 70% on car rentals\nClear prices, no surprises\nTrusted by 7M travelers\n24/7 Support\nFree Cancellation\nArriving by plane? Search by flight\nPick-up location\nReturn car in same location\nPick-up date\nFri, Sep 04\nTime\n11:00 AM\nDrop-off date\nSat, Sep 12\nTime\n11:00 AM\nSelect a pick-up location\nDriver's country of residence is\nUnited States of America (USA)\nand age is\n30-65\nRated Excellent\n284,284 reviews on\n1,000+ brands\nWorld's #1 Car Rental Comparison & Booking Site\nThe most-visited car rental comparison website, recognized with multiple industry awards.\nWorld Travel Tech Awards - World's Best Car Rental Booking Website 2025\nWorld Travel Tech Awards - World's Best Car Rental Booking App 2025\nMagellan Awards Gold Winner 2025\nFT 1000: Europe's Fastest Growing Companies - Top 300 Companies 2025\nUzakrota Travel Awards - World’s Leading Car Rental Website 2022\nTravel & Hospitality Awards 2021\nFT 1000: Europe's Fastest Growing Companies - Top 300 Companies 2021\nHighly recommended by our customers\nGreat value\nReally fast booking and value for money. Thanks.\nRadin,\nSep 2, 2026\nQuick to book\nQuick to book\nMr John Adams,\nSep 2, 2026\nExcellent experience with Discover Cars…\nExcellent experience with Discover Cars customer service. Aurora was extremely kind,...\nLuca LB,\nSep 2, 2026\nOverall a very nice and modern\nOverall a very nice and modern experience. No noise and transparent\nAmir Taheri,\nSep 2, 2026\nAll perfect :)\nAll perfect :)\nSvilen Gate",
+ "rows": [
+  {
+   "head": "Instant confirmation!",
+   "prices": [
+    347
+   ],
+   "supplier": null,
+   "raw": "Instant confirmation! | $347.37"
+  },
+  {
+   "head": "Top picks with better rental conditions",
+   "prices": [
+    347,
+    364,
+    367,
+    369,
+    608
+   ],
+   "supplier": null,
+   "raw": "Top picks with better rental conditions | Offers selected for stronger overall rental conditions and a smoother rental experience. | Kia Picanto | or similar Mini | Manual | 5 | A/C | 8.5 | Very Good | 45 ratings | Good conditions | In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage | Total for 8 days | $347.37 | Free cancellation | View deal | Automatic | 8.7 |"
+  },
+  {
+   "head": "Top picks with better rental conditions",
+   "prices": [],
+   "supplier": null,
+   "raw": "Top picks with better rental conditions | Offers selected for stronger overall rental conditions and a smoother rental experience."
+  },
+  {
+   "head": "Top picks with better rental conditions",
+   "prices": [],
+   "supplier": null,
+   "raw": "Top picks with better rental conditions"
+  },
+  {
+   "head": "Offers selected for stronger overall rental conditions and a smoother ",
+   "prices": [],
+   "supplier": null,
+   "raw": "Offers selected for stronger overall rental conditions and a smoother rental experience."
+  },
+  {
+   "head": "Kia Picanto",
+   "prices": [
+    347,
+    364,
+    367,
+    369,
+    608
+   ],
+   "supplier": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 5 | A/C | 8.5 | Very Good | 45 ratings | Good conditions | In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage | Total for 8 days | $347.37 | Free cancellation | View deal | Automatic | 8.7 | 101 ratings | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | $364.75 | $367.83 | $369.56 | Suzuki Sierra | Com"
+  },
+  {
+   "head": "Kia Picanto",
+   "prices": [
+    347,
+    364,
+    367,
+    369,
+    608
+   ],
+   "supplier": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 5 | A/C | 8.5 | Very Good | 45 ratings | Good conditions | In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage | Total for 8 days | $347.37 | Free cancellation | View deal | Automatic | 8.7 | 101 ratings | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | $364.75 | $367.83 | $369.56 | Suzuki Sierra | Com"
+  },
+  {
+   "head": "Kia Picanto",
+   "prices": [
+    347
+   ],
+   "supplier": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 5 | A/C | 8.5 | Very Good | 45 ratings | Good conditions | In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage | Total for 8 days | $347.37 | Free cancellation | View deal"
+  },
+  {
+   "head": "Kia Picanto",
+   "prices": [],
+   "supplier": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 5 | A/C"
+  },
+  {
+   "head": "In terminal pick-up — Keflavik Airport (KEF)",
+   "prices": [],
+   "supplier": null,
+   "raw": "In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage"
+  },
+  {
+   "head": "In terminal pick-up — Keflavik Airport (KEF)",
+   "prices": [],
+   "supplier": null,
+   "raw": "In terminal pick-up — Keflavik Airport (KEF)"
+  },
+  {
+   "head": "In terminal pick-up — Keflavik Airport (KEF)",
+   "prices": [],
+   "supplier": null,
+   "raw": "In terminal pick-up — Keflavik Airport (KEF)"
+  }
+ ],
+ "body": "USD\nEnglish\nHelp\nManage booking\nLog in\nPick-up location\nKeflavik Airport (KEF), Keflavik, Iceland\nReturn car in same location\nPick-up date\nFri, Sep 04\nTime\n11:00 AM\nDrop-off date\nSat, Sep 12\nTime\n11:00 AM\nDriver's country of residence is\nUnited States of America (USA)\nand age is\n30-65\nSearch\nInclude Full Coverage in total booking cost. Learn more\nPopular filters\nAutomatic Transmission\n$364.75\nDebit card for deposit\n$347.37\nNo deposit\n$364.75\nLow deposit\n$479.00\nIn terminal\n$347.37\nGood 8+\n$347.37\nAir Conditioning\n$347.37\nPrice range\n\nPer trip\n\nPer day\n\nMinimum\n\nUSD\n\nMaximum\n\nUSD\nSpecial offers\nAutumn sale\n$479.00\nInstant confirmation!\n$347.37\nWinter tires\n$765.65\nShow more\nCross-border policy\nFerry allowed\n$347.37\nRental conditions score\nGood\n$347.37\nFair\n$433.78\nNumber of seats\n2 seats\n$522.59\n4 seats\n$445.44\n5 seats\n$347.37\nShow more\nPayment type\nPay part now\n$347.37\nPay part now with the rest due at pick-up.\nPay now\n$364.75\nPay the full rental costs upfront.\nLocation type\nIn terminal\n$347.37\nThe rental desk and car are in the terminal.\nMeet & Greet\n$460.17\nA representative will take you to the car.\nFree shuttle service\n$364.75\nYou’ll take the supplier’s shuttle bus to the rental",
  "job": {
   "slug": "iceland-kef-4d",
   "pickup": "Keflavik Airport",
   "pick_date": "2026-09-26",
-  "pick_time": "09:00",
   "drop_date": "2026-09-29",
-  "drop_time": "18:00"
+  "pick_month_idx": 0,
+  "drop_month_idx": 0
  }
 }

@@ -1,0 +1,74 @@
+{
+ "title": "TotalApartments Vervet Apartment Hotel, Tromsø (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/ta-vervet-apartment.html?checkin=2026-10-03&checkout=2026-10-06&group_adults=4&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Two-Bedroom Apartment",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    178,
+    535,
+    535,
+    535
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Two-Bedroom Apartment ¶ We have 3 left ¶ Bedroom 1: 1 full bed ¶ Bedroom 2: 1 twin bed ¶ Living room: 1 sofa bed ¶ Entire apartment ¶ 667 feet² ¶ Private kitchen ¶ Private bathroom ¶ Balcony ¶ Air conditioning ¶ Flat-screen TV ¶ Free Wifi ¶ Max. people: 3 ¶ € 178 per night ¶ € 535 ¶ Price € 535 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 535) ¶ 2          (€ 1,070) ¶ 3          (€ 1,605)"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    198,
+    595,
+    595,
+    595
+   ],
+   "cancel": "Free cancellation before September 19, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 3 ¶ € 198 per night ¶ € 595 ¶ Price € 595 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Includes high-speed internet ¶ Free cancellation before September 19, 2026 ¶ • ¶ Pay nothing until September 17, 2026 ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 595) ¶ 2          (€ 1,189) ¶ 3          (€ 1,784)"
+  },
+  {
+   "row": 2,
+   "name": "One-Bedroom Apartment",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    131,
+    392,
+    392,
+    392
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "One-Bedroom Apartment ¶ To fit 4 adults, you'll need to select 2 of these ¶ We have 2 left ¶ Bedroom 1: 1 full bed ¶ Living room: 1 sofa bed ¶ Entire apartment ¶ 484 feet² ¶ Private kitchen ¶ Private bathroom ¶ Balcony ¶ Air conditioning ¶ Flat-screen TV ¶ Free Wifi ¶ Max. people: 2 ¶ € 131 per night ¶ € 392 ¶ Price € 392 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 392) ¶ 2          (€ 784)"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    145,
+    436,
+    436,
+    436
+   ],
+   "cancel": "Free cancellation before September 19, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 145 per night ¶ € 436 ¶ Price € 436 ¶ 3 nights ¶ Excluded: 12 % VAT ¶ Includes high-speed internet ¶ Free cancellation before September 19, 2026 ¶ • ¶ Pay nothing until September 17, 2026 ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 436) ¶ 2          (€ 871)"
+  }
+ ],
+ "job": {
+  "slug": "vervet-apartment",
+  "hotel": "no/ta-vervet-apartment",
+  "checkin": "2026-10-03",
+  "checkout": "2026-10-06",
+  "rooms": 1
+ }
+}

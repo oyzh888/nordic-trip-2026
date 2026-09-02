@@ -1,0 +1,59 @@
+{
+ "title": "Enter Amalie Apartment Hotel, Tromsø (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/enter-amalie-apartments.html?checkin=2026-10-03&checkout=2026-10-06&group_adults=4&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Three-Bedroom Loft Apartment",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    308,
+    925,
+    925,
+    925
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Three-Bedroom Loft Apartment ¶ Recommended for 4 adults ¶ Bedroom 1: 1 queen bed ¶ Bedroom 2: 1 queen bed ¶ Bedroom 3: 1 twin bed ¶ Entire apartment ¶ 861 feet² ¶ Private kitchen ¶ Private bathroom ¶ Flat-screen TV ¶ Terrace ¶ Free Wifi ¶ Max. people: 4 ¶ € 308 per night ¶ € 925 ¶ Price € 925 ¶ 3 nights ¶ Excluded: 8 % VAT ¶ Wonderful breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ • ¶ We have 1 left ¶ Select Rooms ¶ 0 ¶ 1          (€ 925)"
+  },
+  {
+   "row": 1,
+   "name": "One-Bedroom Apartment",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    216,
+    647,
+    647,
+    647
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "One-Bedroom Apartment ¶ We have 3 left ¶ Bedroom 1: 1 queen bed ¶ Living room: 1 sofa bed ¶ Entire apartment ¶ 538 feet² ¶ Private kitchen ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Max. people: 3 ¶ € 216 per night ¶ € 647 ¶ Price € 647 ¶ 3 nights ¶ Excluded: 8 % VAT ¶ Wonderful breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 647) ¶ 2          (€ 1,295) ¶ 3          (€ 1,942)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    196,
+    589,
+    589,
+    589
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 196 per night ¶ € 589 ¶ Price € 589 ¶ 3 nights ¶ Excluded: 8 % VAT ¶ Wonderful breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 589) ¶ 2          (€ 1,177) ¶ 3          (€ 1,766)"
+  }
+ ],
+ "job": {
+  "slug": "enter-amalie",
+  "hotel": "no/enter-amalie-apartments",
+  "checkin": "2026-10-03",
+  "checkout": "2026-10-06",
+  "rooms": 1
+ }
+}

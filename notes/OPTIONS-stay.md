@@ -56,7 +56,9 @@ Borgarnes 一带 8 个 2房2卫房源里，**全部 min-stay ≥ 2 晚**。
 | [A cozy house near Gardermoen](https://www.airbnb.com/rooms/1517311976763731826) | 3BR / 2BA | €426 / **2晚** | ¥1,704/晚 | 5.0 | Eidsvoll | ⚠️ min-stay 2 晚 |
 | [Central Jessheim - 10 min from OSL](https://www.airbnb.com/rooms/1739223395983398156) | 4BR / 2BA | €759 / **2晚** | ¥1,518/晚 | 5.0 | Ullensaker | ⚠️ min-stay 2 晚 |
 | [Semi-detached house](https://www.airbnb.com/rooms/955510432915478016) | 2BR / 2BA | €503 / **2晚** | ¥1,006/晚 | 5.0 | Gjerdrum | ⚠️ min-stay 2 晚 |
+| **酒店兜底**：**Thon Hotel Gardermoen** | 2 间房 | **€86–140/间** · free-cxl 到 9/23 | **¥688–1,120** | — | 机场旁 | **全程最便宜的 2 卫方案** |
 | **酒店兜底**：Clarion Hotel Oslo Airport | 2 间房 | €108–126/间 · free-cxl 到 9/23 | ¥864–1,008 | — | 机场旁 | 2 间房 = 2 卫，最省心 |
+| **酒店兜底**：Park Inn Oslo Airport | 2 间房 | €212–552 · free-cxl 到当天 18:00 | — | — | 机场旁 | 19 个房型行有货 |
 
 ### D1 · 9/25（五）Reykjavík —— 选项最多的一晚
 
@@ -94,7 +96,19 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 
 **Fosshotel Glacier Lagoon 是唯一同时满足「离冰河湖近 + 在预算内 + 还能免费取消」的。
 它距冰河湖 ~10 min，全程最该今天就锁的一晚。**
-（Hali Country Hotel / The Milk Factory 两家我的抓取返回空房型表，需要人工核 URL，见下面「待办」。）
+**修正 slug 后新拿到的更便宜替代（都在 Höfn 一带，离冰河湖 45–60 min）：**
+
+| 物业 | 房型 | 2 间房总价 | ¥/room | free-cxl |
+|---|---|---|---|---|
+| **Árnanes Sveitagisting**（Höfn 西） | Double/Twin · 私卫 | €248–321 / €276–349(free-cxl) | **¥992–1,396** | 到 **9/20** |
+| Árnanes Sveitagisting | Triple · 私卫 | €346–368 / €385–409 | ¥1,384–1,636 | 到 9/20 |
+| **Lambhús Cabins**（Höfn） | Family Studio ×1 | €232–399 | — | 不可退 |
+
+👉 **Árnanes 便宜一半**（¥992/room vs Fosshotel ¥2,032），代价是**离冰河湖多开 40 min**。
+如果 9/27 晚上要在冰河湖等极光，Fosshotel 的 10 min 车程值那个差价；如果只是路过，Árnanes 更划算。
+
+（`hali-country` / `the-milk-factory` 换 slug 也没抓到 —— 这两家在 Booking 上可能已下架，
+需要去官网直接看。`jokulsarlon` 和 `hofn-apartments` 这两个 slug 返回 0 行 = 9/27 售罄。）
 
 ### D4 · 9/28（一）Keflavík —— 为次日斯奈山 + 还车
 
@@ -147,6 +161,29 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 ⚠️ **Hattvika / Eliassen 的卫生间数量 Booking 页面没写** → 这是必须发邮件问的（见待办）。
 Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 卫」这条需求，**Airbnb 那几个更可靠**。
 
+#### 🥇 补充：**Nusfjord Arctic Resort —— 唯一在 Booking 页面上明写「2 bathrooms」的罗弗敦房源**
+
+修正了 Booking 的 slug 之后重抓，拿到了三家之前抓空的：
+
+| 物业 | 房型 | 卫生间 | 2 晚总价 | ¥/room/晚 | free-cxl |
+|---|---|---|---|---|---|
+| 🥇 **Nusfjord Arctic Resort** | **Village Cabin Suite Plus** | **2 卫（页面明写）** | €723（不可退）/ €743 | **¥1,446** | 到 **9/16** |
+| **Nusfjord Arctic Resort** | **Harbor Cabin Suite Plus** | **2 卫（页面明写）** | €864–941 / €949 | ¥1,728–1,882 | 到 9/16 |
+| Nusfjord Arctic Resort | House of Dahl | **5 卫** | €4,162 | ¥8,324 | — ｜远超预算 |
+| **Svinøya Rorbuer** | Telegrafen 2.2 | 未写 | €681 / €876(free-cxl) | ¥1,362–1,752 | 到 **9/25** |
+| Svinøya Rorbuer | Vestfjord 2.1 | 未写 | €723 / €932 | ¥1,446–1,864 | 到 9/25 |
+| Svinøya Rorbuer | **Rorbu XXL+ with Sauna** | 未写 | €1,107 / €1,427 | ¥2,214–2,854 | 到 9/25 |
+
+👉 **Nusfjord 的 Village Cabin Suite Plus 是全罗弗敦「明确 2 卫 + 在预算内」的唯一确定答案**
+（¥1,446/room/晚，free-cxl 到 9/16）。Nusfjord 在西侧，离 Reine 约 40 min、离 Ramberg 15 min ——
+和「D7 住西侧」的方案完全兼容。
+⚠️ 但 Nusfjord 是**度假村式**，Suite Plus 只有 1 间卧室的可能性存在（"Suite" 不等于 2 卧）→
+**订之前必须确认卧室数**。如果它是 1 卧 2 卫，就退回 Airbnb 那批（Ramberg 4BR/2.5BA €647/2晚）。
+
+（`sakrisa-y-rorbuer-as` 和 `reinefjorden-sjohus` 换了正确 slug 后仍然 0 房型行 →
+这两家 9/30–10/1 **确实卖完了**。`statles-rorbu` 虽然出现在 Lofoten 页面上，
+但它其实在 **Møre og Romsdal 的 Bud，不在罗弗敦**，排除。）
+
 ### D8–D10 · 10/3–10/5（六–一）特罗姆瑟 3 晚 —— 18 个合格房源
 
 | 房源 | 房/卫 | 3晚总价 | €/晚 | ¥/room/晚 | 评分 |
@@ -159,6 +196,25 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
 | [The Loft I 4BR/2 Bath](https://www.airbnb.com/rooms/1480974381910568232) | 4BR / 2BA | €1,734 | €578 | ¥2,312 | 5.0 ｜市中心 |
 | **酒店兜底**：Thon Hotel Polar | 2 间房 · 3 晚 | €690–908 | ¥920–1,210 | 到 10/2 |
 | **酒店兜底**：Scandic Ishavshotel | 2 间房 · 3 晚 | €898–1,238 | ¥1,197–1,650 | 到 10/2 |
+
+**特罗姆瑟公寓型（修正 slug 后新拿到的，都是整套公寓）**
+
+| 物业 | 房型 | 3 晚总价 | ¥/room/晚 | free-cxl |
+|---|---|---|---|---|
+| 🥇 **Enter Amalie Apartments** | **Three-Bedroom Loft** | €925 | **¥1,233** | 不可退 |
+| **Enter Viking Apartments** | **Three-Bedroom** | €1,206 / €2,172(free-cxl) | ¥1,608–2,896 | 到 **9/3** ⚠️ 只剩 2 天 |
+| Enter Viking Apartments | Four-Bedroom | €1,520 / €2,735 | ¥2,027–3,647 | 到 9/3 |
+| Enter Viking Apartments | Two-Bedroom | €768–904 / €1,627 | ¥1,024–2,169 | 到 9/3 |
+| **TA Vervet Apartment** | Two-Bedroom | €535 / €595(free-cxl) | **¥713–793** | 到 9/19 |
+| TA Vervet Gjøa I & J | Two-Bedroom | €567 / €630 | ¥756–840 | 到 9/19 |
+| TA Vervet Gjøa I & J | Two-Bedroom + 阳台海景 | €1,338 / €1,487 | ¥1,784–1,983 | 到 9/19 |
+| Enter St. Elisabeth Suites | Suite ×2 间 | €1,074–1,177 | ¥1,432–1,569 | 到 10/1 |
+| Enter St. Elisabeth Suites | Family Suite ×2 间 | €1,668 | ¥2,224 | 到 10/1 |
+
+✅ **顺手答掉一个悬案：Vervet Apartments 没有闭店。** 之前有 listing 显示「2026-08 → 2027-08 关闭」，
+实测 **10/3–10/6 正常放房、正常报价**（€535/3 晚起，free-cxl 到 9/19）—— 那条闭店信息是错的或已作废。
+⚠️ Vervet 和 Enter 系列的 Two-Bedroom **多为 1 卫**，Booking 页面没写卫生间数 →
+「一定要 2 卫」还是以 Airbnb 那批（明写 2BA/2.5BA/3BA）为准，这几家当**价格锚**和兜底。
 
 ---
 
@@ -198,11 +254,13 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
 ## 四、待办 / 需要人工确认
 
 - [ ] **Kevin 的 KEF→OSL 航班起飞时间** ← 决定 9/29 斯奈山能不能做（唯一的硬前提）
-- [ ] **Hattvika Lodge / Eliassen Rorbuer 的卫生间数**（Booking 页面没写）→ 发邮件
-- [ ] Booking 抓取返回空房型表、需核 URL 的 8 家：`hali-country`、`the-milk-factory`、
-      `park-inn-oslo-airport-hotel-gardermoen`、`comfort-runway`、`svinoya-rorbuer`、
-      `reinefjorden-sjohus`、`sakrisoy-rorbuer`、`enter-city-apartments`
-      —— 空表 **不等于售罄**，很可能是 slug 不对
+- [ ] **Hattvika Lodge / Eliassen Rorbuer / Svinøya Rorbuer 的卫生间数**（Booking 页面没写）→ 发邮件
+- [ ] 🔴 **Nusfjord「Village Cabin Suite Plus」到底几间卧室**（2 卫已确认，卧室数没写）
+      —— 这是全罗弗敦最优解，也是唯一需要确认的一点
+- [x] ~~8 个 slug 抓空~~ → **已修正**：`svinoya`（不是 `svinoya-rorbuer`）、`nusfjord-as`、
+      `sakrisa-y-rorbuer-as`、`park-inn-oslo-airport`、`enter-amalie-apartments` /
+      `enter-viking-apartments` / `ta-vervet-apartment`（不是 `enter-city-apartments`）。
+      修正后 12 家有数据、3 家确认售罄、2 家（`hali-country` / `the-milk-factory`）疑似 Booking 下架
 - [ ] Vík 镇内酒店（Hótel Vík í Mýrdal / Hótel Katla）2 间房报价 —— 若 D3 改 Katla 冰洞就需要
 - [ ] 酒店那几行的 €/$ 到底是**单间价还是两间总价**，下单前在页面上再核一眼
       （Radisson 两家返回的是 USD 而不是 EUR，说明它忽略了我的货币参数）

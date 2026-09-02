@@ -1,0 +1,20 @@
+[
+ {"slug":"svinoya","hotel":"no/svinoya","checkin":"2026-09-30","checkout":"2026-10-02","rooms":1},
+ {"slug":"sakrisoy","hotel":"no/sakrisa-y-rorbuer-as","checkin":"2026-09-30","checkout":"2026-10-02","rooms":1},
+ {"slug":"nusfjord","hotel":"no/nusfjord-as","checkin":"2026-09-30","checkout":"2026-10-02","rooms":1},
+ {"slug":"statles-rorbu","hotel":"no/statles-rorbu-og-konferansesenter","checkin":"2026-09-30","checkout":"2026-10-02","rooms":1},
+ {"slug":"reinefjorden-sjohus-r2","hotel":"no/reinefjorden-sjohus","checkin":"2026-09-30","checkout":"2026-10-02","rooms":1},
+ {"slug":"enter-amalie","hotel":"no/enter-amalie-apartments","checkin":"2026-10-03","checkout":"2026-10-06","rooms":1},
+ {"slug":"enter-viking","hotel":"no/enter-viking-apartments","checkin":"2026-10-03","checkout":"2026-10-06","rooms":1},
+ {"slug":"vervet-apartment","hotel":"no/ta-vervet-apartment","checkin":"2026-10-03","checkout":"2026-10-06","rooms":1},
+ {"slug":"vervet-gjoa","hotel":"no/ta-vervet-gjoa-i-amp-j","checkin":"2026-10-03","checkout":"2026-10-06","rooms":1},
+ {"slug":"enter-st-elisabeth-suites","hotel":"no/enter-st-elisabeth-suites","checkin":"2026-10-03","checkout":"2026-10-06","rooms":2},
+ {"slug":"park-inn-gardermoen-r2","hotel":"no/park-inn-oslo-airport","checkin":"2026-09-24","checkout":"2026-09-25","rooms":2},
+ {"slug":"thon-gardermoen-0924","hotel":"no/thon-gardermoen","checkin":"2026-09-24","checkout":"2026-09-25","rooms":2},
+ {"slug":"thon-oslo-airport-0929","hotel":"no/thon-oslo-airport","checkin":"2026-09-29","checkout":"2026-09-30","rooms":2},
+ {"slug":"jokulsarlon-0927","hotel":"is/jokulsarlon","checkin":"2026-09-27","checkout":"2026-09-28","rooms":2},
+ {"slug":"lambhus-cabins-0927","hotel":"is/lambhus-cabins","checkin":"2026-09-27","checkout":"2026-09-28","rooms":1},
+ {"slug":"hofn-apartments-0927","hotel":"is/hofn-apartments-hofn-i-hornafirdi","checkin":"2026-09-27","checkout":"2026-09-28","rooms":1},
+ {"slug":"arnanes-0927","hotel":"is/arnanes-sveitagisting","checkin":"2026-09-27","checkout":"2026-09-28","rooms":2},
+ {"slug":"hotel-drangshlid-0926","hotel":"is/hotel-drangshlid","checkin":"2026-09-26","checkout":"2026-09-27","rooms":2}
+]

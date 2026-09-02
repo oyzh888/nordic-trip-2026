@@ -1,0 +1,32 @@
+{
+ "log": {
+  "pickup": "Harstad Evenes Airport (EVE), Evenes, Norway",
+  "pick_click": false,
+  "drop_click": false,
+  "dates_shown": [
+   "Fri, Sep 04",
+   "Sat, Sep 12"
+  ],
+  "url_after": "https://www.discovercars.com/search/14abbac6-a552-43b7-b3a4-34c221f1ec2e?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA4OCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTA0VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0xMlQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ%3D%3D&searchVersion=2",
+  "n_cards": 11
+ },
+ "rows": [
+  {
+   "head": "Instant confirmation!",
+   "prices": [
+    1627
+   ],
+   "supplier": null,
+   "raw": "Instant confirmation! | $1,627.97"
+  }
+ ],
+ "body": "USD\nEnglish\nHelp\nManage booking\nLog in\nPick-up location\nHarstad Evenes Airport (EVE), Evenes, Norway\nReturn car in same location\nPick-up date\nFri, Sep 04\nTime\n11:00 AM\nDrop-off date\nSat, Sep 12\nTime\n11:00 AM\nDriver's country of residence is\nUnited States of America (USA)\nand age is\n30-65\nSearch\nInclude Full Coverage in total booking cost. Learn more\nPopular filters\nAutomatic Transmission\n$1,627.97\nDebit card for deposit\n$2,207.82\nGood 8+\n$1,627.97\nAir Conditioning\n$1,627.97\nPrice range\n\nPer trip\n\nPer day\n\nMinimum\n\nUSD\n\nMaximum\n\nUSD\nSpecial offers\nAutumn sale\n$2,207.82\nInstant confirmation!\n$1,627.97\nZero emission\n$1,627.97\nCross-border policy\nCross-border allowed\n$1,627.97\nFerry allowed\n$1,627.97\nRental conditions score\nGood\n$2,207.82\nFair\n$1,627.97\nNumber of seats\n2 seats\n$2,003.54\n4 seats\n$2,003.54\n5 seats\n$1,627.97\nShow more\nPayment type\nPay part now\n$1,725.18\nPay part now with the rest due at pick-up.\nPay now\n$1,627.97\nPay the full rental costs upfront.\nSupplier rating\nHow our customers rate the rental supplier\nVery Good 8.5+\n$1,627.97\nGood 8+\n$1,627.97\nCar Specifications\nAir Conditioning\n$1,627.97\nAutomatic Transmission\n$1,627.97\nManual Transmission\n$2,003.54\nShow more\nPayment",
+ "job": {
+  "slug": "lofoten-eve-eve",
+  "pickup": "Evenes Airport",
+  "pick_date": "2026-09-30",
+  "drop_date": "2026-10-02",
+  "pick_month_idx": 0,
+  "drop_month_idx": 1
+ }
+}
