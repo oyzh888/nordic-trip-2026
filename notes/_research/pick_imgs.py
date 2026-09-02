@@ -56,6 +56,11 @@ def score(it):
     s += min(w, 2000) / 4000
     return -s
 
+def bonus_for(slug, it, keys):
+    """标题开头就是地名的，比「某只海豹恰好在冰河湖」更适合当代表图。"""
+    t = norm(it.get("title") or "")
+    return 1.6 if any(t.startswith(k) for k in keys) else 0.0
+
 picked, rejected = {}, []
 for slug, v in merged.items():
     keys = KEY.get(slug, [slug])
@@ -67,8 +72,17 @@ for slug, v in merged.items():
         it = dict(it); it["src"] = clean_src(it["src"])
         if it["src"] in seen: continue
         seen.add(it["src"]); cands.append(it)
-    cands.sort(key=score)
+    cands.sort(key=lambda it: score(it) - bonus_for(slug, it, keys))
     picked[slug] = {"query": v.get("query"), "items": cands[:3]}
+
+# 跨地点去重：同一张图不要在两个地点重复出现（senja 和 segla 原来就撞了同一张）
+used = set()
+for slug in list(picked):
+    keep = []
+    for it in picked[slug]["items"]:
+        if it["src"] in used: continue
+        used.add(it["src"]); keep.append(it)
+    picked[slug]["items"] = keep
 
 pathlib.Path("out_wiki_picked.json").write_text(json.dumps(picked, ensure_ascii=False, indent=1))
 print(f"{len(picked)} 个地点 · 共 {sum(len(v['items']) for v in picked.values())} 张 · 因标题不匹配剔除 {len(rejected)} 张")

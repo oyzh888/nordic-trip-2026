@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北欧 2026 · 十三天，向北 —— A Journey North</title>
+<meta name="description" content="奥斯陆 → 冰岛南岸 → 罗弗敦群岛 → 特罗姆瑟与 Senja。十三天，两台车，两千四百公里。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Noto+Serif+SC:wght@300;400;600;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   Exaggerated Minimalism · Scroll-Triggered Storytelling
+   Playfair Display (display) + Source Serif 4 / Noto Serif SC (body)
+   + JetBrains Mono (labels) —— 无 UI 无衬线，全程 serif/mono
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --bg:#000; --surface:#0a0a0b; --muted:#141416; --border:#2a2a2e;
+  --fg:#fafafa; --fg2:#b8b8bd; --fg3:#78787f;
+  --tone:#7dd3fc;                     /* 每一幕会覆盖它 */
+  --display:"Playfair Display","Noto Serif SC",Georgia,serif;
+  --body:"Source Serif 4","Noto Serif SC",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gut:clamp(20px,5vw,88px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.75 var(--body);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--tone);outline-offset:3px;border-radius:2px}
+
+/* ---------- 滚动进度（Storytelling pattern 要求的进度指示） ---------- */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:90;
+  background:linear-gradient(90deg,#7dd3fc,#34d399,#fbbf24,#a78bfa);
+  transition:width .1s linear}
+
+/* ---------- 顶部幕导航 ---------- */
+#nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;
+  gap:clamp(10px,2.4vw,30px);padding:14px var(--gut);
+  font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  background:linear-gradient(180deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.78) 62%,rgba(0,0,0,0) 100%);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  opacity:0;pointer-events:none;transition:opacity .4s ease-out}
+#nav.on{opacity:1;pointer-events:auto}
+#nav .brand{color:var(--fg);font-weight:500;margin-right:auto;white-space:nowrap}
+#nav a{color:var(--fg3);text-decoration:none;transition:color .2s ease-out;white-space:nowrap;
+  padding:6px 2px}
+#nav a:hover,#nav a.cur{color:var(--fg)}
+@media(max-width:720px){#nav .hideS{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.62;
+  transform:scale(1.06);will-change:transform}
+.hero .scrim{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(120% 80% at 50% 10%,transparent 0%,rgba(0,0,0,.55) 60%,#000 100%),
+             linear-gradient(180deg,rgba(0,0,0,.7) 0%,transparent 32%,rgba(0,0,0,.9) 88%,#000 100%)}
+.hero .inner{position:relative;z-index:2;padding:0 var(--gut) clamp(48px,9vh,110px)}
+.eyebrow{font:500 11.5px/1 var(--mono);letter-spacing:.34em;text-transform:uppercase;color:var(--fg2)}
+h1{font-family:var(--display);font-weight:900;letter-spacing:-.045em;line-height:.86;
+  font-size:clamp(3.4rem,13.5vw,12rem);margin:.16em 0 0;
+  text-wrap:balance}
+h1 .ital{font-style:italic;font-weight:400;display:block;font-size:.42em;letter-spacing:-.01em;
+  color:var(--fg2);margin-top:.28em;line-height:1.1}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:clamp(22px,4vh,40px);
+  font:400 12px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
+.hero .meta b{color:var(--fg);font-weight:500}
+.cue{position:absolute;left:var(--gut);bottom:16px;z-index:3;display:flex;align-items:center;gap:10px;
+  font:400 10.5px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--fg3)}
+.cue svg{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(5px);opacity:1}}
+
+/* ---------- 序曲数字 ---------- */
+.overture{padding:clamp(80px,14vh,170px) var(--gut)}
+.otxt{max-width:34em;font-size:clamp(19px,2.3vw,25px);line-height:1.68;font-weight:300;color:var(--fg2)}
+.otxt b{color:var(--fg);font-weight:600}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:clamp(24px,4vw,56px);margin-top:clamp(48px,8vh,90px);
+  border-top:1px solid var(--border);padding-top:clamp(28px,4vh,44px)}
+.fig .n{font-family:var(--display);font-weight:900;font-size:clamp(2.6rem,5.4vw,4.4rem);
+  line-height:.9;letter-spacing:-.04em}
+.fig .l{font:400 11px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg3);margin-top:12px}
+
+/* ---------- 幕（Act）扉页 ---------- */
+.act{position:relative;min-height:88svh;display:grid;align-items:center;overflow:hidden;
+  border-top:1px solid var(--border)}
+.act .bg{position:absolute;inset:0;z-index:0}
+.act .bg img{width:100%;height:100%;object-fit:cover;opacity:.4}
+.act .scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.42) 40%,rgba(0,0,0,.72) 78%,#000 100%)}
+.act .inner{position:relative;z-index:2;padding:clamp(70px,12vh,140px) var(--gut);width:100%}
+.act .num{font-family:var(--display);font-weight:900;font-style:italic;color:var(--tone);
+  font-size:clamp(3.6rem,11vw,9.5rem);line-height:.8;letter-spacing:-.05em;opacity:.92}
+.act h2{font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:.98;
+  font-size:clamp(2.4rem,7.2vw,6rem);margin:.12em 0 0;max-width:18em}
+.act .sub{font:500 12px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;
+  color:var(--fg2);margin-top:26px}
+.act .lede{max-width:31em;margin-top:26px;font-size:clamp(16.5px,1.9vw,20px);line-height:1.75;
+  font-weight:300;color:var(--fg2)}
+
+/* ---------- 一天（章） ---------- */
+.day{padding:clamp(66px,11vh,140px) var(--gut);border-top:1px solid var(--border);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:clamp(28px,5vw,80px);align-items:start}
+.day.rev{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.day.rev .txt{order:2}.day.rev .art{order:1}
+@media(max-width:900px){.day,.day.rev{grid-template-columns:1fr}
+  .day.rev .txt{order:1}.day.rev .art{order:2}}
+.dayno{display:flex;align-items:baseline;gap:14px;
+  font:500 11.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--fg3)}
+.dayno .big{font-family:var(--display);font-weight:900;font-style:italic;color:var(--tone);
+  font-size:clamp(2rem,4.4vw,3.4rem);line-height:.8;letter-spacing:-.04em}
+.day h3{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:1.04;
+  font-size:clamp(1.9rem,4.4vw,3.4rem);margin:.34em 0 0;text-wrap:balance}
+.place{font:400 11px/1.6 var(--mono);letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tone);margin-top:16px;opacity:.9}
+.body{margin-top:20px;font-size:clamp(16px,1.75vw,18.5px);line-height:1.82;font-weight:300;color:var(--fg2);
+  max-width:33em}
+.rule{width:44px;height:1px;background:var(--tone);margin:26px 0 0;opacity:.55}
+
+/* 风光图：第一张大，其余成网格 */
+/* 宽高比放在**容器**上、图填满容器 —— 否则 grid 行高被最高的那张拉高，其余就出现黑边 */
+.art .lead{position:relative;overflow:hidden;border-radius:2px;background:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:8px}
+.grid figure{margin:0;position:relative;overflow:hidden;border-radius:2px;background:var(--muted);
+  aspect-ratio:4/3}
+.art figure img,.grid figure img{width:100%;height:100%;object-fit:cover;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+figure.z{cursor:zoom-in}
+figure.z:hover img{transform:scale(1.045)}
+figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 12px 8px;
+  font:400 9.5px/1.4 var(--mono);letter-spacing:.06em;color:rgba(255,255,255,.72);
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.82));
+  opacity:0;transition:opacity .28s ease-out;pointer-events:none}
+figure:hover figcaption,figure:focus-within figcaption{opacity:1}
+
+/* ---------- 住宿实拍 filmstrip ---------- */
+.stay{margin-top:clamp(30px,5vh,52px);border-top:1px solid var(--border);padding-top:22px}
+.stay .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.stay .tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--fg3)}
+.stay .nm{font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,2vw,1.4rem);letter-spacing:-.02em}
+.stay .mt{font:400 11px/1.6 var(--mono);letter-spacing:.1em;color:var(--fg3);width:100%}
+.strip{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding-bottom:10px;
+  scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.strip::-webkit-scrollbar{height:5px}
+.strip::-webkit-scrollbar-thumb{background:var(--border);border-radius:9px}
+.strip figure{flex:0 0 auto;margin:0;scroll-snap-align:start;position:relative;
+  border-radius:2px;overflow:hidden;background:var(--muted)}
+.strip img{width:clamp(180px,26vw,280px);aspect-ratio:3/2;object-fit:cover;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.strip figure:hover img{transform:scale(1.05)}
+
+/* ---------- 备选住宿 ---------- */
+.alts{padding:clamp(66px,11vh,130px) var(--gut);border-top:1px solid var(--border)}
+.alts h2,.credits h2,.outro h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;
+  font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:1.05;margin:.2em 0 0}
+.sechead{font:500 11px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--fg3)}
+.altcard{margin-top:clamp(34px,5vh,56px)}
+.altcard .nm{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.7rem);letter-spacing:-.02em}
+.altcard .mt{font:400 11px/1.7 var(--mono);letter-spacing:.1em;color:var(--fg3);margin-top:5px}
+.altcard .why{font-size:15.5px;line-height:1.7;font-weight:300;color:var(--fg2);margin-top:9px;max-width:36em}
+
+/* ---------- 尾声 ---------- */
+.outro{position:relative;min-height:82svh;display:grid;align-items:center;overflow:hidden;
+  border-top:1px solid var(--border)}
+.outro .bg{position:absolute;inset:0;z-index:0}
+.outro .bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.outro .scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,#000,rgba(0,0,0,.5) 45%,#000)}
+.outro .inner{position:relative;z-index:2;padding:clamp(70px,12vh,140px) var(--gut);width:100%}
+.outro .big{font-family:var(--display);font-weight:900;font-size:clamp(2.6rem,9vw,7.5rem);
+  line-height:.92;letter-spacing:-.045em}
+.cta{display:inline-flex;align-items:center;gap:11px;margin-top:34px;padding:15px 26px;
+  border:1px solid var(--border);border-radius:999px;text-decoration:none;
+  font:500 11.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--fg);
+  transition:border-color .25s ease-out,background .25s ease-out}
+.cta:hover{border-color:var(--fg);background:rgba(255,255,255,.05)}
+.cta svg{transition:transform .25s ease-out}
+.cta:hover svg{transform:translateX(4px)}
+
+/* ---------- 署名 ---------- */
+.credits{padding:clamp(60px,9vh,110px) var(--gut) clamp(70px,10vh,120px);border-top:1px solid var(--border)}
+.credits .note{max-width:44em;font-size:15px;line-height:1.8;font-weight:300;color:var(--fg2);margin-top:22px}
+.credlist{margin-top:30px;columns:2;column-gap:44px;font:400 11px/1.85 var(--mono);color:var(--fg3)}
+@media(max-width:760px){.credlist{columns:1}}
+.credlist div{break-inside:avoid;margin-bottom:5px}
+.credlist a{color:var(--fg2);text-decoration:none;border-bottom:1px solid var(--border)}
+.credlist a:hover{color:var(--fg);border-color:var(--fg3)}
+
+/* ---------- Lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.96);display:none;
+  align-items:center;justify-content:center;padding:clamp(14px,4vw,52px)}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:84vh;object-fit:contain;border-radius:2px}
+#lb .cap{position:absolute;left:0;right:0;bottom:0;padding:20px clamp(14px,4vw,52px);
+  font:400 11px/1.7 var(--mono);color:var(--fg3);text-align:center}
+#lb .cap a{color:var(--fg2)}
+#lb button{position:absolute;top:clamp(12px,3vw,26px);right:clamp(12px,3vw,26px);
+  width:48px;height:48px;display:grid;place-items:center;background:none;cursor:pointer;
+  border:1px solid var(--border);border-radius:999px;color:var(--fg)}
+#lb button:hover{background:rgba(255,255,255,.07)}
+
+/* ---------- 入场动画（reduced-motion 会全部关掉） ---------- */
+.rv{opacity:0;transform:translateY(26px);
+  transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  .hero .bg img{transform:none!important}
+  .cue svg{animation:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div id="prog" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100"></div>
+
+<nav id="nav" aria-label="章节导航">
+  <span class="brand">北欧 2026</span>
+  <a href="#act0" class="hideS">序 · 奥斯陆</a>
+  <a href="#act1">I · 冰岛</a>
+  <a href="#act2">II · 罗弗敦</a>
+  <a href="#act3">III · 特罗姆瑟</a>
+  <a href="#credits" class="hideS">图片来源</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bg" id="heroBg"></div>
+  <div class="scrim"></div>
+  <div class="inner">
+    <p class="eyebrow">2026 · 09 · 24 &nbsp;—&nbsp; 2026 · 10 · 06</p>
+    <h1>十三天，向北<span class="ital">A Journey North</span></h1>
+    <div class="meta">
+      <span><b>Oslo</b> 中转</span>
+      <span><b>Iceland</b> 南岸五日</span>
+      <span><b>Lofoten</b> 群岛</span>
+      <span><b>Tromsø</b> &amp; Senja</span>
+      <span>4 人 · 2 台车 · <b>≈2,400 km</b></span>
+    </div>
+  </div>
+  <div class="cue" aria-hidden="true">
+    <svg width="12" height="20" viewBox="0 0 12 20" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M6 1v17M1 13l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    往下滚
+  </div>
+</header>
+
+<section class="overture">
+  <div class="rv">
+    <p class="eyebrow" style="color:var(--fg3)">序曲</p>
+    <p class="otxt" style="margin-top:22px">
+      这不是一份行程表。行程表在<b>另一个页面</b>里 —— 那里有每一晚的价格、每一段的车程、
+      还有十几条我们吵过的取舍。<br><br>
+      这里只放<b>值得为之飞过去的那些东西</b>：从苔原上直落的瀑布、断成蓝色碎块漂进黑沙滩的冰川、
+      从海里垂直站起来的山、以及北纬 69 度那片刚刚开始亮起来的天空。
+    </p>
+  </div>
+  <div class="figs" id="figs"></div>
+</section>
+
+<main id="story"></main>
+
+<section class="alts" id="alts">
+  <p class="sechead">未选之路</p>
+  <h2>也认真看过的几个地方</h2>
+  <p class="body" style="max-width:38em;margin-top:18px">
+    每一晚都不是只有一个候选。下面这几个最后没选，但都真实报过价、开过页面 ——
+    留在这里，因为它们本身就足够好看。</p>
+  <div id="altwrap"></div>
+</section>
+
+<section class="outro">
+  <div class="bg" id="outroBg"></div>
+  <div class="scrim"></div>
+  <div class="inner rv">
+    <p class="eyebrow">尾声</p>
+    <p class="big" style="margin-top:.2em">十三天<br>两千四百公里<br>一个向北的方向</p>
+    <a class="cta" href="https://reports.aitist.ai/nordic-trip-2026/trip-map/" target="_blank" rel="noopener">
+      看真正的行程表 · 地图 / 预算 / 待拍板
+      <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M1 5h13M10 1l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="credits" id="credits">
+  <p class="sechead">图片来源</p>
+  <h2>每一张图都能查到出处</h2>
+  <p class="note">
+    <b>风光照</b>全部来自 <b>Wikimedia Commons</b>，均为自由许可（CC BY / CC BY-SA / GFDL / CC0）。
+    下面按地点列出<b>文件名 · 作者 · 许可</b>，点进去是原始文件页 ——
+    CC-BY 系列要求署名，所以这一节不是客套，是许可条件。<br>
+    <b>住宿实拍</b>直接引用自对应的 Airbnb / Booking.com 房源页（图片托管在它们自己的 CDN 上，
+    本页不转存），版权属于房东与各平台，仅用于本次出行的私人筹划展示。
+  </p>
+  <div class="credlist" id="credlist"></div>
+  <p class="note" style="margin-top:36px;color:var(--fg3);font-size:13px">
+    数据抓取日 2026-09-02 · 页面由 <span style="font-family:var(--mono)">story/data.js</span> 驱动，
+    由 <span style="font-family:var(--mono)">notes/_research/build_story.py</span> 生成 ·
+    姊妹页：<a href="https://reports.aitist.ai/nordic-trip-2026/trip-map/" style="color:var(--fg2)">行程 / 预算 / 决策</a>
+  </p>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="放大查看图片">
+  <button id="lbx" aria-label="关闭">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M1 1l16 16M17 1L1 17" stroke-linecap="round"/></svg>
+  </button>
+  <img id="lbi" alt="">
+  <div class="cap" id="lbc"></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const $=s=>document.querySelector(s), el=(t,c,h)=>{const n=document.createElement(t);
+  if(c)n.className=c; if(h!=null)n.innerHTML=h; return n;};
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* 图片 alt：给屏幕阅读器用的中文描述 */
+const altOf=i=>`${i.slug} —— ${(i.title||'').replace(/\.(jpe?g|png|JPG)$/i,'')}`;
+/* 每张图都带 aspect-ratio → 不产生 CLS */
+function figFor(i,cls,ar){
+  const f=el('figure',(cls||'')+' z');
+  /* 宽高比给容器 → 预留空间，不产生 CLS；ar 传入时用它（网格统一 4/3） */
+  if(ar) f.style.aspectRatio=ar; else if(i.w&&i.h) f.style.aspectRatio=i.w+' / '+i.h;
+  const im=el('img');
+  im.src=i.src; im.alt=altOf(i); im.loading='lazy'; im.decoding='async';
+  f.appendChild(im);
+  f.appendChild(el('figcaption',null,
+    `${esc((i.title||'').replace(/\.(jpe?g|png|JPG)$/i,''))} · ${esc(i.author||'—')} · ${esc(i.license||'')}`));
+  f.tabIndex=0;
+  const open=()=>lightbox(i);
+  f.onclick=open;
+  f.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}};
+  return f;
+}
+
+/* ---------- 序曲数字 ---------- */
+[['13','天 · 9/24 → 10/6'],['4','幕 · 三个国度'],['2','台车 · 冰岛 + 挪威'],
+ ['2,400','公里 · 约'],['69°N','最北 · Senja'],['10h50','10/5 日照时长']
+].forEach(([n,l])=>{
+  const d=el('div','fig rv'); d.appendChild(el('div','n',n)); d.appendChild(el('div','l',l));
+  $('#figs').appendChild(d);
+});
+
+/* ---------- HERO / OUTRO 背景 ---------- */
+const heroImg=(ACTS.find(a=>a.id==='act3')||{}).heroImg||(ACTS[1]||{}).heroImg;
+if(heroImg){const im=el('img');im.src=heroImg.src;im.alt=altOf(heroImg);im.fetchPriority='high';
+  $('#heroBg').appendChild(im);}
+const outroImg=(ACTS.find(a=>a.id==='act2')||{}).heroImg;
+if(outroImg){const im=el('img');im.src=outroImg.src;im.alt=altOf(outroImg);im.loading='lazy';
+  $('#outroBg').appendChild(im);}
+
+/* ---------- 正文：幕 + 天 ---------- */
+const story=$('#story');
+ACTS.forEach(a=>{
+  const sec=el('section','act'); sec.id=a.id; sec.style.setProperty('--tone',a.tone);
+  if(a.heroImg){const bg=el('div','bg');const im=el('img');
+    im.src=a.heroImg.src;im.alt=altOf(a.heroImg);im.loading='lazy';im.decoding='async';
+    bg.appendChild(im);sec.appendChild(bg);}
+  sec.appendChild(el('div','scrim'));
+  const inner=el('div','inner rv');
+  inner.appendChild(el('div','num',a.num));
+  inner.appendChild(el('h2',null,a.title));
+  inner.appendChild(el('p','sub',a.sub));
+  inner.appendChild(el('p','lede',a.lede));
+  sec.appendChild(inner); story.appendChild(sec);
+
+  DAYS.filter(d=>d.act===a.id).forEach((d,idx)=>{
+    const s=el('section','day'+(idx%2?' rev':''));
+    s.style.setProperty('--tone',a.tone);
+    const txt=el('div','txt rv');
+    txt.appendChild(el('div','dayno',`<span class="big">${d.date}</span><span>${d.d} · ${d.wd}</span>`));
+    txt.appendChild(el('h3',null,d.t));
+    txt.appendChild(el('p','place',d.place));
+    txt.appendChild(el('div','rule'));
+    txt.appendChild(el('p','body',d.body));
+    if(d.stayname&&d.stayname!=='—'){
+      const st=el('div','stay');
+      st.appendChild(el('div','hd',
+        `<span class="tag">这一晚住</span><span class="nm">${esc(d.stayname)}</span>
+         <span class="mt">${esc(d.staymeta||'')}</span>`));
+      if(d.shots&&d.shots.length){
+        const strip=el('div','strip');
+        d.shots.forEach((u,k)=>{const f=el('figure');const im=el('img');
+          im.src=u; im.alt=`${d.stayname} 实拍 ${k+1}`; im.loading='lazy'; im.decoding='async';
+          f.appendChild(im); f.style.cursor='zoom-in';
+          f.onclick=()=>lightbox({src:u,title:d.stayname,author:'房源实拍',license:'Airbnb / Booking.com'});
+          strip.appendChild(f);});
+        st.appendChild(strip);
+      }
+      txt.appendChild(st);
+    }
+    const art=el('div','art rv');
+    if(d.imgs.length){
+      art.appendChild(figFor(d.imgs[0],'lead'));
+      if(d.imgs.length>1){const g=el('div','grid');
+        d.imgs.slice(1).forEach(i=>g.appendChild(figFor(i,'','4 / 3'))); art.appendChild(g);}
+    }
+    s.appendChild(txt); s.appendChild(art); story.appendChild(s);
+  });
+});
+
+/* ---------- 备选住宿 ---------- */
+ALTSTAYS.forEach(a=>{
+  const c=el('div','altcard rv');
+  c.appendChild(el('div','nm',esc(a.name)));
+  c.appendChild(el('div','mt',esc(a.meta)));
+  c.appendChild(el('div','why',esc(a.why)));
+  const strip=el('div','strip');
+  a.shots.forEach((u,k)=>{const f=el('figure');const im=el('img');
+    im.src=u; im.alt=`${a.name} 实拍 ${k+1}`; im.loading='lazy'; im.decoding='async';
+    f.appendChild(im); f.style.cursor='zoom-in';
+    f.onclick=()=>lightbox({src:u,title:a.name,author:'房源实拍',license:'Airbnb / Booking.com'});
+    strip.appendChild(f);});
+  c.appendChild(strip); $('#altwrap').appendChild(c);
+});
+
+/* ---------- 署名表 ---------- */
+$('#credlist').innerHTML=CREDITS.map(i=>{
+  const t=esc((i.title||'').replace(/\.(jpe?g|png|JPG)$/i,''));
+  return `<div><a href="${esc(i.page)}" target="_blank" rel="noopener">${t}</a>
+    — ${esc(i.author||'未署名')} · ${esc(i.license||'见文件页')}</div>`;
+}).join('');
+
+/* ---------- Lightbox ---------- */
+let lastFocus=null;
+function lightbox(i){
+  lastFocus=document.activeElement;
+  $('#lbi').src=i.src; $('#lbi').alt=i.title||'';
+  $('#lbc').innerHTML=`${esc((i.title||'').replace(/\.(jpe?g|png|JPG)$/i,''))} · ${esc(i.author||'')}
+    · ${esc(i.license||'')}${i.page?` · <a href="${esc(i.page)}" target="_blank" rel="noopener">文件页 ↗</a>`:''}`;
+  $('#lb').classList.add('on'); document.body.style.overflow='hidden'; $('#lbx').focus();
+}
+function closeLb(){$('#lb').classList.remove('on'); document.body.style.overflow='';
+  $('#lbi').src=''; if(lastFocus)lastFocus.focus();}
+$('#lbx').onclick=closeLb;
+$('#lb').onclick=e=>{if(e.target===$('#lb'))closeLb();};
+addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#lb').classList.contains('on'))closeLb();});
+
+/* ---------- 滚动：进度条 / 导航 / 入场 / 轻微视差 ---------- */
+const prog=$('#prog'), nav=$('#nav');
+function onScroll(){
+  const h=document.documentElement;
+  const pct=h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100;
+  prog.style.width=pct+'%'; prog.setAttribute('aria-valuenow',Math.round(pct));
+  nav.classList.toggle('on',h.scrollTop>innerHeight*.65);
+  if(!RM){const y=h.scrollTop;const b=$('#heroBg');
+    if(y<innerHeight)b.style.transform=`translate3d(0,${y*.28}px,0)`;}
+}
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+if(!RM){
+  const io=new IntersectionObserver((es)=>{
+    es.forEach((e,k)=>{ if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'),k*45);   // 40–50ms 递进
+      io.unobserve(e.target);} });
+  },{rootMargin:'0px 0px -12% 0px',threshold:.12});
+  document.querySelectorAll('.rv').forEach(n=>io.observe(n));
+}else{document.querySelectorAll('.rv').forEach(n=>n.classList.add('in'));}
+
+/* 当前所在幕 → 导航高亮 */
+const secs=[...document.querySelectorAll('.act')];
+const io2=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(e.isIntersecting){document.querySelectorAll('#nav a').forEach(a=>
+    a.classList.toggle('cur',a.getAttribute('href')==='#'+e.target.id));}});},{threshold:.35});
+secs.forEach(s=>io2.observe(s));
+</script>
+</body>
+</html>

@@ -16,6 +16,8 @@ def shots(slug, n=14):
     所以未签名的一律丢掉；Booking 那几家改用 bk_img_fix.py 抓到的签名大图（只有 1 张/家 ——
     它的图库有反爬，点不开，只能拿到主图）。"""
     src = (abnb.get(slug) or {}).get("images", [])
+    # ⛔ AirbnbPlatformAssets = 站点品牌图/favicon，不是房源照片（camelCase，之前小写过滤没命中）
+    src = [u for u in src if "airbnbplatformassets" not in u.lower()]
     src = [u for u in src if "bstatic.com" not in u or "?k=" in u]
     if not src and slug in bkfix:
         src = bkfix[slug].get("images", [])
@@ -99,7 +101,7 @@ DAYS = [
       place="Svolvær ✈ Tromsø",
       body="本来想坐海岸邮轮夜航 —— 后来改成飞。Widerøe 的支线小飞机五十分钟，"
            "省下的时间换成在特罗姆瑟的一整个下午。落地再提一台车。",
-      imgs=["narvik","tromso","arcticcath"], stay="d8-tos4br",
+      imgs=["narvik","arcticcath","tromso"], stay="d8-tos4br",
       stayname="Queen size beds · Fantastisk nordlys · Jacuzzi", staymeta="Airbnb · 4 房 · 住 4 晚"),
  dict(act="act3", d="D9", date="10/3", wd="周六", t="缆车上去看整座城",
       place="Tromsø · Fjellheisen · Ishavskatedralen",
