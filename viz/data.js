@@ -191,8 +191,11 @@ const DAYS = [
     stay:{name:'3BR/2BA Reykjanesbær',type:'Airbnb',rb:'3房/4床/2卫',
           price:'€424 总价 · ¥1,696/房',cxl:'✅ 24h 内免费',rating:'4.92',
           url:U.keflavik, pt:P.reykjanes, place:'Reykjanesbær（KEF 旁）',
-          note:'原想改住 Borgarnes 省次日 1.5h 车程 → 实测那一带 8 个合格房源**全部 min-stay ≥2 晚**，'+
-               '1 晚订不到 → 只能住 KEF 旁，斯奈山靠早出发解决（见 B1）'},
+          note:'🥇 9/29 改成雷克雅内斯轻档后，**Reykjanesbær 正好是最对的落脚点**（那天所有点都在 KEF 15–50 min 圈内）。'+
+               '🔴 修正：旧备注写「Borgarnes 1 晚订不到」是错的 —— 那次**只查了 Airbnb，酒店没查**。'+
+               '实抓 Hotel Hafnarfjall 2 间含税 €365（¥1,460/房，退到 9/25）、Hótel Borgarnes 2 间 €440（剩 6 间，退到 9/21），'+
+               '**都订得到、还更便宜**。只是搬去 Borgarnes 会让 9/29 多开 1h30 回来 → 只有改用 🥈 斯奈山南半段时才值得。'+
+               '详见 <a href="../notes/ICELAND-oneway.md" target="_blank">ICELAND-oneway.md</a> 第五节'},
     spend:{stay:3392}, supply:'green',
     hi:['Þingvellir 裂谷 · Geysir 间歇泉 · Gullfoss 黄金瀑布','Blue Lagoon 泡汤（离 KEF 20 min）'],
     watch:['这一天车程最长，注意 9 月末南岸风暴封路（存 road.is）']
