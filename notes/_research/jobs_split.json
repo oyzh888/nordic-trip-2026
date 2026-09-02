@@ -1,0 +1,8 @@
+[
+ {"slug":"A-kef-kef-5d","pick_id":1787,"pick_dt":"2026-09-25T14:00:00","drop_dt":"2026-09-29T18:00:00"},
+ {"slug":"B1-rvk-rvk-4d","pick_id":3092,"pick_dt":"2026-09-25T16:00:00","drop_dt":"2026-09-28T18:00:00"},
+ {"slug":"B2-rvk-kef-1d","pick_id":3092,"drop_id":1787,"pick_dt":"2026-09-29T08:00:00","drop_dt":"2026-09-29T18:00:00"},
+ {"slug":"C-rvk-kef-4d","pick_id":3092,"drop_id":1787,"pick_dt":"2026-09-26T09:00:00","drop_dt":"2026-09-29T18:00:00"},
+ {"slug":"D-rvk-kef-5d","pick_id":3092,"drop_id":1787,"pick_dt":"2026-09-25T16:00:00","drop_dt":"2026-09-29T18:00:00"},
+ {"slug":"E-kef-kef-4d-rerun","pick_id":1787,"pick_dt":"2026-09-26T09:00:00","drop_dt":"2026-09-29T18:00:00"}
+]

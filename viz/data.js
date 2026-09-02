@@ -1,6 +1,15 @@
 /* Nordic Trip 2026 — 数据层
- * 全部数字来源：notes/PLAN-booking.md · notes/OPTIONS-stay.md · notes/OPTIONS-cars.md · notes/OPTIONS-cruise.md
- * 抓取日 2026-09-01（Playwright 实时报价）。汇率 €1=¥8.0 · $1=¥7.1 · NOK1=¥0.67
+ * 唯一权威来源：notes/PLAN-final.md（住宿 + 租车最终方案）
+ * 候选池 / 被否掉的：notes/OPTIONS-stay.md · notes/OPTIONS-cars.md
+ * 抓取日 2026-09-01（Playwright 打开真实页面、按真实日期抓的）。
+ * 汇率 €1=¥8.0 · $1=¥7.1 · NOK1=¥0.67
+ *
+ * 🔴 与旧版（2026-09-01 上午那版）的区别：
+ *   ① 游轮整段 pass 掉 → 10/2 改为 Svolvær→特罗姆瑟自驾，并并进船屋成 4 晚
+ *   ② 罗弗敦改**东侧 Vågan**（理由是 10/2 车程，不是省钱）
+ *   ③ 冰河湖那晚改住 **Höfn 的 Árnanes**（Fosshotel 只剩 1 间房）
+ *   ④ Booking 的房价行是**每间每晚**，不是两间总价；冰岛酒店价要再加 11% VAT + 城市税
+ *   ⑤ 挪威改成**一台车连开 6 天**（EVE 提 → 特罗姆瑟机场还），不再拆两段、不再异地还到 Svolvær
  */
 
 const RATE = { EUR: 8.0, USD: 7.1, NOK: 0.67 };
@@ -16,23 +25,61 @@ const P = {
   katla:      [63.5300, -19.0500], skaftafell:[64.0166, -16.9660],
   fosshotel:  [63.9720, -16.6800], jokulsarlon:[64.0483,-16.1794],
   diamond:    [64.0430, -16.1770], hofn:      [64.2539, -15.2082],
-  arnanes:    [64.2200, -15.3200], reykjanes: [64.0043, -22.5644],
+  arnanes:    [64.2472, -15.3175], stokksnes: [64.2470, -14.9930],
+  reykjanes:  [64.0043, -22.5644],
   ytritunga:  [64.8020, -23.0900], arnarstapi:[64.7680, -23.6200],
   djupalon:   [64.7530, -23.9000], kirkjufell:[64.9270, -23.3100],
   budakirkja: [64.8210, -23.3860],
   eve:        [68.4913,  16.6781], svolvaer:  [68.2340, 14.5680],
-  henningsvaer:[68.1540, 14.2050], leknes:    [68.1470, 13.6120],
-  ballstad:   [68.0730,  13.5350], ramberg:   [68.0870, 13.2340],
-  nusfjord:   [68.0330,  13.3550], hamnoy:    [67.9500, 13.1350],
+  vagan:      [68.2180,  14.4680], henningsvaer:[68.1540,14.2050],
+  leknes:     [68.1470,  13.6120], ballstad:  [68.0730, 13.5350],
+  ramberg:    [68.0870,  13.2340], nusfjord:  [68.0330, 13.3550],
+  hamnoy:     [67.9500,  13.1350], sakrisoy:  [67.9420, 13.1120],
   reine:      [67.9330,  13.0890], aa:        [67.8810, 12.9770],
-  tromso:     [69.6492,  18.9553], brensholmen:[69.5680,18.0170],
-  botnhamn:   [69.4680,  17.8330], tungeneset:[69.4790, 17.4890],
-  bergsbotn:  [69.4260,  17.5500], ersfjord:  [69.4930, 17.3140],
-  finnsnes:   [69.2290,  17.9800]
+  narvik:     [68.4385,  17.4272], nordkjosbotn:[69.2180,19.5480],
+  tromso:     [69.6492,  18.9553], tosair:    [69.6819, 18.9189],
+  houseboat:  [69.6560,  18.9640],
+  brensholmen:[69.5680,  18.0170], botnhamn:  [69.4680, 17.8330],
+  tungeneset: [69.4790,  17.4890], bergsbotn: [69.4260, 17.5500],
+  ersfjord:   [69.4930,  17.3140], finnsnes:  [69.2290, 17.9800]
 };
 
+/* ---------- 住宿详情页链接（点了直接跳） ----------
+ * Airbnb 用 rooms/<id> 并带上我们真实的入住日期；
+ * 酒店用 Booking 物业页并带 checkin/checkout/2 间房/4 人/EUR。
+ * ⚠️ Thon Gardermoen 那条是**搜索链接**（Booking 的 slug 猜不出来，只能采；这家还没采过）。
+ */
+const U = {
+  nannestad:  'https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-09-24&check_out=2026-09-25&adults=4&currency=EUR',
+  nannestad2: 'https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-09-29&check_out=2026-09-30&adults=4&currency=EUR',
+  aurora:     'https://www.airbnb.com/rooms/1729852848905770040?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR',
+  hvols:      'https://www.booking.com/hotel/is/hvolvollur.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR',
+  arnanes:    'https://www.booking.com/hotel/is/arnanes-sveitagisting.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR',
+  vatnajokull:'https://www.booking.com/hotel/is/vatnajokull.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR',
+  keflavik:   'https://www.airbnb.com/rooms/1231709933827491677?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
+  vagan:      'https://www.airbnb.com/rooms/1362321193877972891?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
+  ramberg:    'https://www.airbnb.com/rooms/1170849828585814519?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
+  houseboat:  'https://www.airbnb.com/rooms/1607078897559083655?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR',
+  thon:       'https://www.booking.com/searchresults.html?ss=Thon+Hotel+Gardermoen&checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
+  scandicosl: 'https://www.booking.com/searchresults.html?ss=Scandic+Oslo+Airport&checkin=2026-10-06&checkout=2026-10-07&group_adults=4&no_rooms=2&selected_currency=EUR',
+  dcars:      'https://www.discovercars.com/'
+};
+
+/* ---------- 两台车的取/还点（画在地图上） ---------- */
+const CARPTS = [
+  {k:'pick', c:P.kef,    label:'冰岛提车',  when:'9/25 17:00', car:'Peugeot 2008 · 4x4 · 自动',
+   note:'落地就取（不是第二天）：只贵 $4，但省掉 4 人 ×2 程机场大巴 ≈ ¥1,360'},
+  {k:'drop', c:P.kef,    label:'冰岛还车',  when:'9/29 18:00', car:'Peugeot 2008 · 4x4 · 自动',
+   note:'⚠️ 还车时间取决于 Kevin 的 KEF→OSL 起飞时间（见 B1）'},
+  {k:'pick', c:P.eve,    label:'挪威提车',  when:'9/30 11:00', car:'Suzuki Vitara · 4WD · 自动',
+   note:'⚠️ 押金 $1,805（冻结，不是扣款）→ 要一张额度够的信用卡'},
+  {k:'drop', c:P.tosair, label:'挪威还车',  when:'10/6 10:00', car:'Suzuki Vitara · 4WD · 自动',
+   note:'一台车连开 6 天，不拆两段：拆开省 $107 但要多跑一次柜台 + 多一次押金冻结，不值'}
+];
+
 /* ---------- 逐日行程 ----------
- * spend = 当天真实要花的钱（¥，4 人合计）。stay 里的 ¥/room 已经 ×2。
+ * spend = 当天真实要花的钱（¥，4 人合计）。多晚连住的房价已按晚数摊平。
+ * stay.pt = 住处坐标（地图上的 🛏 图钉）· stay.url = 详情页链接（可点）
  */
 const DAYS = [
   {
@@ -41,77 +88,91 @@ const DAYS = [
     anchor:P.nannestad,
     route:[{n:'OSL 机场',c:P.osl},{n:'Nannestad 住处',c:P.nannestad}],
     legs:[], drive:'—',
-    stay:{name:'Modern. Quiet area. Large space.（Nannestad）',type:'Airbnb',rb:'3BR / 2BA',
-          price:'€260 总价 · ¥1,040/room',cxl:'—',
-          url:'https://www.airbnb.com/rooms/1616864516592253636',
-          note:'唯一能订 1 晚的 3房2卫；酒店兜底 Thon Gardermoen 2 间房 €86–140/间（free-cxl 9/23）'},
+    stay:{name:'Modern. Quiet area. Large space.',type:'Airbnb',rb:'3房/5床/2卫',
+          price:'€260 总价 · ¥1,040/房',cxl:'⛔ 不可退',
+          url:U.nannestad, pt:P.nannestad, place:'Nannestad（OSL 西 15 min）',
+          note:'唯一能只订 1 晚的 3房2卫，性价比碾压。但**不可退** → 放最后订（等 Kevin 机票定）。'+
+               '要弹性就换 <a href="'+U.thon+'" target="_blank">Thon Hotel Gardermoen</a> €86–140/间、退到 9/23'},
     spend:{stay:2080}, supply:'green',
     hi:['中转睡一晚，不安排活动','9/25 一早飞 KEF'],
-    watch:[]
+    watch:['⛔ 这一晚是全程唯一不可退的（9/24+9/29 两晚共 €520 敞口）']
   },
   {
     id:'D1', date:'9/25', wd:'周五', region:'iceland', base:'Reykjavík',
-    title:'飞冰岛 · 雷市市区',
+    title:'飞冰岛 · 落地 KEF 提车 · 雷市市区',
     anchor:P.rvk,
-    route:[{n:'OSL',c:P.osl},{n:'KEF',c:P.kef},{n:'Reykjavík',c:P.rvk}],
-    legs:[{k:'fly',from:P.osl,to:P.kef}], drive:'KEF→雷市 50 min',
-    stay:{name:'Aurora view 3BR 2BATH Luxury down town',type:'Airbnb',rb:'3BR / 2BA',
-          price:'€447 总价 · ¥1,788/room',cxl:'—',rating:'5.0',
-          url:'https://www.airbnb.com/rooms/1729852848905770040',
-          note:'雷市这一晚选项最多（5 个合格房源），压力最小'},
-    spend:{stay:3576}, supply:'green',
-    hi:['雷市市中心 · Hallgrímskirkja / 老港','这一晚不租车（次日 09:00 KEF 提车）'],
-    watch:[]
+    route:[{n:'OSL',c:P.osl},{n:'KEF 提车 17:00',c:P.kef},{n:'Reykjavík 住处',c:P.rvk}],
+    legs:[{k:'fly',from:P.osl,to:P.kef},{k:'drive',pts:[P.kef,P.rvk]}],
+    drive:'KEF→雷市 50 min',
+    stay:{name:'Aurora view 3BR 2BATH Luxury down town',type:'Airbnb',rb:'3房/3床/2卫',
+          price:'€647 → €447 · ¥1,788/房',cxl:'✅ 24h 内免费，9/18 前部分退',rating:'5.0',
+          url:U.aurora, pt:P.rvk, place:'雷市市中心',
+          note:'€647 打到 €447，是这次抓到最大的折扣之一。雷市这一晚候选最多（5 个合格房源），压力最小'},
+    car:{name:'Peugeot 2008 · 4x4 · 自动挡',seg:'冰岛 · KEF 9/25 17:00 → KEF 9/29 18:00（5 天）',
+         price:'$258 裸车 → 含全险约 $400–480',cny:'¥1,832 → 最坏 ¥3,408（¥682/天）',
+         url:U.dcars, pick:P.kef, drop:P.kef, pickWhen:'9/25 17:00', dropWhen:'9/29 18:00',
+         note:'冰岛必买三险：SCDW（超级碰撞险）+ gravel（砂石）+ sand&ash（火山沙尘）+ 2026 道路税。'+
+              '⛔ 别订 Suzuki Jimny（$247/$251）：装不下 4 人 + 4 个大箱子。不限里程、可免费取消'},
+    spend:{stay:3576, car:3408}, supply:'green',
+    hi:['Hallgrímskirkja / 老港 / Sun Voyager','落地就提车 = 省掉 4 人来回机场大巴 ¥1,360'],
+    watch:['🟠 保险包实价要在 DiscoverCars 结账页读一次（$258 → $400–480 的区间还没收窄）']
   },
   {
     id:'D2', date:'9/26', wd:'周六', region:'iceland', base:'Hvolsvöllur',
-    title:'提车 · 南岸瀑布线',
+    title:'南岸瀑布线（塞里雅兰 + 斯科加）',
     anchor:P.hvolsvollur,
-    route:[{n:'KEF 提车 09:00',c:P.kef},{n:'Seljalandsfoss',c:P.seljaland},
-           {n:'Skógafoss',c:P.skogafoss},{n:'Hvolsvöllur 住处',c:P.hvolsvollur}],
-    legs:[{k:'drive',pts:[P.kef,P.rvk,P.seljaland,P.skogafoss,P.hvolsvollur]}],
-    drive:'约 250 km / 3h30',
-    stay:{name:'Hlíðarból Guest House（Hvolsvöllur）',type:'Airbnb',rb:'5BR / 2BA',
-          price:'€750 总价 · ¥3,000/room',cxl:'—',rating:'4.64',
-          url:'https://www.airbnb.com/rooms/1554437248972293986',
-          note:'⚠️ Vík 镇内 0 个 2房2卫整套房源；南岸只有 3 个合格选项，随时会变 0'},
-    car:{name:'Peugeot 2008 4x4 自动挡',seg:'冰岛 KEF 取还 9/26–9/29',
-         price:'$254 车价 + $100–160 全险 + $42 道路税 ≈ $400–500',cny:'¥2,840–3,550'},
-    spend:{stay:6000, car:3550}, supply:'red',
-    hi:['塞里雅兰瀑布（可绕到瀑布后面）','斯科加瀑布','9 月底不需要冬胎（11/1 才强制）'],
-    watch:['南岸只有 3 个房源 → 排第 4 顺位下单','若 D3 改 Katla 冰洞，住 Hvolsvöllur 要早起多开 1h15，考虑换 Vík 酒店 2 间房']
+    route:[{n:'Reykjavík',c:P.rvk},{n:'Seljalandsfoss',c:P.seljaland},
+           {n:'Skógafoss',c:P.skogafoss},{n:'Hotel Hvolsvöllur',c:P.hvolsvollur}],
+    legs:[{k:'drive',pts:[P.rvk,P.seljaland,P.skogafoss,P.hvolsvollur]}],
+    drive:'约 200 km / 2h45',
+    stay:{name:'Hotel Hvolsvöllur ×2 间 Double/Twin',type:'酒店（Booking）',rb:'2 房 / 2 卫',
+          price:'€326 + 11% VAT/城市税 = €374 · ¥1,496/房',cxl:'✅ 到 9/24，且到店付',
+          url:U.hvols, pt:P.hvolsvollur, place:'Hvolsvöllur 镇上',
+          note:'🔴 **这一晚只能是酒店** —— 南岸乡下 4 个 Airbnb 候选全部「日期不可用」或 min-stay ≥2 晚，'+
+               '冰岛南岸基本不接 1 晚。页面写 **"We have 2 left"**，正好是我们要的数量 → 随时变 0。'+
+               '含早 + hot tub + 独立卫浴，**不用预付**'},
+    spend:{stay:2992}, supply:'red',
+    hi:['塞里雅兰瀑布（能绕到瀑布后面）','斯科加瀑布','9 月底不需要冬胎（11/1 才强制）'],
+    watch:['🔴 "We have 2 left" —— 排下单顺序第 3 位，且零风险（到店付、退到 9/24）',
+           '代价：Hvolsvöllur 在 Vík 西 1h15 → 9/27 往东是 ~4h30 的开车日']
   },
   {
-    id:'D3', date:'9/27', wd:'周日', region:'iceland', base:'冰河湖 Jökulsárlón',
-    title:'冰洞 / 冰川 · 冰河湖 + 钻石沙滩',
-    anchor:P.jokulsarlon,
-    route:[{n:'Hvolsvöllur',c:P.hvolsvollur},{n:'Vík（Katla 冰洞集合）',c:P.vik},
-           {n:'Katla 冰洞',c:P.katla},{n:'Skaftafell',c:P.skaftafell},
-           {n:'Fosshotel Glacier Lagoon',c:P.fosshotel},{n:'Jökulsárlón + 钻石沙滩',c:P.jokulsarlon}],
-    legs:[{k:'drive',pts:[P.hvolsvollur,P.vik,P.skaftafell,P.fosshotel,P.jokulsarlon]}],
-    drive:'约 330 km / 4h30',
-    stay:{name:'Fosshotel Glacier Lagoon ×2 间房',type:'Booking 酒店',rb:'2 房 2 卫',
-          price:'€508 两间总价 · ¥2,032/room',cxl:'free-cxl 到 9/25',
-          note:'🔴 全程唯一没有 Airbnb 方案的一晚（Höfn–Jökulsárlón–Skaftafell 搜出 0 张卡）。离冰河湖 ~10 min。便宜替代：Árnanes（Höfn 西）¥992/room，但多开 40 min'},
-    spend:{stay:4064}, supply:'red',
-    hi:['🔴 天然蓝冰洞一般 11 月才开 → 9 月能做的是 Katla 冰洞（Mýrdalsjökull，Vík 出发，全年开）或冰川徒步',
-        'Jökulsárlón 冰河湖 + Diamond Beach','晚上原地等极光（Fosshotel 的 10 min 车程值这个差价）'],
-    watch:['🔴 最该第一个下单的一晚：free-cxl 只到 9/25，方圆 60 km 就那几家',
-           '蓝冰洞 → Katla 冰洞的决定会连带改 D2/D3 住宿位置']
+    id:'D3', date:'9/27', wd:'周日', region:'iceland', base:'Höfn（冰河湖以东）',
+    title:'冰河湖 + 钻石沙滩 · 夜里去 Stokksnes 等极光',
+    anchor:P.hofn,
+    route:[{n:'Hvolsvöllur',c:P.hvolsvollur},{n:'Vík',c:P.vik},{n:'Skaftafell',c:P.skaftafell},
+           {n:'Jökulsárlón 冰河湖',c:P.jokulsarlon},{n:'Diamond Beach',c:P.diamond},
+           {n:'Árnanes 住处',c:P.arnanes},{n:'Stokksnes / Vestrahorn',c:P.stokksnes}],
+    legs:[{k:'drive',pts:[P.hvolsvollur,P.vik,P.skaftafell,P.jokulsarlon,P.arnanes,P.stokksnes,P.arnanes]}],
+    drive:'约 390 km / 4h30（当天最长）',
+    stay:{name:'Árnanes Sveitagisting ×2 间 Double/Twin（私卫）',type:'酒店（Booking）',rb:'2 房 / 2 卫',
+          price:'€553 + 税 = €626 · ¥2,504/房',cxl:'✅ 到 9/20，9/18 前一分钱不付',
+          url:U.arnanes, pt:P.arnanes, place:'Höfn 西 · 离冰河湖 ~45 min',
+          note:'🥇 **交给我的决定 2 的答案**：Fosshotel Glacier Lagoon 的 Standard **只剩 1 间**，'+
+               '凑 2 间要 €1,194 含税 = ¥4,776/房**超预算** → 被算术排除。Árnanes **还有 4 间**、'+
+               '含早、私卫、页面明写 **"Interconnected rooms available"（可要相连两间）**。'+
+               '备选 <a href="'+U.vatnajokull+'" target="_blank">Fosshotel Vatnajökull</a> €345/间（剩 2 间，退到 9/25）= ¥3,104/房'},
+    spend:{stay:5008}, supply:'red',
+    hi:['Jökulsárlón 冰河湖 + Diamond Beach','🥇 Stokksnes / Vestrahorn 离 Höfn 只 15 min —— 黑沙滩 + 尖角山，极光前景比冰河湖好',
+        '住 Höfn 换来「冰河湖看两次两种光」（9/27 往东 + 9/28 往西）',
+        'Höfn 是真镇子，有挪威海螯虾（langoustine）餐厅'],
+    watch:['🔴 天然蓝冰洞一般 11 月才开 → 9 月能做的是 Katla 冰洞（Vík 出发，全年开）或冰川徒步，Kevin 在找票',
+           '订房时在备注里写「interconnected rooms」']
   },
   {
-    id:'D4', date:'9/28', wd:'周一', region:'iceland', base:'Keflavík',
-    title:'黄金圈 + 蓝湖，西返',
+    id:'D4', date:'9/28', wd:'周一', region:'iceland', base:'Reykjanesbær（KEF 旁）',
+    title:'西返 · 黄金圈 + 蓝湖',
     anchor:P.reykjanes,
-    route:[{n:'冰河湖',c:P.jokulsarlon},{n:'Þingvellir',c:P.thingvellir},
-           {n:'Geysir',c:P.geysir},{n:'Gullfoss',c:P.gullfoss},
+    route:[{n:'Höfn',c:P.arnanes},{n:'冰河湖（再看一次）',c:P.jokulsarlon},
+           {n:'Þingvellir',c:P.thingvellir},{n:'Geysir',c:P.geysir},{n:'Gullfoss',c:P.gullfoss},
            {n:'Blue Lagoon',c:P.bluelagoon},{n:'Reykjanesbær 住处',c:P.reykjanes}],
-    legs:[{k:'drive',pts:[P.jokulsarlon,P.vik,P.thingvellir,P.geysir,P.gullfoss,P.bluelagoon,P.reykjanes]}],
-    drive:'约 480 km / 6h（最长的一天）',
-    stay:{name:'3BR/2BA Reykjanesbær（KEF 旁）',type:'Airbnb',rb:'3BR / 2BA',
-          price:'€424 总价 · ¥1,696/room',cxl:'—',rating:'4.92',
-          url:'https://www.airbnb.com/rooms/1231709933827491677',
-          note:'⚠️ 原计划想改住 Borgarnes 省次日 1.5h 车程 —— 实测 Borgarnes 8 个合格房源**全部 min-stay ≥2 晚**，1 晚订不到 → 只能住 Keflavík，斯奈山靠早出发解决'},
+    legs:[{k:'drive',pts:[P.arnanes,P.jokulsarlon,P.vik,P.thingvellir,P.geysir,P.gullfoss,P.bluelagoon,P.reykjanes]}],
+    drive:'约 520 km / 6h30（全程最长的一天）',
+    stay:{name:'3BR/2BA Reykjanesbær',type:'Airbnb',rb:'3房/4床/2卫',
+          price:'€424 总价 · ¥1,696/房',cxl:'✅ 24h 内免费',rating:'4.92',
+          url:U.keflavik, pt:P.reykjanes, place:'Reykjanesbær（KEF 旁）',
+          note:'原想改住 Borgarnes 省次日 1.5h 车程 → 实测那一带 8 个合格房源**全部 min-stay ≥2 晚**，'+
+               '1 晚订不到 → 只能住 KEF 旁，斯奈山靠早出发解决（见 B1）'},
     spend:{stay:3392}, supply:'green',
     hi:['Þingvellir 裂谷 · Geysir 间歇泉 · Gullfoss 黄金瀑布','Blue Lagoon 泡汤（离 KEF 20 min）'],
     watch:['这一天车程最长，注意 9 月末南岸风暴封路（存 road.is）']
@@ -120,156 +181,380 @@ const DAYS = [
     id:'D5', date:'9/29', wd:'周二', region:'iceland', base:'Oslo Gardermoen',
     title:'🔴 斯奈山半岛 + 还车 + 飞奥斯陆（最紧的一天）',
     anchor:P.kirkjufell,
-    route:[{n:'Keflavík 05:30 出发',c:P.reykjanes},{n:'Ytri-Tunga 海豹滩',c:P.ytritunga},
+    route:[{n:'Reykjanesbær 05:30 出发',c:P.reykjanes},{n:'Ytri-Tunga 海豹滩',c:P.ytritunga},
            {n:'Arnarstapi',c:P.arnarstapi},{n:'Djúpalónssandur',c:P.djupalon},
            {n:'Kirkjufell 草帽山',c:P.kirkjufell},{n:'Búðakirkja 黑教堂',c:P.budakirkja},
            {n:'KEF 还车 18:15',c:P.kef},{n:'OSL',c:P.osl}],
     legs:[{k:'drive',pts:[P.reykjanes,P.ytritunga,P.arnarstapi,P.djupalon,P.kirkjufell,P.budakirkja,P.kef]},
           {k:'fly',from:P.kef,to:P.osl}],
     drive:'约 7.5h 纯开车 + 3–4h 游玩 = 11–12 小时的一天',
-    stay:{name:'Modern. Quiet area. Large space.（Nannestad，同 9/24 可连订）',type:'Airbnb',rb:'3BR / 2BA',
-          price:'€260 总价 · ¥1,040/room',cxl:'—',
-          url:'https://www.airbnb.com/rooms/1616864516592253636',
-          note:'酒店兜底 Scandic Oslo Airport €141–188/间（34 个房型行有货，很宽松）'},
+    stay:{name:'Modern. Quiet area. Large space.（同 9/24）',type:'Airbnb',rb:'3房/5床/2卫',
+          price:'€260 总价 · ¥1,040/房',cxl:'⛔ 不可退',
+          url:U.nannestad2, pt:P.nannestad, place:'Nannestad（同 9/24，可分开订同一家）',
+          note:'酒店兜底 <a href="'+U.scandicosl+'" target="_blank">Scandic Oslo Airport</a> €141–188/间（34 个房型行有货，很宽松）'},
     spend:{stay:2080}, supply:'green',
     hi:['Keflavík → Ytri-Tunga 单程 2h45','半岛环线净开车 ~3h + 停留 3h','回 KEF 2h'],
-    watch:['🔴 唯一硬前提 = Kevin 订的 KEF→OSL 起飞时间。18:35 → 这个环线做不了（只能玩 1 小时）；20:05 → 可以做，18:15 还车、19:00 到柜台',
-           '9/29 冰岛日落 ~19:00，半岛最后一段会在暮色里开（54/574 铺装公路，不难但要算进去）']
+    watch:['🔴 唯一硬前提 = Kevin 的 KEF→OSL 起飞时间。18:35 → 这个环线做不了（要 16:00 前回 KEF）；20:05 → 可以，18:15 还车',
+           '9/29 冰岛日落 ~19:00，半岛最后一段在暮色里开（54/574 铺装公路，不难但要算进去）']
   },
   {
-    id:'D6', date:'9/30', wd:'周三', region:'lofoten', base:'罗弗敦（东侧或中部）',
-    title:'飞 EVE · 提车 · 进罗弗敦',
-    anchor:P.svolvaer,
-    route:[{n:'OSL',c:P.osl},{n:'EVE 落地 10:35 · 提车 11:00',c:P.eve},
-           {n:'Svolvær',c:P.svolvaer},{n:'Henningsvær',c:P.henningsvaer},{n:'Ramberg 住处',c:P.ramberg}],
+    id:'D6', date:'9/30', wd:'周三', region:'lofoten', base:'罗弗敦东侧 · Vågan',
+    title:'飞 EVE · 提车 · 进罗弗敦东侧',
+    anchor:P.vagan,
+    route:[{n:'OSL',c:P.osl},{n:'EVE 提车 11:00',c:P.eve},{n:'Svolvær',c:P.svolvaer},
+           {n:'Henningsvær',c:P.henningsvaer},{n:'Vågan 住处',c:P.vagan}],
     legs:[{k:'fly',from:P.osl,to:P.eve},
-          {k:'drive',pts:[P.eve,P.svolvaer,P.henningsvaer,P.leknes,P.ramberg]}],
-    drive:'EVE→Svolvær 165 km / 2h30；EVE→Reine 290 km / 4h15。E10 全程无渡轮、基本无收费站',
-    stay:{name:'The heart of Ramberg（西侧）',type:'Airbnb',rb:'4BR / 2.5BA',
-          price:'€647 / 2 晚 · ¥1,296/room/晚',cxl:'—',rating:'4.76',
-          url:'https://www.airbnb.com/rooms/1170849828585814519',
-          note:'东侧同价位替代：Vågan 5BR/2BA €674/2晚（¥1,348）。明确 2 卫的 rorbu 路线：Nusfjord「Village Cabin Suite Plus」€723/2晚（¥1,446，free-cxl 9/16）—— 页面明写 2 卫，但卧室数没写，订前必须问'},
-    car:{name:'Ford Explorer 4WD（Full-size SUV）',seg:'罗弗敦 EVE 取 → Svolvær 还 9/30–10/2',
-         price:'$644 / 3 天（含 ~$320 异地还车费）',cny:'¥4,570',
-         note:'🔴 最便宜同时车最大，没有取舍。异地还车只有 6 个车源（同地还车 23 个）→ 最容易断，今天就订'},
-    spend:{stay:2592, car:4570}, supply:'amber',
-    hi:['Henningsvær 渔村（绕路值得）','原计划 D6 直接到 Reine 会近天黑 → 建议住中部/西侧 Ramberg 只搬一次箱子'],
-    watch:['挪威交规：全天开近光灯 · 乡道默认 80 · 超 10 km/h 罚款 >NOK 2,500 · 酒驾 0.02% 近乎零容忍 · 单车道 møteplass 上坡优先 · 注意驯鹿和羊']
+          {k:'drive',pts:[P.eve,P.narvik,P.svolvaer,P.henningsvaer,P.vagan]}],
+    drive:'EVE→Svolvær 165 km / 2h30（E10 全程无渡轮、基本无收费站）',
+    stay:{name:'Waterfront Nordic house with fjord views',type:'Airbnb',rb:'5房/8床/2卫',
+          price:'€602 → €553 / 2 晚 · ¥1,106/房/晚',cxl:'✅ 24h 内免费，9/23 前部分退',rating:'4.93',
+          url:U.vagan, pt:P.vagan, place:'Vågan（Svolvær 旁）· 住 2 晚不搬箱子',
+          note:'🥇 **交给我的决定 1 的答案：选东侧。** Guest favorite + Superhost + 页面明写 "Prices include all fees"。'+
+               '西侧对照 <a href="'+U.ramberg+'" target="_blank">The heart of Ramberg</a> €647 且**完全不可退** —— '+
+               '东侧便宜 €94 还能退'},
+    car:{name:'Suzuki Vitara · 4WD · 自动挡',seg:'挪威 · EVE 9/30 11:00 → 特罗姆瑟机场 10/6 10:00（6 天）',
+         price:'$762 / 6 天',cny:'¥5,410（¥902/天）',
+         url:U.dcars, pick:P.eve, drop:P.tosair, pickWhen:'9/30 11:00', dropWhen:'10/6 10:00',
+         note:'一台车连开 6 天，不拆两段。⚠️ **押金 $1,805**（冻结）。'+
+              '🔴 更便宜的三台（$569 Urban Cruiser / $581 Peugeot 2008 / $694 ID.4）**全是纯电** —— '+
+              '10/5 Senja 往返 ~500 km、10 月低温 + 岛上充电桩稀 → 排除。Corolla $730 是两驱'},
+    spend:{stay:2212, car:5410}, supply:'amber',
+    hi:['Svolvær 是罗弗敦唯一像样的镇子：超市 / 餐厅 / 加油站 / 药店都在这儿（我们 4 人自炊，每天要用）',
+        'Henningsvær（礁石上的渔村 + 著名足球场）离 Svolvær 只 30 min',
+        '10 月初 EVE 19:00 前后天就黑 → 开 2h30 是从容的到达，开 4h 到西侧是更糟的第一晚'],
+    watch:['挪威交规：全天开近光灯 · 乡道默认 80 · 超 10 km/h 罚款 >NOK 2,500 · 酒驾近乎零容忍 · 单车道 møteplass 上坡优先 · 注意驯鹿和羊',
+           '🟠 押金 $1,805 要一张额度够的信用卡（见 B4）']
   },
   {
-    id:'D7', date:'10/1', wd:'周四', region:'lofoten', base:'罗弗敦（西侧）',
-    title:'Reine / Hamnøy / Å —— 明信片那一侧',
+    id:'D7', date:'10/1', wd:'周四', region:'lofoten', base:'罗弗敦东侧 · Vågan',
+    title:'西行一日游 —— 明信片那一侧（当天往返）',
     anchor:P.reine,
-    route:[{n:'Ramberg',c:P.ramberg},{n:'Nusfjord',c:P.nusfjord},{n:'Hamnøy',c:P.hamnoy},
-           {n:'Reine（Reinebringen）',c:P.reine},{n:'Å i Lofoten',c:P.aa}],
-    legs:[{k:'drive',pts:[P.ramberg,P.nusfjord,P.hamnoy,P.reine,P.aa]}],
-    drive:'约 120 km 往返 / 2h 净开车',
-    stay:{name:'同 D6（连订 2 晚，不搬箱子）',type:'Airbnb',rb:'4BR / 2.5BA',
-          price:'含在 €647 / 2 晚内',cxl:'—',
-          note:'罗弗敦是供给最好的一段：22 个合格 2房2卫房源。Sakrisøy Rorbuer / Reinefjorden Sjøhus 9/30–10/1 已确认卖完'},
-    spend:{stay:2592}, supply:'amber',
-    hi:['Hamnøy 那排最出名的红屋（Eliassen Rorbuer）','Reinebringen 阶梯（约 1.5–2h 往返）','晚上极光季已开季'],
-    watch:['Hattvika / Eliassen / Svinøya 的卫生间数量 Booking 页面没写 → 要发邮件问']
+    route:[{n:'Vågan 出发',c:P.vagan},{n:'Leknes',c:P.leknes},{n:'Hamnøy',c:P.hamnoy},
+           {n:'Sakrisøy',c:P.sakrisoy},{n:'Reine（Reinebringen）',c:P.reine},{n:'回 Vågan',c:P.vagan}],
+    legs:[{k:'drive',pts:[P.vagan,P.leknes,P.ramberg,P.hamnoy,P.sakrisoy,P.reine,P.hamnoy,P.leknes,P.vagan]}],
+    drive:'单程 2h · 往返约 4h 净开车',
+    stay:{name:'同 D6（Waterfront Nordic house，连住第 2 晚）',type:'Airbnb',rb:'5房/8床/2卫',
+          price:'含在 €553 / 2 晚内 · ¥1,106/房/晚',cxl:'✅ 24h 内免费',rating:'4.93',
+          url:U.vagan, pt:P.vagan, place:'Vågan',
+          note:'**选东侧不等于放弃西侧风景** —— 这一天专门西行：Hamnøy 那排最出名的红屋、Sakrisøy、Reine，沿路停，晚饭前回来'},
+    spend:{stay:2212}, supply:'amber',
+    hi:['Hamnøy 红屋（Eliassen Rorbuer 那排）','Sakrisøy 黄房子','Reinebringen 阶梯往返约 1.5–2h','极光季已开季'],
+    watch:['🟠 E10 风暴封路在 9 月末–10 月很常见 → 这也是「东侧 + 可退」比「西侧 + 不可退」好的原因']
   },
   {
-    id:'D8', date:'10/2', wd:'周五', region:'cruise', base:'🚢 船上（Havila）',
-    title:'🔴 还车 → Svolvær 22:15 上船',
-    anchor:P.svolvaer,
-    route:[{n:'罗弗敦西侧',c:P.reine},{n:'Leknes',c:P.leknes},
-           {n:'Svolvær 还车 + 码头',c:P.svolvaer},{n:'夜航北上',c:[68.9,15.6]}],
-    legs:[{k:'drive',pts:[P.reine,P.leknes,P.svolvaer]},
-          {k:'cruise',pts:[P.svolvaer,[68.80,15.30],[69.05,15.60],[69.32,16.10],[69.65,18.10],P.tromso]}],
-    drive:'回 Svolvær ~2h · 22:15 开船',
-    stay:{name:'Havila 邮轮 ×2 间双人舱（port-to-port）',type:'邮轮',rb:'2 舱 4 人',
-          price:'⚠️ 价格未验证 · 对标 Hurtigruten 4 人 ¥8,800–11,900',cxl:'分票种，FLEX 可改',
-          note:'🔴 10/2 那班船不是 Hurtigruten 是 **Havila** —— Hurtigruten 那天根本没有 Svolvær 出发的船（API 查证：班期只有 9/22、23、25、27、30、10/3、4、6、8）。11 条船轮转 11 天，每天只有一家公司的船'},
-    spend:{cruise:12000}, supply:'red',
-    hi:['22:15 开船 → 次日 14:15 抵 Tromsø，整个上午在船上看 Vesterålen 海岸线','省一晚陆上住宿'],
-    watch:['🔴 Svolvær 门店周五多数 15:30–16:00 就关门 → 22:15 开船，必须问清关门时间或改钥匙箱还车',
-           '🔴 Cloudflare 挡住本机拿 Havila 实时价 → 必须用家用网/手机开 havilavoyages.com/nb/havn-til-havn，或邮件 booking@havilavoyages.com / 电话 +47 815 33 300',
-           '要问 4 件事：还有几间舱 · 2 间双人舱总价 · 含不含早餐 · 退改政策',
-           '🔴 一间舱装不下 4 人（API 返回空）→ 必须 2 舱']
-  },
-  {
-    id:'D9', date:'10/3', wd:'周六', region:'tromso', base:'Tromsø',
-    title:'14:15 抵特罗姆瑟 · 市区',
+    id:'D8', date:'10/2', wd:'周五', region:'tromso', base:'特罗姆瑟（船屋）',
+    title:'Svolvær → 特罗姆瑟 自驾 6h30（原游轮那天）',
     anchor:P.tromso,
-    route:[{n:'船抵 Tromsø 14:15',c:P.tromso}],
-    legs:[], drive:'—',
-    stay:{name:'Houseboat in Tromsø（住船上）',type:'Airbnb',rb:'3BR / 3BA',
-          price:'€825 / 3 晚 · ¥1,100/room/晚',cxl:'—',rating:'5.0',
-          url:'https://www.airbnb.com/rooms/1607078897559083655',
-          note:'卫生间比人还多。替代：5BR/2.5BA €1,155/3晚（¥1,540）；酒店兜底 Thon Polar 2 间房 €690–908/3晚（free-cxl 10/2）；公寓锚 Enter Amalie Three-Bedroom Loft €925（¥1,233，不可退）'},
-    spend:{stay:2200}, supply:'amber',
-    hi:['北极大教堂 · Fjellheisen 缆车 · Polaria','晚上市区看极光'],
-    watch:['✅ 顺手确认：Vervet Apartments 没有闭店（10/3–10/6 正常放房，free-cxl 到 9/19）',
-           'Enter Viking 的 free-cxl 只到 9/3 —— 要用就今天定']
+    route:[{n:'Vågan 出发',c:P.vagan},{n:'Narvik',c:P.narvik},{n:'Nordkjosbotn',c:P.nordkjosbotn},
+           {n:'特罗姆瑟船屋 check-in',c:P.houseboat}],
+    legs:[{k:'drive',pts:[P.vagan,P.svolvaer,P.eve,P.narvik,P.nordkjosbotn,P.tromso,P.houseboat]}],
+    drive:'约 480 km / 6h30 · 傍晚到，自助 check-in',
+    stay:{name:'Houseboat "Grosso" in Tromsø（住船上）',type:'Airbnb',rb:'3房/7床/3卫',
+          price:'€1,818 → €1,033 / 4 晚 · ¥1,033/房/晚',cxl:'✅ 24h 内免费',rating:'5.0',
+          url:U.houseboat, pt:P.houseboat, place:'特罗姆瑟港区 · 住 4 晚（10/2–10/6）',
+          note:'🥇 **游轮 pass 掉空出来的 10/2 直接并进船屋**：4 晚 €1,033 vs 3 晚 €825 → '+
+               '多住这一晚只多付 €208（¥832/房），比单独找一晚便宜得多，还少搬一次行李。'+
+               '3 房 3 卫 = **卫生间比人多**，而且是全程单价最低的一段'},
+    spend:{stay:2066}, supply:'amber',
+    hi:['🔴 游轮已整段 pass —— 10/2 改自驾，行程不再有单点故障','东侧出发 6h30；若住西侧要 8h30，第一晚极光基本报废'],
+    watch:['长途开车日：Narvik 一带 10 月初可能已有初雪，留出富余时间']
   },
   {
-    id:'D10', date:'10/4', wd:'周日', region:'tromso', base:'Tromsø',
-    title:'提车（提前一天）· 自由追极光',
+    id:'D9', date:'10/3', wd:'周六', region:'tromso', base:'特罗姆瑟',
+    title:'特罗姆瑟市区 · 缆车 + 极光',
     anchor:P.tromso,
-    route:[{n:'TOS 机场提车 09:00',c:P.tromso}],
+    route:[{n:'船屋',c:P.houseboat},{n:'北极大教堂 / Fjellheisen',c:P.tromso}],
     legs:[], drive:'市区 + 郊外追极光',
-    stay:{name:'同 D9（Houseboat，3 晚连住）',type:'Airbnb',rb:'3BR / 3BA',price:'含在 €825 / 3 晚内',cxl:'—'},
-    car:{name:'Toyota RAV4 4x4 混动',seg:'特罗姆瑟 TOS 取还 10/4 09:00 → 10/6 09:00',
-         price:'$261 / 2 天',cny:'¥1,850',
-         note:'租 2 天几乎和租 1 天一样贵（单日 Ford Explorer $141）→ 多花 $30–120 换 10/4 晚一个自由追极光的夜。🔴 别订电车：Senja 往返 ~500 km、10 月初、岛上充电桩很稀 → 选汽油/混动'},
-    spend:{stay:2200, car:1850}, supply:'green',
-    hi:['自己有车 = 不被 tour 时间表绑住','挪威租车基本不限里程'],
+    stay:{name:'同 D8（Houseboat "Grosso"，4 晚连住）',type:'Airbnb',rb:'3房/7床/3卫',
+          price:'含在 €1,033 / 4 晚内 · ¥1,033/房/晚',cxl:'✅ 24h 内免费',rating:'5.0',
+          url:U.houseboat, pt:P.houseboat, place:'特罗姆瑟港区'},
+    spend:{stay:2066}, supply:'green',
+    hi:['北极大教堂 · Fjellheisen 缆车 · Polaria','自己有车 = 不被 tour 时间表绑住，可以往内陆躲云'],
     watch:[]
   },
   {
-    id:'D11', date:'10/5', wd:'周一', region:'tromso', base:'Tromsø',
+    id:'D10', date:'10/4', wd:'周日', region:'tromso', base:'特罗姆瑟',
+    title:'自由日 · 峡湾 / 自己追极光',
+    anchor:P.tromso,
+    route:[{n:'船屋',c:P.houseboat},{n:'Ersfjordbotn 方向',c:[69.6600,18.5200]}],
+    legs:[{k:'drive',pts:[P.houseboat,P.tromso,[69.6600,18.5200],P.tromso]}],
+    drive:'弹性（车已经在手上，不用再取）',
+    stay:{name:'同 D8（Houseboat "Grosso"）',type:'Airbnb',rb:'3房/7床/3卫',
+          price:'含在 €1,033 / 4 晚内',cxl:'✅ 24h 内免费',rating:'5.0',
+          url:U.houseboat, pt:P.houseboat, place:'特罗姆瑟港区'},
+    spend:{stay:2066}, supply:'green',
+    hi:['挪威租车基本不限里程','把 Senja 放 10/5、这天留弹性，天气不好可以两天互换'],
+    watch:[]
+  },
+  {
+    id:'D11', date:'10/5', wd:'周一', region:'tromso', base:'特罗姆瑟',
     title:'Senja 自驾一日（硬仗）',
     anchor:P.tungeneset,
-    route:[{n:'Tromsø 07:00 出发',c:P.tromso},{n:'Brensholmen 渡轮',c:P.brensholmen},
+    route:[{n:'船屋 07:00 出发',c:P.houseboat},{n:'Brensholmen 渡轮',c:P.brensholmen},
            {n:'Botnhamn',c:P.botnhamn},{n:'Bergsbotn 观景台',c:P.bergsbotn},
            {n:'Tungeneset',c:P.tungeneset},{n:'Ersfjordstranda',c:P.ersfjord},
            {n:'回程（Finnsnes 陆路可选）',c:P.finnsnes}],
-    legs:[{k:'drive',pts:[P.tromso,P.brensholmen]},
+    legs:[{k:'drive',pts:[P.houseboat,P.tromso,P.brensholmen]},
           {k:'ferry',pts:[P.brensholmen,P.botnhamn]},
-          {k:'drive',pts:[P.botnhamn,P.bergsbotn,P.tungeneset,P.ersfjord,P.bergsbotn,P.finnsnes,P.tromso]}],
+          {k:'drive',pts:[P.botnhamn,P.bergsbotn,P.tungeneset,P.ersfjord,P.bergsbotn,P.finnsnes,P.tromso,P.houseboat]}],
     drive:'约 500 km 往返 · 路上 5–6h，只剩 4–5h 玩',
-    stay:{name:'同 D9（Houseboat，最后一晚）',type:'Airbnb',rb:'3BR / 3BA',price:'含在 €825 / 3 晚内',cxl:'—'},
-    spend:{stay:2200, other:430}, supply:'green',
-    hi:['✅ Brensholmen–Botnhamn 渡轮 2026 全年运营（不是季节性停开）· NOK 228/车/单程 · 航程 35–45 min',
-        '开：08:45 / 10:45 / 12:45(周五停) / 15:00 / 17:00 / 19:00 / 20:45；回：08:00 / 09:45 / 11:45(周五停) / 14:00 / 16:00 / 18:00 / 20:00',
-        '10/5 是周一，不受「周五停」影响',
-        '陆路 Finnsnes / Gisund 大桥 ~2h30–3h，时间自由但慢'],
-    watch:['10/5 特罗姆瑟日出 07:25 / 日落 18:15（10h50 日照）→ 07:00 出发是对的，别再晚',
+    stay:{name:'同 D8（Houseboat "Grosso"，最后一晚）',type:'Airbnb',rb:'3房/7床/3卫',
+          price:'含在 €1,033 / 4 晚内',cxl:'✅ 24h 内免费',rating:'5.0',
+          url:U.houseboat, pt:P.houseboat, place:'特罗姆瑟港区'},
+    spend:{stay:2066, other:306}, supply:'green',
+    hi:['✅ Brensholmen–Botnhamn 渡轮 2026 全年运营 · NOK 228/车/单程（往返 456 ≈ ¥306）· 航程 35–45 min',
+        '开：08:45 / 10:45 / 12:45(周五停) / 15:00 / 17:00 / 19:00 / 20:45',
+        '10/5 是周一，不受「周五停」影响','陆路 Finnsnes / Gisund 大桥 ~2h30–3h，时间自由但慢'],
+    watch:['10/5 特罗姆瑟日出 07:25 / 日落 18:15 → 07:00 出发是对的，别再晚',
            '出发前一周再核一次 Torghatten Nord / Entur 班次']
+  },
+  {
+    id:'D12', date:'10/6', wd:'周二', region:'oslo', base:'特罗姆瑟 → 奥斯陆', cond:true,
+    title:'⚠️ 还车 10:00 · 飞奥斯陆（第 13 晚是否需要，看 Kevin 机票）',
+    anchor:P.tosair,
+    route:[{n:'船屋退房',c:P.houseboat},{n:'TOS 机场还车 10:00',c:P.tosair},
+           {n:'OSL',c:P.osl},{n:'（若 10/7 才飞北京）Nannestad / Thon Gardermoen',c:P.nannestad}],
+    legs:[{k:'drive',pts:[P.houseboat,P.tromso,P.tosair]},{k:'fly',from:P.tosair,to:P.osl}],
+    drive:'船屋 → TOS 机场 15 min',
+    stay:{name:'🅿️ 占位：Thon Hotel Gardermoen ×2 间（只在需要时才订）',type:'占位 · 酒店',rb:'2 房 / 2 卫',
+          price:'€172–280（≈¥1,376–2,240）· **未计入总账**',cxl:'✅ 退到 9/23',
+          url:U.thon, pt:P.nannestad, place:'OSL 机场旁（占位，等 Kevin 机票日期）',
+          note:'🔴 **这一晚是条件性的**：若 Kevin 的 Oslo→北京 是 **10/6** 起飞就不需要；若是 **10/7** '+
+               '就要多住第 13 晚。按你说的「不确定就先填个酒店」，这里先占 Thon Gardermoen（可退）。'+
+               '也可以订同一家 <a href="'+U.nannestad+'" target="_blank">Nannestad Airbnb</a>（+€260，但不可退）'},
+    spend:{}, supply:'amber',
+    hi:['TOS→OSL 常见班次很多，还车 10:00 后从容','若当天直飞北京，行程在这里结束'],
+    watch:['🔴 等 Kevin 确认 Oslo→北京 是 10/6 还是 10/7（见 B2）—— 这是唯一还会改结构的一条']
   }
 ];
 
-/* ---------- 抢库存顺序（按会先卖光排） ---------- */
-const URGENCY = [
-  {rank:1, sev:'red',   what:'Havila 邮轮 10/2 Svolvær 22:15 → Tromsø ×2 舱',
-   why:'port-to-port 舱位极少，卖光整段行程断掉；且本机拿不到实时价，必须人工去订',
-   deadline:'今天', how:'家用网开 havilavoyages.com/nb/havn-til-havn，或 booking@havilavoyages.com / +47 815 33 300'},
-  {rank:2, sev:'red',   what:'Fosshotel Glacier Lagoon 9/27 两间房',
-   why:'全程唯一没有 Airbnb 方案的一晚，方圆 60 km 就那几家',
-   deadline:'free-cxl 到 9/25', how:'Booking.com，两间 Standard Double/Twin €508'},
-  {rank:3, sev:'red',   what:'罗弗敦租车 EVE→Svolvær（Ford Explorer 4WD $644）',
-   why:'异地还车只有 6 个车源（同地还车 23 个），最容易断',
-   deadline:'今天', how:'DiscoverCars，可免费取消'},
-  {rank:4, sev:'amber', what:'罗弗敦住宿 9/30–10/1',
-   why:'秋色 + 极光季；Hattvika 的 free-cxl 已经是 9/16，比别家早',
-   deadline:'9/16 前', how:'先订可退的 Airbnb（Ramberg 4BR/2.5BA €647/2晚）'},
-  {rank:5, sev:'amber', what:'特罗姆瑟 3 晚 10/3–10/5',
-   why:'极光季开季，Houseboat 这种独一份的先没；Enter Viking free-cxl 只到 9/3',
-   deadline:'9/3（若用 Enter Viking）', how:'Airbnb Houseboat €825/3晚 优先'},
-  {rank:6, sev:'amber', what:'南岸 9/26',
-   why:'只有 3 个合格选项，等于随时会变成 0 个',
-   deadline:'尽快', how:'Hlíðarból Guest House €750'},
-  {rank:7, sev:'green', what:'冰岛租车 9/26–9/29（Peugeot 2008 4x4 auto）',
-   why:'16 个车源还算宽松，但 9 月底旺季尾巴',
-   deadline:'本周', how:'线上先买 SCDW+GP+SAAP，比柜台加保便宜'},
-  {rank:8, sev:'green', what:'Gardermoen 9/24 + 9/29、Keflavík 9/28、特罗姆瑟租车',
-   why:'供给最充足，可以等决策定了再订',
-   deadline:'决策后', how:'—'}
+/* ---------- 逐晚汇总表（表格用；链接可点） ---------- */
+const STAYTAB = [
+  {d:'9/24',       place:'Oslo Gardermoen', name:'Modern. Quiet area. Large space.', url:U.nannestad, type:'Airbnb', rb:'3房/5床/2卫', tot:'€260',  room:'1,040', cxl:'⛔ 不可退'},
+  {d:'9/25',       place:'雷克雅未克',       name:'Aurora view 3BR 2BATH ★5.0',       url:U.aurora,    type:'Airbnb', rb:'3房/3床/2卫', tot:'€647→€447', room:'1,788', cxl:'✅ 24h / 9/18'},
+  {d:'9/26',       place:'Hvolsvöllur',     name:'Hotel Hvolsvöllur ×2 间',          url:U.hvols,     type:'酒店',   rb:'2 房 2 卫',   tot:'€374 含税', room:'1,496', cxl:'✅ 9/24 · 到店付'},
+  {d:'9/27',       place:'Höfn（冰河湖）',   name:'Árnanes Sveitagisting ×2 间',       url:U.arnanes,   type:'酒店',   rb:'2 房 2 卫',   tot:'€626 含税', room:'2,504', cxl:'✅ 9/20 · 9/18 前不付'},
+  {d:'9/28',       place:'Reykjanesbær',    name:'3BR/2BA ★4.92',                    url:U.keflavik,  type:'Airbnb', rb:'3房/4床/2卫', tot:'€424',  room:'1,696', cxl:'✅ 24h'},
+  {d:'9/29',       place:'Oslo Gardermoen', name:'同 9/24 · Nannestad',              url:U.nannestad2,type:'Airbnb', rb:'3房/5床/2卫', tot:'€260',  room:'1,040', cxl:'⛔ 不可退'},
+  {d:'9/30–10/1',  place:'罗弗敦东侧 Vågan', name:'Waterfront Nordic house ★4.93',    url:U.vagan,     type:'Airbnb', rb:'5房/8床/2卫', tot:'€602→€553/2晚', room:'1,106', cxl:'✅ 24h / 9/23'},
+  {d:'10/2–10/5',  place:'特罗姆瑟',         name:'Houseboat "Grosso" ★5.0',          url:U.houseboat, type:'Airbnb', rb:'3房/7床/3卫', tot:'€1,818→€1,033/4晚', room:'1,033', cxl:'✅ 24h'},
+  {d:'10/6',       place:'（条件性）奥斯陆',  name:'🅿️ 占位 Thon Hotel Gardermoen ×2', url:U.thon,      type:'占位',   rb:'2 房 2 卫',   tot:'€172–280', room:'688–1,120', cxl:'✅ 9/23'}
 ];
 
+/* ---------- 我替你做的两个决定 ---------- */
+const DECISIONS = [
+  {id:'决定 1', q:'罗弗敦住东侧还是西侧？', a:'东侧（Svolvær / Vågan）',
+   why:'主要理由**不是省钱，是 10/2 那天的车程**：东侧 6h30，西侧 8h30 —— 从西侧走 10/2 整天就没了，'+
+        '到特罗姆瑟已 17:00 以后，第一晚极光报废。',
+   rows:[['9/30 EVE→住处','东 2h30 · 西 4h（黑天开一台刚提的陌生车）'],
+         ['10/1','东：自由日 + 可选西行 4h 往返；西：车程最少'],
+         ['10/2 →特罗姆瑟','东 6h30 · 西 8h30'],
+         ['总车程','东 ~13h · 西 ~14h30（差不多，但分布是决定性的）']],
+   plus:['Svolvær 是罗弗敦唯一像样的镇子（超市/餐厅/加油站/药店）—— 我们 4 人自炊，每天要用',
+         'Henningsvær 离 Svolvær 只 30 min，最出名的两个取景点东侧就占一个',
+         '钱和风险上也赢：东 €553 可退 vs 西 €647 完全不可退；E10 风暴封路常见，「最西头 + 不可退」是最差组合'],
+   keep:'西侧风景一点没丢 —— 10/1 专门西行一天：Vågan → Hamnøy → Sakrisøy → Reine（单程 2h），沿路停，晚饭前回来。'},
+  {id:'决定 2', q:'冰河湖那晚住哪？', a:'Höfn 的 Árnanes Sveitagisting（不是冰河湖旁的 Fosshotel）',
+   why:'这不是口味问题，是**算出来的**：Fosshotel Glacier Lagoon 的 Standard **只剩 1 间**，'+
+        '我们要 2 间只能配成 €1,067 不含税 → 加 11% VAT + 城市税 ≈ €1,194 = **¥4,776/房，超你 ¥4,000 上限**。',
+   rows:[['🥇 Árnanes（Höfn 西）','还有 4 间 · €626 含税 · **¥2,504/房** · 退到 9/20 · 离冰河湖 45 min'],
+         ['备选 Fosshotel Vatnajökull','剩 2 间 · €776 · ¥3,104/房 · 退到 9/25 · 55 min'],
+         ['⛔ Fosshotel Glacier Lagoon','只剩 1 间 · €1,194 · ¥4,776/房 超预算 · 10 min'],
+         ['⛔ Klaustur / Laki / Magma','多数只剩 1 间 · ¥2,852–5,056 · 更远']],
+   plus:['冰河湖会看两次、两种光（9/27 往东 + 9/28 往西返）——住冰河湖旁反而是「看一次然后掉头」',
+         '🥇 Stokksnes / Vestrahorn 离 Höfn 只 15 min，黑沙滩 + 尖角山当极光前景比冰河湖好',
+         'Höfn 是真镇子（有 langoustine 餐厅），比荒野里一家孤零零的酒店过夜舒服',
+         'Árnanes 页面明写 "Interconnected rooms available" —— 对「两男 + 一对夫妻」正好'],
+   keep:'代价是单程多开约 50 min。想住正规连锁就换 Fosshotel Vatnajökull ¥3,104/房，也在预算内、退改期还更晚。'}
+];
+
+/* ---------- 下单顺序（按会先没排，不按贵排） ---------- */
+const URGENCY = [
+  {rank:1, sev:'red',   what:'罗弗敦东侧 Vågan 5房2卫 €553 / 2 晚',
+   why:'Guest favorite ★4.93 且只有 14 条评价的抢手房；9/23 是部分退款的悬崖',
+   deadline:'越早越好（9/23 悬崖）', how:'Airbnb —— 24h 内可全额免费退 → 零风险'},
+  {rank:2, sev:'red',   what:'Árnanes 9/27 两间 €553（+税 €626）',
+   why:'冰河湖方圆 60 km 内唯一「在预算内 + 真有 2 间 + 能退」的',
+   deadline:'free-cxl 到 9/20', how:'Booking —— 9/18 前一分钱不用付 → 零风险'},
+  {rank:3, sev:'red',   what:'Hotel Hvolsvöllur 9/26 两间 €326（+税 €374）',
+   why:'页面写 "We have 2 left" —— 正好是我们要的数量，随时变 0',
+   deadline:'free-cxl 到 9/24', how:'Booking —— 到店付 → 零风险'},
+  {rank:4, sev:'amber', what:'特罗姆瑟船屋 10/2–10/6 €1,033 / 4 晚',
+   why:'极光季开季；3房3卫的船屋是独一份',
+   deadline:'尽快', how:'Airbnb —— 24h 内免费退'},
+  {rank:5, sev:'amber', what:'雷市 9/25 €447',
+   why:'€647→€447 的折扣会过期；9/18 是部分退款悬崖',
+   deadline:'9/18 前', how:'Airbnb —— 24h 内免费退'},
+  {rank:6, sev:'amber', what:'两台车（冰岛 Peugeot 2008 $258 · 挪威 Suzuki Vitara $762）',
+   why:'都可免费取消，而且只会越来越贵 → 先锁价',
+   deadline:'现在', how:'DiscoverCars，零风险'},
+  {rank:7, sev:'green', what:'Reykjanesbær 9/28 €424',
+   why:'供给充足（3 个合格房源都有货）',
+   deadline:'随时', how:'Airbnb —— 24h 内免费退'},
+  {rank:8, sev:'green', what:'Nannestad 9/24 + 9/29 €260 ×2',
+   why:'⛔ 不可退（€520 敞口）→ 等 Kevin 机票定了再订',
+   deadline:'Kevin 机票确认后', how:'要弹性就换 Thon Hotel Gardermoen €86–140/间（退到 9/23）'}
+];
+
+/* ---------- 未决问题 ---------- */
+const OPEN = [
+  {sev:'red',   q:'Kevin 的 9/29 KEF→OSL 起飞时间？', why:'唯一决定 9/29 能不能跑斯奈山半岛的硬前提。18:35 → 做不了；20:05 → 可以', who:'Kevin'},
+  {sev:'red',   q:'Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞？', why:'10/7 → 10/6 在奥斯陆还要多一晚（第 13 晚，本方案没计入总账，地图上已按占位画出）', who:'Kevin'},
+  {sev:'amber', q:'冰岛 SCDW + 砂石险 + 火山沙尘险 + 道路税的打包实价？', why:'$258 裸车 → 约 $400–480，是总账里唯一还会往上顶的一项', who:'DiscoverCars 结账页 / 供应商'},
+  {sev:'amber', q:'挪威 Vitara 的 $1,805 押金', why:'会冻结额度（不是扣款）→ 要确认有一张额度够的信用卡', who:'Steve'},
+  {sev:'amber', q:'D3（9/27）蓝冰洞 → Katla 冰洞的决定', why:'天然蓝冰洞一般 11 月才开。换 Katla 后集合点在 Vík —— 住宿不受影响（Höfn 方案不动）', who:'Kevin 找票'},
+  {sev:'green', q:'Árnanes 能不能给到相连的两间（interconnected）？', why:'页面写「available」，但要在订单备注里主动要', who:'下单时备注'},
+  {sev:'green', q:'挪威租车是否含 AutoPASS 标签，手续费怎么收？', why:'E10 + 特罗姆瑟这段收费站很少，金额很小', who:'租车公司'},
+  {sev:'green', q:'Torghatten Nord 官网核 10/5 Brensholmen–Botnhamn 确切班次', why:'低季会改点（已确认 2026 全年运营、周一不受「周五停」影响）', who:'出发前一周'}
+];
+
+/* ---------- 风险 ---------- */
+const RISKS = [
+  {r:'Airbnb 房源到下单时已被订走（搜索页有价 ≠ 能订）', imp:'要重新找，可能只剩更贵的', act:'🔴 已经踩过 4 次（见下方「踩过的坑」）→ 排名前 3 的今天就占住，都可免费退', sev:'red'},
+  {r:'D5 斯奈山赶飞机', imp:'误机 / 全天在车上', act:'先确认 Kevin 的 KEF→OSL 起飞时间；20:05 才做，18:35 就砍掉半岛', sev:'red'},
+  {r:'Nannestad 两晚不可退（€520 敞口）', imp:'机票一改就是白扔 ¥4,160', act:'放最后订；或换 Thon Gardermoen（退到 9/23）', sev:'amber'},
+  {r:'冰岛保险包把车价从 $258 顶到 $480', imp:'总账 +¥1,576', act:'仍远低于 ¥2,000/天上限；线上先买比柜台便宜', sev:'amber'},
+  {r:'挪威 $1,805 押金冻结', imp:'卡额度不够就提不到车', act:'出发前确认额度，别用接近满额的卡', sev:'amber'},
+  {r:'秋季风暴封路（冰岛南岸 / 罗弗敦 E10 / 10/2 长途）', imp:'单日行程作废', act:'订可免费取消的房；存 road.is 和 vegvesen.no；东侧方案已把最长车程从 8h30 降到 6h30', sev:'amber'},
+  {r:'~~10/2 Havila 舱位卖光 = 整段行程单点故障~~', imp:'—', act:'✅ 已消除：游轮整段 pass 掉，10/2 改自驾 + 并进船屋（还便宜了 ¥12,000）', sev:'done'},
+  {r:'~~9/27 冰河湖那晚只有 Fosshotel 一个选择~~', imp:'—', act:'✅ 已消除：Fosshotel 只剩 1 间反而被排除，Höfn 的 Árnanes 便宜一半还含早', sev:'done'},
+  {r:'~~罗弗敦异地还车费 $320 + 只有 6 个车源~~', imp:'—', act:'✅ 已消除：不再还到 Svolvær，一台车直接开到特罗姆瑟机场', sev:'done'},
+  {r:'~~中国驾照无 IDP，租车公司拒租~~', imp:'—', act:'✅ 已消除：用美国驾照，冰岛/挪威都直接认', sev:'done'},
+  {r:'~~9 月底冰岛要不要冬胎~~', imp:'—', act:'✅ 已消除：11/1 起才强制', sev:'done'},
+  {r:'~~Brensholmen 渡轮季节性停开~~', imp:'—', act:'✅ 已消除：2026 全年运营，10/5 周一不受「周五停」影响', sev:'done'}
+];
+
+/* ---------- 黑话表 ---------- */
+const GLOSSARY = [
+  ['free-cxl','可免费取消的截止日期'],
+  ['non-ref','不可退：钱付了就退不回来，改期也不行'],
+  ['min-stay','房东设的最少入住晚数，比你要住的天数长就订不了'],
+  ['¥/房','总价 ÷ 实际住的房间数（按 Steve 的口径）。本页一律保守按 ÷2 算，3 房那几晚实际还更低'],
+  ['VAT','增值税。冰岛酒店报价**不含**，要另加 11% + 每晚 €6 城市税'],
+  ['rorbu','罗弗敦传统红色渔屋改的自炊小屋，通常带厨房，是当地主流住宿形态'],
+  ['interconnected rooms','相连的两间房（中间有门），酒店里最接近「一套 2 卧 2 卫」的形态'],
+  ['Guest favorite','Airbnb 给评分/入住体验最好的一小部分房源的标记'],
+  ['CDW','车损免责，含在车价里，但有自付额'],
+  ['SCDW','把 CDW 的自付额再降低'],
+  ['gravel protection','砂石险：碎石打伤车漆/前挡，冰岛特有，标准 CDW 不赔'],
+  ['sand & ash protection','火山沙尘险：沙尘暴磨伤车身，冰岛特有，标准 CDW 不赔'],
+  ['押金 / deposit','租车公司在信用卡上**冻结**一笔额度（不是扣款），还车后释放'],
+  ['AutoPASS','挪威高速自动收费，车上有电子标签，租车公司事后从卡上扣，另加手续费'],
+  ['møteplass','挪威单车道公路的会车位。上坡车优先，别停在会车位里'],
+  ['不限里程','Unlimited mileage，挪威冰岛基本都是']
+];
+
+/* ---------- 数据来源 ---------- */
+const PROV = [
+  ['Airbnb 搜索','Playwright，URL 里强制 min_bedrooms≥2 & min_bathrooms≥2 & 整套房源，并用经纬度框锁死地理范围（避免 Airbnb 把「Vík」搜成 2.5h 外的 Selfoss）','notes/_research/abnb_scrape.py'],
+  ['⭐ Airbnb 房源页逐个复核','**关键一步**：按我们真实日期打开每个候选的房源页，读「N guests · N bedrooms · N beds · N baths」+ 评分 + 退改政策 + 真实折后价并截图。就是这一步抓出 4 个「搜索页有价、实际订不到」的假货','notes/_research/abnb_detail.py'],
+  ['Booking 房型行 + 截图','逐物业房型页抓真实房价行、剩余间数、free-cxl 日期、"Select Rooms" 下拉框（1→€276 / 2→€553 就是这么确认「每间每晚」的）','notes/_research/bk_prop.py · bk_shot.py'],
+  ['Booking 的酒店 slug','slug **猜不出来**（猜过两轮，16 个 slug → 0 行）→ 只能从它 SEO 落地页的 HTML 里正则刨出来','notes/_research/slug_find.py'],
+  ['DiscoverCars 实时车价','搜索结果页 sq 参数里 Hash 字段为空 = 未签名，路径 UUID 不校验 → 可自拼 payload 拿真实报价。地点 ID：KEF 1787 · EVE 2088 · Svolvær 2092 · TOS 2195','notes/_research/dc_direct.py · dc_cars.py'],
+  ['航班','Google Flights 实时（注意它卖不了 Widerøe 支线）','notes/_research/flights_gf.py']
+];
+
+const PITFALLS = [
+  '🔴 <b>Airbnb 搜索卡片会撒谎</b>：4 个候选在搜索页有价、打开房源页却是 "Those dates are not available"（换干净浏览器复现过，不是反爬）。其中 2 个原本是 🥇 首选 —— 直接照搜索结果下单会以为订到了。<b>必须逐个开房源页复核。</b>',
+  '🔴 <b>Booking 的房价行是「每间每晚」，不是「两间总价」</b>。我一开始记错了，导致所有酒店的 ¥/房 少算一半。三条独立证据：<code>no_rooms=1</code> 与 <code>no_rooms=2</code> 抓回的数字完全一样；截图里明写 "1 room / We have 1 left"；Árnanes 的 "Select Rooms" 下拉框写着 1→€276 / 2→€553。',
+  '🔴 <b>冰岛酒店报价不含税</b>：页面小字写 "Excluded: 11 % VAT, ISK 800 / €6 City tax per night"。真实支出比标价高 11%+。挪威和 Airbnb 的价是含税含清洁费的（东侧那套还明写 "Prices include all fees"）。',
+  '<b>剩余间数要单独看</b>：一家酒店「有房」不等于「有 2 间」。Fosshotel Glacier Lagoon 和 Boutique Hotel Anna 都是 "We have 1 left" —— 凑第 2 间就跳到更贵的房型，直接顶破预算。',
+  'Airbnb 不锁经纬度框就会把「Vík」搜成 2.5 小时外的 Selfoss，返回一堆看起来合格实际开不到的房源。',
+  'DiscoverCars 首页表单点日历点不动（react-date-range），日期没生效 → 拿到的是默认 9/04–9/12 的价，看起来正常其实全错。<b>每次都要回读页面上的日期。</b>'
+];
+
+/* ================================================================
+ * 需要人拍板的问题 —— 附出处 file:line
+ * ================================================================ */
+const BLOCKERS = [
+  {id:'B1', kind:'block', sev:'red',
+   q:'Kevin 订的 KEF→OSL 9/29 航班是几点起飞？',
+   blocks:'9/29 斯奈山半岛到底做不做 + 冰岛还车时间怎么填',
+   detail:'从 Reykjanesbær 05:30 出发跑完半岛（Ytri-Tunga 海豹滩 2h45 + 环线净开车 3h + 停留 3h + 回 KEF 2h）= 11–12 小时的一天，18:00–18:30 回 KEF 还车。傍晚常见班次是 ~18:35（Norwegian/SAS）和 ~20:05（Norwegian）。',
+   ifUnknown:'<b>18:35 → 这个环线做不了</b>（要 16:00 前回 KEF，等于只能玩 1 小时，只能砍掉半岛留在雷市）；<b>20:05 → 可以做</b>，18:15 还车、19:00 到柜台刚好。',
+   who:'Kevin（票是他订的）',
+   days:['D4','D5'],
+   src:[['notes/PLAN-final.md','232（§七 第 1 条：唯一的硬前提）'],
+        ['notes/OPTIONS-stay.md','56–63（时间表推算）']],
+   nowdo:'先按 20:05 那套订（车和房都可免费取消），拿到时间再决定砍不砍。住宿完全不受影响。'},
+
+  {id:'B2', kind:'block', sev:'red',
+   q:'Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞？',
+   blocks:'要不要第 13 晚（10/6 在奥斯陆）—— 本方案的总账只算了 12 晚',
+   detail:'游轮 pass 掉之后，行程需要的是 <b>9/24 到 10/5 共 12 晚</b>。10/6 上午 10:00 在特罗姆瑟机场还车、飞奥斯陆。如果当天就接北京的航班，行程在奥斯陆机场结束；如果是 10/7 才飞，就要在奥斯陆多住一晚。',
+   ifUnknown:'第 13 晚 <b>€172–280（Thon Gardermoen 2 间，可退）</b> 或 <b>+€260（Nannestad 那套 Airbnb，不可退）</b>。金额不大，但会决定 Nannestad 那两晚要不要一起订（它不可退，€520 敞口）。<b>地图上 D12 已经按「占位酒店」画出来了，钱没计入总账。</b>',
+   who:'Kevin',
+   days:['D12'],
+   src:[['notes/PLAN-final.md','233（§七 第 2 条）'],
+        ['notes/PLAN-final.md','220（§六 第 8 项：Nannestad 等机票确认后再订）']],
+   nowdo:'先把 D12 当占位（Thon Gardermoen 可退到 9/23）。Kevin 一回信，要么删掉、要么点一下就订。'},
+
+  {id:'B3', kind:'block', sev:'amber',
+   q:'冰岛租车的保险包（SCDW + 砂石 + 火山沙尘 + 2026 道路税）实际多少钱？',
+   blocks:'总账里唯一还会往上顶的一项：$258 → 约 $400–480',
+   detail:'$258 是<b>裸车价</b>。冰岛这三个附加险不是推销：1 号环岛碎石路段多、10 月南岸沙尘暴是真实索赔项，而信用卡自带的 CDW 基本把这两项写进排除条款，还要先自己垫付再报销。',
+   ifUnknown:'按最坏 $480 算，折 <b>¥3,408（¥682/天）</b> —— 仍然远低于你 ¥2,000/天 的上限，所以<b>它不会改变任何决定</b>，只影响总数从 ¥39,364 变成约 ¥40,900。',
+   who:'DiscoverCars 结账页读实价，或直接问供应商',
+   days:['D1','D2','D3','D4','D5'],
+   src:[['notes/PLAN-final.md','28–33（§一 唯一会往上顶的一项）'],
+        ['notes/PLAN-final.md','234（§七 第 3 条）']],
+   nowdo:'先按可免费取消订下来锁价，结账页那一步再读准数。'},
+
+  {id:'B4', kind:'block', sev:'amber',
+   q:'挪威 Suzuki Vitara 的 $1,805 押金，有额度够的信用卡吗？',
+   blocks:'9/30 在 EVE 能不能顺利提到车',
+   detail:'$1,805 是<b>冻结额度</b>（不是扣款），还车后释放。挪威租车这个数字偏高是因为 4WD + 6 天 + 异地还车。',
+   ifUnknown:'卡额度不够 = 现场提不到车，而那天下午要开 2h30 进罗弗敦，没有 plan B。',
+   who:'Steve（确认卡额度）',
+   days:['D6'],
+   src:[['notes/PLAN-final.md','186（§五 表格最后一行 ⚠️）'],
+        ['notes/PLAN-final.md','235（§七 第 4 条）']],
+   nowdo:'现在看一眼卡的可用额度就行。不够就换卡，或者订价格接近、押金更低的一家。'}
+];
+
+/* 只影响某一项的细节 —— 不定也能先订（都可免费取消） */
+const DETAILS = [
+  {q:'Árnanes 能不能给到相连的两间（interconnected rooms）？', why:'页面写「available」，但要在订单备注里主动要 —— 对「两男 + 一对夫妻」正好',
+   who:'下单时备注', src:[['notes/PLAN-final.md','124–126']]},
+  {q:'D3（9/27）蓝冰洞换不换成 Katla 冰洞？', why:'天然蓝冰洞一般 11 月才开。<b>换了也不动住宿</b>（Höfn 方案不受影响）—— 这条已经从「卡住行程」降级成「细节」',
+   who:'Kevin 找票', src:[['notes/PLAN-final.md','233 附近'],['viz/data.js','D3.watch']]},
+  {q:'冰岛第二驾驶员免不免费？', why:'长途开车日多（9/28 是 6h30），能换人开更安全。各家政策差很多',
+   who:'租车官网', src:[['notes/OPTIONS-cars.md','182–183']]},
+  {q:'挪威租车是否含 AutoPASS 标签，手续费怎么收？', why:'E10 + 特罗姆瑟这段收费站很少，金额很小 —— 知道就行，不影响选择',
+   who:'租车公司', src:[['notes/OPTIONS-cars.md','184 + 116']]},
+  {q:'特罗姆瑟船屋的自助 check-in 流程 + 停车位', why:'10/2 傍晚开 6h30 才到，最好提前知道钥匙怎么拿、车停哪',
+   who:'订完后给房东留言', src:[['notes/PLAN-final.md','60–65']]},
+  {q:'Torghatten Nord 官网核 10/5 Brensholmen–Botnhamn 确切班次', why:'低季会改点。已确认 2026 全年运营、10/5 周一不受「周五停」影响',
+   who:'出发前一周', src:[['notes/PLAN-final.md','202–206']]},
+  {q:'Hotel Hvolsvöllur 的 hot tub 要不要预约', why:'纯舒适度。页面写含早 + hot tub + 独立卫浴',
+   who:'到店问', src:[['notes/PLAN-final.md','246（截图 03b）']]}
+];
+
+/* 已经拍板 / 已经查实 —— 别再重新讨论一遍 */
+const SETTLED = [
+  {q:'游轮那段坐不坐？', a:'<b>整段 pass 掉</b>（Steve 定的）。10/2 改成 Svolvær→特罗姆瑟自驾 6h30，那一晚并进特罗姆瑟船屋。<b>顺带消掉了整个行程唯一的单点故障</b>（Havila 的价拿不到、舱位可能卖光），还省下约 ¥12,000。',
+   src:[['notes/PLAN-final.md','60–63'],['notes/OPTIONS-cruise.md','整份文档已作废']]},
+  {q:'住 Airbnb 还是酒店？', a:'<b>非常 prefer Airbnb</b>（Steve 明确说的）。已执行：12 晚里 <b>10 晚是 Airbnb 整套房</b>，只有 9/26、9/27 两晚因为冰岛乡下确实没有可订的 2房2卫整套房源，才用酒店 2 间房。',
+   src:[['notes/PLAN-final.md','39–40'],['notes/OPTIONS-stay.md','98–101（南岸 4 个 Airbnb 全部订不到）']]},
+  {q:'罗弗敦东侧还是西侧？', a:'<b>东侧（Svolvær / Vågan）</b> —— 交给我决定的，答案在上面「两个决定」那一节。核心理由是 10/2 车程 6h30 vs 8h30，其次是可退，省钱只是附带。',
+   src:[['notes/PLAN-final.md','72–108']]},
+  {q:'冰河湖那晚住哪？', a:'<b>Höfn 的 Árnanes</b> —— 也是交给我决定的。Fosshotel Glacier Lagoon 只剩 1 间房，凑 2 间 ¥4,776/房超预算，<b>是被算术排除的</b>。',
+   src:[['notes/PLAN-final.md','110–138']]},
+  {q:'几个人、怎么分房、¥/房怎么算？', a:'<b>4 人 = 两男 + 一对夫妻。</b>¥/房 = 总价 ÷ <b>实际用的房间数</b>。本页一律<b>保守按 ÷2</b> 算；3 房那几晚如果两个男生各住一间（÷3），数字还要再低三分之一。',
+   src:[['notes/PLAN-final.md','10 + 54']]},
+  {q:'预算够不够？', a:'<b>住宿 ¥1,326/房/晚，只有你预算下沿（¥2,000）的 2/3。</b>两台车 ¥366/天 和 ¥902/天，都远低于 ¥2,000/天的上限。',
+   src:[['notes/PLAN-final.md','20–26']]},
+  {q:'免费取消 vs 更便宜的不可退？', a:'<b>全部买可免费取消</b>。9 项里 <b>7 项零风险</b>，唯一例外是 Nannestad 两晚（€520），已给可退替代（Thon Gardermoen）。',
+   src:[['notes/PLAN-final.md','222–224']]},
+  {q:'挪威租车拆两段还是一台车连开？', a:'<b>一台车连开 6 天</b>（EVE 提 → 特罗姆瑟机场还）。拆开省 $107，但要多跑一次柜台 + 多一次押金冻结，而且 10/2 傍晚才到特罗姆瑟。不值。<b>顺带干掉了原方案里 $320 的异地还车费和「只有 6 个车源」的风险。</b>',
+   src:[['notes/PLAN-final.md','190–194']]},
+  {q:'驾照国别 / 要不要国际驾照 IDP？', a:'<b>美国驾照，冰岛和挪威都直接认，不需要 IDP。</b>',
+   src:[['notes/PLAN-final.md','185']]},
+  {q:'9 月底冰岛要不要冬胎？', a:'<b>不需要</b> —— 法律 11/1 起才强制。',
+   src:[['notes/OPTIONS-cars.md','189']]}
+];
+
+/* ---------- 以下两个数组 index.html 仍在用，2026-09-02 并行改动误删，已补回 ---------- */
 /* ---------- 邮轮三方案 ---------- */
 const CRUISE_OPT = [
   {name:'✅ Havila 10/2 + 2 舱（推荐）', transport:'未知（对标 ¥12,000）', dropfee:'+$320', total:'≈¥14,300?',
@@ -294,185 +579,4 @@ const HRG = [
   {d:'10/4', ship:'Nordkapp',     inside:null, outside:418, sup:563},
   {d:'10/6', ship:'Polarlys',     inside:310,  outside:364, sup:563},
   {d:'10/8', ship:'Richard With', inside:310,  outside:418, sup:563}
-];
-
-/* ---------- 未决问题 ---------- */
-const OPEN = [
-  {sev:'red',   q:'Kevin 订的 KEF→OSL 9/29 起飞时间？', why:'唯一决定 9/29 能不能跑斯奈山半岛的硬前提。18:35 → 做不了；20:05 → 可以', who:'Kevin'},
-  {sev:'red',   q:'Havila 10/2 还有几间舱 / 2 间双人舱总价 / 含不含早餐 / 退改政策？', why:'整段行程能不能成立取决于它；本机被 Cloudflare 挡，拿不到价', who:'Steve（家用网或电话）'},
-  {sev:'red',   q:'Svolvær 各租车门店 10/2（周五）关门时间？', why:'22:15 开船，多数门店 15:30–16:00 就关 → 要么钥匙箱还车，要么提前还车打车去码头', who:'邮件/电话'},
-  {sev:'red',   q:'Nusfjord「Village Cabin Suite Plus」到底几间卧室？', why:'2 卫已确认（页面明写），卧室数没写。是全罗弗敦「明确 2 卫 + 在预算内」的唯一确定答案；若是 1 卧 2 卫就退回 Airbnb', who:'邮件'},
-  {sev:'amber', q:'D3 蓝冰洞 → Katla 冰洞的决定？', why:'天然蓝冰洞一般 11 月才开。换 Katla 后集合点变 Vík → 连带改 D2/D3 住宿位置', who:'Steve + Kevin 找票'},
-  {sev:'amber', q:'Rent a Car Lofoten（Svolvær 本地）的 EVE→Svolvær 异地费？', why:'本地小公司常显著低于国际品牌的 $320', who:'邮件'},
-  {sev:'amber', q:'Hattvika / Eliassen / Svinøya 的卫生间数量？', why:'Booking 页面没写。「一定要 2 卫」目前只能靠 Airbnb 那批（明写 2BA/2.5BA/3BA）', who:'邮件'},
-  {sev:'amber', q:'冰岛 SCDW+GP+SAAP 打包价准确数字 + 第二驾驶员是否免费？', why:'各家差很多，柜台加保最贵，线上先买便宜', who:'各家官网'},
-  {sev:'green', q:'挪威两段是否含 AutoPASS 标签，手续费怎么收？', why:'E10 这段几乎没收费站，金额很小', who:'租车公司'},
-  {sev:'green', q:'酒店那几行的 €/$ 是单间价还是两间总价？', why:'Radisson 两家返回 USD 而非 EUR，说明它忽略了货币参数 → 下单前页面上再核一眼', who:'下单时'},
-  {sev:'green', q:'Torghatten Nord 官网核 10/5 Brensholmen–Botnhamn 确切班次', why:'低季会改点', who:'出发前一周'}
-];
-
-/* ---------- 风险 ---------- */
-const RISKS = [
-  {r:'Havila 10/2 舱位卖光', imp:'D8–D9 整段断，且没有等价替代', act:'第一个去查，今天就查', sev:'red'},
-  {r:'D5 斯奈山赶飞机', imp:'误机 / 全天在车上', act:'先确认 KEF→OSL 起飞时间；20:05 才做，18:35 就砍掉半岛', sev:'red'},
-  {r:'蓝冰洞 9 月不开', imp:'D3 白跑', act:'换 Katla 冰洞（Vík 出发，全年开）→ 连带改 D2/D3 住宿', sev:'amber'},
-  {r:'Svolvær 门店 10/2 提前关门', imp:'还不掉车 → 上不了船', act:'询价时一并问关门时间', sev:'amber'},
-  {r:'罗弗敦 2 卫房源卖光', imp:'退到 1 卫或 2 间连通房', act:'接受兜底方案，别死磕', sev:'amber'},
-  {r:'秋季风暴封路（冰岛南岸 / E10）', imp:'单日行程作废', act:'订可免费取消的房；存 road.is 和 vegvesen.no', sev:'amber'},
-  {r:'~~中国驾照无 IDP，租车公司拒租~~', imp:'—', act:'✅ 已消除：用美国驾照，冰岛/挪威都直接认，不需要 IDP', sev:'done'},
-  {r:'~~9 月底冰岛要不要冬胎~~', imp:'—', act:'✅ 已消除：11/1 起才强制，这个日期不需要', sev:'done'},
-  {r:'~~Brensholmen 渡轮季节性停开~~', imp:'—', act:'✅ 已消除：2026 全年运营，10/5 周一不受「周五停」影响', sev:'done'},
-  {r:'~~Vervet Apartments 2026-08→2027-08 闭店~~', imp:'—', act:'✅ 已消除：实测 10/3–10/6 正常放房正常报价，那条信息是错的', sev:'done'}
-];
-
-/* ---------- 黑话表 ---------- */
-const GLOSSARY = [
-  ['rorbu','罗弗敦传统红色渔屋改的自炊小屋，通常带厨房，是当地主流住宿形态'],
-  ['port-to-port','港到港：只买挪威海岸邮轮的一段船票，不是买 6–12 天的整趟巡游'],
-  ['deck space','甲板票 / 无舱位票：只买船票不要房间，通宵靠躺椅'],
-  ['free-cxl','可免费取消的截止日期'],
-  ['min-stay','房东设的最少入住晚数，比你要住的天数长就订不了'],
-  ['AutoPASS','挪威高速自动收费，车上有电子标签，租车公司事后从卡上扣，另加手续费'],
-  ['CDW','车损免责，含在车价里，但有自付额'],
-  ['SCDW','把 CDW 的自付额再降低'],
-  ['GP','Gravel Protection：碎石打伤车漆/前挡，冰岛特有，标准 CDW 不赔'],
-  ['SAAP','Sand & Ash Protection：火山沙尘暴磨伤车身，冰岛特有，标准 CDW 不赔'],
-  ['einveisleie','挪威语「异地还车费」'],
-  ['møteplass','挪威单车道公路的会车位。上坡车优先，别停在会车位里'],
-  ['PolarInside / PolarOutside / ArcticSuperior','Hurtigruten 舱型：内舱无窗 / 外舱有窗 / 高一档位置更好'],
-  ['不限里程','Unlimited mileage，挪威冰岛基本都是']
-];
-
-/* ---------- 数据来源 ---------- */
-const PROV = [
-  ['Airbnb 实时房源','Playwright，URL 里强制 min_bedrooms≥2 & min_bathrooms≥2 & 整套房源，并用经纬度框锁死地理范围（避免 Airbnb 把「Vík」搜成 2.5h 外的 Selfoss）','notes/_research/abnb_scrape.py'],
-  ['Booking.com 房型行','逐物业房型页抓真实房价行 + free-cxl 日期。修正过 8 个错 slug（svinoya 不是 svinoya-rorbuer、nusfjord-as、ta-vervet-apartment…）','notes/_research/bk_prop.py'],
-  ['Hurtigruten 实时舱价','⭐ 直接 POST 它的可用性 API（无签名、可复算），几秒出一整周班期+舱型价','notes/_research/hrg_api.py'],
-  ['Havila','四条路全部被 Cloudflare 挡（403 / Flutter CanvasKit 零 DOM / main.dart.js 403）→ 必须人工','notes/_research/havila_*.py'],
-  ['DiscoverCars 实时车价','搜索结果页 sq 参数里 Hash 字段为空 = 未签名，路径 UUID 不校验 → 可自拼 payload 拿真实报价。地点 ID：KEF 1787 · EVE 2088 · Svolvær 2092 · TOS 2195','notes/_research/dc_direct.py'],
-  ['航班','Google Flights 实时（注意它卖不了 Widerøe 支线，SVJ→TOS 直飞要去 wideroe.no）','notes/_research/flights_gf.py']
-];
-
-const PITFALLS = [
-  'Hurtigruten 的出发日期框是掩码输入：写 10/02/2026 会被读成 02/10/2026 并报 "Date must be today or later"，搜索按钮永远 disabled。能用的写法是不带斜杠的 02102026（DMY 纯数字）。→ 每次写完日期都要回读 + 检查搜索按钮是否可点。',
-  'DiscoverCars 首页表单点日历点不动（react-date-range），日期没生效 → 拿到的是默认 9/04–9/12 的价，看起来正常其实全错。同一类错误。',
-  'Kayak 深链全部重定向回首页；DiscoverCars 带参数的 URL 404。别重试。',
-  '一间邮轮舱装不下 4 个人：用 1 舱 4 人查，API 返回 200 但结果为空 → 必须 2 舱。',
-  'Airbnb 不锁经纬度框就会把「Vík」搜成 2.5 小时外的 Selfoss，返回一堆看起来合格实际开不到的房源。'
-];
-
-/* ================================================================
- * 需要人拍板的问题 —— 从四份文档里抽出来，附出处 file:line
- * kind: 'block' = 不定就没法订 / 订了要重订（会改行程结构）
- *       'detail' = 不定也能先订（都可免费取消），只影响某一项的钱或舒适度
- * ================================================================ */
-const BLOCKERS = [
-  {id:'B1', kind:'block', sev:'red',
-   q:'Kevin 订的 KEF→OSL 9/29 航班是几点起飞？',
-   blocks:'9/29 斯奈山半岛到底做不做',
-   detail:'从 Keflavík 05:30 出发跑完半岛（Ytri-Tunga 海豹滩 2h45 + 环线净开车 3h + 停留 3h + 回 KEF 2h）= 11–12 小时的一天，18:00–18:30 回 KEF 还车。傍晚常见班次是 ~18:35（Norwegian/SAS）和 ~20:05（Norwegian）。',
-   ifUnknown:'<b>18:35 → 这个环线做不了</b>（要 16:00 前回 KEF，等于只能玩 1 小时，只能砍掉半岛留在雷市）；<b>20:05 → 可以做</b>，18:15 还车、19:00 到柜台刚好。它还顺带决定冰岛租车的还车时间怎么填。',
-   who:'Kevin（票是他订的）',
-   days:['D4','D5'],
-   src:[['notes/OPTIONS-stay.md','25–46（结论在第 43 行：「请先跟 Kevin 确认航班号和起飞时间」）'],
-        ['notes/PLAN-booking.md','34（§0② 三处地理打结的第一处 D4→D5）'],
-        ['notes/OPTIONS-stay.md','256（§四 待办第 1 条）']],
-   nowdo:'先按 20:05 那套订（车和房都可免费取消），拿到时间再决定砍不砍。'},
-
-  {id:'B2', kind:'block', sev:'red',
-   q:'Havila 10/2 Svolvær 22:15 那班：还有几间舱？2 间双人舱总价？含不含早餐？退改政策？',
-   blocks:'D8–D9 整段，以及连带的罗弗敦还车地点、$320 异地还车费、Tromsø 3 晚的起始日',
-   detail:'10/2 那班船不是 Hurtigruten 是 <b>Havila</b>（Hurtigruten 那天根本没有 Svolvær 出发的船）。而 <b>本机拿不到 Havila 的实时价</b>——Cloudflare 把这个 pod 挡在它的订票引擎外（订票按钮跳到另一个域的 Flutter/CanvasKit 应用，零 DOM，main.dart.js 返回 403）。所以这一条<b>只能人去问</b>，没有技术办法绕。',
-   ifUnknown:'拿不到就要在两个备选里挑，<b>两条都会动已经选好的预订</b>：备选 A（Hurtigruten 10/3）整段后移一天 → Tromsø 那 3 晚要整段重订，还贵 ¥4,000；备选 B（飞 SVJ→TOS）要把罗弗敦租车改成同地还车（省 $320），但 Widerøe 直飞的票价本身也还没验证。',
-   who:'Steve 本人 —— 用<b>家用网/手机</b>开 havilavoyages.com/nb/havn-til-havn →「Bestill havn-til-havn」（Cloudflare 只挡这个 pod）；或邮件 booking@havilavoyages.com；或电话 +47 815 33 300',
-   days:['D8','D9'],
-   src:[['notes/OPTIONS-cruise.md','30–61（§1 「价格未验证，必须人工确认」，行动项在 56–59）'],
-        ['notes/OPTIONS-cruise.md','104–141（§3 两个备选的代价已量化）'],
-        ['notes/PLAN-booking.md','83 + 155（Phase 2 第 1 位 + 风险清单第 1 条）']],
-   nowdo:'今天就打。这是整个行程的单点故障，也是唯一一条「没有 plan B 能不动其它预订」的。'},
-
-  {id:'B3', kind:'block', sev:'red',
-   q:'Svolvær 各租车门店 10/2（周五）几点关门？',
-   blocks:'D8 当天几点必须离开罗弗敦西侧 → 直接决定 D7/D8 能玩到几点',
-   detail:'邮轮 22:15 开船，但 Svolvær 各家门店周五关门时间不一，<b>多数 15:30–16:00 就关</b>。我给的 Ford Explorer $644 是<b>按 17:00 还车</b>报的价。',
-   ifUnknown:'如果真是 15:30 关门，那就等于<b>要提前 6 个多小时还车</b>，然后拖着行李在 Svolvær 等到晚上 —— 要么改成机场式钥匙箱还车，要么提前还车再打车去码头。这条不问清，D8 的时间表是假的。',
-   who:'邮件/电话问 Svolvær 门店（Avis / Hertz / Sixt / Budget，或本地 Rent a Car Lofoten）',
-   days:['D7','D8'],
-   src:[['notes/OPTIONS-cars.md','111–112（§二 「这条必须问」）'],
-        ['notes/OPTIONS-cars.md','179–180（§五 必须发邮件问的第 1 条）'],
-        ['notes/PLAN-booking.md','101 + 160（Phase 3 + 风险清单）']],
-   nowdo:'和 B2 一起问 —— 如果最后走备选 B（飞 SVJ→TOS）就同地还车，这条自动消失。'},
-
-  {id:'B4', kind:'block', sev:'red',
-   q:'D3（9/27）蓝冰洞换不换成 Katla 冰洞？',
-   blocks:'D2 和 D3 的住宿位置',
-   detail:'<b>天然蓝冰洞（瓦特纳冰川）一般 11 月才开</b>。9 月能做的是 <b>Katla 冰洞</b>（Mýrdalsjökull 冰川下，全年开）或冰川徒步 —— 但 Katla 的<b>集合点在 Vík，不是 Skaftafell</b>。',
-   ifUnknown:'现在方案 D2 住 Hvolsvöllur（离 Vík 还有 1h15 回头路）。若确定换 Katla，D2 该改住 <b>Vík 的酒店 2 间房</b>（Hótel Vík í Mýrdal / Hótel Katla，报价还没抓）—— 而 Vík 镇内 <b>0 个</b> 2房2卫整套房源，所以只能走酒店路线。不换的话 D3 就是白跑一趟。',
-   who:'Steve + Kevin（Kevin 在找票）',
-   days:['D2','D3'],
-   src:[['notes/PLAN-booking.md','35（§0② 第二处打结）+ 159（风险清单）'],
-        ['notes/OPTIONS-stay.md','84–85（南岸那晚的替代建议）'],
-        ['notes/OPTIONS-stay.md','264 + 267（§四 待办最后两条）']],
-   nowdo:'先订 9/27 的 Fosshotel（free-cxl 到 9/25，不冲突），只有 D2 那晚要等这个决定。'},
-
-  {id:'B5', kind:'block', sev:'red', scope:'global',
-   q:'住宿接不接受非酒店（Airbnb / rorbu 自炊）？罗弗敦要不要搬一次箱子？',
-   blocks:'整套住宿方案的地基 —— 12 晚里有 9 晚是 Airbnb',
-   detail:'现在这套 ¥32,976 的组合建立在 <b>A 方案（Airbnb / 公寓 2房2卫）</b>上。北欧酒店套房基本都是 1 卫，能真正拿到 2 卫只有三条路：A 公寓、B 大号 <abbr title="罗弗敦传统红色渔屋改的自炊小屋">rorbu</abbr>、C 两间相连酒店房。另外原计划是 D6 住 Svolvær 侧 + D7 挪到 Reine 侧，我改成了<b>连住 Ramberg 不搬箱子</b>。',
-   ifUnknown:'如果只接受酒店，A 方案基本没了 → 整体换成 C 方案（2 间连通房，2 卫自动成立），<b>价格结构和每晚位置全变</b>，而且没厨房（挪威 4 人自炊能省很多）。这条不定，下面所有住宿链接都可能白订。',
-   who:'Steve',
-   days:['D0','D1','D2','D4','D5','D6','D7','D9','D10','D11'],
-   src:[['notes/PLAN-booking.md','167–173（§5 待 Steve comment 的 7 条，尤其第 5、6 条）'],
-        ['notes/PLAN-booking.md','16–28（§0① 「2 个卫生间」三条路 A/B/C）'],
-        ['notes/OPTIONS-stay.md','221–237（§二 性价比最高的一套组合）']],
-   nowdo:'默认按 A 优先、抢不到就 C 兜底执行。你说一句「接受/不接受」就够。'},
-
-  {id:'B6', kind:'block', sev:'amber',
-   q:'Nusfjord「Village Cabin Suite Plus」到底几间卧室？',
-   blocks:'罗弗敦 2 晚选哪家（有替代，所以不致命）',
-   detail:'它是<b>全罗弗敦唯一在 Booking 页面上明写「2 bathrooms」</b>的房源，€723/2晚（¥1,446/room/晚，free-cxl 到 9/16）。但<b>卧室数没写</b> ——「Suite」不等于 2 卧。',
-   ifUnknown:'如果是 1 卧 2 卫，就退回 Airbnb 那批（Ramberg 4BR/2.5BA €647/2晚，页面明确标了 2.5BA）。所以这条只是「能不能用那个最优解」，不会让行程断。',
-   who:'邮件问 Nusfjord Arctic Resort',
-   days:['D6','D7'],
-   src:[['notes/OPTIONS-stay.md','164–181（§D6–D7 补充，结论在 180–181）'],
-        ['notes/OPTIONS-stay.md','258–259（§四 待办，标了 🔴）']],
-   nowdo:'先把 Airbnb Ramberg 那个占住（可退），Nusfjord 回信了再换。'}
-];
-
-/* 只影响某一项的细节 —— 不定也能先订（都可免费取消） */
-const DETAILS = [
-  {q:'Rent a Car Lofoten（Svolvær 本地）的 EVE→Svolvær 异地费是多少？', why:'本地小公司常显著低于国际品牌实测的 $320 —— 有可能省几百美元',
-   who:'邮件', src:[['notes/OPTIONS-cars.md','106–107 + 181']]},
-  {q:'Hattvika Lodge / Eliassen Rorbuer / Svinøya Rorbuer 的卫生间数？', why:'Booking 页面没写。「一定要 2 卫」目前只能靠 Airbnb 那批（明写 2BA/2.5BA/3BA）',
-   who:'邮件', src:[['notes/OPTIONS-stay.md','161 + 257']]},
-  {q:'冰岛 SCDW + GP + SAAP 打包价的准确数字？第二驾驶员免不免费？', why:'各家差很多，柜台加保最贵 → 线上先买便宜。目前按 $100–160 估',
-   who:'各家租车官网', src:[['notes/OPTIONS-cars.md','182–183 + 68–76']]},
-  {q:'挪威两段是否含 AutoPASS 标签，手续费怎么收？', why:'E10 这段几乎没收费站，金额很小 —— 知道就行，不影响选择',
-   who:'租车公司', src:[['notes/OPTIONS-cars.md','184 + 116']]},
-  {q:'酒店那几行的 €/$ 到底是单间价还是两间总价？', why:'Radisson 两家返回 USD 而不是 EUR，说明网站忽略了货币参数 → 下单前在页面上再核一眼',
-   who:'下单时自己核', src:[['notes/OPTIONS-stay.md','265–266']]},
-  {q:'Torghatten Nord 官网核 10/5 Brensholmen–Botnhamn 的确切班次', why:'低季会改点。已确认 2026 全年运营、10/5 周一不受「周五停」影响',
-   who:'出发前一周', src:[['notes/OPTIONS-cars.md','185'],['notes/OPTIONS-cruise.md','145–153']]},
-  {q:'Widerøe SVJ→TOS 直飞的真实票价（wideroe.no）', why:'只有走备选 B（不坐船）才需要。Google Flights 卖不了 Widerøe 支线（不进 GDS），官网区间 NOK 1,819–3,699/人',
-   who:'wideroe.no', src:[['notes/OPTIONS-cruise.md','112–124']]}
-];
-
-/* 已经拍板 / 已经查实 —— 别再重新讨论一遍 */
-const SETTLED = [
-  {q:'几个人、怎么分房？', a:'<b>4 人 = 两男 + 一对夫妻 → 2 room / 2 cabin。</b>所有报价的「¥/room」都是整套总价 ÷ 2。',
-   src:[['notes/PLAN-booking.md','167（原问题）'],['notes/OPTIONS-stay.md','8（口径）']]},
-  {q:'驾照国别 / 要不要国际驾照 IDP？', a:'<b>美国驾照，冰岛和挪威都直接认，不需要 IDP。</b>原来那个「中国驾照没有 IDP → 三段自驾全废」的最大风险<b>已消除</b>。',
-   src:[['notes/OPTIONS-cars.md','188'],['notes/PLAN-booking.md','72–74（原风险）']]},
-  {q:'D4 改住 Borgarnes 省次日 1.5h 车程？', a:'<b>不可执行</b> —— Borgarnes 一带 8 个 2房2卫房源<b>全部 min-stay ≥ 2 晚</b>，1 晚订不到。→ 9/28 只能住 Keflavík，斯奈山靠早出发解决（见 B1）。',
-   src:[['notes/OPTIONS-stay.md','20–23'],['notes/PLAN-booking.md','34 + 75（原方案）']]},
-  {q:'免费取消 vs 更便宜的不可退？', a:'<b>全部买可免费取消</b>（我的建议，已按这个执行）。9 月末冰岛南岸和 E10 的风暴封路太常见，省下的那点不可退折扣不值得。<b>你反对就说一声。</b>',
-   src:[['notes/PLAN-booking.md','173'],['notes/OPTIONS-stay.md','249–250']]},
-  {q:'9 月底冰岛要不要冬胎？', a:'<b>不需要</b> —— 法律 11/1 起才强制。',
-   src:[['notes/OPTIONS-cars.md','189']]},
-  {q:'Brensholmen–Botnhamn 渡轮是季节性停开吗？', a:'<b>不是，2026 全年运营</b>。NOK 228/车/单程，航程 35–45 min。10/5 是周一，不受「周五停」影响。',
-   src:[['notes/OPTIONS-cruise.md','145–153']]},
-  {q:'Vervet Apartments 是不是 2026-08→2027-08 闭店？', a:'<b>没有闭店</b> —— 实测 10/3–10/6 正常放房正常报价（€535/3晚起，free-cxl 到 9/19）。那条 listing 信息是错的或已作废。',
-   src:[['notes/OPTIONS-stay.md','214–215'],['notes/PLAN-booking.md','99（原疑问）']]},
-  {q:'treg.to/people-search 要不要装？', a:'<b>不装</b> —— 那是 B2B 销售线索/SEO 数据平台（找人的工作邮箱电话），覆盖范围里<b>没有任何旅行/酒店/租车/机票数据源</b>，走错门了。真正需要的是能跑 JS 的浏览器读实时报价，本机 Playwright 已经有。',
-   src:[['notes/PLAN-booking.md','38–50']]}
 ];
