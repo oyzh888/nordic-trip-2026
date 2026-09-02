@@ -1,0 +1,104 @@
+{
+ "job": {
+  "slug": "m2-sc-2ba",
+  "place": "Hvolsvollur, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-28",
+  "bbox": [
+   63.38,
+   -20.6,
+   63.95,
+   -18.75
+  ],
+  "zoom": 9,
+  "min_bedrooms": 2,
+  "min_bathrooms": 2
+ },
+ "url": "https://www.airbnb.com/s/Hvolsvollur--Iceland/homes?checkin=2026-09-26&checkout=2026-09-28&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.38&sw_lng=-20.6&ne_lat=63.95&ne_lng=-18.75&search_by_map=true&zoom=9",
+ "rows": [
+  {
+   "kind": "Home in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Ofanleiti - amazing view",
+   "bedrooms": 3,
+   "baths": 2.5,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": "4.88",
+   "raw": "Guest favorite | Home in Vestmannaeyjar | Ofanleiti - amazing view | 3 bedrooms | , | · | 7 beds | 2.5 baths | €1,208 | €991 | Show price breakdown | for 2 nights | Extended stay discount | Pay €0 today | Free cancellation | 4.88 out of 5 average rating, 16 reviews | 4.88 (16)",
+   "url": "https://www.airbnb.com/rooms/1676684443269632477"
+  },
+  {
+   "kind": "Home in Hella",
+   "loc": "Hella",
+   "title": "Lake house with two hot pools and glacier view",
+   "bedrooms": 2,
+   "baths": 3.0,
+   "nights": 2,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Hella | Lake house with two hot pools and glacier view | 2 bedrooms | , | · | 2 beds | 3 baths | €7,834 | Show price breakdown | for 2 nights | €7,834 for 2 nights | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1707213711579879176"
+  },
+  {
+   "kind": "Cottage in Hella",
+   "loc": "Hella",
+   "title": "Rustic Luxury by the Riverside - Amazing scenery",
+   "bedrooms": 4,
+   "baths": 3.0,
+   "nights": 3,
+   "total_eur": 3029,
+   "rating": "4.95",
+   "raw": "Sep 25  to  28 | Sep 25 – 28 | Cottage in Hella | Rustic Luxury by the Riverside - Amazing scenery | 4 bedrooms | , | · | 6 beds | 3 baths | €3,425 | €3,029 | Show price breakdown | for 3 nights | 4.95 out of 5 average rating, 110 reviews | 4.95 (110)",
+   "url": "https://www.airbnb.com/rooms/2885396"
+  },
+  {
+   "kind": "Cottage in Hella",
+   "loc": "Hella",
+   "title": "Rustic Luxury Country house in the south",
+   "bedrooms": 3,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 2468,
+   "rating": "5.0",
+   "raw": "Sep 25  to  28 | Sep 25 – 28 | Cottage in Hella | Rustic Luxury Country house in the south | 3 bedrooms | , | · | 4 beds | 2 baths | €2,796 | €2,468 | Show price breakdown | for 3 nights | 5.0 out of 5 average rating, 6 reviews | 5.0 (6)",
+   "url": "https://www.airbnb.com/rooms/717297637096223324"
+  },
+  {
+   "kind": "Home in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Show price breakdown",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 2089,
+   "rating": "4.8",
+   "raw": "Sep 25  to  27 | Sep 25 – 27 | Home in Hvolsvöllur | Fljotshlid Iceland | 4 bedrooms | , | · | 4 beds | 2 baths | €2,089 | Show price breakdown | for 2 nights | €2,089 for 2 nights | 4.8 out of 5 average rating, 20 reviews | 4.8 (20)",
+   "url": "https://www.airbnb.com/rooms/1081195144537663933"
+  },
+  {
+   "kind": "Home in hvolsvollur",
+   "loc": "hvolsvollur",
+   "title": "Hlíðarból Guest House",
+   "bedrooms": 5,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 750,
+   "rating": "4.64",
+   "raw": "Sep 27  to  28 | Sep 27 – 28 | Home in hvolsvollur | Hlíðarból Guest House | 5 bedrooms | , | · | 9 beds | 2 baths | €750 | Show price breakdown | for 1 night | €750 for 1 night | 4.64 out of 5 average rating, 50 reviews | 4.64 (50)",
+   "url": "https://www.airbnb.com/rooms/1554437248972293986"
+  },
+  {
+   "kind": "Home in Rangárþing ytra",
+   "loc": "Rangárþing ytra",
+   "title": "Show price breakdown",
+   "bedrooms": 5,
+   "baths": 2.0,
+   "nights": 3,
+   "total_eur": 2353,
+   "rating": "5.0",
+   "raw": "Sep 25  to  28 | Sep 25 – 28 | Home in Rangárþing ytra | Country house | 5 bedrooms | , | · | 7 beds | 2 baths | €2,353 | Show price breakdown | for 3 nights | €2,353 for 3 nights | 5.0 out of 5 average rating, 4 reviews | 5.0 (4)",
+   "url": "https://www.airbnb.com/rooms/860176562999036684"
+  }
+ ]
+}

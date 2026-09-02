@@ -1,0 +1,7 @@
+[
+ {"slug":"m2-sc-2ba","place":"Hvolsvollur, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.38,-20.60,63.95,-18.75],"zoom":9,"min_bedrooms":2,"min_bathrooms":2},
+ {"slug":"m2-sc-1ba","place":"Hvolsvollur, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.38,-20.60,63.95,-18.75],"zoom":9,"min_bedrooms":2,"min_bathrooms":1},
+ {"slug":"m2-kla-2ba","place":"Kirkjubaejarklaustur, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.55,-19.20,64.15,-16.90],"zoom":8,"min_bedrooms":2,"min_bathrooms":2},
+ {"slug":"m2-kla-1ba","place":"Kirkjubaejarklaustur, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.55,-19.20,64.15,-16.90],"zoom":8,"min_bedrooms":2,"min_bathrooms":1},
+ {"slug":"m2-hofn-2n-2ba","place":"Hofn, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.72,-18.20,64.40,-15.05],"zoom":8,"min_bedrooms":2,"min_bathrooms":2}
+]

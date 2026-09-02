@@ -1,0 +1,8 @@
+[
+ {"slug":"SP-0925-rvk","room":"1729852848905770040","checkin":"2026-09-25","checkout":"2026-09-26","note":"9/25 Reykjavik aurora 3BR2BA"},
+ {"slug":"SP-0928","room":"1468029290775302593","checkin":"2026-09-28","checkout":"2026-09-29","note":"9/28 NEW"},
+ {"slug":"SP-0929","room":"1461656866395092330","checkin":"2026-09-29","checkout":"2026-09-30","note":"9/29 Oslo NEW"},
+ {"slug":"SP-0930-1002","room":"1258848712541940268","checkin":"2026-09-30","checkout":"2026-10-02","note":"9/30-10/2 Lofoten NEW"},
+ {"slug":"SP-1002-1005","room":"825162133059470411","checkin":"2026-10-02","checkout":"2026-10-05","note":"10/2-10/5 Tromso NEW"},
+ {"slug":"SP-1002-1006","room":"825162133059470411","checkin":"2026-10-02","checkout":"2026-10-06","note":"10/2-10/6 same Tromso, 4 nights - can it cover 10/5?"}
+]

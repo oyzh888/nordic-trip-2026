@@ -1,0 +1,19 @@
+{
+ "job": {
+  "slug": "m2-hofn-2n-2ba",
+  "place": "Hofn, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-28",
+  "bbox": [
+   63.72,
+   -18.2,
+   64.4,
+   -15.05
+  ],
+  "zoom": 8,
+  "min_bedrooms": 2,
+  "min_bathrooms": 2
+ },
+ "url": "https://www.airbnb.com/s/Hofn--Iceland/homes?checkin=2026-09-26&checkout=2026-09-28&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.72&sw_lng=-18.2&ne_lat=64.4&ne_lng=-15.05&search_by_map=true&zoom=8",
+ "rows": []
+}

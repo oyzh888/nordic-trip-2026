@@ -1,0 +1,7 @@
+[
+ {"slug":"S1-horgsland-0926","hotel":"is/horgsland-cottages","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"S1b-horgsland-2n","hotel":"is/horgsland-cottages","checkin":"2026-09-26","checkout":"2026-09-28","adults":4,"rooms":2},
+ {"slug":"S2-birkifell-0927","hotel":"is/guesthouse-birkifell","checkin":"2026-09-27","checkout":"2026-09-28","adults":4,"rooms":2},
+ {"slug":"S3-stracta-2n","hotel":"is/stracta-apartments","checkin":"2026-09-26","checkout":"2026-09-28","adults":4,"rooms":2},
+ {"slug":"S3b-stracta-0926","hotel":"is/stracta-apartments","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2}
+]

@@ -1,0 +1,26 @@
+{
+ "d2-horgsland": {
+  "url": "https://www.booking.com/hotel/is/horgsland-cottages.html",
+  "n_req": 8,
+  "n": 1,
+  "images": [
+   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/881325334.jpg?k=b83bb549208787e9bced1a4e3f1aa75265f1db1431fa061dd3cbc9cbca073b7e&o="
+  ]
+ },
+ "d3-birkifell": {
+  "url": "https://www.booking.com/hotel/is/guesthouse-birkifell.html",
+  "n_req": 8,
+  "n": 1,
+  "images": [
+   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/282057050.jpg?k=bc7196a1db65f692e79c80efe58c95a811b87eb8a3be6b3b25d6e0658ca8e51b&o="
+  ]
+ },
+ "alt-arnanes": {
+  "url": "https://www.booking.com/hotel/is/arnanes-sveitagisting.html",
+  "n_req": 8,
+  "n": 1,
+  "images": [
+   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/408085740.jpg?k=3052724087f583416f92b90a0ac3da9213374e4c93b4891669ddae6f561291d8&o="
+  ]
+ }
+}

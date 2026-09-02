@@ -1,0 +1,19 @@
+{
+ "job": {
+  "slug": "m2-kla-2ba",
+  "place": "Kirkjubaejarklaustur, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-28",
+  "bbox": [
+   63.55,
+   -19.2,
+   64.15,
+   -16.9
+  ],
+  "zoom": 8,
+  "min_bedrooms": 2,
+  "min_bathrooms": 2
+ },
+ "url": "https://www.airbnb.com/s/Kirkjubaejarklaustur--Iceland/homes?checkin=2026-09-26&checkout=2026-09-28&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.55&sw_lng=-19.2&ne_lat=64.15&ne_lng=-16.9&search_by_map=true&zoom=8",
+ "rows": []
+}

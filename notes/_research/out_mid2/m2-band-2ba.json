@@ -1,0 +1,19 @@
+{
+ "job": {
+  "slug": "m2-band-2ba",
+  "place": "Vik, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-28",
+  "bbox": [
+   63.3,
+   -19.4,
+   64.1,
+   -16.8
+  ],
+  "zoom": 8,
+  "min_bedrooms": 2,
+  "min_bathrooms": 2
+ },
+ "url": "https://www.airbnb.com/s/Vik--Iceland/homes?checkin=2026-09-26&checkout=2026-09-28&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.3&sw_lng=-19.4&ne_lat=64.1&ne_lng=-16.8&search_by_map=true&zoom=8",
+ "rows": []
+}

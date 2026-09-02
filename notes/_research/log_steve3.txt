@@ -1,0 +1,5 @@
+S1-horgsland-0926: 12 rows
+S1b-horgsland-2n: 0 rows
+S2-birkifell-0927: 1 rows
+S3-stracta-2n: 2 rows
+S3b-stracta-0926: 4 rows

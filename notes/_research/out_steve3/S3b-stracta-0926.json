@@ -1,0 +1,75 @@
+{
+ "title": "Stracta Apartments, Kirkjubæjarklaustur (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/stracta-apartments.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Two-Bedroom Apartment",
+   "bedrooms": 2,
+   "bathrooms": null,
+   "prices_seen": [
+    570,
+    613,
+    570,
+    613
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Two-Bedroom Apartment ¶ Recommended for 4 adults ¶ We have 5 left ¶ Bedroom 1: 1 queen bed ¶ Bedroom 2: 1 full bed ¶ Living room: 1 sofa bed ¶ Entire apartment ¶ 592 feet² ¶ Private kitchenette ¶ Private bathroom ¶ Flat-screen TV ¶ Coffee machine ¶ Free Wifi ¶ Biggest Apartment Available ¶ Max. people: 4 ¶ € 570 per night ¶ € 613 € 570 ¶ Original price € 613 Current price € 570 ¶ 1 night ¶ 7% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Includes 1 parking spot + high-speed internet ¶ Non-refundable ¶ Lower pr"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    675,
+    675,
+    675,
+    6
+   ],
+   "cancel": "Free cancellation before September 24, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 4 ¶ € 675 per night ¶ € 675 ¶ Price € 675 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 24, 2026 ¶ • ¶ Pay nothing until September 22, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 675) ¶ 2          (€ 1,350) ¶ 3          (€ 2,025) ¶ 4          (€ 2,699) ¶ 5          (€ 3,374)"
+  },
+  {
+   "row": 2,
+   "name": "Deluxe Double Studio",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    329,
+    355,
+    329,
+    355
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Deluxe Double Studio ¶ We have 6 left ¶ Bed: 1 full bed ¶ Entire studio ¶ 248 feet² ¶ Private kitchenette ¶ Private bathroom ¶ Flat-screen TV ¶ Coffee machine ¶ Free Wifi ¶ Max. people: 2 ¶ € 329 per night ¶ € 355 € 329 ¶ Original price € 355 Current price € 329 ¶ 1 night ¶ 7% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Includes 1 parking spot + high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 329) ¶ 2          (€ 659) ¶ 3          (€ 988)"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    390,
+    390,
+    390,
+    6
+   ],
+   "cancel": "Free cancellation before September 24, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 390 per night ¶ € 390 ¶ Price € 390 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 24, 2026 ¶ • ¶ Pay nothing until September 22, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 390) ¶ 2          (€ 781) ¶ 3          (€ 1,171) ¶ 4          (€ 1,562) ¶ 5          (€ 1,952) ¶ 6          (€ 2,343)"
+  }
+ ],
+ "job": {
+  "slug": "S3b-stracta-0926",
+  "hotel": "is/stracta-apartments",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 4,
+  "rooms": 2
+ }
+}

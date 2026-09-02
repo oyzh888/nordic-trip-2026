@@ -27,6 +27,18 @@
  *   ⑨ 顺带把 9/26 的住处从 Hvolsvöllur 往东挪到 Klaustur 东侧 → **9/27 从 390 km 降到 200 km**。
  *   🔴 两个窟窿：**10/5 那晚没有**（同一套特罗姆瑟房延到 10/6 = €1,526→€1,979）；
  *      **9/24 那晚不在他的清单里**（沿用我原来的 Nannestad €260，或把 5房那套改成 9/24 —— 未验）。
+ *
+ * 🆕🆕🆕 2026-09-02 深夜（Steve 又给了两个链接）：
+ *   ⑩ **9/28 换成 Njarðvík 的「Hot tub & Sauna · Ocean Break」★5.0 €531→€335**（3房/3床/**1卫**）——
+ *      比原来那套便宜 €110，床型更好（king + 单人 + 单人），但**卫生间从 2 个变 1 个**。
+ *   ⑪ 🔴 **10/5 给了奥斯陆一带的房源 → 行程结构变了**：10/5 不再是 Senja 日，而是
+ *      **TOS 还车 → 飞 TOS→OSL → 住 Stange/Mjøsli 的 Konglehytta 3（★4.98，私人桑拿）**。
+ *      连带三处改动：**Senja 挪到 10/4（周日 —— 渡轮班次要重核）**、
+ *      **特罗姆瑟回到 3 晚（€1,526，日期不用改了，⑨ 那个「10/5 窟窿」自动消失）**、
+ *      **车② 从 4 天缩到 3 天（$343 → ~$240）**。
+ *      🔴 但小屋在 Stange 森林里、房源页写着 "A car is required" → **要在 OSL 加租 1 天车（$79–86）**。
+ *      净结果：住宿 −€267、车 −$17 → **比上一版便宜约 ¥1,400**，还白得一个防延误的缓冲夜；
+ *      代价是**特罗姆瑟极光夜从 4 个变 3 个**。
  */
 
 const RATE = { EUR: 8.0, USD: 7.1, NOK: 0.67 };
@@ -44,6 +56,7 @@ const P = {
   diamond:    [64.0430, -16.1770], hofn:      [64.2539, -15.2082],
   arnanes:    [64.2472, -15.3175], stokksnes: [64.2470, -14.9930],
   reykjanes:  [64.0043, -22.5644], njardvik:  [63.9930, -22.5340],
+  stange:     [60.6350, 11.2600],
   horgsland:  [63.8320, -18.0170], birkifell: [64.2810, -15.3520],
   gunnuhver:  [63.8186, -22.6836], bridge:    [63.8686, -22.6767],
   brimketill: [63.8322, -22.6247], valahnukur:[63.8117, -22.7057],
@@ -98,6 +111,8 @@ const U = {
   vagan3br:   'https://www.airbnb.com/rooms/1258848712541940268?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
   tos4br:     'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR',
   tos4br3n:   'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-05&adults=4&currency=EUR',
+  njardvik3:  'https://www.airbnb.com/rooms/1139944377459145061?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
+  konglehytta:'https://www.airbnb.com/rooms/648419631702172808?check_in=2026-10-05&check_out=2026-10-06&adults=4&currency=EUR',
   stracta:    'https://www.booking.com/hotel/is/stracta-apartments.html?checkin=2026-09-26&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR',
   dcars:      'https://www.discovercars.com/'
 };
@@ -112,10 +127,14 @@ const CARPTS = [
    note:'⚠️ 押金（EVE 那台原报价冻结 $1,805）→ 要一张额度够的信用卡。拆两段 = 两次柜台、两次押金冻结'},
   {k:'drop', c:P.svjair, label:'✈️ 还车① Svolvær 机场', when:'10/2 08:30', car:'Toyota Yaris Cross · 4WD · 自动',
    note:'🔴 Svolvær 异地还车**只有 6 个报价**（特罗姆瑟 24、Evenes 23）→ 库存薄，最早订这段。09:00 前还车才算 2 个计费日；拖到 14:30 就变 3 天（$650→$763）'},
-  {k:'pick', c:P.tosair, label:'挪威提车②', when:'10/2 10:30', car:'Suzuki Vitara · 4WD · 自动 · $343/4天',
-   note:'飞过来直接机场提；10:30 和 16:00 提车同价，所以早班不吃亏'},
-  {k:'drop', c:P.tosair, label:'挪威还车②', when:'10/6 10:00', car:'Suzuki Vitara · 4WD · 自动',
-   note:'两段合计 **$993** vs 一台车连开 6 天 $762 → 为了 10/2 不开 6h30 多付 **$231**，再加机票 ¥2,400–5,360'}
+  {k:'pick', c:P.tosair, label:'挪威提车②', when:'10/2 10:30', car:'Suzuki Vitara · 4WD · 自动 · 🆕 $240/3天',
+   note:'飞过来直接机场提；10:30 和 16:00 提车同价，所以早班不吃亏。🆕 10/5 那晚改成飞回奥斯陆后，这台从 4 天缩到 **3 天**（$343→$240）'},
+  {k:'drop', c:P.tosair, label:'挪威还车②', when:'🆕 10/5 10:00', car:'Suzuki Vitara · 4WD · 自动',
+   note:'🆕 **只租到 10/5**（不是 10/6）—— 当天飞回奥斯陆。三台合计 **$976** vs 一台车连开 6 天 $762 → 为了 10/2 不开 6h30 + 10/5 睡奥斯陆，多付 **$214**，再加机票 ¥2,400–5,360'},
+  {k:'pick', c:P.osl, label:'🆕 奥斯陆提车③', when:'10/5 15:00', car:'自动挡 $79 / 自动四驱 $86 · 1 天',
+   note:'🔴 只有选 Stange 那套小屋才需要这台（房源页写 "A car is required"，离 OSL 30 min）。实抓 **23 个报价**，库存充足。换机场旁的 Clarion 就不用租（€193，还便宜、2 卫）'},
+  {k:'drop', c:P.osl, label:'🆕 奥斯陆还车③', when:'10/6 10:00', car:'自动挡 / 自动四驱',
+   note:'从 Stange 开 30 min 回 OSL 还车，直接接洲际。若 Kevin 的北京航班是 10/7，这台顺延一天 +$79'}
 ];
 
 /* ---------- 逐日行程 ----------
@@ -218,15 +237,17 @@ const DAYS = [
            {n:'Blue Lagoon',c:P.bluelagoon},{n:'Njarðvík 住处',c:P.njardvik}],
     legs:[{k:'drive',pts:[P.birkifell,P.jokulsarlon,P.vik,P.thingvellir,P.geysir,P.gullfoss,P.bluelagoon,P.njardvik]}],
     drive:'约 520 km / 6h30（全程最长的一天）',
-    stay:{name:'Cozy home in Njarðvík ★4.54',type:'Airbnb',rb:'4房/4床/2卫',
-          price:'€445 总价 · ¥1,780/房',cxl:'✅ 24h 内免费（不可退档 €444，几乎不省 → 选可退那档）',rating:'4.54',
-          url:U.njardvik, pt:P.njardvik, place:'Njarðvík · 离 KEF 机场 5 min',
-          note:'🥇 **Steve 自己选的，已设为默认**（2026-09-02 实测可订）。4 卧 2 卫，离 KEF 只 5 分钟 → '+
-               '9/29 那天所有点都在 KEF 15–50 min 圈内，落脚点正好。'+
-               '备选（我原来的默认）<a href="'+U.keflavik+'" target="_blank">3BR/2BA Reykjanesbær €424 ★4.92</a>，'+
-               '便宜 €21 且评分高得多 —— 这一晚两个都很稳，看哪个房型顺眼即可。'+
-               '（另：Borgarnes 那条路线的酒店比价见 <a href="../notes/ICELAND-oneway.md" target="_blank">ICELAND-oneway.md</a> 第五节）'},
-    spend:{stay:3560}, supply:'green',
+    stay:{name:'🆕 Holiday Home with Hot tub & Sauna · Ocean Break ★5.0',type:'Airbnb',rb:'3房/3床/**1卫**',
+          price:'€531 → **€335** 总价 · ¥1,340/房',cxl:'✅ 免费退到 **9/23**',rating:'5.0',
+          url:U.njardvik3, pt:P.njardvik, place:'Njarðvík · 离 KEF 机场 5 min',
+          note:'🆕 **2026-09-02 Steve 换的第二个链接，已核可订，比原来那套便宜 €110 ≈ ¥880。** '+
+               '床型正好：**卧 1 一张 king（给那对夫妻）· 卧 2、卧 3 各一张单人床** → 四个人一人一间。'+
+               '还带 **hot tub + sauna**，★5.0。'+
+               '🟠 唯一的降级是 **只有 1 个卫生间**（原来那套是 2 个）—— 4 个人 1 卫，'+
+               '而且第二天要赶 Reykjanes 轻档，早上会排队。想要 2 卫就退回 '+
+               '<a href="'+U.njardvik+'" target="_blank">Cozy home 4房/2卫 €445</a>（贵 €110）或我原来的 '+
+               '<a href="'+U.keflavik+'" target="_blank">3BR/2BA Reykjanesbær €424 ★4.92</a>。'},
+    spend:{stay:2680}, supply:'green',
     hi:['Þingvellir 裂谷 · Geysir 间歇泉 · Gullfoss 黄金瀑布','Blue Lagoon 泡汤（离 KEF 20 min）'],
     watch:['这一天车程最长，注意 9 月末南岸风暴封路（存 road.is）']
   },
@@ -281,7 +302,7 @@ const DAYS = [
                '房间更多、评分更高、**还可以退**，而且便宜 **€583 ≈ ¥4,664**。'+
                '西侧对照 <a href="'+U.ramberg+'" target="_blank">The heart of Ramberg</a> €647 也不可退'},
     car:{name:'Toyota Yaris Cross 4WD（车①）+ Suzuki Vitara 4WD（车②）· 均自动挡',
-         seg:'✈️ 已按「10/2 坐飞机」拆两段：EVE 9/30 11:00 → SVJ 10/2 08:30（2 天）· TOS 10/2 10:30 → 10/6 10:00（4 天）',
+         seg:'✈️ 已按「10/2 坐飞机」拆两段：EVE 9/30 11:00 → SVJ 10/2 08:30（2 天）· TOS 10/2 10:30 → **10/5 10:00（3 天）**；🆕 再加 OSL 10/5→10/6 一天（1 天）',
          price:'$650 + $343 = $993',cny:'¥7,050（¥1,175/天）',
          url:U.dcars, pick:P.eve, drop:P.svjair, pickWhen:'9/30 11:00', dropWhen:'10/2 08:30',
          note:'原方案是**一台车连开 6 天 $762**（Vitara，¥5,410）→ 为了 10/2 不开 480 km 多付 **$231 ≈ ¥1,640**，'+
@@ -324,17 +345,18 @@ const DAYS = [
           {k:'drive',pts:[P.tosair,P.tromso]}],
     drive:'开车只剩 30 min（原方案 480 km / 6h30）· 上午白得半天，中午前落地',
     stay:{name:'Tromsø 4 房 · 4 床 · 2 卫',type:'Airbnb',rb:'4房/4床/2卫',
-          price:'€1,979 / 4 晚（10/2–10/6）· ¥3,958/房/晚 ⚠️',cxl:'✅ 免费退到 10/1',
-          url:U.tos4br, pt:P.tromso, place:'特罗姆瑟 · 住 4 晚（10/2–10/6）',
+          price:'€1,526 / **3 晚**（10/2–10/5）· ¥2,035/房/晚',cxl:'✅ 免费退到 10/1',
+          url:U.tos4br3n, pt:P.tromso, place:'特罗姆瑟 · 住 3 晚（10/2–10/5）',
           note:'🥇 **Steve 自己选的，已设为默认**（2026-09-02 实测可订）。'+
-               '🔴 **原链接是 10/2→10/5，只有 3 晚 €1,526 —— 10/5 那晚会没地方住**。'+
-               '同一套房延到 10/6 是 €1,979（<a href="'+U.tos4br3n+'" target="_blank">3 晚原链接在此</a>），'+
-               '多这一晚 €453 ≈ ¥3,624。**这是当前方案里唯一的窟窿，订之前一定改日期。**'+
-               '🟠 我原来的默认 <a href="'+U.houseboat+'" target="_blank">Houseboat "Grosso" 3房/7床/3卫 ★5.0 €1,033/4晚</a> '+
-               '便宜 **€946 ≈ ¥7,568**、卫生间还多一个（住船上）—— 这一段的差价是全程最大的一笔，值得再比一次'},
-    spend:{stay:3958, car:2435, other:5360}, supply:'amber',
+               '✅ **2026-09-02 傍晚：原来那个「10/5 那晚没地方住」的窟窿已经不存在了** —— '+
+               'Steve 又给了 10/5 的奥斯陆房源，说明 **10/5 就飞回奥斯陆**，特罗姆瑟只住 3 晚。'+
+               '所以他给的原链接（10/2→10/5）本来就是对的，**不用改日期，也省下那 €453**。'+
+               '🟠 我原来的默认 <a href="'+U.houseboat+'" target="_blank">Houseboat "Grosso" 3房/7床/3卫 ★5.0（3 晚 €825）</a> '+
+               '仍然便宜约 **€700 ≈ ¥5,600**、卫生间还多一个（住船上）—— 这一段的差价是全程最大的一笔，值得再比一次'},
+    spend:{stay:4069, car:1704, other:5360}, supply:'amber',
     hi:['🎯 按「10/2 坐飞机别开车，前后可以继续开车」改的：**车拆成两台，中间夹一段 50 分钟的飞**',
-        '车费 $762 → **$993**（车① EVE 9/30→SVJ 10/2 09:00 · 2 天 **$650**；车② TOS 10/2→10/6 · 4 天 **$343**）= **+$231 ≈ +¥1,640**（同档比价：汽油·自动·4WD·免费取消）',
+        '车费 $762 → **$890**（车① EVE 9/30→SVJ 10/2 09:00 · 2 天 **$650**；车② TOS 10/2→**10/5** · 3 天 **$240**）= **+$128 ≈ +¥909**（同档比价：汽油·自动·4WD·免费取消）',
+        '🆕 **车② 从 4 天缩到 3 天**（10/5 就飞奥斯陆了）：$343 → 约 **$240**，省 $103 ≈ ¥731。实抓 16 个报价，最便宜的自动四驱 $236–243',
         '机票 4 人单程约 **NOK 3,600–8,000 ≈ ¥2,400–5,360** → 合计多花约 **¥4,050 ~ ¥7,800**。⚠️ 曲线和总账里**按上限 ¥5,360 计**（往贵的方向保守，实价可能只要 ¥2,400）',
         '换来的是：中午前落地，下午能采购，**当晚第一场极光完整不打折**（原方案傍晚才到）',
         '选早班（~09:05）而不是下午班（~15:45）：下午 14:30 还车会跨进第 3 个计费日，车① $650 → $763，白贵 $113'],
@@ -351,30 +373,16 @@ const DAYS = [
     anchor:P.tromso,
     route:[{n:'住处',c:P.tromso},{n:'北极大教堂 / Fjellheisen',c:P.tromso}],
     legs:[], drive:'市区 + 郊外追极光',
-    stay:{name:'同 D8（Tromsø 4房/4床/2卫，4 晚连住）',type:'Airbnb',rb:'4房/4床/2卫',
-          price:'含在 €1,979 / 4 晚内 · ¥3,958/房/晚',cxl:'✅ 免费退到 10/1',
-          url:U.tos4br, pt:P.tromso, place:'特罗姆瑟'},
-    spend:{stay:3958}, supply:'green',
+    stay:{name:'同 D8（Tromsø 4房/4床/2卫，3 晚连住）',type:'Airbnb',rb:'4房/4床/2卫',
+          price:'含在 €1,526 / 3 晚内 · ¥2,035/房/晚',cxl:'✅ 免费退到 10/1',
+          url:U.tos4br3n, pt:P.tromso, place:'特罗姆瑟'},
+    spend:{stay:4069}, supply:'green',
     hi:['北极大教堂 · Fjellheisen 缆车 · Polaria','自己有车 = 不被 tour 时间表绑住，可以往内陆躲云'],
-    watch:[]
+    watch:['🆕 **特罗姆瑟只剩 3 个极光夜了**（10/2 / 10/3 / 10/4）—— 10/5 就飞奥斯陆。所以这一晚别偷懒，天一晴就出门']
   },
   {
     id:'D10', date:'10/4', wd:'周日', region:'tromso', base:'特罗姆瑟',
-    title:'自由日 · 峡湾 / 自己追极光',
-    anchor:P.tromso,
-    route:[{n:'住处',c:P.tromso},{n:'Ersfjordbotn 方向',c:[69.6600,18.5200]}],
-    legs:[{k:'drive',pts:[P.tromso,[69.6600,18.5200],P.tromso]}],
-    drive:'弹性（车已经在手上，不用再取）',
-    stay:{name:'同 D8（Tromsø 4房/4床/2卫）',type:'Airbnb',rb:'4房/4床/2卫',
-          price:'含在 €1,979 / 4 晚内',cxl:'✅ 免费退到 10/1',
-          url:U.tos4br, pt:P.tromso, place:'特罗姆瑟'},
-    spend:{stay:3958}, supply:'green',
-    hi:['挪威租车基本不限里程','把 Senja 放 10/5、这天留弹性，天气不好可以两天互换'],
-    watch:[]
-  },
-  {
-    id:'D11', date:'10/5', wd:'周一', region:'tromso', base:'特罗姆瑟',
-    title:'Senja 自驾一日（硬仗）',
+    title:'🆕 Senja 自驾一日（硬仗 —— 原来在 10/5，因为 10/5 改飞奥斯陆而挪到今天）',
     anchor:P.tungeneset,
     route:[{n:'住处 07:00 出发',c:P.tromso},{n:'Brensholmen 渡轮',c:P.brensholmen},
            {n:'Botnhamn',c:P.botnhamn},{n:'Bergsbotn 观景台',c:P.bergsbotn},
@@ -384,36 +392,72 @@ const DAYS = [
           {k:'ferry',pts:[P.brensholmen,P.botnhamn]},
           {k:'drive',pts:[P.botnhamn,P.bergsbotn,P.tungeneset,P.ersfjord,P.bergsbotn,P.finnsnes,P.tromso]}],
     drive:'约 500 km 往返 · 路上 5–6h，只剩 4–5h 玩',
-    stay:{name:'同 D8（Tromsø 4房/4床/2卫，最后一晚 —— 🔴 必须把订单日期延到 10/6）',type:'Airbnb',rb:'4房/4床/2卫',
-          price:'含在 €1,979 / 4 晚内',cxl:'✅ 免费退到 10/1',
-          url:U.tos4br, pt:P.tromso, place:'特罗姆瑟',
-          note:'🔴 **Steve 给的原链接是 10/2→10/5，不含这一晚。** 下单时把退房日改成 **10/6**（€1,526 → €1,979）'},
-    spend:{stay:3958, other:306}, supply:'green',
+    stay:{name:'同 D8（Tromsø 4房/4床/2卫，最后一晚）',type:'Airbnb',rb:'4房/4床/2卫',
+          price:'含在 €1,526 / 3 晚内',cxl:'✅ 免费退到 10/1',
+          url:U.tos4br3n, pt:P.tromso, place:'特罗姆瑟'},
+    spend:{stay:4069, other:306}, supply:'green',
     hi:['✅ Brensholmen–Botnhamn 渡轮 2026 全年运营 · NOK 228/车/单程（往返 456 ≈ ¥306）· 航程 35–45 min',
         '开：08:45 / 10:45 / 12:45(周五停) / 15:00 / 17:00 / 19:00 / 20:45',
-        '10/5 是周一，不受「周五停」影响','陆路 Finnsnes / Gisund 大桥 ~2h30–3h，时间自由但慢'],
-    watch:['10/5 特罗姆瑟日出 07:25 / 日落 18:15 → 07:00 出发是对的，别再晚',
-           '出发前一周再核一次 Torghatten Nord / Entur 班次']
+        '陆路 Finnsnes / Gisund 大桥 ~2h30–3h，时间自由但慢',
+        '这是最后一个极光夜（回程晚上正好在路上，Senja 那侧光污染更少）'],
+    watch:['🔴 **挪到 10/4 = 周日，班次要重新核。** 我抓到的那张时刻表只标了「12:45 周五停」，'+
+           '**没有单独核过周日**；北欧低季渡轮周日常减班。出发前上 Torghatten Nord / Entur 逐班对一次，'+
+           '万一周日班少就走陆路（Finnsnes 大桥，多 1h 但不看船）',
+           '10/4 特罗姆瑟日出 07:20 / 日落 18:25 → 07:00 出发是对的，别再晚',
+           '🟠 天气不好可以和 10/3 互换（市区那天几乎不受天气影响）']
   },
   {
-    id:'D12', date:'10/6', wd:'周二', region:'oslo', base:'特罗姆瑟 → 奥斯陆', cond:true,
-    title:'⚠️ 还车 10:00 · 飞奥斯陆（第 13 晚是否需要，看 Kevin 机票）',
-    anchor:P.tosair,
-    route:[{n:'住处退房',c:P.tromso},{n:'TOS 机场还车 10:00',c:P.tosair},
-           {n:'OSL',c:P.osl},{n:'（若 10/7 才飞北京）Nannestad / Thon Gardermoen',c:P.nannestad}],
-    legs:[{k:'drive',pts:[P.tromso,P.tosair]},{k:'fly',from:P.tosair,to:P.osl}],
-    drive:'住处 → TOS 机场 15 min',
-    stay:{name:'🅿️ 占位：Clarion Hotel Oslo Airport ×2 Standard Double（只在需要时才订）',type:'占位 · 酒店',rb:'2 房 / 2 卫',
+    id:'D11', date:'10/5', wd:'周一', region:'oslo', base:'特罗姆瑟 → 奥斯陆（Stange 森林小屋）',
+    title:'🆕 还车 → 飞 TOS→OSL → 开 30 min 进 Mjøsli 森林小屋（带桑拿）',
+    anchor:P.stange,
+    route:[{n:'住处退房',c:P.tromso},{n:'TOS 机场还车②',c:P.tosair},
+           {n:'飞 TOS→OSL 约 2h',c:P.osl},{n:'OSL 提车③（1 天）',c:P.osl},
+           {n:'Konglehytta 3 · Mjøsli / Stange',c:P.stange}],
+    legs:[{k:'drive',pts:[P.tromso,P.tosair]},
+          {k:'fly',from:P.tosair,to:P.osl},
+          {k:'drive',pts:[P.osl,P.stange]}],
+    drive:'落地后再开 30 min（OSL → Mjøsli）',
+    stay:{name:'🆕 Konglehytta 3 · Star View · Sauna ★4.98（整栋小木屋）',type:'Airbnb',rb:'2房/3床/**1卫**',
+          price:'可退档 **€306**（不可退 €296，只差 €10）· ¥1,224/房',cxl:'✅ 选可退那档，只贵 €10',
+          url:U.konglehytta, pt:P.stange, place:'Mjøsli · Stange（Innlandet）· 离 OSL 机场 30 min 车程',
+          note:'🆕 **2026-09-02 Steve 给的第二个链接，已核可订。这一晚把原来那个「10/5 窟窿」直接补掉了** —— '+
+               '而且顺带省下特罗姆瑟第 4 晚的 €453，净结果**比原方案便宜**。'+
+               '床型很好：**卧 1 两张双人床 + 卧 2 一张双人床**，★4.98，**私人桑拿** + Mjøsa 湖景 + 星空。'+
+               '🔴 **两条必须先处理的：** ① 它**不在 Gardermoen**，在 Stange 的 Mjøsli 森林里，'+
+               '房源页自己写着「**A car is required**」（离 OSL 机场 30 min、离 Hamar 30 min、最近超市 Kiwi Minnesund 15 min）'+
+               '→ **必须在 OSL 机场加租一台 1 天的车**（实抓 23 个报价，自动挡 $79 起、自动四驱 $86 ≈ ¥611）。'+
+               '② 只有 **1 个卫生间**，而第二天要赶洲际航班。'+
+               '不想加租车就退回 <a href="'+U.clarion+'" target="_blank">机场旁的 Clarion / Thon / Scandic（€193–244，两间双人房）</a>，'+
+               '走廊到航站楼，代价是没有桑拿和星空。'},
+    spend:{stay:2448, car:611}, supply:'green',
+    hi:['🆕 **这个改动的真正价值是买了一个缓冲夜** —— 不用在 10/6 当天先飞 TOS→OSL 再接洲际，一旦特罗姆瑟天气延误就不会丢掉回国的航班',
+        '代价是**少了一个特罗姆瑟极光夜**（4 → 3 夜）。Stange 在 60.6°N，极光概率低得多，但小屋主打星空、光污染很低',
+        '钱上反而更省：特罗姆瑟 −€453、9/28 −€110、车② −$103，加上小屋 +€306 和 OSL 那台车 +$86 → 净**便宜约 ¥1,400**'],
+    watch:['🔴 **TOS→OSL 10/5 的机票是 Kevin 的活，但时间要挑早一点** —— 落地后还要提车 + 开 30 min，'+
+           '而 10 月初 Stange 日落约 18:40，天黑了在林间小路找小屋不好玩',
+           '🟠 **OSL 那台车要连着订到 10/6**（还车时间对上洲际航班），别只订 10/5 当天',
+           '🟠 若 Kevin 的回程是 **10/7**，这个小屋可以直接多住一晚（顺带把 D12 的占位酒店省掉），但要另核 10/6 有没有货']
+  },
+  {
+    id:'D12', date:'10/6', wd:'周二', region:'oslo', base:'Stange → OSL → 北京', cond:true,
+    title:'🆕 小屋退房 · 开 30 min 回 OSL 还车 · 飞北京（第 13 晚只在 10/7 起飞时才要）',
+    anchor:P.osl,
+    route:[{n:'Konglehytta 退房',c:P.stange},{n:'OSL 机场还车③',c:P.osl},
+           {n:'OSL → 北京',c:P.osl}],
+    legs:[{k:'drive',pts:[P.stange,P.osl]},{k:'fly',from:P.osl,to:P.osl}],
+    drive:'Mjøsli → OSL 机场 30 min（车已经在手上，不用叫车）',
+    stay:{name:'🅿️ 占位：Clarion Hotel Oslo Airport ×2 Standard Double（只在 10/7 起飞时才订）',type:'占位 · 酒店',rb:'2 房 / 2 卫',
           price:'€86/间 +12% VAT = €193（≈¥1,544 · ¥772/房）· **未计入总账**',cxl:'✅ 退到 **10/5**',
-          url:U.clarion, pt:P.nannestad, place:'OSL 机场旁（占位，等 Kevin 机票日期）',
-          note:'🔴 **这一晚是条件性的**：若 Kevin 的 Oslo→北京 是 **10/6** 起飞就不需要；若是 **10/7** '+
-               '就要多住第 13 晚。2026-09-02 把机场旁四家全抓了一遍，**Clarion 是最便宜的可退档，而且退到 10/5** '+
-               '（正好晚于「Kevin 该回信」的时间）→ 占位换成它。'+
-               '想退得更晚就用 <a href="'+U.parkinn+'" target="_blank">Radisson（退到当天 18:00，€157/间）</a>；'+
-               '第 07 节列了全部 5 个选项'},
+          url:U.clarion, pt:P.osl, place:'OSL 机场旁（占位，等 Kevin 机票日期）',
+          note:'🔴 **这一晚是条件性的**：若 Kevin 的 Oslo→北京 是 **10/6** 起飞就不需要 —— '+
+               '🆕 而且现在**已经有了 10/5 那个缓冲夜**，10/6 当天直飞完全从容（不再是「当天先飞 TOS→OSL 再接洲际」）。'+
+               '若是 **10/7** 起飞，最省事的是把 <a href="'+U.konglehytta+'" target="_blank">Konglehytta 小屋直接多住一晚</a>'+
+               '（车也顺延一天），其次才是机场旁的 Clarion（最便宜的可退档、退到 10/5）或 '+
+               '<a href="'+U.parkinn+'" target="_blank">Radisson（退到当天 18:00，€157/间）</a>；第 07 节列了全部 5 个选项'},
     spend:{}, supply:'amber',
-    hi:['TOS→OSL 常见班次很多，还车 10:00 后从容','若当天直飞北京，行程在这里结束'],
-    watch:['🔴 等 Kevin 确认 Oslo→北京 是 10/6 还是 10/7（见 B2）—— 这是唯一还会改结构的一条']
+    hi:['🆕 **10/5 已经睡在奥斯陆了 → 10/6 是纯粹的「开 30 min + 还车 + 登机」**，这是这次改动最实在的收益',
+        '若当天直飞北京，行程在这里结束'],
+    watch:['🟠 等 Kevin 确认 Oslo→北京 是 10/6 还是 10/7（见 B2）—— 现在它只决定「要不要第 13 晚」，不再影响接驳风险']
   }
 ];
 
@@ -423,10 +467,11 @@ const STAYTAB = [
   {d:'9/25',       place:'雷克雅未克',       name:'Aurora view 3BR 2BATH ★5.0',       url:U.aurora,    type:'Airbnb', rb:'3房/3床/2卫', tot:'€647→€447', room:'1,788', cxl:'✅ 24h / 9/18'},
   {d:'9/26',       place:'Hörgsland（Klaustur 东 10 km）', name:'Hörgsland Cottages · 3房整栋', url:U.horgsland, type:'酒店/木屋', rb:'3 卧 · 整栋', tot:'€503 含税', room:'2,012', cxl:'⛔ 不可退（€549 可退到 9/12）'},
   {d:'9/27',       place:'Nesjahverfi（Höfn 西 10 km）',   name:'Guesthouse Birkifell · 2房整栋', url:U.birkifell, type:'酒店/整栋', rb:'2 卧 · 整栋', tot:'€565 含税', room:'2,260', cxl:'✅ 9/25 · 到店付'},
-  {d:'9/28',       place:'Njarðvík（KEF 5 min）', name:'Cozy home in Njarðvík ★4.54', url:U.njardvik,  type:'Airbnb', rb:'4房/4床/2卫', tot:'€445',  room:'1,780', cxl:'✅ 24h（非退 €444）'},
+  {d:'9/28',       place:'Njarðvík（KEF 5 min）', name:'🆕 Hot tub & Sauna · Ocean Break ★5.0', url:U.njardvik3, type:'Airbnb', rb:'3房/3床/**1卫**', tot:'€531→€335', room:'1,340', cxl:'✅ 到 9/23'},
   {d:'9/29',       place:'Oslo Gardermoen', name:'Nannestad 5房 1.5卫',              url:U.nann5br,   type:'Airbnb', rb:'5房/5床/1.5卫', tot:'€292',  room:'1,168', cxl:'✅ 到 9/28'},
   {d:'9/30–10/1',  place:'罗弗敦东侧 Vågan', name:'Vågan 3房5床2卫',                  url:U.vagan3br,  type:'Airbnb', rb:'3房/5床/2卫', tot:'€1,136/2晚', room:'2,272', cxl:'⛔ 不可退'},
-  {d:'10/2–10/5',  place:'特罗姆瑟',         name:'Tromsø 4房2卫（**建议延到 10/6**）', url:U.tos4br,  type:'Airbnb', rb:'4房/4床/2卫', tot:'€1,526/3晚 → €1,979/4晚', room:'1,979', cxl:'✅ 到 10/1'},
+  {d:'10/2–10/4',  place:'特罗姆瑟',         name:'Tromsø 4房2卫（**3 晚，日期不用改了**）', url:U.tos4br3n,  type:'Airbnb', rb:'4房/4床/2卫', tot:'€1,526/3晚', room:'2,035', cxl:'✅ 到 10/1'},
+  {d:'10/5',       place:'Stange / Mjøsli（OSL 30 min）', name:'🆕 Konglehytta 3 · Sauna ★4.98', url:U.konglehytta, type:'Airbnb', rb:'2房/3床/**1卫**', tot:'€306 可退', room:'1,224', cxl:'✅ 可退档只贵 €10'},
   {d:'10/6',       place:'（条件性）奥斯陆',  name:'🅿️ 占位 Clarion Oslo Airport ×2',   url:U.clarion,   type:'占位',   rb:'2 房 2 卫',   tot:'€193 含 VAT', room:'772', cxl:'✅ 10/5'}
 ];
 
@@ -469,9 +514,9 @@ const URGENCY = [
   {rank:2, sev:'red',   what:'✈️ Widerøe SVJ→TOS 10/2 直飞 ×4 人 + Svolvær 还车那台（$650）',
    why:'🔴 Svolvær 异地还车**只有 6 个报价**（特罗姆瑟 24、Evenes 23）→ 库存薄、卖空就得改回自驾；机票也是薄班次（每周约 8 班）。**这是唯一还没核实的一项（B1）**',
    deadline:'确认航班后立刻', how:'机票只能人工上 wideroe.no 订（有反爬，脚本进不去）；车走 DiscoverCars 免费取消'},
-  {rank:3, sev:'red',   what:'🆕 特罗姆瑟 4房2卫 —— **订之前先把退房日改成 10/6**（€1,526 → €1,979 / 4 晚）',
-   why:'原链接只到 10/5 → **10/5 那晚会没地方住**。另：极光季开季，4 晚整套房不是随时都有',
-   deadline:'尽快，可退到 10/1', how:'Airbnb。🟠 订之前值得再看一眼备选船屋 €1,033/4 晚（便宜 ¥7,568、3 卫、★5.0、可退）'},
+  {rank:3, sev:'red',   what:'🆕 特罗姆瑟 4房2卫 €1,526 / **3 晚（10/2–10/5，日期不用改了）**',
+   why:'✅ 原来那个「10/5 没地方住」的窟窿已被 10/5 的奥斯陆小屋补掉 → **你给的原链接本来就是对的**。仍要早订的理由只剩「极光季开季，3 晚整套房不是随时都有」',
+   deadline:'尽快，可退到 10/1', how:'Airbnb。🟠 订之前值得再看一眼备选船屋（3 晚 €825，便宜约 ¥5,600、3 卫、★5.0、可退）'},
   {rank:4, sev:'red',   what:'🆕 罗弗敦东侧 Vågan 3房2卫 €1,136 / 2 晚',
    why:'⛔ **不可退** → 一旦订下就锁死；而它比备选贵 ¥4,664',
    deadline:'先决定要不要换，再订', how:'Airbnb。备选 Waterfront Nordic house ★4.93 €553/2晚（5房8床2卫、**可退**）—— 这一笔建议真的再比一次'},
@@ -481,12 +526,12 @@ const URGENCY = [
   {rank:6, sev:'amber', what:'雷市 9/25 €447（你和我选的是同一套）',
    why:'€647→€447 的折扣会过期；9/18 是部分退款悬崖',
    deadline:'9/18 前', how:'Airbnb —— 24h 内免费退'},
-  {rank:7, sev:'amber', what:'另外两台车（冰岛 Peugeot 2008 $258 · 特罗姆瑟 Suzuki Vitara $343）',
-   why:'都可免费取消，而且只会越来越贵 → 先锁价',
-   deadline:'现在', how:'DiscoverCars，零风险'},
-  {rank:8, sev:'green', what:'🆕 Njarðvík 9/28 €445',
-   why:'供给充足（3 个合格房源都有货）',
-   deadline:'随时', how:'Airbnb —— 24h 内免费退。选 €445 可退档，别选 €444 不可退档（只省 €1）'},
+  {rank:7, sev:'amber', what:'另外三台车（冰岛 Peugeot 2008 $258 · 特罗姆瑟 **3 天 ~$240** · 🆕 **OSL 1 天 $79–86**）',
+   why:'都可免费取消，而且只会越来越贵 → 先锁价。🆕 特罗姆瑟那台从 4 天缩到 3 天（省 $103）；OSL 那台是新加的 —— **10/5 的小屋写着 "A car is required"**，没车到不了',
+   deadline:'现在', how:'DiscoverCars，零风险。OSL 那台记得订到 **10/6**（对上洲际航班），别只订 10/5 当天'},
+  {rank:8, sev:'green', what:'🆕 Njarðvík 9/28 · Hot tub & Sauna ★5.0 €335',
+   why:'供给充足（四个合格房源都有货），而且**这是全程最便宜的一晚**',
+   deadline:'随时（可退到 9/23）', how:'Airbnb。🟠 它只有 1 个卫生间 —— 想要 2 卫就回到你第一个链接（Cozy home €445，贵 €110）'},
   {rank:9, sev:'green', what:'🆕 Nannestad 5房1.5卫 9/29 €292',
    why:'可退到 9/28 → 完全不用抢',
    deadline:'随时', how:'Airbnb'},
@@ -499,15 +544,17 @@ const URGENCY = [
 const OPEN = [
   {sev:'red',   q:'✈️ 10/2 那天 Widerøe SVJ→TOS 直飞真的有班吗？票价多少？', why:'🔴 **只能人工上 wideroe.no 查** —— 官网有 Cloudflare 反爬，而 Widerøe 根本不给 Google Flights 供货（4 个不同日期试 SVJ/LKN 全零结果，同工具查 BOO→TOS 正常）。线索：每周约 8 班、周五历史上有 ~09:05 和 ~15:45。没有这班 → 退回 10/2 自驾 6h30', who:'Steve（5 分钟能查完）'},
   {sev:'green', q:'~~Kevin 的 9/29 KEF→OSL 起飞时间？~~ → 已不再是硬前提', why:'✅ 9/29 改成雷克雅内斯半岛轻档（开车 2h、16:00 前就能回 KEF）后，这个依赖消失了。只有想跑「斯奈山南半段」中档时才需要 18:00 之后的班', who:'—'},
-  {sev:'red',   q:'Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞？', why:'10/7 → 10/6 在奥斯陆还要多一晚（第 13 晚，本方案没计入总账，地图上已按占位画出）', who:'Kevin'},
+  {sev:'amber', q:'Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞？（🆕 降级为 amber）', why:'10/7 → 10/6 在奥斯陆还要多一晚（第 13 晚，没计入总账，地图上按占位画出；最省事是把 Stange 小屋多住一晚 + 车顺延）。🆕 **它已不再影响接驳风险** —— 10/5 那个缓冲夜把「当天先飞 TOS→OSL 再接洲际」这个风险直接消掉了。另：Kevin 还要订 **10/5 TOS→OSL**，挑早一点的班', who:'Kevin'},
   {sev:'amber', q:'冰岛 SCDW + 砂石险 + 火山沙尘险 + 道路税的打包实价？', why:'$258 裸车 → 约 $400–480，是总账里唯一还会往上顶的一项', who:'DiscoverCars 结账页 / 供应商'},
   {sev:'amber', q:'挪威 Vitara 的 $1,805 押金', why:'会冻结额度（不是扣款）→ 要确认有一张额度够的信用卡', who:'Steve'},
   {sev:'amber', q:'D3（9/27）蓝冰洞 → Katla 冰洞的决定', why:'天然蓝冰洞一般 11 月才开。换 Katla 后集合点在 Vík —— 住宿不受影响（Höfn 一带方案不动）', who:'Kevin 找票'},
-  {sev:'red',   q:'🔴 10/5 那一晚 —— 你的特罗姆瑟链接只到 10/5', why:'同一套房延到 **10/6** 是 €1,526 → €1,979（+€453 ≈ ¥3,624）。**下单时改日期即可**，但必须记得改', who:'Steve（下单时）'},
+  {sev:'green', q:'~~🔴 10/5 那一晚没地方住~~ → ✅ 已解决（而且比原来省钱）', why:'Steve 给了 10/5 的奥斯陆房源 → 行程改成「10/5 飞回奥斯陆睡缓冲夜」。特罗姆瑟回到 3 晚（−€453）、车② 缩到 3 天（−$103），加上小屋 +€306 和 OSL 那台车 +$86 → **净便宜约 ¥1,400**，还白得一个防延误的缓冲夜', who:'—'},
+  {sev:'red',   q:'🔴 10/5 的小屋在 Stange，不在机场旁 —— 要不要加租 OSL 那台车？', why:'房源页自己写着 **"A car is required"**（离 OSL 30 min、最近超市 15 min）。实抓 23 个报价：自动挡 $79 起、自动四驱 $86 ≈ ¥611。不想租车就换机场旁的 Clarion（€193，2 个卫生间，还更便宜）', who:'Steve 决定'},
+  {sev:'amber', q:'🟠 Senja 从 10/5 挪到 10/4（周日）—— 周日渡轮班次要重核', why:'我手上那张 Brensholmen–Botnhamn 时刻表只标了「12:45 周五停」，**没有单独核过周日**；北欧低季渡轮周日常减班。万一班少就走陆路 Finnsnes 大桥（多 1h）', who:'出发前一周核 Torghatten Nord / Entur'},
   {sev:'amber', q:'🟠 9/24 那一晚 —— 你的清单是 9/25 起的', why:'默认沿用我原来的 Nannestad 3房2卫 €260（不可退）。想和 9/29 用同一家 5 房那套也行，**但 9/24 的可订性我还没验**', who:'Steve 或我再验一次'},
   {sev:'amber', q:'🟠 Hörgsland 三个卧室都没有双人床，夫妻能接受吗？', why:'上下铺×2 + 单人床×2。不能接受就换 Klaustur 的 Fosshotel Núpar / Hótel Laki / Magma', who:'Steve 问一下'},
   {sev:'green', q:'挪威租车是否含 AutoPASS 标签，手续费怎么收？', why:'E10 + 特罗姆瑟这段收费站很少，金额很小', who:'租车公司'},
-  {sev:'green', q:'Torghatten Nord 官网核 10/5 Brensholmen–Botnhamn 确切班次', why:'低季会改点（已确认 2026 全年运营、周一不受「周五停」影响）', who:'出发前一周'}
+  {sev:'green', q:'Torghatten Nord 官网核 **10/4（周日）** Brensholmen–Botnhamn 确切班次', why:'低季会改点。已确认 2026 全年运营；🆕 但日期从周一挪到**周日**了，班表要重看', who:'出发前一周'}
 ];
 
 /* ---------- 风险 ---------- */
@@ -525,7 +572,7 @@ const RISKS = [
   {r:'罗弗敦异地还车贵 + 只有 6 个车源（**又回来了**）', imp:'为了 10/2 坐飞机必须还到 Svolvær → 车费 $762→$993', act:'这是「不开那 6h30」的明码价格，已在 D8 里算清；不接受就退回一台车自驾', sev:'amber'},
   {r:'~~中国驾照无 IDP，租车公司拒租~~', imp:'—', act:'✅ 已消除：用美国驾照，冰岛/挪威都直接认', sev:'done'},
   {r:'~~9 月底冰岛要不要冬胎~~', imp:'—', act:'✅ 已消除：11/1 起才强制', sev:'done'},
-  {r:'~~Brensholmen 渡轮季节性停开~~', imp:'—', act:'✅ 已消除：2026 全年运营，10/5 周一不受「周五停」影响', sev:'done'}
+  {r:'Brensholmen 渡轮：🆕 Senja 那天从 10/5（周一）挪到 **10/4（周日）**', imp:'周日减班 → Senja 当天可能进不去', act:'季节性停开这件事已消除（2026 全年运营）；但**周日班表我没单独核过**，出发前一周核 Torghatten Nord / Entur。真班少就走陆路 Finnsnes 大桥（多 1h）', sev:'amber'}
 ];
 
 /* ---------- 黑话表 ---------- */
@@ -597,8 +644,8 @@ const BLOCKERS = [
   {id:'B2', kind:'block', sev:'red',
    q:'Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞？',
    blocks:'要不要第 13 晚（10/6 在奥斯陆）—— 本方案的总账只算了 12 晚',
-   detail:'游轮 pass 掉之后，行程需要的是 <b>9/24 到 10/5 共 12 晚</b>。10/6 上午 10:00 在特罗姆瑟机场还车、飞奥斯陆。如果当天就接北京的航班，行程在奥斯陆机场结束；如果是 10/7 才飞，就要在奥斯陆多住一晚。',
-   ifUnknown:'第 13 晚 <b>€172–280（Thon Gardermoen 2 间，可退）</b> 或 <b>+€260（Nannestad 那套 Airbnb，不可退）</b>。金额不大，但会决定 Nannestad 那两晚要不要一起订（它不可退，€520 敞口）。<b>地图上 D12 已经按「占位酒店」画出来了，钱没计入总账。</b>',
+   detail:'游轮 pass 掉之后，行程需要的是 <b>9/24 到 10/5 共 12 晚</b>。🆕 <b>10/5 那晚已经改成飞回奥斯陆、住 Stange 的森林小屋</b> —— 所以 10/6 上午是从 Stange 开 30 min 到 OSL 还车、直接接洲际，<b>不再有「当天先飞 TOS→OSL 再转」的接驳风险</b>（这也是 B2 从红降到黄的原因）。如果是 10/7 才飞，就要在奥斯陆一带多住一晚。',
+   ifUnknown:'第 13 晚<b>最省事的做法是把 Stange 那套小屋多住一晚（+€306，可退）+ OSL 那台车顺延一天（+$79）</b>；不想留在森林里就换 Thon/Clarion Gardermoen（可退）。<b>地图上 D12 已经按「占位」画出来了，钱没计入总账。</b>反过来说：如果 Kevin 定的是 <b>10/7</b>，那 10/5 这个缓冲夜就多余了 —— 那时候<b>特罗姆瑟住回 4 晚（多一个极光夜）反而更好</b>，值得重新比一次。',
    who:'Kevin',
    days:['D12'],
    src:[['notes/PLAN-final.md','233（§七 第 2 条）'],
@@ -625,7 +672,18 @@ const BLOCKERS = [
    days:['D6'],
    src:[['notes/PLAN-final.md','186（§五 表格最后一行 ⚠️）'],
         ['notes/PLAN-final.md','235（§七 第 4 条）']],
-   nowdo:'现在看一眼卡的可用额度就行。不够就换卡，或者订价格接近、押金更低的一家。'}
+   nowdo:'现在看一眼卡的可用额度就行。不够就换卡，或者订价格接近、押金更低的一家。'},
+
+  {id:'B5', kind:'block', sev:'red',
+   q:'🆕 10/5 那套小屋在 Stange 森林里 —— 要加租 OSL 一天的车，还是换机场旁的酒店？',
+   blocks:'10/5 那一晚到底怎么落地：租第四台车（+$79–86），还是把住宿换成机场酒店（€193）',
+   detail:'你给的 10/5 链接（Konglehytta 3）<b>搜索时输的是 "Oslo Gardermoen Airport OSL"，但房子并不在机场旁</b> —— 房源页自己写着 <b>"A car is required — Konglehytta 3 is located in Mjøsli, about 30 minutes from Gardermoen and 1 hour from Oslo"</b>，最近的超市 Kiwi Minnesund 也要开 15 分钟。而挪威那台车② 是 <b>10/5 在特罗姆瑟机场还掉</b>的，落地奥斯陆时手上没车。我实抓了 OSL 10/5 15:00 → 10/6 10:00 的报价：<b>23 个车源，自动挡 $79 起、自动四驱 $86 ≈ ¥611</b>。',
+   ifUnknown:'两条路都能走通，差别是钱和舒适度：<b>A 租车</b> = 小屋 €306 + 车 $86 ≈ ¥2,448+¥611 = <b>¥3,059</b>，换来整栋小屋 + 私人桑拿 + ★4.98，代价是<b>只有 1 个卫生间</b>，而且第二天要赶洲际航班；<b>B 换酒店</b> = Clarion Oslo Airport <b>€193（2 间）≈ ¥1,544</b>，<b>更便宜、2 个卫生间、走去航站楼不用车</b>，但就是个机场酒店。⚠️ Clarion 那个价我只在 10/6 的窗口验过，10/5 要重查。',
+   who:'Steve 决定（我不替你挑）',
+   days:['D11','D12'],
+   src:[['notes/_research/out_steve4/konglehytta.json','房源页原文 "A car is required"'],
+        ['notes/_research/out_dc4/osl-1day.json','OSL 一天车 23 个实抓报价']],
+   nowdo:'先决定 A 还是 B。选 A 就把小屋和 OSL 那台车一起订（小屋选可退那档，只贵 €10）；选 B 就先去 Booking 核 10/5 的 Clarion 实价。'}
 ];
 
 /* 只影响某一项的细节 —— 不定也能先订（都可免费取消） */
@@ -658,7 +716,7 @@ const SETTLED = [
    src:[['notes/PLAN-final.md','110–138']]},
   {q:'几个人、怎么分房、¥/房怎么算？', a:'<b>4 人 = 两男 + 一对夫妻。</b>¥/房 = 总价 ÷ <b>实际用的房间数</b>。本页一律<b>保守按 ÷2</b> 算；3 房那几晚如果两个男生各住一间（÷3），数字还要再低三分之一。',
    src:[['notes/PLAN-final.md','10 + 54']]},
-  {q:'预算够不够？', a:'<b>够。</b>你这套方案折 <b>¥1,876/房/晚</b>，仍在 ¥2,000–4,000 区间的下沿（我原来那套 ¥1,326，便宜约 ¥1.3 万 —— 两套都在预算内）。三台车 ¥682/天 · ¥1,175/天 都远低于 ¥2,000/天的上限。',
+  {q:'预算够不够？', a:'<b>够，而且 2026-09-02 深夜那两个链接之后又便宜了。</b>你这套方案折 <b>¥1,790/房/晚</b>（上一版 ¥1,876），仍在 ¥2,000–4,000 区间的下沿（我原来那套 ¥1,326 —— 两套都在预算内）。四台车（冰岛 · 挪威① · 挪威② · 🆕 OSL 1 天）折下来 ¥609–682/天，都远低于 ¥2,000/天的上限。',
    src:[['notes/PLAN-final.md','20–26']]},
   {q:'免费取消 vs 更便宜的不可退？', a:'<b>全部买可免费取消</b>。9 项里 <b>7 项零风险</b>，唯一例外是 Nannestad 两晚（€520），已给可退替代（Thon Gardermoen）。',
    src:[['notes/PLAN-final.md','222–224']]},
@@ -703,8 +761,10 @@ const EVID_NO = [
    verdict:'best', note:'🥇 <b>飞的方案 · 车①</b>（Toyota Yaris Cross 4WD）。09:00 前还车才算 2 天。⚠️ 只有 6 个车源'},
   {id:'F2', route:'EVE → Svolvær(SVJ)', when:'9/30 11:00 → 10/2 <b>14:30</b>', days:'3', fuel:763, ev:645, n:6,
    verdict:'', note:'下午班（~15:45 起飞）→ 跨进第 3 个计费日，白贵 $113'},
-  {id:'F3', route:'TOS → TOS', when:'10/2 10:30 → 10/6 10:00', days:'4', fuel:343, ev:307, n:16,
-   verdict:'best', note:'🥇 <b>飞的方案 · 车②</b>（Suzuki Vitara）。10:30 和 16:00 提车同价 → 坐早班不吃亏'},
+  {id:'F3', route:'TOS → TOS', when:'10/2 10:30 → **10/5 10:00**', days:'3', fuel:240, ev:null, n:16,
+   verdict:'best', note:'🥇 <b>飞的方案 · 车②</b>（自动四驱）。🆕 <b>2026-09-02 深夜从 4 天缩到 3 天</b>（10/5 就飞奥斯陆了）→ $343 → 约 <b>$240</b>，省 $103。实抓 16 个报价，最便宜的自动四驱 $236–243'},
+  {id:'F5', route:'OSL → OSL', when:'🆕 10/5 15:00 → 10/6 10:00', days:'1', fuel:79, ev:84, n:23,
+   verdict:'best', note:'🆕 <b>新加的车③</b> —— 10/5 那个小屋在 Stange，房源页写着 "A car is required"（离 OSL 30 min）。自动挡 <b>$79</b> 起、自动四驱 $86。<b>不租车就换机场旁的 Clarion（€193，还更便宜、2 个卫生间）</b>'},
   {id:'F4', route:'EVE → EVE（同地）', when:'9/30 11:00 → 10/2 09:00', days:'2', fuel:254, ev:null, n:23,
    verdict:'bad', note:'车费最香（+F3 只 $597，比连开 6 天还省 $165）但<b>没航班</b>：EVE→TOS 直飞每月仅 4 班，Google 上全经奥斯陆倒 1,200 km / 4–6h / NOK 7,768 起'},
   {id:'V2', route:'EVE → TOS', when:'9/30 11:00 → 10/6 10:00', days:'6', fuel:762, ev:569, n:24,
@@ -783,9 +843,10 @@ const CANDS = [
   {t:'dead', n:'Fosshotel Glacier Lagoon（离湖 10 min）', u:'https://www.booking.com/searchresults.html?ss=Fosshotel+Glacier+Lagoon&checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR', loc:'冰河湖旁 10 min', rb:'需 2 间', p:'凑 2 间 €1,194 含税', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ Standard **只剩 1 间**（截图 x3），凑 2 间 = **¥4,776/房超预算**。是被算术排除的，不是被口味排除的'},
   {t:'dead', n:'Hótel Klaustur / Magma / Laki', u:'https://www.booking.com/searchresults.html?ss=Kirkjubaejarklaustur&checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR', loc:'Kirkjubæjarklaustur，更远', rb:'—', p:'€713–1,264', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ 多数只剩 1 间，而且离冰河湖更远'}]},
 
-{ g:'G5', d:'9/28 一', n:1, place:'Reykjanesbær / Njarðvík（KEF 旁）', note:'✅ 这一晚**三个都实测能订**，是全程最没风险的一晚 —— 可以最后再订。',
+{ g:'G5', d:'9/28 一', n:1, place:'Reykjanesbær / Njarðvík（KEF 旁）', note:'✅ 这一晚**四个都实测能订**，是全程最没风险的一晚 —— 可以最后再订。🆕 默认已换成 Steve 第二次给的那套（更便宜、床型更好，但**只有 1 卫**）。',
   opts:[
-  {t:'pick', n:'🆕 Cozy home in Njarðvík', u:A('1468029290775302593','2026-09-28','2026-09-29'), loc:'Njarðvík，**离 KEF 只 5 min**', rb:'4房/4床/2卫', p:'€445 flex（非退 €444，几乎不省）', cny:3560, room:1780, r:'4.54', cxl:'✅ 24h 内免费', v:'ok', why:'**Steve 自己选的，已设为默认。** 4 卧 = 一人一间，离机场最近。代价：评分 4.54 是这一晚三个里最低的'},
+  {t:'pick', n:'🆕 Holiday Home with Hot tub & Sauna · Ocean Break', u:A('1139944377459145061','2026-09-28','2026-09-29'), loc:'Njarðvík，**离 KEF 只 5 min**', rb:'3房/3床/**1卫**', p:'€531 → **€335**', cny:2680, room:1340, r:'5.0', cxl:'✅ 免费退到 9/23', v:'ok', why:'**Steve 自己选的，已设为默认。** 全程**最便宜的一晚**：★5.0、hot tub + 桑拿、床型正好（卧1 king 给夫妻，卧2/卧3 各一张单人）→ 一人一间。🟠 代价是**只有 1 个卫生间**，而次日要出发跑 Reykjanes'},
+  {t:'alt',  n:'Cozy home in Njarðvík（Steve 的第一个链接）', u:A('1468029290775302593','2026-09-28','2026-09-29'), loc:'同区', rb:'4房/4床/2卫', p:'€445 flex（非退 €444，几乎不省）', cny:3560, room:1780, r:'4.54', cxl:'✅ 24h 内免费', v:'ok', why:'**用 €110 换回第 2 个卫生间**，4 卧一人一间。评分 4.54 是这一晚最低的'},
   {t:'alt',  n:'3BR/2BA ★4.92 · Reykjanesbær（我原来的默认）', u:A('1231709933827491677','2026-09-28','2026-09-29'), loc:'KEF 旁', rb:'3房/4床/2卫', p:'€424 / 1晚', cny:3392, room:1696, r:'4.92', cxl:'✅ 24h 内免费', v:'ok', why:'便宜 €21 且**评分 4.92 高得多**。这一晚两个都实测能订、都很稳 —— 看哪个房型顺眼即可'},
   {t:'alt',  n:'3BR/2BA ★4.91 · Reykjanesbær', u:A('1302095139759149342','2026-09-28','2026-09-29'), loc:'同区', rb:'3房/3床/2卫', p:'€498 / 1晚', cny:3984, room:1992, r:'4.91', cxl:'✅ 24h 内免费', v:'ok', why:'实测能订。比 🥇 贵 €74、床还少一张 —— 纯备胎'},
   ]},
@@ -815,10 +876,10 @@ const CANDS = [
   {t:'dead', n:"Seafront fisherman's cabin in Lofoten ★4.98", u:A('35072091','2026-09-30','2026-10-02'), loc:'中部 Vestvågøy', rb:'3房/5床/2卫', p:'€900（搜索页）', cny:0, room:0, r:'4.98', cxl:'—', v:'dead', why:'⛔ **2026-09-02 新发现：日期不可用。** ★4.98 的真 rorbu，很可惜'},
   {t:'dead', n:'where the ocean meets land · Flakstad ★4.93', u:A('43494853','2026-09-30','2026-10-02'), loc:'西侧 Flakstad', rb:'2房/4床/2卫', p:'€740（搜索页）', cny:0, room:0, r:'4.93', cxl:'—', v:'dead', why:'⛔ **本轮新发现：日期不可用。** 顺带一条：即便能订，房东自己住在同一栋房子的另一半（有连通门）'}]},
 
-{ g:'G8', d:'10/2–10/5', n:4, place:'特罗姆瑟 4 晚', note:'🔴 **游轮 pass 掉之后这里是 4 晚（10/2–10/6），不是原来的 3 晚** —— 所以这一组的价全部按 4 晚重抓过。挪威酒店/公寓行**已 ×1.12 补 VAT**。🔴🔴 Steve 给的原链接是 10/2→10/5（3 晚），**10/5 那晚会没地方住** → 下单时必须把退房日改成 10/6。',
+{ g:'G8', d:'10/2–10/4', n:3, place:'特罗姆瑟 3 晚', note:'✅ 🆕 **2026-09-02 傍晚回到 3 晚（10/2–10/5）** —— Steve 又给了 10/5 的奥斯陆房源，说明 10/5 就飞回奥斯陆。所以他原来那个 10/2→10/5 的链接本来就是对的，**不用改日期，还省下 €453**。⚠️ 下表其余各行的价是按 **4 晚窗口** 抓的（那时以为要住到 10/6），换回 3 晚窗口后价会降、而且**有两个当时判死的房源在 3 晚下其实是活的** —— 想换的话要重抓。挪威酒店/公寓行**已 ×1.12 补 VAT**。',
   opts:[
-  {t:'pick', n:'🆕 Tromsø 4 房 / 4 床 / 2 卫', u:A('825162133059470411','2026-10-02','2026-10-06'), loc:'特罗姆瑟', rb:'4房/4床/2卫', p:'3晚 €1,526 → **4晚 €1,979**', cny:15832, room:3958, r:'—', cxl:'✅ 免费退到 10/1', v:'ok', why:'**Steve 自己选的，已设为默认。** 4 卧一人一间、可退到 10/1。🔴 两条要注意：① 原链接只到 10/5，延到 10/6 要 +€453；② 比下面的船屋贵 **€946 ≈ ¥7,568** —— **这是全程差价最大的一笔**'},
-  {t:'alt',  n:'Houseboat "Grosso" ★5.0（住船上，我原来的默认）', u:A('1607078897559083655','2026-10-02','2026-10-06'), loc:'特罗姆瑟市区水上', rb:'3房/7床/**3卫**', p:'€1,818→€1,033 / 4晚', cny:8264, room:1033, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'**全程单价最低**（¥1,033/房/晚），卫生间比人多（3 卫 / 4 人），★5.0，可退。比新默认便宜 **¥7,568** —— 唯一的取舍是「愿不愿意睡在船上」'},
+  {t:'pick', n:'🆕 Tromsø 4 房 / 4 床 / 2 卫（3 晚）', u:A('825162133059470411','2026-10-02','2026-10-05'), loc:'特罗姆瑟', rb:'4房/4床/2卫', p:'**€1,526 / 3 晚**', cny:12208, room:2035, r:'—', cxl:'✅ 免费退到 10/1', v:'ok', why:'**Steve 自己选的，已设为默认，日期不用改。** 4 卧一人一间、可退到 10/1。🟠 我原来的船屋（3房**3卫** ★5.0）3 晚是 **€825**，仍便宜约 **€700 ≈ ¥5,600** —— 这一段的差价仍是全程最大的一笔'},
+  {t:'alt',  n:'Houseboat "Grosso" ★5.0（住船上，我原来的默认）', u:A('1607078897559083655','2026-10-02','2026-10-05'), loc:'特罗姆瑟市区水上', rb:'3房/7床/**3卫**', p:'€825 / 3晚（4 晚是 €1,033）', cny:6600, room:1100, r:'5.0', cxl:'✅ 24h 内免费', v:'search', why:'**全程单价最低**（¥1,100/房/晚），卫生间比人多（3 卫 / 4 人），★5.0，可退。比新默认便宜约 **¥5,600** —— 唯一的取舍是「愿不愿意睡在船上」。⚠️ €825 是把 4 晚价按晚数折的估数，3 晚窗口要重抓'},
   {t:'alt',  n:'TA Vervet · Two-Bedroom Apartment', u:B('no/ta-vervet-apartment','2026-10-02','2026-10-06',1), loc:'Vervet 新区，走路到市中心', rb:'2 卧 · **卫生间数未写**', p:'€199/晚 flex（+VAT）= €891', cny:7128, room:891, r:'—', cxl:'✅ 退到 9/18', v:'ok', why:'**唯一比船屋更便宜的**（¥891/房/晚）。🔴 但 Enter/Vervet 的 Two-Bedroom 多为 **1 卫** —— 要 2 卫就得先问'},
   {t:'alt',  n:'3BR/2BA Tromsø ★4.86', u:A('805864934151694916','2026-10-02','2026-10-06'), loc:'特罗姆瑟', rb:'3房/3床/2卫', p:'€1,645→€1,398 / 4晚（不可退）', cny:11184, room:1398, r:'4.86', cxl:'⛔ 不可退', v:'ok', why:'实测能订。比船屋贵 ¥2,900 且不可退 —— 除非不想住船上'},
   {t:'alt',  n:'Cozy house on Tomasjord ★5.0', u:A('938536829410600780','2026-10-02','2026-10-06'), loc:'Tomasjord（跨桥，市区 10 min）', rb:'3房/4床/2卫', p:'€1,660→€1,524 / 4晚', cny:12192, room:1524, r:'5.0', cxl:'✅ 24h 内免费 · 9/25 前部分退', v:'ok', why:'★5.0 的独栋 + 可退。要「住陆地上的正常房子」就是这个'},
@@ -830,6 +891,13 @@ const CANDS = [
   {t:'alt',  n:'The Loft I 4BR/2 Bath ★5.0', u:A('1480974381910568232','2026-10-02','2026-10-06'), loc:'市中心', rb:'4房/5床/2.5卫', p:'€4,405→€2,252 / 4晚', cny:18016, room:2252, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'能订，但 ¥2,252/房 —— 是 🥇 的 2.2 倍。列在这里只为封住「有没有更好的市中心大房子」这个问题'},
   {t:'dead', n:'Enter Amalie · Three-Bedroom Loft', u:B('no/enter-amalie-apartments','2026-10-02','2026-10-06',1), loc:'市中心', rb:'3 卧', p:'原 €925 / 3晚', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ **已没了** —— 10/2–10/6 整个物业只剩 One-Bedroom（€785/4晚）。它曾是 3 晚方案的 🥇'},
   {t:'dead', n:'Enter St Elisabeth · Suite ×2 间', u:B('no/enter-st-elisabeth-suites','2026-10-02','2026-10-06'), loc:'市中心，带 spa', rb:'2 套房', p:'€358/间/晚（+VAT）', cny:0, room:0, r:'—', cxl:'—', v:'dead', why:'⛔ **¥3,208/房超预算**。带 spa，但不值这个价'}]},
+
+{ g:'G8b', d:'10/5 一', n:1, place:'🆕 奥斯陆一带（10/5 从特罗姆瑟飞回来）', note:'🆕 **这一组是 2026-09-02 傍晚新增的** —— Steve 给了 10/5 的房源，等于把行程改成「10/5 飞回奥斯陆睡一晚缓冲，10/6 从容飞北京」。🔴 他选的那个**不在机场旁**，在 Stange 的 Mjøsli 森林里，房源页自己写着「A car is required」→ 要在 OSL 机场加租 1 天车（$79 起）。',
+  opts:[
+  {t:'pick', n:'🆕 Konglehytta 3 · Star View · Sauna（整栋小木屋）', u:A('648419631702172808','2026-10-05','2026-10-06'), loc:'Mjøsli · Stange（Innlandet）· **离 OSL 30 min 车程**', rb:'2房/3床/**1卫**', p:'可退 **€306**（不可退 €296）', cny:2448, room:1224, r:'4.98', cxl:'✅ 可退档只贵 €10 → 买可退', v:'ok', why:'**Steve 自己选的，已设为默认。** ★4.98、**私人桑拿** + Mjøsa 湖景 + 星空；床型好（卧1 两张双人 + 卧2 一张双人）。🔴 两条代价：① **必须加租一台 OSL 的车（+$86）**，房源页明写 "A car is required"；② 只有 1 个卫生间，而次日要赶洲际航班'},
+  {t:'alt',  n:'Clarion Hotel Oslo Airport ×2 Standard Double', u:B('no/clarion-oslo-airport','2026-10-05','2026-10-06'), loc:'**走廊直通航站楼**', rb:'2房/2卫', p:'约 €86/间 flex（+12% VAT）≈ €193', cny:1544, room:772, r:'—', cxl:'✅ 可退', v:'search', why:'**不用租车、不用开夜路、2 个卫生间，而且比小屋便宜** —— 纯从「第二天要飞北京」的角度这个更稳。代价：没有桑拿、没有星空、是个机场酒店。⚠️ 价是按 10/6 那晚抓的，10/5 要再核一次'},
+  {t:'alt',  n:'同 9/29 那套 Airbnb · Nannestad 5房1.5卫', u:A('1461656866395092330','2026-10-05','2026-10-06'), loc:'Nannestad（OSL 旁）', rb:'5房/5床/1.5卫', p:'约 €292 / 1晚', cny:2336, room:1168, r:'—', cxl:'—', v:'search', why:'和 9/29 同一套 → 路线和门锁都熟，5 个卧室。⚠️ **10/5 的可订性没核过**，而且它也在机场外（但比 Stange 近很多）'},
+  ]},
 
 { g:'G9', d:'10/6 二', n:1, place:'（条件性）奥斯陆机场 —— 只在 Kevin 的回程是 10/7 时才需要', note:'🔴 这一晚**没计入总账**，因为它取决于 Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞。四家全部实测有货，选的这个可以退到 10/5 —— 等回信也不亏。',
   opts:[

@@ -1,0 +1,227 @@
+{
+ "url": "https://www.discovercars.com/search/99d35e46-550b-42f4-a089-1016b2041398?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDEwOjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Fri, Oct 02",
+  "Mon, Oct 05"
+ ],
+ "n_offers": 16,
+ "rows": [
+  {
+   "car": "Save 10%",
+   "supplier": null,
+   "prices": [
+    215,
+    239
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Save 10% | Electric | Volkswagen ID.3 | or similar Compact Elite | Automatic | 5 seats | 4 doors | Air Conditioning | Good conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 177 ratings | Total for 3 days | $215.39 | $239.32 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    236
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 712 ratings | Total for 3 days | $236.42 | Free cancellation | View deal"
+  },
+  {
+   "car": "Save 10%",
+   "supplier": null,
+   "prices": [
+    238,
+    264
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Save 10% | Electric | Volkswagen ID.4 | or similar Intermediate Elite Crossover | Automatic | 5 seats | 5 doors | Good conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 177 ratings | Total for 3 days | $238.05 | $264.50 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    228
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Toyota Yaris | or similar Economy | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 9.1 | Excellent | 519 ratings | Total for 3 days | $228.55 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    238
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | 4x4 | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 712 ratings | Total for 3 days | $238.80 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    243
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Subaru Solterra 2WD | or similar Standard SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 9.1 | Excellent | 519 ratings | Total for 3 days | $243.28 | Free cancellation | View deal"
+  },
+  {
+   "car": "Save 10%",
+   "supplier": null,
+   "prices": [
+    249,
+    277
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Save 10% | Electric | 4x4 | Skoda Enyaq | or similar Intermediate Elite SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 177 ratings | Total for 3 days | $249.38 | $277.09 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    236
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 712 ratings | Total for 3 days | $236.42 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    262
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Electric | Ford Explorer 4WD | or similar Full-size SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 9.1 | Excellent | 519 ratings | Total for 3 days | $262.65 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    251
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Toyota Corolla | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 9.1 | Excellent | 519 ratings | Total for 3 days | $251.15 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota Yaris",
+   "supplier": null,
+   "prices": [
+    243
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota Yaris | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Great conditions | Compare | Free shuttle service pick-up — Tromso Airport (TOS) | Low deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 6 ratings | Total for 3 days | $243.87 | Free cancellation | View deal"
+  },
+  {
+   "car": "Volkswagen ID3",
+   "supplier": null,
+   "prices": [
+    251
+   ],
+   "total_days": "3",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Volkswagen ID3 | or similar Compact | Automatic | 4 seats | 5 doors | Air Conditioning | Great conditions | Compare | Free shuttle service pick-up — Tromso Airport (TOS) | Low deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 6 ratings | Total for 3 days | $251.30 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    283
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Toyota Yaris Cross 4WD | or similar Compact SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 9.1 | Excellent | 519 ratings | Total for 3 days | $283.97 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    320
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Ford Kuga 2WD | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 9.1 | Excellent | 519 ratings | Total for 3 days | $320.79 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    310
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Volkswagen ID.4 | or similar Intermediate SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Great conditions | Compare | Free shuttle service pick-up — Tromso Airport (TOS) | Low deposit | Instant confirmation! | Unlimited mileage | 8.9 | Very Good | 6 ratings | Total for 3 days | $310.77 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    293
+   ],
+   "total_days": "3",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.4 | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Tromso Airport (TOS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.6 | Very Good | 127 ratings | Total for 3 days | $293.93 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "tos-3day",
+  "pick_id": 2195,
+  "pick_dt": "2026-10-02 10:30",
+  "drop_dt": "2026-10-05 10:00"
+ }
+}

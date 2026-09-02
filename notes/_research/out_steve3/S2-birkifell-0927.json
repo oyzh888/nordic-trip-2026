@@ -1,0 +1,30 @@
+{
+ "title": "Guesthouse Birkifell, Nesjum (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/guesthouse-birkifell.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Two-Bedroom House",
+   "bedrooms": 2,
+   "bathrooms": null,
+   "prices_seen": [
+    504,
+    504,
+    504,
+    6
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Two-Bedroom House ¶ Recommended for 4 adults ¶ Sleeps: 4 adults ¶ Bedroom 1: 1 queen bed ¶ Bedroom 2: 2 twin beds ¶ Entire vacation home ¶ 388 feet² ¶ Private kitchen ¶ Private bathroom ¶ Garden view ¶ Mountain view ¶ Landmark view ¶ Patio ¶ Flat-screen TV ¶ Barbecue ¶ Terrace ¶ Coffee machine ¶ Free Wifi ¶ € 504 per night ¶ € 504 ¶ Price € 504 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Free cancellation before September 25, 2026 ¶ No prepayment needed – pay at the property ¶ • ¶ We have 1 left ¶ Sele"
+  }
+ ],
+ "job": {
+  "slug": "S2-birkifell-0927",
+  "hotel": "is/guesthouse-birkifell",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 4,
+  "rooms": 2
+ }
+}

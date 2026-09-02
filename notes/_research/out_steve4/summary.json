@@ -1,0 +1,36 @@
+[
+ {
+  "slug": "s4-0928-njardvik",
+  "note": "Steve 9/28 新链接",
+  "config": "3 bedrooms · 3 beds · 1 bath",
+  "bedrooms": "3",
+  "baths": "1",
+  "guests": "4",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Free cancellation before September 23",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "5.0",
+  "error": null
+ },
+ {
+  "slug": "s4-1005-osl",
+  "note": "Steve 10/5 Oslo Gardermoen",
+  "config": "2 bedrooms · 3 beds · 1 bath",
+  "bedrooms": "2",
+  "baths": "1",
+  "guests": "4",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Non-refundable · €295.83 total",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "4.98",
+  "error": null
+ }
+]

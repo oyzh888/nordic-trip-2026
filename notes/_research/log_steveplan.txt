@@ -1,0 +1,24 @@
+== SP-0925-rvk 
+   cfg=3 bedrooms · 3 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 18 for a partial refund. min=None unavail=False
+== SP-0928 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €444.13 total min=None unavail=False
+== SP-0929 
+   cfg=5 bedrooms · 5 beds · 1.5 baths | br=5 bath=1.5 guests=9
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 28 min=None unavail=False
+== SP-0930-1002 
+   cfg=3 bedrooms · 5 beds · 2 baths | br=3 bath=2 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €1,135.36 total min=None unavail=False
+== SP-1002-1005 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=11
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before October 1 min=None unavail=False
+== SP-1002-1006 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=11
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before October 1 min=None unavail=False

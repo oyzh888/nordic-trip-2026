@@ -1,0 +1,8 @@
+[
+ {"slug":"m2-klaustur-2ba","place":"Kirkjubaejarklaustur, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.68,-18.45,63.95,-17.50],"zoom":9,"min_bedrooms":2,"min_bathrooms":2},
+ {"slug":"m2-klaustur-1ba","place":"Kirkjubaejarklaustur, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.68,-18.45,63.95,-17.50],"zoom":9,"min_bedrooms":2,"min_bathrooms":1},
+ {"slug":"m2-vik-2ba","place":"Vik, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.33,-19.35,63.60,-18.65],"zoom":9,"min_bedrooms":2,"min_bathrooms":2},
+ {"slug":"m2-vik-1ba","place":"Vik, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.33,-19.35,63.60,-18.65],"zoom":9,"min_bedrooms":2,"min_bathrooms":1},
+ {"slug":"m2-band-2ba","place":"Vik, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.30,-19.40,64.10,-16.80],"zoom":8,"min_bedrooms":2,"min_bathrooms":2},
+ {"slug":"m2-band-1ba","place":"Vik, Iceland","checkin":"2026-09-26","checkout":"2026-09-28","bbox":[63.30,-19.40,64.10,-16.80],"zoom":8,"min_bedrooms":2,"min_bathrooms":1}
+]

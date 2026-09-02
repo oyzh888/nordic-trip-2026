@@ -1,0 +1,5 @@
+m2-sc-2ba: 7 listings, 6 with 3+ bedrooms
+m2-sc-1ba: 21 listings, 10 with 3+ bedrooms
+m2-kla-2ba: 0 listings, 0 with 3+ bedrooms
+m2-kla-1ba: 0 listings, 0 with 3+ bedrooms
+m2-hofn-2n-2ba: 0 listings, 0 with 3+ bedrooms

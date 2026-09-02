@@ -1,0 +1,2 @@
+osl-1day: 23 offers | dates=('Mon, Oct 05', 'Tue, Oct 06') 
+tos-3day: 16 offers | dates=('Fri, Oct 02', 'Mon, Oct 05') 

@@ -1,0 +1,6 @@
+m2-klaustur-2ba: 0 listings, 0 with 3+ bedrooms
+m2-klaustur-1ba: 0 listings, 0 with 3+ bedrooms
+m2-vik-2ba: 0 listings, 0 with 3+ bedrooms
+m2-vik-1ba: 0 listings, 0 with 3+ bedrooms
+m2-band-2ba: 0 listings, 0 with 3+ bedrooms
+m2-band-1ba: 0 listings, 0 with 3+ bedrooms

@@ -1,0 +1,8 @@
+== s4-0928-njardvik 
+   cfg=3 bedrooms · 3 beds · 1 bath | br=3 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23 min=None unavail=False
+== s4-1005-osl 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €295.83 total min=None unavail=False
