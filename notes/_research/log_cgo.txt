@@ -1,0 +1,355 @@
+date_on_page: 02/10/2026 | err: TimeoutError: Timeout 15000ms exceeded while waiting for event "page"
+result_url: https://www.hurtigruten.com/en-us/port-to-port
+200 GET https://www.hurtigruten.com/en-us/cruises/trondheim-tromso?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises/sail-and-rail-norway-5-days?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises/tromso-kirkenes?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/deals?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/on-board/ships?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/explore-norway?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/why-hurtigruten?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/help?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45he68v1v877299788z89137310506za20kzb9137310506zd9137310506&_p=1788325469256&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=173212826
+----- BODY -----
+Hurtigruten
+Cruises
+Offers
+Ships
+Why Hurtigruten?
+Explore Norway
+Help and FAQs
+Search
+My Booking
+Book a voyage
+Port to port
+
+Customize your own port-to-port sailing along the Norwegian coast.
+
+Where do you want to go in Norway?
+From Port
+To Port
+Show Route Map
+When do you want to go?
+One-way
+Roundtrip
+
+Departure
+
+Date must be today or later
+
+Do you wish to travel via Kirkenes?
+No
+Yes
+Cabin 1
+2
+Adults
+0
+Children (6 - 17 years)
+0
+Infants (0 - 5 years)
+0
+Senior
+Add more cabins
+Do you have a promotion code?
+See availability and prices
+Discounts for children
+
+Children up to 5 years old travel for free, and those aged 6 to 17 get a 75% discount on the fare price. (Please note: these discounts apply only to the ticket price, and are not applicable to cabins.)
+
+You must provide valid proof upon boarding. Click here to see the criteria.
+
+Frequently asked questions
+
+Read our port-to-port FAQs to find out about booking and payment.
+
+Short voyages | Great weekend escapes
+
+Choose from our most popular short voyages along the Norwegian coast
+
+Self-guided cruise and tour
+
+Oslo - Trondheim - Bergen - Oslo (Full-trip)
+
+Sail and Rail Norway
+
+Rail & sea adventure through central Norway on The Coastal Express & Dovre Line
+
+Regular departures
+
+5 days
+
+8 Stops
+
+Half board (breakfast, dinner)
+
+Price from
+
+$1,073
+
+Tromsø - Honningsvåg - Båtsfjord - Kirkenes (Northbound)
+
+Arctic Capital to the Norwegian Border
+
+Tromsø, the North Cape & Norway's eastern edge in one short voyage
+
+Regular departures
+
+3 days
+
+13 Stops
+
+Meals not included
+
+Price from
+
+$321
+
+Trondheim - Bodø - Tromsø (Northbound)
+
+Viking Capital to the Arctic Capital
+
+A classic short sailing crossing the Arctic Circle between two iconic Norwegian cities
+
+Regular departures
+
+3 days
+
+15 Stops
+
+Meals not included
+
+Price from
+
+$424
+
+Kirkenes - Hammerfest - Svolvær (Southbound)
+
+Norwegian Border to Lofoten
+
+A short voyage showing the beauty of Lofoten & Norway's north coast
+
+Regular departures
+
+3 days
+
+17 Stops
+
+Meals not included
+
+Price from
+
+$502
+
+Bergen - Ålesund - Trondheim - Svolvær (Northbound)
+
+West Fjords to Lofoten
+
+A short Arctic-bound voyage on our historic coastal route, exploring fjords & islands
+
+Regular departures
+
+4 days
+
+16 Stops
+
+Meals not included
+
+Price from
+
+$650
+
+Bergen - Ålesund - Trondheim - Bodø - Tromsø (Northbound)
+
+West Fjords to the Arctic Capital
+
+A short northbound sailing on our classic coastal route, through fjords to the Arctic
+
+Regular departures
+
+5 days
+
+22 Stops
+
+Meals not included
+
+Price from
+
+$892
+
+Bergen - Ålesund - Trondheim (Northbound)
+
+West Fjords to the Viking Capital
+
+A short voyage exploring Art Nouveau gems & UNESCO-listed fjords
+
+Regular departures
+
+3 days
+
+8 Stops
+
+Meals not included
+
+Price from
+
+$427
+
+Svolvær - Brønnøysund - Trondheim - Bergen (Southbound)
+
+Lofoten to the West Fjords
+
+A short sailing south experiencing mountains, islands & UNESCO sites
+
+Regular departures
+
+4 days
+
+16 Stops
+
+Meals not included
+
+Price from
+
+$608
+
+Tromsø - Brønnøysund - Trondheim - Bergen (Southbound)
+
+Arctic Capital to the West Fjords
+
+A short southbound sailing on our classic coastal route, through archipelagos & fjords
+
+Regular departures
+
+4 days
+
+22 Stops
+
+Meals not included
+
+Price from
+
+$845
+
+Svolvær - Tromsø - Honningsvåg - Kirkenes (Northbound)
+
+Lofoten to the Norwegian Border
+
+A short Arctic voyage exploring Norway's far north & its remote beauty
+
+Regular departures
+
+4 days
+
+19 Stops
+
+Meals not included
+
+Price from
+
+$526
+
+Kirkenes - Hammerfest - Tromsø (Southbound)
+
+Norwegian Border to the Arctic Capital
+
+A two-day sailing showing the best of Norway’s spectacular northern coastline
+
+Regular departures
+
+2 days
+
+12 Stops
+
+Meals not included
+
+Price from
+
+$325
+
+Tromsø - Brønnøysund - Trondheim (Southbound)
+
+Arctic Capital to the Viking Capital
+
+From Arctic landscapes to Viking legacy on this short journey down Norway’s coast
+
+Regular departures
+
+3 days
+
+15 Stops
+
+Meals not included
+
+Price from
+
+$426
+
+Trondheim - Kristiansund - Bergen (Southbound)
+
+Viking Capital to the West Fjords
+
+A two-day voyage through coastal communities, fjords & UNESCO highlights
+
+Regular departures
+
+2 days
+
+8 Stops
+
+Meals not included
+
+Price from
+
+$305
+
+Sign up for our newsletter
+
+Receive special offers, exciting new itineraries and fascinating articles delivered straight to your inbox.
+
+Yes, sign me up!
+Hurtigruten
+CONTACT
+1 (888) 970-0543
+reservations@hurtigruten.com
+Contact Us
+GENERAL
+FAQ
+Brochures
+1893 Ambassador Loyalty Program
+SUPPORT
+My Booking
+Make a payment
+Submit feedback or request a refund
+Terms and Conditions
+Supplier invoicing
+ABOUT
+About Hurtigruten
+Hurtigruten Svalbard
+Awards and Accolades
+Sustainability
+Careers
+Press
+For Agents
+GO TO
+Sailing plan
+Book a port-to-port sailing
+WE ACCEPT THE FOLLOWING PAYMENT METHODS
+
+© 2026 Hurtigruten
+
+Statement of Privacy
+Cookies
+Cookies Settings
+Accessibility Statement
+North America
+Global
+Australia
+Denmark
+France
+Germany
+North America
+Norway
+Sweden
+Switzerland
+United Kingdom

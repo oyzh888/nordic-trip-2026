@@ -1,0 +1,191 @@
+{
+ "request": {
+  "searchInterval": "day",
+  "locale": "en-us",
+  "automaticPromotionCode": null,
+  "promotionCode": null,
+  "fromDate": "2026-10-04T22:00:00.000Z",
+  "toDate": "2026-10-10T22:00:00.000Z",
+  "isReturnTrip": false,
+  "isViaKirkenes": false,
+  "fromPort": "SVJ",
+  "toPort": "TOS",
+  "deckspaces": null,
+  "cabins": [
+   {
+    "adults": 2,
+    "children": 0,
+    "infants": 0,
+    "companions": 0,
+    "students": 0,
+    "seniors": 0,
+    "militaryServicePersons": 0,
+    "wheelchairs": 0,
+    "pets": 0
+   },
+   {
+    "adults": 2,
+    "children": 0,
+    "infants": 0,
+    "companions": 0,
+    "students": 0,
+    "seniors": 0,
+    "militaryServicePersons": 0,
+    "wheelchairs": 0,
+    "pets": 0
+   }
+  ],
+  "vehicles": {
+   "cars": 0,
+   "motorcycles": 0
+  },
+  "requestType": "voyage"
+ },
+ "status": 200,
+ "response": [
+  {
+   "quoteId": "9b10b1bf-4b89-4d91-88f3-8ba84748259f",
+   "voyageId": "a387f7b2-bb03-4a51-8922-fd2821727490",
+   "date": "2026-10-04T20:15:00.000Z",
+   "categoryPrices": [
+    {
+     "isAvailable": false,
+     "cabinCategory": "PolarInside",
+     "price": 0,
+     "strikethroughPrice": 0,
+     "promotions": []
+    },
+    {
+     "isAvailable": true,
+     "cabinCategory": "PolarOutside",
+     "price": 418,
+     "strikethroughPrice": 418,
+     "promotions": []
+    },
+    {
+     "isAvailable": true,
+     "cabinCategory": "ArcticSuperior",
+     "price": 563,
+     "strikethroughPrice": 563,
+     "promotions": []
+    },
+    {
+     "isAvailable": false,
+     "cabinCategory": "ExpeditionSuite",
+     "price": 0,
+     "strikethroughPrice": 0,
+     "promotions": []
+    }
+   ],
+   "packageCode": null,
+   "price": 418,
+   "currency": "USD",
+   "shipCode": "NK",
+   "promotions": [],
+   "shipName": "MS Nordkapp",
+   "strikethroughPrice": 418,
+   "departureDate": "2026-10-04T20:15:00.000Z",
+   "arrivalDate": "2026-10-05T12:15:00.000Z",
+   "departureDateTime": "2026-10-04T20:15:00.000Z",
+   "arrivalDateTime": "2026-10-05T12:15:00.000Z",
+   "automaticPromotionCodeWasApplied": false,
+   "hasVehicleAvailability": true
+  },
+  {
+   "quoteId": "9b10b1bf-4b89-4d91-88f3-8ba84748259f",
+   "voyageId": "cb850c50-b2db-49ac-8ae0-0cea0fa4bc98",
+   "date": "2026-10-06T20:15:00.000Z",
+   "categoryPrices": [
+    {
+     "isAvailable": true,
+     "cabinCategory": "PolarInside",
+     "price": 310,
+     "strikethroughPrice": 310,
+     "promotions": []
+    },
+    {
+     "isAvailable": true,
+     "cabinCategory": "PolarOutside",
+     "price": 364,
+     "strikethroughPrice": 364,
+     "promotions": []
+    },
+    {
+     "isAvailable": true,
+     "cabinCategory": "ArcticSuperior",
+     "price": 563,
+     "strikethroughPrice": 563,
+     "promotions": []
+    },
+    {
+     "isAvailable": false,
+     "cabinCategory": "ExpeditionSuite",
+     "price": 0,
+     "strikethroughPrice": 0,
+     "promotions": []
+    }
+   ],
+   "packageCode": null,
+   "price": 310,
+   "currency": "USD",
+   "shipCode": "PL",
+   "promotions": [],
+   "shipName": "MS Polarlys",
+   "strikethroughPrice": 310,
+   "departureDate": "2026-10-06T20:15:00.000Z",
+   "arrivalDate": "2026-10-07T12:15:00.000Z",
+   "departureDateTime": "2026-10-06T20:15:00.000Z",
+   "arrivalDateTime": "2026-10-07T12:15:00.000Z",
+   "automaticPromotionCodeWasApplied": false,
+   "hasVehicleAvailability": true
+  },
+  {
+   "quoteId": "9b10b1bf-4b89-4d91-88f3-8ba84748259f",
+   "voyageId": "1e7cd55a-c167-4b34-9fa8-34caf25c66a8",
+   "date": "2026-10-08T20:15:00.000Z",
+   "categoryPrices": [
+    {
+     "isAvailable": true,
+     "cabinCategory": "PolarInside",
+     "price": 310,
+     "strikethroughPrice": 310,
+     "promotions": []
+    },
+    {
+     "isAvailable": true,
+     "cabinCategory": "PolarOutside",
+     "price": 418,
+     "strikethroughPrice": 418,
+     "promotions": []
+    },
+    {
+     "isAvailable": true,
+     "cabinCategory": "ArcticSuperior",
+     "price": 563,
+     "strikethroughPrice": 563,
+     "promotions": []
+    },
+    {
+     "isAvailable": false,
+     "cabinCategory": "ExpeditionSuite",
+     "price": 0,
+     "strikethroughPrice": 0,
+     "promotions": []
+    }
+   ],
+   "packageCode": null,
+   "price": 310,
+   "currency": "USD",
+   "shipCode": "RW",
+   "promotions": [],
+   "shipName": "MS Richard With",
+   "strikethroughPrice": 310,
+   "departureDate": "2026-10-08T20:15:00.000Z",
+   "arrivalDate": "2026-10-09T12:15:00.000Z",
+   "departureDateTime": "2026-10-08T20:15:00.000Z",
+   "arrivalDateTime": "2026-10-09T12:15:00.000Z",
+   "automaticPromotionCodeWasApplied": false,
+   "hasVehicleAvailability": true
+  }
+ ]
+}

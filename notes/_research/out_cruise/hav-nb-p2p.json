@@ -1,0 +1,258 @@
+{
+ "url": "https://www.havilavoyages.com/nb/havn-til-havn",
+ "status": 200,
+ "all_links": [
+  "/nb",
+  "/nb/aktiviteter",
+  "/nb/havn-til-havn",
+  "/nb/reiser",
+  "/nb/skipene",
+  "https://brand.havilavoyages.com/original/gallery/35232/files/original/17a7c4c5-88f9-44e0-a1ff-c8f11ea2c253.pdf",
+  "https://business.safety.google/privacy/",
+  "https://cookieinformation.com/",
+  "https://cookieinformation.com/cookie-and-privacy-policy/",
+  "https://help.opera.com/en/latest/web-preferences/#cookies",
+  "https://instagram.com/havilavoyages",
+  "https://legal.hubspot.com/privacy-policy",
+  "https://policies.google.com/technologies/partner-sites?hl=en",
+  "https://privacy.microsoft.com/en-us/privacystatement",
+  "https://support.apple.com/en-us/HT1677",
+  "https://support.apple.com/en-us/HT201265",
+  "https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DAndroid&hl=en",
+  "https://support.google.com/chrome/answer/95647?hl=en",
+  "https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies#ie=ie-11",
+  "https://support.microsoft.com/en-us/help/4027947/microsoft-edge-delete-cookies",
+  "https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored",
+  "https://timeread.hubpages.com/hub/How-to-delete-internet-cookies-on-your-Droid-or-any-Android-device",
+  "https://tools.google.com/dlpage/gaoptout",
+  "https://vimeo.com/privacy",
+  "https://www.cloudflare.com/privacypolicy/",
+  "https://www.facebook.com/havilakystruten",
+  "https://www.facebook.com/privacy/explanation",
+  "https://www.havilavoyages.com/nb/abta/",
+  "https://www.havilavoyages.com/nb/faq/havn-til-havn",
+  "https://www.havilavoyages.com/nb/faq/innsjekk-og-avreise/innsjekking",
+  "https://www.havilavoyages.com/nb/havn-til-havn/rabatter-havn-til-havn",
+  "https://www.havilavoyages.com/nb/om-havila/",
+  "https://www.havilavoyages.com/nb/om-havila/agent-site/",
+  "https://www.havilavoyages.com/nb/om-havila/jobb-i-havila/",
+  "https://www.havilavoyages.com/nb/om-havila/katalog/",
+  "https://www.havilavoyages.com/nb/om-havila/kontakt-oss/",
+  "https://www.havilavoyages.com/nb/om-havila/kystrutens-historie/",
+  "https://www.havilavoyages.com/nb/om-havila/media/",
+  "https://www.havilavoyages.com/nb/om-havila/tilbakemeldinger/",
+  "https://www.havilavoyages.com/nb/personvern/",
+  "https://www.havilavoyages.com/nb/ruteplan",
+  "https://www.havilavoyages.com/nb/transparency-act-information-reporting/",
+  "https://www.havilavoyages.com/nb/vilkar/",
+  "https://www.linkedin.com/company/havila-kystruten",
+  "https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html",
+  "https://www.microsoft.com/en-us/privacy/privacystatement",
+  "https://www.stackadapt.com/privacy",
+  "https://www.youtube.com/channel/UCFRSVSp4OHOHeDBOu9ZnOfg",
+  "javascript:TogglePage(this, 'coiPage-1')",
+  "javascript:TogglePage(this, 'coiPage-3');",
+  "phone:+4770007070"
+ ],
+ "booking_links": [
+  "https://www.facebook.com/havilakystruten",
+  "https://www.facebook.com/privacy/explanation"
+ ],
+ "buttons": [
+  "Vis detaljer",
+  "Skjul detaljer",
+  "Nødvendige",
+  "Funksjonelle",
+  "Statistiske",
+  "Markedsføring",
+  "Andre",
+  "AVVIS ALLE",
+  "Lagre innstillinger",
+  "OK",
+  "Innstillinger",
+  "OK",
+  "NO",
+  "Meny",
+  "Bestill havn-til-havn",
+  "NO",
+  "Meny"
+ ],
+ "testids": [
+  "hs-analytics",
+  "CollectedForms-139741992",
+  "hubspot-web-interactives-loader",
+  "cookieBanner-139741992",
+  "hubspot-messages-loader",
+  "hs-ads-pixel-139741992",
+  "sa-css",
+  "_goober",
+  "cookie-information-template-wrapper",
+  "coiOverlay",
+  "coi-banner-wrapper",
+  "coiPage-1",
+  "coi-expand",
+  "coiBannerHeadline",
+  "coi-banner-wrapper_label",
+  "show_details",
+  "hide_details",
+  "coiConsentBannerCategoriesWrapper",
+  "description-container-cookie_cat_necessary",
+  "description-container-cookie_cat_functional",
+  "description-container-cookie_cat_statistic",
+  "description-container-cookie_cat_marketing",
+  "description-container-cookie_cat_unclassified",
+  "declineButton",
+  "updateButton",
+  "switch-cookie_cat_necessary",
+  "cookie_cat_necessary",
+  "switch-cookie_cat_functional",
+  "cookie_cat_functional",
+  "switch-cookie_cat_statistic",
+  "cookie_cat_statistic",
+  "switch-cookie_cat_marketing",
+  "cookie_cat_marketing",
+  "coiPage-3",
+  "coi-banner-categories",
+  "Coi-Renew",
+  "coi-renew-svg",
+  "hs-web-interactives-top-push-anchor",
+  "__next",
+  "mcjs",
+  "__portal",
+  "__NEXT_DATA__",
+  "hs-script-loader",
+  "consent-file",
+  "batBeacon618249951086",
+  "hs-web-interactives-top-anchor",
+  "hs-interactives-modal-overlay",
+  "hs-web-interactives-bottom-anchor",
+  "hs-web-interactives-floating-container",
+  "hs-web-interactives-floating-top-left-anchor",
+  "hs-web-interactives-floating-top-right-anchor",
+  "hs-web-interactives-floating-bottom-left-anchor",
+  "hs-web-interactives-floating-bottom-right-anchor"
+ ],
+ "body": "Du kontrollerer dine egne data\n\nVi bruker teknologier, inkludert informasjonskapsler eller \"cookies\", til å samle informasjon om deg for forskjellige formål, inkludert forbedring av nettstedsfunksjoner, analyser av brukerstatistikk og for å tilby fremtidig markedsføring som å opplyse om tilbud og andre relevante budskap. Ved å trykke \"OK\" gir du din tillatelse til alle disse formålene. Under \"Vis detaljer\" kan du velge hvilke formål du ønsker eller ikke ønsker å samtykke til ved å klikke på avmerkingsboksen ved siden av formålet, og deretter trykke \"Lagre innstillingene\". Du kan trekke tilbake samtykket ditt til enhver tid ved å trykke på et lille ikonet i nederste venstre hjørne av nettsiden.\n\n\nLes mer om informasjonskapsler\n\n\nVis detaljer\nAVVIS ALLE\nOK\nNødvendige\nFunksjonelle\nStatistiske\nMarkedsføring\npowered by:\nCookie Information\nVåre reiser\nAktiviteter\nSkipene\nHavn til havn\n\nNO\n\nMeny\nSkreddersy din reise langs norskekysten\n\nVelg hvor du vil reise fra, og hvor du vil reise til, og skreddersy din helt egne havn-til-havn reise. Du kan reise mellom 34 havner langs den norske kystruten Bergen og Kirkenes. \n\nMat er ikke inkludert i havn-til-havn-reiser. Hvis du ønsker frokost, middag og lunsj må du kjøpe måltidspakke når du bestiller online (15 % rabatt), eller om bord.\n\nInnsjekk: Insjekking åpner vanligvis i det skipet legger til. Generelt sett er siste frist for innsjekk senest 15 min før avreise. I havner med kortere opphold starter innsjekk når dørene åpner. Se Innsjekk og avreise for mer informasjon.\n\n\n\nMat er ikke inkludert. Kan kjøpes ved bestilling eller om bord.\nSiste frist for innsjekk senest 15 min før avreise.\nDu må bestille reisen senest 2 timer før ankomst.\nDu kan velge liggestol eller lugar på reiser med overnatting.\nDu kan ikke bestille reisen tidligere enn 6 måneder før avreise.\nMer informasjon\nRabatter\nRuteplan\nOfte stilte spørsmål\nBestill havn-til-havn\n\nKlikk på knappen for å bestille. Dette vil sende deg til tjenesten vår som vil ta deg gjennom bestillingen.\n\nBestill havn-til-havn\n\nKontakt oss\n\nAddress\nMjølstadnesvegen\n6092 Fosnavåg\nNorge\n\n\n\n\nKundeservice\n\nNorge:\n\n+47 70 00 70 70\n\nOm oss\n\nKontakt oss\nReklamasjon og refusjon\nKystrutens historie\nMedia og Markedsføring\nLast ned vår brosjyre\nAgents\nJobb i Havila Kystruten\nOm Havila\n\nFølg oss\n\nFacebook\nInstagram\nYouTube\nLinkedIn\n\nPersonvernsider\n\nVilkår og betingelser\nPersonvern\nÅpenhetsloven: info og varsling\nABTA & FCDO",
+ "api": [
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.09524470854677503:1788322539:6IZirQESDIs0lasfZwNSwJZLuixMHG1if4GtMS0e9nw/a34a097f1cd48f7a",
+   "s": 200
+  },
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/rum?",
+   "s": 204
+  },
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/rum?",
+   "s": 204
+  },
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.09524470854677503:1788322539:6IZirQESDIs0lasfZwNSwJZLuixMHG1if4GtMS0e9nw/a34a097f1cd48f7a",
+   "s": 200
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/static/css/f88755e99ffa9cd471c9.css",
+   "s": 200
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb.json",
+   "s": 403
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/skipene.json",
+   "s": 403
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/reiser.json",
+   "s": 403
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/aktiviteter.json",
+   "s": 403
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/havn-til-havn.json",
+   "s": 403
+  },
+  {
+   "m": "POST",
+   "u": "https://o226054.ingest.sentry.io/api/5295548/envelope/?sentry_key=d6c05ba8ae00439a832dd2f1e48fc343&sentry_version=7",
+   "s": 403
+  },
+  {
+   "m": "GET",
+   "u": "https://api.puzzel.com/euwa/modules/configs/131936-7d749471-2b92-415f-8822-273339358691",
+   "s": 400
+  },
+  {
+   "m": "GET",
+   "u": "https://tags.srv.stackadapt.com/sa.jpeg",
+   "s": 200
+  },
+  {
+   "m": "GET",
+   "u": "https://tags.srv.stackadapt.com/saq_pxl?uid=h3q_v_B6Vf-LMIsFg8akKg&is_js=true&landing_url=https%3A%2F%2Fwww.havilavoyages.com%2Fnb%2Fhavn-til-havn&t=Port%20to%20Port%20%7C%20Havila%20Voyages%20-%20Havila%20Kystruten&tip=uKVKNAkJfzmjIt7iXjBRwvasFggYJEXcTuSH0IvJ7MI&host=https%3A%2F%2Fwww.havilavoyages.com&sa_conv_data_css_value=%27CiQwMWEwNjA4Yi0zMWYzLTdjMmMtYjZjYy01ODZkNDFlNDkxOTIQBBoCTkEgVw%27&sa_",
+   "s": 200
+  },
+  {
+   "m": "POST",
+   "u": "https://www.google-analytics.com/g/collect?v=2&tid=G-123456&gtm=45je68v1z8831014096za20gzb831014096zd831014096&_p=1788326129037&gcs=G100&gcd=13p3p3V3p5l1&npa=1&dma_cps=-&dma=0&gdid=dNmIyNz&are=1&cid=1855943879.1788326130&frm=0&gtm_up=1&pscdl=denied&rcb=12&sr=1600x1200&uaa=x86&uab=64&uafvl=HeadlessChrome%3B149.0.7827.55%7CChromium%3B149.0.7827.55%7CNot)A%253BBrand%3B24.0.0.0&uam=&uamb=0&uap=macOS&u",
+   "s": 204
+  },
+  {
+   "m": "POST",
+   "u": "https://h.clarity.ms/collect",
+   "s": 204
+  },
+  {
+   "m": "GET",
+   "u": "https://policy.app.cookieinformation.com/cookie-data/havilavoyages.com/cabl.json",
+   "s": 200
+  },
+  {
+   "m": "POST",
+   "u": "https://h.clarity.ms/collect",
+   "s": 204
+  },
+  {
+   "m": "GET",
+   "u": "https://cta-eu1.hubspot.com/web-interactives/public/v1/embed/combinedConfigs?portalId=139741992&currentUrl=https%3A%2F%2Fwww.havilavoyages.com%2Fnb%2Fhavn-til-havn&utk=79a00f95dd1b62601b98dd8433c98d4b&__hstc=48742969.79a00f95dd1b62601b98dd8433c98d4b.1788326131219.1788326131219.1788326131219.1&__hssc=48742969.1.1788326131219",
+   "s": 200
+  },
+  {
+   "m": "GET",
+   "u": "https://api-eu1.hubspot.com/livechat-public/v1/message/public?portalId=139741992&conversations-embed=static-1.28214&mobile=false&messagesUtk=6d31f745e5724dbdb7f630805edba497&traceId=6d31f745e5724dbdb7f630805edba497",
+   "s": 200
+  },
+  {
+   "m": "GET",
+   "u": "https://api-eu1.hubapi.com/hs-script-loader-public/v2/config/pixels-and-events/json?portalId=139741992",
+   "s": 200
+  },
+  {
+   "m": "POST",
+   "u": "https://e1-0850197d5e074be58352ddc860645af6.ecs.us-east-1.on.aws/events?cee=no",
+   "s": 200
+  },
+  {
+   "m": "POST",
+   "u": "https://h.clarity.ms/collect",
+   "s": 204
+  },
+  {
+   "m": "GET",
+   "u": "https://forms-eu1.hscollectedforms.net/collected-forms/v1/config/json?portalId=139741992&utk=79a00f95dd1b62601b98dd8433c98d4b",
+   "s": 200
+  }
+ ]
+}

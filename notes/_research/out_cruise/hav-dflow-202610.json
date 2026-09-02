@@ -1,0 +1,47 @@
+{
+ "url": "https://prod.havilavoyages.com/touchhvl/?inJson=%7B%22caller%22%3A%20%22D-FLOW%22%2C%20%22adults%22%3A%204%2C%20%22children%22%3A%200%2C%20%22locale%22%3A%20%22en%22%2C%20%22month%22%3A%2010%2C%20%22year%22%3A%202026%2C%20%22productTypes%22%3A%20%22NORWEGIAN%20COAST%22%7D",
+ "inJson": {
+  "caller": "D-FLOW",
+  "adults": 4,
+  "children": 0,
+  "locale": "en",
+  "month": 10,
+  "year": 2026,
+  "productTypes": "NORWEGIAN COAST"
+ },
+ "status": 200,
+ "final_url": "https://prod.havilavoyages.com/touchhvl/?inJson=%7B%22caller%22%3A%20%22D-FLOW%22%2C%20%22adults%22%3A%204%2C%20%22children%22%3A%200%2C%20%22locale%22%3A%20%22en%22%2C%20%22month%22%3A%2010%2C%20%22year%22%3A%202026%2C%20%22productTypes%22%3A%20%22NORWEGIAN%20COAST%22%7D",
+ "title": "Seaware",
+ "body": "",
+ "selects": [],
+ "inputs": [],
+ "buttons": [],
+ "api": [
+  {
+   "m": "POST",
+   "u": "https://prod.havilavoyages.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.09524470854677503:1788322539:6IZirQESDIs0lasfZwNSwJZLuixMHG1if4GtMS0e9nw/a34a11e98ad0fef1",
+   "s": 200,
+   "body": "",
+   "post": "bUl-DLd03ClzeIh1ipqDT5GyXtjW9K+BHqEdNwDGeweg9HodKLJrW4uQfzwcdimIp4GOGJQDJqXfNGfDADN46J0luaFXa+1cPXnhh5pp1vd-AYj$bLB1J6PtkGMOuRALdcurglyNlc8Ky+c17BsTIaQk1OoH416YUFjPHQ8DRuT+1EEhd3dGJGdlvm8GZmx4Ljcby9gWTQMEN7JsrKIsbW4vfsY0L0Fd+gL4P+rYHmnWkHp3sdi2MSgUdyA2gj63ectahwECNhoyZz8pRswMMyg+hIJT55z9zN4U5ghqJrots1eWkKabRT919ytUxfkKHO4gfTlQGIn864pRDeaAAK0sWNnLyjnqONRrGsCJjzgTgXyExQP-NcMSfZpct2MLT3407mCjx5$SXT561JjvwcGlYAw0G11rOZN-u0nCg5Oi7he1D7ABvBXUNQEG+Z1OYRqgcFAowJbhBw33LaBJu9qBPkUX+Q9tStWHPQkeyKiuncK1CG1XXKaPoA9nhK4-jzQGx2lhNR51JNea4ZR6dh6ROq6$$mD5nxUKu7fumXTjtzQMDvJB4r4sqNLC+j3tlZlwSTSoxY+-HODut0KUdHcd2EzOtYN0EGUeiRKP7$$welR+BcOLeJGGLA1Rftl1djIjnXN-jo1XfXAy9bW9xQ4toHlix7rb91tLePNGd2pv-dMZQH6xrhwyfsj0t1QE8GQPefNbWKOcMLTxQpyzsGbW4to8fvK+0TDBJ$wMsdw9iZTDOUDgpkQJ+xX9wiy3K+HFHchUxNR20rdA686LdpPiQFtc49ib3+d3nxefgP9ku4IdlCwUfAFGl$0kUrKWufRKdbXR6iD1jDI6KCiYMNMP750ZhQP$7xLJxhq0IqW+n-$sHPsmTY2dwLyf25KxAiGavf6-NW+WOgMjbUumTmINr3fOqAx3o47lrtODNLHnmuja84gl4UrIG+OEyjU5+9c5$wDEPP1veQ$R82I8izZ9YJ2Pouive$A8GBs1lTbSc2tvTu539ffz1cjKHB+vQGruWw+4YFaZopKD+k+KW-NaXUYe0nQFMt+sDy0-zwMIn$LiLctt63bkfaW3x7+M+UWrHikRadRNwGcLUKdNADpEMHUqZq55W2Z6cAjbMa6qbKCT61zGpTDTUXR481crNMPi-RUR2DJNEyh5vs6$2GDw6qgS$Cg6gCEf5jj8EQuHzYJH$7zDrDElap3eY7IRqgTldKBPtRR+2TNe4GEuJHZQDZG3D4w9U0rFgPAL0Oca8KoiHsmF8$f5W59GQtvaAmCUsyZ0LuQpPeghxU0og0WTtCbF4URrqkogjj9T+yteJwqF77CBWaYAzoYYWq+IAW7f3YynqaoYKuMkYIyK6c7uy2ZAH9bW9z7WfDBgjLHONdfyrAUx9M5L7enCjor+sYD0TKW23FurqD60+4axYjQfIxuNNKdJSwB4bKezv5chEIutHOEJe4uWuye+QsmBNvTgtcUnIHC-XW4Mo+ye7JWx8Ehxu6yLOuHr4ADuqfY-0TM$3kC1xkXTcXSrpRHAUkbj+2Oj97FUQUR6Hc61LQMKC6LQFtAAvKUaQK-ENYpWhHESe0CizrjBGS+RfT1j$HXO0FauY4+gj0nButQygq4pE2zBozG3IwMQrajQuu5OLcEp6EDkagmZxB5I5oIwE58Cn41BtMGs5nDTnyrq-KieEvjJbSYKy0IleljcZfMrRxbnI5RqrhzFA6CX0xkq6fEYfTfFocBkkjpzGon8U$nu3BqB2yyY8NgfF52bm+3OkdG6P+DtnRuQ+0lNLkmt8F2hufwFs-UDLy9WC6mzgUry3YU6xI1URJNkAftd7hxga$3-3y5iTSX+j+cKCBxH05zBkFmdtjXYmywcPOokGWurZ36vw6Hg0trH7Wk9nHl7Mgf6yttQ5Qero4MSL8RoIyP$P1Ar44y6oyXb6LnYN1k5RoQLsLcdAs0-cHLs9AepFt-MOZqfcQ8DYZriqMruFh3BZIWxgpx3NfRfM9+fxABtbZgYR7Yle17m1gFnZ$GMZ6g$TvsO9p$vz8wTxHmFayAA-FSaDYkKLkDdlh25e3ULyr5tOj4373E8DaIiGzA1R2a1Ize79ufYvweR7QN8-2dCfbP7QAMOANpZC9+SHUTedKytasAm$4LLpvp4BASaJxkKBlqH9Rp3wn3$UPepj1rlD6EIR78HuiIfa67cNbq0n5QMUMTCTf1D0eKA+eF3Sfgas$Ow-sfWW0G1jD56Dgfm1mC4ue-4oPTA$aXQWsP1rRHfgWD3okb-lPutiC$OjiarMt9MxMx9SuHO-o3F+si9BaqXfeGSjvKy+rcDzp-znBPQuTc$8XN6rQfa-WluYf1m$DQWyAqQDXsB7C1YIcv1mLIcXwXMiCNF-LdaY4I-Pj6rEb-zLZHG$0FKrJKT8aaNciEM8$4WYLfn7ay3wgWU0TuhANDSwR5jiFXO2tZobEXc6iMtAyyYcTD7cjF6GZaTPbO+FHM0bnmuK37LlrPFaX2oyeduDnBhH+A5BbltTf+OQj39NtOcg4CwIsHShietgn-KgRC+Y+OXYH2UEbl0NUswo4Cvvn9K66j5m2yo5Kt$15vgBTGwTN+-ivo2osbuSKgylGcjuhbI$jTwD1I7HxkZ8rOyf1LW1jZA$LTWL$EwvH$NgirxSUG$WDh5XuBcIY1u2qJFv4PzdHdZx6-ybg7HA+0ufXFjaRH3BLkHb8IDWU1YlZ5OzAnDEmhGB5Rda3rdALHCwZUNmgnfQ38zzIj3kfsx21O4BNSugY4Rq-MHKZS$CKRvRFrOgA8HgNm71O71R8B2vDEeq36f3XzEZg5UMwlKC$g8xWdus6uqIlqYclQmCk3Dh507w5OZwPIlOmK9WexUi2m1JhKv3eUjFhFF5rGPNBhvurKYpr1RxS2St5MsOf$0eTFc9GCEoLx+qNOiNAclPnW8DHmtXMLCbKtl0uqSQRbp8+qW33848ifg2lcE-ai2lG91f3HrGZD7OvBQRBc0"
+  },
+  {
+   "m": "POST",
+   "u": "https://prod.havilavoyages.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.09524470854677503:1788322539:6IZirQESDIs0lasfZwNSwJZLuixMHG1if4GtMS0e9nw/a34a11e98ad0fef1",
+   "s": 200,
+   "body": "",
+   "post": "bUl-DLd03ClzeIh1ipqDT5GyXtjW9K+BHqEdNwDGeweg9HodKLJrW4uQfzwcdimIp4GOGJQDJqXfNGfDADN46J0luaFXa+1cPXnhh5pp1vd-AYj$bLB1J6PtkGMOuRALdcurglyNlc8Ky+c17BsTIaQk1OoH416YUFjPHQ8DRuT+1EEhd3dGJGdlvm8GZmx4Ljcby9gWTQMEN7JsrKIsbW4vfsY0L0Fd+gL4P+rYHmnWkHp3sdi2MSgUdyA2gj63ectahwECNhoyZz8pRswMMyg+hIJT55z9zN4U5ghqJrots1eWkKabRT919ytUxfkKHO4gfTlQGIn864pRDeaAAK0sWNnLyjnqONRrGsCJjzgTgXyExQP-NcMSfZpct2MLT3407mCjx5$SXT561JjvwcGlYAw0G11rOZN-u0nCg5Oi7he1D7ABvBXUNQEG+Z1OYRqgcFAowJbhBw33LaBJu9qBPkUX+Q9tStWHPQkeyKiuncK1CG1XXKaPoA9nhK4-jzQGx2lhNR51JNea4ZR6dh6ROq6$$mD5nxUKu7fumXTjtzQMDvJB4r4sqNLC+j3tlZlwSTSoxY+-HODut0KUdHcd2EzOtYN0EGUeiRKP7$$welR+BcOLeJGGLA1Rftl1djIjnXN-jo1XfXAy9bW9xQ4toHlix7rb91tLePNGd2pv-dMZQH6xrhwyfsj0t1QE8GQPefNbWKOcMLTxQpyzsGbW4to8fvK+0TDBJ$wMsdw9iZTDOUDgpkQJ+xX9wiy3K+HFHchUxNR20rdA686LdpPiQFtc49ib3+d3nxefgP9ku4IdlCwUfAFGl$0kUrKWufRKdbXR6iD1jDI6KCiYMNMP750ZhQP$7xLJxhq0IqW+n-$sHPsmTY2dwLyf25KxAiGavf6-NW+WOgMjbUumTmINr3fOqAx3o47lrtODNLHnmuja84gl4UrIG+OEyjU5+9c5$wDEPP1veQ$R82I8izZ9YJ2Pouive$A8GBs1lTbSc2tvTu539ffz1cjKHB+vQGruWw+4YFaZopKD+k+KW-NaXUYe0nQFMt+sDy0-zwMIn$LiLctt63bkfaW3x7+M+UWrHikRadRNwGcLUKdNADpEMHUqZq55W2Z6cAjbMa6qbKCT61zGpTDTUXR481crNMPi-RUR2DJNEyh5vs6$2GDw6qgS$Cg6gCEf5jj8EQuHzYJH$7zDrDElap3eY7IRqgTldKBPtRR+2TNe4GEuJHZQDZG3D4w9U0rFgPAL0Oca8KoiHsmF8$f5W59GQtvaAmCUsyZ0LuQpPeghxU0og0WTtCbF4URrqkogjj9T+yteJwqF77CBWaYAzoYYWq+IAW7f3YynqaoYKuMkYIyK6c7uy2ZAH9bW9z7WfDBgjLHONdfyrAUx9M5L7enCjor+sYD0TKW23FurqD60+4axYjQfIxuNNKdJSwB4bKezv5chEIutHOEJe4uWuye+QsmBNvTgtcUnIHC-XW4Mo+ye7JWx8Ehxu6yLOuHr4ADuqfY-0TM$3kC1xkXTcXSrpRHAUkbj+2Oj97FUQUR6Hc61LQMKC6LQFtAAvKUaQK-ENYpWhHESe0CizrjBGS+RfT1j$HXO0FauY4+gj0nButQygq4pE2zBozG3IwMQrajQuu5OLcEp6EDkagmZxB5I5oIwE58Cn41BtMGs5nDTnyrq-KieEvjJbSYKy0IleljcZfMrRxbnI5RqrhzFA6CX0xkq6fEYfTfFocBkkjpzGon8U$nu3BqB2yyY8NgfF52bm+3OkdG6P+DtnRuQ+0lNLkmt8F2hufwFs-UDLy9WC6mzgUry3YU6xI1URJNkAftd7hxga$3-3y5iTSX+j+cKCBxH05zBkFmdtjXYmywcPOokGWurZ36vw6Hg0trH7Wk9nHl7Mgf6yttQ5Qero4MSL8RoIyP$P1Ar44y6oyXb6LnYN1k5RoQLsLcdAs0-cHLs9AepFt-MOZqfcQ8DYZriqMruFh3BZIWxgpx3NfRfM9+fxABtbZgYR7Yle17m1gFnZ$GMZ6g$TvsO9p$vz8wTxHmFayAA-FSaDYkKLkDdlh25e3ULyr5tOj4373E8DaIiGzA1R2a1Ize79ufYvweR7QN8-2dCfbP7QAMOANpZC9+SHUTedKytasAm$4LLpvp4BASaJxkKBlqH9Rp3wn3$UPepj1rlD6EIR78HuiIfa67cNbq0n5QMUMTCTf1D0eKA+eF3Sfgas$Ow-sfWW0G1jD56Dgfm1mC4ue-4oPTA$aXQWsP1rRHfgWD3okb-lPutiC$OjiarMt9MxMx9SuHO-o3F+si9BaqXfeGSjvKy+rcDzp-znBPQuTc$8XN6rQfa-WluYf1m$DQWyAqQDXsB7C1YIcv1mLIcXwXMiCNF-LdaY4I-Pj6rEb-zLZHG$0FKrJKT8aaNciEM8$4WYLfn7ay3wgWU0TuhANDSwR5jiFXO2tZobEXc6iMtAyyYcTD7cjF6GZaTPbO+FHM0bnmuK37LlrPFaX2oyeduDnBhH+A5BbltTf+OQj39NtOcg4CwIsHShietgn-KgRC+Y+OXYH2UEbl0NUswo4Cvvn9K66j5m2yo5Kt$15vgBTGwTN+-ivo2osbuSKgylGcjuhbI$jTwD1I7HxkZ8rOyf1LW1jZA$LTWL$EwvH$NgirxSUG$WDh5XuBcIY1u2qJFv4PzdHdZx6-ybg7HA+0ufXFjaRH3BLkHb8IDWU1YlZ5OzAnDEmhGB5Rda3rdALHCwZUNmgnfQ38zzIj3kfsx21O4BNSugY4Rq-MHKZS$CKRvRFrOgA8HgNm71O71R8B2vDEeq36f3XzEZg5UMwlKC$g8xWdus6uqIlqYclQmCk3Dh507w5OZwPIlOmK9WexUi2m1JhKv3eUjFhFF5rGPNBhvurKYpr1RxS2St5MsOf$0eTFc9GCEoLx+qNOiNAclPnW8DHmtXMLCbKtl0uqSQRbp8+qW33848ifg2lcE-ai2lG91f3HrGZD7OvBQRBc0"
+  },
+  {
+   "m": "POST",
+   "u": "https://prod.havilavoyages.com/cdn-cgi/rum?",
+   "s": 204,
+   "body": "",
+   "post": "{\"startTime\":1788326473164,\"pageloadId\":\"64e1e367-df3c-4b55-97b6-c6dfad396a9c\",\"eventType\":1,\"nt\":\"navigate\",\"location\":\"https://prod.havilavoyages.com/touchhvl/\",\"versions\":{\"fl\":\"2024.11.0\",\"js\":\"2026.8.4\",\"timings\":2},\"memory\":{\"totalJSHeapSize\":12700000,\"usedJSHeapSize\":10000000,\"jsHeapSizeLimit\":3760000000},\"firstPaint\":832,\"firstContentfulPaint\":0,\"timingsV2\":{\"nextHopProtocol\":\"h2\",\"domainLookupStart\":0.9000000953674316,\"domainLookupEnd\":20.100000381469727,\"connectStart\":20.100000381469727,\"connectEnd\":41.200000286102295,\"secureConnectionStart\":28,\"requestStart\":41.40000009536743,\"responseStart\":801.5,\"responseEnd\":803.1000003814697,\"domInteractive\":819.4000000953674,\"domComplete\":854.3000001907349,\"loadEventStart\":854.4000000953674,\"loadEventEnd\":854.9000000953674,\"finalResponseHeadersStart\":801.5,\"firstInterimResponseStart\":0,\"transferSize\":6957,\"decodedBodySize\":18412},\"siteToken\":\"76c754afc8dd455a88f6c9c1eb12b2c9\",\"st\":2}"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.gstatic.com/flutter-canvaskit/ef0cd000916d64fa0c5d09cc809fa7ad244a5767/chromium/canvaskit.wasm",
+   "s": 200
+  }
+ ]
+}

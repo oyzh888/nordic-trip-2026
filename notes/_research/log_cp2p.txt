@@ -1,0 +1,222 @@
+status=200 xhr=60 err=
+Hurtigruten
+Cruises
+Offers
+Ships
+Why Hurtigruten?
+Explore Norway
+Help and FAQs
+Search
+My Booking
+Book a voyage
+Port to port
+
+Customize your own port-to-port sailing along the Norwegian coast.
+
+Where do you want to go in Norway?
+From Port
+To Port
+Show Route Map
+Discounts for children
+
+Children up to 5 years old travel for free, and those aged 6 to 17 get a 75% discount on the fare price. (Please note: these discounts apply only to the ticket price, and are not applicable to cabins.)
+
+You must provide valid proof upon boarding. Click here to see the criteria.
+
+Frequently asked questions
+
+Read our port-to-port FAQs to find out about booking and payment.
+
+Short voyages | Great weekend escapes
+
+Choose from our most popular short voyages along the Norwegian coast
+
+Self-guided cruise and tour
+
+Oslo - Trondheim - Bergen - Oslo (Full-trip)
+
+Sail and Rail Norway
+
+Rail & sea adventure through central Norway on The Coastal Express & Dovre Line
+
+Regular departures
+
+5 days
+
+8 Stops
+
+Half board (breakfast, dinner)
+
+Price from
+
+$1,073
+
+Tromsø - Honningsvåg - Båtsfjord - Kirkenes (Northbound)
+
+Arctic Capital to the Norwegian Border
+
+Tromsø, the North Cape & Norway's eastern edge in one short voyage
+
+Regular departures
+
+3 days
+
+13 Stops
+
+Meals not included
+
+Price from
+
+$321
+
+Trondheim - Bodø - Tromsø (Northbound)
+
+Viking Capital to the Arctic Capital
+
+A classic short sailing crossing the Arctic Circle between two iconic Norwegian cities
+
+Regular departures
+
+3 days
+
+15 Stops
+
+Meals not included
+
+Price from
+
+$424
+
+Kirkenes - Hammerfest - Svolvær (Southbound)
+
+Norwegian Border to Lofoten
+
+A short voyage showing the beauty of Lofoten & Norway's north coast
+
+Regular departures
+
+3 days
+
+17 Stops
+
+Meals not included
+
+Price from
+
+$502
+
+Bergen - Ålesund - Trondheim - Svolvær (Northbound)
+
+West Fjords to Lofoten
+
+A short Arctic-bound voyage on our historic coastal route, exploring fjords & islands
+
+Regular departures
+
+4 days
+
+16 Stops
+
+Meals not included
+
+Price from
+
+$650
+
+Bergen - Ålesund - Trondheim - Bodø - Tromsø (Northbound)
+
+West Fjords to the Arctic Capital
+
+A short northbound sailing on our classic coastal route, through fjords to the Arctic
+
+Regular departures
+
+5 days
+
+22 Stops
+
+Meals not included
+
+Price from
+
+$892
+
+Bergen - Ålesund - Trondheim (Northbound)
+
+West Fjords to the Viking Capital
+
+A short voyage exploring Art Nouveau gems & UNESCO-listed fjords
+
+Regular departures
+
+3 days
+
+8 Stops
+
+Meals not included
+
+Price from
+
+$427
+
+Svolvær - Brønnøysund - Trondheim - Bergen (
+200 GET https://dev.visualwebsiteoptimizer.com/j.php?a=1155581&u=https%3A%2F%2Fwww.hurtigruten.com%2Fen-us%2Fport-to-port&vn=2.2&ph=1&st=153.60000038146973&x=true
+204 POST https://www.hurtigruten.com/cdn-cgi/rum?
+204 POST https://www.hurtigruten.com/cdn-cgi/rum?
+200 GET https://dev.visualwebsiteoptimizer.com/cdn/edrv/worker-d1465c2fa6101b9e26256b6e05f49649.br.js
+200 GET https://dev.visualwebsiteoptimizer.com/cdn/edrv/va_gq-4a77fd16ceaed5313d780dca6636cc5c.br.js
+200 GET https://cdn.cookielaw.org/consent/cf983c85-0f2d-479b-9264-6798cb176ea4/cf983c85-0f2d-479b-9264-6798cb176ea4.json
+200 GET https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location
+200 GET https://dev.visualwebsiteoptimizer.com/cdn/edrv/nc-f9ab3363bfe7af435e253936d600557b.br.js
+200 GET https://cdn.cookielaw.org/consent/cf983c85-0f2d-479b-9264-6798cb176ea4/019c997c-f44a-73f4-ba67-7bf654d2435a/en.json
+200 GET https://cdn.cookielaw.org/scripttemplates/202510.1.0/assets/otCommonStyles.css
+200 GET https://cdn.cookielaw.org/scripttemplates/202510.1.0/assets/otFlat.json
+200 GET https://cdn.cookielaw.org/scripttemplates/202510.1.0/assets/v2/otPcPanel.json
+200 GET https://cdn.cookielaw.org/logos/static/ot_guard_logo.svg
+200 POST https://www.google.com/ccm/collect?rcb=0&frm=0&apvc=1&ae=g&auid=318089783.1788325166&dt=Hurtigruten%20Port%20to%20Port%20%7C%20Hurtigruten%20US&en=page_view&dl=https%3A%2F%2Fwww.hurtigruten.com%2Fen-u
+204 POST https://ad.doubleclick.net/ccm/s/collect?auid=318089783.1788325166&gtm=45Fe68v1v9137310506za204zd9137310506xea&fmt=8
+200 POST https://www.google.com/rmkt/collect/375971142/?random=1788325166495&cv=11&fst=1788325166495&fmt=8&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be68v1v881490812z89137310506za20gzb9137310506zd91373105
+200 POST https://www.google.com/ccm/collect?rcb=9&frm=0&apvc=0&auid=318089783.1788325166&dt=Hurtigruten%20Port%20to%20Port%20%7C%20Hurtigruten%20US&tid=AW-375971142&en=page_view&dl=https%3A%2F%2Fwww.hurtigrute
+200 POST https://www.google.com/rmkt/collect/375971142/?random=1788325166517&cv=11&fst=1788325166517&fmt=8&bg=ffffff&guid=ON&async=1&en=gtm.js&gtm=45be68v1v881490812z89137310506za20gzb9137310506zd9137310506xea
+200 POST https://www.google.com/ccm/collect?rcb=9&frm=0&apvc=0&ae=g&auid=318089783.1788325166&dt=Hurtigruten%20Port%20to%20Port%20%7C%20Hurtigruten%20US&tid=AW-375971142&en=gtm.js&dl=https%3A%2F%2Fwww.hurtigru
+200 GET https://www.hurtigruten.com/en-us/cruises/trondheim-tromso?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises/sail-and-rail-norway-5-days?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises/tromso-kirkenes?_rsc=J_joxv3TljkkBXrI
+200 GET https://api.omappapi.com/v2/embed/29218?d=hurtigruten.com&device=desktop
+200 GET https://www.hurtigruten.com/en-us/deals?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/why-hurtigruten?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/on-board/ships?_rsc=J_joxv3TljkkBXrI
+204 POST https://bat.bing.com/p/insights/c/l
+200 GET https://www.hurtigruten.com/en-us/explore-norway?_rsc=J_joxv3TljkkBXrI
+204 POST https://www.hurtigruten.com/cdn-cgi/rum?
+200 GET https://www.hurtigruten.com/en-us/help?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45he68v1v877299788z89137310506za20kzb9137310506zd9137310506&_p=1788325166039&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=788517462
+200 POST https://gm2tczbtgzsdgzrrmq3dmmzqmq.c360a.salesforce.com/web/v2/authentication
+200 POST https://gm2tczbtgzsdgzrrmq3dmmzqmq.c360a.salesforce.com/web/v2/authentication
+200 POST https://gm2tczbtgzsdgzrrmq3dmmzqmq.c360a.salesforce.com/web/v2/authentication
+200 GET https://web.lon.infinity-tracking.com/v3/info?pv=3&v=20260819&ua=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F128.0.0.0+Safari%2F537.
+204 POST https://n.clarity.ms/collect
+200 GET https://www.googleadservices.com/pagead/conversion/375971142/?random=1851582336&fst=1788325167057&cv=10&fmt=7&label=xYeQCLTQov8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z89
+200 GET https://www.googleadservices.com/pagead/conversion/375971142/?random=1851582336&fst=1788325167057&cv=10&fmt=7&label=xYeQCLTQov8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z89
+200 GET https://www.googleadservices.com/pagead/conversion/375971142/?random=216778845&fst=1788325167065&cv=10&fmt=7&label=ZORdCPrHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z891
+200 GET https://www.googleadservices.com/pagead/conversion/375971142/?random=1280714607&fst=1788325167061&cv=10&fmt=7&label=kYzkCPfHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z89
+200 GET https://www.googleadservices.com/pagead/conversion/375971142/?random=216778845&fst=1788325167065&cv=10&fmt=7&label=ZORdCPrHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z891
+200 GET https://www.googleadservices.com/pagead/conversion/375971142/?random=1280714607&fst=1788325167061&cv=10&fmt=7&label=kYzkCPfHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z89
+204 POST https://gm2tczbtgzsdgzrrmq3dmmzqmq.c360a.salesforce.com/web/events/694c30e4-7fc2-43cd-a01c-664f944f7068
+204 POST https://gm2tczbtgzsdgzrrmq3dmmzqmq.c360a.salesforce.com/web/events/694c30e4-7fc2-43cd-a01c-664f944f7068
+204 POST https://gm2tczbtgzsdgzrrmq3dmmzqmq.c360a.salesforce.com/web/events/694c30e4-7fc2-43cd-a01c-664f944f7068
+302 POST https://googleads.g.doubleclick.net/pagead/viewthroughconversion/375971142/?random=47363376&fst=1788325167065&cv=10&fmt=8&label=ZORdCPrHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v
+200 GET https://www.google.com/pagead/1p-conversion/375971142/?random=47363376&fst=1788325167065&cv=10&fmt=8&label=ZORdCPrHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z89137310506
+302 POST https://googleads.g.doubleclick.net/pagead/viewthroughconversion/375971142/?random=1667872159&fst=1788325167057&cv=10&fmt=8&label=xYeQCLTQov8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v
+200 GET https://www.google.com/pagead/1p-conversion/375971142/?random=1667872159&fst=1788325167057&cv=10&fmt=8&label=xYeQCLTQov8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z891373105
+302 POST https://googleads.g.doubleclick.net/pagead/viewthroughconversion/375971142/?random=370427270&fst=1788325167061&cv=10&fmt=8&label=kYzkCPfHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1
+200 GET https://www.google.com/pagead/1p-conversion/375971142/?random=370427270&fst=1788325167061&cv=10&fmt=8&label=kYzkCPfHpP8bEMa6o7MB&bg=ffffff&guid=ON&u_w=1600&u_h=1100&gtm=45h91e68v1v877299788z8913731050
+204 GET https://web.lon.infinity-tracking.com/v1/tracked-sites?userAgent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F128.0.0.0+Safari%2F537.
+204 POST https://n.clarity.ms/collect
+200 GET https://nas.lon.infinity-tracking.net/allocate?pv=3&v=20260819&ua=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F128.0.0.0+Safari%2F537
+204 PUT https://web.lon.infinity-tracking.com/v1/meta
+204 POST https://web.lon.infinity-tracking.com/v1/web-event
+204 POST https://n.clarity.ms/collect
+200 GET https://nas.lon.infinity-tracking.net/allocate?pv=3&v=20260819&ua=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F128.0.0.0+Safari%2F537

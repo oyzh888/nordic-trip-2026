@@ -1,0 +1,35 @@
+{
+ "request": {
+  "searchInterval": "day",
+  "locale": "en-us",
+  "automaticPromotionCode": null,
+  "promotionCode": null,
+  "fromDate": "2026-09-27T22:00:00.000Z",
+  "toDate": "2026-10-03T22:00:00.000Z",
+  "isReturnTrip": false,
+  "isViaKirkenes": false,
+  "fromPort": "SVJ",
+  "toPort": "TOS",
+  "deckspaces": null,
+  "cabins": [
+   {
+    "adults": 4,
+    "children": 0,
+    "infants": 0,
+    "companions": 0,
+    "students": 0,
+    "seniors": 0,
+    "militaryServicePersons": 0,
+    "wheelchairs": 0,
+    "pets": 0
+   }
+  ],
+  "vehicles": {
+   "cars": 0,
+   "motorcycles": 0
+  },
+  "requestType": "voyage"
+ },
+ "status": 200,
+ "response": []
+}

@@ -1,0 +1,12 @@
+== hav-nb-p2p status=200 
+  booking_links: ['https://www.facebook.com/havilakystruten', 'https://www.facebook.com/privacy/explanation']
+  buttons: ['Vis detaljer', 'Skjul detaljer', 'Nødvendige', 'Funksjonelle', 'Statistiske', 'Markedsføring', 'Andre', 'AVVIS ALLE', 'Lagre innstillinger', 'OK', 'Innstillinger', 'OK', 'NO', 'Meny', 'Bestill havn-til-havn', 'NO', 'Meny']
+  api hosts: ['api-eu1.hubapi.com', 'api-eu1.hubspot.com', 'api.puzzel.com', 'cta-eu1.hubspot.com', 'e1-0850197d5e074be58352ddc860645af6.ecs.us-east-1.on.aws', 'forms-eu1.hscollectedforms.net', 'h.clarity.ms', 'o226054.ingest.sentry.io', 'policy.app.cookieinformation.com', 'tags.srv.stackadapt.com', 'www.google-analytics.com', 'www.havilavoyages.com']
+== hav-nb-rute status=403 
+  booking_links: []
+  buttons: ['Click to reveal']
+  api hosts: ['www.havilavoyages.com']
+== hav-en-home status=403 
+  booking_links: []
+  buttons: ['Click to reveal']
+  api hosts: ['www.havilavoyages.com']

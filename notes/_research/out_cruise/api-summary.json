@@ -1,0 +1,72 @@
+[
+ {
+  "slug": "svj-tos-w0928",
+  "dep": "2026-09-27T20:15:00.000Z",
+  "ship": "MS Richard With",
+  "from": 418,
+  "cats": "PolarOutside=$418"
+ },
+ {
+  "slug": "svj-tos-w0928",
+  "dep": "2026-09-30T20:15:00.000Z",
+  "ship": "MS Kong Harald",
+  "from": 418,
+  "cats": "PolarOutside=$418, ArcticSuperior=$563"
+ },
+ {
+  "slug": "svj-tos-w0928",
+  "dep": "2026-10-03T20:15:00.000Z",
+  "ship": "MS Nordlys",
+  "from": 563,
+  "cats": "ArcticSuperior=$563"
+ },
+ {
+  "slug": "svj-tos-w1005",
+  "dep": "2026-10-04T20:15:00.000Z",
+  "ship": "MS Nordkapp",
+  "from": 418,
+  "cats": "PolarOutside=$418, ArcticSuperior=$563"
+ },
+ {
+  "slug": "svj-tos-w1005",
+  "dep": "2026-10-06T20:15:00.000Z",
+  "ship": "MS Polarlys",
+  "from": 310,
+  "cats": "PolarInside=$310, PolarOutside=$364, ArcticSuperior=$563"
+ },
+ {
+  "slug": "svj-tos-w1005",
+  "dep": "2026-10-08T20:15:00.000Z",
+  "ship": "MS Richard With",
+  "from": 310,
+  "cats": "PolarInside=$310, PolarOutside=$418, ArcticSuperior=$563"
+ },
+ {
+  "slug": "svj-tos-deck-w0928",
+  "dep": null,
+  "ship": null,
+  "from": null,
+  "cats": ""
+ },
+ {
+  "slug": "svj-tos-w0921",
+  "dep": "2026-09-22T20:15:00.000Z",
+  "ship": "MS Nordlys",
+  "from": 418,
+  "cats": "PolarOutside=$418"
+ },
+ {
+  "slug": "svj-tos-w0921",
+  "dep": "2026-09-23T20:15:00.000Z",
+  "ship": "MS Nordkapp",
+  "from": 351,
+  "cats": "PolarOutside=$351, ArcticSuperior=$540"
+ },
+ {
+  "slug": "svj-tos-w0921",
+  "dep": "2026-09-25T20:15:00.000Z",
+  "ship": "MS Polarlys",
+  "from": 310,
+  "cats": "PolarInside=$310, PolarOutside=$364, ArcticSuperior=$563"
+ }
+]

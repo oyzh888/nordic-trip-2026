@@ -1,0 +1,4 @@
+hrg-p2p: status=404 xhr=27 err=
+hrg-uk-p2p: status=521 xhr=0 err=
+havila-p2p: status=404 xhr=15 err=
+havila-book: status=403 xhr=1 err=

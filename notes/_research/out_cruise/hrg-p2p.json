@@ -1,0 +1,231 @@
+{
+ "slug": "hrg-p2p",
+ "url": "https://www.hurtigruten.com/en-us/norwegian-coastal-express/port-to-port",
+ "status": 404,
+ "final_url": "https://www.hurtigruten.com/en-us/norwegian-coastal-express/port-to-port",
+ "title": "Page not found",
+ "body": "Hurtigruten\nCruises\nOffers\nShips\nWhy Hurtigruten?\nExplore Norway\nHelp and FAQs\nSearch\nMy Booking\nBook a voyage\nNorwegian-coastal-expres...\nPort-to-port\n404 error\nIt seems the page you were looking for has been lost.\n\nIf you reached this error page by typing an address into your web browser, please verify the address again and try reloading the page. Otherwise, please return to our Home Page.\n\nBack to homepage\nSign up for our newsletter\n\nReceive special offers, exciting new itineraries and fascinating articles delivered straight to your inbox.\n\nYes, sign me up!\nHurtigruten\nCONTACT\n+18883384303\nreservations@hurtigruten.com\nContact Us\nGENERAL\nFAQ\nBrochures\n1893 Ambassador Loyalty Program\nSUPPORT\nMy Booking\nMake a payment\nSubmit feedback or request a refund\nTerms and Conditions\nSupplier invoicing\nABOUT\nAbout Hurtigruten\nHurtigruten Svalbard\nAwards and Accolades\nSustainability\nCareers\nPress\nFor Agents\nGO TO\nSailing plan\nBook a port-to-port sailing\nWE ACCEPT THE FOLLOWING PAYMENT METHODS\n\n© 2026 Hurtigruten\n\nStatement of Privacy\nCookies\nCookies Settings\nAccessibility Statement\nNorth America\nGlobal\nAustralia\nDenmark\nFrance\nGermany\nNorth America\nNorway\nSweden\nSwitzerland\nUnited Kingdom\n\nBy clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.\nCookies Settings Accept All Cookies",
+ "selects": [
+  {
+   "name": "",
+   "id": "",
+   "opts": [
+    "GLOBAL|Global",
+    "AU|Australia",
+    "DK|Denmark",
+    "FR|France",
+    "DE|Germany",
+    "US|North America",
+    "NO|Norway",
+    "SE|Sweden",
+    "CH|Switzerland",
+    "GB|United Kingdom"
+   ]
+  }
+ ],
+ "inputs": [
+  {
+   "name": "",
+   "id": "",
+   "ph": "Search for anything",
+   "type": "text"
+  },
+  {
+   "name": "ot-group-id-C0002",
+   "id": "ot-group-id-C0002",
+   "ph": "",
+   "type": "checkbox"
+  },
+  {
+   "name": "ot-group-id-C0003",
+   "id": "ot-group-id-C0003",
+   "ph": "",
+   "type": "checkbox"
+  },
+  {
+   "name": "ot-group-id-C0004",
+   "id": "ot-group-id-C0004",
+   "ph": "",
+   "type": "checkbox"
+  },
+  {
+   "name": "vendor-search-handler",
+   "id": "vendor-search-handler",
+   "ph": "Search…",
+   "type": "text"
+  },
+  {
+   "name": "",
+   "id": "chkbox-id",
+   "ph": "",
+   "type": "checkbox"
+  },
+  {
+   "name": "",
+   "id": "select-all-hosts-groups-handler",
+   "ph": "",
+   "type": "checkbox"
+  },
+  {
+   "name": "",
+   "id": "select-all-vendor-groups-handler",
+   "ph": "",
+   "type": "checkbox"
+  },
+  {
+   "name": "",
+   "id": "select-all-vendor-leg-handler",
+   "ph": "",
+   "type": "checkbox"
+  }
+ ],
+ "buttons": [
+  "Cookies Settings",
+  "Cookies Settings",
+  "Accept All Cookies",
+  "Allow All",
+  "Back Button",
+  "Filter Icon",
+  "Clear",
+  "Apply",
+  "Cancel",
+  "Confirm My Choices"
+ ],
+ "xhr": [
+  {
+   "m": "GET",
+   "u": "https://dev.visualwebsiteoptimizer.com/j.php?a=1155581&u=https%3A%2F%2Fwww.hurtigruten.com%2Fen-us%2Fnorwegian-coastal-express%2Fport-to-port&vn=2.2&ph=1&st=325.59999990463257&x=true",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://dev.visualwebsiteoptimizer.com/cdn/edrv/worker-d1465c2fa6101b9e26256b6e05f49649.br.js",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://dev.visualwebsiteoptimizer.com/cdn/edrv/va_gq-4a77fd16ceaed5313d780dca6636cc5c.br.js",
+   "t": "xhr"
+  },
+  {
+   "m": "POST",
+   "u": "https://www.hurtigruten.com/cdn-cgi/rum?",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/norwegian-coastal-express.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/norwegian-coastal-express/port-to-port.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/newsletter.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/cruises.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/deals.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/on-board/ships.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/why-hurtigruten.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/explore-norway.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/_next/data/coastal-app-id-e3d2eda-2026-09-01/en-us/help.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://cdn.cookielaw.org/consent/cf983c85-0f2d-479b-9264-6798cb176ea4/cf983c85-0f2d-479b-9264-6798cb176ea4.json",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://dev.visualwebsiteoptimizer.com/cdn/edrv/nc-f9ab3363bfe7af435e253936d600557b.br.js",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/nellie-coastal/_next/static/css/c87cf0be4a42d9bb.css",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/nellie-coastal/_next/static/css/b7e071565d285edc.css",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/nellie-coastal/_next/static/css/7ff534c3e2fdaded.css",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/nellie-coastal/_next/static/css/c92b91fa33266414.css",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.hurtigruten.com/nellie-coastal/_next/static/css/4d381d2d1cc999c0.css",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://cdn.cookielaw.org/consent/cf983c85-0f2d-479b-9264-6798cb176ea4/019c997c-f44a-73f4-ba67-7bf654d2435a/en.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://cdn.cookielaw.org/scripttemplates/202510.1.0/assets/otFlat.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://cdn.cookielaw.org/scripttemplates/202510.1.0/assets/v2/otPcPanel.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://cdn.cookielaw.org/scripttemplates/202510.1.0/assets/otCommonStyles.css",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://cdn.cookielaw.org/logos/static/ot_guard_logo.svg",
+   "t": "fetch"
+  }
+ ]
+}

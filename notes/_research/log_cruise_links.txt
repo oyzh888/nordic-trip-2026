@@ -1,0 +1,67 @@
+== hrg-home status=200 
+   /en-us/about-us/voyages/port-to-port   <- Port to Port
+   /en-us/about-us/voyages/svalbard-line   <- The Svalbard Line
+   /en-us/about-us/voyages/north-cape-line   <- The North Cape Line
+   /en-us/why-hurtigruten/campaigns/limited-collection-signature-cruises   <- Limited Collection voyages
+   /en-us/about-us/voyages/coastal-express   <- The Coastal Express
+   /en-us/sail-plan   <- Sailing plan
+   /en-us/extras/packages   <- Package your voyage with us
+   /en-us/port-to-port   <- Book your port-to-port journey
+   /en-us/why-hurtigruten/sustainability/esg-report   <- Our 2025 ESG report
+   https://www.hurtigruten.com/en-us/on-board/food-drink/signature-dining   <- Restaurants on our Signature Voyages
+   /en-us/on-board/food-drink/coastal-restaurants   <- Restaurants on our Original Voyages
+   /en-us/explore-norway/ports   <- Norwegian coastal ports
+   /en-us/my-booking/login   <- My Booking
+   /en-us/help/port-to-port   <- Port to port
+   /en-us/my-booking   <- My Booking
+   /en-us/cruises/astronomy-voyage-the-north-cape-line   <- 
+   https://www.facebook.com/HurtigrutenUSA/   <- 
+== hrg-nce status=404 
+   /en-us/about-us/voyages/port-to-port   <- Port to Port
+   /en-us/about-us/voyages/svalbard-line   <- The Svalbard Line
+   /en-us/about-us/voyages/north-cape-line   <- The North Cape Line
+   /en-us/why-hurtigruten/campaigns/limited-collection-signature-cruises   <- Limited Collection voyages
+   /en-us/about-us/voyages/coastal-express   <- The Coastal Express
+   /en-us/sail-plan   <- Sailing plan
+   /en-us/extras/packages   <- Package your voyage with us
+   /en-us/port-to-port   <- Book your port-to-port journey
+   /en-us/why-hurtigruten/sustainability/esg-report   <- Our 2025 ESG report
+   https://www.hurtigruten.com/en-us/on-board/food-drink/signature-dining   <- Restaurants on our Signature Voyages
+   /en-us/on-board/food-drink/coastal-restaurants   <- Restaurants on our Original Voyages
+   /en-us/explore-norway/ports   <- Norwegian coastal ports
+   /en-us/my-booking/login   <- My Booking
+   /en-us/help/port-to-port   <- Port to port
+   /en-us/my-booking   <- My Booking
+   https://www.facebook.com/HurtigrutenUSA/   <- 
+== havila-p2p-nb status=200 
+   https://www.facebook.com/privacy/explanation   <- Facebook -
+                      Personvernerklæring(opens i
+   https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies#ie=ie-11   <- Internet Explorer
+   https://support.microsoft.com/en-us/help/4027947/microsoft-edge-delete-cookies   <- Microsoft Edge
+   https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored   <- Mozilla Firefox
+   https://support.google.com/chrome/answer/95647?hl=en   <- Google Chrome
+   https://support.apple.com/en-us/HT201265   <- Safari
+   https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html   <- Flash cookies
+   https://support.apple.com/en-us/HT1677   <- Apple
+   https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DAndroid&hl=en   <- Chrome, Android
+   /nb/reiser   <- Våre reiser
+   /nb/havn-til-havn   <- Havn til havn
+   https://www.havilavoyages.com/nb/faq/innsjekk-og-avreise/innsjekking   <- Innsjekk og avreise
+   https://brand.havilavoyages.com/original/gallery/35232/files/original/17a7c4c5-88f9-44e0-a1ff-c8f11ea2c253.pdf   <- 
+   https://www.havilavoyages.com/nb/havn-til-havn/rabatter-havn-til-havn   <- Rabatter
+   https://www.havilavoyages.com/nb/ruteplan   <- Ruteplan
+   https://www.havilavoyages.com/nb/faq/havn-til-havn   <- Ofte stilte spørsmål
+   https://www.havilavoyages.com/nb/om-havila/kontakt-oss/   <- Kontakt oss
+   https://www.havilavoyages.com/nb/om-havila/tilbakemeldinger/   <- Reklamasjon og refusjon
+   https://www.havilavoyages.com/nb/om-havila/kystrutens-historie/   <- Kystrutens historie
+   https://www.havilavoyages.com/nb/om-havila/media/   <- Media og Markedsføring
+   https://www.havilavoyages.com/nb/om-havila/katalog/   <- Last ned vår brosjyre
+   https://www.havilavoyages.com/nb/om-havila/agent-site/   <- Agents
+   https://www.havilavoyages.com/nb/om-havila/jobb-i-havila/   <- Jobb i Havila Kystruten
+   https://www.havilavoyages.com/nb/om-havila/   <- Om Havila
+   https://www.facebook.com/havilakystruten   <- Facebook
+   https://instagram.com/havilavoyages   <- Instagram
+   https://www.havilavoyages.com/nb/vilkar/   <- Vilkår og betingelser
+   https://www.havilavoyages.com/nb/personvern/   <- Personvern
+   https://www.havilavoyages.com/nb/transparency-act-information-reporting/   <- Åpenhetsloven: info og varsling
+   https://www.havilavoyages.com/nb/abta/   <- ABTA & FCDO

@@ -1,0 +1,302 @@
+<!DOCTYPE html><html><head>
+  <base href="web1511/">
+  <script src="../../config/new-relic.js" type="text/javascript"></script>
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Seaware">
+
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Seaware">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <title>Seaware</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Needed for OKTA session retrieve, without opening Okta Sign In Widget  -->
+  <!--script src="oktaSessionRetrieve.js" defer></script-->
+
+  <!-- Needed for MASTERCARD payment system support  -->
+  <!--script src="mastercard.js" defer></script-->
+
+  <script type="text/javascript">
+    var _injected = {};
+
+    function injectJs(pathToJsFile, callback) {
+      if (_injected[pathToJsFile]) {
+        if (callback) callback("Already injected: " + pathToJsFile);
+        return;
+      }
+      _injected[pathToJsFile] = true;
+      var scriptEl = document.createElement('script');
+      scriptEl.src = pathToJsFile;
+      scriptEl.onload = function () {
+        if (callback) callback("Injected: " + pathToJsFile);
+      };
+      document.head.appendChild(scriptEl);
+    }
+  </script>
+
+  <!--link rel="stylesheet" href="loading.css"-->
+  <style>
+    .flutter-loader, .loading.hidden { display: none; }
+
+    @media only screen and (orientation: landscape) {
+      :root {
+        --size0: 30vh;
+      }
+    }
+
+    @media only screen and (orientation: portrait) {
+      :root {
+        --size0: 25vw;
+      }
+    }
+
+    :root {
+      --bkColor: #f4f2ef;
+      --frColor: #f4f2ef;
+      --circleDiam: calc(var(--size0) * 0.5); /* circle needed to overcome Chrome box-shadow shape bug */
+      --circleRadius: calc(var(--circleDiam) / 2.0);
+      --spreadBase: calc(var(--size0) * 0.25); /* (1 - 0.5) / 2 */
+      --spread1: calc(var(--spreadBase) + 10px);
+      --spread2: calc(var(--spreadBase) + 20px);
+      --spread3: calc(var(--spreadBase) + 30px);
+      --sliderWidth: calc(var(--size0) * 2.2);
+    }
+
+    html, body {
+      margin: 0;
+      background: var(--bkColor);
+    }
+
+    .loading {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      margin: -20px 0 0 -20px;
+      width: 40px;
+      line-height: 40px;
+    }
+
+    .loading h1 {
+      font-size: 50px;
+      font-family: "Arial";
+      color: white;
+      text-shadow: 4px 4px 0 #ff0000, 2px 3px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* By adding before & after at the end of the class allows the computer to identify and differentiate */
+    .loading span, .loading span:before, .loading span:after {
+      display: block;
+      /* This will add a block shape */
+      width: 2px;
+      height: 2px;
+      border-radius: 1px;
+      /*border: 1px solid red;*/
+      animation: rip 5s infinite;
+    }
+
+    .loading span {
+      position: absolute;
+      z-index: -1; /* This will place the ripple behind the text */
+      top: 40px;
+      left: 15px;
+    }
+
+    .loading span:before, .loading span:after {
+      content: "";
+      position: absolute;
+    }
+
+    .loading span:before {
+      animation-delay: 0.2s;
+      top: 5px;
+      left: 25px;
+    }
+
+    .loading span:after {
+      animation-delay: 0.8s;
+      top: 25px;
+      left: 0;
+    }
+
+    @keyframes rip {
+      0% {
+        box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent,
+                    0 0 0 0 transparent, 0 0 0 0 transparent;
+      }
+      5% {
+        box-shadow: 0 0 0 0 var(--frColor), 0 0 0 0 rgba(255, 255, 255, 0.4),
+                    0 0 0 0 var(--frColor), 0 0 0 0 rgba(0, 0, 0, 0.08);
+      }
+      100% {
+        width: var(--circleDiam);
+        height: var(--circleDiam);
+        border-radius: var(--circleRadius);
+        box-shadow: 0 0 40px var(--spreadBase) var(--frColor), 0 0 10px var(--spread1) transparent,
+                    0 0 30px var(--spread2) var(--frColor), 0 0 5px var(--spread3) transparent;
+      }
+    }
+
+    .loading .slider {
+      position: absolute;
+      width: var(--sliderWidth);
+      height: 4px;
+      margin-top: calc(var(--size0) * 1.3);
+      margin-left: calc(var(--size0) * -0.9);
+    }
+
+    .loading .line {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.08); /*#4a8df8;*/
+      width: var(--sliderWidth);
+      height: 4px;
+    }
+
+    .loading .break {
+      position: absolute;
+      background: var(--frColor); /*#222;*/
+      width: 6px;
+      height: 4px;
+    }
+
+    .loading .dot1{ animation: loading_anim 2s infinite;}
+    .loading .dot2{ animation: loading_anim 2s 0.5s infinite; }
+    .loading .dot3{ animation: loading_anim 2s 1s infinite; }
+
+    @keyframes loading_anim {
+      from { margin-left: 0; }
+      to { margin-left: var(--sliderWidth); }
+    }
+  </style>
+
+<script type="application/javascript" src="https://prod.havilavoyages.com/touchhvl/web1511/main.dart.js"></script></head>
+
+<body>
+  <!--script src="flutter_bootstrap.js" async></script-->
+  <script type="text/javascript">
+    (()=>{var U=()=>navigator.vendor==="Google Inc."||navigator.agent==="Edg/",E=()=>typeof ImageDecoder>"u"?!1:U(),W=()=>typeof Intl.v8BreakIterator<"u"&&typeof Intl.Segmenter<"u",P=()=>{let s=[0,97,115,109,1,0,0,0,1,5,1,95,1,120,0];return WebAssembly.validate(new Uint8Array(s))},p={hasImageCodecs:E(),hasChromiumBreakIterators:W(),supportsWasmGC:P(),crossOriginIsolated:window.crossOriginIsolated};function l(...s){return new URL(_(...s),document.baseURI).toString()}function _(...s){return s.filter(e=>!!e).map((e,i)=>i===0?C(e):j(C(e))).filter(e=>e.length).join("/")}function j(s){let e=0;for(;e<s.length&&s.charAt(e)==="/";)e++;return s.substring(e)}function C(s){let e=s.length;for(;e>0&&s.charAt(e-1)==="/";)e--;return s.substring(0,e)}function L(s,e){return s.canvasKitBaseUrl?s.canvasKitBaseUrl:e.engineRevision&&!e.useLocalCanvasKit?_("https://www.gstatic.com/flutter-canvaskit",e.engineRevision):"canvaskit"}var h=class{constructor(){this._scriptLoaded=!1}setTrustedTypesPolicy(e){this._ttPolicy=e}async loadEntrypoint(e){let{entrypointUrl:i=l("main.dart.js"),onEntrypointLoaded:r,nonce:t}=e||{};return this._loadJSEntrypoint(i,r,t)}async load(e,i,r,t,n){n??=o=>{o.initializeEngine(r).then(c=>c.runApp())};let{entryPointBaseUrl:a}=r;if(e.compileTarget==="dart2wasm")return this._loadWasmEntrypoint(e,i,a,n);{let o=e.mainJsPath??"main.dart.js",c=l(a,o);return this._loadJSEntrypoint(c,n,t)}}didCreateEngineInitializer(e){typeof this._didCreateEngineInitializerResolve=="function"&&(this._didCreateEngineInitializerResolve(e),this._didCreateEngineInitializerResolve=null,delete _flutter.loader.didCreateEngineInitializer),typeof this._onEntrypointLoaded=="function"&&this._onEntrypointLoaded(e)}_loadJSEntrypoint(e,i,r){let t=typeof i=="function";if(!this._scriptLoaded){this._scriptLoaded=!0;let n=this._createScriptTag(e,r);if(t)console.debug("Injecting <script> tag. Using callback."),this._onEntrypointLoaded=i,document.head.append(n);else return new Promise((a,o)=>{console.debug("Injecting <script> tag. Using Promises. Use the callback approach instead!"),this._didCreateEngineInitializerResolve=a,n.addEventListener("error",o),document.head.append(n)})}}async _loadWasmEntrypoint(e,i,r,t){if(!this._scriptLoaded){this._scriptLoaded=!0,this._onEntrypointLoaded=t;let{mainWasmPath:n,jsSupportRuntimePath:a}=e,o=l(r,n),c=l(r,a);this._ttPolicy!=null&&(c=this._ttPolicy.createScriptURL(c));let d=(await import(c)).compileStreaming(fetch(o)),w;e.renderer==="skwasm"?w=(async()=>{let f=await i.skwasm;return window._flutter_skwasmInstance=f,{skwasm:f.wasmExports,skwasmWrapper:f,ffi:{memory:f.wasmMemory}}})():w=Promise.resolve({}),await(await(await d).instantiate(await w)).invokeMain()}}_createScriptTag(e,i){let r=document.createElement("script");r.type="application/javascript",i&&(r.nonce=i);let t=e;return this._ttPolicy!=null&&(t=this._ttPolicy.createScriptURL(e)),r.src=t,r}};async function T(s,e,i){if(e<0)return s;let r,t=new Promise((n,a)=>{r=setTimeout(()=>{a(new Error(`${i} took more than ${e}ms to resolve. Moving on.`,{cause:T}))},e)});return Promise.race([s,t]).finally(()=>{clearTimeout(r)})}var g=class{setTrustedTypesPolicy(e){this._ttPolicy=e}loadServiceWorker(e){if(!e)return console.debug("Null serviceWorker configuration. Skipping."),Promise.resolve();if(!("serviceWorker"in navigator)){let o="Service Worker API unavailable.";return window.isSecureContext||(o+=`
+The current context is NOT secure.`,o+=`
+Read more: https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts`),Promise.reject(new Error(o))}let{serviceWorkerVersion:i,serviceWorkerUrl:r=l(`flutter_service_worker.js?v=${i}`),timeoutMillis:t=4e3}=e,n=r;this._ttPolicy!=null&&(n=this._ttPolicy.createScriptURL(n));let a=navigator.serviceWorker.register(n).then(o=>this._getNewServiceWorker(o,i)).then(this._waitForServiceWorkerActivation);return T(a,t,"prepareServiceWorker")}async _getNewServiceWorker(e,i){if(!e.active&&(e.installing||e.waiting))return console.debug("Installing/Activating first service worker."),e.installing||e.waiting;if(e.active.scriptURL.endsWith(i))return console.debug("Loading from existing service worker."),e.active;{let r=await e.update();return console.debug("Updating service worker."),r.installing||r.waiting||r.active}}async _waitForServiceWorkerActivation(e){if(!e||e.state==="activated")if(e){console.debug("Service worker already active.");return}else throw new Error("Cannot activate a null service worker!");return new Promise((i,r)=>{e.addEventListener("statechange",()=>{e.state==="activated"&&(console.debug("Activated new service worker."),i())})})}};var y=class{constructor(e,i="flutter-js"){let r=e||[/\.js$/,/\.mjs$/];window.trustedTypes&&(this.policy=trustedTypes.createPolicy(i,{createScriptURL:function(t){if(t.startsWith("blob:"))return t;let n=new URL(t,window.location),a=n.pathname.split("/").pop();if(r.some(c=>c.test(a)))return n.toString();console.error("URL rejected by TrustedTypes policy",i,":",t,"(download prevented)")}}))}};var k=s=>{let e=WebAssembly.compileStreaming(fetch(s));return(i,r)=>((async()=>{let t=await e,n=await WebAssembly.instantiate(t,i);r(n,t)})(),{})};var I=(s,e,i,r)=>(window.flutterCanvasKitLoaded=(async()=>{if(window.flutterCanvasKit)return window.flutterCanvasKit;let t=i.hasChromiumBreakIterators&&i.hasImageCodecs;if(!t&&e.canvasKitVariant=="chromium")throw"Chromium CanvasKit variant specifically requested, but unsupported in this browser";let n=t&&e.canvasKitVariant!=="full",a=r;n&&(a=l(a,"chromium"));let o=l(a,"canvaskit.js");s.flutterTT.policy&&(o=s.flutterTT.policy.createScriptURL(o));let c=k(l(a,"canvaskit.wasm")),u=await import(o);return window.flutterCanvasKit=await u.default({instantiateWasm:c}),window.flutterCanvasKit})(),window.flutterCanvasKitLoaded);var b=async(s,e,i,r)=>{let t=l(r,"skwasm.js"),n=t;s.flutterTT.policy&&(n=s.flutterTT.policy.createScriptURL(n));let a=k(l(r,"skwasm.wasm"));return await(await import(n)).default({skwasmSingleThreaded:!i.crossOriginIsolated||e.forceSingleThreadedSkwasm,instantiateWasm:a,locateFile:(c,u)=>{if(c.endsWith(".ww.js")){let d=l(r,c);return URL.createObjectURL(new Blob([`
+"use strict";
+
+let eventListener;
+eventListener = (message) => {
+    const pendingMessages = [];
+    const data = message.data;
+    data["instantiateWasm"] = (info,receiveInstance) => {
+        const instance = new WebAssembly.Instance(data["wasm"], info);
+        return receiveInstance(instance, data["wasm"])
+    };
+    import(data.js).then(async (skwasm) => {
+        await skwasm.default(data);
+
+        removeEventListener("message", eventListener);
+        for (const message of pendingMessages) {
+            dispatchEvent(message);
+        }
+    });
+    removeEventListener("message", eventListener);
+    eventListener = (message) => {
+
+        pendingMessages.push(message);
+    };
+
+    addEventListener("message", eventListener);
+};
+addEventListener("message", eventListener);
+`],{type:"application/javascript"}))}return url},mainScriptUrlOrBlob:t})};var S=class{async loadEntrypoint(e){let{serviceWorker:i,...r}=e||{},t=new y,n=new g;n.setTrustedTypesPolicy(t.policy),await n.loadServiceWorker(i).catch(o=>{console.warn("Exception while loading service worker:",o)});let a=new h;return a.setTrustedTypesPolicy(t.policy),this.didCreateEngineInitializer=a.didCreateEngineInitializer.bind(a),a.loadEntrypoint(r)}async load({serviceWorkerSettings:e,onEntrypointLoaded:i,nonce:r,config:t}={}){t??={};let n=_flutter.buildConfig;if(!n)throw"FlutterLoader.load requires _flutter.buildConfig to be set";let a=m=>{switch(m){case"skwasm":return p.hasChromiumBreakIterators&&p.hasImageCodecs&&p.supportsWasmGC;default:return!0}},o=(m,f)=>m.renderer==f,c=m=>m.compileTarget==="dart2wasm"&&!p.supportsWasmGC||t.renderer&&!o(m,t.renderer)?!1:a(m.renderer),u=n.builds.find(c);if(!u)throw"FlutterLoader could not find a build compatible with configuration and environment.";let d={};d.flutterTT=new y,e&&(d.serviceWorkerLoader=new g,d.serviceWorkerLoader.setTrustedTypesPolicy(d.flutterTT.policy),await d.serviceWorkerLoader.loadServiceWorker(e).catch(m=>{console.warn("Exception while loading service worker:",m)}));let w=L(t,n);u.renderer==="canvaskit"?d.canvasKit=I(d,t,p,w):u.renderer==="skwasm"&&(d.skwasm=b(d,t,p,w));let v=new h;return v.setTrustedTypesPolicy(d.flutterTT.policy),this.didCreateEngineInitializer=v.didCreateEngineInitializer.bind(v),v.load(u,d,t,r,i)}};window._flutter||(window._flutter={});window._flutter.loader||(window._flutter.loader=new S);})();
+//# sourceMappingURL=flutter.js.map
+
+if (!window._flutter) {
+  window._flutter = {};
+}
+_flutter.buildConfig = {"engineRevision":"ef0cd000916d64fa0c5d09cc809fa7ad244a5767","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
+
+
+_flutter.loader.load({
+  serviceWorkerSettings: {
+    serviceWorkerVersion: "2053876623"
+  }
+});
+
+  </script>
+
+  <script type="text/javascript">
+    window.addEventListener('flutter-first-frame', function() {
+      console.log('first-frame');
+      var elt = document.querySelector('.loading');
+      if (elt) elt.classList.add('hidden');
+    });
+  </script>
+
+  <script type="text/javascript">
+    function is_iPad_iPhone() { // see https://stackoverflow.com/a/58064481
+      var ua = navigator.userAgent;
+      ua = ua.toLowerCase();
+      var rslt = ua.includes('(ipad;') || ua.includes('(iphone;') ||
+        // iOS 13 has ON by default in Settings -> Safari -> Request Desktop Website -> All websites
+        ua.includes('(macintosh;') && navigator.maxTouchPoints > 1;
+      return rslt;
+    }
+
+    // iOS iframe fix: https://github.com/flutter/flutter/issues/65786#issuecomment-698534321
+    //if (is_iPad_iPhone()) document.addEventListener('touchstart', {});
+
+    // iOS double-tap zoom prevention: https://stackoverflow.com/a/71393919/714136
+    if (is_iPad_iPhone())
+      document.addEventListener('dblclick', function(event) {
+        event.preventDefault();
+      }, { passive: false });
+
+    // See https://github.com/flutter/flutter/issues/81215#issuecomment-988755443 and https://stackoverflow.com/a/47633167
+    /*const wait_until = setInterval(() => {
+      var elt = document.querySelector('flt-glass-pane');
+      if (elt) {
+        clearInterval(wait_until);
+
+        // pointer-events to resolve issue when widgets over the IFrame ignore clicks.
+        // Read more https://github.com/rodydavis/easy_web_view/issues/7#issuecomment-752326934
+        // Another possible solution https://pub.dev/packages/pointer_interceptor
+
+        // Looks like not needed anymore, and MacOS Safari fails with this: flt-scene-host { pointer-events: auto !important; }
+        var css = 'flt-scene-host * p, flt-scene-host * canvas { image-rendering: pixelated; }';
+        //var sheet = new CSSStyleSheet;
+        //sheet.replaceSync(css);
+        //elt.shadowRoot.adoptedStyleSheets = [sheet];
+        var style = document.createElement('style');
+        style.innerHTML = css;
+        elt.shadowRoot.appendChild(style);
+      }
+    }, 500);*/
+  </script>
+
+  <script type="text/javascript">
+    window.jsTouchx = {
+      postMessage(iframeElt, msg) {
+        if (iframeElt) {
+          iframeElt.contentWindow.postMessage(msg, '*');
+        }
+      }
+    };
+  </script>
+
+  <div class="loading">
+    <h1></h1>
+    <span></span>
+    <div class="slider">
+      <div class="line"></div>
+      <div class="break dot1"></div>
+      <div class="break dot2"></div>
+      <div class="break dot3"></div>
+    </div>
+  </div>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a34a163969d99694',t:'MTc4ODMyNjY0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; visibility: hidden;"></iframe><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;76c754afc8dd455a88f6c9c1eb12b2c9&quot;}" crossorigin="anonymous"></script>
+
+
+</body></html>

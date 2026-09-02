@@ -1,0 +1,29 @@
+{
+ "url": "https://www.havilavoyages.com/nb/ruteplan",
+ "status": 403,
+ "all_links": [
+  "https://www.cloudflare.com/5xx-error-landing"
+ ],
+ "booking_links": [],
+ "buttons": [
+  "Click to reveal"
+ ],
+ "testids": [
+  "cf_styles-css",
+  "cf-wrapper",
+  "cookie-alert",
+  "cf-error-details",
+  "cf-footer-item-ip",
+  "cf-footer-ip-reveal",
+  "cf-footer-ip",
+  "brand_link"
+ ],
+ "body": "Sorry, you have been blocked\nYou are unable to access havilavoyages.com\nWhy have I been blocked?\n\nThis website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data.\n\nWhat can I do to resolve this?\n\nYou can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.\n\nCloudflare Ray ID: a34a09ba5fd958d9 • Your IP: Click to reveal • Performance & security by Cloudflare",
+ "api": [
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/rum?",
+   "s": 204
+  }
+ ]
+}

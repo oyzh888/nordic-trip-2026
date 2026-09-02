@@ -1,0 +1,186 @@
+from/to: Svolvær -> Tromsø
+date_ok: True accepted: {'how': 'digits-DMY', 'typed': '02102026', 'readback': '10/02/2026', 'validation_error': False, 'search_disabled': False}
+   attempt {'how': 'digits-MDY', 'typed': '10022026', 'readback': '02/10/2026', 'validation_error': True, 'search_disabled': True}
+   attempt {'how': 'digits-DMY', 'typed': '02102026', 'readback': '10/02/2026', 'validation_error': False, 'search_disabled': False}
+adults: 2 ['2 Adults', '2 Adults']
+result_url: https://www.hurtigruten.com/en-us/port-to-port/booking?searchData=%7B%22locale%22%3A%22en-us%22%2C%22searchUnit%22%3A%22day%22%2C%22startDate%22%3A%222026-10-02T07%3A00%3A00.000Z%22%2C%22returnDate%22%3A%222026-10-08T07%3A00%3A00.000Z%22%2C%22promotionCode%22%3Anull%2C%22fromPort%22%3A%22SVJ%22%2C%22toPort%22%3A%22TOS%22%2C%22vehicles%22%3A%7B%22cars%22%3A0%2C%22motorcycles%22%3A0%7D%2C%22isViaKirkenes%22%3Afalse%2C%22cabins%22%3A%5B%7B%22adults%22%3A2%2C%22children%22%3A0%2C%22infants%22%3A0%2C%22companions%22%3A0%2C%22students%22%3A0%2C%22seniors%22%3A0%2C%22militaryServicePersons%22%3A0%2C%22wheelchairs%22%3A0%2C%22pets%22%3A0%7D%2C%7B%22adults%22%3A2%2C%22children%22%3A0%2C%22infants%22%3A0%2C%22companions%22%3A0%2C%22students%22%3A0%2C%22seniors%22%3A0%2C%22militaryServicePersons%22%3A0%2C%22wheelchairs%22%3A0%2C%22pets%22%3A0%7D%5D%2C%22travelType%22%3A%22cabin%22%2C%22voyageSlug%22%3A%22%22%2C%22isRoundtrip%22%3Afalse%2C%22isDeckSpace%22%3Afalse%2C%22automaticPromotionCode%22%3Anull%7D | err: 
+200 GET https://www.hurtigruten.com/en-us/cruises/trondheim-tromso?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises/sail-and-rail-norway-5-days?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises/tromso-kirkenes?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/cruises?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/deals?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/on-board/ships?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/why-hurtigruten?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/explore-norway?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/en-us/help?_rsc=J_joxv3TljkkBXrI
+200 GET https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45je68v1v877299788z89137310506za20gzb9137310506zd9137310506&_p=1788325825307&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1019542365&_eu=EAAAAGA&_fplc=
+200 GET https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45je68v1v877299788z89137310506za20gzb9137310506zd9137310506&_p=1788325825307&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&ecid=1019542365&_eu=EAAAAGQ&are=1&
+200 GET https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45je68v1v877299788z89137310506za20gzb9137310506zd9137310506&_p=1788325825307&gcs=G111&gcd=13v3v3v3v5l1&npa=0&dma=0&ecid=1019542365&_eu=EAAAAGQ&are=1&
+200 GET https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45je68v1v877299788z89137310506za20gzb9137310506zd9137310506&_p=1788325825307&gcs=G111&gcd=13v3v3v3v5l1&npa=0&dma=0&ecid=1019542365&_eu=EAAAAGQ&are=1&
+200 GET https://www.hurtigruten.com/en-us/port-to-port/booking?searchData=%7B%22locale%22%3A%22en-us%22%2C%22searchUnit%22%3A%22day%22%2C%22startDate%22%3A%222026-10-02T07%3A00%3A00.000Z%22%2C%22returnDate%22%3A%222026-10-08T07%
+200 GET https://www.hurtigruten.com/en-us/help/contact?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/help/feedback?_rsc=b5ad7AQs5ebut1oN
+200 POST https://www.hurtigruten.com/metrics/g/collect?v=2&tid=G-2QJ9G48XCS&gtm=45je68v1v877299788z89137310506za20gzb9137310506zd9137310506&_p=1788325825307&gcs=G111&gcd=13v3v3v3v5l1&npa=0&dma=0&ecid=1019542365&_eu=EAAAAGQ&are=1&
+200 GET https://www.hurtigruten.com/en-us/payment/login?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/my-booking/login?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/cruises/brochures?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/why-hurtigruten/loyalty?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/help/further-information/general-terms-and-conditions?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/about-us?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/why-hurtigruten/our-history/awards-accolades?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/why-hurtigruten/sustainability?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/about-us/careers?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/sail-plan?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/about-us/voyages/port-to-port?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/help/further-information/statement-of-privacy?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/help/further-information/cookies?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/help/further-information/accessibility-statement?_rsc=b5ad7AQs5ebut1oN
+200 GET https://www.hurtigruten.com/en-us/port-to-port/booking?_rsc=b5ad7AQs5ebut1oN
+200 POST https://www.hurtigruten.com/nellie-coastal-v2/api/availability
+401 GET https://www.hurtigruten.com/nellie-myaccount/api/auth
+----- BODY -----
+Hurtigruten
+Cruises
+Offers
+Ships
+Why Hurtigruten?
+Explore Norway
+Help and FAQs
+Search
+My Booking
+Book a voyage
+Port to port
+Booking
+Back to search
+Select departure
+From
+
+Svolvær
+
+To
+
+Tromsø
+
+Showing voyages for the week Oct 02 - Oct 08
+
+Thu, Oct 1
+
+We could not find any departures that match this date. Try a new date to continue exploring.
+
+Saturday 03 Oct 2026
+
+10:15 PM
+
+Sunday 04 Oct 2026
+
+2:15 PM
+
+Price starting from
+
+$563
+
+per person
+
+Select this departure
+
+MS Nordlys
+
+Sunday 04 Oct 2026
+
+10:15 PM
+
+Monday 05 Oct 2026
+
+2:15 PM
+
+Price starting from
+
+$418
+
+per person
+
+Select this departure
+
+MS Nordkapp
+
+Sun, Oct 4
+
+We could not find any departures that match this date. Try a new date to continue exploring.
+
+Tuesday 06 Oct 2026
+
+10:15 PM
+
+Wednesday 07 Oct 2026
+
+2:15 PM
+
+Price starting from
+
+$310
+
+per person
+
+Select this departure
+
+MS Polarlys
+
+Tue, Oct 6
+
+We could not find any departures that match this date. Try a new date to continue exploring.
+
+Wed, Oct 7
+
+We could not find any departures that match this date. Try a new date to continue exploring.
+
+Previous week
+
+Oct 02 - Oct 08
+
+Next week
+Hurtigruten
+CONTACT
+1 (888) 967-9864
+reservations@hurtigruten.com
+Contact Us
+GENERAL
+FAQ
+Brochures
+1893 Ambassador Loyalty Program
+SUPPORT
+My Booking
+Make a payment
+Submit feedback or request a refund
+Terms and Conditions
+Supplier invoicing
+ABOUT
+About Hurtigruten
+Hurtigruten Svalbard
+Awards and Accolades
+Sustainability
+Careers
+Press
+For Agents
+GO TO
+Sailing plan
+Book a port-to-port sailing
+WE ACCEPT THE FOLLOWING PAYMENT METHODS
+
+© 2026 Hurtigruten
+
+Statement of Privacy
+Cookies
+Cookies Settings
+Accessibility Statement
+North America
+Global
+Australia
+Denmark
+France
+Germany
+North America
+Norway
+Sweden
+Switzerland
+United Kingdom

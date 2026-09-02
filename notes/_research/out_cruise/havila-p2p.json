@@ -1,0 +1,91 @@
+{
+ "slug": "havila-p2p",
+ "url": "https://www.havilavoyages.com/en/port-to-port",
+ "status": 404,
+ "final_url": "https://www.havilavoyages.com/en/port-to-port",
+ "title": "404",
+ "body": "Våre reiser\nAktiviteter\nSkipene\nHavn til havn\n\nNO\n\nMeny\nShip o'hoi!\n\nError kode: 404\n\nVi kan dessverre ikke finne siden du leter etter. Gå tilbake, skriv adressen på nytt eller la oss lose deg videre:\n\nForsiden\n\nKontakt oss\n\nAddress\nMjølstadnesvegen\n6092 Fosnavåg\nNorge\n\n\n\n\nCustomer Service\n\nUK / US (Toll Free):\n\n+44 3455 280 026 / +1 833 210 9067\n\nOm oss\n\nKontakt oss\nReklamasjon og refusjon\nKystrutens historie\nMedia og Markedsføring\nLast ned vår brosjyre\nAgents\nJobb i Havila Kystruten\nOm Havila\n\nFølg oss\n\nFacebook\nInstagram\nYouTube\nLinkedIn\n\nPersonvernsider\n\nVilkår og betingelser\nPersonvern\nÅpenhetsloven: info og varsling\nABTA & FCDO",
+ "selects": [],
+ "inputs": [],
+ "buttons": [
+  "NO",
+  "Meny"
+ ],
+ "xhr": [
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.09524470854677503:1788322539:6IZirQESDIs0lasfZwNSwJZLuixMHG1if4GtMS0e9nw/a349ed4959ddef8c",
+   "t": "xhr"
+  },
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/rum?",
+   "t": "xhr"
+  },
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.09524470854677503:1788322539:6IZirQESDIs0lasfZwNSwJZLuixMHG1if4GtMS0e9nw/a349ed4959ddef8c",
+   "t": "xhr"
+  },
+  {
+   "m": "POST",
+   "u": "https://www.havilavoyages.com/cdn-cgi/rum?",
+   "t": "xhr"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/reiser.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/aktiviteter.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/skipene.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/data/U_5xISx1DbflGzfudcb0t/nb/havn-til-havn.json",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://www.havilavoyages.com/_next/static/css/f88755e99ffa9cd471c9.css",
+   "t": "fetch"
+  },
+  {
+   "m": "POST",
+   "u": "https://o226054.ingest.sentry.io/api/5295548/envelope/?sentry_key=d6c05ba8ae00439a832dd2f1e48fc343&sentry_version=7",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://tags.srv.stackadapt.com/sa.jpeg",
+   "t": "fetch"
+  },
+  {
+   "m": "GET",
+   "u": "https://tags.srv.stackadapt.com/saq_pxl?uid=h3q_v_B6Vf-LMIsFg8akKg&is_js=true&landing_url=https%3A%2F%2Fwww.havilavoyages.com%2Fen%2Fport-to-port&t=404&tip=Sek9TKrMIZ_yQUnR2j_JZhST7dKw-pXsNw2203Ygm_0&host=https%3A%2F%2Fwww.havilavoyages.com&sa_conv_data_css_value=%27CiQwMWEwNjA3OS1iODM3LTc2ZDMtOGVkOC1kOGU0MGY0NmEzMGYQBBoCTkEgPA%27&sa_conv_data_image_value=ffd8ffe000104a46494600010101006000600000ff",
+   "t": "xhr"
+  },
+  {
+   "m": "POST",
+   "u": "https://www.google-analytics.com/g/collect?v=2&tid=G-123456&gtm=45je68v1z8831014096za20gzb831014096zd831014096&_p=1788324978561&gcs=G100&gcd=13p3p3V3p5l1&npa=1&dma_cps=-&dma=0&gdid=dNmIyNz&are=1&cid=48282797.1788324985&frm=0&gtm_up=1&pscdl=denied&rcb=12&sr=1600x1100&uaa=x86&uab=64&uafvl=HeadlessChrome%3B149.0.7827.55%7CChromium%3B149.0.7827.55%7CNot)A%253BBrand%3B24.0.0.0&uam=&uamb=0&uap=macOS&uap",
+   "t": "fetch"
+  },
+  {
+   "m": "POST",
+   "u": "https://l.clarity.ms/collect",
+   "t": "xhr"
+  }
+ ]
+}
