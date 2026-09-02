@@ -1,0 +1,20 @@
+== lof-nordic-5br 
+   cfg=5 bedrooms · 8 beds · 2 baths | br=5 bath=2 guests=12
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== lof-henningsvaer 
+   cfg=3 bedrooms · 4 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €582.64 total min=None unavail=False
+== lof-svolvargeita-retest 
+   cfg=5 bedrooms · 8 beds · 2 baths | br=5 bath=2 guests=12
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== lof-hottub-4br 
+   cfg=4 bedrooms · 5 beds · 2 baths | br=4 bath=2 guests=9
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 29. Cancel before check-in on September 30 for a p min=Minimum stay is 3 nights unavail=True
+== lof-rorbue-2023 
+   cfg=4 bedrooms · 8 beds · 2 baths | br=4 bath=2 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 16 min=None unavail=False

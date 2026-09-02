@@ -1,0 +1,13 @@
+[
+ {"slug":"hofdabrekka","hotel":"is/country-hofdabrekka","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"black-beach-suites","hotel":"is/black-beach-suites","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"black-sand","hotel":"is/black-sand","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"drangshlid","hotel":"is/hotel-drangshlid","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"anna-skogar","hotel":"is/country-hotel-anna","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"skammidalur","hotel":"is/skammidalur-cottages","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"hvolsvollur-hotel","hotel":"is/hvolvollur","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"midgard","hotel":"is/midgard","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"fosshotel-glacier-lagoon","hotel":"is/fosshotel-glacier-lagoon","checkin":"2026-09-27","checkout":"2026-09-28","adults":4,"rooms":2},
+ {"slug":"arnanes","hotel":"is/arnanes-sveitagisting","checkin":"2026-09-27","checkout":"2026-09-28","adults":4,"rooms":2},
+ {"slug":"vatnajokull-hofn","hotel":"is/vatnajokull","checkin":"2026-09-27","checkout":"2026-09-28","adults":4,"rooms":2}
+]

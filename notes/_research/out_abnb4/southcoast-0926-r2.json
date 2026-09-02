@@ -1,0 +1,103 @@
+{
+ "job": {
+  "slug": "southcoast-0926-r2",
+  "place": "Hvolsvollur, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "bbox": [
+   63.38,
+   -20.6,
+   63.95,
+   -18.75
+  ],
+  "zoom": 9,
+  "min_bedrooms": 2
+ },
+ "url": "https://www.airbnb.com/s/Hvolsvollur--Iceland/homes?checkin=2026-09-26&checkout=2026-09-27&adults=4&min_bedrooms=2&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.38&sw_lng=-20.6&ne_lat=63.95&ne_lng=-18.75&search_by_map=true&zoom=9",
+ "rows": [
+  {
+   "kind": "Home in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Surrounded by nature on Heimaey island",
+   "bedrooms": 3,
+   "baths": 2.5,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.87",
+   "raw": "Guest favorite | Home in Vestmannaeyjar | Surrounded by nature on Heimaey island | 3 bedrooms | , | · | 7 beds | 2.5 baths | €604 | Show price breakdown | for 1 night | €604 for 1 night | Pay €0 today | Free cancellation | 4.87 out of 5 average rating, 15 reviews | 4.87 (15)",
+   "url": "https://www.airbnb.com/rooms/1676684443269632477"
+  },
+  {
+   "kind": "Home in Hella",
+   "loc": "Hella",
+   "title": "Two hot pools with a glacier view",
+   "bedrooms": 2,
+   "baths": 3.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Hella | Two hot pools with a glacier view | 2 bedrooms | , | · | 2 beds | 3 baths | €3,956 | Show price breakdown | for 1 night | €3,956 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1707213711579879176"
+  },
+  {
+   "kind": "Home in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Glacier views and a private hot tub",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 2089,
+   "rating": "4.8",
+   "raw": "Sep 25  to  27 | Sep 25 – 27 | Home in Hvolsvöllur | Glacier views and a private hot tub | 4 bedrooms | , | · | 4 beds | 2 baths | €2,089 | Show price breakdown | for 2 nights | €2,089 for 2 nights | 4.8 out of 5 average rating, 20 reviews | 4.8 (20)",
+   "url": "https://www.airbnb.com/rooms/1081195144537663933"
+  },
+  {
+   "kind": "Apartment in Hella",
+   "loc": "Hella",
+   "title": "River-view penthouse in an old bank",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 1000,
+   "rating": "4.99",
+   "raw": "Sep 25  to  26 | Sep 25 – 26 | Apartment in Hella | River-view penthouse in an old bank | 4 bedrooms | , | · | 4 beds | 2 baths | €1,108 | €1,000 | Show price breakdown | for 1 night | 4.99 out of 5 average rating, 74 reviews | 4.99 (74)",
+   "url": "https://www.airbnb.com/rooms/1005892528131675937"
+  },
+  {
+   "kind": "Home in hvolsvollur",
+   "loc": "hvolsvollur",
+   "title": "Farm guesthouse with mountain views in Fljótshlíð",
+   "bedrooms": 5,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 750,
+   "rating": "4.64",
+   "raw": "Sep 27  to  28 | Sep 27 – 28 | Home in hvolsvollur | Farm guesthouse with mountain views in Fljótshlíð | 5 bedrooms | , | · | 9 beds | 2 baths | €750 | Show price breakdown | for 1 night | €750 for 1 night | 4.64 out of 5 average rating, 50 reviews | 4.64 (50)",
+   "url": "https://www.airbnb.com/rooms/1554437248972293986"
+  },
+  {
+   "kind": "Apartment in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Mountain views from a dairy farm",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 1,
+   "total_eur": 900,
+   "rating": "4.76",
+   "raw": "Sep 25  to  26 | Sep 25 – 26 | Apartment in Hvolsvöllur | Mountain views from a dairy farm | 4 bedrooms | , | · | 8 single beds | 2 baths | €900 | Show price breakdown | for 1 night | €900 for 1 night | 4.76 out of 5 average rating, 124 reviews | 4.76 (124)",
+   "url": "https://www.airbnb.com/rooms/1015723380120240614"
+  },
+  {
+   "kind": "Villa in Iceland",
+   "loc": "Iceland",
+   "title": "Elegant lodge with a jacuzzi in Hella",
+   "bedrooms": 5,
+   "baths": 5.0,
+   "nights": 1,
+   "total_eur": 1672,
+   "rating": "4.96",
+   "raw": "Sep 25  to  26 | Sep 25 – 26 | Villa in Iceland | Elegant lodge with a jacuzzi in Hella | 5 bedrooms | , | · | 8 beds | 5 baths | €1,672 | Show price breakdown | for 1 night | €1,672 for 1 night | 4.96 out of 5 average rating, 26 reviews | 4.96 (26)",
+   "url": "https://www.airbnb.com/rooms/795568851223720264"
+  }
+ ]
+}

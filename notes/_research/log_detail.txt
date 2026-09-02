@@ -1,0 +1,48 @@
+== d0-nannestad 
+   cfg=3 bedrooms · 5 beds · 2 baths | br=3 bath=2 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €259.50 total min=None unavail=False
+== d1-rvk-aurora 
+   cfg=3 bedrooms · 3 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 18 for a partial refund. min=None unavail=False
+== d1-gardabaer 
+   cfg=3 bedrooms · 1 bed · 2 baths | br=3 bath=2 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €336.10 total min=None unavail=False
+== d2-hlidarbol 
+   cfg=5 bedrooms · 9 beds · 2 baths | br=5 bath=2 guests=9
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 25. After that, the reservation is non-refundable. min=None unavail=False
+== d4-reykjanesbaer 
+   cfg=3 bedrooms · 4 beds · 2 baths | br=3 bath=2 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. After that, the reservation is non-refundable. min=None unavail=False
+== d5-nannestad 
+   cfg=3 bedrooms · 5 beds · 2 baths | br=3 bath=2 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €259.50 total min=None unavail=False
+== d67-vagan-east 
+   cfg=5 bedrooms · 8 beds · 2 baths | br=5 bath=2 guests=12
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== d67-ramberg-west 
+   cfg=4 bedrooms · 4 beds · 2.5 baths | br=4 bath=2.5 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €646.38 total min=None unavail=False
+== d67-vagan-3n 
+   cfg=5 bedrooms · 8 beds · 2 baths | br=5 bath=2 guests=12
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== d8-houseboat-3n 
+   cfg=3 bedrooms · 7 beds · 3 baths | br=3 bath=3 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. After that, the reservation is non-refundable. min=None unavail=False
+== d8-houseboat-4n 
+   cfg=3 bedrooms · 7 beds · 3 baths | br=3 bath=3 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. After that, the reservation is non-refundable. min=None unavail=False
+== d8-tromso-5br 
+   cfg=5 bedrooms · 5 beds · 2.5 baths | br=5 bath=2.5 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before 3:00 PM on September 3. Cancel before September 26 for a par min=None unavail=False

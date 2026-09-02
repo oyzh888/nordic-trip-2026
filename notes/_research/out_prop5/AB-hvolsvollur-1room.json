@@ -1,0 +1,45 @@
+{
+ "title": "Hotel Hvolsvollur - Central South Iceland, Hvolsvöllur (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/hvolvollur.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Double or Twin Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    153,
+    186,
+    153,
+    186
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Double or Twin Room ¶ We have 2 left ¶ Sleeps: 2 adults ¶ 2 twin beds ¶ 172 feet² ¶ Attached bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Hot tub Free toiletries Toilet Bath or shower Hardwood or parquet floors Towels Linens Socket near the bed Desk TV Satellite channels Tea/Coffee maker Radio Heating Hairdryer Wardrobe or closet Upper floors accessible by stairs only Clothes rack Toilet paper ¶ € 153 per night ¶ € 186 € 153 ¶ Original price € 186 Current price € 153 ¶ 1 night ¶ 17% off ¶ Excluded: 11 % VAT, € 6 City ta"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    182,
+    202,
+    182,
+    202
+   ],
+   "cancel": "Free cancellation before September 24, 2026 ",
+   "currency": "EUR",
+   "raw": "€ 182 per night ¶ € 202 € 182 ¶ Original price € 202 Current price € 182 ¶ 1 night ¶ 10% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Very good breakfast included ¶ Includes 1 parking spot + late check-in + high-speed internet ¶ Free cancellation before September 24, 2026 ¶ No prepayment needed – pay at the property ¶ Select Rooms ¶ 0 ¶ 1          (€ 182) ¶ 2          (€ 363)"
+  }
+ ],
+ "job": {
+  "slug": "AB-hvolsvollur-1room",
+  "hotel": "is/hvolvollur",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 2,
+  "rooms": 1
+ }
+}

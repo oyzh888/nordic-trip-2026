@@ -1,0 +1,5 @@
+[
+{"slug":"southcoast-0926-r2","place":"Hvolsvollur, Iceland","checkin":"2026-09-26","checkout":"2026-09-27","bbox":[63.38,-20.60,63.95,-18.75],"zoom":9,"min_bedrooms":2},
+{"slug":"southcoast-0926-3br","place":"Hvolsvollur, Iceland","checkin":"2026-09-26","checkout":"2026-09-27","bbox":[63.38,-20.60,63.95,-18.75],"zoom":9,"min_bedrooms":3},
+{"slug":"glacier-0927-r2","place":"Hofn, Iceland","checkin":"2026-09-27","checkout":"2026-09-28","bbox":[63.72,-18.20,64.40,-15.05],"zoom":8,"min_bedrooms":2}
+]

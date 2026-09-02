@@ -1,0 +1,14 @@
+[
+ {"slug":"d0-nannestad","room":"1616864516592253636","checkin":"2026-09-24","checkout":"2026-09-25","note":"D0 Oslo Gardermoen 3BR/2BA EUR260"},
+ {"slug":"d1-rvk-aurora","room":"1729852848905770040","checkin":"2026-09-25","checkout":"2026-09-26","note":"D1 Reykjavik Aurora view 3BR 2BATH EUR447"},
+ {"slug":"d1-gardabaer","room":"1329176066208833432","checkin":"2026-09-25","checkout":"2026-09-26","note":"D1 Gardabaer 3BR/2BA EUR337"},
+ {"slug":"d2-hlidarbol","room":"1554437248972293986","checkin":"2026-09-26","checkout":"2026-09-27","note":"D2 Hvolsvollur 5BR/2BA EUR750"},
+ {"slug":"d4-reykjanesbaer","room":"1231709933827491677","checkin":"2026-09-28","checkout":"2026-09-29","note":"D4 Keflavik 3BR/2BA EUR424"},
+ {"slug":"d5-nannestad","room":"1616864516592253636","checkin":"2026-09-29","checkout":"2026-09-30","note":"D5 Oslo Gardermoen again"},
+ {"slug":"d67-vagan-east","room":"1382960789125435389","checkin":"2026-09-30","checkout":"2026-10-02","note":"Lofoten EAST Vagan 5BR/2BA EUR674/2n"},
+ {"slug":"d67-ramberg-west","room":"1170849828585814519","checkin":"2026-09-30","checkout":"2026-10-02","note":"Lofoten WEST Ramberg 4BR/2.5BA EUR647/2n"},
+ {"slug":"d67-vagan-3n","room":"1382960789125435389","checkin":"2026-09-30","checkout":"2026-10-03","note":"Lofoten EAST 3 nights incl 10/2"},
+ {"slug":"d8-houseboat-3n","room":"1607078897559083655","checkin":"2026-10-03","checkout":"2026-10-06","note":"Tromso houseboat 3BR/3BA EUR825/3n"},
+ {"slug":"d8-houseboat-4n","room":"1607078897559083655","checkin":"2026-10-02","checkout":"2026-10-06","note":"Tromso houseboat 4 nights incl 10/2"},
+ {"slug":"d8-tromso-5br","room":"1763946111917505608","checkin":"2026-10-03","checkout":"2026-10-06","note":"Tromso 5BR/2.5BA EUR1155/3n"}
+]

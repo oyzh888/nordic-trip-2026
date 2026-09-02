@@ -1,0 +1,75 @@
+{
+ "title": "Fosshotel Glacier Lagoon, Hnappavellir (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/fosshotel-glacier-lagoon.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Standard Double or Twin Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    508,
+    508,
+    508,
+    33
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Standard Double or Twin Room ¶ We have 1 left ¶ Sleeps: 2 adults ¶ Select your bed (if available) ¶ 2 twin beds ¶ 1 queen bed ¶ 1 room ¶ 215 feet² ¶ View ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Free toiletries Bathrobe Safety deposit box Toilet Bath or shower Towels Linens Hypoallergenic Desk TV Slippers Refrigerator Telephone Tea/Coffee maker Interconnected room(s) available Heating Hairdryer Fan Carpeted Cable channels Wake-up service Entire unit located on ground floor Clothes rack Toilet paper ¶ € 508"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    559,
+    559,
+    559,
+    559
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "€ 559 per night ¶ € 559 ¶ Price € 559 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Very good breakfast included ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 559)"
+  },
+  {
+   "row": 2,
+   "name": "Executive Suite",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    1473,
+    1473,
+    1473,
+    1473
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Executive Suite ¶ We have 2 left ¶ Sleeps: 2 adults ¶ Bedroom 1: 1 king bed ¶ Living room: 1 sofa bed ¶ Private suite ¶ 441 feet² ¶ Balcony ¶ Mountain view ¶ Air conditioning ¶ Patio ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ More ¶ € 1,473 per night ¶ € 1,473 ¶ Price € 1,473 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Very good breakfast included ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 1,473) ¶ 2          (€"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    1422,
+    1422,
+    1422,
+    33
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "€ 1,422 per night ¶ € 1,422 ¶ Price € 1,422 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Very good breakfast € 33 ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 1,422) ¶ 2          (€ 2,844)"
+  }
+ ],
+ "job": {
+  "slug": "AB-fosshotel-1room",
+  "hotel": "is/fosshotel-glacier-lagoon",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 2,
+  "rooms": 1
+ }
+}

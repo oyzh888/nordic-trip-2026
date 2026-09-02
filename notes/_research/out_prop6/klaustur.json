@@ -1,0 +1,45 @@
+{
+ "title": "Hotel Klaustur, Kirkjubæjarklaustur (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/klaustur.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "The Suite",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    1057,
+    1149,
+    1057,
+    1149
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "The Suite ¶ We have 1 left ¶ High floor ¶ Sleeps: 2 adults ¶ 1 king bed  and 1 sofa bed ¶ 441 feet² ¶ Mountain view ¶ City view ¶ Attached bathroom ¶ Flat-screen TV ¶ Soundproofing ¶ Coffee machine ¶ Minibar ¶ Free Wifi ¶ Free toiletries Bathrobe Safety deposit box Toilet Sofa Bath or shower Hardwood or parquet floors Towels Linens Socket near the bed Desk Seating area TV Slippers Refrigerator Telephone Ironing facilities Satellite channels Tea/Coffee maker Iron Heating Hairdryer Extra long beds (> 80 inches) Wake-"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    1264,
+    1264,
+    1264,
+    6
+   ],
+   "cancel": "Free cancellation before September 13, 2026 ",
+   "currency": "EUR",
+   "raw": "€ 1,264 per night ¶ € 1,264 ¶ Price € 1,264 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 13, 2026 ¶ • ¶ Pay nothing until September 11, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 1,264)"
+  }
+ ],
+ "job": {
+  "slug": "klaustur",
+  "hotel": "is/klaustur",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 2,
+  "rooms": 1
+ }
+}

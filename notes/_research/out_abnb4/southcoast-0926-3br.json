@@ -1,0 +1,31 @@
+{
+ "job": {
+  "slug": "southcoast-0926-3br",
+  "place": "Hvolsvollur, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "bbox": [
+   63.38,
+   -20.6,
+   63.95,
+   -18.75
+  ],
+  "zoom": 9,
+  "min_bedrooms": 3
+ },
+ "url": "https://www.airbnb.com/s/Hvolsvollur--Iceland/homes?checkin=2026-09-26&checkout=2026-09-27&adults=4&min_bedrooms=3&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.38&sw_lng=-20.6&ne_lat=63.95&ne_lng=-18.75&search_by_map=true&zoom=9",
+ "rows": [
+  {
+   "kind": "Home in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Surrounded by nature on Heimaey island",
+   "bedrooms": 3,
+   "baths": 2.5,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.87",
+   "raw": "Guest favorite | Home in Vestmannaeyjar | Surrounded by nature on Heimaey island | 3 bedrooms | , | · | 7 beds | 2.5 baths | €604 | Show price breakdown | for 1 night | €604 for 1 night | Pay €0 today | Free cancellation | 4.87 out of 5 average rating, 15 reviews | 4.87 (15)",
+   "url": "https://www.airbnb.com/rooms/1676684443269632477"
+  }
+ ]
+}

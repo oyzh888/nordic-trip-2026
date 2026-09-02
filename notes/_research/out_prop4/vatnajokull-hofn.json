@@ -1,0 +1,105 @@
+{
+ "title": "Fosshotel Vatnajökull, Höfn (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/vatnajokull.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Standard Double or Twin Room with Mountain View",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    345,
+    345,
+    345,
+    27
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Standard Double or Twin Room with Mountain View ¶ We have 2 left ¶ 2 twin beds ¶ 1 room ¶ 269 feet² ¶ Mountain view ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Free toiletries Safety deposit box Toilet Bath or shower Towels Linens Desk Refrigerator Telephone Satellite channels Tea/Coffee maker Heating Hairdryer Electric kettle Wake-up service Wardrobe or closet Clothes rack Toilet paper ¶ Max. people: 2 ¶ € 345 per night ¶ € 345 ¶ Price € 345 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Good b"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    388,
+    388,
+    388,
+    388
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 388 per night ¶ € 388 ¶ Price € 388 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Good breakfast included ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 388) ¶ 2          (€ 775)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    366,
+    366,
+    366,
+    366
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 366 per night ¶ € 366 ¶ Price € 366 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Good breakfast included ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 366) ¶ 2          (€ 732)"
+  },
+  {
+   "row": 3,
+   "name": "Suite",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    762,
+    762,
+    762,
+    27
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Suite ¶ We have 2 left ¶ 1 queen bed ¶ Private suite ¶ 441 feet² ¶ Balcony ¶ Garden view ¶ Patio ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ More ¶ Max. people: 2 ¶ € 762 per night ¶ € 762 ¶ Price € 762 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Good breakfast € 27 ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 762) ¶ 2          (€ 1,524)"
+  },
+  {
+   "row": 4,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    805,
+    805,
+    805,
+    805
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 805 per night ¶ € 805 ¶ Price € 805 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Good breakfast included ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 805) ¶ 2          (€ 1,610)"
+  },
+  {
+   "row": 5,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    783,
+    783,
+    783,
+    783
+   ],
+   "cancel": "Free cancellation before September 25, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 783 per night ¶ € 783 ¶ Price € 783 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Good breakfast included ¶ Free cancellation before September 25, 2026 ¶ • ¶ Pay nothing until September 23, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 783) ¶ 2          (€ 1,567)"
+  }
+ ],
+ "job": {
+  "slug": "vatnajokull-hofn",
+  "hotel": "is/vatnajokull",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 4,
+  "rooms": 2
+ }
+}

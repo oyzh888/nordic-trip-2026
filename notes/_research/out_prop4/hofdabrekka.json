@@ -1,0 +1,45 @@
+{
+ "title": "Hotel Katla by Keahotels, Vík (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/country-hofdabrekka.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Standard Double or Twin Room Plus",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    615,
+    615,
+    615,
+    6
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Standard Double or Twin Room Plus ¶ We have 2 left ¶ Select your bed (if available) ¶ 1 king bed ¶ 2 twin beds ¶ 194 feet² ¶ Attached bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Free toiletries Shower Toilet Towels Linens Desk Satellite channels Radio Heating Hairdryer Extra long beds (> 80 inches) Electric kettle Wake-up service Alarm clock Clothes rack Toilet paper Hand sanitizer ¶ Max. people: 2 ¶ € 615 per night ¶ € 615 ¶ Price € 615 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Very good breakfast inclu"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    683,
+    683,
+    683,
+    6
+   ],
+   "cancel": "Free cancellation before September 24, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 683 per night ¶ € 683 ¶ Price € 683 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Very good breakfast included ¶ Free cancellation before September 24, 2026 ¶ No prepayment needed – pay at the property ¶ Select Rooms ¶ 0 ¶ 1          (€ 683) ¶ 2          (€ 1,366)"
+  }
+ ],
+ "job": {
+  "slug": "hofdabrekka",
+  "hotel": "is/country-hofdabrekka",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 4,
+  "rooms": 2
+ }
+}

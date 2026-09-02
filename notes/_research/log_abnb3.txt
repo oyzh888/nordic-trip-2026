@@ -1,0 +1,3 @@
+lofoten-east-0930-r2: 24 listings, 24 with 3+ bedrooms
+lofoten-east-wide-0930: 24 listings, 23 with 3+ bedrooms
+lofoten-mid-0930: 24 listings, 18 with 3+ bedrooms

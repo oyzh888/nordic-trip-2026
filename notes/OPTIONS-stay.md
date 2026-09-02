@@ -1,5 +1,23 @@
 # 住宿候选清单 —— 3房2卫（最优）/ 2房2卫（次优）
 
+> # 🔴🔴 这是**候选池**，不是方案。最终方案看 [`PLAN-final.md`](PLAN-final.md)
+>
+> 本文有 **3 处已确认的错误**，2026-09-01 复核后修正如下 —— 引用本文任何数字前先读这三条：
+>
+> **① 酒店那些 `€`/`$` 是「每间每晚」，不是「两间总价」。**
+> 所以本文所有酒店行的 `¥/room` **都要 ×2 重读**（例：D3 的 "€508 = ¥2,032/room"
+> 实际是 **¥4,064/room**，已超预算）。三条证据：`no_rooms=1` 与 `no_rooms=2` 抓回的数字完全一样；
+> 截图里明写 "1 room / We have 1 left / 住 2 人"；Árnanes 的 Select Rooms 下拉框写着
+> **1 → €276、2 → €553**。
+>
+> **② 冰岛酒店报价不含税** —— 页面写 "Excluded: 11 % VAT, ISK 800 / €6 City tax per night"。
+> 真实支出比表里高约 **11%+**。
+>
+> **③ 两个 🥇 首选其实订不到**（搜索页有价、房源页不可用，已截图存证）：
+> D2 的 **Hlíðarból €750** 和 D6–D7 东侧的 **Vågan 5BR €674** 都是
+> "Those dates are not available"。**已找到更好的替代，见 `PLAN-final.md`。**
+> 教训：Airbnb 搜索卡片不可信，必须逐个打开房源页复核（`_research/abnb_detail.py`）。
+
 > **数据来源**：2026-09-01 用 Playwright 实时抓的 **Airbnb**（已在 URL 里强制
 > `min_bedrooms≥2 & min_bathrooms≥2 & 整套房源`，并用**经纬度框**锁死地理范围，
 > 避免 Airbnb 把「Vík」搜成 2.5 小时外的 Selfoss）+ **Booking.com 房型页**（酒店/rorbu 的真实房价行）。
@@ -77,8 +95,8 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 
 | 房源 | 房/卫 | 总价 | ¥/room | 评分 | 位置 |
 |---|---|---|---|---|---|
-| 🥇 [Hlíðarból Guest House](https://www.airbnb.com/rooms/1554437248972293986) | **5BR / 2BA** | €750 | ¥3,000 | 4.64 | Hvolsvöllur |
-| [Apartment with balcony](https://www.airbnb.com/rooms/1015723380120240614) | 4BR / 2BA | €900 | ¥3,600 | 4.76 | Hvolsvöllur |
+| ⛔ ~~[Hlíðarból Guest House](https://www.airbnb.com/rooms/1554437248972293986)~~ | 5BR / 2BA | ~~€750~~ | — | 4.64 | Hvolsvöllur ｜🔴 **房源页日期不可用，订不了** |
+| ⛔ ~~[Apartment with balcony](https://www.airbnb.com/rooms/1015723380120240614)~~ | 4BR / 2BA | ~~€900~~ | — | 4.76 | Hvolsvöllur ｜🔴 **同样不可用** |
 | [4BR/2BA](https://www.airbnb.com/rooms/1081195144537663933) | 4BR / 2BA | €2,089 / 2晚 | ¥4,178/晚 | 4.8 | Hvolsvöllur ⚠️ min-stay 2 晚 |
 
 👉 **如果 D3 改成 Katla 冰洞（Vík 出发，全年开）**，住 Hvolsvöllur 就要早起多开 1h15。
@@ -88,14 +106,15 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 
 | 酒店 | 房型 | 2 间房总价 | ¥/room | free-cxl |
 |---|---|---|---|---|
-| 🥇 **Fosshotel Glacier Lagoon** | Standard Double/Twin | €508 | ¥2,032 | **到 9/25** |
+| ⛔ Fosshotel Glacier Lagoon | Standard Double/Twin | **€508/间**，且**只剩 1 间** → 2 间 €1,067 含税 €1,194 | **¥4,776** 超预算 | 到 9/25 |
 | Fosshotel Glacier Lagoon | Ocean View Double | €582 | ¥2,328 | 到 9/25 |
 | Fosshotel Glacier Lagoon | Executive Suite | €1,422 | ¥5,688 | 到 9/25 ｜超预算 |
 | Magma Hotel（Kirkjubæjarklaustur） | Family Room | €760 / €836(free-cxl) | ¥3,040–3,344 | 到 9/20 |
 | Hótel Klaustur | The Suite | €1,046 / €1,264(free-cxl) | ¥4,184–5,056 | 到 9/13 |
 
-**Fosshotel Glacier Lagoon 是唯一同时满足「离冰河湖近 + 在预算内 + 还能免费取消」的。
-它距冰河湖 ~10 min，全程最该今天就锁的一晚。**
+🔴 ~~Fosshotel Glacier Lagoon 是唯一同时满足「离冰河湖近 + 在预算内 + 还能免费取消」的。~~
+**这句已作废**：它的 Standard 只剩 **1 间**，凑 2 间要 €1,067（含税 €1,194）= **¥4,776/room 超预算**。
+→ **改住 Höfn，见 `PLAN-final.md`。**
 **修正 slug 后新拿到的更便宜替代（都在 Höfn 一带，离冰河湖 45–60 min）：**
 
 | 物业 | 房型 | 2 间房总价 | ¥/room | free-cxl |
@@ -104,8 +123,10 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 | Árnanes Sveitagisting | Triple · 私卫 | €346–368 / €385–409 | ¥1,384–1,636 | 到 9/20 |
 | **Lambhús Cabins**（Höfn） | Family Studio ×1 | €232–399 | — | 不可退 |
 
-👉 **Árnanes 便宜一半**（¥992/room vs Fosshotel ¥2,032），代价是**离冰河湖多开 40 min**。
-如果 9/27 晚上要在冰河湖等极光，Fosshotel 的 10 min 车程值那个差价；如果只是路过，Árnanes 更划算。
+👉 **🥇 结论（已定）：住 Árnanes。** 按每间价重算 —— Árnanes 2 间 flex **€553，含税 €626 = ¥2,504/room**，
+还有 **4 间**、含早、可要相连房、退到 9/20；Fosshotel Glacier Lagoon 只剩 1 间、凑 2 间 ¥4,776/room。
+代价是离冰河湖多开约 50 min，但换来**冰河湖看两次两种光** + **Stokksnes/Vestrahorn 离 Höfn 只 15 min**
+（极光前景比冰河湖更好）。备选 Fosshotel Vatnajökull（Höfn 镇）€345/间、剩 2 间、退到 9/25。
 
 （`hali-country` / `the-milk-factory` 换 slug 也没抓到 —— 这两家在 Booking 上可能已下架，
 需要去官网直接看。`jokulsarlon` 和 `hofn-apartments` 这两个 slug 返回 0 行 = 9/27 售罄。）
@@ -133,7 +154,8 @@ Vík 镇内 **0 个** 2房2卫整套房源。最近的都在 **Hvolsvöllur**（
 
 | 房源 | 房/卫 | 2晚总价 | €/晚 | ¥/room/晚 | 评分 |
 |---|---|---|---|---|---|
-| 🥇 [5BR/2BA in Vågan](https://www.airbnb.com/rooms/1382960789125435389) | **5BR / 2BA** | €674 | €337 | **¥1,348** | 4.78 |
+| ⛔ ~~[5BR/2BA in Vågan](https://www.airbnb.com/rooms/1382960789125435389)~~ | 5BR / 2BA | ~~€674~~ | — | — | 4.78 ｜🔴 **日期不可用（换干净浏览器复现过）** |
+| 🥇 **替代**：[Waterfront Nordic house, Vågan](https://www.airbnb.com/rooms/1362321193877972891) | **5BR/8床/2BA** | **€553** | €277 | **¥1,106** | **4.93** Guest favorite · 可退 |
 | [Nordic Lodge Retreat in Lofoten](https://www.airbnb.com/rooms/1303545546783105490) | 4BR / 2BA | €898 | €449 | ¥1,796 | **4.92** |
 | [Secluded house · private pool](https://www.airbnb.com/rooms/1441200146734024595) | 5BR / 2BA | €896 | €448 | ¥1,792 | 4.6 |
 | [Functional architecture close to nature](https://www.airbnb.com/rooms/574286379531171221) | 4BR / **2.5BA** | €1,041 | €521 | ¥2,084 | **5.0** |
@@ -220,23 +242,9 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
 
 ## 二、如果只看「性价比最高的一套组合」
 
-| 日期 | 选择 | 房/卫 | ¥/room/晚 |
-|---|---|---|---|
-| 9/24 | Nannestad · Modern Quiet Large | 3BR/2BA | 1,040 |
-| 9/25 | Aurora view 3BR 2BATH 雷市市中心 | 3BR/2BA | 1,788 |
-| 9/26 | Hlíðarból Guest House | 5BR/2BA | 3,000 |
-| 9/27 | **Fosshotel Glacier Lagoon ×2 间** | 2 房 2 卫 | 2,032 |
-| 9/28 | Reykjanesbær 3BR/2BA | 3BR/2BA | 1,696 |
-| 9/29 | Nannestad（同 9/24，可连订） | 3BR/2BA | 1,040 |
-| 9/30–10/1 | **The heart of Ramberg**（西侧）或 Vågan 5BR（东侧） | 4BR/2.5BA | 1,296 |
-| 10/2 | 邮轮舱位（不算住宿） | — | — |
-| 10/3–10/5 | **Houseboat in Tromsø** | 3BR/3BA | 1,100 |
-
-**10 晚陆上住宿合计 ≈ €5,000 / ¥40,000（4 人）→ 人均 ¥10,000，
-折 ¥1,570/room/晚 —— 稳稳落在你 2000–4000 RMB/room 的预算下沿**，
-甚至留出了升级空间（比如 9/25 换 Mani 4BR/3BA、罗弗敦换 Reine 的 Valen house）。
-
----
+> 🔴 **这一节已被 [`PLAN-final.md`](PLAN-final.md) 取代** —— 那里的组合修掉了本文的三处错误
+> （每间价 / 冰岛含税 / 两个订不到的 🥇），并把游轮 pass 之后的 10/2 那晚也排进去了。
+> 最终数字：**12 晚 €3,977 ≈ ¥31,816，折 ¥1,326/房/晚。**
 
 ## 三、现在就该下手的顺序（按会先卖光排）
 
@@ -261,7 +269,9 @@ Airbnb 那批是**页面上明确标了 2BA/2.5BA 的**，所以「一定要 2 �
       `sakrisa-y-rorbuer-as`、`park-inn-oslo-airport`、`enter-amalie-apartments` /
       `enter-viking-apartments` / `ta-vervet-apartment`（不是 `enter-city-apartments`）。
       修正后 12 家有数据、3 家确认售罄、2 家（`hali-country` / `the-milk-factory`）疑似 Booking 下架
-- [ ] Vík 镇内酒店（Hótel Vík í Mýrdal / Hótel Katla）2 间房报价 —— 若 D3 改 Katla 冰洞就需要
-- [ ] 酒店那几行的 €/$ 到底是**单间价还是两间总价**，下单前在页面上再核一眼
-      （Radisson 两家返回的是 USD 而不是 EUR，说明它忽略了我的货币参数）
+- [x] ~~Vík 镇内酒店 2 间房报价~~ → **Hotel Katla €615–683/间 = ¥4,920–5,464/room，超预算**。
+      Vík 一带 9/26 没有在预算内又有 2 间的选择 → **9/26 定 Hotel Hvolsvöllur ×2 间 €326（¥1,496/room，到店付，退到 9/24）**
+- [x] ~~酒店那几行的 €/$ 到底是单间价还是两间总价~~ → 🔴 **已确认是「每间每晚」**（三条证据见顶部）。
+      本文所有酒店 ¥/room 要 ×2 重读；`PLAN-final.md` 已全部重算并加上 11% VAT + 城市税。
+      （Radisson 两家返回 USD 而不是 EUR，说明它忽略了我的货币参数）
 - [ ] D3 蓝冰洞 → Katla 冰洞的决定（等 Kevin 找票）

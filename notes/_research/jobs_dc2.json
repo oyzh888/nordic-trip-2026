@@ -1,0 +1,6 @@
+[
+ {"slug":"norway-eve-tos-oneway-7d","pick_id":2088,"drop_id":2195,"pick_dt":"2026-09-30T11:00:00","drop_dt":"2026-10-06T10:00:00"},
+ {"slug":"norway-eve-eve-3d","pick_id":2088,"pick_dt":"2026-09-30T11:00:00","drop_dt":"2026-10-03T10:00:00"},
+ {"slug":"tromso-tos-tos-3d","pick_id":2195,"pick_dt":"2026-10-03T14:00:00","drop_dt":"2026-10-06T10:00:00"},
+ {"slug":"lofoten-eve-tos-1002","pick_id":2088,"drop_id":2195,"pick_dt":"2026-09-30T11:00:00","drop_dt":"2026-10-02T20:00:00"}
+]

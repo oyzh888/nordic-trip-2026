@@ -1,0 +1,36 @@
+[
+ {
+  "slug": "sc-dairyfarm-4br",
+  "note": "Hvolsvollur dairy farm 4BR/2BA E900",
+  "config": "4 bedrooms · 8 beds · 2 baths",
+  "bedrooms": "4",
+  "baths": "2",
+  "guests": "8",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Free cancellation before September 25. After that, the reservation is non-refundable.",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "4.76",
+  "error": null
+ },
+ {
+  "slug": "sc-hella-bank",
+  "note": "Hella old bank penthouse 4BR/2BA E1000",
+  "config": "4 bedrooms · 4 beds · 2 baths",
+  "bedrooms": "4",
+  "baths": "2",
+  "guests": "8",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Free cancellation for 24 hours. Cancel before September 19 for a partial refund.",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "4.99",
+  "error": null
+ }
+]

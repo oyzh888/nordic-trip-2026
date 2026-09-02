@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/is/black-beach-suites-vik.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=2&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "black-beach",
+  "hotel": "is/black-beach-suites-vik",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 2,
+  "rooms": 1
+ }
+}

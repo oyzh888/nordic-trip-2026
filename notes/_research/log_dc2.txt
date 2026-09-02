@@ -1,0 +1,4 @@
+norway-eve-tos-oneway-7d: 24 offers | dates=('Wed, Sep 30', 'Tue, Oct 06') 
+norway-eve-eve-3d: 21 offers | dates=('Wed, Sep 30', 'Sat, Oct 03') 
+tromso-tos-tos-3d: 16 offers | dates=('Sat, Oct 03', 'Tue, Oct 06') 
+lofoten-eve-tos-1002: 24 offers | dates=('Wed, Sep 30', 'Fri, Oct 02') 

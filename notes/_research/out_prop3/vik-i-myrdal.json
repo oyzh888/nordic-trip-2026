@@ -1,0 +1,14 @@
+{
+ "title": "Hotel Vík í Mýrdal, Vík (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/vik.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "vik-i-myrdal",
+  "hotel": "is/vik",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 4,
+  "rooms": 2
+ }
+}

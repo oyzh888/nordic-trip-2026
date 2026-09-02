@@ -1,0 +1,4 @@
+AB-hvolsvollur-1room: 2 rows
+AB-fosshotel-1room: 4 rows
+AB-hofdabrekka-1room: 2 rows
+AB-vatnajokull-1room: 4 rows

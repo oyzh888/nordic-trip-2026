@@ -1,0 +1,8 @@
+== sc-dairyfarm-4br 
+   cfg=4 bedrooms · 8 beds · 2 baths | br=4 bath=2 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 25. After that, the reservation is non-refundable. min=None unavail=False
+== sc-hella-bank 
+   cfg=4 bedrooms · 4 beds · 2 baths | br=4 bath=2 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 19 for a partial refund. min=None unavail=False

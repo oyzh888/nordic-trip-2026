@@ -1,0 +1,5 @@
+[
+{"slug":"lofoten-east-0930-r2","place":"Svolvaer, Norway","checkin":"2026-09-30","checkout":"2026-10-02","bbox":[68.05,13.95,68.35,14.85],"zoom":10,"min_bedrooms":3},
+{"slug":"lofoten-east-wide-0930","place":"Svolvaer, Norway","checkin":"2026-09-30","checkout":"2026-10-02","bbox":[67.95,13.30,68.45,15.30],"zoom":9,"min_bedrooms":2},
+{"slug":"lofoten-mid-0930","place":"Leknes, Norway","checkin":"2026-09-30","checkout":"2026-10-02","bbox":[67.95,13.25,68.30,14.30],"zoom":10,"min_bedrooms":2}
+]

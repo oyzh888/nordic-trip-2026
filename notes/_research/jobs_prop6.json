@@ -1,0 +1,13 @@
+[
+ {"slug":"kria-vik","hotel":"is/kria","checkin":"2026-09-26","checkout":"2026-09-27","adults":2,"rooms":1},
+ {"slug":"dyrholaey","hotel":"is/dyrholaey-hotel","checkin":"2026-09-26","checkout":"2026-09-27","adults":2,"rooms":1},
+ {"slug":"black-beach","hotel":"is/black-beach-suites-vik","checkin":"2026-09-26","checkout":"2026-09-27","adults":2,"rooms":1},
+ {"slug":"hofdabrekka-guesthouse","hotel":"is/country-hotel-hofdabrekka","checkin":"2026-09-26","checkout":"2026-09-27","adults":2,"rooms":1},
+ {"slug":"drangshlid-r2","hotel":"is/hotel-drangshlid-skogar","checkin":"2026-09-26","checkout":"2026-09-27","adults":2,"rooms":1},
+ {"slug":"fosshotel-nupar","hotel":"is/fosshotel-nupar","checkin":"2026-09-27","checkout":"2026-09-28","adults":2,"rooms":1},
+ {"slug":"hunkubakkar","hotel":"is/hunkubakkar-guesthouse","checkin":"2026-09-27","checkout":"2026-09-28","adults":2,"rooms":1},
+ {"slug":"klaustur","hotel":"is/klaustur","checkin":"2026-09-27","checkout":"2026-09-28","adults":2,"rooms":1},
+ {"slug":"magma","hotel":"is/magma","checkin":"2026-09-27","checkout":"2026-09-28","adults":2,"rooms":1},
+ {"slug":"laki","hotel":"is/laki","checkin":"2026-09-27","checkout":"2026-09-28","adults":2,"rooms":1},
+ {"slug":"jokulsarlon-hotel","hotel":"is/jokulsarlon","checkin":"2026-09-27","checkout":"2026-09-28","adults":2,"rooms":1}
+]

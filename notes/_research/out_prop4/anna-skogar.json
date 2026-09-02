@@ -1,0 +1,75 @@
+{
+ "title": "Boutique Hotel Anna by EJ Hotels, Holt (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/country-hotel-anna.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Deluxe Apartment",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    550,
+    597,
+    550,
+    597
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Deluxe Apartment ¶ Recommended for 4 adults ¶ We have 3 left ¶ Bedroom 1: 2 twin beds ¶ Living room: 1 sofa bed ¶ Entire apartment ¶ 377 feet² ¶ Mountain view ¶ Attached bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Hot tub Free toiletries Shower Bathrobe Toilet Towels Linens Socket near the bed Seating area Private entrance TV Satellite channels Tea/Coffee maker Heating Hairdryer Electric kettle Entire unit located on ground floor Toilet paper ¶ Max. people: 4 ¶ € 550 per night ¶ € 597 € 550 ¶ Original price € 597 Curre"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    664,
+    664,
+    664,
+    6
+   ],
+   "cancel": "Free cancellation before September 21, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 4 ¶ € 664 per night ¶ € 664 ¶ Price € 664 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 21, 2026 ¶ • ¶ Pay nothing until September 19, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 664) ¶ 2          (€ 1,329) ¶ 3          (€ 1,993)"
+  },
+  {
+   "row": 2,
+   "name": "Double or Twin Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    331,
+    360,
+    331,
+    360
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Double or Twin Room ¶ We have 1 left ¶ Select your bed (if available) ¶ 1 queen bed ¶ 2 twin beds ¶ 1 room ¶ 183 feet² ¶ Mountain view ¶ Attached bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ More ¶ Max. people: 2 ¶ € 331 per night ¶ € 360 € 331 ¶ Original price € 360 Current price € 331 ¶ 1 night ¶ 8% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Flexible to reschedule if plans change ¶ Non-refundable ¶ • ¶ Pay online ¶ discount may be a"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    400,
+    400,
+    400,
+    6
+   ],
+   "cancel": "Free cancellation before September 21, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 400 per night ¶ € 400 ¶ Price € 400 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 21, 2026 ¶ • ¶ Pay nothing until September 19, 2026 ¶ discount may be available ¶ Select Rooms ¶ 0 ¶ 1          (€ 400)"
+  }
+ ],
+ "job": {
+  "slug": "anna-skogar",
+  "hotel": "is/country-hotel-anna",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 4,
+  "rooms": 2
+ }
+}

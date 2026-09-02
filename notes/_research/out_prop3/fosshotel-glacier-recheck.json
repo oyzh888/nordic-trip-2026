@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/is/fosshotel-vatnajokull.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "fosshotel-glacier-recheck",
+  "hotel": "is/fosshotel-vatnajokull",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "adults": 4,
+  "rooms": 2
+ }
+}

@@ -1,0 +1,8 @@
+vik-i-myrdal: 0 rows
+hotel-katla: 0 rows
+icelandair-vik: 0 rows
+hotel-dyrholaey: 4 rows
+umi-hotel: 0 rows
+hotel-ranga: 0 rows
+fosshotel-glacier-recheck: 0 rows
+arnanes-recheck: 0 rows

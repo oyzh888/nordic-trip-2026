@@ -1,0 +1,10 @@
+[
+ {"slug":"vik-i-myrdal","hotel":"is/vik","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"hotel-katla","hotel":"is/katla","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"icelandair-vik","hotel":"is/icelandair-hotel-vik","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"hotel-dyrholaey","hotel":"is/dyrholaey","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"umi-hotel","hotel":"is/umi","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"hotel-ranga","hotel":"is/hotel-ranga","checkin":"2026-09-26","checkout":"2026-09-27","adults":4,"rooms":2},
+ {"slug":"fosshotel-glacier-recheck","hotel":"is/fosshotel-vatnajokull","checkin":"2026-09-27","checkout":"2026-09-28","adults":4,"rooms":2},
+ {"slug":"arnanes-recheck","hotel":"is/arnanes-country-hotel","checkin":"2026-09-27","checkout":"2026-09-28","adults":4,"rooms":2}
+]
