@@ -1,0 +1,342 @@
+{
+ "url": "https://www.discovercars.com/search/9aefc422-ff76-410e-8b02-ba93e465a69c?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzQ0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI4IDEzOjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Mon, Sep 28",
+  "Tue, Sep 29"
+ ],
+ "n_offers": 25,
+ "rows": [
+  {
+   "car": "Kia Picanto",
+   "supplier": null,
+   "prices": [
+    147
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $147.68 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    160
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Automatic | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $160.05 | Free cancellation | View deal | Prices are even better in the app | Scan to download and book on your phone"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    169
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $169.96 | Free cancellation | View deal"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    157
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Manual | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $157.59 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    197
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $197.19 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    188
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Automatic | 4 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $188.18 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    177
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Manual | 4 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $177.17 | Free cancellation | View deal"
+  },
+  {
+   "car": "Volkswagen Polo",
+   "supplier": null,
+   "prices": [
+    194
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Volkswagen Polo | or similar Economy | Automatic | 4 seats | 4 doors | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $194.18 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    204
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $204.62 | Free cancellation | View deal"
+  },
+  {
+   "car": "Volkswagen Polo",
+   "supplier": null,
+   "prices": [
+    185
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Volkswagen Polo | or similar Economy | Manual | 4 seats | 4 doors | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $185.17 | Free cancellation | View deal"
+  },
+  {
+   "car": "Volkswagen Golf",
+   "supplier": null,
+   "prices": [
+    211
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Volkswagen Golf | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $211.17 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    207
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $207.11 | Free cancellation | View deal"
+  },
+  {
+   "car": "Volkswagen Golf",
+   "supplier": null,
+   "prices": [
+    204
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Volkswagen Golf | or similar Compact | Manual | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $204.18 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    204
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Swift | or similar Economy | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $204.62 | Free cancellation | View deal"
+  },
+  {
+   "car": "Dacia Jogger 5+2",
+   "supplier": null,
+   "prices": [
+    214
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Dacia Jogger 5+2 | or similar Standard Estate/Wagon | Manual | 7 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $214.53 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    219
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $219.48 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i30",
+   "supplier": null,
+   "prices": [
+    221
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i30 | or similar Compact Estate/Wagon | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $221.17 | Free cancellation | View deal"
+  },
+  {
+   "car": "All-wheel drive",
+   "supplier": null,
+   "prices": [
+    222
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "All-wheel drive | Suzuki Jimny | or similar Economy SUV | Manual | 4 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $222.18 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    236
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $236.80 | Free cancellation | View deal"
+  },
+  {
+   "car": "All-wheel drive",
+   "supplier": null,
+   "prices": [
+    244
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "All-wheel drive | Toyota Yaris Cross | or similar Compact Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $244.22 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    251
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Vitara | or similar Compact Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $251.67 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    214
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $214.53 | Free cancellation | View deal"
+  },
+  {
+   "car": "All-wheel drive",
+   "supplier": null,
+   "prices": [
+    273
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "All-wheel drive | Kia Sportage | or similar Intermediate SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Low deposit | Instant confirmation! | Unlimited mileage | 8.1 | Good | Total for 2 days | $273.17 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    273
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sportage | or similar Intermediate Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $273.92 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    224
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact Crossover | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Reykjavik Airport (RKV) | Average deposit | Instant confirmation! | Unlimited mileage | 8.4 | Good | 371 ratings | Total for 2 days | $224.44 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "OW-rkv-kef-2d-snae",
+  "pick_id": 1744,
+  "drop_id": 1787,
+  "pick_dt": "2026-09-28 13:30",
+  "drop_dt": "2026-09-29 18:00"
+ }
+}

@@ -1,0 +1,199 @@
+{
+ "url": "https://www.discovercars.com/search/5785ef39-8419-471c-9f01-4488cb456f12?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyNDksIkRyb3BPZmZMb2NhdGlvbklkIjoxNzg3LCJQaWNrdXBEYXRlVGltZSI6IjIwMjYtMDktMjYgMTA6MDAiLCJEcm9wT2ZmRGF0ZVRpbWUiOiIyMDI2LTA5LTI5IDE4OjAwIiwiUmVzaWRlbmNlQ291bnRyeSI6IlVTIiwiRHJpdmVyQWdlIjozNSwiSGFzaCI6IiJ9",
+ "dates_on_page": [
+  "Sat, Sep 26",
+  "Tue, Sep 29"
+ ],
+ "n_offers": 14,
+ "rows": [
+  {
+   "car": "Kia Picanto",
+   "supplier": null,
+   "prices": [
+    447
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $447.67 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    462
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Automatic | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $462.54 | Free cancellation | View deal | Prices are even better in the app | Scan to download and book on your phone"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    457
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Manual | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $457.63 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    521
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $521.97 | Free cancellation | View deal"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    477
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $477.40 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    531
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $531.85 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    536
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Unlimited mileage | 8.3 | Good | Total for 4 days | $536.82 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    526
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Swift | or similar Economy | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $526.94 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    551
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $551.68 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    556
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $556.64 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    581
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact Crossover | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $581.37 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    591
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $591.26 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    611
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Vitara | or similar Compact Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $611.09 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    650
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sportage | or similar Intermediate Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | Rental office — Egilsstadir Downtown | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $650.69 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "OW-egsdt-kef-4d",
+  "pick_id": 249,
+  "drop_id": 1787,
+  "pick_dt": "2026-09-26 10:00",
+  "drop_dt": "2026-09-29 18:00"
+ }
+}

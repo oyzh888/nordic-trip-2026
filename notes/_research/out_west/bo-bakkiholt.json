@@ -1,0 +1,14 @@
+{
+ "title": "Bakki and Holt, Borgarnes (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/bakki-and-holt.html?checkin=2026-09-28&checkout=2026-09-29&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "bo-bakkiholt",
+  "hotel": "is/bakki-and-holt",
+  "checkin": "2026-09-28",
+  "checkout": "2026-09-29",
+  "adults": 4,
+  "rooms": 2
+ }
+}

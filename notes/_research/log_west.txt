@@ -1,0 +1,6 @@
+bo-b59: 22 rows
+bo-borgarnes: 12 rows
+bo-hamar: 12 rows
+bo-bru: 8 rows
+bo-stafholt: 6 rows
+bo-bakkiholt: 0 rows

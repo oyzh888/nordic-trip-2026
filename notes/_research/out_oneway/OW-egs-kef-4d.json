@@ -1,0 +1,329 @@
+{
+ "url": "https://www.discovercars.com/search/ccd3dbe0-a01a-4ed2-a8e9-6ff9603f3347?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNjUzLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI2IDEwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Sat, Sep 26",
+  "Tue, Sep 29"
+ ],
+ "n_offers": 24,
+ "rows": [
+  {
+   "car": "Kia Picanto",
+   "supplier": null,
+   "prices": [
+    462
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $462.92 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    477
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Automatic | 4 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $477.77 | Free cancellation | View deal | Prices are even better in the app | Scan to download and book on your phone"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    492
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $492.64 | Free cancellation | View deal"
+  },
+  {
+   "car": "Suzuki Swift",
+   "supplier": null,
+   "prices": [
+    472
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Swift | or similar Economy | Manual | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $472.86 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    537
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $537.22 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed",
+   "supplier": null,
+   "prices": [
+    547
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $547.08 | Free cancellation | View deal"
+  },
+  {
+   "car": "Electric",
+   "supplier": null,
+   "prices": [
+    552
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Electric | Volkswagen ID.3 | or similar Compact | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Unlimited mileage | 8.3 | Good | Total for 4 days | $552.06 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    542
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Swift | or similar Economy | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $542.19 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    566
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $566.92 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Ceed STW",
+   "supplier": null,
+   "prices": [
+    571
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Ceed STW | or similar Compact Estate/Wagon | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $571.89 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    596
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact Crossover | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $596.60 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    606
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Dacia Duster | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $606.50 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    626
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Vitara | or similar Compact Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $626.32 | Free cancellation | View deal"
+  },
+  {
+   "car": "Skoda Octavia",
+   "supplier": null,
+   "prices": [
+    646
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Skoda Octavia | or similar Intermediate | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $646.12 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    665
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sportage | or similar Intermediate Crossover | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $665.93 | Free cancellation | View deal"
+  },
+  {
+   "car": "Skoda Octavia STW",
+   "supplier": null,
+   "prices": [
+    661
+   ],
+   "total_days": "4",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Skoda Octavia STW | or similar Intermediate Estate/Wagon | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $661.02 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    611
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Suzuki Jimny | or similar Compact SUV | Manual | 2 seats | 2 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Unlimited mileage | 8.3 | Good | Total for 4 days | $611.47 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    745
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Toyota RAV4 | or similar Standard Crossover | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $745.18 | Free cancellation | View deal"
+  },
+  {
+   "car": "All-wheel drive",
+   "supplier": null,
+   "prices": [
+    759
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "All-wheel drive | Mitsubishi Outlander | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Unlimited mileage | 8.3 | Good | Total for 4 days | $759.99 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    913
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sorento | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $913.47 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    720
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Skoda Octavia STW | or similar Intermediate Estate/Wagon | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $720.38 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    972
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Kia Sorento | or similar Standard SUV | Automatic | 5 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Unlimited mileage | 8.3 | Good | Total for 4 days | $972.89 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    1220
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Mercedes-Benz GLE-Class | or similar Luxury SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Unlimited mileage | 8.3 | Good | Total for 4 days | $1,220.43 | Free cancellation | View deal"
+  },
+  {
+   "car": "4x4",
+   "supplier": null,
+   "prices": [
+    1294
+   ],
+   "total_days": "4",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "4x4 | Toyota Land Cruiser | or similar Premium SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Egilsstadir Airport (EGS) | Average deposit | Instant confirmation! | Unlimited mileage | 8.3 | Good | Total for 4 days | $1,294.71 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "OW-egs-kef-4d",
+  "pick_id": 1653,
+  "drop_id": 1787,
+  "pick_dt": "2026-09-26 10:00",
+  "drop_dt": "2026-09-29 18:00"
+ }
+}

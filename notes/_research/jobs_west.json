@@ -1,0 +1,8 @@
+[
+ {"slug":"bo-b59",        "hotel":"is/b59",            "checkin":"2026-09-28","checkout":"2026-09-29","adults":4,"rooms":2},
+ {"slug":"bo-borgarnes",  "hotel":"is/ha3tel-borgarnes","checkin":"2026-09-28","checkout":"2026-09-29","adults":4,"rooms":2},
+ {"slug":"bo-hamar",      "hotel":"is/hamar",          "checkin":"2026-09-28","checkout":"2026-09-29","adults":4,"rooms":2},
+ {"slug":"bo-bru",        "hotel":"is/bru",            "checkin":"2026-09-28","checkout":"2026-09-29","adults":4,"rooms":2},
+ {"slug":"bo-stafholt",   "hotel":"is/stafholt",       "checkin":"2026-09-28","checkout":"2026-09-29","adults":4,"rooms":2},
+ {"slug":"bo-bakkiholt",  "hotel":"is/bakki-and-holt", "checkin":"2026-09-28","checkout":"2026-09-29","adults":4,"rooms":2}
+]

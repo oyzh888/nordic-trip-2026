@@ -1,0 +1,108 @@
+{
+ "borgarnes": {
+  "n_slugs": 11,
+  "slugs": [
+   "b59",
+   "bakki-and-holt",
+   "bru",
+   "city-hall-apartments",
+   "ha3tel-borgarnes",
+   "hamar",
+   "lucys-apartment",
+   "milli-vina-guesthouse-borgarnes",
+   "mofellsstadakot",
+   "stafholt",
+   "the-apartment-obbuhus"
+  ]
+ },
+ "akranes": {
+  "n_slugs": 19,
+  "slugs": [
+   "101",
+   "bardi-cottage",
+   "baron",
+   "borg",
+   "brekka-retreat-mountain-cabin",
+   "charming-wooden-house-with-mountain-view",
+   "cityhoteliceland",
+   "exeter-by-keahotels",
+   "fosshotel-reykjavik",
+   "grandi-by-center-hotels",
+   "lotus",
+   "moar-cottage",
+   "moar-guesthouse",
+   "odinsve",
+   "panorama-glass-lodge-west",
+   "reykjavik-residence",
+   "skjaldbreid",
+   "teigur-guesthouse",
+   "the-owl-apartment"
+  ]
+ },
+ "west-region": {
+  "n_slugs": 30,
+  "slugs": [
+   "101-guesthouse-reykjavik",
+   "airport-sma-ri",
+   "b59",
+   "basalt",
+   "center",
+   "cityhub-reykjavik",
+   "first-kopavogur",
+   "fosshotel-glacier-lagoon",
+   "freya-farm",
+   "grandhotelreykjavik",
+   "halond",
+   "hofsstaadegir-guesthouse",
+   "hotel-drangshlid",
+   "hotel-muli",
+   "jokulsarlon",
+   "kvika",
+   "nattura-yurtel",
+   "nordic-hostel",
+   "ood-aura-retreat",
+   "ood-hekla-horizon",
+   "reykjavik-residence",
+   "reykjavik-saga",
+   "reystays-lodges",
+   "selfoss",
+   "siglo",
+   "skalakot-manor-hote",
+   "skammidalur-cottages",
+   "stafholt",
+   "strand-apartments",
+   "tower-suites-reykjavik"
+  ]
+ },
+ "stykkish": {
+  "n_slugs": 10,
+  "slugs": [
+   "akkeri-guesthouse",
+   "baenir-og-braud-stykkisholmur",
+   "bygghamar",
+   "egilsen",
+   "fransiskus-stykkisholmi",
+   "helgafell-farmhouse",
+   "holiday-guesthouse",
+   "stundarfridur",
+   "stykkisholmur",
+   "the-stykkisholmur-inn"
+  ]
+ },
+ "olafsvik": {
+  "n_slugs": 11,
+  "slugs": [
+   "adventure-hellissandur",
+   "anchor-in-olafsvik",
+   "bikers-paradise",
+   "larubud",
+   "olafsvik",
+   "olafsvik-guesthouse",
+   "snaefellsnes-guesthouse-by-welcome-iceland-hotels",
+   "the-freezer-hostel",
+   "vid-hafid-guesthouse",
+   "vidic-guesthouse",
+   "welcome-apartment"
+  ]
+ }
+}

@@ -1,0 +1,6 @@
+OW-base-kef-kef-5d: 15 offers | dates=('Fri, Sep 25', 'Tue, Sep 29') 
+OW-egs-kef-4d: 24 offers | dates=('Sat, Sep 26', 'Tue, Sep 29') 
+OW-egsdt-kef-4d: 14 offers | dates=('Sat, Sep 26', 'Tue, Sep 29') 
+OW-kef-hfn-3d: 24 offers | dates=('Fri, Sep 25', 'Mon, Sep 28') 
+OW-kef-egs-4d: 24 offers | dates=('Fri, Sep 25', 'Tue, Sep 29') 
+OW-rkv-kef-2d-snae: 25 offers | dates=('Mon, Sep 28', 'Tue, Sep 29') 

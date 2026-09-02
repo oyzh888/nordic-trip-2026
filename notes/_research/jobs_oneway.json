@@ -1,0 +1,8 @@
+[
+ {"slug":"OW-base-kef-kef-5d",  "pick_id":1787,               "pick_dt":"2026-09-25 17:00","drop_dt":"2026-09-29 18:00"},
+ {"slug":"OW-egs-kef-4d",       "pick_id":1653,"drop_id":1787,"pick_dt":"2026-09-26 10:00","drop_dt":"2026-09-29 18:00"},
+ {"slug":"OW-egsdt-kef-4d",     "pick_id":249, "drop_id":1787,"pick_dt":"2026-09-26 10:00","drop_dt":"2026-09-29 18:00"},
+ {"slug":"OW-kef-hfn-3d",       "pick_id":1787,"drop_id":4048,"pick_dt":"2026-09-25 17:00","drop_dt":"2026-09-28 11:00"},
+ {"slug":"OW-kef-egs-4d",       "pick_id":1787,"drop_id":1653,"pick_dt":"2026-09-25 17:00","drop_dt":"2026-09-29 08:00"},
+ {"slug":"OW-rkv-kef-2d-snae",  "pick_id":1744,"drop_id":1787,"pick_dt":"2026-09-28 13:30","drop_dt":"2026-09-29 18:00"}
+]
