@@ -1,0 +1,175 @@
+{
+ "job": {
+  "slug": "nb-southcoast-0926",
+  "place": "Hvolsvollur, Iceland",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "bbox": [
+   63.38,
+   -20.6,
+   63.95,
+   -18.75
+  ],
+  "min_bedrooms": 2,
+  "min_bathrooms": 1
+ },
+ "url": "https://www.airbnb.com/s/Hvolsvollur--Iceland/homes?checkin=2026-09-26&checkout=2026-09-27&adults=4&min_bedrooms=2&min_bathrooms=1&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.38&sw_lng=-20.6&ne_lat=63.95&ne_lng=-18.75&search_by_map=true&zoom=9",
+ "rows": [
+  {
+   "kind": "Apartment in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Walk to everything on Westman Island",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 513,
+   "rating": "4.92",
+   "raw": "Guest favorite | Apartment in Vestmannaeyjar | Walk to everything on Westman Island | 2 bedrooms | , | · | 3 beds | 1 bath | €513 | Show price breakdown | for 1 night | €513 for 1 night | 4.92 out of 5 average rating, 72 reviews | 4.92 (72)",
+   "url": "https://www.airbnb.com/rooms/1190753149483208905"
+  },
+  {
+   "kind": "Home in Hella",
+   "loc": "Hella",
+   "title": "Two hot pools with a glacier view",
+   "bedrooms": 2,
+   "baths": 3.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": null,
+   "raw": "Home in Hella | Two hot pools with a glacier view | 2 bedrooms | , | · | 2 beds | 3 baths | €3,956 | Show price breakdown | for 1 night | €3,956 for 1 night | Pay €0 today | Free cancellation",
+   "url": "https://www.airbnb.com/rooms/1707213711579879176"
+  },
+  {
+   "kind": "Apartment in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Spacious with a quiet street view",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.6",
+   "raw": "Apartment in Vestmannaeyjar | Spacious with a quiet street view | 2 bedrooms | , | · | 2 queen beds | 1 bath | €320 | Show price breakdown | for 1 night | €320 for 1 night | Pay €0 today | Free cancellation | 4.6 out of 5 average rating, 40 reviews | 4.6 (40)",
+   "url": "https://www.airbnb.com/rooms/850855181027883394"
+  },
+  {
+   "kind": "Home in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Surrounded by nature on Heimaey island",
+   "bedrooms": 3,
+   "baths": 2.5,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.88",
+   "raw": "Guest favorite | Home in Vestmannaeyjar | Surrounded by nature on Heimaey island | 3 bedrooms | , | · | 7 beds | 2.5 baths | €604 | Show price breakdown | for 1 night | €604 for 1 night | Pay €0 today | Free cancellation | 4.88 out of 5 average rating, 16 reviews | 4.88 (16)",
+   "url": "https://www.airbnb.com/rooms/1676684443269632477"
+  },
+  {
+   "kind": "Apartment in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Spacious with a quiet street view",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.85",
+   "raw": "Apartment in Vestmannaeyjar | Spacious with a quiet street view | 2 bedrooms | , | · | 2 beds | 1 bath | €395 | Show price breakdown | for 1 night | €395 for 1 night | Pay €0 today | Free cancellation | 4.85 out of 5 average rating, 20 reviews | 4.85 (20)",
+   "url": "https://www.airbnb.com/rooms/908772986587191868"
+  },
+  {
+   "kind": "Apartment in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Light-filled space on Heimaey island",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.68",
+   "raw": "Apartment in Vestmannaeyjar | Light-filled space on Heimaey island | 2 bedrooms | , | · | 6 beds | 1 bath | €590 | Show price breakdown | for 1 night | €590 for 1 night | Pay €0 today | Free cancellation | 4.68 out of 5 average rating, 68 reviews | 4.68 (68)",
+   "url": "https://www.airbnb.com/rooms/19469814"
+  },
+  {
+   "kind": "Apartment in Vestmannaeyjar",
+   "loc": "Vestmannaeyjar",
+   "title": "Private entrance on a quiet street",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.51",
+   "raw": "Apartment in Vestmannaeyjar | Private entrance on a quiet street | 2 bedrooms | , | · | 2 queen beds | 1 bath | €320 | Show price breakdown | for 1 night | €320 for 1 night | Pay €0 today | Free cancellation | 4.51 out of 5 average rating, 90 reviews | 4.51 (90)",
+   "url": "https://www.airbnb.com/rooms/50145517"
+  },
+  {
+   "kind": "Home in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Private farmhouse with mountain views",
+   "bedrooms": 5,
+   "baths": 1.5,
+   "nights": 2,
+   "total_eur": 662,
+   "rating": "4.6",
+   "raw": "Sep 26  to  28 | Sep 26 – 28 | Home in Hvolsvöllur | Private farmhouse with mountain views | 5 bedrooms | , | · | 12 beds | 1.5 baths | €662 | Show price breakdown | for 2 nights | €662 for 2 nights | 4.6 out of 5 average rating, 419 reviews | 4.6 (419)",
+   "url": "https://www.airbnb.com/rooms/13778842"
+  },
+  {
+   "kind": "Cottage in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Quiet cottage near Seljalandsfoss with BBQ",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 2,
+   "total_eur": 699,
+   "rating": "5.0",
+   "raw": "Sep 25  to  27 | Sep 25 – 27 | Cottage in Hvolsvöllur | Quiet cottage near Seljalandsfoss with BBQ | 2 bedrooms | , | · | 2 beds | 1 bath | €699 | Show price breakdown | for 2 nights | €699 for 2 nights | 5.0 out of 5 average rating, 9 reviews | 5.0 (9)",
+   "url": "https://www.airbnb.com/rooms/1497332139425346894"
+  },
+  {
+   "kind": "Home in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Architect-designed converted sheep house with views",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 2,
+   "total_eur": 1490,
+   "rating": "4.75",
+   "raw": "Sep 25  to  27 | Sep 25 – 27 | Home in Hvolsvöllur | Architect-designed converted sheep house with views | 2 bedrooms | , | · | 2 beds | 1 bath | €1,490 | Show price breakdown | for 2 nights | €1,490 for 2 nights | 4.75 out of 5 average rating, 32 reviews | 4.75 (32)",
+   "url": "https://www.airbnb.com/rooms/1023102613659247937"
+  },
+  {
+   "kind": "Sep 27  to  28",
+   "loc": "",
+   "title": "Vacation home in Vestmannaeyjar",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 289,
+   "rating": "4.99",
+   "raw": "Sep 27  to  28 | Sep 27 – 28 | Vacation home in Vestmannaeyjar | New home with rain shower and EV charger | 2 bedrooms | , | · | 2 queen beds | 1 bath | €331 | €289 | Show price breakdown | for 1 night | 4.99 out of 5 average rating, 98 reviews | 4.99 (98)",
+   "url": "https://www.airbnb.com/rooms/11496098"
+  },
+  {
+   "kind": "Home in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Glacier views and a private hot tub",
+   "bedrooms": 4,
+   "baths": 2.0,
+   "nights": 2,
+   "total_eur": 2089,
+   "rating": "4.8",
+   "raw": "Sep 25  to  27 | Sep 25 – 27 | Home in Hvolsvöllur | Glacier views and a private hot tub | 4 bedrooms | , | · | 4 beds | 2 baths | €2,089 | Show price breakdown | for 2 nights | €2,089 for 2 nights | 4.8 out of 5 average rating, 20 reviews | 4.8 (20)",
+   "url": "https://www.airbnb.com/rooms/1081195144537663933"
+  },
+  {
+   "kind": "Cabin in Hvolsvöllur",
+   "loc": "Hvolsvöllur",
+   "title": "Peaceful countryside cabin with beautiful views",
+   "bedrooms": 2,
+   "baths": 1.5,
+   "nights": 2,
+   "total_eur": 865,
+   "rating": "5.0",
+   "raw": "Sep 25  to  27 | Sep 25 – 27 | Cabin in Hvolsvöllur | Peaceful countryside cabin with beautiful views | 2 bedrooms | , | · | 12 beds | 1.5 baths | €865 | Show price breakdown | for 2 nights | €865 for 2 nights | 5.0 out of 5 average rating, 4 reviews | 5.0 (4)",
+   "url": "https://www.airbnb.com/rooms/1509606070816616777"
+  }
+ ]
+}

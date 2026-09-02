@@ -1,0 +1,10 @@
+{
+ "log": [
+  "0",
+  "oneway:Locator.click: Timeout 5000ms exceeded.\nCall log:\n  - waiting for get_by_",
+  "from=False",
+  "to=False",
+  "1"
+ ],
+ "body": "www.wideroe.no\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: a34da487ff460eda\nPerformance and Security by Cloudflare\nPrivacy"
+}

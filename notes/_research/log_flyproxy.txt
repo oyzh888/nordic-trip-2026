@@ -1,0 +1,16 @@
+== P-svj-tos-0925 
+== P-svj-boo-0925 
+== P-boo-tos-0925 
+    10:25 AM – 11:15 AM Scandinavian AirlinesOperated by Sas Link 50 min BOO–TOS Nonstop 243 kg CO2e -39% emissions NOK 3,196 Avoids as much CO2e as 9,557 trees absorb in a day
+    5:10 PM – 6:00 PM Scandinavian AirlinesOperated by Sas Link 50 min BOO–TOS Nonstop 243 kg CO2e -39% emissions NOK 5,192
+    6:45 AM – 12:25 PM Norwegian 5 hr 40 min BOO–TOS 1 stop 2 hr 15 min OSL 721 kg CO2e +80% emissions NOK 6,964
+    5:35 PM – 11:25 PM NorwegianOperated by Norwegian 5 hr 50 min BOO–TOS 1 stop 2 hr 25 min OSL 721 kg CO2e +80% emissions NOK 11,368
+    10:30 AM – 2:30 PM Norwegian 4 hr BOO–TOS 1 stop 35 min OSL 627 kg CO2e +57% emissions NOK 11,568
+    5:45 PM – 10:20 PM Scandinavian Airlines 4 hr 35 min BOO–TOS 1 stop 1 hr 15 min OSL 675 kg CO2e +69% emissions NOK 13,004
+    5:35 PM – 9:40 PM Norwegian 4 hr 5 min BOO–TOS 1 stop 40 min OSL 721 kg CO2e +80% emissions NOK 13,772
+    7:30 PM – 11:00 AM+1 Scandinavian Airlines 15 hr 30 min BOO–TOS 1 stop 12 hr 15 min OSL 1,012 kg CO2e +153% emissions NOK 16,292 Business Class
+    8:10 PM – 11:00 AM+1 Scandinavian AirlinesOperated by Sas Link, Sas Link 14 hr 50 min BOO–TOS 2 stops TRD, OSL 929 kg CO2e +132% emissions NOK 23,284
+    7:30 AM – 10:05 AM+1 Wideroe, FinnairOperated by Nordic Reg for Finnair, Nordic Reg for Finnair, Nordic Reg for Finnair 26 hr 35 min BOO–TOS 3 stops TRD, HEL, RVN 1,226 kg CO2e +207% emissions NOK 25,200
+== P-svj-tos-1120 
+== P-svj-tos-0605 
+DONE

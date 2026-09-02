@@ -1,0 +1,6 @@
+svj-tos-schedule: 2060 chars, 8 sources
+lofoten-to-tromso-air: 3749 chars, 12 sources
+wideroe-booking-window: 2030 chars, 10 sources
+reykjanes-status: 3703 chars, 24 sources
+snaefellsnes-lite: 3618 chars, 13 sources
+DONE

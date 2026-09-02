@@ -1,0 +1,43 @@
+{
+ "job": {
+  "slug": "nb-hofn-0927",
+  "place": "Hofn, Iceland",
+  "checkin": "2026-09-27",
+  "checkout": "2026-09-28",
+  "bbox": [
+   63.72,
+   -18.2,
+   64.4,
+   -15.05
+  ],
+  "min_bedrooms": 2,
+  "min_bathrooms": 1
+ },
+ "url": "https://www.airbnb.com/s/Hofn--Iceland/homes?checkin=2026-09-27&checkout=2026-09-28&adults=4&min_bedrooms=2&min_bathrooms=1&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=63.72&sw_lng=-18.2&ne_lat=64.4&ne_lng=-15.05&search_by_map=true&zoom=9",
+ "rows": [
+  {
+   "kind": "Home in Höfn",
+   "loc": "Höfn",
+   "title": "Northern lights near glaciers and reindeer",
+   "bedrooms": 2,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 0,
+   "rating": "4.92",
+   "raw": "Home in Höfn | Northern lights near glaciers and reindeer | 2 bedrooms | , | · | 4 beds | 1 bath | €491 | Show price breakdown | for 1 night | €491 for 1 night | Pay €0 today | Free cancellation | 4.92 out of 5 average rating, 13 reviews | 4.92 (13)",
+   "url": "https://www.airbnb.com/rooms/1723943241437839157"
+  },
+  {
+   "kind": "Home in Höfn",
+   "loc": "Höfn",
+   "title": "Magical garden and sunroom near Höfn",
+   "bedrooms": 3,
+   "baths": 1.0,
+   "nights": 1,
+   "total_eur": 890,
+   "rating": "4.85",
+   "raw": "Superhost | Home in Höfn | Magical garden and sunroom near Höfn | 3 bedrooms | , | · | 5 beds | 1 bath | €890 | Show price breakdown | for 1 night | €890 for 1 night | 4.85 out of 5 average rating, 98 reviews | 4.85 (98)",
+   "url": "https://www.airbnb.com/rooms/54163647"
+  }
+ ]
+}

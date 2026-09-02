@@ -1,0 +1,105 @@
+== det-nb-oslo-0924-1753877098140755308 
+   cfg=2 bedrooms · 4 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23 min=None unavail=False
+== det-nb-oslo-0924-1270374100032635743 
+   cfg=4 bedrooms · 3 beds · 1.5 baths | br=4 bath=1.5 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23 min=None unavail=False
+== det-nb-oslo-0924-1252857673971762876 
+   cfg=2 bedrooms · 4 beds · 1 bath | br=2 bath=1 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23 min=None unavail=False
+== det-nb-reykjavik-0925-1724134199061697362 
+   cfg=3 bedrooms · 2 beds · 1 bath | br=3 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 24 min=None unavail=False
+== det-nb-reykjavik-0925-1680010112178700759 
+   cfg=3 bedrooms · 4 beds · 1 bath | br=3 bath=1 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 20 min=None unavail=False
+== det-nb-reykjavik-0925-1430990373810945250 
+   cfg=2 bedrooms · 4 beds · 1 bath | br=2 bath=1 guests=8
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 18 for a partial refund. min=None unavail=False
+== det-nb-southcoast-0926-13778842 
+   cfg=5 bedrooms · 12 beds · 1.5 baths | br=5 bath=1.5 guests=12
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 21. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== det-nb-southcoast-0926-1497332139425346894 
+   cfg=2 bedrooms · 2 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 12. Cancel before September 19 for a partial refun min=Minimum stay is 2 nights unavail=True
+== det-nb-southcoast-0926-1509606070816616777 
+   cfg=2 bedrooms · 12 beds · 1.5 baths | br=2 bath=1.5 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 21. After that, the reservation is non-refundable. min=Minimum stay is 2 nights unavail=True
+== det-nb-hofn-0927-1723943241437839157 
+   cfg=2 bedrooms · 4 beds · 1 bath | br=2 bath=1 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 26 min=None unavail=False
+== det-nb-hofn-0927-54163647 
+   cfg=3 bedrooms · 5 beds · 1 bath | br=3 bath=1 guests=7
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €889.99 total min=None unavail=False
+== det-nb-keflavik-0928-1540699778277608711 
+   cfg=2 bedrooms · 6 beds · 1 bath | br=2 bath=1 guests=7
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 21 for a partial refund. min=None unavail=False
+== det-nb-keflavik-0928-1574867289566572364 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 23 min=None unavail=False
+== det-nb-keflavik-0928-1759418019179216516 
+   cfg=2 bedrooms · 5 beds · 1 bath | br=2 bath=1 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 27 min=None unavail=False
+== det-nb-oslo-0929-1753877098140755308 
+   cfg=2 bedrooms · 4 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 28 min=None unavail=False
+== det-nb-oslo-0929-1720180043985463205 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 28 min=None unavail=False
+== det-nb-oslo-0929-1566617079237381119 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €124.72 total min=None unavail=False
+== det-nb-lofoten-east-0930-1161647566512477702 
+   cfg=2 bedrooms · 2 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 29. Cancel before check-in on September 30 for a p min=None unavail=False
+== det-nb-lofoten-east-0930-45458469 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 29 min=None unavail=False
+== det-nb-lofoten-east-0930-1699364147036322220 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before September 29 min=None unavail=False
+== det-nb-tromso-1002-1718687782270433212 
+   cfg=2 bedrooms · 2 beds · 1 bath | br=2 bath=1 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 25 for a partial refund. min=None unavail=False
+== det-nb-tromso-1002-1574501575705947347 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=6
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 25 for a partial refund. min=None unavail=False
+== det-nb-tromso-1002-1674364445862654824 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=5
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before October 1. Cancel before check-in on October 2 for a partial min=None unavail=False
+== det-nb-oslo-1006-1720180043985463205 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before October 5 min=None unavail=False
+== det-nb-oslo-1006-1566617079237381119 
+   cfg=2 bedrooms · 3 beds · 1 bath | br=2 bath=1 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Non-refundable · €124.72 total min=None unavail=False
+== det-nb-oslo-1006-1270374100032635743 
+   cfg=4 bedrooms · 3 beds · 1.5 baths | br=4 bath=1.5 guests=4
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation before October 5 min=None unavail=False
+DONE

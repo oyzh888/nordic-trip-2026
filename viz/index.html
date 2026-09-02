@@ -66,7 +66,18 @@ h2 .n{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.1em;
 .leaflet-control-layers-base span{display:flex;align-items:center;gap:5px}
 
 .dot{border-radius:50%;border:2px solid #0b1020;box-shadow:0 0 0 1.5px rgba(255,255,255,.28),0 3px 10px rgba(0,0,0,.5);
-  display:flex;align-items:center;justify-content:center;font:700 11px/1 -apple-system,sans-serif;color:#08101f}
+  display:flex;align-items:center;justify-content:center;font:800 11px/1 -apple-system,sans-serif;color:#08101f;
+  transition:transform .16s,box-shadow .16s,opacity .16s}
+/* 选中的那天：放大 + 白圈 + 同色光晕；没选中的淡下去 */
+.dot.act{transform:scale(1.34);box-shadow:0 0 0 3px #fff,0 0 20px 5px currentColor,0 4px 14px rgba(0,0,0,.6);z-index:9}
+.dot.dim{opacity:.34}
+/* 每天的色卡（图例里那一排，可点） */
+.dayswatch{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.dayswatch button{all:unset;cursor:pointer;width:26px;height:22px;border-radius:6px;
+  font:800 10px/22px -apple-system,sans-serif;color:#08101f;text-align:center;
+  border:1.5px solid transparent;transition:.14s}
+.dayswatch button:hover{transform:translateY(-1px)}
+.dayswatch button.on{border-color:#fff;box-shadow:0 0 10px 2px currentColor}
 .wp{width:9px;height:9px;border-radius:50%;background:#8fa0c4;border:1.5px solid #0b1020;opacity:.85}
 /* 住宿 / 取还车图钉 */
 .pin{width:26px;height:26px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);
@@ -90,11 +101,12 @@ h2 .n{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.1em;
 .legend em{font-style:normal;color:var(--tx2)}
 .daylist{overflow:auto;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:8px;flex:1}
 .dayitem{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:9px 10px;border-radius:9px;cursor:pointer;
-  border:1px solid transparent;transition:.14s}
+  border:1px solid transparent;border-left:4px solid var(--dc,transparent);transition:.14s}
 .dayitem:hover{background:var(--bg3)}
-.dayitem.on{background:var(--bg3);border-color:var(--cy)}
-.dayitem .id{font-weight:800;font-size:12px;color:var(--cy);text-align:center;
-  background:rgba(62,230,208,.1);border-radius:7px;padding:5px 0;height:fit-content}
+.dayitem.on{background:var(--bg3);border-color:var(--dc,var(--cy));border-left-color:var(--dc,var(--cy))}
+.dayitem .id{font-weight:800;font-size:12px;color:#08101f;text-align:center;
+  background:var(--dc,var(--cy));border-radius:7px;padding:5px 0;height:fit-content}
+.dayitem .id div{color:rgba(8,16,31,.62)!important}
 .dayitem .t{font-size:13.5px;font-weight:600;line-height:1.35}
 .dayitem .m{font-size:11.5px;color:var(--tx3);margin-top:2px}
 .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:20px;margin-left:5px;vertical-align:1px}
@@ -104,7 +116,11 @@ h2 .n{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.1em;
 
 /* detail card under map */
 .detail{margin-top:14px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.detail{border-left:4px solid var(--dc,var(--line))}   /* 必须在上面那条 border 简写之后 */
 .detail h3{margin:0 0 3px;font-size:19px}
+.detail h3 .cdot{display:inline-block;width:11px;height:11px;border-radius:50%;
+  background:var(--dc,var(--cy));margin-right:8px;vertical-align:1px;
+  box-shadow:0 0 0 2px rgba(255,255,255,.25)}
 .detail .meta{color:var(--tx3);font-size:12.5px;margin-bottom:14px}
 .dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
 .box{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
@@ -278,8 +294,11 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
      灰色的是<b>占位</b>，即还没定、先随便填了个可退的酒店）和
      <b style="color:var(--violet)">🚗↑ 取车</b> / <b style="color:var(--red)">🚗↓ 还车</b>（带具体时间）。
      右上角图层开关可以单独关掉这两组。<br>
-     线条按交通方式着色：<b style="color:var(--cy)">自驾</b> · <b style="color:var(--violet)">飞行</b> ·
-     <b style="color:var(--blue)">渡轮</b>。</p>
+     <br>🎨 <b>每天一个颜色</b> —— 地图圆点 / 那天的路线 / 右侧列表 / 下面的详情卡<b>共用同一个色</b>，
+     所以点哪天，一眼就能在地图上认出是哪条线。<b>选中的那天会放大 + 白圈 + 光晕，其余淡下去</b>；
+     点地图空白处或图例里的「显示全部」恢复。
+     <br>交通方式改用<b>线型</b>区分（自驾实线 · 飞行长虚线 · 渡轮点线）—— 一张图上颜色只能编码一个维度，
+     这里让给了「哪一天」。</p>
   <div class="maprow">
     <div>
       <div id="map"></div>
@@ -287,10 +306,16 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
     <div class="side">
       <div class="legend">
         <div style="color:var(--tx3);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700">图例</div>
-        <div class="row">
-          <em><i style="background:var(--cy)"></i>自驾</em>
-          <em><i style="background:var(--violet);border-top:2px dashed var(--violet);height:0"></i>飞行</em>
-          <em><i style="background:var(--blue)"></i>渡轮</em>
+        <div style="font-size:11.5px;color:var(--tx2);margin-top:6px">
+          <b style="color:var(--tx)">颜色 = 哪一天</b>（点色卡跳过去）
+          <button id="showall" style="all:unset;cursor:pointer;float:right;font-size:11px;color:var(--tx3);
+            border:1px solid var(--line);border-radius:5px;padding:1px 6px">显示全部</button></div>
+        <div class="dayswatch" id="swatch"></div>
+        <div style="font-size:11.5px;color:var(--tx2);margin-top:10px"><b style="color:var(--tx)">线型 = 交通方式</b></div>
+        <div class="row" style="margin-top:4px">
+          <em><i style="background:var(--tx2)"></i>自驾（实线）</em>
+          <em><i style="border-top:2px dashed var(--tx2);height:0;background:none"></i>飞行</em>
+          <em><i style="border-top:2px dotted var(--tx2);height:0;background:none"></i>渡轮</em>
         </div>
         <div class="row" style="margin-top:9px">
           <em><span style="display:inline-block;width:11px;height:11px;border-radius:50% 50% 50% 2px;
@@ -596,40 +621,60 @@ const LEGCOL={drive:'#3ee6d0',fly:'#a98bff',cruise:'#ffb44d',ferry:'#5bc8ff'};
 const layers={};   // dayId -> {group, bounds}
 const allBounds=[];
 
-DAYS.forEach(d=>{
+/* 交通方式改用**线型**区分（虚实/粗细），颜色让给「哪一天」—— 一张图上只能有一个维度用颜色 */
+const DASH={drive:null,fly:'8 8',cruise:'14 5',ferry:'3 6'};
+const dayIconHtml=(d,col,sz,act)=>`<div style="position:relative;width:${sz}px;height:${sz}px;color:${col}">
+  ${hardDays.has(d.id)?'<div class="ring"></div>':''}
+  <div class="dot${act?' act':''}" style="width:${sz}px;height:${sz}px;background:${col}">${d.id.replace('D','')}</div></div>`;
+
+DAYS.forEach((d,di)=>{
   const g=L.layerGroup().addTo(map);
-  const pts=[];
+  const col=dayColor(di);
+  d._col=col;
+  const pts=[], lines=[], wps=[];
   (d.legs||[]).forEach(lg=>{
     const line = lg.k==='fly' ? [lg.from,lg.to] : lg.pts;
     line.forEach(p=>pts.push(p));
-    L.polyline(line,{color:LEGCOL[lg.k],weight:lg.k==='fly'?2.2:3.2,opacity:.78,
-      dashArray:lg.k==='fly'?'7 7':(lg.k==='ferry'?'3 5':null),
-      lineCap:'round'}).addTo(g);
+    const pl=L.polyline(line,{color:col,weight:lg.k==='fly'?2.4:3.4,opacity:.8,
+      dashArray:DASH[lg.k], lineCap:'round'}).addTo(g)
+      .bindTooltip(`${d.id} · ${d.date} · ${({drive:'自驾',fly:'飞行',cruise:'邮轮',ferry:'渡轮'})[lg.k]}`,{sticky:true});
+    pl.on('click',()=>select(d.id,false));
+    lines.push(pl);
   });
-  // waypoints
-  d.route.forEach((r,i)=>{
+  // waypoints —— 也染成当天的颜色
+  d.route.forEach(r=>{
     pts.push(r.c);
-    const last=i===d.route.length-1;
-    if(i===0||last||d.route.length<=2){}
-    L.marker(r.c,{icon:L.divIcon({className:'',html:'<div class="wp"></div>',iconSize:[9,9],iconAnchor:[4.5,4.5]}),
-      interactive:true}).addTo(g).bindTooltip(d.id+' · '+r.n,{direction:'top',offset:[0,-4]});
+    const m=L.marker(r.c,{icon:L.divIcon({className:'',iconSize:[9,9],iconAnchor:[4.5,4.5],
+        html:`<div class="wp" style="background:${col}"></div>`})}).addTo(g)
+      .bindTooltip(d.id+' · '+r.n,{direction:'top',offset:[0,-4]});
+    m.on('click',()=>select(d.id,false));
+    wps.push(m);
   });
   // anchor marker (the day badge)
-  const col=REGCOL[d.region];
   const sz=d.supply==='red'?30:26;
-  L.marker(d.anchor,{icon:L.divIcon({className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],
-      html:`<div style="position:relative;width:${sz}px;height:${sz}px">
-        ${hardDays.has(d.id)?'<div class="ring"></div>':''}
-        <div class="dot" style="width:${sz}px;height:${sz}px;background:${col}">${d.id.replace('D','')}</div></div>`}),
-      zIndexOffset:500}).addTo(g)
-   .bindPopup(`<b>${d.id} · ${d.date} ${d.wd}</b><br>${d.title}<br>
+  const mk=L.marker(d.anchor,{icon:L.divIcon({className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],
+      html:dayIconHtml(d,col,sz,false)}),zIndexOffset:500}).addTo(g)
+   .bindPopup(`<b style="color:${col}">${d.id} · ${d.date} ${d.wd}</b><br>${d.title}<br>
      <span style="color:#a7b2cd">📍 ${d.base}</span><br>
      <span style="color:#a7b2cd">🚗 ${d.drive}</span><br>
      <span style="color:#3ee6d0">🛏 ${d.stay.url?`<a href="${d.stay.url}" target="_blank" rel="noopener">${d.stay.name}</a>`:d.stay.name}</span>`)
    .on('click',()=>select(d.id,false));
-  layers[d.id]={g,bounds:L.latLngBounds(pts)};
+  layers[d.id]={g,bounds:L.latLngBounds(pts),mk,lines,wps,col,sz,d};
   pts.forEach(p=>allBounds.push(p));
 });
+
+/* 选中一天 → 那天放大高亮，其余淡下去（点击时一眼看出是哪条） */
+function paintMap(sel){
+  Object.entries(layers).forEach(([id,L_])=>{
+    const on = !sel || id===sel;
+    L_.mk.setIcon(L.divIcon({className:'',iconSize:[L_.sz,L_.sz],iconAnchor:[L_.sz/2,L_.sz/2],
+      html:dayIconHtml(L_.d,L_.col,L_.sz,id===sel)}));
+    L_.mk.setOpacity(on?1:.34);
+    L_.mk.setZIndexOffset(id===sel?1200:500);
+    L_.lines.forEach(p=>p.setStyle({opacity:on?(id===sel?1:.8):.16, weight:id===sel?5:(p.options.dashArray==='8 8'?2.4:3.4)}));
+    L_.wps.forEach(w=>w.setOpacity(on?.9:.2));
+  });
+}
 const FULL=L.latLngBounds(allBounds).pad(.08);
 map.fitBounds(FULL);
 
@@ -678,6 +723,7 @@ layerCtl.addOverlay(carLayer,'🚗 取车 / 还车点');
 DAYS.forEach(d=>{
   const it=el('div','dayitem');it.id='li-'+d.id;
   const bs=BYDAY[d.id]||[];
+  it.style.setProperty('--dc', d._col||dayColor(DAYS.indexOf(d)));
   it.innerHTML=`<div class="id">${d.id}<div style="font-size:10px;color:var(--tx3);font-weight:600;margin-top:2px">${d.date}</div></div>
     <div><div class="t">${d.title}<span class="pill ${d.supply}">${d.supply==='red'?'紧':d.supply==='amber'?'中':'松'}</span>${
       bs.length?`<span class="warnb">待拍板 ${bs.map(b=>b.id).join(' ')}</span>`:''}</div>
@@ -691,12 +737,22 @@ function select(id,fly){
   cur=id;const d=DAYS.find(x=>x.id===id);
   document.querySelectorAll('.dayitem').forEach(n=>n.classList.remove('on'));
   $('#li-'+id).classList.add('on');
+  document.querySelectorAll('.dayswatch button').forEach(n=>n.classList.toggle('on',n.dataset.day===id));
+  paintMap(id);
   if(fly){const b=layers[id].bounds;map.flyToBounds(b.pad(.25),{duration:.7,maxZoom:9});}
   renderDetail(d);
 }
+/* 点空白处 / 「显示全部」→ 取消高亮，恢复全部 */
+function selectNone(){
+  cur=null;
+  document.querySelectorAll('.dayitem').forEach(n=>n.classList.remove('on'));
+  document.querySelectorAll('.dayswatch button').forEach(n=>n.classList.remove('on'));
+  paintMap(null); map.flyToBounds(FULL,{duration:.7});
+}
 function renderDetail(d){
   const c=$('#detail');c.innerHTML='';
-  c.appendChild(el('h3',null,`${d.id} · ${d.date}（${d.wd}）${d.title}`));
+  if(c.style)c.style.setProperty('--dc', d._col||'');
+  c.appendChild(el('h3',null,`<span class="cdot"></span>${d.id} · ${d.date}（${d.wd}）${d.title}`));
   c.appendChild(el('div','meta',`📍 ${d.base} &nbsp;·&nbsp; 🚗 ${d.drive} &nbsp;·&nbsp; 当天支出 <b style="color:#3ee6d0">¥${fmt(Object.values(d.spend).reduce((a,b)=>a+b,0))}</b>（4 人）`));
   const g=el('div','dgrid');
 
@@ -732,6 +788,16 @@ function renderDetail(d){
 
   c.appendChild(g);
 }
+/* 日期色卡 */
+$('#swatch').innerHTML=DAYS.map((d,i)=>{
+  const c=d._col||dayColor(i);
+  return `<button data-day="${d.id}" title="${d.id} · ${d.date} ${d.title}"
+    style="background:${c};color:#08101f">${d.id.replace('D','')}</button>`;
+}).join('');
+document.querySelectorAll('.dayswatch button').forEach(n=>n.onclick=()=>select(n.dataset.day,true));
+const sa=document.getElementById('showall'); if(sa) sa.onclick=selectNone;
+map.on('click',selectNone);
+
 select('D0',false);
 map.fitBounds(FULL);
 

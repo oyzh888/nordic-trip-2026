@@ -1,0 +1,10 @@
+nb-oslo-0924: 24 listings, 14 with 3+ bedrooms
+nb-reykjavik-0925: 24 listings, 8 with 3+ bedrooms
+nb-southcoast-0926: 13 listings, 3 with 3+ bedrooms
+nb-hofn-0927: 2 listings, 1 with 3+ bedrooms
+nb-keflavik-0928: 18 listings, 9 with 3+ bedrooms
+nb-oslo-0929: 24 listings, 14 with 3+ bedrooms
+nb-lofoten-east-0930: 24 listings, 15 with 3+ bedrooms
+nb-tromso-1002: 24 listings, 7 with 3+ bedrooms
+nb-oslo-1006: 24 listings, 12 with 3+ bedrooms
+DONE
