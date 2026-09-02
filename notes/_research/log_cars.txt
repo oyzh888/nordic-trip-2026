@@ -1,0 +1,3 @@
+car-iceland: 8972 chars, 83 sources
+car-lofoten: 7952 chars, 39 sources
+car-tromso-senja: 6798 chars, 23 sources

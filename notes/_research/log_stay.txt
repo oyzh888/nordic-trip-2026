@@ -1,0 +1,4 @@
+stay-lofoten: 7139 chars, 49 sources
+stay-tromso: 8827 chars, 32 sources
+stay-iceland: 10794 chars, 54 sources
+stay-oslo-cruise: 7635 chars, 49 sources
