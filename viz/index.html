@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北欧行 2026 · 9/24–10/6 · 行程地图 + 落地计划</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{
+  --bg:#0b1020; --bg2:#111931; --bg3:#18213d; --line:#26314f;
+  --tx:#e8ecf7; --tx2:#a7b2cd; --tx3:#6f7b99;
+  --red:#ff5d73; --amber:#ffb44d; --green:#4ad991; --blue:#5bc8ff;
+  --violet:#a98bff; --cy:#3ee6d0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1440px;margin:0 auto;padding:0 20px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(1200px 420px at 12% -10%,rgba(62,230,208,.20),transparent 60%),
+             radial-gradient(1000px 400px at 78% -20%,rgba(169,139,255,.22),transparent 60%),
+             linear-gradient(180deg,#0d1428,#0b1020)}
+.hero .wrap{padding:34px 20px 26px}
+.kicker{color:var(--cy);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+h1{margin:8px 0 6px;font-size:clamp(26px,3.6vw,42px);line-height:1.15;letter-spacing:-.5px}
+.sub{color:var(--tx2);max-width:900px;font-size:15.5px}
+.tldr{margin-top:16px;padding:14px 16px;border-left:3px solid var(--red);
+  background:rgba(255,93,115,.08);border-radius:0 10px 10px 0;font-size:14.5px;color:#ffd9df}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:20px}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-size:23px;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--tx3)}
+
+/* ---------- section ---------- */
+section{padding:38px 0 6px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+h2{font-size:21px;margin:0 0 4px;display:flex;align-items:center;gap:9px}
+h2 .n{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.1em;
+  border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.lede{color:var(--tx2);margin:6px 0 18px;font-size:14.5px;max-width:1000px}
+
+/* ---------- map ---------- */
+.maprow{display:grid;grid-template-columns:1fr 372px;gap:14px}
+@media(max-width:1020px){.maprow{grid-template-columns:1fr}}
+#map{height:min(72vh,720px);min-height:480px;border-radius:14px;border:1px solid var(--line);
+  background:#0a0f1e;z-index:1}
+.leaflet-popup-content-wrapper{background:#141d36;color:var(--tx);border-radius:10px;
+  box-shadow:0 10px 40px rgba(0,0,0,.55);border:1px solid var(--line)}
+.leaflet-popup-tip{background:#141d36;border:1px solid var(--line)}
+.leaflet-popup-content{margin:11px 13px;font:13.5px/1.55 inherit;min-width:210px}
+.leaflet-popup-content b{color:#fff}
+.leaflet-container a.leaflet-popup-close-button{color:var(--tx3)}
+.leaflet-bar a{background:#141d36;color:var(--tx);border-color:var(--line)}
+.leaflet-bar a:hover{background:#1d2846}
+.leaflet-control-attribution{background:rgba(10,15,30,.8)!important;color:var(--tx3)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--tx3)!important}
+.leaflet-control-layers{background:#141d36!important;color:var(--tx);border:1px solid var(--line)!important;
+  border-radius:9px!important;box-shadow:0 6px 24px rgba(0,0,0,.5)!important;font-size:12.5px}
+.leaflet-control-layers label{margin:3px 0}
+.leaflet-control-layers-base span{display:flex;align-items:center;gap:5px}
+
+.dot{border-radius:50%;border:2px solid #0b1020;box-shadow:0 0 0 1.5px rgba(255,255,255,.28),0 3px 10px rgba(0,0,0,.5);
+  display:flex;align-items:center;justify-content:center;font:700 11px/1 -apple-system,sans-serif;color:#08101f}
+.wp{width:9px;height:9px;border-radius:50%;background:#8fa0c4;border:1.5px solid #0b1020;opacity:.85}
+
+/* map side panel */
+.side{display:flex;flex-direction:column;gap:10px;max-height:min(72vh,720px);min-height:480px}
+.legend{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:12.5px}
+.legend .row{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:7px}
+.legend i{display:inline-block;width:22px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.legend em{font-style:normal;color:var(--tx2)}
+.daylist{overflow:auto;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:8px;flex:1}
+.dayitem{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:9px 10px;border-radius:9px;cursor:pointer;
+  border:1px solid transparent;transition:.14s}
+.dayitem:hover{background:var(--bg3)}
+.dayitem.on{background:var(--bg3);border-color:var(--cy)}
+.dayitem .id{font-weight:800;font-size:12px;color:var(--cy);text-align:center;
+  background:rgba(62,230,208,.1);border-radius:7px;padding:5px 0;height:fit-content}
+.dayitem .t{font-size:13.5px;font-weight:600;line-height:1.35}
+.dayitem .m{font-size:11.5px;color:var(--tx3);margin-top:2px}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:20px;margin-left:5px;vertical-align:1px}
+.pill.red{background:rgba(255,93,115,.16);color:var(--red)}
+.pill.amber{background:rgba(255,180,77,.16);color:var(--amber)}
+.pill.green{background:rgba(74,217,145,.14);color:var(--green)}
+
+/* detail card under map */
+.detail{margin-top:14px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.detail h3{margin:0 0 3px;font-size:19px}
+.detail .meta{color:var(--tx3);font-size:12.5px;margin-bottom:14px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.box{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+.box h4{margin:0 0 8px;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--tx3)}
+.box ul{margin:0;padding-left:17px}
+.box li{margin:4px 0;font-size:13.5px}
+.box .big{font-size:14.5px;font-weight:650;line-height:1.45}
+.box .note{font-size:12.5px;color:var(--tx2);margin-top:7px;line-height:1.55}
+.box.warn{border-color:rgba(255,93,115,.4);background:rgba(255,93,115,.06)}
+.box.warn h4{color:var(--red)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--bg3);
+  border:1px solid var(--line);color:var(--tx2);margin:0 5px 5px 0}
+
+/* ---------- charts ---------- */
+.chartcard{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+svg.chart{width:100%;height:auto;display:block;overflow:visible}
+.ck{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--tx2);margin-top:10px}
+.ck b{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(255,255,255,.035);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--tx3);font-weight:700;white-space:nowrap;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(255,255,255,.022)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sev{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.sev.red{background:var(--red)} .sev.amber{background:var(--amber)}
+.sev.green{background:var(--green)} .sev.done{background:var(--tx3)}
+tr.done td{color:var(--tx3)}
+#risktab tr.done td:first-child{text-decoration:line-through}
+tr
+
+/* ---------- cards grid ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card.pick{border-color:rgba(62,230,208,.45);background:linear-gradient(180deg,rgba(62,230,208,.07),var(--bg2))}
+.card h3{margin:0 0 9px;font-size:15.5px}
+.card .kv{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.card .kv:last-of-type{border-bottom:none}
+.card .kv span:first-child{color:var(--tx3)}
+.pro{font-size:12.8px;color:var(--green);margin-top:9px}
+.con{font-size:12.8px;color:var(--amber);margin-top:5px}
+
+abbr{text-decoration:none;border-bottom:1px dotted var(--tx3);cursor:help}
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:8px 20px;font-size:13px}
+.gl div{padding:6px 0;border-bottom:1px solid var(--line)}
+.gl b{color:var(--cy)}
+footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);color:var(--tx3);font-size:12.5px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--tx2)}
+</style>
+</head>
+<body>
+
+<div class="hero"><div class="wrap">
+  <div class="kicker">Nordic Trip · 2026-09-24 → 10-06 · 4 人（两男 + 一对夫妻）</div>
+  <h1>北欧行 2026 —— 行程地图 & 落地计划</h1>
+  <p class="sub">奥斯陆中转 → 冰岛环南岸 5 天 → 回奥斯陆 → 罗弗敦群岛自驾 3 天 →
+     <b>Havila 海岸邮轮夜航</b> → 特罗姆瑟 + Senja 3 天。全部报价为 <b>2026-09-01 用 Playwright 实时抓的</b>，
+     不是估算；每个数字都能回到 <span class="mono">notes/_research/</span> 下的脚本重算。</p>
+  <div class="tldr"><b>一句话</b>：今天 2026-09-01，出发 9/24 —— 只剩 <b>23 天</b>。这不是「比价」阶段，是
+     <b>抢库存</b>阶段。真正会卡住的是三个稀缺资源（<b>10/2 的 Havila 舱位</b>、<b>9/27 冰河湖那一晚</b>、
+     <b>EVE→Svolvær 异地还车的 6 个车源</b>），不是每晚多花 50 欧。所以下面的清单按「谁会先卖光」排序，
+     而不是按天数顺序。</div>
+  <div class="stats" id="stats"></div>
+</div></div>
+
+<div class="wrap">
+
+<!-- ============ 1. MAP ============ -->
+<section id="map-sec">
+  <h2><span class="n">01</span>行程地图</h2>
+  <p class="lede">点右侧任意一天（或地图上的圆点）→ 地图飞到那天，下面的卡片换成那天的住宿 / 车 / 亮点 / 要盯的事。
+     线条按交通方式着色：<b style="color:var(--cy)">自驾</b> · <b style="color:var(--violet)">飞行</b> ·
+     <b style="color:var(--amber)">邮轮</b> · <b style="color:var(--blue)">渡轮</b>。</p>
+  <div class="maprow">
+    <div>
+      <div id="map"></div>
+    </div>
+    <div class="side">
+      <div class="legend">
+        <div style="color:var(--tx3);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700">图例</div>
+        <div class="row">
+          <em><i style="background:var(--cy)"></i>自驾</em>
+          <em><i style="background:var(--violet);border-top:2px dashed var(--violet);height:0"></i>飞行</em>
+          <em><i style="background:var(--amber)"></i>邮轮</em>
+          <em><i style="background:var(--blue)"></i>渡轮</em>
+        </div>
+        <div class="row" style="margin-top:9px">
+          <em><span class="sev red"></span>库存紧 / 要今天订</em>
+          <em><span class="sev amber"></span>中等</em>
+          <em><span class="sev green"></span>宽松</em>
+        </div>
+      </div>
+      <div class="daylist" id="daylist"></div>
+    </div>
+  </div>
+  <div class="detail" id="detail"></div>
+</section>
+
+<!-- ============ 2. 累计花费曲线 ============ -->
+<section id="cost">
+  <h2><span class="n">02</span>累计花费曲线 vs 预算上限</h2>
+  <p class="lede">先看这条线，再看后面的表。<b>灰色虚线 = 预算上限基线</b>（¥4,000/room/晚 × 2 room = ¥8,000/晚，
+     住宿口径）；<b>灰色点线 = 预算下沿</b>（¥2,000/room/晚）。青线是按下面「最优组合」走的实际累计支出
+     （含住宿 + 三段租车 + 邮轮 + 渡轮油费，<b>不含机票、餐饮、门票/tour</b>）。
+     台阶陡的地方就是钱花在哪一天：9/26 提车、9/30 提车 + 罗弗敦、10/2 邮轮。</p>
+  <div class="chartcard">
+    <svg class="chart" id="cum" viewBox="0 0 980 340" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="ck">
+      <em><b style="background:var(--cy)"></b>累计实际支出（¥，4 人）</em>
+      <em><b style="background:#5b678a"></b>预算上限基线 ¥8,000/晚</em>
+      <em><b style="background:#3a445e"></b>预算下沿 ¥4,000/晚</em>
+    </div>
+  </div>
+  <div class="chartcard" style="margin-top:14px">
+    <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:700;margin-bottom:10px">每日支出分解</div>
+    <svg class="chart" id="bars" viewBox="0 0 980 260" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="ck">
+      <em><b style="background:#3ee6d0"></b>住宿</em>
+      <em><b style="background:#a98bff"></b>租车（整段费用记在提车日）</em>
+      <em><b style="background:#ffb44d"></b>邮轮</em>
+      <em><b style="background:#5bc8ff"></b>渡轮/油</em>
+      <em style="color:var(--tx3)">虚线 = 住宿预算上限 ¥8,000/晚</em>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 抢库存顺序 ============ -->
+<section id="urgency">
+  <h2><span class="n">03</span>现在就该下手的顺序（按会先卖光排）</h2>
+  <p class="lede">全部按「<abbr title="可免费取消的截止日期">free-cxl</abbr>」下单。9 月末冰岛南岸和 E10 的风暴封路太常见，
+     省下的那点不可退折扣不值得。</p>
+  <div class="tw"><table id="urg"></table></div>
+</section>
+
+<!-- ============ 4. 邮轮 ============ -->
+<section id="cruise">
+  <h2><span class="n">04</span>10/2 那段船 —— 整个行程的单点故障</h2>
+  <p class="lede"><b>10/2 那班船不是 Hurtigruten，是 Havila。</b> Hurtigruten 10 月 2 日根本没有从 Svolvær 出发的船 ——
+     这不是「卖光了」，是那天没有它的船。两条独立证据：① 官网 <abbr title="港到港：只买海岸邮轮的一段船票">port-to-port</abbr>
+     订票页填 10/02/2026 → "We could not find any departures that match this date"；
+     ② 直接打它的可用性 API 查 9/20–10/10 三个整周，返回的班期是 9/22、23、25、27、30、10/3、4、6、8 —— <b>10/1、10/2、10/5、10/7 全部没有</b>。
+     原因是排班机制：Hurtigruten 7 条船 + Havila 4 条船 = 11 条，整个 Bergen→Kirkenes→Bergen 往返正好 11 天 →
+     <b>每天都有船，但每天只有一家公司的船</b>。10/2 从 Svolvær 北上 22:15 那条按轮转推算是 <b>Havila Polaris</b>。</p>
+  <div class="cards" id="cruiseopt"></div>
+  <p class="lede" style="margin-top:18px">Havila 的价格<b>本机拿不到</b>——Cloudflare 把这个 pod 挡在它的订票引擎外
+     （<span class="mono">/en/port-to-port</span> 404、<span class="mono">/nb/ruteplan</span> 403、
+     订票按钮跳到另一个域的 <b>Flutter/CanvasKit 应用（画在 canvas 上、零 DOM）</b>，而它的
+     <span class="mono">main.dart.js</span> 返回 403 → 应用根本没启动，截图纯空白）。所以下面这张
+     Hurtigruten 实时表是<b>价格锚</b>：Havila 若报到 4 人 ¥12,000 以内属正常，明显更高就先谈或走备选。</p>
+  <div class="tw"><table id="hrg"></table></div>
+  <p class="lede" style="margin-top:12px">🔴 <b>一间舱装不下 4 个人</b> —— 用 1 舱 4 人查，API 返回 200 但结果为空。
+     必须 2 间舱，正好也匹配「两个男生 + 一对夫妻」。</p>
+</section>
+
+<!-- ============ 5. 租车 ============ -->
+<section id="cars">
+  <h2><span class="n">05</span>三段自驾 —— 推荐车 + 三条会改变决定的结论</h2>
+  <div class="cards" id="carseg"></div>
+  <div class="cards" style="margin-top:14px">
+    <div class="card"><h3>① EVE→Svolvær 的<abbr title="挪威语「异地还车费」">异地还车费</abbr>实测 ≈ $320（NOK 3,400）</h3>
+      <p style="font-size:13.5px;color:var(--tx2);margin:0 0 8px">网上说法是 500–1,500 NOK，<b>实测偏高一倍以上</b>。同款车两种还法直接对比出来的：</p>
+      <div class="kv"><span>Toyota Yaris Cross 4WD</span><span>Svolvær 还 $762 / EVE 还 $441 → <b>+$321</b></span></div>
+      <div class="kv"><span>Toyota RAV 4WD</span><span>Svolvær 还 $941 / EVE 还 $619 → <b>+$322</b></span></div>
+      <p class="con">而且异地还车的车源只有 6 个，同地还车有 23 个 —— 库存也少得多。</p></div>
+    <div class="card pick"><h3>② 最便宜的异地还车车 = 最大的那台车</h3>
+      <p style="font-size:13.5px;color:var(--tx2);margin:0">异地还车 6 个报价里，最便宜的 <b>$644 是 Ford Explorer 4WD（full-size SUV）</b>，
+      比 Toyota Yaris Cross（compact SUV）的 $762 还便宜 $118。</p>
+      <p class="pro">👉 4 个人 + 行李，直接订 Ford Explorer $644，这一段的最优解，不用再比。</p></div>
+    <div class="card pick"><h3>③ Senja 那天：租 2 天几乎和租 1 天一样贵 → 直接租 2 天</h3>
+      <div class="kv"><span>只租 10/5 一天 · Ford Explorer 4WD</span><span>$141</span></div>
+      <div class="kv"><span>10/4–10/6 两天 · VW ID.4 4WD</span><span>$170（$85/天）</span></div>
+      <div class="kv"><span>10/4–10/6 两天 · Toyota RAV4 4WD 混动</span><span><b>$261</b>（$130/天）</span></div>
+      <p class="pro">多花 $30–120 换一个「10/4 晚也能自己开车去追极光」的晚上，非常值。</p>
+      <p class="con">🔴 但别贪便宜订电车：最便宜的几台（Dongfeng Nammi Box $163、VW ID.4 $170）都是纯电，
+      Senja 往返 ~500 km、10 月初、岛上充电桩很稀 → 选汽油/混动。</p></div>
+    <div class="card"><h3>Senja 自驾 vs 跟团（4 人总花费）</h3>
+      <div class="kv"><span><b>自驾 2 天</b>（RAV4 $261 + 渡轮 NOK 228 + 油 ~NOK 400）</span><span><b style="color:var(--green)">≈ NOK 3,400 / ¥2,300</b></span></div>
+      <div class="kv"><span>Best Arctic（半自助）NOK 1,990 ×4</span><span>7,960</span></div>
+      <div class="kv"><span>Arctic Explorers NOK 2,000 ×4</span><span>8,000</span></div>
+      <div class="kv"><span>FRAM NOK 2,900–3,400 ×4</span><span>11,600–13,600</span></div>
+      <div class="kv"><span>Northern Norway Travel NOK 3,750 ×4</span><span>15,000</span></div>
+      <p class="pro">👉 自驾省 NOK 4,500–11,600。挪威租车基本不限里程。</p></div>
+  </div>
+</section>
+
+<!-- ============ 6. 住宿全景 ============ -->
+<section id="stay">
+  <h2><span class="n">06</span>住宿 —— 「2 个卫生间」是整个需求里最难满足的一条</h2>
+  <p class="lede">北欧酒店套房基本都是 1 卫。能真正拿到 2 卫的只有三条路，默认策略是 <b>A 优先、抢不到就 C 兜底</b>，
+     而不是死守「必须一套带 2 卫的公寓」。</p>
+  <div class="cards">
+    <div class="card pick"><h3>A · 公寓 / aparthotel（2 房 2 卫）</h3>
+      <p style="font-size:13.5px;color:var(--tx2);margin:0">Tromsø 的 Enter / Modern Tromsø Apartments、雷市 Reykjavik Residence 的 Two-Bedroom Two-Bathroom。</p>
+      <p class="pro">最贴需求</p><p class="con">库存最少、这个时间点最容易被订完</p></div>
+    <div class="card"><h3>B · 大号 <abbr title="罗弗敦传统红色渔屋改的自炊小屋，通常带厨房">rorbu</abbr>（罗弗敦特有）</h3>
+      <p style="font-size:13.5px;color:var(--tx2);margin:0">Svinøya Rorbuer 的 Rorbu M+/L+；Hattvika Lodge 部分小屋；
+      <b>Nusfjord「Village Cabin Suite Plus」是唯一在 Booking 页面上明写「2 bathrooms」的罗弗敦房源</b>（€723/2晚，¥1,446，free-cxl 9/16）。</p>
+      <p class="con">🔴 Suite ≠ 2 卧 —— 订之前必须问清卧室数</p></div>
+    <div class="card"><h3>C · 两间相连酒店房（connecting rooms）</h3>
+      <p style="font-size:13.5px;color:var(--tx2);margin:0">Thon Hotel Polar、Radisson Blu Tromsø「Family Stay = 2 connected rooms」。</p>
+      <p class="pro">2 个卫生间自动成立，常常比一套 2 卫公寓还便宜</p><p class="con">没厨房（挪威 4 人自炊能省很多）</p></div>
+  </div>
+  <p class="lede" style="margin-top:20px"><b>三条会改变决策的实测发现：</b></p>
+  <div class="tw"><table>
+    <thead><tr><th>发现</th><th>后果</th></tr></thead>
+    <tbody>
+      <tr><td><b>9/27 冰河湖那一晚，Airbnb 里 0 个</b>符合 2房2卫的整套房源（搜索覆盖 Höfn–Jökulsárlón–Skaftafell，返回 0 张卡）</td>
+          <td>这一晚<b>只能是「酒店 + 2 间房」</b>。全程唯一没有 Airbnb 方案的一晚，也是最该今天就下单的一晚</td></tr>
+      <tr><td><b>Borgarnes 1 晚订不到</b> —— 8 个 2房2卫房源<b>全部 <abbr title="房东设的最少入住晚数">min-stay</abbr> ≥ 2 晚</b></td>
+          <td>「D4 改住 Borgarnes 省 1.5h 车程」<b>在 Airbnb 上不可执行</b> → 9/28 只能住 Keflavík，斯奈山必须靠早出发解决</td></tr>
+      <tr><td><b>Vík 镇内 0 个</b> 2房2卫整套房源；最近的都在 Hvolsvöllur（Vík 西 1h15）</td>
+          <td>若 D3 改 Katla 冰洞（Vík 出发），住 Hvolsvöllur 要早起多开 1h15 → 考虑改成 Vík 的酒店 2 间房</td></tr>
+      <tr><td>✅ <b>Vervet Apartments 没有闭店</b> —— 之前有 listing 显示「2026-08 → 2027-08 关闭」</td>
+          <td>实测 10/3–10/6 正常放房正常报价（€535/3晚起，free-cxl 到 9/19）→ 那条闭店信息是错的或已作废</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede" style="margin-top:20px"><b>逐晚最优组合</b>（¥/room/晚，4 人 = 2 room）：</p>
+  <div class="tw"><table id="staytab"></table></div>
+</section>
+
+<!-- ============ 7. 未决 ============ -->
+<section id="open">
+  <h2><span class="n">07</span>未决问题 —— 网页答不了，要人去问</h2>
+  <p class="lede">按会不会真的搞砸排序。红点这四条<b>今天就要动</b>。</p>
+  <div class="tw"><table id="opentab"></table></div>
+</section>
+
+<!-- ============ 8. 风险 ============ -->
+<section id="risk">
+  <h2><span class="n">08</span>风险清单（含已消除的）</h2>
+  <p class="lede">灰掉划线的是<b>已经查实、可以划掉</b>的 —— 留着是为了别再重新担心一遍。</p>
+  <div class="tw"><table id="risktab"></table></div>
+</section>
+
+<!-- ============ 9. 出处 ============ -->
+<section id="prov">
+  <h2><span class="n">09</span>数据怎么来的（可复算）+ 踩过的坑</h2>
+  <div class="tw"><table id="provtab"></table></div>
+  <p class="lede" style="margin-top:18px"><b>🔴 踩过的坑，别重踩：</b></p>
+  <div class="box warn"><ul id="pit"></ul></div>
+</section>
+
+<!-- ============ 10. 黑话 ============ -->
+<section id="gloss">
+  <h2><span class="n">10</span>黑话表</h2>
+  <div class="gl" id="gl"></div>
+</section>
+
+<footer>
+  <b>北欧行 2026</b> · 数据抓取日 <b>2026-09-01</b> · 汇率 €1=¥8.0 · $1=¥7.1 · NOK1=¥0.67 ·
+  4 人（两男 + 一对夫妻）= 2 room / 2 cabin<br>
+  源仓库 <span class="mono">nordic-trip-2026</span> —— 明细见
+  <span class="mono">notes/PLAN-booking.md</span> ·
+  <span class="mono">notes/OPTIONS-stay.md</span> ·
+  <span class="mono">notes/OPTIONS-cars.md</span> ·
+  <span class="mono">notes/OPTIONS-cruise.md</span>；抓取脚本在 <span class="mono">notes/_research/</span><br><br>
+  ⚠️ 所有价格是抓取那一刻的实时报价，<b>会变</b>。下单前在页面上再核一眼 —— 尤其是
+  「€/$ 是单间价还是两间总价」和「货币是不是被网站忽略成了 USD」。
+</footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script>
+/* ============ 工具 ============ */
+const $=(s)=>document.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const fmt=(n)=>n.toLocaleString('en-US');
+const REGCOL={oslo:'#a98bff',iceland:'#3ee6d0',lofoten:'#ffb44d',cruise:'#ff9f43',tromso:'#5bc8ff'};
+
+/* ============ stats ============ */
+const totalStay=DAYS.reduce((a,d)=>a+(d.spend.stay||0),0);
+const totalCar =DAYS.reduce((a,d)=>a+(d.spend.car ||0),0);
+const totalCru =DAYS.reduce((a,d)=>a+(d.spend.cruise||0),0);
+const totalOth =DAYS.reduce((a,d)=>a+(d.spend.other||0),0);
+const GRAND=totalStay+totalCar+totalCru+totalOth;
+const nights=DAYS.filter(d=>d.region!=='cruise').length;
+[['13 天 / 12 晚','9/24 → 10/6'],
+ ['4','人（2 room / 2 cabin）'],
+ ['3 段','自驾：冰岛 · 罗弗敦 · Senja'],
+ ['¥'+fmt(totalStay),'住宿合计（4 人）'],
+ ['¥'+fmt(totalCar+totalOth),'三段租车 + 渡轮油费'],
+ ['¥'+fmt(totalCru),'邮轮 2 舱（对标价）'],
+ ['¥'+fmt(GRAND),'合计（不含机票/餐饮/tour）'],
+ ['¥'+fmt(Math.round(GRAND/4)),'人均（同上口径）'],
+ ['23 天','距出发（今天 2026-09-01）']
+].forEach(([b,s])=>{const d=el('div','stat');d.appendChild(el('b',null,b));d.appendChild(el('span',null,s));$('#stats').appendChild(d);});
+
+/* ============ MAP ============ */
+const map=L.map('map',{zoomControl:true,scrollWheelZoom:true}).setView([66.5,-3],4);
+const ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/';
+const baseDark = L.layerGroup([
+  L.tileLayer(ESRI+'Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxZoom:16,attribution:'Esri · HERE · Garmin · © OpenStreetMap'}),
+  L.tileLayer(ESRI+'Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{maxZoom:16,opacity:.85})
+]).addTo(map);
+const baseSat = L.layerGroup([
+  L.tileLayer(ESRI+'World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:17,attribution:'Esri · Maxar · Earthstar Geographics'}),
+  L.tileLayer(ESRI+'Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{maxZoom:16,opacity:.7})
+]);
+const baseOsm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {maxZoom:18,attribution:'© OpenStreetMap contributors',opacity:.85});
+L.control.layers({'深色地形':baseDark,'卫星影像':baseSat,'OSM 标准（含路名）':baseOsm},null,
+  {position:'topright',collapsed:true}).addTo(map);
+
+const LEGCOL={drive:'#3ee6d0',fly:'#a98bff',cruise:'#ffb44d',ferry:'#5bc8ff'};
+const layers={};   // dayId -> {group, bounds}
+const allBounds=[];
+
+DAYS.forEach(d=>{
+  const g=L.layerGroup().addTo(map);
+  const pts=[];
+  (d.legs||[]).forEach(lg=>{
+    const line = lg.k==='fly' ? [lg.from,lg.to] : lg.pts;
+    line.forEach(p=>pts.push(p));
+    L.polyline(line,{color:LEGCOL[lg.k],weight:lg.k==='fly'?2.2:3.2,opacity:.78,
+      dashArray:lg.k==='fly'?'7 7':(lg.k==='ferry'?'3 5':null),
+      lineCap:'round'}).addTo(g);
+  });
+  // waypoints
+  d.route.forEach((r,i)=>{
+    pts.push(r.c);
+    const last=i===d.route.length-1;
+    if(i===0||last||d.route.length<=2){}
+    L.marker(r.c,{icon:L.divIcon({className:'',html:'<div class="wp"></div>',iconSize:[9,9],iconAnchor:[4.5,4.5]}),
+      interactive:true}).addTo(g).bindTooltip(d.id+' · '+r.n,{direction:'top',offset:[0,-4]});
+  });
+  // anchor marker (the day badge)
+  const col=REGCOL[d.region];
+  const sz=d.supply==='red'?30:26;
+  L.marker(d.anchor,{icon:L.divIcon({className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2],
+      html:`<div class="dot" style="width:${sz}px;height:${sz}px;background:${col}">${d.id.replace('D','')}</div>`}),
+      zIndexOffset:500}).addTo(g)
+   .bindPopup(`<b>${d.id} · ${d.date} ${d.wd}</b><br>${d.title}<br>
+     <span style="color:#a7b2cd">📍 ${d.base}</span><br>
+     <span style="color:#a7b2cd">🚗 ${d.drive}</span><br>
+     <span style="color:#3ee6d0">🛏 ${d.stay.name}</span>`)
+   .on('click',()=>select(d.id,false));
+  layers[d.id]={g,bounds:L.latLngBounds(pts)};
+  pts.forEach(p=>allBounds.push(p));
+});
+const FULL=L.latLngBounds(allBounds).pad(.08);
+map.fitBounds(FULL);
+
+/* ============ day list ============ */
+DAYS.forEach(d=>{
+  const it=el('div','dayitem');it.id='li-'+d.id;
+  it.innerHTML=`<div class="id">${d.id}<div style="font-size:10px;color:var(--tx3);font-weight:600;margin-top:2px">${d.date}</div></div>
+    <div><div class="t">${d.title}<span class="pill ${d.supply}">${d.supply==='red'?'紧':d.supply==='amber'?'中':'松'}</span></div>
+    <div class="m">📍 ${d.base} · 🚗 ${d.drive}</div></div>`;
+  it.onclick=()=>select(d.id,true);
+  $('#daylist').appendChild(it);
+});
+
+let cur=null;
+function select(id,fly){
+  cur=id;const d=DAYS.find(x=>x.id===id);
+  document.querySelectorAll('.dayitem').forEach(n=>n.classList.remove('on'));
+  $('#li-'+id).classList.add('on');
+  if(fly){const b=layers[id].bounds;map.flyToBounds(b.pad(.25),{duration:.7,maxZoom:9});}
+  renderDetail(d);
+}
+function renderDetail(d){
+  const c=$('#detail');c.innerHTML='';
+  c.appendChild(el('h3',null,`${d.id} · ${d.date}（${d.wd}）${d.title}`));
+  c.appendChild(el('div','meta',`📍 ${d.base} &nbsp;·&nbsp; 🚗 ${d.drive} &nbsp;·&nbsp; 当天支出 <b style="color:#3ee6d0">¥${fmt(Object.values(d.spend).reduce((a,b)=>a+b,0))}</b>（4 人）`));
+  const g=el('div','dgrid');
+
+  // route
+  let rh='<div>'+d.route.map(r=>`<span class="tag">${r.n}</span>`).join('')+'</div>';
+  g.appendChild(el('div','box','<h4>路线</h4>'+rh));
+
+  // stay
+  const s=d.stay;
+  let sh=`<div class="big">${s.url?`<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`:s.name}</div>
+    <div style="margin-top:7px"><span class="tag">${s.type}</span><span class="tag">${s.rb}</span>${s.rating?`<span class="tag">★ ${s.rating}</span>`:''}</div>
+    <div style="font-size:13.5px;margin-top:6px"><b>${s.price}</b>${s.cxl&&s.cxl!=='—'?` · <span style="color:var(--green)">${s.cxl}</span>`:''}</div>`;
+  if(s.note)sh+=`<div class="note">${s.note}</div>`;
+  g.appendChild(el('div','box','<h4>住宿</h4>'+sh));
+
+  // car
+  if(d.car){
+    let ch=`<div class="big">${d.car.name}</div>
+      <div style="font-size:12.5px;color:var(--tx3);margin-top:4px">${d.car.seg}</div>
+      <div style="font-size:13.5px;margin-top:6px"><b>${d.car.price}</b> · ${d.car.cny}</div>`;
+    if(d.car.note)ch+=`<div class="note">${d.car.note}</div>`;
+    g.appendChild(el('div','box','<h4>租车</h4>'+ch));
+  }
+  // highlights
+  if(d.hi.length)g.appendChild(el('div','box','<h4>看什么 / 要点</h4><ul>'+d.hi.map(x=>`<li>${x}</li>`).join('')+'</ul>'));
+  // watch
+  if(d.watch.length)g.appendChild(el('div','box warn','<h4>⚠ 要盯的事</h4><ul>'+d.watch.map(x=>`<li>${x}</li>`).join('')+'</ul>'));
+
+  c.appendChild(g);
+}
+select('D0',false);
+map.fitBounds(FULL);
+
+/* ============ 累计曲线 ============ */
+(function(){
+  const W=980,H=340,mL=64,mR=118,mT=18,mB=52;
+  const iw=W-mL-mR, ih=H-mT-mB;
+  let cum=0;const pts=DAYS.map((d,i)=>{cum+=Object.values(d.spend).reduce((a,b)=>a+b,0);return{i,d,cum};});
+  const N=DAYS.length;
+  const capHi=DAYS.map((d,i)=>8000*(i+1)), capLo=DAYS.map((d,i)=>4000*(i+1));
+  const yMax=Math.max(pts[N-1].cum,capHi[N-1])*1.06;
+  const x=i=>mL+iw*(i/(N-1)), y=v=>mT+ih*(1-v/yMax);
+  let s='';
+  // grid
+  for(let k=0;k<=6;k++){const v=yMax*k/6;
+    s+=`<line x1="${mL}" x2="${mL+iw}" y1="${y(v)}" y2="${y(v)}" stroke="#26314f" stroke-width="1"/>
+        <text x="${mL-9}" y="${y(v)+4}" fill="#6f7b99" font-size="11" text-anchor="end">¥${Math.round(v/1000)}k</text>`;}
+  // budget lines
+  s+=`<path d="${capHi.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ')}" fill="none" stroke="#5b678a" stroke-width="1.8" stroke-dasharray="8 6"/>`;
+  s+=`<path d="${capLo.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ')}" fill="none" stroke="#3a445e" stroke-width="1.5" stroke-dasharray="2 5"/>`;
+  // area + line
+  const dpath=pts.map((p,i)=>(i?'L':'M')+x(i)+' '+y(p.cum)).join(' ');
+  s+=`<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3ee6d0" stop-opacity=".30"/><stop offset="1" stop-color="#3ee6d0" stop-opacity="0"/></linearGradient></defs>`;
+  s+=`<path d="${dpath} L ${x(N-1)} ${y(0)} L ${x(0)} ${y(0)} Z" fill="url(#ga)"/>`;
+  s+=`<path d="${dpath}" fill="none" stroke="#3ee6d0" stroke-width="2.6" stroke-linejoin="round"/>`;
+  pts.forEach((p,i)=>{
+    const big=(p.d.spend.cruise||p.d.spend.car);
+    s+=`<circle cx="${x(i)}" cy="${y(p.cum)}" r="${big?4.6:3.2}" fill="${big?'#ffb44d':'#3ee6d0'}" stroke="#0b1020" stroke-width="1.6"/>`;
+    s+=`<text x="${x(i)}" y="${mT+ih+18}" fill="#a7b2cd" font-size="10.5" text-anchor="middle">${p.d.date}</text>`;
+    s+=`<text x="${x(i)}" y="${mT+ih+32}" fill="#6f7b99" font-size="9.5" text-anchor="middle">${p.d.id}</text>`;
+  });
+  // labels at right
+  s+=`<text x="${mL+iw+9}" y="${y(pts[N-1].cum)+4}" fill="#3ee6d0" font-size="12" font-weight="700">¥${fmt(pts[N-1].cum)} 实际</text>`;
+  s+=`<text x="${mL+iw+9}" y="${y(capHi[N-1])+4}" fill="#5b678a" font-size="11">¥${fmt(capHi[N-1])} 上限</text>`;
+  s+=`<text x="${mL+iw+9}" y="${y(capLo[N-1])+4}" fill="#3a445e" font-size="11">¥${fmt(capLo[N-1])} 下沿</text>`;
+  // annotate the two step days
+  const cruiseIdx=DAYS.findIndex(d=>d.spend.cruise);
+  s+=`<line x1="${x(cruiseIdx)}" x2="${x(cruiseIdx)}" y1="${mT}" y2="${mT+ih}" stroke="#ffb44d" stroke-width="1" stroke-dasharray="3 4" opacity=".55"/>
+      <text x="${x(cruiseIdx)}" y="${mT-4}" fill="#ffb44d" font-size="10.5" text-anchor="middle">10/2 邮轮 +¥12k</text>`;
+  document.getElementById('cum').innerHTML=s;
+})();
+
+/* ============ 每日柱状 ============ */
+(function(){
+  const W=980,H=260,mL=64,mR=20,mT=16,mB=48;
+  const iw=W-mL-mR, ih=H-mT-mB, N=DAYS.length;
+  const tot=DAYS.map(d=>Object.values(d.spend).reduce((a,b)=>a+b,0));
+  const yMax=Math.max(...tot)*1.12;
+  const bw=iw/N*0.62, gap=iw/N;
+  const y=v=>mT+ih*(1-v/yMax);
+  const C={stay:'#3ee6d0',car:'#a98bff',cruise:'#ffb44d',other:'#5bc8ff'};
+  let s='';
+  for(let k=0;k<=5;k++){const v=yMax*k/5;
+    s+=`<line x1="${mL}" x2="${mL+iw}" y1="${y(v)}" y2="${y(v)}" stroke="#26314f"/>
+        <text x="${mL-9}" y="${y(v)+4}" fill="#6f7b99" font-size="11" text-anchor="end">¥${Math.round(v/1000)}k</text>`;}
+  s+=`<line x1="${mL}" x2="${mL+iw}" y1="${y(8000)}" y2="${y(8000)}" stroke="#5b678a" stroke-width="1.6" stroke-dasharray="8 6"/>`;
+  DAYS.forEach((d,i)=>{
+    const cx=mL+gap*i+(gap-bw)/2;let acc=0;
+    ['stay','car','cruise','other'].forEach(k=>{
+      const v=d.spend[k];if(!v)return;
+      s+=`<rect x="${cx}" y="${y(acc+v)}" width="${bw}" height="${ih*v/yMax}" fill="${C[k]}" rx="2" opacity=".9"/>`;
+      acc+=v;
+    });
+    s+=`<text x="${cx+bw/2}" y="${y(acc)-6}" fill="#a7b2cd" font-size="10" text-anchor="middle">${(acc/1000).toFixed(1)}k</text>`;
+    s+=`<text x="${cx+bw/2}" y="${mT+ih+16}" fill="#a7b2cd" font-size="10.5" text-anchor="middle">${d.date}</text>`;
+    s+=`<text x="${cx+bw/2}" y="${mT+ih+30}" fill="#6f7b99" font-size="9.5" text-anchor="middle">${d.id}</text>`;
+  });
+  document.getElementById('bars').innerHTML=s;
+})();
+
+/* ============ 表格 ============ */
+function tbl(id,head,rows){
+  const t=document.getElementById(id);
+  t.innerHTML='<thead><tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>'+
+    rows.map(r=>`<tr${r.cls?` class="${r.cls}"`:''}>`+r.c.map(c=>`<td${c.n?' class="num"':''}>${c.v!==undefined?c.v:c}</td>`).join('')+'</tr>').join('')+'</tbody>';
+}
+
+tbl('urg',['#','要抢什么','为什么排这个位置','截止','怎么订'],
+  URGENCY.map(u=>({c:[`<span class="sev ${u.sev}"></span>${u.rank}`,`<b>${u.what}</b>`,u.why,
+    `<b style="color:${u.sev==='red'?'var(--red)':u.sev==='amber'?'var(--amber)':'var(--tx2)'}">${u.deadline}</b>`,u.how]})));
+
+tbl('hrg',['出发日','船','PolarInside','PolarOutside','ArcticSuperior','4 人 2 舱（最便宜可订档）≈ RMB'],
+  HRG.map(h=>{
+    const best=h.inside||h.outside||h.sup;
+    return {cls:h.ship.startsWith('—')?'done':'',
+      c:[`<b>${h.d}</b>`,h.ship,
+        {v:h.inside?'$'+h.inside:'—',n:1},{v:h.outside?'$'+h.outside:'—',n:1},{v:h.sup?'$'+h.sup:'—',n:1},
+        {v:best?'¥'+fmt(Math.round(best*4*7.1)):'—',n:1}]};
+  }));
+
+$('#cruiseopt').innerHTML=CRUISE_OPT.map((o,i)=>`
+  <div class="card ${i===0?'pick':''}"><h3>${o.name}</h3>
+    <div class="kv"><span>交通</span><span>${o.transport}</span></div>
+    <div class="kv"><span>异地还车费</span><span>${o.dropfee}</span></div>
+    <div class="kv"><span>合计（4 人）</span><span><b>${o.total}</b></span></div>
+    <p class="pro">✓ ${o.pro}</p><p class="con">✗ ${o.con}</p></div>`).join('');
+
+$('#carseg').innerHTML=DAYS.filter(d=>d.car).map(d=>`
+  <div class="card pick"><h3>🚗 ${d.car.seg}</h3>
+    <div class="kv"><span>推荐车</span><span><b>${d.car.name}</b></span></div>
+    <div class="kv"><span>价格</span><span>${d.car.price}</span></div>
+    <div class="kv"><span>折人民币</span><span><b style="color:var(--cy)">${d.car.cny}</b></span></div>
+    ${d.car.note?`<p class="con" style="color:var(--tx2)">${d.car.note}</p>`:''}</div>`).join('')
+  +`<div class="card"><h3>冰岛必买的三个附加险</h3>
+    <p style="font-size:13.5px;color:var(--tx2);margin:0 0 8px"><abbr title="把 CDW 的自付额再降低">SCDW</abbr> +
+    <abbr title="Gravel Protection：碎石打伤车漆/前挡">GP</abbr> +
+    <abbr title="Sand &amp; Ash Protection：火山沙尘暴磨伤车身">SAAP</abbr> ≈ $25–40/天。</p>
+    <p class="con">⛔ 别指望信用卡自带 CDW 覆盖 GP/SAAP —— 冰岛的碎石和火山沙尘损伤基本都在排除条款里，
+    且要先自己垫付再报销。这两项在冰岛是真的会用上的。</p>
+    <p class="pro">✅ 全程铺装路（1 号环岛 + 黄金圈 + 54/574 斯奈山），不走 F 路 → 2WD 法律上够用，
+    选 4x4 是为了 9 月末的大风暴雨和可能的早雪。9 月底不需要冬胎（11/1 才强制）。
+    在 KEF 取车比在雷市取更划算（雷市取/KEF 还要付 ~€50 异地费，机场大巴 €30/人×4 更贵）。</p></div>`;
+
+tbl('staytab',['日期','选择','房/卫','¥/room/晚','类型'],
+  [['9/24','Nannestad · Modern Quiet Large','3BR/2BA','1,040','Airbnb'],
+   ['9/25','Aurora view 3BR 2BATH 雷市市中心','3BR/2BA','1,788','Airbnb'],
+   ['9/26','Hlíðarból Guest House（Hvolsvöllur）','5BR/2BA','3,000','Airbnb'],
+   ['9/27','<b>Fosshotel Glacier Lagoon ×2 间</b>','2 房 2 卫','2,032','酒店（唯一选择）'],
+   ['9/28','Reykjanesbær 3BR/2BA','3BR/2BA','1,696','Airbnb'],
+   ['9/29','Nannestad（同 9/24，可连订）','3BR/2BA','1,040','Airbnb'],
+   ['9/30–10/1','The heart of Ramberg（西侧）／ Vågan 5BR（东侧）','4BR/2.5BA','1,296','Airbnb'],
+   ['10/2','<b>Havila 邮轮 ×2 舱</b>（不算陆上住宿）','2 舱 4 人','—','邮轮'],
+   ['10/3–10/5','Houseboat in Tromsø','3BR/3BA','1,100','Airbnb']
+  ].map(r=>({c:[`<b>${r[0]}</b>`,r[1],r[2],{v:r[3]==='—'?'—':'¥'+r[3],n:1},r[4]]})));
+
+tbl('opentab',['问题','为什么重要','找谁'],
+  OPEN.map(o=>({c:[`<span class="sev ${o.sev}"></span><b>${o.q}</b>`,o.why,o.who]})));
+
+tbl('risktab',['风险','影响','现在能做什么'],
+  RISKS.map(r=>({cls:r.sev==='done'?'done':'',
+    c:[`<span class="sev ${r.sev}"></span>${r.r.replace(/~~/g,'')}`,r.imp,r.act]})));
+
+tbl('provtab',['数据','怎么拿到的','脚本'],
+  PROV.map(p=>({c:[`<b>${p[0]}</b>`,p[1],`<span class="mono">${p[2]}</span>`]})));
+
+$('#pit').innerHTML=PITFALLS.map(p=>`<li>${p}</li>`).join('');
+$('#gl').innerHTML=GLOSSARY.map(([k,v])=>`<div><b>${k}</b> — ${v}</div>`).join('');
+</script>
+</body>
+</html>
