@@ -229,6 +229,45 @@ tr
 @keyframes pulse{0%{transform:scale(.85);opacity:.85}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
 .ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--red);animation:pulse 2.1s ease-out infinite}
 
+/* ---------- 分层导航 / Part 分隔 / 状态徽章 ---------- */
+nav.toc{position:sticky;top:0;z-index:60;background:rgba(9,13,26,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;padding:0 20px;min-height:46px}
+nav.toc a{font-size:12.8px;color:var(--tx2);padding:7px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:rgba(255,255,255,.06);color:var(--tx);text-decoration:none}
+nav.toc .sep{color:var(--tx3);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;padding:0 10px 0 14px;border-left:1px solid var(--line);margin-left:8px}
+nav.toc .lbl{color:var(--cy);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;padding-right:6px}
+.pickbar{top:48px!important}
+
+.parthd{margin:52px 0 0;padding:22px 0 0;border-top:2px solid var(--line)}
+.parthd .pn{font:800 11.5px/1 ui-monospace,monospace;letter-spacing:.2em;color:#08101f;
+  background:var(--cy);border-radius:6px;padding:6px 9px;display:inline-block}
+.parthd h2{font-size:27px;margin:12px 0 4px;letter-spacing:-.4px}
+.parthd p{color:var(--tx2);font-size:14.5px;margin:0;max-width:960px}
+.parthd + section{border-top:none}
+.parthd:first-child{margin-top:24px;padding-top:0;border-top:none}
+section,.parthd{scroll-margin-top:58px}
+
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-top:22px}
+.sc{border:1px solid var(--line);border-radius:13px;padding:13px 15px;font-size:13.4px;
+  color:var(--tx2);line-height:1.6;background:rgba(255,255,255,.03)}
+.sc b{color:var(--tx)}
+.sc .h{font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;margin-bottom:6px}
+.sc.ok{border-color:rgba(74,217,145,.45);background:linear-gradient(180deg,rgba(74,217,145,.09),rgba(255,255,255,.02))}
+.sc.ok .h{color:var(--green)}
+.sc.sel{border-color:rgba(62,230,208,.35)}.sc.sel .h{color:var(--cy)}
+.sc.todo{border-color:rgba(255,180,77,.45);background:linear-gradient(180deg,rgba(255,180,77,.08),rgba(255,255,255,.02))}
+.sc.todo .h{color:var(--amber)}
+
+.st{display:inline-block;font-size:11.5px;font-weight:800;padding:2.5px 8px;border-radius:20px;white-space:nowrap}
+.st.b{background:rgba(74,217,145,.16);color:var(--green);border:1px solid rgba(74,217,145,.42)}
+.st.s{background:rgba(62,230,208,.11);color:var(--cy);border:1px solid rgba(62,230,208,.32)}
+.st.t{background:rgba(255,180,77,.14);color:var(--amber);border:1px solid rgba(255,180,77,.4)}
+.st.c{background:rgba(255,255,255,.05);color:var(--tx3);border:1px solid var(--line)}
+tr.booked td{background:rgba(74,217,145,.055)}
+.subh{font-size:17px;margin:32px 0 4px}
+
 abbr{text-decoration:none;border-bottom:1px dotted var(--tx3);cursor:help}
 .gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:8px 20px;font-size:13px}
 .gl div{padding:6px 0;border-bottom:1px solid var(--line)}
@@ -240,62 +279,66 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 <body>
 
 <div class="hero"><div class="wrap">
-  <div class="kicker">Nordic Trip · 2026-09-24 → 10-06 · 4 人（两男 + 一对夫妻）</div>
-  <h1>北欧行 2026 —— 行程地图 & 落地计划</h1>
+  <div class="kicker">Nordic Trip 2026 · 09-24 → 10-06 · 4 人（两男 + 一对夫妻）· Steve 负责住宿 + 租车</div>
+  <h1>北欧行 2026 · 落地计划</h1>
   <p class="sub">奥斯陆中转 → 冰岛环南岸 5 天 → 回奥斯陆 → <b>罗弗敦东侧</b>自驾 2 晚 →
-     <b>10/2 飞去特罗姆瑟</b>（邮轮已整段 pass）→ 特罗姆瑟 <b>3 晚</b> + <b>Senja 改 10/4</b> →
-     <b>10/5 飞回奥斯陆睡缓冲夜</b>（Stange 森林小屋，带桑拿）。
-     全部报价为 <b>2026-09-01 用 Playwright 打开真实页面、按真实日期抓的</b>，不是估算；
-     每晚住宿都<b>逐个开过房源页复核</b>并截图（<span class="mono">notes/shots/</span>），
-     每个数字都能回到 <span class="mono">notes/_research/</span> 下的脚本重算。</p>
-  <div class="tldr" style="border-left-color:var(--green);background:rgba(74,217,145,.08);color:#d6f7e6">
-     <b>一句话</b>：<b>🆕 你自己找的那套已经是默认了，我原来挑的全部降级成备选（都留着、都标了差价）。</b>
-     10 个链接我逐个开真实页面验过，<b>全部可订</b>。12 晚住宿折 <b>¥1,790 / 房 / 晚</b>（在你 ¥2,000–4,000 区间的下沿）。
-     <br>✅ <b>2026-09-02 深夜那两个链接把上一版的 10/5 窟窿直接补掉了，而且更省</b>：10/5 改成
-     <b>飞回奥斯陆、住 Stange 的森林小屋</b> → 特罗姆瑟回到 3 晚（−€453）、车② 缩到 3 天（−$103）、
-     9/28 换成 ★5.0 那套（−€110），加上小屋 +€306、OSL 那台车 +$86 → <b>净便宜约 ¥1,400</b>，
-     还白得一个<b>防延误的缓冲夜</b>（10/6 不用再「当天先飞 TOS→OSL 再接洲际」）。
-     <br>🔴 <b>三件事要你处理</b>：① 那个小屋在 Stange 森林里、房源页写着 "A car is required"
-     → <b>要在 OSL 加租 1 天车（$79–86）</b>，不想租就换机场旁的 Clarion（€193，还便宜、2 卫）；
-     ② <b>Senja 挪到 10/4 = 周日，渡轮班次要重核</b>；③ <b>9/24 那晚仍不在清单里</b>。
-     <br>🟠 <b>两笔差价仍值得再看一眼</b>：罗弗敦（你的比我的贵 ¥4,664，且不可退）、
-     特罗姆瑟（你的比船屋贵约 ¥5,600）—— 备选都在第 07 节，点一下总价当场重算。
-     <br>🟠 另外两处降级要知道：9/28 和 10/5 <b>都只有 1 个卫生间</b>；特罗姆瑟<b>极光夜从 4 个变 3 个</b>。
-     <a href="#cands" style="color:var(--cy);font-weight:700">👉 跳到第 07 节</a></div>
-  <div style="margin-top:12px"><a href="#decide" style="display:inline-block;background:var(--red);color:#1a0308;
-     font-weight:700;font-size:14px;padding:9px 16px;border-radius:10px;text-decoration:none">
-     🔴 先看这个：还要人去问的 5 件事 →</a>
-     <a href="#map-sec" style="display:inline-block;margin-left:8px;border:1px solid var(--line);
-     color:var(--tx2);font-size:14px;padding:9px 16px;border-radius:10px;text-decoration:none">🗺 直接看行程地图</a></div>
+     <b>10/2 飞特罗姆瑟</b>住 <b>3 晚</b>（Senja 走 <b>10/4</b>）→ <b>10/5 飞回奥斯陆睡缓冲夜</b>。
+     邮轮已整段 pass。每一晚的价都是<b>用真实日期打开真实页面抓的</b>，不是估算；每个数字都能回到
+     <span class="mono">notes/_research/</span> 重算。</p>
+  <div class="sumgrid">
+    <div class="sc ok"><div class="h">✅ 已订 —— 不用再讨论</div>
+      <b>9/30 → 10/2 罗弗敦</b> · Nordic Lodge Retreat（Lyngvær · Vågan）· 4 卧 8 床 <b>2 卫</b> · ★4.92 · <b>可退</b>。
+      这一段结束了，本页只是<b>请大家过一眼</b>。</div>
+    <div class="sc sel"><div class="h">☑️ 已选定 —— 等下单</div>
+      其余 <b>8 晚住宿 + 4 台车</b>：链接、真实价、退改条款都核过，<b>基本全部可免费取消</b> →
+      先订住、等回信再调，不吃亏。</div>
+    <div class="sc todo"><div class="h">🟠 还要人拍板</div>
+      ① <b>9/24 那晚还没定</b> ② <b>10/5 的森林小屋要不要配 1 天车</b>（B5，Steve 拍）
+      ③ <b>10/4 周日 Senja 渡轮班次要重核</b> ④ Kevin：10/2 Widerøe SVJ→TOS（B1）+ 10/6 还是 10/7 回北京。</div>
+  </div>
   <div class="stats" id="stats"></div>
 </div></div>
 
+<nav class="toc"><div class="wrap">
+  <span class="lbl">总览</span>
+  <a href="#overview">住宿确认</a><a href="#map-sec">行程地图</a><a href="#cost">花费</a><a href="#decide">待拍板</a>
+  <span class="sep">参考</span>
+  <a href="#cands">每晚候选</a><a href="#stay">住宿实测</a><a href="#decisions">两个决定</a><a href="#cars">四台车</a>
+  <a href="#appendix">细节 · 未决</a><a href="#urgency">下单顺序</a><a href="#risk">风险</a><a href="#prov">出处</a><a href="#gloss">黑话</a>
+</div></nav>
+
 <div class="wrap">
 
-<!-- ============ 0. 要人拍板的 ============ -->
-<section id="decide" style="border-top:none">
-  <h2><span class="n">00</span>🔴 还卡着的 5 件事 —— 其他都定完了</h2>
-  <p class="lede">住宿和车已经<b>全部选定</b>（见地图上的 🛏 / 🚗 图钉，点了直接跳详情页）。剩下这 5 条要人去问，
-     其中 <b>2 条在 Kevin 那边</b>，🆕 最后一条（B5：10/5 的小屋要不要配车）<b>是你自己拍的板</b>。每一条都写清了：<b>卡住什么</b> · <b>不定会怎样</b> · <b>找谁</b> ·
-     <b>出处（哪份文档第几行）</b> · <b>影响哪几天</b>（点日期徽章会跳到地图并选中那天）。
-     地图上受影响的日期圆点带<b>红色呼吸圈</b>。<br>
-     🟢 <b>关键是：这 5 条都不改结构</b> —— 全部预订都可免费取消，所以<b>现在就能先订，等回信再调</b>。<br>
-     再往下还有两组：<b>只影响某一项的细节</b>（7 条）和 <b>已经拍板 / 已经查实的</b>（10 条，<b>别再重新讨论一遍</b>）。</p>
-  <div id="blockers"></div>
+<div class="parthd">
+  <span class="pn">PART I</span>
+  <h2>总览 —— 高层面的东西全在这一部分</h2>
+  <p>四节：<b>住宿逐晚确认表</b>（含车和钱）· <b>行程地图</b> · <b>累计花费曲线</b> · <b>还要人拍板的 5 件事</b>。
+     只想 confirm 一下的话，看完这一部分就够了。</p>
+</div>
 
-  <h3 style="font-size:17px;margin:30px 0 4px">🟠 只影响某一项的细节 —— 不定也能先订</h3>
-  <p class="lede">这 7 条不会改行程结构，只影响某一项的钱或舒适度。全部预订都选可免费取消，所以可以先占住、边等回信。</p>
-  <div class="tw"><table id="dettab"></table></div>
+<!-- ============ PART I / 01 住宿确认表 ============ -->
+<section id="overview" style="border-top:none">
+  <h2><span class="n">01</span>逐晚住宿 —— 请大家逐行 confirm</h2>
+  <p class="lede">一行一晚，<b>这就是最终方案</b>。<b>状态</b>：<span class="st b">✅ 已订</span> 钱已付、不用管 ·
+     <span class="st s">☑️ 已选定</span> 链接和真实价都核过、等下单 · <span class="st t">🟠 待定</span> 还没定 ·
+     <span class="st c">⚪ 条件性</span> 看 Kevin 的回程日期。<br>
+     <b>¥/房/晚 一律按保守的 ÷2 算</b>（4 人 = 2 房口径）；3 房那几晚如果两个男生各住一间就是 ÷3，实际还要再低三分之一。
+     <b>名字可点，直接跳房源 / 酒店详情页。</b>每晚的备选在<a href="#cands">参考部分「每晚候选」</a>，点一下总价当场重算。</p>
+  <div class="tw"><table id="staytab"></table></div>
 
-  <h3 style="font-size:17px;margin:30px 0 4px">✅ 已经拍板 / 已经查实 —— 别再重新讨论</h3>
-  <p class="lede">留在这里是为了<b>别再重新担心一遍</b>。包括你交给我的<b>两个决定</b>（罗弗敦东西侧、冰河湖住哪），
-     理由展开在第 04 节。</p>
-  <div class="tw"><table id="settab"></table></div>
+  <h3 class="subh">🚗 四台车（冰岛 1 + 挪威 2 + 奥斯陆 1）</h3>
+  <p class="lede">全部可免费取消、不限里程、美国驾照。为什么是四台（而不是一台连开）展开在<a href="#cars">参考部分「四台车」</a>。</p>
+  <div class="tw"><table id="cartab"></table></div>
+
+  <h3 class="subh">💰 钱 —— 一张表看完</h3>
+  <p class="lede">口径：<b>4 人总额</b>，含住宿 + 四台车 + Senja 渡轮/油 + 10/2 那段机票估值，
+     <b>不含</b>跨国机票、餐饮、门票 / tour（那两块在 Kevin 手上）。曲线版在<a href="#cost">第 03 节</a>。</p>
+  <div class="tw"><table id="moneytab"></table></div>
 </section>
 
 <!-- ============ 1. MAP ============ -->
 <section id="map-sec">
-  <h2><span class="n">01</span>行程地图</h2>
+  <h2><span class="n">02</span>行程地图</h2>
   <p class="lede">点右侧任意一天（或地图上的日期圆点）→ 地图飞到那天，下面的卡片换成那天的住宿 / 车 / 亮点 / 要盯的事。<br>
      🥇 <b>地图上还有两类可点的图钉</b>：<b style="color:var(--cy)">🛏 住宿</b>（<b>点弹窗里的名字直接跳 Airbnb / Booking 详情页</b>，
      灰色的是<b>占位</b>，即还没定、先随便填了个可退的酒店）和
@@ -350,7 +393,7 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 
 <!-- ============ 2. 累计花费曲线 ============ -->
 <section id="cost">
-  <h2><span class="n">02</span>累计花费曲线 vs 预算上限</h2>
+  <h2><span class="n">03</span>累计花费曲线 vs 预算上限</h2>
   <p class="lede">先看这条线，再看后面的表。<b>灰色虚线 = 预算上限基线</b>（¥4,000/room/晚 × 2 room = ¥8,000/晚，
      住宿口径）；<b>灰色点线 = 预算下沿</b>（¥2,000/room/晚）。青线是按最终方案走的实际累计支出
      （含住宿 + 四台车 + Senja 渡轮，<b>不含机票、餐饮、门票/tour</b>）。
@@ -377,17 +420,75 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   </div>
 </section>
 
-<!-- ============ 3. 抢库存顺序 ============ -->
-<section id="urgency">
-  <h2><span class="n">03</span>现在就该下手的顺序（按会先卖光排）</h2>
-  <p class="lede">全部按「<abbr title="可免费取消的截止日期">free-cxl</abbr>」下单。9 月末冰岛南岸和 E10 的风暴封路太常见，
-     省下的那点不可退折扣不值得。</p>
-  <div class="tw"><table id="urg"></table></div>
+<!-- ============ 0. 要人拍板的 ============ -->
+<section id="decide" style="border-top:none">
+  <h2><span class="n">04</span>🔴 还要人拍板的 5 件事 —— 其他都定完了</h2>
+  <p class="lede">住宿和车已经<b>全部选定</b>，只剩这 5 条要人去问：其中 <b>2 条在 Kevin 那边</b>，
+     <b>B5</b>（10/5 的小屋要不要配 1 天车）<b>是 Steve 自己拍的板</b>。每条都写清了：<b>卡住什么</b> · <b>不定会怎样</b> ·
+     <b>找谁</b> · <b>出处（哪份文档第几行）</b> · <b>影响哪几天</b>（点日期徽章会跳到地图并选中那天）。<br>
+     🟢 <b>关键是：这 5 条都不改结构</b> —— 全部预订都可免费取消，所以<b>现在就能先订，等回信再调</b>。
+     更细的 7 条「只影响某一项」和 10 条「已经查实、别再讨论」搬到了<a href="#appendix">参考部分的「细节 · 未决」</a>。</p>
+  <div id="blockers"></div>
+
+</section>
+
+<div class="parthd">
+  <span class="pn">PART II</span>
+  <h2>参考 —— 备选、理由、实测证据、出处</h2>
+  <p>这一部分是<b>要讨论或要追问时才翻</b>的：每晚还有哪些房子能换、两个决定为什么这么定、四台车的实价对比、
+     踩过的坑和每个数字的出处。<b>结论已经写在 Part I 了，这里只放支撑。</b></p>
+</div>
+
+<!-- ============ 7. 每晚候选（一起选） ============ -->
+<section id="cands">
+  <h2><span class="n">A</span>🗂 每晚候选 —— 一起选</h2>
+  <p class="lede">上面那张是<b>我的一套推荐组合</b>；这一节把<b>每晚还有哪些能选</b>都摊开。
+     每行名字都能点直接跳详情页，<b>左边的圆点是可以点的</b> —— 换一个选择，上面那条汇总会当场重算总价和 ¥/房/晚，
+     所以可以坐在一起边点边看钱怎么变。</p>
+  <p class="lede">🔴 <b>先说清楚三件事，不然这张表会看错：</b></p>
+  <ul class="lede" style="margin-top:-6px">
+    <li><b>「实测」列是最重要的一列。</b> <span class="ok">房源页已核</span> = 用我们的真实日期打开过房源页、确认能订；
+        <span style="color:var(--amber)">仅搜索页</span> = 只有搜索卡片上的价，<b>没验证过能不能订</b>（吃过亏：两个 🥇 就是这么死的）；
+        <span style="color:var(--red)">⛔ 已验证订不到</span> = 打开过、明确不可用，留在表里是为了别再回头看。</li>
+    <li><b>酒店的 ¥/房/晚 = 每间房每晚的价</b>（不是两间总价）。<b>冰岛的酒店价已经加过 11% VAT + 城市税</b>；
+        挪威酒店和 Airbnb 是含税含清洁费的。</li>
+    <li><b>Airbnb 的 ¥/房/晚 = 整套总价 ÷ 2 ÷ 晚数</b>（保守口径）。3 房那几套如果两个男生各住一间就是 ÷3，实际还要低三分之一。</li>
+  </ul>
+  <div id="candsum" class="pickbar"></div>
+  <div id="candlist"></div>
+</section>
+
+<!-- ============ 6. 住宿全景 ============ -->
+<section id="stay">
+  <h2><span class="n">B</span>住宿 —— 「2 个卫生间」是整个需求里最难满足的一条</h2>
+  <p class="lede">北欧酒店套房基本都是 1 卫。你说<b>非常 prefer Airbnb</b> —— 已经执行到底了：
+     <b>12 晚里 10 晚是 Airbnb 整套房</b>，只有 9/26、9/27 两晚因为冰岛乡下确实没有可订的 2房2卫整套房源，才用酒店 2 间房。</p>
+  <p class="lede" style="margin-top:4px"><b>四条会改变决策的实测发现：</b></p>
+  <div class="tw"><table>
+    <thead><tr><th>发现</th><th>后果</th></tr></thead>
+    <tbody>
+      <tr><td>🔴 <b>南岸 9/26 的 4 个 Airbnb 候选全部订不到</b> —— 两个「日期不可用」、一个也不可用、一个 <abbr title="房东设的最少入住晚数">min-stay</abbr> ≥2 晚</td>
+          <td>结论：<b>冰岛南岸乡下基本不接 1 晚</b> → 9/26 只能住酒店/木屋。🆕 现在默认是你找的 <b>Hörgsland Cottages 3 房整栋</b>（¥2,012/房，Klaustur 东 10 km）；
+              我原来的 <b>Hotel Hvolsvöllur ×2 间</b>（¥1,496/房，到店付，退到 9/24）留作备选。<b>往东挪这一步让 9/27 从 390 km 降到 200 km</b></td></tr>
+      <tr><td>🔴 <b>9/27 冰河湖那一晚，Airbnb 里 0 个</b>符合 2房2卫的整套房源（搜索覆盖 Höfn–Jökulsárlón–Skaftafell，返回 0 张卡）；
+              而离冰河湖最近的 Fosshotel <b>只剩 1 间</b></td>
+          <td>这一晚只能是酒店或整栋 guesthouse。🆕 默认已换成你找的 <b>Guesthouse Birkifell（Höfn 西 10 km）¥2,260/房</b> ——
+              2 卧整栋 + 厨房 + 1 queen&nbsp;+&nbsp;2 单人床 + <b>免费退到 9/25 + 到店付</b>（只剩 1 套）。<b>Árnanes ¥2,504/房</b> 降为备选。
+              🟠 顺带回答「27 号住更东是不是极光更好」：<b>不是</b> —— KP 跟经度无关，成败看云量；往东买到的是「前景近 + 能反复进出屋」</td></tr>
+      <tr><td><b>Borgarnes 1 晚订不到</b> —— 8 个 2房2卫房源<b>全部 min-stay ≥ 2 晚</b></td>
+          <td>「9/28 改住 Borgarnes 省 1.5h 车程」<b>在 Airbnb 上不可执行</b> → 只能住 KEF 旁，斯奈山必须靠早出发解决（见 B1）</td></tr>
+      <tr><td>✅ <b>你的特罗姆瑟链接 10/2→10/5 只有 3 晚 —— 原来会漏掉 10/5，现在不漏了</b></td>
+          <td>🆕 你 9/2 又给了 <b>10/5 的奥斯陆房源</b> → 行程改成「10/5 飞回奥斯陆睡缓冲夜」，
+              <b>特罗姆瑟就按你链接上的 3 晚订、日期一个字都不用改</b>（省下 +€453），车② 也从 4 天缩到 3 天（−$103）。
+              代价：<b>极光夜从 4 个变 3 个</b>。备选仍是我原来的船屋 3 晚 €825（3 卫、★5.0、可退）——
+              <b>差约 ¥5,600，仍是全程最大的一笔差价</b></td></tr>
+    </tbody>
+  </table></div>
 </section>
 
 <!-- ============ 4. 两个交给我的决定 ============ -->
 <section id="decisions">
-  <h2><span class="n">04</span>你交给我的两个决定 —— 答案 + 真实理由</h2>
+  <h2><span class="n">C</span>你交给我的两个决定 —— 答案 + 真实理由</h2>
   <p class="lede">这两个是你明确说「你来定」的。我把<b>真实理由</b>写在这儿，因为它们和「省钱」是两件事 ——
      两个答案都<b>顺便</b>更便宜，但那不是选它们的原因。<br>
      🔴 顺带说明：<b>10/2 那段邮轮已按你的话整段 pass 掉</b>，先改成自驾、再按你「10/2 坐飞机别开车」改成 <b>SVJ→TOS 飞 50 min</b>。
@@ -399,7 +500,7 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 
 <!-- ============ 5. 租车 ============ -->
 <section id="cars">
-  <h2><span class="n">05</span>四台车（冰岛 1 + 挪威 2 + 🆕 奥斯陆 1）—— 推荐车 + 会改变决定的结论</h2>
+  <h2><span class="n">D</span>四台车（冰岛 1 + 挪威 2 + 🆕 奥斯陆 1）—— 推荐车 + 会改变决定的结论</h2>
   <p class="lede">🆕 <b>2026-09-02 下午按「10/2 坐飞机别开车」重排</b>：挪威从「一台车连开 6 天」改成
      <b>两段夹一段 50 分钟的飞</b> —— 车① EVE→Svolvær(SVJ)，还车后 Widerøe 直飞 SVJ→TOS，落地再提车②开到 <b>10/5</b>。
      <br>🆕 <b>2026-09-02 深夜又多出第四台</b>：10/5 那晚改住 Stange 的森林小屋（房源页写着 "A car is required"）
@@ -490,79 +591,42 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
      <span class="mono">notes/_research/out_split/</span> 和 <span class="mono">out_verify/</span>。</p>
 </section>
 
-<!-- ============ 6. 住宿全景 ============ -->
-<section id="stay">
-  <h2><span class="n">06</span>住宿 —— 「2 个卫生间」是整个需求里最难满足的一条</h2>
-  <p class="lede">北欧酒店套房基本都是 1 卫。你说<b>非常 prefer Airbnb</b> —— 已经执行到底了：
-     <b>12 晚里 10 晚是 Airbnb 整套房</b>，只有 9/26、9/27 两晚因为冰岛乡下确实没有可订的 2房2卫整套房源，才用酒店 2 间房。</p>
-  <p class="lede"><b>最终逐晚方案</b>（¥/房/晚 一律按<b>保守的 ÷2</b> 算；3 房那几晚如果两个男生各住一间 = ÷3，还要再低三分之一）。
-     <b>名字都能点，直接跳详情页。</b></p>
-  <div class="tw"><table id="staytab"></table></div>
-  <p style="margin:16px 0;text-align:center">
-    <a href="#cands" style="display:inline-block;background:rgba(62,230,208,.14);border:1px solid rgba(62,230,208,.5);
-       color:var(--cy);border-radius:10px;padding:10px 18px;font-size:14.5px;font-weight:650;text-decoration:none">
-      ⬇ 这只是我的推荐 —— 每晚还有 3–10 个候选可以换，点这里到第 07 节一起选 →
-    </a>
-  </p>
-  <p class="lede" style="margin-top:20px"><b>四条会改变决策的实测发现：</b></p>
-  <div class="tw"><table>
-    <thead><tr><th>发现</th><th>后果</th></tr></thead>
-    <tbody>
-      <tr><td>🔴 <b>南岸 9/26 的 4 个 Airbnb 候选全部订不到</b> —— 两个「日期不可用」、一个也不可用、一个 <abbr title="房东设的最少入住晚数">min-stay</abbr> ≥2 晚</td>
-          <td>结论：<b>冰岛南岸乡下基本不接 1 晚</b> → 9/26 只能住酒店/木屋。🆕 现在默认是你找的 <b>Hörgsland Cottages 3 房整栋</b>（¥2,012/房，Klaustur 东 10 km）；
-              我原来的 <b>Hotel Hvolsvöllur ×2 间</b>（¥1,496/房，到店付，退到 9/24）留作备选。<b>往东挪这一步让 9/27 从 390 km 降到 200 km</b></td></tr>
-      <tr><td>🔴 <b>9/27 冰河湖那一晚，Airbnb 里 0 个</b>符合 2房2卫的整套房源（搜索覆盖 Höfn–Jökulsárlón–Skaftafell，返回 0 张卡）；
-              而离冰河湖最近的 Fosshotel <b>只剩 1 间</b></td>
-          <td>这一晚只能是酒店或整栋 guesthouse。🆕 默认已换成你找的 <b>Guesthouse Birkifell（Höfn 西 10 km）¥2,260/房</b> ——
-              2 卧整栋 + 厨房 + 1 queen&nbsp;+&nbsp;2 单人床 + <b>免费退到 9/25 + 到店付</b>（只剩 1 套）。<b>Árnanes ¥2,504/房</b> 降为备选。
-              🟠 顺带回答「27 号住更东是不是极光更好」：<b>不是</b> —— KP 跟经度无关，成败看云量；往东买到的是「前景近 + 能反复进出屋」</td></tr>
-      <tr><td><b>Borgarnes 1 晚订不到</b> —— 8 个 2房2卫房源<b>全部 min-stay ≥ 2 晚</b></td>
-          <td>「9/28 改住 Borgarnes 省 1.5h 车程」<b>在 Airbnb 上不可执行</b> → 只能住 KEF 旁，斯奈山必须靠早出发解决（见 B1）</td></tr>
-      <tr><td>✅ <b>你的特罗姆瑟链接 10/2→10/5 只有 3 晚 —— 原来会漏掉 10/5，现在不漏了</b></td>
-          <td>🆕 你 9/2 又给了 <b>10/5 的奥斯陆房源</b> → 行程改成「10/5 飞回奥斯陆睡缓冲夜」，
-              <b>特罗姆瑟就按你链接上的 3 晚订、日期一个字都不用改</b>（省下 +€453），车② 也从 4 天缩到 3 天（−$103）。
-              代价：<b>极光夜从 4 个变 3 个</b>。备选仍是我原来的船屋 3 晚 €825（3 卫、★5.0、可退）——
-              <b>差约 ¥5,600，仍是全程最大的一笔差价</b></td></tr>
-    </tbody>
-  </table></div>
-</section>
+<!-- ============ 附录：细节 · 未决 ============ -->
+<section id="appendix">
+  <h2><span class="n">E</span>细节 · 未决 —— 不影响结构，但别忘了</h2>
+  <p class="lede">从总览里搬下来的三组「读完就放心、不用带着走」的东西。</p>
 
-<!-- ============ 7. 每晚候选（一起选） ============ -->
-<section id="cands">
-  <h2><span class="n">07</span>🗂 每晚候选 —— 一起选</h2>
-  <p class="lede">上面那张是<b>我的一套推荐组合</b>；这一节把<b>每晚还有哪些能选</b>都摊开。
-     每行名字都能点直接跳详情页，<b>左边的圆点是可以点的</b> —— 换一个选择，上面那条汇总会当场重算总价和 ¥/房/晚，
-     所以可以坐在一起边点边看钱怎么变。</p>
-  <p class="lede">🔴 <b>先说清楚三件事，不然这张表会看错：</b></p>
-  <ul class="lede" style="margin-top:-6px">
-    <li><b>「实测」列是最重要的一列。</b> <span class="ok">房源页已核</span> = 用我们的真实日期打开过房源页、确认能订；
-        <span style="color:var(--amber)">仅搜索页</span> = 只有搜索卡片上的价，<b>没验证过能不能订</b>（吃过亏：两个 🥇 就是这么死的）；
-        <span style="color:var(--red)">⛔ 已验证订不到</span> = 打开过、明确不可用，留在表里是为了别再回头看。</li>
-    <li><b>酒店的 ¥/房/晚 = 每间房每晚的价</b>（不是两间总价）。<b>冰岛的酒店价已经加过 11% VAT + 城市税</b>；
-        挪威酒店和 Airbnb 是含税含清洁费的。</li>
-    <li><b>Airbnb 的 ¥/房/晚 = 整套总价 ÷ 2 ÷ 晚数</b>（保守口径）。3 房那几套如果两个男生各住一间就是 ÷3，实际还要低三分之一。</li>
-  </ul>
-  <div id="candsum" class="pickbar"></div>
-  <div id="candlist"></div>
-</section>
+  <h3 class="subh">🟠 只影响某一项的细节 —— 不定也能先订</h3>
+  <p class="lede">这 7 条不会改行程结构，只影响某一项的钱或舒适度。全部预订都选可免费取消，所以可以先占住、边等回信。</p>
+  <div class="tw"><table id="dettab"></table></div>
 
-<!-- ============ 8. 未决 ============ -->
-<section id="open">
-  <h2><span class="n">08</span>未决问题 —— 网页答不了，要人去问</h2>
-  <p class="lede">按会不会真的搞砸排序。红点这四条<b>今天就要动</b>。</p>
+  <h3 class="subh">✅ 已经拍板 / 已经查实 —— 别再重新讨论</h3>
+  <p class="lede">留在这里是为了<b>别再重新担心一遍</b>。包括你交给我的<b>两个决定</b>（罗弗敦东西侧、冰河湖住哪），理由展开在「两个决定」那一节。</p>
+  <div class="tw"><table id="settab"></table></div>
+
+  <h3 class="subh">❓ 网页答不了、要人去问的</h3>
+  <p class="lede">按会不会真的搞砸排序。</p>
   <div class="tw"><table id="opentab"></table></div>
+</section>
+
+<!-- ============ 3. 抢库存顺序 ============ -->
+<section id="urgency">
+  <h2><span class="n">F</span>下单顺序留档（按会先卖光排）</h2>
+  <p class="lede">这一节是<b>留档</b>：罗弗敦那晚已经订掉了，其余按「<abbr title="可免费取消的截止日期">free-cxl</abbr>」下单即可。
+     一律选可免费取消 —— 9 月末冰岛南岸和 E10 的风暴封路太常见，省下的那点不可退折扣不值得。</p>
+  <div class="tw"><table id="urg"></table></div>
 </section>
 
 <!-- ============ 8. 风险 ============ -->
 <section id="risk">
-  <h2><span class="n">09</span>风险清单（含已消除的）</h2>
+  <h2><span class="n">G</span>风险清单（含已消除的）</h2>
   <p class="lede">灰掉划线的是<b>已经查实、可以划掉</b>的 —— 留着是为了别再重新担心一遍。</p>
   <div class="tw"><table id="risktab"></table></div>
 </section>
 
 <!-- ============ 9. 出处 ============ -->
 <section id="prov">
-  <h2><span class="n">10</span>数据怎么来的（可复算）+ 踩过的坑</h2>
+  <h2><span class="n">H</span>数据怎么来的（可复算）+ 踩过的坑</h2>
   <div class="tw"><table id="provtab"></table></div>
   <p class="lede" style="margin-top:18px"><b>🔴 踩过的坑，别重踩：</b></p>
   <div class="box warn"><ul id="pit"></ul></div>
@@ -570,9 +634,10 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
 
 <!-- ============ 10. 黑话 ============ -->
 <section id="gloss">
-  <h2><span class="n">11</span>黑话表</h2>
+  <h2><span class="n">I</span>黑话表</h2>
   <div class="gl" id="gl"></div>
 </section>
+
 
 <footer>
   <b>北欧行 2026</b> · 数据抓取日 <b>2026-09-01</b> · 汇率 €1=¥8.0 · $1=¥7.1 · NOK1=¥0.67 ·
@@ -609,11 +674,13 @@ const totalCru =DAYS.reduce((a,d)=>a+(d.spend.cruise||0),0);
 const totalOth =DAYS.reduce((a,d)=>a+(d.spend.other||0),0);
 const GRAND=totalStay+totalCar+totalCru+totalOth;
 const nights=STAYTAB.length;
+const COUNTED_NIGHTS=12;                    /* 条件性的第 13 晚不进均价 */
+const perRoom=Math.round(totalStay/COUNTED_NIGHTS/2);
 [['13 天 / 12 晚','9/24 → 10/6（+ 条件性第 13 晚）'],
  ['4','人（两男 + 一对夫妻）= 2 房口径'],
  ['10 / 12','晚是 Airbnb 整套房（只 9/26+9/27 两晚是酒店/木屋）'],
  ['¥'+fmt(totalStay),'住宿合计 12 晚（4 人）'],
- ['¥1,790','/ 房 / 晚 —— 你的方案，仍在 ¥2,000 下沿内'],
+ ['¥'+fmt(perRoom),'/ 房 / 晚 —— 仍在 ¥2,000 下沿内'],
  ['¥'+fmt(totalCar+totalOth),'四台车 + Senja 渡轮 + 10/2 那段机票'],
  ['¥'+fmt(GRAND),'合计（不含跨国机票/餐饮/tour）'],
  ['¥'+fmt(Math.round(GRAND/4)),'人均（同上口径）'],
@@ -940,8 +1007,10 @@ $('#carseg').innerHTML=DAYS.filter(d=>d.car).map(d=>`
     选 4x4 是为了 9 月末的大风暴雨和可能的早雪。9 月底不需要冬胎（11/1 才强制）。
     在 KEF 取车比在雷市取更划算（雷市取/KEF 还要付 ~€50 异地费，机场大巴 €30/人×4 更贵）。</p></div>`;
 
-tbl('staytab',['入住 → 退房（就按这个订）','地点','住哪（点名字 → 详情页）','房/卫','总价','¥/房/晚','退改'],
-  STAYTAB.map(r=>({c:[
+const STCLS=r=>/已订/.test(r.st)?'b':/已选定/.test(r.st)?'s':/待定/.test(r.st)?'t':'c';
+tbl('staytab',['状态','入住 → 退房（就按这个订）','地点','住哪（点名字 → 详情页）','房/卫','总价','¥/房/晚','退改'],
+  STAYTAB.map(r=>({cls:/已订/.test(r.st)?'booked':'', c:[
+    `<span class="st ${STCLS(r)}">${r.st}</span>`,
     `<b>${md(r.d)}</b>`, r.place,
     r.url?`<a href="${r.url}" target="_blank" rel="noopener">${md(r.name)}</a> ↗`:md(r.name),
     `${md(r.rb)}<br><span class="mono" style="color:var(--tx2);font-size:11.5px">${r.type}</span>`,
@@ -949,7 +1018,25 @@ tbl('staytab',['入住 → 退房（就按这个订）','地点','住哪（点�
     {v:r.room,n:1},
     r.cxl]})));
 
-/* ================= 07 每晚候选 —— 可点选，汇总当场重算 ================= */
+/* ============ 总览里的车表 + 钱表 ============ */
+tbl('cartab',['段','推荐车','取 → 还','裸车报价','折人民币','要注意的'],
+  (typeof CARTAB!=='undefined'?CARTAB:[]).map(c=>({c:[`<b>${md(c.seg)}</b>`, c.car, md(c.when),
+    {v:c.p,n:1},{v:`<b style="color:var(--cy)">${c.cny}</b>`,n:1}, md(c.note)]}))
+  .concat([{c:['<b>四台合计</b>','—','6+5 = 11 个计费日',{v:'<b>$1,227–1,234</b>',n:1},
+    {v:'<b style="color:var(--cy);font-size:15px">¥'+fmt(totalCar)+'</b>',n:1},
+    '折 <b>¥609–682 / 天</b> —— 远低于 ¥2,000/天上限']}]));
+
+tbl('moneytab',['科目','金额（4 人）','折算','对预算'],[
+  {c:['🛏 住宿 · 12 晚',{v:'<b>¥'+fmt(totalStay)+'</b>',n:1},'¥'+fmt(perRoom)+' / 房 / 晚',
+      '<span class="ok">✅ 在 ¥2,000–4,000 区间的<b>下沿</b></span>']},
+  {c:['🚗 租车 · 四台',{v:'<b>¥'+fmt(totalCar)+'</b>',n:1},'≈ ¥609–682 / 天',
+      '<span class="ok">✅ 远低于 ¥2,000 / 天上限</span>']},
+  {c:['⛴ Senja 渡轮 / 油 / 10/2 那段机票',{v:'¥'+fmt(totalOth),n:1},'—','—']},
+  {c:['<b>合计</b>',{v:'<b style="color:var(--cy);font-size:15px">¥'+fmt(GRAND)+'</b>',n:1},
+      '<b>人均 ¥'+fmt(Math.round(GRAND/4))+'</b>','⚠️ <b>不含</b>跨国机票 / 餐饮 / 门票·tour']}
+]);
+
+/* ================= 每晚候选 —— 可点选，汇总当场重算 ================= */
 (function(){
   const list=$('#candlist'), sum=$('#candsum');
   if(!list||!sum||typeof CANDS==='undefined') return;

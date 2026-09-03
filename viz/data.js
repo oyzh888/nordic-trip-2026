@@ -109,6 +109,7 @@ const U = {
   nann5br:    'https://www.airbnb.com/rooms/1461656866395092330?check_in=2026-09-29&check_out=2026-09-30&adults=4&currency=EUR',
   nann5br24:  'https://www.airbnb.com/rooms/1461656866395092330?check_in=2026-09-24&check_out=2026-09-25&adults=4&currency=EUR',
   vagan3br:   'https://www.airbnb.com/rooms/1258848712541940268?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
+  lofnew:     'https://www.airbnb.com/rooms/1303545546783105490?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR',
   tos4br:     'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-06&adults=4&currency=EUR',
   tos4br3n:   'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-05&adults=4&currency=EUR',
   njardvik3:  'https://www.airbnb.com/rooms/1139944377459145061?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
@@ -292,24 +293,22 @@ const DAYS = [
     legs:[{k:'fly',from:P.osl,to:P.eve},
           {k:'drive',pts:[P.eve,P.narvik,P.svolvaer,P.henningsvaer,P.vagan]}],
     drive:'EVE→Svolvær 165 km / 2h30（E10 全程无渡轮、基本无收费站）',
-    stay:{name:'Vågan 3 房 · 5 床 · 2 卫',type:'Airbnb',rb:'3房/5床/2卫',
-          price:'€1,136 / 2 晚 · ¥2,272/房/晚',cxl:'⛔ 不可退',
-          url:U.vagan3br, pt:P.vagan, place:'Vågan（Svolvær 旁）· 住 2 晚不搬箱子',
-          note:'🥇 **Steve 自己选的，已设为默认**（2026-09-02 实测可订）。同样是东侧 —— '+
-               '「决定 1：选东侧」不变。'+
-               '🔴 **这是全程最贵的一段，也是唯一一个我建议再看一眼的**：'+
-               '我原来的默认 <a href="'+U.vagan+'" target="_blank">Waterfront Nordic house 5房/8床/2卫 ★4.93 €553/2晚</a> '+
-               '房间更多、评分更高、**还可以退**，而且便宜 **€583 ≈ ¥4,664**。'+
-               '西侧对照 <a href="'+U.ramberg+'" target="_blank">The heart of Ramberg</a> €647 也不可退'},
+    stay:{name:'Nordic Lodge Retreat · Lyngvær（已订）',type:'Airbnb',rb:'4房/8床/2卫',
+          price:'€898 / 2 晚 · ¥1,796/房/晚',cxl:'✅ 24h 内免费 · 9/23 前部分退',
+          url:U.lofnew, pt:P.vagan, place:'Lyngvær · Vågan（Svolvær 旁）· 住 2 晚不搬箱子',
+          note:'✅ **Steve 已下单。** 2025 年 1 月新建的整栋 lodge，98 m²，**4 卧 8 床 2 卫**（10 人上限，'+
+               '我们 4 人非常宽裕）· 按摩浴缸 + 桑拿 · ★4.92 · 38 条评价 · Superhost · 自助 keypad 入住。'+
+               '在 Lyngvær，Svolvær 旁边 —— 仍是东侧，「决定 1：选东侧」不变。'+
+               '⚠️ **表里的 €898 取自搜索页快照，请拿你订单上的实付金额对一下**（房源页在我们这台机器上不给价）。'},
     car:{name:'Toyota Yaris Cross 4WD（车①）+ Suzuki Vitara 4WD（车②）· 均自动挡',
          seg:'✈️ 已按「10/2 坐飞机」拆两段：EVE 9/30 11:00 → SVJ 10/2 08:30（2 天）· TOS 10/2 10:30 → **10/5 10:00（3 天）**；🆕 再加 OSL 10/5→10/6 一天（1 天）',
-         price:'$650 + $343 = $993',cny:'¥7,050（¥1,175/天）',
+         price:'$650 + $240 + $86 = $976（三台）',cny:'¥6,930（三台合计 · 6 个计费日）',
          url:U.dcars, pick:P.eve, drop:P.svjair, pickWhen:'9/30 11:00', dropWhen:'10/2 08:30',
          note:'原方案是**一台车连开 6 天 $762**（Vitara，¥5,410）→ 为了 10/2 不开 480 km 多付 **$231 ≈ ¥1,640**，'+
               '再加 4 人机票约 ¥2,400–5,360。⚠️ 两段 = 两次柜台、两次押金冻结（EVE 那台原报价 $1,805）。'+
               '🔴 更便宜的都是**纯电** —— 10/5 Senja 往返 ~500 km、10 月低温 + 岛上充电桩稀 → 排除，'+
               '所以上面全是同档（汽油·自动·4WD·免费取消）的比价'},
-    spend:{stay:4544, car:4615}, supply:'amber',
+    spend:{stay:3592, car:4615}, supply:'amber',
     hi:['Svolvær 是罗弗敦唯一像样的镇子：超市 / 餐厅 / 加油站 / 药店都在这儿（我们 4 人自炊，每天要用）',
         'Henningsvær（礁石上的渔村 + 著名足球场）离 Svolvær 只 30 min',
         '10 月初 EVE 19:00 前后天就黑 → 开 2h30 是从容的到达，开 4h 到西侧是更糟的第一晚'],
@@ -324,11 +323,11 @@ const DAYS = [
            {n:'Sakrisøy',c:P.sakrisoy},{n:'Reine（Reinebringen）',c:P.reine},{n:'回 Vågan',c:P.vagan}],
     legs:[{k:'drive',pts:[P.vagan,P.leknes,P.ramberg,P.hamnoy,P.sakrisoy,P.reine,P.hamnoy,P.leknes,P.vagan]}],
     drive:'单程 2h · 往返约 4h 净开车',
-    stay:{name:'同 D6（Vågan 3房/5床/2卫，连住第 2 晚）',type:'Airbnb',rb:'3房/5床/2卫',
-          price:'含在 €1,136 / 2 晚内 · ¥2,272/房/晚',cxl:'⛔ 不可退',
-          url:U.vagan3br, pt:P.vagan, place:'Vågan',
+    stay:{name:'同 D6（Nordic Lodge Retreat，连住第 2 晚）',type:'Airbnb',rb:'4房/8床/2卫',
+          price:'含在 €898 / 2 晚内 · ¥1,796/房/晚',cxl:'✅ 24h 内免费 · 9/23 前部分退',
+          url:U.lofnew, pt:P.vagan, place:'Lyngvær · Vågan',
           note:'**选东侧不等于放弃西侧风景** —— 这一天专门西行：Hamnøy 那排最出名的红屋、Sakrisøy、Reine，沿路停，晚饭前回来'},
-    spend:{stay:4544}, supply:'amber',
+    spend:{stay:3592}, supply:'amber',
     hi:['Hamnøy 红屋（Eliassen Rorbuer 那排）','Sakrisøy 黄房子','Reinebringen 阶梯往返约 1.5–2h','极光季已开季'],
     watch:['🟠 E10 风暴封路在 9 月末–10 月很常见 → 这也是「东侧 + 可退」比「西侧 + 不可退」好的原因']
   },
@@ -453,7 +452,7 @@ const DAYS = [
                '🆕 而且现在**已经有了 10/5 那个缓冲夜**，10/6 当天直飞完全从容（不再是「当天先飞 TOS→OSL 再接洲际」）。'+
                '若是 **10/7** 起飞，最省事的是把 <a href="'+U.konglehytta+'" target="_blank">Konglehytta 小屋直接多住一晚</a>'+
                '（车也顺延一天），其次才是机场旁的 Clarion（最便宜的可退档、退到 10/5）或 '+
-               '<a href="'+U.parkinn+'" target="_blank">Radisson（退到当天 18:00，€157/间）</a>；第 07 节列了全部 5 个选项'},
+               '<a href="'+U.parkinn+'" target="_blank">Radisson（退到当天 18:00，€157/间）</a>；「每晚候选」那一节列了全部 5 个选项'},
     spend:{}, supply:'amber',
     hi:['🆕 **10/5 已经睡在奥斯陆了 → 10/6 是纯粹的「开 30 min + 还车 + 登机」**，这是这次改动最实在的收益',
         '若当天直飞北京，行程在这里结束'],
@@ -463,16 +462,32 @@ const DAYS = [
 
 /* ---------- 逐晚汇总表（表格用；链接可点） ---------- */
 const STAYTAB = [
-  {d:'**9/24 → 9/25**',   place:'Oslo Gardermoen', name:'Modern. Quiet area. Large space.', url:U.nannestad, type:'Airbnb', rb:'3房/5床/2卫', tot:'€260',  room:'1,040', cxl:'⛔ 不可退'},
-  {d:'**9/25 → 9/26**',   place:'雷克雅未克',       name:'Aurora view 3BR 2BATH ★5.0',       url:U.aurora,    type:'Airbnb', rb:'3房/3床/2卫', tot:'€647→€447', room:'1,788', cxl:'✅ 24h / 9/18'},
-  {d:'**9/26 → 9/27**',   place:'Hörgsland（Klaustur 东 10 km）', name:'Hörgsland Cottages · 3房整栋', url:U.horgsland, type:'酒店/木屋', rb:'3 卧 · 整栋', tot:'€503 含税', room:'2,012', cxl:'⛔ 不可退（€549 可退到 9/12）'},
-  {d:'**9/27 → 9/28**',   place:'Nesjahverfi（Höfn 西 10 km）',   name:'Guesthouse Birkifell · 2房整栋', url:U.birkifell, type:'酒店/整栋', rb:'2 卧 · 整栋', tot:'€565 含税', room:'2,260', cxl:'✅ 9/25 · 到店付'},
-  {d:'**9/28 → 9/29**',   place:'Njarðvík（KEF 5 min）', name:'🆕 Hot tub & Sauna · Ocean Break ★5.0', url:U.njardvik3, type:'Airbnb', rb:'3房/3床/**1卫**', tot:'€531→€335', room:'1,340', cxl:'✅ 到 9/23'},
-  {d:'**9/29 → 9/30**',   place:'Oslo Gardermoen', name:'Nannestad 5房 1.5卫',              url:U.nann5br,   type:'Airbnb', rb:'5房/5床/1.5卫', tot:'€292',  room:'1,168', cxl:'✅ 到 9/28'},
-  {d:'**9/30 → 10/2**（2 晚）', place:'罗弗敦东侧 Vågan', name:'Vågan 3房5床2卫',                  url:U.vagan3br,  type:'Airbnb', rb:'3房/5床/2卫', tot:'€1,136/2晚', room:'2,272', cxl:'⛔ 不可退'},
-  {d:'**10/2 → 10/5**（3 晚）', place:'特罗姆瑟',         name:'Tromsø 4房2卫（**3 晚，日期不用改了**）', url:U.tos4br3n,  type:'Airbnb', rb:'4房/4床/2卫', tot:'€1,526/3晚', room:'2,035', cxl:'✅ 到 10/1'},
-  {d:'**10/5 → 10/6**',   place:'Stange / Mjøsli（OSL 30 min）', name:'🆕 Konglehytta 3 · Sauna ★4.98', url:U.konglehytta, type:'Airbnb', rb:'2房/3床/**1卫**', tot:'€306 可退', room:'1,224', cxl:'✅ 可退档只贵 €10'},
-  {d:'**10/6 → 10/7**',   place:'（条件性）奥斯陆',  name:'🅿️ 占位 Clarion Oslo Airport ×2',   url:U.clarion,   type:'占位',   rb:'2 房 2 卫',   tot:'€193 含 VAT', room:'772', cxl:'✅ 10/5'}
+  {st:'🟠 待定', d:'**9/24 → 9/25**',   place:'Oslo Gardermoen', name:'Modern. Quiet area. Large space.', url:U.nannestad, type:'Airbnb', rb:'3房/5床/2卫', tot:'€260',  room:'1,040', cxl:'⛔ 不可退'},
+  {st:'☑️ 已选定', d:'**9/25 → 9/26**',   place:'雷克雅未克',       name:'Aurora view 3BR 2BATH ★5.0',       url:U.aurora,    type:'Airbnb', rb:'3房/3床/2卫', tot:'€647→€447', room:'1,788', cxl:'✅ 24h / 9/18'},
+  {st:'☑️ 已选定', d:'**9/26 → 9/27**',   place:'Hörgsland（Klaustur 东 10 km）', name:'Hörgsland Cottages · 3房整栋', url:U.horgsland, type:'酒店/木屋', rb:'3 卧 · 整栋', tot:'€503 含税', room:'2,012', cxl:'⛔ 不可退（€549 可退到 9/12）'},
+  {st:'☑️ 已选定', d:'**9/27 → 9/28**',   place:'Nesjahverfi（Höfn 西 10 km）',   name:'Guesthouse Birkifell · 2房整栋', url:U.birkifell, type:'酒店/整栋', rb:'2 卧 · 整栋', tot:'€565 含税', room:'2,260', cxl:'✅ 9/25 · 到店付'},
+  {st:'☑️ 已选定', d:'**9/28 → 9/29**',   place:'Njarðvík（KEF 5 min）', name:'🆕 Hot tub & Sauna · Ocean Break ★5.0', url:U.njardvik3, type:'Airbnb', rb:'3房/3床/**1卫**', tot:'€531→€335', room:'1,340', cxl:'✅ 到 9/23'},
+  {st:'☑️ 已选定', d:'**9/29 → 9/30**',   place:'Oslo Gardermoen', name:'Nannestad 5房 1.5卫',              url:U.nann5br,   type:'Airbnb', rb:'5房/5床/1.5卫', tot:'€292',  room:'1,168', cxl:'✅ 到 9/28'},
+  {st:'✅ 已订', d:'**9/30 → 10/2**（2 晚）', place:'罗弗敦东侧 Lyngvær · Vågan', name:'🆕 Nordic Lodge Retreat ★4.92', url:U.lofnew,  type:'Airbnb', rb:'4房/8床/2卫', tot:'€898/2晚', room:'1,796', cxl:'✅ 24h / 9/23'},
+  {st:'☑️ 已选定', d:'**10/2 → 10/5**（3 晚）', place:'特罗姆瑟',         name:'Tromsø 4房2卫（**3 晚，日期不用改了**）', url:U.tos4br3n,  type:'Airbnb', rb:'4房/4床/2卫', tot:'€1,526/3晚', room:'2,035', cxl:'✅ 到 10/1'},
+  {st:'☑️ 已选定', d:'**10/5 → 10/6**',   place:'Stange / Mjøsli（OSL 30 min）', name:'🆕 Konglehytta 3 · Sauna ★4.98', url:U.konglehytta, type:'Airbnb', rb:'2房/3床/**1卫**', tot:'€306 可退', room:'1,224', cxl:'✅ 可退档只贵 €10'},
+  {st:'⚪ 条件性', d:'**10/6 → 10/7**',   place:'（条件性）奥斯陆',  name:'🅿️ 占位 Clarion Oslo Airport ×2',   url:U.clarion,   type:'占位',   rb:'2 房 2 卫',   tot:'€193 含 VAT', room:'772', cxl:'✅ 10/5'}
+];
+
+/* ---------- 总览用：四台车一行一台 ---------- */
+const CARTAB=[
+  {seg:'🇮🇸 冰岛',    car:'Peugeot 2008 · 4x4 · 自动挡', when:'KEF **9/25 17:00** → KEF **9/29 18:00**（5 天）',
+   p:'$258 裸车', cny:'¥1,832（含必买三险最坏 ¥3,408）',
+   note:'必买 SCDW + 砂石 + 火山沙尘 ≈ $25–40/天。⛔ 别订 Jimny（装不下 4 人 4 箱）。**取车填 17:00 或更晚**，早 3 小时会跨进第 5 个计费日、白贵 $65'},
+  {seg:'🇳🇴 车① 罗弗敦', car:'Toyota Yaris Cross 4WD · 自动挡', when:'EVE **9/30 11:00** → SVJ **10/2 08:30**（2 天）',
+   p:'$650', cny:'¥4,615',
+   note:'🔴 **Svolvær 异地还车只有 6 个车源** → 这一段最早订。选早班（~09:05）；下午班要 14:30 还车、跨第 3 个计费日、$650→$763'},
+  {seg:'🇳🇴 车② 特罗姆瑟', car:'Suzuki Vitara 4WD · 自动挡', when:'TOS **10/2 10:30** → **10/5 10:00**（3 天）',
+   p:'$240', cny:'¥1,704',
+   note:'Senja（10/4）往返 ~500 km 走这台 —— 挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500。10:30 和 16:00 提车同价'},
+  {seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL **10/5 15:00** → **10/6 10:00**（1 天）',
+   p:'$79–86', cny:'¥611',
+   note:'🟠 **只在住 Stange 森林小屋时才需要**（房源页写 "A car is required"）。不想租就换机场旁的 Clarion（€193、2 卫）—— 见 B5'}
 ];
 
 /* ---------- 我替你做的两个决定 ---------- */
@@ -517,9 +532,9 @@ const URGENCY = [
   {rank:3, sev:'red',   what:'🆕 特罗姆瑟 4房2卫 €1,526 / **3 晚（10/2–10/5，日期不用改了）**',
    why:'✅ 原来那个「10/5 没地方住」的窟窿已被 10/5 的奥斯陆小屋补掉 → **你给的原链接本来就是对的**。仍要早订的理由只剩「极光季开季，3 晚整套房不是随时都有」',
    deadline:'尽快，可退到 10/1', how:'Airbnb。🟠 订之前值得再看一眼备选船屋（3 晚 €825，便宜约 ¥5,600、3 卫、★5.0、可退）'},
-  {rank:4, sev:'red',   what:'🆕 罗弗敦东侧 Vågan 3房2卫 €1,136 / 2 晚',
-   why:'⛔ **不可退** → 一旦订下就锁死；而它比备选贵 ¥4,664',
-   deadline:'先决定要不要换，再订', how:'Airbnb。备选 Waterfront Nordic house ★4.93 €553/2晚（5房8床2卫、**可退**）—— 这一笔建议真的再比一次'},
+  {rank:4, sev:'done',  what:'✅ 罗弗敦 Nordic Lodge Retreat · Lyngvær（9/30 → 10/2）',
+   why:'**已订，不用再管。** 4 卧 8 床 2 卫 · ★4.92 · 可退（24h 内免费 / 9/23 前部分退）',
+   deadline:'—', how:'保留的动作只有一个：9/23 之前若行程有变，记得那天是部分退款的悬崖'},
   {rank:5, sev:'amber', what:'🆕 Hörgsland Cottages 9/26 整栋 €448（+税 €503）',
    why:'"We have 5 left" → 不急。⛔ 但**不可退**（€549 那档可退到 9/12）',
    deadline:'9/12 前决定要不要买可退档', how:'Booking。🟠 三个卧室**都没有双人床**（上下铺×2 + 单人×2）—— 夫妻在意就换 Klaustur 的 Fosshotel Núpar / Hótel Laki'},
@@ -716,7 +731,7 @@ const SETTLED = [
    src:[['notes/PLAN-final.md','110–138']]},
   {q:'几个人、怎么分房、¥/房怎么算？', a:'<b>4 人 = 两男 + 一对夫妻。</b>¥/房 = 总价 ÷ <b>实际用的房间数</b>。本页一律<b>保守按 ÷2</b> 算；3 房那几晚如果两个男生各住一间（÷3），数字还要再低三分之一。',
    src:[['notes/PLAN-final.md','10 + 54']]},
-  {q:'预算够不够？', a:'<b>够，而且 2026-09-02 深夜那两个链接之后又便宜了。</b>你这套方案折 <b>¥1,790/房/晚</b>（上一版 ¥1,876），仍在 ¥2,000–4,000 区间的下沿（我原来那套 ¥1,326 —— 两套都在预算内）。四台车（冰岛 · 挪威① · 挪威② · 🆕 OSL 1 天）折下来 ¥609–682/天，都远低于 ¥2,000/天的上限。',
+  {q:'预算够不够？', a:'<b>够，而且 2026-09-02 深夜那两个链接之后又便宜了。</b>你这套方案折 <b>¥1,711/房/晚</b>（上两版 ¥1,876 → ¥1,790），仍在 ¥2,000–4,000 区间的下沿（我原来那套 ¥1,326 —— 两套都在预算内）。四台车（冰岛 · 挪威① · 挪威② · 🆕 OSL 1 天）折下来 ¥609–682/天，都远低于 ¥2,000/天的上限。',
    src:[['notes/PLAN-final.md','20–26']]},
   {q:'免费取消 vs 更便宜的不可退？', a:'<b>全部买可免费取消</b>。9 项里 <b>7 项零风险</b>，唯一例外是 Nannestad 两晚（€520），已给可退替代（Thon Gardermoen）。',
    src:[['notes/PLAN-final.md','222–224']]},
@@ -861,13 +876,13 @@ const CANDS = [
 
 { g:'G7', d:'9/30 → 10/2（2 晚）', n:2, place:'罗弗敦东侧（Vågan / Svolvær）', note:'✅ **供给最好的一段：8 个替代全部实测能订。**（另有 3 个搜索页看着能订、实测订不到，列在最后。）东侧 = 10/2 只开 6h30；西侧 = 8h30。',
   opts:[
-  {t:'pick', n:'🆕 Vågan 3 房 / 5 床 / 2 卫', u:A('1258848712541940268','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan · 10/2→飞', rb:'3房/5床/2卫', p:'€1,136 / 2晚', cny:9088, room:2272, r:'—', cxl:'⛔ 不可退', v:'ok', why:'**Steve 自己选的，已设为默认**（同样是东侧 → 决定 1 不变）。🔴 **但这是全程差价最大的两笔之一**：比下面那个 ★4.93 的贵 **€583 ≈ ¥4,664**，房间更少、评分没有、还不可退 → 建议订之前再比一次'},
-  {t:'alt',  n:'Waterfront Nordic house, Vågan ★4.93（我原来的默认）', u:A('1362321193877972891','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan · EVE→2h30 · 10/2→6h30', rb:'5房/8床/2卫', p:'€602→€553 / 2晚', cny:4424, room:1106, r:'4.93', cxl:'✅ 24h 内免费 · 9/23 前部分退', v:'ok', why:'Guest favorite + Superhost + 页面明写含所有费用。**最便宜 + 能退 + 在东侧**，三样都占 —— 比新默认便宜 ¥4,664'},
-  {t:'dead', n:'🆕 Nordic Lodge Retreat in Lofoten ★4.92（Steve 9/3 想换的这个）', u:A('1303545546783105490','2026-09-30','2026-10-02'), loc:'东侧 Vågan · Lyngvær', rb:'4房/8床/2卫', p:'—（订不到）', cny:0, room:0, r:'4.92', cxl:'—', v:'dead', why:'⛔ **2026-09-03 实测：9/30→10/2 订不到。** 房源页在 CHECK-IN 9/30/2026 / CHECKOUT 10/2/2026 下直接写 **"Those dates are not available · Change dates"**，价格面板不出现（€ 匹配 0 个）；两个 URL 变体 + 三次不同 bbox 的搜索页（Vågan/Lyngvær/4 房）都**完全搜不到它** —— 搜索页只列有货的房源，两边一致。房子本身确实好（2025 年 1 月新建、98 m²、按摩浴缸 + 桑拿、★4.92·38 评、10 人），**但这段日期不开放** → 默认保持不变'},
-  {t:'alt',  n:'The heart of Ramberg ★4.76', u:A('1170849828585814519','2026-09-30','2026-10-02'), loc:'🟠 西侧 Ramberg · EVE→4h（黑天）· 10/2→8h30', rb:'4房/2.5卫', p:'€647 / 2晚', cny:5176, room:1294, r:'4.76', cxl:'⛔ **完全不可退**', v:'ok', why:'想睡在明信片那一侧就选它。代价：贵 €94 + 不可退 + 10/2 要开 8h30（E10 风暴封路很常见 → 最西头 + 不可退是最差组合）'},
+  {t:'pick', n:'✅ Nordic Lodge Retreat · Lyngvær ★4.92（Steve 已订）', u:A('1303545546783105490','2026-09-30','2026-10-02'), loc:'🟢 东侧 Lyngvær / Vågan · 10/2→飞', rb:'4房/8床/2卫', p:'€898 / 2晚（搜索页快照）', cny:7184, room:1796, r:'4.92', cxl:'✅ 24h 内免费 · 9/23 前部分退', v:'ok', why:'**已下单，这一段结束了。** 2025-01 新建 · 98 m² · 4 卧 8 床 **2 卫** · 按摩浴缸 + 桑拿 · Superhost · 38 评。比原来那套 €1,136 的**便宜 ¥1,904、房间多一间、还能退** —— 三样都赢。⚠️ €898 是搜索页快照价，请以订单实付为准'},
+  {t:'alt',  n:'Vågan 3 房 / 5 床 / 2 卫（上一版默认）', u:A('1258848712541940268','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'3房/5床/2卫', p:'€1,136 / 2晚', cny:9088, room:2272, r:'—', cxl:'⛔ 不可退', v:'ok', why:'9/2 那一版的默认。已被上面那套取代：贵 ¥1,904、少一间房、没有评分、而且不可退'},
+  {t:'alt',  n:'Waterfront Nordic house, Vågan ★4.93（我原来的默认）', u:A('1362321193877972891','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan · EVE→2h30 · 10/2→6h30', rb:'5房/8床/2卫', p:'€602→€553 / 2晚', cny:4424, room:1106, r:'4.93', cxl:'✅ 24h 内免费 · 9/23 前部分退', v:'ok', why:'Guest favorite + Superhost + 页面明写含所有费用。**最便宜 + 能退 + 在东侧**，三样都占 —— 比已订那套便宜约 ¥2,760（€345）'},
+    {t:'alt',  n:'The heart of Ramberg ★4.76', u:A('1170849828585814519','2026-09-30','2026-10-02'), loc:'🟠 西侧 Ramberg · EVE→4h（黑天）· 10/2→8h30', rb:'4房/2.5卫', p:'€647 / 2晚', cny:5176, room:1294, r:'4.76', cxl:'⛔ **完全不可退**', v:'ok', why:'想睡在明信片那一侧就选它。代价：贵 €94 + 不可退 + 10/2 要开 8h30（E10 风暴封路很常见 → 最西头 + 不可退是最差组合）'},
   {t:'alt',  n:'Secluded house · Private swimming pool', u:A('1441200146734024595','2026-09-30','2026-10-02'), loc:'🟡 中部 Vestvågøy', rb:'5房/6床/2卫', p:'€896 / 2晚（非退 €895）', cny:7168, room:1792, r:'4.6', cxl:'✅ 24h 内免费', v:'ok', why:'**有私人泳池** —— 极光季泡池子是很硬的体验。评分 4.6 偏低、位置在中部（东西都要开）'},
   {t:'alt',  n:'Villa - Havgapet ★5.0', u:A('1259549145786305745','2026-09-30','2026-10-02'), loc:'🟡 中部 Vestvågøy', rb:'7房/7床/2卫', p:'€958 / 2晚（非退 €957）', cny:7664, room:1916, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'★5.0 · 7 间房 —— 4 个人住这个非常空。位置在中部'},
-  {t:'alt',  n:'Functional architecture close to nature ★5.0', u:A('574286379531171221','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'4房/4床/2.5卫', p:'€1,041 / 2晚', cny:8328, room:2084, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'★5.0 + 2.5 卫 + 在东侧 —— 「要好房子又要东侧」的答案。比 🥇 贵 ¥3,900'},
+  {t:'alt',  n:'Functional architecture close to nature ★5.0', u:A('574286379531171221','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'4房/4床/2.5卫', p:'€1,041 / 2晚', cny:8328, room:2084, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'★5.0 + 2.5 卫 + 在东侧 —— 「要好房子又要东侧」的答案。比已订那套贵约 ¥1,144（€143）'},
   {t:'alt',  n:'Valen house in famous Reine ★4.25', u:A('1314514220654606262','2026-09-30','2026-10-02'), loc:'🔴 最西 Moskenes/Reine', rb:'4房/5床/2卫', p:'€1,113 / 2晚', cny:8904, room:2226, r:'4.25', cxl:'✅ 24h 内免费', v:'ok', why:'**就在 Reine**（那张明信片本身）。但评分只有 4.25、最贵那档、10/2 车程最长'},
   {t:'alt',  n:'Unique group stay next to golf and beach ★5.0', u:A('45665373','2026-09-30','2026-10-02'), loc:'🟢 东侧 Vågan', rb:'7房/8床/2.5卫', p:'€1,797→€1,634 / 2晚', cny:13072, room:3268, r:'5.0', cxl:'✅ 24h 内免费', v:'ok', why:'最贵，但仍在预算内。4 个人订 7 间房的农场没什么必要 —— 除非想请客'},
   {t:'alt',  n:'Nusfjord Arctic Resort · Village Cabin Suite Plus', u:B('no/nusfjord-as','2026-09-30','2026-10-02',1), loc:'🟠 西侧 Nusfjord（离 Ramberg 15 min）', rb:'**2 卫（页面明写）· 卧室数未写**', p:'€743 flex（+12% VAT）', cny:6656, room:1664, r:'—', cxl:'✅ 退到 9/16', v:'search', why:'唯一在 Booking 页面上**明写 2 bathrooms** 的罗弗敦房源。🔴 但 "Suite" 不等于 2 卧 —— **订前必须问卧室数**'},
