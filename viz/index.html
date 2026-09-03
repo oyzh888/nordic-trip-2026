@@ -940,11 +940,11 @@ $('#carseg').innerHTML=DAYS.filter(d=>d.car).map(d=>`
     选 4x4 是为了 9 月末的大风暴雨和可能的早雪。9 月底不需要冬胎（11/1 才强制）。
     在 KEF 取车比在雷市取更划算（雷市取/KEF 还要付 ~€50 异地费，机场大巴 €30/人×4 更贵）。</p></div>`;
 
-tbl('staytab',['日期','地点','住哪（点名字 → 详情页）','房/卫','总价','¥/房/晚','退改'],
+tbl('staytab',['入住 → 退房（就按这个订）','地点','住哪（点名字 → 详情页）','房/卫','总价','¥/房/晚','退改'],
   STAYTAB.map(r=>({c:[
-    `<b>${r.d}</b>`, r.place,
-    r.url?`<a href="${r.url}" target="_blank" rel="noopener">${r.name}</a> ↗`:r.name,
-    `${r.rb}<br><span class="mono" style="color:var(--tx2);font-size:11.5px">${r.type}</span>`,
+    `<b>${md(r.d)}</b>`, r.place,
+    r.url?`<a href="${r.url}" target="_blank" rel="noopener">${md(r.name)}</a> ↗`:md(r.name),
+    `${md(r.rb)}<br><span class="mono" style="color:var(--tx2);font-size:11.5px">${r.type}</span>`,
     {v:r.tot,n:1},
     {v:r.room,n:1},
     r.cxl]})));

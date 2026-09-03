@@ -79,17 +79,17 @@
 Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才走 Booking 上的
 整栋木屋 / guesthouse —— 它们同样是整栋带厨房，不是酒店房。**
 
-| 日期 | 地点 | 住哪 | 房/卫 | 总价 | **¥/房** | 退改 | 截图 |
+| **入住 → 退房**（就按这个订） | 地点 | 住哪 | 房/卫 | 总价 | **¥/房** | 退改 | 截图 |
 |---|---|---|---|---:|---:|---|---|
-| 9/24 四 | Oslo 机场 | [Modern. Quiet area. Large space.](https://www.airbnb.com/rooms/1616864516592253636) · Nannestad | **3房/5床/2卫** | €260 | **¥1,040** | ⛔ non-ref | `01` |
-| 9/25 五 | 雷克雅未克 | [Aurora view 3BR 2BATH Luxury down town](https://www.airbnb.com/rooms/1729852848905770040) | **3房/3床/2卫** | €647→**€447** | **¥1,788** | ✅ 24h 内免费，9/18 前部分退 | `02` |
-| 9/26 六 | Hörgsland（Klaustur 东 10 km） | **Hörgsland Cottages** · [Three-Bedroom Vacation Home（整栋）](https://www.booking.com/hotel/is/horgsland-cottages.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR) | **3 卧 · 整栋 · 私厨私卫** | €448 +税=**€503** | **¥2,012** | ⛔ non-ref（€549 档可退到 9/12） | `s3` |
-| 9/27 日 | Nesjahverfi（Höfn 西 10 km） | **Guesthouse Birkifell** · [Two-Bedroom House（整栋）](https://www.booking.com/hotel/is/guesthouse-birkifell.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR) | **2 卧 · 整栋 · 厨房 + 私卫** | €504 +税=**€565** | **¥2,260** | ✅ **免费退到 9/25 · 到店付** | `s3` |
-| 9/28 一 | Njarðvík（KEF 5 min） | 🆕 [Holiday Home with Hot tub & Sauna · Ocean Break](https://www.airbnb.com/rooms/1139944377459145061) ★**5.0** | 3房/3床/**1卫** | €531→**€335** | **¥1,340** | ✅ 免费退到 **9/23** | `s4` |
-| 9/29 二 | Oslo 机场 | [Nannestad 5 房 · 5 床 · 1.5 卫](https://www.airbnb.com/rooms/1461656866395092330) | 5房/5床/**1.5卫** | €292 | **¥1,168** | ✅ 免费退到 9/28 | `sp` |
-| **9/30–10/1** 三四 | **罗弗敦东侧 Vågan** | [Vågan 3 房 · 5 床 · 2 卫](https://www.airbnb.com/rooms/1258848712541940268) | **3房/5床/2卫** | **€1,136 / 2晚** | **¥2,272/晚** | ⛔ non-ref | `sp` |
-| **10/2–10/4** 五–日 | **特罗姆瑟** | [Tromsø 4 房 · 4 床 · 2 卫](https://www.airbnb.com/rooms/825162133059470411) ✅ **日期不用改了** | **4房/4床/2卫** | **€1,526 / 3晚** | **¥2,035/晚** | ✅ 免费退到 10/1 | `sp` |
-| 🆕 10/5 一 | Mjøsli · Stange（OSL 30 min） | 🆕 [Konglehytta 3 · Star View · Sauna](https://www.airbnb.com/rooms/648419631702172808) ★4.98 · 整栋小木屋 | 2房/3床/**1卫** | **€306**（可退档；不可退 €296） | **¥1,224** | ✅ 选可退档只贵 €10 | `s4` |
+| **9/24 → 9/25** | Oslo 机场 | [Modern. Quiet area. Large space.](https://www.airbnb.com/rooms/1616864516592253636) · Nannestad | **3房/5床/2卫** | €260 | **¥1,040** | ⛔ non-ref | `01` |
+| **9/25 → 9/26** | 雷克雅未克 | [Aurora view 3BR 2BATH Luxury down town](https://www.airbnb.com/rooms/1729852848905770040) | **3房/3床/2卫** | €647→**€447** | **¥1,788** | ✅ 24h 内免费，9/18 前部分退 | `02` |
+| **9/26 → 9/27** | Hörgsland（Klaustur 东 10 km） | **Hörgsland Cottages** · [Three-Bedroom Vacation Home（整栋）](https://www.booking.com/hotel/is/horgsland-cottages.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR) | **3 卧 · 整栋 · 私厨私卫** | €448 +税=**€503** | **¥2,012** | ⛔ non-ref（€549 档可退到 9/12） | `s3` |
+| **9/27 → 9/28** | Nesjahverfi（Höfn 西 10 km） | **Guesthouse Birkifell** · [Two-Bedroom House（整栋）](https://www.booking.com/hotel/is/guesthouse-birkifell.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR) | **2 卧 · 整栋 · 厨房 + 私卫** | €504 +税=**€565** | **¥2,260** | ✅ **免费退到 9/25 · 到店付** | `s3` |
+| **9/28 → 9/29** | Njarðvík（KEF 5 min） | 🆕 [Holiday Home with Hot tub & Sauna · Ocean Break](https://www.airbnb.com/rooms/1139944377459145061) ★**5.0** | 3房/3床/**1卫** | €531→**€335** | **¥1,340** | ✅ 免费退到 **9/23** | `s4` |
+| **9/29 → 9/30** | Oslo 机场 | [Nannestad 5 房 · 5 床 · 1.5 卫](https://www.airbnb.com/rooms/1461656866395092330) | 5房/5床/**1.5卫** | €292 | **¥1,168** | ✅ 免费退到 9/28 | `sp` |
+| **9/30 → 10/2**（2 晚） | **罗弗敦东侧 Vågan** | [Vågan 3 房 · 5 床 · 2 卫](https://www.airbnb.com/rooms/1258848712541940268) | **3房/5床/2卫** | **€1,136 / 2晚** | **¥2,272/晚** | ⛔ non-ref | `sp` |
+| **10/2 → 10/5**（3 晚） | **特罗姆瑟** | [Tromsø 4 房 · 4 床 · 2 卫](https://www.airbnb.com/rooms/825162133059470411) ✅ **日期不用改了** | **4房/4床/2卫** | **€1,526 / 3晚** | **¥2,035/晚** | ✅ 免费退到 10/1 | `sp` |
+| 🆕 **10/5 → 10/6** | Mjøsli · Stange（OSL 30 min） | 🆕 [Konglehytta 3 · Star View · Sauna](https://www.airbnb.com/rooms/648419631702172808) ★4.98 · 整栋小木屋 | 2房/3床/**1卫** | **€306**（可退档；不可退 €296） | **¥1,224** | ✅ 选可退档只贵 €10 | `s4` |
 
 **住宿合计 €5,370 ≈ ¥42,959 · 12 晚 · 平均 ¥1,790/房/晚。**
 （对照：我原来那套 €3,977 ≈ ¥31,816 · ¥1,326/房/晚 —— 便宜 ¥11,100，全部保留在 `CANDIDATES.md`。）
@@ -314,7 +314,7 @@ Brensholmen 发船 08:45 / 10:45 / 12:45（**周五停**）/ 15:00 / 17:00 / 19:
 
 > **原则：全部按"可免费取消"下单。** 9 月末冰岛南岸和罗弗敦 E10 的风暴封路太常见，
 > 省下的那点不可退折扣不值得。
-> 🔴 **你这套方案里有 3 项是不可退的**（9/26 Hörgsland · 9/30–10/1 Vågan · 9/24 Nannestad），
+> 🔴 **你这套方案里有 3 项是不可退的**（9/26 Hörgsland · 9/30→10/2 Vågan · 9/24 Nannestad），
 > 比我原来那套多 2 项。每一项我都给了可退的替代（分别是 €549 档 / Waterfront Nordic house / Thon Gardermoen）。
 
 ---

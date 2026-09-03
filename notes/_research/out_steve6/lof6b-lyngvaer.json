@@ -1,0 +1,103 @@
+{
+ "job": {
+  "slug": "lof6b-lyngvaer",
+  "place": "Lyngvaer, Norway",
+  "checkin": "2026-09-30",
+  "checkout": "2026-10-02",
+  "bbox": [
+   68.16,
+   14.25,
+   68.3,
+   14.6
+  ],
+  "zoom": 12,
+  "min_bedrooms": 3
+ },
+ "url": "https://www.airbnb.com/s/Lyngvaer--Norway/homes?checkin=2026-09-30&checkout=2026-10-02&adults=4&min_bedrooms=3&min_bathrooms=2&room_types%5B%5D=Entire%20home%2Fapt&currency=EUR&locale=en&sw_lat=68.16&sw_lng=14.25&ne_lat=68.3&ne_lng=14.6&search_by_map=true&zoom=12",
+ "rows": [
+  {
+   "kind": "Cabin in Lyngvær",
+   "loc": "Lyngvær",
+   "title": "NEW! High end cabin Lofoten 2",
+   "bedrooms": 4,
+   "baths": null,
+   "nights": 2,
+   "total_eur": 1006,
+   "rating": "4.98",
+   "raw": "Guest favorite | Cabin in Lyngvær | NEW! High end cabin Lofoten 2 | 4 bedrooms | , | · | 12 beds | €1,006 | Show price breakdown | for 2 nights | €1,006 for 2 nights | 4.98 out of 5 average rating, 44 reviews | 4.98 (44)",
+   "url": "https://www.airbnb.com/rooms/1306526564885974788"
+  },
+  {
+   "kind": "Loft in Vågan",
+   "loc": "Vågan",
+   "title": "Exclusive Loft with Sea View",
+   "bedrooms": 4,
+   "baths": null,
+   "nights": 2,
+   "total_eur": 1026,
+   "rating": "4.7",
+   "raw": "Superhost | Loft in Vågan | Exclusive Loft with Sea View | 4 bedrooms | , | · | 6 beds | €1,026 | Show price breakdown | for 2 nights | €1,026 for 2 nights | 4.7 out of 5 average rating, 46 reviews | 4.7 (46)",
+   "url": "https://www.airbnb.com/rooms/10380016"
+  },
+  {
+   "kind": "Home in Vågan",
+   "loc": "Vågan",
+   "title": "Functional architecture close to nature",
+   "bedrooms": 4,
+   "baths": null,
+   "nights": 2,
+   "total_eur": 1043,
+   "rating": "5.0",
+   "raw": "Top guest favorite | Guest favorite | Home in Vågan | Functional architecture close to nature | 4 bedrooms | , | · | 4 beds | €1,043 | Show price breakdown | for 2 nights | €1,043 for 2 nights | 5.0 out of 5 average rating, 33 reviews | 5.0 (33)",
+   "url": "https://www.airbnb.com/rooms/574286379531171221"
+  },
+  {
+   "kind": "Cabin in Vågan",
+   "loc": "Vågan",
+   "title": "Hopen Sea Lodge - Seafront, secluded, no neighbors",
+   "bedrooms": 4,
+   "baths": null,
+   "nights": 4,
+   "total_eur": 3815,
+   "rating": "5.0",
+   "raw": "Sep 29  to  Oct 3 | Sep 29 – Oct 3 | Cabin in Vågan | Hopen Sea Lodge - Seafront, secluded, no neighbors | 4 bedrooms | , | · | 11 beds | €3,815 | Show price breakdown | for 4 nights | €3,815 for 4 nights | 5.0 out of 5 average rating, 137 reviews | 5.0 (137)",
+   "url": "https://www.airbnb.com/rooms/602481187962603978"
+  },
+  {
+   "kind": "Home in Vågan",
+   "loc": "Vågan",
+   "title": "Show price breakdown",
+   "bedrooms": 4,
+   "baths": null,
+   "nights": 3,
+   "total_eur": 638,
+   "rating": "4.8",
+   "raw": "Sep 29  to  Oct 2 | Sep 29 – Oct 2 | Home in Vågan | Idyll | 4 bedrooms | , | · | 5 beds | €638 | Show price breakdown | for 3 nights | €638 for 3 nights | 4.8 out of 5 average rating, 35 reviews | 4.8 (35)",
+   "url": "https://www.airbnb.com/rooms/1208039307088533328"
+  },
+  {
+   "kind": "Home in Vågan",
+   "loc": "Vågan",
+   "title": "Charming pier in the heart of Svolvær",
+   "bedrooms": 4,
+   "baths": null,
+   "nights": 3,
+   "total_eur": 855,
+   "rating": "4.8",
+   "raw": "Sep 29  to  Oct 2 | Sep 29 – Oct 2 | Home in Vågan | Charming pier in the heart of Svolvær | 4 bedrooms | , | · | 4 beds | €855 | Show price breakdown | for 3 nights | €855 for 3 nights | 4.8 out of 5 average rating, 5 reviews | 4.8 (5)",
+   "url": "https://www.airbnb.com/rooms/1675568320873449894"
+  },
+  {
+   "kind": "Cabin in Lyngvær",
+   "loc": "Lyngvær",
+   "title": "NEW Spectacular cabin in Lofoten",
+   "bedrooms": 5,
+   "baths": null,
+   "nights": 2,
+   "total_eur": 1074,
+   "rating": "4.86",
+   "raw": "Sep 29  to  Oct 1 | Sep 29 – Oct 1 | Cabin in Lyngvær | NEW Spectacular cabin in Lofoten | 5 bedrooms | , | · | 12 beds | €1,074 | Show price breakdown | for 2 nights | €1,074 for 2 nights | 4.86 out of 5 average rating, 43 reviews | 4.86 (43)",
+   "url": "https://www.airbnb.com/rooms/940382180066585856"
+  }
+ ]
+}

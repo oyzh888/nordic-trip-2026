@@ -1,0 +1,19 @@
+[
+ {
+  "slug": "lofoten-new",
+  "note": "Steve 9/30-10/2 replacement",
+  "config": "4 bedrooms · 8 beds · 2 baths",
+  "bedrooms": "4",
+  "baths": "2",
+  "guests": "10",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Free cancellation for 24 hours. Cancel before September 23 for a partial refund.",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "4.92",
+  "error": null
+ }
+]
