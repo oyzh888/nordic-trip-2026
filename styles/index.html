@@ -130,7 +130,7 @@ document.getElementById('grid').innerHTML=V.map(v=>`
   <article class="card">
     <div class="shotwrap">
       <span class="badge">${v.tag} · ${v.en}</span>
-      <iframe src="./${v.id}/index.html" loading="lazy" tabindex="-1"
+      <iframe src="./${v.id}.html" loading="lazy" tabindex="-1"
         title="${v.name} 预览" scrolling="no" aria-hidden="true"></iframe>
     </div>
     <div class="body">
@@ -142,8 +142,8 @@ document.getElementById('grid').innerHTML=V.map(v=>`
       <p class="pro">✓ ${v.pro}</p>
       <p class="con">△ ${v.con}</p>
       <div class="open">
-        <a class="btn" href="./${v.id}/index.html">打开完整版 →</a>
-        <a class="btn g" href="./${v.id}/index.html" target="_blank" rel="noopener">新窗口</a>
+        <a class="btn" href="./${v.id}.html">打开完整版 →</a>
+        <a class="btn g" href="./${v.id}.html" target="_blank" rel="noopener">新窗口</a>
       </div>
     </div>
   </article>`).join('');
