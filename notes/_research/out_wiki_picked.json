@@ -1272,5 +1272,122 @@
     "license": "CC BY-SA 3.0"
    }
   ]
+ },
+ "mjosa": {
+  "query": "Mjøsa lake Norway",
+  "items": [
+   {
+    "title": "Mjøsa eller Mjosa 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Mj%C3%B8sa_eller_Mjosa_01.jpg/1920px-Mj%C3%B8sa_eller_Mjosa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 2100,
+    "page": "https://commons.wikimedia.org/wiki/File:Mj%C3%B8sa_eller_Mjosa_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   }
+  ]
+ },
+ "hedmark": {
+  "query": "Stange Hedmark Norway landscape",
+  "items": [
+   {
+    "title": "Gerhard Munthe - Waterfall at Stange in Hedmark - NG.M.00830 - National Museum of Art, Architecture and Design.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Gerhard_Munthe_-_Waterfall_at_Stange_in_Hedmark_-_NG.M.00830_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg/1920px-Gerhard_Munthe_-_Waterfall_at_Stange_in_Hedmark_-_NG.M.00830_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1084,
+    "page": "https://commons.wikimedia.org/wiki/File:Gerhard_Munthe_-_Waterfall_at_Stange_in_Hedmark_-_NG.M.00830_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+    "author": "Gerhard Munthe",
+    "license": "Public domain"
+   }
+  ]
+ },
+ "nforest": {
+  "query": "Skog Hedmark Norway",
+  "items": []
+ },
+ "sauna": {
+  "query": "Sauna interior wood bench",
+  "items": [
+   {
+    "title": "Sauna of the spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Sauna_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/1920px-Sauna_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Sauna_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "author": "Basile Morin",
+    "license": "CC BY-SA 4.0"
+   }
+  ]
+ },
+ "stokksnes": {
+  "query": "Vestrahorn Stokksnes Iceland",
+  "items": [
+   {
+    "title": "Vestrahorn and Stokksnes beach in Iceland.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Vestrahorn_and_Stokksnes_beach_in_Iceland.jpg/1920px-Vestrahorn_and_Stokksnes_beach_in_Iceland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 935,
+    "page": "https://commons.wikimedia.org/wiki/File:Vestrahorn_and_Stokksnes_beach_in_Iceland.jpg",
+    "author": "Daniel Oberhaus",
+    "license": "CC BY 4.0"
+   },
+   {
+    "title": "2008-05-23 27 Stokksnes.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/2008-05-23_27_Stokksnes.jpg/1920px-2008-05-23_27_Stokksnes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 644,
+    "page": "https://commons.wikimedia.org/wiki/File:2008-05-23_27_Stokksnes.jpg",
+    "author": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0"
+   }
+  ]
+ },
+ "skylagoon": {
+  "query": "Geothermal pool Reykjavik Iceland",
+  "items": []
+ },
+ "krysuvik": {
+  "query": "Krýsuvík Seltún geothermal Iceland",
+  "items": [
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 10.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_10.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_10.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 3.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_3.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_3.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 5.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_5.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_5.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   }
+  ]
+ },
+ "svjplane": {
+  "query": "Widerøe Dash 8 aircraft Norway",
+  "items": []
+ },
+ "oslo_air": {
+  "query": "Oslo Gardermoen airport",
+  "items": []
+ },
+ "starnight": {
+  "query": "Starry night sky Norway winter",
+  "items": []
  }
 }

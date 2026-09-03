@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四个风格版本 · 挑一个 —— 北欧 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0B0D; --card:#131317; --line:#25252B;
+  --fg:#F4F4F5; --fg2:#A9A9B0; --fg3:#6E6E76; --acc:#6EE7C8;
+  --sans:"Inter","Noto Sans SC",-apple-system,sans-serif;
+  --disp:"Playfair Display","Noto Sans SC",Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1500px;margin:0 auto;padding:clamp(30px,6vh,72px) clamp(18px,4vw,54px)}
+.kicker{font:600 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:var(--disp);font-weight:500;font-size:clamp(2rem,5.2vw,3.6rem);line-height:1.06;
+  letter-spacing:-.02em;margin:.24em 0 0}
+h1 em{font-style:italic;color:var(--fg2)}
+.sub{color:var(--fg2);max-width:60em;margin-top:14px;font-size:15.5px}
+.sub b{color:var(--fg)}
+.note{margin-top:18px;padding:13px 16px;border-left:3px solid var(--acc);
+  background:rgba(110,231,200,.07);border-radius:0 8px 8px 0;font-size:14.5px;color:#cdf3e8}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));
+  gap:clamp(16px,2.2vw,26px);margin-top:clamp(24px,4vh,44px)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--fg3);transform:translateY(-3px)}
+.shotwrap{position:relative;aspect-ratio:16/10;background:#08080a;overflow:hidden;
+  border-bottom:1px solid var(--line)}
+.shotwrap iframe{position:absolute;top:0;left:0;width:1600px;height:1000px;border:0;
+  transform-origin:top left;pointer-events:none}   /* 缩放由 JS 按容器实际宽度算，写死会被裁 */
+.badge{position:absolute;top:12px;left:12px;z-index:2;
+  font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  padding:7px 10px;border-radius:6px;background:rgba(8,8,10,.82);backdrop-filter:blur(6px);
+  border:1px solid var(--line)}
+.body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.body h2{font-family:var(--disp);font-weight:500;font-size:22px;margin:0;letter-spacing:-.01em}
+.body .en{font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fg3);margin-top:8px}
+.body p{font-size:14.5px;line-height:1.75;color:var(--fg2);margin:12px 0 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags span{font:500 11px/1 var(--sans);padding:5px 9px;border-radius:20px;
+  border:1px solid var(--line);color:var(--fg2)}
+.sw{display:flex;gap:5px;margin-top:14px}
+.sw i{width:26px;height:26px;border-radius:5px;border:1px solid rgba(255,255,255,.14)}
+.pro,.con{font-size:13.5px;line-height:1.7;margin-top:9px}
+.pro{color:#8fe3c4}.con{color:#f0b98a}
+.open{margin-top:auto;padding-top:16px;display:flex;gap:9px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:9px;
+  font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;
+  background:var(--fg);color:#0B0B0D;transition:opacity .2s}
+.btn:hover{opacity:.86}
+.btn.g{background:none;border:1px solid var(--line);color:var(--fg2)}
+.btn.g:hover{border-color:var(--fg3);color:var(--fg)}
+table{border-collapse:collapse;width:100%;margin-top:14px;font-size:13.5px;min-width:560px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);
+  margin-top:clamp(22px,4vh,40px)}
+h3{font-family:var(--disp);font-weight:500;font-size:clamp(1.3rem,3vw,1.8rem);
+  margin:clamp(34px,6vh,60px) 0 0}
+footer{border-top:1px solid var(--line);margin-top:clamp(34px,6vh,60px);padding-top:22px;
+  font-size:13px;color:var(--fg3)}
+code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--fg2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Nordic 2026 · 风格候选</p>
+  <h1>四个版本，<em>挑一到两个</em></h1>
+  <p class="sub">同一份内容（<b>13 天 · 5 幕 · 43 张风光图 · 186 张住宿实拍</b>），四种完全不同的视觉语言。
+    内容已按 <b>最新行程</b>重写 —— 10/5 不再是 Senja 日，改成飞回奥斯陆住 Stange 的森林小屋；
+    Senja 挪到 10/4；因此多了一整幕「<b>IV · 回到森林</b>」，整趟旅程变成「从森林开始、在森林结束」。</p>
+  <div class="note"><b>下面每张卡里是真实页面的实时缩略预览</b>（不是截图，是 iframe 缩放）——
+    点「打开完整版」看真的。四个版本共用一份 <code>data.js</code>，所以选定之后改内容只改一处。</div>
+
+  <div class="grid" id="grid"></div>
+
+  <h3>四个版本的取舍对比</h3>
+  <div class="tw"><table id="cmp"></table></div>
+
+  <h3>四个都做到了的事</h3>
+  <p class="sub">这些是 UI/UX skill 里标 CRITICAL / HIGH 的项，我在四个版本上都实测过，不是「应该做了」：</p>
+  <div class="tw"><table id="qa"></table></div>
+
+  <footer>
+    内容来源 <code>notes/PLAN-final.md</code> · 数据层 <code>styles/data.js</code>（由
+    <code>notes/_research/build_styles.py</code> 生成）· 行为层 <code>styles/core.js</code> 四版共用<br>
+    风光照来自 Wikimedia Commons（CC BY / CC BY-SA / GFDL / CC0，每页都有署名表）·
+    住宿实拍引用自 Airbnb / Booking 房源页，不转存<br><br>
+    姊妹页：<a href="https://reports.aitist.ai/nordic-trip-2026/trip-map/" style="color:var(--acc)">行程表 / 地图 / 预算 / 待拍板 ↗</a>
+    &nbsp;·&nbsp; 上一版故事页：<a href="https://reports.aitist.ai/nordic-trip-2026/journey-north/" style="color:var(--fg2)">journey-north ↗</a>
+  </footer>
+</div>
+
+<script>
+const V=[
+ {id:"a-editorial",tag:"A",name:"Nordic Editorial",en:"骨白纸感杂志",
+  sw:["#F7F5F1","#12110F","#8C877E","#DAD4CA"],
+  desc:"骨白纸 + 纯黑衬线 + 极细分隔线 + 大量留白。整页唯一的颜色来自照片本身。左侧一列窄的日期编号，右侧是内容 —— 像翻一本 Kinfolk。",
+  tags:["浅色","Cormorant Garamond","最安静","留白最多"],
+  pro:"最像印刷物、最经得起久看；照片在骨白底上显得最干净。",
+  con:"没有极光的「夜感」；深色照片在浅底上冲击力会弱一些。"},
+ {id:"b-cinema",tag:"B",name:"Cinema",en:"宽银幕电影感",
+  sw:["#08080A","#E8DCC8","#A6A6A8","#232327"],
+  desc:"近纯黑 + 2.39:1 宽银幕画框 + 胶片颗粒 + 暗角 + 时间码（跟着滚动走的播放头）。每一幕是一张片头字卡，每一天是一个「场次 SC.05」。",
+  tags:["深色","Bebas Neue","有胶片颗粒","戏最足"],
+  pro:"氛围最强，极光和峡湾在宽银幕框里最好看；「时间码」是唯一会让人想截图的细节。",
+  con:"2.39:1 会裁掉竖构图照片的上下；颗粒层对极暗屏幕略显噪。"},
+ {id:"c-museum",tag:"C",name:"Museum",en:"展览图录 / 黄铜",
+  sw:["#14120F","#C9A96B","#F0EBE2","#332D26"],
+  desc:"深炭灰 + 黄铜金 + 全程居中对称 + 「图版 · PLATE VII」罗马数字编号 + 小型大写字母图注。图片装在卡纸边框里，像美术馆画册。",
+  tags:["深色","Cormorant","黄铜金","最正式"],
+  pro:"「贵」的感觉最直接，罗马数字和居中排版让 13 天像 13 件藏品。",
+  con:"全程居中，长段中文读起来比左对齐费力一点；最不适合快速扫。"},
+ {id:"d-swiss",tag:"D",name:"Swiss Grid",en:"瑞士网格 / 极简构成",
+  sw:["#FFFFFF","#0E0E0E","#E4291F","#DEDEDE"],
+  desc:"严格 12 栏网格（顶部有标尺）+ 超大无衬线数字 + 单一朱红点缀 + 硬边分栏。幕是整块反色黑，照片贴齐网格、无圆角无留白。",
+  tags:["浅色 + 反色黑","Archivo","朱红点缀","信息密度最高"],
+  pro:"设计感和当代感最强；同一屏能放下最多信息，也最好扫。",
+  con:"浪漫感最弱 —— 更像一本作品集或年报，不太像「旅行故事」。"},
+];
+document.getElementById('grid').innerHTML=V.map(v=>`
+  <article class="card">
+    <div class="shotwrap">
+      <span class="badge">${v.tag} · ${v.en}</span>
+      <iframe src="./${v.id}/index.html" loading="lazy" tabindex="-1"
+        title="${v.name} 预览" scrolling="no" aria-hidden="true"></iframe>
+    </div>
+    <div class="body">
+      <h2>${v.name}</h2>
+      <p class="en">${v.en}</p>
+      <div class="sw">${v.sw.map(c=>`<i style="background:${c}"></i>`).join('')}</div>
+      <p>${v.desc}</p>
+      <div class="tags">${v.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+      <p class="pro">✓ ${v.pro}</p>
+      <p class="con">△ ${v.con}</p>
+      <div class="open">
+        <a class="btn" href="./${v.id}/index.html">打开完整版 →</a>
+        <a class="btn g" href="./${v.id}/index.html" target="_blank" rel="noopener">新窗口</a>
+      </div>
+    </div>
+  </article>`).join('');
+
+/* 预览缩放：按容器实际宽度算，否则写死的 scale 会把预览裁掉一块 */
+function fitPreviews(){
+  document.querySelectorAll('.shotwrap').forEach(w=>{
+    const f=w.querySelector('iframe'); if(!f) return;
+    f.style.transform='scale('+(w.clientWidth/1600)+')';
+  });
+}
+addEventListener('resize',fitPreviews);
+addEventListener('load',fitPreviews);
+fitPreviews();
+setTimeout(fitPreviews,400); setTimeout(fitPreviews,1600);
+
+const CMP=[
+ ["底色","骨白 #F7F5F1","近纯黑 #08080A","深炭 #14120F","纯白 + 反色黑块"],
+ ["字体","Cormorant Garamond + Inter","Bebas Neue + IBM Plex Mono","Cormorant + EB Garamond","Archivo + Roboto Mono"],
+ ["点缀色","无（照片是唯一颜色）","象牙白 #E8DCC8","黄铜金 #C9A96B","朱红 #E4291F"],
+ ["主图比例","3:2 + 1:1 小图","<b>2.39:1 宽银幕</b>","3:2 + 4:5 竖版附图","1:1 方形贴格"],
+ ["幕的处理","纸上标题 + 21:9 横幅","<b>整屏片头字卡</b>","居中展厅页 + 16:9","整块反色 + 2.5:1"],
+ ["一天的编号","01 / 9-24","<b>SC. 01（场次）</b>","<b>图版 · PLATE I</b>","01（超大数字）"],
+ ["特殊机关","照片轻微 hover 放大","<b>跟滚动走的时间码</b> + 胶片颗粒","卡纸边框 + 小型大写","顶部 12 栏标尺"],
+ ["气质","安静 · 印刷 · 克制","电影 · 氛围 · 有戏","正式 · 贵 · 仪式感","当代 · 理性 · 高密度"],
+ ["适合","自己反复看","发出去吸引人","当作品/纪念册","要塞进很多信息"],
+];
+document.getElementById('cmp').innerHTML=
+ '<thead><tr><th></th><th>A 骨白杂志</th><th>B 电影感</th><th>C 展览图录</th><th>D 瑞士网格</th></tr></thead><tbody>'
+ +CMP.map(r=>'<tr><th style="color:var(--fg2)">'+r[0]+'</th>'+r.slice(1).map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')
+ +'</tbody>';
+
+const QA=[
+ ["<b>prefers-reduced-motion</b>","开启后所有入场动画/视差/颗粒动画关闭，内容直接可见（不是留白）—— 四个版本都实测过 41+ 个揭示元素全部渲染"],
+ ["<b>无横向溢出</b>","390 / 768 / 1440 三档 × 4 版 = 12 组全部 scrollWidth == innerWidth。修掉了两个真 bug：grid 子项默认 min-width:auto，里面的横滑条会把整列撑到 2800px"],
+ ["<b>不跳版（CLS）</b>","每个图片容器都带 aspect-ratio，懒加载时空间已预留"],
+ ["<b>键盘可达</b>","每张图可 Tab 聚焦，Enter 开大图，Esc 关闭并把焦点还回原处"],
+ ["<b>图片零坏链</b>","四版各 230+ 张图，实测坏图 0。踩过的坑：Booking 不带签名 ?k= 一律 401；Commons 原图会 429 限流，必须用 /thumb/"],
+ ["<b>许可署名</b>","每版底部都有 42 条 Wikimedia 署名（文件名 · 作者 · 许可 · 原始文件页）—— CC-BY 系列的许可条件"],
+ ["<b>中文排版</b>","中文标题行高一律 ≥1（修掉了 A 版 line-height .84 让两行中文重叠的 bug —— 拉丁字母在 .84 下正常，所以这坑只在中西混排出现）"],
+];
+document.getElementById('qa').innerHTML=
+ '<thead><tr><th>检查项</th><th>结果</th></tr></thead><tbody>'
+ +QA.map(r=>'<tr><td>'+r[0]+'</td><td style="color:var(--fg2)">'+r[1]+'</td></tr>').join('')+'</tbody>';
+</script>
+</body>
+</html>

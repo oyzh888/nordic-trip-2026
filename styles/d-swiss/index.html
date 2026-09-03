@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13 DAYS NORTH · 十三天，向北 —— Swiss Grid</title>
+<meta name="description" content="奥斯陆 → 冰岛南岸 → 罗弗敦 → 特罗姆瑟与 Senja → 挪威森林。十三天，两台车，两千四百公里。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   D · SWISS GRID —— 瑞士网格 / 极简构成
+   严格 12 栏网格 + 超大数字 + 无衬线 + 单一朱红点缀 + 硬边分栏
+   Archivo（Helvetica 一路的现代无衬线）+ Roboto Mono（编号）+ Noto Sans SC
+   浅底为主 —— 和其他三个版本形成最强对比
+   ════════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#FFFFFF; --ink:#0E0E0E; --ink2:#5A5A5A; --ink3:#9A9A9A;
+  --line:#0E0E0E; --hair:#DEDEDE; --wash:#F2F2F2;
+  --red:#E4291F;
+  --sans:"Archivo","Noto Sans SC",Helvetica,Arial,sans-serif;
+  --cn:"Noto Sans SC","Archivo",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,monospace;
+  --gut:clamp(16px,3.4vw,52px);
+  --lb-bg:rgba(255,255,255,.985); --lb-fg:#0E0E0E; --lb-dim:#9A9A9A;
+  --lb-line:#DEDEDE; --lb-mono:"Roboto Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.7 var(--cn);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+img{display:block;max-width:100%}
+figure{background:var(--wash)}
+figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 7px;
+  font:400 9px/1.4 var(--mono);letter-spacing:.02em;color:#fff;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.8));
+  opacity:0;transition:opacity .2s;pointer-events:none}
+figure:hover figcaption,figure:focus-within figcaption{opacity:1}
+
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:var(--red);z-index:90}
+
+/* 顶栏 = 网格标尺 */
+#nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;
+  gap:clamp(10px,2vw,26px);padding:11px var(--gut);background:var(--bg);
+  border-bottom:2px solid var(--line);
+  font:600 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+  transform:translateY(-101%);transition:transform .34s cubic-bezier(.2,.7,.3,1)}
+#nav.on{transform:none}
+#nav .brand{margin-right:auto;font-family:var(--sans);font-weight:900;font-size:14px;
+  letter-spacing:-.02em}
+#nav a{color:var(--ink3);text-decoration:none;transition:color .18s}
+#nav a:hover,#nav a.cur{color:var(--red)}
+@media(max-width:760px){#nav .hs{display:none}}
+
+/* ── 网格容器 ── */
+.g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(10px,1.6vw,22px)}
+@media(max-width:900px){.g{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(max-width:560px){.g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ── 封面 ── */
+.cover{padding:clamp(54px,7.5vh,88px) var(--gut) clamp(24px,4vh,44px);
+  border-bottom:2px solid var(--line)}
+.ruler{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(10px,1.6vw,22px);
+  font:400 9px/1 var(--mono);color:var(--ink3);padding-bottom:8px;
+  border-bottom:1px solid var(--hair);margin-bottom:clamp(22px,4vh,44px)}
+@media(max-width:900px){.ruler{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(max-width:560px){.ruler{grid-template-columns:repeat(2,minmax(0,1fr))}}
+h1{grid-column:1/-1;font-family:var(--sans);font-weight:900;
+  font-size:clamp(2.9rem,12.5vw,11rem);line-height:.85;letter-spacing:-.055em;margin:0;
+  text-transform:uppercase}
+h1 .cn{display:block;font-family:var(--cn);font-weight:900;font-size:.3em;letter-spacing:-.02em;
+  margin-top:.18em;line-height:1}
+h1 mark{background:none;color:var(--red)}
+.cover .lead{grid-column:1/8;margin-top:clamp(22px,4vh,40px);font-size:clamp(15.5px,1.8vw,19px);
+  line-height:1.75;color:var(--ink2)}
+@media(max-width:900px){.cover .lead{grid-column:1/-1}}
+.cover .kv{grid-column:9/-1;margin-top:clamp(22px,4vh,40px);border-top:2px solid var(--line);
+  padding-top:12px}
+@media(max-width:900px){.cover .kv{grid-column:1/-1}}
+.cover .kv div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;
+  border-bottom:1px solid var(--hair);
+  font:500 10.5px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.cover .kv b{font-family:var(--sans);font-weight:700;letter-spacing:-.01em}
+.figrow{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
+  gap:clamp(10px,1.6vw,22px);margin-top:clamp(30px,5vh,58px);
+  border-top:2px solid var(--line);padding-top:14px}
+.figrow b{display:block;font-family:var(--sans);font-weight:900;
+  font-size:clamp(1.7rem,3.6vw,3rem);line-height:.9;letter-spacing:-.04em}
+.figrow span{display:block;font:500 9px/1.5 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink3);margin-top:7px}
+
+/* ── 幕：整块反色 ── */
+.act{background:var(--ink);color:#fff;padding:clamp(48px,8vh,110px) var(--gut);
+  border-bottom:2px solid var(--line)}
+.act .no{grid-column:1/3;font-family:var(--sans);font-weight:900;
+  font-size:clamp(3rem,8vw,7rem);line-height:.8;letter-spacing:-.05em;color:var(--red)}
+@media(max-width:560px){.act .no{grid-column:1/-1}}
+.act .bd{grid-column:3/-1}
+@media(max-width:560px){.act .bd{grid-column:1/-1}}
+.act h2{font-family:var(--sans);font-weight:800;font-size:clamp(1.9rem,5.4vw,4.2rem);
+  line-height:.98;letter-spacing:-.035em;margin:0;text-transform:uppercase}
+.act h2 .cn{display:block;font-family:var(--cn);font-weight:700;font-size:.62em;
+  letter-spacing:-.01em;margin-top:.16em}
+.act .sub{font:500 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:#8A8A8A;margin-top:18px}
+.act .lede{max-width:34em;margin-top:16px;font-size:clamp(15px,1.7vw,17.5px);line-height:1.8;
+  color:#C9C9C9}
+.act .plate{grid-column:1/-1;margin-top:clamp(26px,4.4vh,50px)}
+.act .plate figure{aspect-ratio:2.5/1;background:#1A1A1A}
+
+/* ── 一天 ── */
+.day{padding:clamp(34px,5.6vh,74px) var(--gut);border-bottom:1px solid var(--hair)}
+.day .idx{grid-column:1/2;font-family:var(--sans);font-weight:900;
+  font-size:clamp(2rem,4.2vw,3.4rem);line-height:.82;letter-spacing:-.05em}
+.day .idx i{display:block;font-style:normal;font:500 9.5px/1.5 var(--mono);letter-spacing:.1em;
+  color:var(--ink3);margin-top:8px}
+.day .hd{grid-column:2/7}
+.day .art{grid-column:7/-1}
+@media(max-width:900px){.day .idx{grid-column:1/-1}.day .hd{grid-column:1/-1}
+  .day .art{grid-column:1/-1;margin-top:16px}}
+@media(max-width:560px){.day .idx,.day .hd,.day .art{grid-column:1/-1}}
+.day h3{font-family:var(--cn);font-weight:700;font-size:clamp(1.35rem,2.6vw,2.1rem);
+  line-height:1.18;letter-spacing:-.02em;margin:0}
+.day .en{font:500 9.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red);margin-top:9px}
+.day .txt{margin-top:14px;font-size:15.5px;line-height:1.78;color:var(--ink2);max-width:32em}
+.day .kv{margin-top:16px;border-top:1px solid var(--line);padding-top:8px}
+.day .kv div{display:flex;justify-content:space-between;gap:10px;padding:4px 0;
+  font:500 9.5px/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink3)}
+.day .kv b{color:var(--ink);font-family:var(--sans);font-weight:600;letter-spacing:-.01em;
+  text-align:right}
+/* 图片贴齐网格，无圆角无留白 */
+.mos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(6px,.9vw,10px)}
+.mos figure{aspect-ratio:1/1}
+.mos figure:first-child{grid-column:1/-1;aspect-ratio:2/1}
+.strip{display:flex;gap:clamp(6px,.9vw,10px);overflow-x:auto;margin-top:clamp(6px,.9vw,10px);
+  padding-bottom:10px;scroll-snap-type:x mandatory;
+  scrollbar-width:thin;scrollbar-color:var(--hair) transparent}
+.strip::-webkit-scrollbar{height:4px}
+.strip::-webkit-scrollbar-thumb{background:var(--hair)}
+.strip figure{flex:0 0 auto;width:clamp(132px,17vw,190px);aspect-ratio:1/1;scroll-snap-align:start}
+.stayline{margin-top:14px;border-top:2px solid var(--line);padding-top:10px}
+.stayline .k{font:500 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
+.stayline .n{font-family:var(--sans);font-weight:700;font-size:clamp(.98rem,1.9vw,1.24rem);
+  letter-spacing:-.015em;margin-top:7px}
+.stayline .m{font:400 9.5px/1.6 var(--mono);letter-spacing:.06em;color:var(--ink3);margin-top:2px}
+
+/* ── 附录 ── */
+.sec{padding:clamp(44px,7vh,100px) var(--gut);border-bottom:1px solid var(--hair)}
+.sec .k{grid-column:1/2;font:500 9.5px/1.5 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red)}
+.sec .bd{grid-column:2/-1}
+@media(max-width:560px){.sec .k,.sec .bd{grid-column:1/-1}}
+.sec h2{font-family:var(--sans);font-weight:800;font-size:clamp(1.7rem,4.4vw,3.2rem);
+  line-height:1;letter-spacing:-.035em;margin:0;text-transform:uppercase}
+.sec p{max-width:38em;margin-top:14px;font-size:15px;line-height:1.8;color:var(--ink2)}
+.alt{margin-top:clamp(24px,4vh,44px);border-top:1px solid var(--line);padding-top:14px}
+.alt .n{font-family:var(--sans);font-weight:700;font-size:clamp(1rem,2vw,1.3rem);letter-spacing:-.015em}
+.alt .m{font:400 9.5px/1.6 var(--mono);letter-spacing:.06em;color:var(--ink3);margin-top:3px}
+.alt .w{font-size:14.5px;line-height:1.75;color:var(--ink2);margin-top:7px;max-width:36em}
+.credlist{margin-top:20px;columns:2;column-gap:40px;font:400 10px/1.85 var(--mono);color:var(--ink3)}
+@media(max-width:760px){.credlist{columns:1}}
+.credlist div{break-inside:avoid;margin-bottom:3px}
+.credlist a{color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--hair)}
+.credlist a:hover{color:var(--red)}
+.cta{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:13px 22px;
+  background:var(--ink);color:#fff;text-decoration:none;
+  font:600 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;transition:background .2s}
+.cta:hover{background:var(--red)}
+footer{padding:26px var(--gut) 52px;font:400 9.5px/1.8 var(--mono);letter-spacing:.08em;
+  color:var(--ink3)}
+
+.day>*,.sec>*,.cover>*{min-width:0}
+.rv{opacity:0;transform:translateY(14px);
+  transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  #nav{transition:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div id="prog" role="progressbar" aria-label="阅读进度" aria-valuemin="0" aria-valuemax="100"></div>
+<nav id="nav" aria-label="章节导航"><span class="brand">13 DAYS NORTH</span></nav>
+
+<header class="cover g">
+  <div class="ruler" id="ruler" aria-hidden="true"></div>
+  <h1>13 Days<br><mark>North</mark><span class="cn">十三天，向北</span></h1>
+  <p class="lead">从奥斯陆西边一栋农舍出发，绕过冰岛南岸的瀑布与冰川，穿过从海里立起来的罗弗敦群岛，
+    北上到北纬 69 度的极光之城，再飞回挪威的森林 —— 最后停在一栋能看见星星的小屋。</p>
+  <div class="kv">
+    <div><span>Dates</span><b>2026.09.24 — 10.06</b></div>
+    <div><span>Countries</span><b>Iceland · Norway</b></div>
+    <div><span>Travellers</span><b>4</b></div>
+    <div><span>Cars</span><b>2 · 5d + 6d</b></div>
+    <div><span>Distance</span><b>≈ 2,400 km</b></div>
+    <div><span>Northernmost</span><b>69°N · Senja</b></div>
+  </div>
+  <div class="figrow" id="figrow"></div>
+</header>
+
+<main id="story"></main>
+
+<section class="sec g" id="alts">
+  <p class="k">Appendix<br>A</p>
+  <div class="bd">
+    <h2>Also Considered</h2>
+    <p>每一晚都不是只有一个候选。下面这几个最后没选，但都真实报过价、开过页面 —— 留在这里，因为它们本身就足够好看。</p>
+    <div id="altwrap"></div>
+  </div>
+</section>
+
+<section class="sec g" id="credits">
+  <p class="k">Appendix<br>B</p>
+  <div class="bd">
+    <h2>Image Credits</h2>
+    <p><b>风光照</b>全部来自 Wikimedia Commons，均为自由许可（CC BY / CC BY-SA / GFDL / CC0）。下面列出文件名、作者与许可，点进去是原始文件页 —— CC-BY 系列要求署名，所以这一节是许可条件。<b>住宿实拍</b>直接引用自对应的 Airbnb / Booking 房源页，本页不转存。</p>
+    <div class="credlist" id="credlist"></div>
+    <a class="cta" href="https://reports.aitist.ai/nordic-trip-2026/trip-map/" target="_blank" rel="noopener">
+      行程表 / 地图 / 预算 →</a>
+  </div>
+</section>
+
+<footer>数据抓取日 2026-09-03 · 行程以 notes/PLAN-final.md 为准 · 风格版本 D / Swiss Grid</footer>
+
+<script src="../data.js"></script>
+<script src="../core.js"></script>
+<script>
+const {el,esc,figure,shotFig,reveal,scroll,credits,daysOf,$}=NT;
+
+$('#ruler').innerHTML=Array.from({length:12},(_,i)=>`<span>${String(i+1).padStart(2,'0')}</span>`).join('');
+$('#figrow').innerHTML=STATS.map(([n,l])=>`<div class="rv"><b>${n}</b><span>${l}</span></div>`).join('');
+
+const story=$('#story');
+ACTS.forEach(a=>{
+  const sec=el('section','act g'); sec.id=a.id;
+  sec.appendChild(el('div','no rv',a.roman||'0'));
+  const bd=el('div','bd rv');
+  bd.appendChild(el('h2',null,`${a.en}<span class="cn">${esc(a.title)}</span>`));
+  bd.appendChild(el('p','sub',a.sub));
+  bd.appendChild(el('p','lede',a.lede));
+  sec.appendChild(bd);
+  if(a.heroImg){const p=el('div','plate rv');
+    p.appendChild(figure(a.heroImg,{ar:'2.5 / 1'})); sec.appendChild(p);}
+  story.appendChild(sec);
+
+  daysOf(a.id).forEach(d=>{
+    const s=el('section','day g');
+    s.appendChild(el('div','idx rv',`${d.n}<i>${d.date} / ${d.wd}</i>`));
+    const hd=el('div','hd rv');
+    hd.appendChild(el('h3',null,d.t));
+    hd.appendChild(el('p','en',d.en));
+    hd.appendChild(el('p','txt',d.body));
+    hd.appendChild(el('div','kv',
+      `<div><span>Drive</span><b>${esc(d.drive)}</b></div>
+       <div><span>Location</span><b>${esc(d.place)}</b></div>`));
+    if(d.stayname){
+      const st=el('div','stayline');
+      st.appendChild(el('div','k','Stay'));
+      st.appendChild(el('div','n',esc(d.stayname)));
+      st.appendChild(el('div','m',esc(d.staymeta||'')));
+      hd.appendChild(st);
+    }
+    s.appendChild(hd);
+    const art=el('div','art rv');
+    if(d.imgs.length){const m=el('div','mos');
+      d.imgs.forEach(i=>m.appendChild(figure(i,{ar:'1 / 1'})));
+      art.appendChild(m);}
+    if(d.shots.length){const strip=el('div','strip');
+      d.shots.forEach((u,k)=>strip.appendChild(shotFig(u,d.stayname,k,'1 / 1')));
+      art.appendChild(strip);}
+    s.appendChild(art);
+    story.appendChild(s);
+  });
+});
+
+ALTSTAYS.forEach(a=>{
+  const w=el('div','alt rv');
+  w.appendChild(el('div','n',esc(a.name)));
+  w.appendChild(el('div','m',esc(a.meta)));
+  w.appendChild(el('div','w',esc(a.why)));
+  const strip=el('div','strip');
+  a.shots.forEach((u,k)=>strip.appendChild(shotFig(u,a.name,k,'1 / 1')));
+  w.appendChild(strip); $('#altwrap').appendChild(w);
+});
+
+credits('#credlist');
+reveal('.rv');
+scroll({progress:'#prog',nav:'#nav',navAfter:.5});
+</script>
+</body>
+</html>

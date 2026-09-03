@@ -737,5 +737,594 @@
     "license": "CC BY-SA 2.0"
    }
   ]
+ },
+ "mjosa": {
+  "query": "Mjøsa lake Norway",
+  "items": [
+   {
+    "title": "2024 mjøsa 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/2024_mj%C3%B8sa_01.jpg/1920px-2024_mj%C3%B8sa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:2024_mj%C3%B8sa_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Forvinter-mjøsa 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Forvinter-mj%C3%B8sa_01.jpg/1920px-Forvinter-mj%C3%B8sa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Forvinter-mj%C3%B8sa_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Frosset Mjøsa med mjøsis 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Frosset_Mj%C3%B8sa_med_mj%C3%B8sis_01.jpg/1920px-Frosset_Mj%C3%B8sa_med_mj%C3%B8sis_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Frosset_Mj%C3%B8sa_med_mj%C3%B8sis_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Grjótholmr platået med mjøsa 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Grj%C3%B3tholmr_plat%C3%A5et_med_mj%C3%B8sa_01.jpg/1920px-Grj%C3%B3tholmr_plat%C3%A5et_med_mj%C3%B8sa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Grj%C3%B3tholmr_plat%C3%A5et_med_mj%C3%B8sa_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Lake Mjøsa Norway 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Lake_Mj%C3%B8sa_Norway_01.jpg/1920px-Lake_Mj%C3%B8sa_Norway_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Lake_Mj%C3%B8sa_Norway_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Mjøsa 1.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Mj%C3%B8sa_1.jpg/1920px-Mj%C3%B8sa_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Mj%C3%B8sa_1.jpg",
+    "author": "kallerna",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Mjøsa eller Mjosa 01.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Mj%C3%B8sa_eller_Mjosa_01.jpg/1920px-Mj%C3%B8sa_eller_Mjosa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 2100,
+    "page": "https://commons.wikimedia.org/wiki/File:Mj%C3%B8sa_eller_Mjosa_01.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Mjøsa ved Gjøvik.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Mj%C3%B8sa_ved_Gj%C3%B8vik.jpg/1920px-Mj%C3%B8sa_ved_Gj%C3%B8vik.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Mj%C3%B8sa_ved_Gj%C3%B8vik.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "PermaLiv View from Øverskreien towards Lake Mjøsa 29-11-19.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/PermaLiv_View_from_%C3%98verskreien_towards_Lake_Mj%C3%B8sa_29-11-19.jpg/1920px-PermaLiv_View_from_%C3%98verskreien_towards_Lake_Mj%C3%B8sa_29-11-19.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 788,
+    "page": "https://commons.wikimedia.org/wiki/File:PermaLiv_View_from_%C3%98verskreien_towards_Lake_Mj%C3%B8sa_29-11-19.jpg",
+    "author": "Øyvind Holmstad",
+    "license": "CC BY-SA 2.0"
+   }
+  ]
+ },
+ "hedmark": {
+  "query": "Stange Hedmark Norway landscape",
+  "items": [
+   {
+    "title": "Gerhard Munthe - Waterfall at Stange in Hedmark - NG.M.00830 - National Museum of Art, Architecture and Design.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Gerhard_Munthe_-_Waterfall_at_Stange_in_Hedmark_-_NG.M.00830_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg/1920px-Gerhard_Munthe_-_Waterfall_at_Stange_in_Hedmark_-_NG.M.00830_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1084,
+    "page": "https://commons.wikimedia.org/wiki/File:Gerhard_Munthe_-_Waterfall_at_Stange_in_Hedmark_-_NG.M.00830_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+    "author": "Gerhard Munthe",
+    "license": "Public domain"
+   }
+  ]
+ },
+ "nforest": {
+  "query": "Skog Hedmark Norway",
+  "items": [
+   {
+    "title": "Edvard Munch - Dark Spruce Forest (1).jpg",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/d/de/Edvard_Munch_-_Dark_Spruce_Forest_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "w": 1400,
+    "h": 948,
+    "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Dark_Spruce_Forest_(1).jpg",
+    "author": "Edvard Munch",
+    "license": "Public domain"
+   },
+   {
+    "title": "Edvard Munch - Dark Spruce Forest - 453.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Edvard_Munch_-_Dark_Spruce_Forest_-_453.jpg/1920px-Edvard_Munch_-_Dark_Spruce_Forest_-_453.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1900,
+    "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Dark_Spruce_Forest_-_453.jpg",
+    "author": "Edvard Munch",
+    "license": "Public domain"
+   },
+   {
+    "title": "Edvard Munch - Dark Spruce Forest - MM.M.00306 - Munch Museum.jpg",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/7/78/Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00306_-_Munch_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "w": 1400,
+    "h": 1652,
+    "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00306_-_Munch_Museum.jpg",
+    "author": "Edvard Munch",
+    "license": "Public domain"
+   },
+   {
+    "title": "Edvard Munch - Dark Spruce Forest - MM.M.00337 - Munch Museum.jpg",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00337_-_Munch_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "w": 1400,
+    "h": 2082,
+    "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00337_-_Munch_Museum.jpg",
+    "author": "Edvard Munch",
+    "license": "Public domain"
+   },
+   {
+    "title": "Edvard Munch - Dark Spruce Forest - MM.M.00512 - Munch Museum.jpg",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00512_-_Munch_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "w": 1400,
+    "h": 1629,
+    "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00512_-_Munch_Museum.jpg",
+    "author": "Edvard Munch",
+    "license": "Public domain"
+   },
+   {
+    "title": "Edvard Munch - Dark Spruce Forest - MM.M.00626 - Munch Museum.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00626_-_Munch_Museum.jpg/1920px-Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00626_-_Munch_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 951,
+    "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_Dark_Spruce_Forest_-_MM.M.00626_-_Munch_Museum.jpg",
+    "author": "Edvard Munch",
+    "license": "Public domain"
+   },
+   {
+    "title": "Lysmangel - Fo30141603100156.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Lysmangel_-_Fo30141603100156.jpg/1920px-Lysmangel_-_Fo30141603100156.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1402,
+    "page": "https://commons.wikimedia.org/wiki/File:Lysmangel_-_Fo30141603100156.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Lysmangel - Fo30141603100157.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Lysmangel_-_Fo30141603100157.jpg/1920px-Lysmangel_-_Fo30141603100157.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1402,
+    "page": "https://commons.wikimedia.org/wiki/File:Lysmangel_-_Fo30141603100157.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Lysmangel - Fo30141603100158.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Lysmangel_-_Fo30141603100158.jpg/1920px-Lysmangel_-_Fo30141603100158.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1402,
+    "page": "https://commons.wikimedia.org/wiki/File:Lysmangel_-_Fo30141603100158.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Skog ved Sjusjøen - no-nb digifoto 20150813 00005 bldsa PK26241.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Skog_ved_Sjusj%C3%B8en_-_no-nb_digifoto_20150813_00005_bldsa_PK26241.jpg/1920px-Skog_ved_Sjusj%C3%B8en_-_no-nb_digifoto_20150813_00005_bldsa_PK26241.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 959,
+    "page": "https://commons.wikimedia.org/wiki/File:Skog_ved_Sjusj%C3%B8en_-_no-nb_digifoto_20150813_00005_bldsa_PK26241.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain"
+   }
+  ]
+ },
+ "sauna": {
+  "query": "Sauna interior wood bench",
+  "items": [
+   {
+    "title": "Sauna of the spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Sauna_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/1920px-Sauna_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Sauna_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+    "author": "Basile Morin",
+    "license": "CC BY-SA 4.0"
+   }
+  ]
+ },
+ "stokksnes": {
+  "query": "Vestrahorn Stokksnes Iceland",
+  "items": [
+   {
+    "title": "2008-05-23 24 Stokksnes.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/2008-05-23_24_Stokksnes.jpg/1920px-2008-05-23_24_Stokksnes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 428,
+    "page": "https://commons.wikimedia.org/wiki/File:2008-05-23_24_Stokksnes.jpg",
+    "author": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "2008-05-23 27 Stokksnes.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/2008-05-23_27_Stokksnes.jpg/1920px-2008-05-23_27_Stokksnes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 644,
+    "page": "https://commons.wikimedia.org/wiki/File:2008-05-23_27_Stokksnes.jpg",
+    "author": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "2008-05-23 28 Stokksnes.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/2008-05-23_28_Stokksnes.jpg/1920px-2008-05-23_28_Stokksnes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 436,
+    "page": "https://commons.wikimedia.org/wiki/File:2008-05-23_28_Stokksnes.jpg",
+    "author": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "2008-05-23 29 Stokksnes.jpg",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/1/19/2008-05-23_29_Stokksnes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "w": 1400,
+    "h": 2520,
+    "page": "https://commons.wikimedia.org/wiki/File:2008-05-23_29_Stokksnes.jpg",
+    "author": "Hansueli Krapf",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "Hammersminni, Djúpivogur, Iceland - panoramio.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Hammersminni%2C_Dj%C3%BApivogur%2C_Iceland_-_panoramio.jpg/1920px-Hammersminni%2C_Dj%C3%BApivogur%2C_Iceland_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Hammersminni,_Dj%C3%BApivogur,_Iceland_-_panoramio.jpg",
+    "author": "Jon Gretarsson",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "Klifatindur Vestrahorn Island Böhringer.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Klifatindur_Vestrahorn_Island_B%C3%B6hringer.jpg/1920px-Klifatindur_Vestrahorn_Island_B%C3%B6hringer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 715,
+    "page": "https://commons.wikimedia.org/wiki/File:Klifatindur_Vestrahorn_Island_B%C3%B6hringer.jpg",
+    "author": "Feel free to use my photos, but please mention me as the author and if you want send me a message. or (rufre@lenz-nennin",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Vestrahorn Daybreak - Flickr - Simaron.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Vestrahorn_Daybreak_-_Flickr_-_Simaron.jpg/1920px-Vestrahorn_Daybreak_-_Flickr_-_Simaron.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 833,
+    "page": "https://commons.wikimedia.org/wiki/File:Vestrahorn_Daybreak_-_Flickr_-_Simaron.jpg",
+    "author": "Simaron from Lower Saxony, Germany",
+    "license": "CC BY-SA 2.0"
+   },
+   {
+    "title": "Vestrahorn and Stokksnes beach in Iceland.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Vestrahorn_and_Stokksnes_beach_in_Iceland.jpg/1920px-Vestrahorn_and_Stokksnes_beach_in_Iceland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 935,
+    "page": "https://commons.wikimedia.org/wiki/File:Vestrahorn_and_Stokksnes_beach_in_Iceland.jpg",
+    "author": "Daniel Oberhaus",
+    "license": "CC BY 4.0"
+   },
+   {
+    "title": "Vestrahorn at sunset (3-41 pm) - Flickr - Gérard Cachon.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Vestrahorn_at_sunset_%283-41_pm%29_-_Flickr_-_G%C3%A9rard_Cachon.jpg/1920px-Vestrahorn_at_sunset_%283-41_pm%29_-_Flickr_-_G%C3%A9rard_Cachon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 700,
+    "page": "https://commons.wikimedia.org/wiki/File:Vestrahorn_at_sunset_(3-41_pm)_-_Flickr_-_G%C3%A9rard_Cachon.jpg",
+    "author": "Gérard Cachon",
+    "license": "CC BY 2.0"
+   }
+  ]
+ },
+ "skylagoon": {
+  "query": "Geothermal pool Reykjavik Iceland",
+  "items": [
+   {
+    "title": "Blue Lagoon and Brown Mountain.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Blue_Lagoon_and_Brown_Mountain.jpg/1920px-Blue_Lagoon_and_Brown_Mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1000,
+    "page": "https://commons.wikimedia.org/wiki/File:Blue_Lagoon_and_Brown_Mountain.jpg",
+    "author": "joiseyshowaa",
+    "license": "CC BY-SA 2.0"
+   },
+   {
+    "title": "Laugardalslaug.JPG",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Laugardalslaug.JPG/1920px-Laugardalslaug.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1867,
+    "page": "https://commons.wikimedia.org/wiki/File:Laugardalslaug.JPG",
+    "author": "(WT-en) Meltwaterfalls at English Wikivoyage",
+    "license": "CC BY-SA 1.0"
+   },
+   {
+    "title": "Pool near Geysir (Iceland).jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Pool_near_Geysir_%28Iceland%29.jpg/1920px-Pool_near_Geysir_%28Iceland%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1046,
+    "page": "https://commons.wikimedia.org/wiki/File:Pool_near_Geysir_(Iceland).jpg",
+    "author": "Sue Gardner",
+    "license": "CC BY-SA 3.0"
+   }
+  ]
+ },
+ "krysuvik": {
+  "query": "Krýsuvík Seltún geothermal Iceland",
+  "items": [
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 10.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_10.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_10.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 3.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_3.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_3.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 5.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_5.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_5.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 7.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_7.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_7.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 8.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_8.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_8.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík-Seltún geothermal field on 2019-07-08 photo 9.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_9.jpg/1920px-Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 929,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk-Selt%C3%BAn_geothermal_field_on_2019-07-08_photo_9.jpg",
+    "author": "Alexander Grebenkov",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Krýsuvík geothermal area 19.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Kr%C3%BDsuv%C3%ADk_geothermal_area_19.jpg/1920px-Kr%C3%BDsuv%C3%ADk_geothermal_area_19.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk_geothermal_area_19.jpg",
+    "author": "Netha Hussain",
+    "license": "CC0"
+   },
+   {
+    "title": "Krýsuvík geothermal area 34.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Kr%C3%BDsuv%C3%ADk_geothermal_area_34.jpg/1920px-Kr%C3%BDsuv%C3%ADk_geothermal_area_34.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%BDsuv%C3%ADk_geothermal_area_34.jpg",
+    "author": "Netha Hussain",
+    "license": "CC0"
+   },
+   {
+    "title": "Two individuals at Field Recording trip In Iceland at Seltún Geothermal Area.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Two_individuals_at_Field_Recording_trip_In_Iceland_at_Selt%C3%BAn_Geothermal_Area.jpg/1920px-Two_individuals_at_Field_Recording_trip_In_Iceland_at_Selt%C3%BAn_Geothermal_Area.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 933,
+    "page": "https://commons.wikimedia.org/wiki/File:Two_individuals_at_Field_Recording_trip_In_Iceland_at_Selt%C3%BAn_Geothermal_Area.jpg",
+    "author": "Free To Use Sounds",
+    "license": "CC BY-SA 4.0"
+   }
+  ]
+ },
+ "svjplane": {
+  "query": "Widerøe Dash 8 aircraft Norway",
+  "items": [
+   {
+    "title": "Berlevag-lufthavn-wideroe-dash8.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Berlevag-lufthavn-wideroe-dash8.jpg/1920px-Berlevag-lufthavn-wideroe-dash8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 787,
+    "page": "https://commons.wikimedia.org/wiki/File:Berlevag-lufthavn-wideroe-dash8.jpg",
+    "author": "Algkalv (talk)",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Widerøe Dash 8-100 LN-WIJ.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Wider%C3%B8e_Dash_8-100_LN-WIJ.jpg/1920px-Wider%C3%B8e_Dash_8-100_LN-WIJ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_Dash_8-100_LN-WIJ.jpg",
+    "author": "ashfay from Washington, D.C., USA",
+    "license": "CC BY-SA 2.0"
+   },
+   {
+    "title": "Widerøe Dash 8-100 LN-WIO.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Wider%C3%B8e_Dash_8-100_LN-WIO.jpg/1920px-Wider%C3%B8e_Dash_8-100_LN-WIO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 930,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_Dash_8-100_LN-WIO.jpg",
+    "author": "Widerøe",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Widerøe Dash 8-100 and Q400 at Værnes.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Wider%C3%B8e_Dash_8-100_and_Q400_at_V%C3%A6rnes.jpg/1920px-Wider%C3%B8e_Dash_8-100_and_Q400_at_V%C3%A6rnes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 743,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_Dash_8-100_and_Q400_at_V%C3%A6rnes.jpg",
+    "author": "Alasdair McLellan",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "Widerøe Dash 8-100 at Lakselv.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Wider%C3%B8e_Dash_8-100_at_Lakselv.jpg/1920px-Wider%C3%B8e_Dash_8-100_at_Lakselv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 932,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_Dash_8-100_at_Lakselv.jpg",
+    "author": "Soldatnytt from Oslo, Norway",
+    "license": "CC BY 2.0"
+   },
+   {
+    "title": "Widerøe Dash 8 landing at Bodø.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Wider%C3%B8e_Dash_8_landing_at_Bod%C3%B8.jpg/1920px-Wider%C3%B8e_Dash_8_landing_at_Bod%C3%B8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 896,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_Dash_8_landing_at_Bod%C3%B8.jpg",
+    "author": "Jan Erik Paulsen",
+    "license": "CC BY 2.0"
+   },
+   {
+    "title": "Widerøe De Havilland Canada DHC-8-300 LN-WFC starting.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Wider%C3%B8e_De_Havilland_Canada_DHC-8-300_LN-WFC_starting.jpg/1920px-Wider%C3%B8e_De_Havilland_Canada_DHC-8-300_LN-WFC_starting.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 931,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_De_Havilland_Canada_DHC-8-300_LN-WFC_starting.jpg",
+    "author": "Alasdair McLellan",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "Widerøe LN-WIJ Dash 8-100.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Wider%C3%B8e_LN-WIJ_Dash_8-100.jpg/1920px-Wider%C3%B8e_LN-WIJ_Dash_8-100.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 815,
+    "page": "https://commons.wikimedia.org/wiki/File:Wider%C3%B8e_LN-WIJ_Dash_8-100.jpg",
+    "author": "Alasdair McLellan",
+    "license": "CC BY-SA 3.0"
+   }
+  ]
+ },
+ "oslo_air": {
+  "query": "Oslo Gardermoen airport",
+  "items": [
+   {
+    "title": "14-09-02-oslo-RalfR-469.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/14-09-02-oslo-RalfR-469.jpg/1920px-14-09-02-oslo-RalfR-469.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 930,
+    "page": "https://commons.wikimedia.org/wiki/File:14-09-02-oslo-RalfR-469.jpg",
+    "author": "Ralf Roletschek",
+    "license": "GFDL 1.2"
+   },
+   {
+    "title": "2025-09-28-Flughafen-Oslo-Gardermoen-Terminal.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/2025-09-28-Flughafen-Oslo-Gardermoen-Terminal.jpg/1920px-2025-09-28-Flughafen-Oslo-Gardermoen-Terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1096,
+    "page": "https://commons.wikimedia.org/wiki/File:2025-09-28-Flughafen-Oslo-Gardermoen-Terminal.jpg",
+    "author": "Gunnar Klack",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Dusk at Oslo Lufthavn Stasjon (Oslo airport train station), March 2023.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Dusk_at_Oslo_Lufthavn_Stasjon_%28Oslo_airport_train_station%29%2C_March_2023.jpg/1920px-Dusk_at_Oslo_Lufthavn_Stasjon_%28Oslo_airport_train_station%29%2C_March_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Dusk_at_Oslo_Lufthavn_Stasjon_(Oslo_airport_train_station),_March_2023.jpg",
+    "author": "Ridiculopathy",
+    "license": "CC0"
+   },
+   {
+    "title": "Oslo Airport, Gardermoen - Oslo airport customs border.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Oslo_Airport%2C_Gardermoen_-_Oslo_airport_customs_border.jpg/1920px-Oslo_Airport%2C_Gardermoen_-_Oslo_airport_customs_border.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Oslo_Airport,_Gardermoen_-_Oslo_airport_customs_border.jpg",
+    "author": "Glentamara",
+    "license": "CC BY-SA 4.0"
+   },
+   {
+    "title": "Oslo Airport, Gardermoen - panoramio (505).jpg",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Oslo_Airport%2C_Gardermoen_-_panoramio_%28505%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Oslo_Airport,_Gardermoen_-_panoramio_(505).jpg",
+    "author": "Ngomoya",
+    "license": "CC BY 3.0"
+   },
+   {
+    "title": "Oslo Airport Gardermoen - monument.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Oslo_Airport_Gardermoen_-_monument.jpg/1920px-Oslo_Airport_Gardermoen_-_monument.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1867,
+    "page": "https://commons.wikimedia.org/wiki/File:Oslo_Airport_Gardermoen_-_monument.jpg",
+    "author": "Radosław Drożdżewski (Zwiadowca21)",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "Oslo Airport Gardermoen runway.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Oslo_Airport_Gardermoen_runway.jpg/1920px-Oslo_Airport_Gardermoen_runway.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1050,
+    "page": "https://commons.wikimedia.org/wiki/File:Oslo_Airport_Gardermoen_runway.jpg",
+    "author": "Paul Aakerøy",
+    "license": "CC BY-SA 3.0"
+   },
+   {
+    "title": "Oslo Airport terminal night view.jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Oslo_Airport_terminal_night_view.jpg/1920px-Oslo_Airport_terminal_night_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 826,
+    "page": "https://commons.wikimedia.org/wiki/File:Oslo_Airport_terminal_night_view.jpg",
+    "author": "Avinor Oslo lufthavn/Espen Solli",
+    "license": "CC BY 3.0"
+   }
+  ]
+ },
+ "lofotenfly": {
+  "query": "Lofoten aerial view from plane",
+  "items": []
+ },
+ "cabin": {
+  "query": "Hytte cabin Norway forest wooden",
+  "items": []
+ },
+ "starnight": {
+  "query": "Starry night sky Norway winter",
+  "items": [
+   {
+    "title": "Frits Thaulow - Night (1880s).jpg",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Frits_Thaulow_-_Night_%281880s%29.jpg/1920px-Frits_Thaulow_-_Night_%281880s%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "w": 1400,
+    "h": 1048,
+    "page": "https://commons.wikimedia.org/wiki/File:Frits_Thaulow_-_Night_(1880s).jpg",
+    "author": "Frits Thaulow",
+    "license": "Public domain"
+   }
+  ]
  }
 }
