@@ -1,0 +1,8 @@
+== pearl-lyngvaer-0930 
+   cfg=3 bedrooms · 1 bed · 2 baths | br=3 bath=2 guests=7
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False
+== nordic-lodge-recheck 
+   cfg=4 bedrooms · 8 beds · 2 baths | br=4 bath=2 guests=10
+   None clean=None svc=None TOTAL=None
+   cxl=Free cancellation for 24 hours. Cancel before September 23 for a partial refund. min=None unavail=False

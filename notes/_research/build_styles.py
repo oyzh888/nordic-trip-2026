@@ -13,6 +13,7 @@ R = pathlib.Path(".")
 wiki  = json.load(open(R/"out_wiki_picked.json"))
 abnb  = {r["slug"]: r for r in json.load(open(R/"out_img.json"))}
 abnb.update({r["slug"]: r for r in json.load(open(R/"out_img2.json"))})
+abnb.update({r["slug"]: r for r in json.load(open(R/"out_img3.json"))})   # 已订的 Lofoten + 它的备用 A
 bkfix = json.load(open(R/"out_img_bk.json"))
 
 _used_img = set()
@@ -109,15 +110,16 @@ DAYS = [
       drive="EVE → Svolvær 165 km / 2h30",
       body="十点半落在 Evenes，提车，上 E10。一百六十五公里没有渡轮、几乎没有收费站，"
            "路两边的山一座比一座陡。傍晚到 Vågan。",
-      imgs=["e10","lofoten","henningsvaer"], stay="d6-vagan3br",
-      stayname="Lyngvær Arctic Lodge · Jacuzzi & Sauna", staymeta="Airbnb · 3 房 / 5 床 / 2 卫 · 罗弗敦东侧"),
+      imgs=["e10","lofoten","henningsvaer"], stay="d6-nordiclodge",
+      stayname="Nordic Lodge Retreat · Lyngvær（✅ 已订）",
+      staymeta="Airbnb ★4.92 · 4 房 / 8 床 / 2 卫 · 98 m² · 按摩浴缸 + 桑拿 · 罗弗敦东侧"),
  dict(act="act2", d="D7", n="08", date="10/1", wd="周四", t="明信片那一侧",
       en="The Postcard Side", place="Reine · Hamnøy · Sakrisøy · Å",
       drive="单程 2h · 往返约 4h",
       body="往西开到群岛的尽头，当天回。Hamnøy 那排红屋是全挪威被拍得最多的一张画；"
            "Reine 背后的 Reinebringen 有一段石阶，爬上去两个小时，整个峡湾在脚下摊开。",
-      imgs=["hamnoy","reine","reinebringen","sakrisoy","skagsanden"], stay="d6-vagan3br",
-      stayname="同 D6（连住第 2 晚，不搬箱子）", staymeta="Airbnb · Vågan", reuse=1),
+      imgs=["hamnoy","reine","reinebringen","sakrisoy","skagsanden"], stay="d6-nordiclodge",
+      stayname="同 D6（连住第 2 晚，不搬箱子）", staymeta="Airbnb · Lyngvær · Vågan", reuse=1),
  dict(act="act3", d="D8", n="09", date="10/2", wd="周五", t="五十分钟，跨过北极圈",
       en="Fifty Minutes North", place="Svolvær ✈ Tromsø",
       drive="开车只剩 30 min",
@@ -159,6 +161,15 @@ DAYS = [
 ]
 
 ALT = [
+ {"slug":"alt-arcticpearl","name":"Lyngvær Arctic Pearl Lodge",
+  "meta":"罗弗敦东侧 · 3 房 2 卫 · 桑拿 + jacuzzi · ★5.0 · €1,223 / 2 晚",
+  "why":"🅰 backup plan · 同款替身：和已订那套是同一条路上的邻居（lodge no. 17，103 m²，"
+        "私人桑拿 + jacuzzi + 180° 海景），退改政策一字不差 —— 真要换，换它最不折腾。"
+        "代价是贵 €325；页面床位只写「1 bed」、上限 7 人，所以换之前要先问房东床型。"},
+ {"slug":"d6-vagan3br","name":"Vågan 3 房 / 5 床 / 2 卫",
+  "meta":"罗弗敦东侧 · 3 房 2 卫 · €1,136 / 2 晚 · ⛔ 不可退",
+  "why":"9/2 那一版的罗弗敦默认，现在降为 backup plan：比已订那套贵 ¥1,904、少一间房、"
+        "没有评分、而且不可退 —— 一个不可退的备用，价值本来就有限。"},
  {"slug":"alt-houseboat","name":'Houseboat “Grosso”',
   "meta":"特罗姆瑟 · 住在船上 · 3 房 3 卫 · ★5.0",
   "why":"备选：卫生间比人多，也是当时算下来单价最低的一段。最后没选，因为默认那套 4 房离市区更方便。"},

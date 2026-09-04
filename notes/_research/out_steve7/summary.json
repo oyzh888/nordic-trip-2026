@@ -1,0 +1,36 @@
+[
+ {
+  "slug": "pearl-lyngvaer-0930",
+  "note": "Steve 2026-09-03 新给的链接：Lyngvær Arctic Pearl Lodge",
+  "config": "3 bedrooms · 1 bed · 2 baths",
+  "bedrooms": "3",
+  "baths": "2",
+  "guests": "7",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Free cancellation for 24 hours. Cancel before September 23 for a partial refund.",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "5.0",
+  "error": null
+ },
+ {
+  "slug": "nordic-lodge-recheck",
+  "note": "复核已订的那套是否仍显示不可订（预期：因为已被订走）",
+  "config": "4 bedrooms · 8 beds · 2 baths",
+  "bedrooms": "4",
+  "baths": "2",
+  "guests": "10",
+  "nightly_line": null,
+  "cleaning_fee": null,
+  "service_fee": null,
+  "total": null,
+  "cancellation": "Free cancellation for 24 hours. Cancel before September 23 for a partial refund.",
+  "min_stay": null,
+  "unavailable": false,
+  "rating": "4.92",
+  "error": null
+ }
+]

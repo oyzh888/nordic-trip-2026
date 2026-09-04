@@ -189,6 +189,8 @@ tr.done td{color:var(--tx3)}
 .ok{color:var(--green)}
 .badge{font-size:11px;padding:1.5px 6px;border-radius:6px;background:rgba(169,139,255,.15);
   color:#a98bff;border:1px solid rgba(169,139,255,.35);white-space:nowrap}
+/* backup plan 的徽章：比「我的推荐」低一档，灰底不抢眼，但看一眼就知道这行是备用 */
+.badge.bk{background:rgba(255,255,255,.055);color:var(--tx3);border-color:var(--line)}
 tr
 
 /* ---------- cards grid ---------- */
@@ -288,7 +290,9 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   <div class="sumgrid">
     <div class="sc ok"><div class="h">✅ 已订 —— 不用再讨论</div>
       <b>9/30 → 10/2 罗弗敦</b> · Nordic Lodge Retreat（Lyngvær · Vågan）· 4 卧 8 床 <b>2 卫</b> · ★4.92 · <b>可退</b>。
-      这一段结束了，本页只是<b>请大家过一眼</b>。</div>
+      这一段结束了，本页只是<b>请大家过一眼</b>。<br>
+      🅱 <b>备用（backup plan）已就位</b>：<b>9/23 是部分退款悬崖</b>，真要换按
+      <a href="#cands">🅰 同款替身 / 🅱 最省钱 / 🅲 房子最好</a> 三个顺序换 —— 三个都实测可订、都可退。</div>
     <div class="sc sel"><div class="h">☑️ 已选定 —— 等下单</div>
       其余 <b>8 晚住宿 + 4 台车</b>：链接、真实价、退改条款都核过，<b>基本全部可免费取消</b> →
       先订住、等回信再调，不吃亏。</div>
@@ -1059,6 +1063,7 @@ tbl('moneytab',['科目','金额（4 人）','折算','对预算'],[
           <div>
             <div class="hd">
               ${o.t==='pick'?'<span class="badge">🥇 我的推荐</span>':''}
+              ${o.t==='alt'?'<span class="badge bk">备用 · backup</span>':''}
               <span class="nm"><a href="${o.u}" target="_blank" rel="noopener">${o.n}</a> ↗</span>
               <span class="vt ${o.v}">${VL[o.v]}</span>
               ${o.room?`<span class="pr">¥${o.room.toLocaleString()} / 房 / 晚</span>`:''}

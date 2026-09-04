@@ -169,17 +169,18 @@
 
 ## 9/30 → 10/2（2 晚） · 罗弗敦东侧（Vågan / Svolvær）
 
-> ✅ **供给最好的一段：8 个替代全部实测能订。**（另有 3 个搜索页看着能订、实测订不到，列在最后。）东侧 = 10/2 只开 6h30；西侧 = 8h30。
+> ✅ **这一晚已订**（Nordic Lodge Retreat）。所以下面这一整串**已经全部是 backup plan** —— 它们的用途只有一个：🔴 **9/23 是那张单子的部分退款悬崖**，要换必须在 9/23 之前决定。三个带「备用 A/B/C」标签的是我按用途排的（同款替身 / 最省钱 / 房子最好），其余按价格排。（3 个「实测订不到」列在最后。）东侧 = 10/2 只开 6h30；西侧 = 8h30。
 
 | | 住哪 | 房/卫 | 报价 | **¥/房/晚** | 评分 | 退改 | 实测 | 位置 |
 |---|---|---|---|---:|---|---|---|---|
 | 🥇 | [✅ Nordic Lodge Retreat · Lyngvær ★4.92（Steve 已订）](https://www.airbnb.com/rooms/1303545546783105490?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/8床/2卫 | €898 / 2晚（搜索页快照） | **¥1,796** | 4.92 | ✅ 24h 内免费 · 9/23 前部分退 | ✅ 房源页已核 | 🟢 东侧 Lyngvær / Vågan · 10/2→飞 |
-|  | [Vågan 3 房 / 5 床 / 2 卫（上一版默认）](https://www.airbnb.com/rooms/1258848712541940268?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 3房/5床/2卫 | €1,136 / 2晚 | **¥2,272** | — | ⛔ 不可退 | ✅ 房源页已核 | 🟢 东侧 Vågan |
-|  | [Waterfront Nordic house, Vågan ★4.93（我原来的默认）](https://www.airbnb.com/rooms/1362321193877972891?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 5房/8床/2卫 | €602→€553 / 2晚 | **¥1,106** | 4.93 | ✅ 24h 内免费 · 9/23 前部分退 | ✅ 房源页已核 | 🟢 东侧 Vågan · EVE→2h30 · 10/2→6h30 |
+|  | [🅰 备用 A · 同款替身 —— 🆕 Lyngvær Arctic Pearl Lodge ★5.0（Steve 9/3 给的）](https://www.airbnb.com/rooms/1683936522638301457?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 3房/**页面只写 1 bed**/2卫 · 最多 7 人 | €1,223 / 2晚（房源页实价） | **¥2,446** | 5.0 | ✅ 24h 内免费 · 9/23 前部分退 | ✅ 房源页已核 | 🟢 东侧 Lyngvær / Vågan · Svolvær 与机场 20 min · Henningsvær 12 min |
+|  | [🅱 备用 B · 最省钱 —— Waterfront Nordic house, Vågan ★4.93](https://www.airbnb.com/rooms/1362321193877972891?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 5房/8床/2卫 | €602→€553 / 2晚 | **¥1,106** | 4.93 | ✅ 24h 内免费 · 9/23 前部分退 | ✅ 房源页已核 | 🟢 东侧 Vågan · EVE→2h30 · 10/2→6h30 |
+|  | [Vågan 3 房 / 5 床 / 2 卫（9/2 那一版的默认）](https://www.airbnb.com/rooms/1258848712541940268?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 3房/5床/2卫 | €1,136 / 2晚 | **¥2,272** | — | ⛔ 不可退 | ✅ 房源页已核 | 🟢 东侧 Vågan |
 |  | [The heart of Ramberg ★4.76](https://www.airbnb.com/rooms/1170849828585814519?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/2.5卫 | €647 / 2晚 | **¥1,294** | 4.76 | ⛔ **完全不可退** | ✅ 房源页已核 | 🟠 西侧 Ramberg · EVE→4h（黑天）· 10/2→8h30 |
 |  | [Secluded house · Private swimming pool](https://www.airbnb.com/rooms/1441200146734024595?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 5房/6床/2卫 | €896 / 2晚（非退 €895） | **¥1,792** | 4.6 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟡 中部 Vestvågøy |
 |  | [Villa - Havgapet ★5.0](https://www.airbnb.com/rooms/1259549145786305745?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 7房/7床/2卫 | €958 / 2晚（非退 €957） | **¥1,916** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟡 中部 Vestvågøy |
-|  | [Functional architecture close to nature ★5.0](https://www.airbnb.com/rooms/574286379531171221?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/4床/2.5卫 | €1,041 / 2晚 | **¥2,084** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟢 东侧 Vågan |
+|  | [🅲 备用 C · 房子最好 —— Functional architecture close to nature ★5.0](https://www.airbnb.com/rooms/574286379531171221?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/4床/2.5卫 | €1,041 / 2晚 | **¥2,084** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟢 东侧 Vågan |
 |  | [Valen house in famous Reine ★4.25](https://www.airbnb.com/rooms/1314514220654606262?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 4房/5床/2卫 | €1,113 / 2晚 | **¥2,226** | 4.25 | ✅ 24h 内免费 | ✅ 房源页已核 | 🔴 最西 Moskenes/Reine |
 |  | [Unique group stay next to golf and beach ★5.0](https://www.airbnb.com/rooms/45665373?check_in=2026-09-30&check_out=2026-10-02&adults=4&currency=EUR) | 7房/8床/2.5卫 | €1,797→€1,634 / 2晚 | **¥3,268** | 5.0 | ✅ 24h 内免费 | ✅ 房源页已核 | 🟢 东侧 Vågan |
 |  | [Nusfjord Arctic Resort · Village Cabin Suite Plus](https://www.booking.com/hotel/no/nusfjord-as.html?checkin=2026-09-30&checkout=2026-10-02&group_adults=4&no_rooms=1&selected_currency=EUR) | **2 卫（页面明写）· 卧室数未写** | €743 flex（+12% VAT） | **¥1,664** | — | ✅ 退到 9/16 | 🟠 仅搜索页 | 🟠 西侧 Nusfjord（离 Ramberg 15 min） |
@@ -188,13 +189,14 @@
 | ⛔ | ~~Seafront fisherman's cabin in Lofoten ★4.98~~ | 3房/5床/2卫 | €900（搜索页） | — | 4.98 | — | ⛔ 已验证订不到 | 中部 Vestvågøy |
 | ⛔ | ~~where the ocean meets land · Flakstad ★4.93~~ | 2房/4床/2卫 | €740（搜索页） | — | 4.93 | — | ⛔ 已验证订不到 | 西侧 Flakstad |
 
-- **✅ Nordic Lodge Retreat · Lyngvær ★4.92（Steve 已订）** — **已下单，这一段结束了。** 2025-01 新建 · 98 m² · 4 卧 8 床 **2 卫** · 按摩浴缸 + 桑拿 · Superhost · 38 评。比原来那套 €1,136 的**便宜 ¥1,904、房间多一间、还能退** —— 三样都赢。⚠️ €898 是搜索页快照价，请以订单实付为准
-- **Vågan 3 房 / 5 床 / 2 卫（上一版默认）** — 9/2 那一版的默认。已被上面那套取代：贵 ¥1,904、少一间房、没有评分、而且不可退
-- **Waterfront Nordic house, Vågan ★4.93（我原来的默认）** — Guest favorite + Superhost + 页面明写含所有费用。**最便宜 + 能退 + 在东侧**，三样都占 —— 比已订那套便宜约 ¥2,760（€345）
+- **✅ Nordic Lodge Retreat · Lyngvær ★4.92（Steve 已订）** — **已下单，这一段结束了。** 2025-01 新建 · 98 m² · 4 卧 8 床 **2 卫** · 按摩浴缸 + 桑拿 · Superhost · 38 评（房东 Svein Magnus）。⚠️ €898 是搜索页快照价，请以订单实付为准。🆕 **2026-09-03 复核：房源页现在对 9/30→10/2 显示 "Those dates are not available"** —— 这正是「已经被订走」该有的样子（我们自己订的），**不是**房源出问题。所以 9/2 那次判「订不到」是同一个现象，不用再追
+- **🅰 备用 A · 同款替身 —— 🆕 Lyngvær Arctic Pearl Lodge ★5.0（Steve 9/3 给的）** — **和已订那套是同一条路上的邻居**（Lyngvær 的 lodge no. 17，房东 Oliver，Superhost 9 年）：103 m² 新 lodge · **私人桑拿 + jacuzzi** + 全屋地暖 + EV 充电 + 180° 海景 · Guest favorite ★5.0（6 评）· 路的尽头、最私密的一栋。**退改政策和已订那套一字不差**，所以真要换，换它最不折腾。代价两条：① 贵 **€325 ≈ ¥2,600**（¥2,446 vs ¥1,796 / 房 / 晚）；② 🔴 **房源页床位写的是「1 bed」、上限 7 人** —— 评论里明写 "three bedrooms and two separate bathrooms so our party of six had room"，所以床是有的、只是房东没填全，**但那对夫妻要双人床这件事必须订前问房东**。2026-09-03 用房源页实测：可订、有价、无 min-stay
+- **🅱 备用 B · 最省钱 —— Waterfront Nordic house, Vågan ★4.93** — Guest favorite + Superhost + 页面明写含所有费用。**最便宜 + 能退 + 在东侧**，三样都占 —— 比已订那套便宜约 ¥2,760（€345）。它是我原来的默认，现在的角色是「万一要退，还能省钱的那个」
+- **Vågan 3 房 / 5 床 / 2 卫（9/2 那一版的默认）** — 9/2 那一版的默认，现在只是备用池里的一条。已被已订那套全面取代：贵 ¥1,904、少一间房、没有评分、而且**不可退** —— 一个不可退的备用意义不大
 - **The heart of Ramberg ★4.76** — 想睡在明信片那一侧就选它。代价：贵 €94 + 不可退 + 10/2 要开 8h30（E10 风暴封路很常见 → 最西头 + 不可退是最差组合）
 - **Secluded house · Private swimming pool** — **有私人泳池** —— 极光季泡池子是很硬的体验。评分 4.6 偏低、位置在中部（东西都要开）
 - **Villa - Havgapet ★5.0** — ★5.0 · 7 间房 —— 4 个人住这个非常空。位置在中部
-- **Functional architecture close to nature ★5.0** — ★5.0 + 2.5 卫 + 在东侧 —— 「要好房子又要东侧」的答案。比已订那套贵约 ¥1,144（€143）
+- **🅲 备用 C · 房子最好 —— Functional architecture close to nature ★5.0** — ★5.0 + **2.5 卫** + 在东侧 + 4 房 —— 「要好房子又要东侧」的答案，而且是唯一比备用 A **便宜**（€182）又不掉配置的。比已订那套贵约 ¥1,144（€143）
 - **Valen house in famous Reine ★4.25** — **就在 Reine**（那张明信片本身）。但评分只有 4.25、最贵那档、10/2 车程最长
 - **Unique group stay next to golf and beach ★5.0** — 最贵，但仍在预算内。4 个人订 7 间房的农场没什么必要 —— 除非想请客
 - **Nusfjord Arctic Resort · Village Cabin Suite Plus** — 唯一在 Booking 页面上**明写 2 bathrooms** 的罗弗敦房源。🔴 但 "Suite" 不等于 2 卧 —— **订前必须问卧室数**

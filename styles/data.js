@@ -532,26 +532,26 @@ const DAYS = [
     "page": "https://commons.wikimedia.org/wiki/File:Henningsvaer-Lofoten-2020.jpg"
    }
   ],
-  "stay": "d6-vagan3br",
-  "stayname": "Lyngvær Arctic Lodge · Jacuzzi & Sauna",
-  "staymeta": "Airbnb · 3 房 / 5 床 / 2 卫 · 罗弗敦东侧",
+  "stay": "d6-nordiclodge",
+  "stayname": "Nordic Lodge Retreat · Lyngvær（✅ 已订）",
+  "staymeta": "Airbnb ★4.92 · 4 房 / 8 床 / 2 卫 · 98 m² · 按摩浴缸 + 桑拿 · 罗弗敦东侧",
   "shots": [
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/231bb270-ccd3-4c83-9eab-e372c2871392.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/b10ef48b-0bfe-4049-9ae5-8730d68deb39.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/9e2e3a07-5a00-4cce-a4c0-bfe5e025e1f8.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/18ab1643-b316-4226-aa59-141ef9296670.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/1f807693-b262-4ebe-9ff5-e2b11b3a77cc.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/0e1ba9ee-fd3a-4a7d-ad3c-447307b7519d.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/c90bf99b-ddd9-43c7-ba08-03de8811ebbb.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/9c04153a-42dc-4807-8f5e-73acf426e4f9.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/1f3f3031-38f2-46c2-b6c6-fd7cbc87a853.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/09f186ea-2e30-478f-b233-9a73438d947a.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/a447e9ae-70fa-4eb8-9e6e-e50f12a705f2.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/fb7ed17a-bb9c-420f-8af0-1de97c71eaf0.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/90eb1aaa-6dc1-46b1-9436-7d16eb3dbc3d.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/625cea93-cb25-41b0-9cb8-927869d54429.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/d22fc68d-6dc3-4440-be67-c4d2db6f41f8.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/874a2ec5-1675-4b17-94a5-871ef293876f.jpeg?im_w=1200"
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/f8aff8e6-ed1c-4d8e-a15d-95771ac4f8d9.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/ce2383a2-6381-40c1-874b-933255e1bb1e.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/2ee73dbd-010c-41c0-8a50-bfa077243309.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/5bac7041-bed2-41d6-8caf-1ea1fd8f68e0.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/b448a864-c982-46b0-9197-0f9e74d02553.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/cee6a26a-5642-40eb-b67b-f6f166f428a1.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/a603943f-539f-47ad-b045-24263ea55473.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/43dc10fb-501c-47bc-8849-782c94f5491d.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/d6a6655c-68c0-4415-93c7-aa86df240858.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/aa7239cd-8d75-4b65-a0ab-dc0fa48fb051.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/0383a219-7ae9-4fa6-a009-a84af758853b.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/e5a09c78-1bdf-4462-888f-8861f956f6bc.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/777aba9c-1922-4668-8bc8-f8c62e13b082.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/4da4234c-bc48-41a3-b064-3dba640500c2.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/530f6433-6de2-42ef-a449-b9f2c2fef0c0.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/e7ac937c-8c8b-4d96-a242-142070794b1d.jpeg?im_w=1200"
   ]
  },
  {
@@ -617,27 +617,27 @@ const DAYS = [
     "page": "https://commons.wikimedia.org/wiki/File:Lofoten_Flakstad_Strand_01.JPG"
    }
   ],
-  "stay": "d6-vagan3br",
+  "stay": "d6-nordiclodge",
   "stayname": "同 D6（连住第 2 晚，不搬箱子）",
-  "staymeta": "Airbnb · Vågan",
+  "staymeta": "Airbnb · Lyngvær · Vågan",
   "reuse": 1,
   "shots": [
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/231bb270-ccd3-4c83-9eab-e372c2871392.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/b10ef48b-0bfe-4049-9ae5-8730d68deb39.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/9e2e3a07-5a00-4cce-a4c0-bfe5e025e1f8.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/18ab1643-b316-4226-aa59-141ef9296670.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/1f807693-b262-4ebe-9ff5-e2b11b3a77cc.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/0e1ba9ee-fd3a-4a7d-ad3c-447307b7519d.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/c90bf99b-ddd9-43c7-ba08-03de8811ebbb.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/9c04153a-42dc-4807-8f5e-73acf426e4f9.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/1f3f3031-38f2-46c2-b6c6-fd7cbc87a853.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/09f186ea-2e30-478f-b233-9a73438d947a.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/a447e9ae-70fa-4eb8-9e6e-e50f12a705f2.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/fb7ed17a-bb9c-420f-8af0-1de97c71eaf0.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/90eb1aaa-6dc1-46b1-9436-7d16eb3dbc3d.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/625cea93-cb25-41b0-9cb8-927869d54429.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/d22fc68d-6dc3-4440-be67-c4d2db6f41f8.jpeg?im_w=1200",
-   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/874a2ec5-1675-4b17-94a5-871ef293876f.jpeg?im_w=1200"
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/f8aff8e6-ed1c-4d8e-a15d-95771ac4f8d9.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/ce2383a2-6381-40c1-874b-933255e1bb1e.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/2ee73dbd-010c-41c0-8a50-bfa077243309.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/5bac7041-bed2-41d6-8caf-1ea1fd8f68e0.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/b448a864-c982-46b0-9197-0f9e74d02553.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/cee6a26a-5642-40eb-b67b-f6f166f428a1.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/a603943f-539f-47ad-b045-24263ea55473.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/43dc10fb-501c-47bc-8849-782c94f5491d.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/d6a6655c-68c0-4415-93c7-aa86df240858.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/aa7239cd-8d75-4b65-a0ab-dc0fa48fb051.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1303545546783105490/original/0383a219-7ae9-4fa6-a009-a84af758853b.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/e5a09c78-1bdf-4462-888f-8861f956f6bc.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/777aba9c-1922-4668-8bc8-f8c62e13b082.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/4da4234c-bc48-41a3-b064-3dba640500c2.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/530f6433-6de2-42ef-a449-b9f2c2fef0c0.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/miso/Hosting-1303545546783105490/original/e7ac937c-8c8b-4d96-a242-142070794b1d.jpeg?im_w=1200"
   ]
  },
  {
@@ -942,6 +942,54 @@ const DAYS = [
  }
 ];
 const ALTSTAYS = [
+ {
+  "slug": "alt-arcticpearl",
+  "name": "Lyngvær Arctic Pearl Lodge",
+  "meta": "罗弗敦东侧 · 3 房 2 卫 · 桑拿 + jacuzzi · ★5.0 · €1,223 / 2 晚",
+  "why": "🅰 backup plan · 同款替身：和已订那套是同一条路上的邻居（lodge no. 17，103 m²，私人桑拿 + jacuzzi + 180° 海景），退改政策一字不差 —— 真要换，换它最不折腾。代价是贵 €325；页面床位只写「1 bed」、上限 7 人，所以换之前要先问房东床型。",
+  "shots": [
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/96ea7bd1-ae17-456f-8221-a255cd66d062.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/00824683-4438-46c8-af5d-0b2aae6531d4.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/bb472f98-e94a-49de-8eeb-f709ebe7663f.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/8726355b-b86f-47f7-8816-1bf46d92dc43.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/45547dd1-2e0f-4513-befd-340cdd7b9830.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/8a57ba90-ea91-43c1-9e9c-37b4d32c3162.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/2a3408e4-f5fd-4fe8-8571-014cee038534.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/712fa7d0-5254-4eaa-8cf0-e5a18d837241.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/13337507-4f13-46fe-b5b9-3bdc36105f27.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/58e7a00c-f8dd-4680-a132-1275bc2be2af.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/91b00f47-1e82-4676-bcfa-6b05ec4a1516.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/61e946da-979a-4891-b270-b00e895d7d89.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/bda4f593-e3a3-4204-b636-4146a9e91b54.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/df923fc4-340d-427c-a06d-c532910fd658.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/249e0ce7-3c8b-49bc-b46a-cb2136ab1bcd.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1683936522638301457/original/8a9e620f-424c-44f2-ab9d-ed45ccdae34a.jpeg?im_w=1200"
+  ]
+ },
+ {
+  "slug": "d6-vagan3br",
+  "name": "Vågan 3 房 / 5 床 / 2 卫",
+  "meta": "罗弗敦东侧 · 3 房 2 卫 · €1,136 / 2 晚 · ⛔ 不可退",
+  "why": "9/2 那一版的罗弗敦默认，现在降为 backup plan：比已订那套贵 ¥1,904、少一间房、没有评分、而且不可退 —— 一个不可退的备用，价值本来就有限。",
+  "shots": [
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/231bb270-ccd3-4c83-9eab-e372c2871392.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/b10ef48b-0bfe-4049-9ae5-8730d68deb39.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/9e2e3a07-5a00-4cce-a4c0-bfe5e025e1f8.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/18ab1643-b316-4226-aa59-141ef9296670.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/1f807693-b262-4ebe-9ff5-e2b11b3a77cc.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/0e1ba9ee-fd3a-4a7d-ad3c-447307b7519d.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/c90bf99b-ddd9-43c7-ba08-03de8811ebbb.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/9c04153a-42dc-4807-8f5e-73acf426e4f9.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/1f3f3031-38f2-46c2-b6c6-fd7cbc87a853.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1258848712541940268/original/09f186ea-2e30-478f-b233-9a73438d947a.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/a447e9ae-70fa-4eb8-9e6e-e50f12a705f2.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/fb7ed17a-bb9c-420f-8af0-1de97c71eaf0.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/90eb1aaa-6dc1-46b1-9436-7d16eb3dbc3d.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/625cea93-cb25-41b0-9cb8-927869d54429.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/d22fc68d-6dc3-4440-be67-c4d2db6f41f8.jpeg?im_w=1200",
+   "https://a0.muscache.com/im/pictures/hosting/Hosting-1258848712541940268/original/874a2ec5-1675-4b17-94a5-871ef293876f.jpeg?im_w=1200"
+  ]
+ },
  {
   "slug": "alt-houseboat",
   "name": "Houseboat “Grosso”",
