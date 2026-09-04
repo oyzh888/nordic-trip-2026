@@ -1,0 +1,28 @@
+# ⚠️ 别在这里加 notes/_research/ 下的图片或 JSON —— 那些是全部价格的原始证据，
+# 出发日之后再也抓不回来。见 notes/_research/INDEX.md。
+
+# 一次性连通性测试的产物（不是证据）
+notes/_research/out_smoke/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Playwright / Node
+node_modules/
+.playwright/
+playwright-report/
+test-results/
+
+# 编辑器 / 系统
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# 凭证 —— 本 repo 从不需要，加在这里当保险
+.env
+.env.*
+*.pem
