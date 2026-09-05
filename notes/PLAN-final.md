@@ -307,7 +307,21 @@ Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才
 | 里程 | 不限 | 不限 | 不限 | 不限 |
 | 退改 | ✅ 免费取消 | ✅ 免费取消 | ✅ 免费取消 | ✅ 免费取消 |
 | 驾照 | 美国驾照可直接用 | 同 | 同 | 同 |
-| ⚠️ | 保险包后 → **$400–480** | 🔴 **异地还车只有 6 个车源**（最薄一环，最早订）· 09:00 前还才算 2 天，14:30 还就变 3 天 $763 | ⚠️ 押金（EVE 那台原报价冻结 $1,805）· 10:30 与 16:00 提车同价 | 🔴 **只有选 Stange 那套小屋才需要这台**（房源页写 "A car is required"）。选 Clarion 机场酒店就不用租 · 实抓 23 个报价，库存充足 |
+| 🆕 **🔗 点开就是比价页**（日期/取还点已填好） | [冰岛 5 天 ↗](https://www.discovercars.com/search/b04ea7fd-d6de-4ed9-87a5-f824f122a2d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $187 | [罗弗敦 EVE→SVJ ↗](https://www.discovercars.com/search/4b3b7b50-12ff-478b-b382-61e9bdd65414?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MiwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAwODozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>🔴 **只剩 5 个报价** · 最低 $571 | [特罗姆瑟 3 天 ↗](https://www.discovercars.com/search/1e0735b9-292e-4dda-bcb2-4c2a9295a764?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDEwOjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $209 | [奥斯陆 1 天 ↗](https://www.discovercars.com/search/98bbeeb8-2ae3-49bb-9ca2-baae1f3d4ef8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $68 |
+| ⚠️ | 保险包后 → **$400–480** | 🔴 **异地还车车源最薄，而且在变薄**：9/1 抓到 6 个报价，**9/3 复查只剩 5 个**（最早订这一台）· 09:00 前还才算 2 天，14:30 还就变 3 天 $763 | ⚠️ 押金（EVE 那台原报价冻结 $1,805）· 10:30 与 16:00 提车同价 | 🔴 **只有选 Stange 那套小屋才需要这台**（房源页写 "A car is required"）。选 Clarion 机场酒店就不用租 · 实抓 23 个报价，库存充足 |
+
+> 🔗 **那四条链接是怎么来的、为什么能直接点**：DiscoverCars 的
+> `/search/<uuid>?sq=<base64 json>` 里那个 `sq` 是**未签名的**（payload 里 `Hash` 是空串），
+> 路径上的 uuid 也不校验 —— 所以可以手工拼一条深链，落在「我们那几个日期 + 那几个取还点」的
+> 实时结果页上，不用让人再填一遍表单。生成 + 逐条验证的脚本：
+> [`notes/_research/dc_links.py`](_research/dc_links.py)（验三件事：**页面上显示的日期对不对**、
+> **有没有报价**、**最低价对不对得上量级**），结果留档
+> [`out_dc_links.json`](_research/out_dc_links.json)。
+>
+> 三条使用提醒：**① 页面上那个「最低价」不是我们的车** —— 我们要 4x4 + 自动挡 + 装得下
+> 4 人 4 箱，所以我们的报价总比榜首高一点（冰岛 $187 vs 我们 $258 就是这个差）；
+> **② 价格每天在动**，点开看到的数不会和表里分毫不差；
+> **③ 冰岛的必买三险（SCDW + 砂石 + 火山沙尘）要在结账页加**，不在裸车价里。
 
 **两个决定的理由**：
 

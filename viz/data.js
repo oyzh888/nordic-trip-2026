@@ -115,7 +115,16 @@ const U = {
   njardvik3:  'https://www.airbnb.com/rooms/1139944377459145061?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
   konglehytta:'https://www.airbnb.com/rooms/648419631702172808?check_in=2026-10-05&check_out=2026-10-06&adults=4&currency=EUR',
   stracta:    'https://www.booking.com/hotel/is/stracta-apartments.html?checkin=2026-09-26&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR',
-  dcars:      'https://www.discovercars.com/'
+  dcars:      'https://www.discovercars.com/',
+  /* 🆕 2026-09-03：四台车各一条「直接落在我们那个日期+取还点的实时比价页」的链接。
+     原理：DiscoverCars 的 /search/<uuid>?sq=<base64 json> 里 sq 是**未签名的**
+     （payload 的 Hash 是空串），路径上的 uuid 也不校验 → 可以手工拼出深链，
+     人点进去就是结果页，不用再填表单。生成 + 逐条验证：notes/_research/dc_links.py
+     （验的是三件事：页面上的日期对不对 · 有没有报价 · 最低价对不对得上量级）*/
+  dc1: 'https://www.discovercars.com/search/b04ea7fd-d6de-4ed9-87a5-f824f122a2d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc2: 'https://www.discovercars.com/search/4b3b7b50-12ff-478b-b382-61e9bdd65414?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MiwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAwODozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc3: 'https://www.discovercars.com/search/1e0735b9-292e-4dda-bcb2-4c2a9295a764?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDEwOjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc4: 'https://www.discovercars.com/search/98bbeeb8-2ae3-49bb-9ca2-baae1f3d4ef8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ'
 };
 
 /* ---------- 两台车的取/还点（画在地图上） ---------- */
@@ -476,16 +485,16 @@ const STAYTAB = [
 
 /* ---------- 总览用：四台车一行一台 ---------- */
 const CARTAB=[
-  {seg:'🇮🇸 冰岛',    car:'Peugeot 2008 · 4x4 · 自动挡', when:'KEF **9/25 17:00** → KEF **9/29 18:00**（5 天）',
+  {u:U.dc1, chk:'8 个报价 · 最低 $187（不是我们的车：我们要 4x4 + 自动 + 装得下 4 箱）', seg:'🇮🇸 冰岛',    car:'Peugeot 2008 · 4x4 · 自动挡', when:'KEF **9/25 17:00** → KEF **9/29 18:00**（5 天）',
    p:'$258 裸车', cny:'¥1,832（含必买三险最坏 ¥3,408）',
    note:'必买 SCDW + 砂石 + 火山沙尘 ≈ $25–40/天。⛔ 别订 Jimny（装不下 4 人 4 箱）。**取车填 17:00 或更晚**，早 3 小时会跨进第 5 个计费日、白贵 $65'},
-  {seg:'🇳🇴 车① 罗弗敦', car:'Toyota Yaris Cross 4WD · 自动挡', when:'EVE **9/30 11:00** → SVJ **10/2 08:30**（2 天）',
+  {u:U.dc2, chk:'🔴 9/3 复查只剩 **5 个报价**（8/31 是 6 个）· 最低 $571 —— 这一段真的在变薄', seg:'🇳🇴 车① 罗弗敦', car:'Toyota Yaris Cross 4WD · 自动挡', when:'EVE **9/30 11:00** → SVJ **10/2 08:30**（2 天）',
    p:'$650', cny:'¥4,615',
    note:'🔴 **Svolvær 异地还车只有 6 个车源** → 这一段最早订。选早班（~09:05）；下午班要 14:30 还车、跨第 3 个计费日、$650→$763'},
-  {seg:'🇳🇴 车② 特罗姆瑟', car:'Suzuki Vitara 4WD · 自动挡', when:'TOS **10/2 10:30** → **10/5 10:00**（3 天）',
+  {u:U.dc3, chk:'8 个报价 · 最低 $209', seg:'🇳🇴 车② 特罗姆瑟', car:'Suzuki Vitara 4WD · 自动挡', when:'TOS **10/2 10:30** → **10/5 10:00**（3 天）',
    p:'$240', cny:'¥1,704',
    note:'Senja（10/4）往返 ~500 km 走这台 —— 挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500。10:30 和 16:00 提车同价'},
-  {seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL **10/5 15:00** → **10/6 10:00**（1 天）',
+  {u:U.dc4, chk:'8 个报价 · 最低 $68', seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL **10/5 15:00** → **10/6 10:00**（1 天）',
    p:'$79–86', cny:'¥611',
    note:'🟠 **只在住 Stange 森林小屋时才需要**（房源页写 "A car is required"）。不想租就换机场旁的 Clarion（€193、2 卫）—— 见 B5'}
 ];

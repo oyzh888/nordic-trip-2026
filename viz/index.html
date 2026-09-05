@@ -331,7 +331,13 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
   <div class="tw"><table id="staytab"></table></div>
 
   <h3 class="subh">🚗 四台车（冰岛 1 + 挪威 2 + 奥斯陆 1）</h3>
-  <p class="lede">全部可免费取消、不限里程、美国驾照。为什么是四台（而不是一台连开）展开在<a href="#cars">参考部分「四台车」</a>。</p>
+  <p class="lede">全部可免费取消、不限里程、美国驾照。为什么是四台（而不是一台连开）展开在<a href="#cars">参考部分「四台车」</a>。<br>
+     🆕 <b>每台车都有一条「点开比价」直链</b> —— 点进去就是 DiscoverCars 的实时结果页，
+     <b>我们的取还点和日期时间已经填好了</b>，不用自己再填表单（四条链接 2026-09-03 逐条验证过：
+     页面上的日期对得上、有报价）。三点提醒：<b>① 那里列的「最低价」不是我们的车</b> ——
+     我们要 4x4 + 自动挡 + 装得下 4 人 4 箱，所以我们的报价总比榜首贵一点；
+     <b>② 价格每天在动</b>，看到的数和表里的不会分毫不差；
+     <b>③ 冰岛那台的必买三险（SCDW + 砂石 + 火山沙尘）要在结账页加</b>，不在裸车价里。</p>
   <div class="tw"><table id="cartab"></table></div>
 
   <h3 class="subh">💰 钱 —— 一张表看完</h3>
@@ -1023,11 +1029,15 @@ tbl('staytab',['状态','入住 → 退房（就按这个订）','地点','住�
     r.cxl]})));
 
 /* ============ 总览里的车表 + 钱表 ============ */
-tbl('cartab',['段','推荐车','取 → 还','裸车报价','折人民币','要注意的'],
+tbl('cartab',['段','推荐车','取 → 还','裸车报价','折人民币','🔗 点开比价','要注意的'],
   (typeof CARTAB!=='undefined'?CARTAB:[]).map(c=>({c:[`<b>${md(c.seg)}</b>`, c.car, md(c.when),
-    {v:c.p,n:1},{v:`<b style="color:var(--cy)">${c.cny}</b>`,n:1}, md(c.note)]}))
+    {v:c.p,n:1},{v:`<b style="color:var(--cy)">${c.cny}</b>`,n:1},
+    c.u?`<a href="${c.u}" target="_blank" rel="noopener"><b>去 DiscoverCars ↗</b></a>
+         <div style="font-size:12px;color:var(--tx3);margin-top:3px">${md(c.chk||'')}</div>`:'—',
+    md(c.note)]}))
   .concat([{c:['<b>四台合计</b>','—','6+5 = 11 个计费日',{v:'<b>$1,227–1,234</b>',n:1},
     {v:'<b style="color:var(--cy);font-size:15px">¥'+fmt(totalCar)+'</b>',n:1},
+    `<a href="${U.dcars}" target="_blank" rel="noopener">DiscoverCars 首页 ↗</a>`,
     '折 <b>¥609–682 / 天</b> —— 远低于 ¥2,000/天上限']}]));
 
 tbl('moneytab',['科目','金额（4 人）','折算','对预算'],[
