@@ -1,0 +1,84 @@
+{
+ "url": "https://www.discovercars.com/search/a3f68996-2ea1-47fb-a5f6-e94a6d1e9abd?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Wed, Sep 30",
+  "Fri, Oct 02"
+ ],
+ "n_offers": 5,
+ "rows": [
+  {
+   "car": "Ford Explorer 4WD",
+   "supplier": null,
+   "prices": [
+    571
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Ford Explorer 4WD | or similar Full-size SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 2 days | $571.44 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota Yaris Cross 4WD",
+   "supplier": null,
+   "prices": [
+    653
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota Yaris Cross 4WD | or similar Compact SUV | Automatic | 5 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 2 days | $653.41 | Free cancellation | View deal | Prices are even better in the app | Scan to download and book on your phone"
+  },
+  {
+   "car": "Toyota RAV 4WD",
+   "supplier": null,
+   "prices": [
+    790
+   ],
+   "total_days": "2",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota RAV 4WD | or similar Standard SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | Average deposit | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 2 days | $790.82 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota ProAce 8 seater",
+   "supplier": null,
+   "prices": [
+    2360,
+    1322
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota ProAce 8 seater | or similar Standard Van | Automatic | 8 seats | 4 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | High deposit ($2,360.00) | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 2 days | $1,322.51 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota ProAce 9 seater",
+   "supplier": null,
+   "prices": [
+    2410,
+    1373
+   ],
+   "total_days": "2",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota ProAce 9 seater | or similar Full-size Van | Automatic | 9 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Harstad Evenes Airport (EVE) | High deposit ($2,410.00) | Unlimited mileage | 8.9 | Very Good | 519 ratings | Total for 2 days | $1,373.49 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "LKN-B-eve-lkn-1100",
+  "pick_id": 2088,
+  "drop_id": 2091,
+  "pick_dt": "2026-09-30 11:00",
+  "drop_dt": "2026-10-02 11:00"
+ }
+}

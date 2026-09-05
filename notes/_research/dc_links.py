@@ -20,18 +20,21 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 
 # 取还点 id 是从 DiscoverCars 自己的 autocomplete 里挖出来的（notes/_research/dc_loc.py）
 LOC = {"KEF": 1787, "EVE": 2088, "SVJ": 2092, "TOS": 2195, "OSL": 1710,
-       "RVK": 3092}
+       "RVK": 3092, "LKN": 2091}   # LKN = Leknes Airport（2026-09-04 从 autocomplete 采到）
 
 CARS = [
  dict(slug="car1-iceland", label="🇮🇸 冰岛 5 天",
       pick="KEF", drop="KEF", pick_dt="2026-09-25 17:00", drop_dt="2026-09-29 18:00",
       expect="$258 裸车（Peugeot 2008 4x4 自动）"),
- dict(slug="car2-lofoten", label="🇳🇴 车① 罗弗敦 2 天（异地还）",
-      pick="EVE", drop="SVJ", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 08:30",
-      expect="$650（Toyota Yaris Cross 4WD）· 只有 6 个车源"),
+ dict(slug="car2-lofoten", label="🇳🇴 车① 罗弗敦 3 天（异地还到 Leknes）",
+      pick="EVE", drop="LKN", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 14:30",
+      expect="$647（Ford Explorer 4WD）· 只有 5 个车源 · 配 WF816 15:40 那班"),
+ dict(slug="car2b-lofoten-48h", label="🇳🇴 车① 同上但卡在 48h 内（省一个计费日）",
+      pick="EVE", drop="LKN", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 11:00",
+      expect="$571（Ford Explorer 4WD）· 便宜 $76 但要在小机场干等 4h40"),
  dict(slug="car3-tromso", label="🇳🇴 车② 特罗姆瑟 3 天",
-      pick="TOS", drop="TOS", pick_dt="2026-10-02 10:30", drop_dt="2026-10-05 10:00",
-      expect="$240（Suzuki Vitara 4WD）"),
+      pick="TOS", drop="TOS", pick_dt="2026-10-02 17:30", drop_dt="2026-10-05 10:00",
+      expect="$224（4x4 自动）· 落地 16:35 之后取"),
  dict(slug="car4-oslo", label="🇳🇴 车③ 奥斯陆 1 天",
       pick="OSL", drop="OSL", pick_dt="2026-10-05 15:00", drop_dt="2026-10-06 10:00",
       expect="$79–86"),

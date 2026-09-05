@@ -38,8 +38,10 @@
 >
 > 12 晚住宿 + 4 台车全部有实价、全部实测可订：
 > 住宿 **€5,132 ≈ ¥41,055 = ¥1,711 / 房 / 晚**（在你 ¥2,000–4,000 区间的**下沿**）·
-> 四台车 **¥10,338**（¥609–682/天，远低于 ¥2,000/天）·
-> **合计 ≈ ¥57,059（4 人）· 人均 ¥14,265**，不含跨国机票 / 餐饮 / 门票·tour。
+> 四台车 **¥10,203**（¥609–682/天，远低于 ¥2,000/天）·
+> **合计 ≈ ¥57,524（4 人）· 人均 ¥14,381**，不含跨国机票 / 餐饮 / 门票·tour。
+> （🆕 2026-09-04：10/2 那班飞机确认了实价，机票从「按 ¥5,360 估」变成 **¥5,960 实价**；
+> 车① 和车② 按新时间重报后一降一降，净变化只有 **+¥465**。）
 >
 > ## 🔴 还要人拍板的（只剩这些）
 >
@@ -48,7 +50,7 @@
 > | 1 | **9/24 那一晚还没定** —— 沿用 Nannestad €260（⛔ 不可退） | Steve |
 > | 2 | **10/5 的 Stange 森林小屋要不要配 1 天车**（房源页写 *"A car is required"*，$79–86 ≈ ¥611）；不租就换机场旁的 Clarion（€193、2 卫、更便宜） | Steve（B5） |
 > | 3 | **Senja 挪到 10/4 = 周日，渡轮周日班表要重核**（Torghatten Nord / Entur） | 出发前一周 |
-> | 4 | **Widerøe SVJ→TOS 10/2 有没有这班、多少钱**（有反爬，只能人工上 wideroe.no） | Kevin（B1） |
+> | 4 ✅ | ~~Widerøe 10/2 有没有这班~~ → **已解决：WF816 Leknes 15:40 → 特罗姆瑟 16:35**。🔴 但**只剩 6 张票，我们要 4 张 → 现在最急的一件事** | Steve / Kevin |
 > | 5 | **10/6 还是 10/7 回北京** → 决定要不要第 13 晚 | Kevin |
 >
 > ## 本文怎么读 —— 总 / 分两层
@@ -87,17 +89,17 @@
 | **住宿 12 晚**（含已订的罗弗敦 + 10/5 Stange 小屋） | **€5,132 ≈ ¥41,055** | **¥1,711 / 房 / 晚** | ¥2,000–4,000 / 房 | ✅ 仍在下沿内 |
 | *（对照：我原来那套）* | *€3,977 ≈ ¥31,816* | *¥1,326 / 房 / 晚* | 同上 | 便宜 **¥9,239** |
 | **冰岛租车 5 天** | $258 ≈ ¥1,832 | ¥366 / 天 | ≤¥2,000 / 天 | ✅ （+保险后见下） |
-| **挪威租车 ①** EVE 9/30→SVJ 10/2（2 天） | $650 ≈ ¥4,615 | ¥2,308 / 天 | ≤¥2,000 / 天 | 🟠 短段单价高 |
-| **挪威租车 ②** TOS 10/2→**10/5**（🆕 3 天） | $240 ≈ ¥1,704 | ¥568 / 天 | ≤¥2,000 / 天 | ✅ |
+| **挪威租车 ①** 🆕 EVE 9/30→**Leknes 10/2 14:30**（3 天） | $647 ≈ ¥4,594 | ¥1,531 / 天 | ≤¥2,000 / 天 | ✅ 多一天、车更大，钱没变 |
+| **挪威租车 ②** TOS 🆕 **10/2 17:30**→**10/5**（3 天） | $224 ≈ ¥1,590 | ¥530 / 天 | ≤¥2,000 / 天 | ✅ 晚取还更便宜 |
 | 🆕 **奥斯陆租车 ③** OSL 10/5 15:00→10/6 10:00（1 天） | $86 ≈ ¥611 | ¥611 / 天 | ≤¥2,000 / 天 | ✅ 只有选 Stange 小屋才需要 |
-| **✈️ 10/2 SVJ→TOS 机票 ×4**（⚠️ 未核实，按上限计） | ≈ ¥5,360（低到 ¥2,400） | — | — | ⚠️ 见 §七 第 1 条 |
+| **✈️ 10/2 LKN→TOS 机票 ×4** 🆕 **实价**（WF816，含 23kg 托运档） | **¥5,960**（4×¥1,490） | — | — | 🔴 只剩 6 张票 |
 | Senja 渡轮（🆕 **10/4** 往返） | NOK 456 ≈ ¥306 | — | — | — |
-| **合计** | **≈ ¥57,059**（机票取下限则 ¥54,099） | 人均 ≈ **¥14,265** | — | 不含跨国机票/门票/吃饭 |
+| **合计** | **≈ ¥57,524** | 人均 ≈ **¥14,381** | — | 不含跨国机票/门票/吃饭 |
 
 🆕 **2026-09-02 下午按 Steve 两句话改过**（详细推导见 `notes/CHANGES-0929-1002.md`）：
 - **「9/29 丢一些景点别那么累」** → 9/29 从斯奈山半岛（7.5h 开车）改成**雷克雅内斯半岛轻档**（~2h、08:30 出发）。
   **不花钱，还消掉了原来「唯一的硬前提」**（Kevin 的 KEF→OSL 起飞时间）。
-- **「10/2 坐飞机别开车」** → 挪威从「一台车连开 6 天 $762」改成**两段夹一段 50 分钟的飞**（$650 + $343 = $993）。
+- **「10/2 坐飞机别开车」** → 挪威从「一台车连开 6 天 $762」改成**两段夹一段 55 分钟的飞**（🆕 按已确认的 WF816 重报：$647 + $224 + 奥斯陆那台 $86 = **$957**）。
   **多花约 ¥4,050–7,800**（车 +$231 + 机票）换掉 480 km / 6h30 的开车日。上一版总账 ¥39,364 就是这么涨到 ¥45,528 的。
 
 ⚠️ **唯一会往上顶的一项**：冰岛租车的 **$258 是裸车价**。加上冰岛必买的保险包
@@ -149,7 +151,7 @@ Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才
 - ✅ **特罗姆瑟就按你链接上的 3 晚（10/2→10/5）订，日期一个字都不用改。** 上一版我要求你改成 10/6，
   是因为那时 10/5 没有落脚点；现在你给了 10/5 的奥斯陆房源，行程变成「10/5 飞回奥斯陆睡缓冲夜」→
   **省下 +€453，车② 还从 4 天缩到 3 天（−$103）**。代价是**极光夜从 4 个变 3 个**。
-  10/2 现在是**飞**（SVJ→TOS 50 min），坐早班中午前就到，自助 check-in 从容。
+  10/2 现在是**飞**（🆕 WF816 LKN 15:40 → TOS 16:35，55 min），18:15 前后到住处，自助 check-in 从容。
 - 🆕 **9/28 换成 ★5.0 那套（Hot tub & Sauna · Ocean Break）**：€445 → **€335**（省 €110），
   床位更好（king + 单人 + 单人 → 夫妻睡 king、每人一间），带热浴缸和桑拿，退改还宽到 9/23。
   **代价：卫生间从 2 个变 1 个。**
@@ -300,15 +302,15 @@ Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才
 
 | | 冰岛 | 挪威 ①（罗弗敦） | 挪威 ②（特罗姆瑟） | 🆕 挪威 ③（奥斯陆） |
 |---|---|---|---|---|
-| 车 | **Peugeot 2008 · 4x4 · 自动** | **Toyota Yaris Cross · 4WD · 自动** | **Suzuki Vitara · 4WD · 自动** | 自动挡（四驱 +$7） |
-| 取/还 | **KEF 9/25 17:00 → KEF 9/29 18:00** | **EVE 9/30 11:00 → Svolvær(SVJ) 10/2 09:00** | **特罗姆瑟机场 10/2 10:30 → 🆕 10/5 10:00** | **OSL 10/5 15:00 → 10/6 10:00** |
-| 天数 | 5 天（4 天 1 小时，按 5 天计） | 2 天 | 🆕 **3 天** | 1 天 |
-| 含税总价 | **$258 ≈ ¥1,832**（¥366/天） | **$650 ≈ ¥4,615** | 🆕 **$240 ≈ ¥1,704** | **$79 自动 / $86 四驱 ≈ ¥611** |
+| 车 | **Peugeot 2008 · 4x4 · 自动** | 🆕 **Ford Explorer · 4WD · 自动**（7 座，4 人 4 箱最宽松） | **自动四驱**（16 个报价里挑） | 自动挡（四驱 +$7） |
+| 取/还 | **KEF 9/25 17:00 → KEF 9/29 18:00** | 🆕 **EVE 9/30 11:00 → Leknes(LKN) 10/2 14:30** | 🆕 **特罗姆瑟机场 10/2 17:30 → 10/5 10:00** | **OSL 10/5 15:00 → 10/6 10:00** |
+| 天数 | 5 天（4 天 1 小时，按 5 天计） | 🆕 **3 天**（51.5 小时 → 跨 48h） | **3 天** | 1 天 |
+| 含税总价 | **$258 ≈ ¥1,832**（¥366/天） | 🆕 **$647 ≈ ¥4,594** | 🆕 **$224 ≈ ¥1,590** | **$79 自动 / $86 四驱 ≈ ¥611** |
 | 里程 | 不限 | 不限 | 不限 | 不限 |
 | 退改 | ✅ 免费取消 | ✅ 免费取消 | ✅ 免费取消 | ✅ 免费取消 |
 | 驾照 | 美国驾照可直接用 | 同 | 同 | 同 |
-| 🆕 **🔗 点开就是比价页**（日期/取还点已填好） | [冰岛 5 天 ↗](https://www.discovercars.com/search/b04ea7fd-d6de-4ed9-87a5-f824f122a2d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $187 | [罗弗敦 EVE→SVJ ↗](https://www.discovercars.com/search/4b3b7b50-12ff-478b-b382-61e9bdd65414?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MiwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAwODozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>🔴 **只剩 5 个报价** · 最低 $571 | [特罗姆瑟 3 天 ↗](https://www.discovercars.com/search/1e0735b9-292e-4dda-bcb2-4c2a9295a764?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDEwOjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $209 | [奥斯陆 1 天 ↗](https://www.discovercars.com/search/98bbeeb8-2ae3-49bb-9ca2-baae1f3d4ef8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $68 |
-| ⚠️ | 保险包后 → **$400–480** | 🔴 **异地还车车源最薄，而且在变薄**：9/1 抓到 6 个报价，**9/3 复查只剩 5 个**（最早订这一台）· 09:00 前还才算 2 天，14:30 还就变 3 天 $763 | ⚠️ 押金（EVE 那台原报价冻结 $1,805）· 10:30 与 16:00 提车同价 | 🔴 **只有选 Stange 那套小屋才需要这台**（房源页写 "A car is required"）。选 Clarion 机场酒店就不用租 · 实抓 23 个报价，库存充足 |
+| 🆕 **🔗 点开就是比价页**（日期/取还点已填好） | [冰岛 5 天 ↗](https://www.discovercars.com/search/261123f5-8341-49ae-9a25-94d0a4745780?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $187 | 🆕 [罗弗敦 EVE→**Leknes** ↗](https://www.discovercars.com/search/d08ab089-1c38-4a90-96f1-a427e6d50932?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>🔴 只有 5 个报价 · 最低就是 $647 这台<br>（[卡在 48h 内的 2 天档 $571 ↗](https://www.discovercars.com/search/bce93b0b-56a8-4cee-ad56-50b3f03249fc?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)）| 🆕 [特罗姆瑟 3 天 · 17:30 取 ↗](https://www.discovercars.com/search/7d334b96-ca1b-438c-a266-ab6a3e59725d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $214 | [奥斯陆 1 天 ↗](https://www.discovercars.com/search/f0cefaa6-73a7-4986-b852-2494e80014b2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $68 |
+| ⚠️ | 保险包后 → **$400–480** | 🔴 **Leknes 异地还车只有 5 个报价**（Evenes 22 / 特罗姆瑟 16）→ 四台里最早订这台 · 🟠 **48h 悬崖**：10/2 11:00 前还 = 2 天 **$571**，14:30 还 = 3 天 **$647** | ⚠️ 押金（EVE 那台原报价冻结 $1,805）· 🆕 **17:30 取比 10:30 取还便宜**（$224 vs $240） | 🔴 **只有选 Stange 那套小屋才需要这台**（房源页写 "A car is required"）。选 Clarion 机场酒店就不用租 · 实抓 23 个报价，库存充足 |
 
 > 🔗 **那四条链接是怎么来的、为什么能直接点**：DiscoverCars 的
 > `/search/<uuid>?sq=<base64 json>` 里那个 `sq` 是**未签名的**（payload 里 `Hash` 是空串），
@@ -329,7 +331,7 @@ Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才
   约 ¥170/人 ×4 ×2 程 ≈ ¥1,360），实际是**净省钱**，还免了拖箱子换乘。
 - 🆕 **挪威拆成两段（2026-09-02 下午改）**：这不是省钱，是 Steve 要「10/2 坐飞机别开车」。
   🆕 **$650 + $240 + $86（奥斯陆那台）= $976 vs 一台车连开 6 天 $762 → 多付 $214**，
-  再加 4 人机票 ¥2,400–5,360。（上一版是 $993 —— 车② 从 4 天缩到 3 天省了 $103，
+  再加 4 人机票 🆕 **¥5,960 实价**。（上一版是 $993 —— 车② 从 4 天缩到 3 天省了 $103，
   但 10/5 睡 Stange 又要 +$86。）
   换掉的是 480 km / 6h30 的开车日，还白得一个 Svolvær 的上午。
   代价：两次柜台、两次押金冻结，Svolvær 还车只有 6 个车源。
@@ -355,7 +357,7 @@ Brensholmen 发船 08:45 / 10:45 / 12:45（**周五停**）/ 15:00 / 17:00 / 19:
 | # | 订什么 | 为什么现在订 | 风险 |
 |---|---|---|---|
 | 1 🔴 | 🆕 **Guesthouse Birkifell 9/27 整栋 €504（+税 €565）** | **只剩 1 套**，而它是这一晚最好的那个 | **免费退到 9/25 + 到店付 → 零风险**，没理由不先订 |
-| 2 🔴 | **✈️ Widerøe SVJ→TOS 10/2 ×4 人 + Svolvær 还车那台 $650** | Svolvær 异地还车**只有 6 个报价**（库存薄）；机票每周约 8 班。**这是唯一还没核实的一项** | 机票要人工上 wideroe.no 订；车走 DiscoverCars 免费取消 |
+| 2 🔴🔴 | 🆕 **✈️ WF816 LKN 15:40→TOS 16:35 ×4 人（¥1,490 档，含 23kg 托运）+ 车① EVE→Leknes $647** | 🔴 **机票只剩 6 张、我们要 4 张**；Leknes 异地还车**只有 5 个报价**。两项都是「卖光就得改方案」 | 机票携程上就能订（不用 wideroe.no）；车走 DiscoverCars 免费取消 |
 | 3 🔴 | 🆕 **特罗姆瑟 4房2卫 —— ✅ 就按你链接上的 10/2→10/5 订，日期不用改** | 极光季开季，库存压力；不再有「10/5 没地方住」的问题（10/5 已改成飞回奥斯陆） | 可退到 10/1。🟠 订前值得再比一次船屋 3 晚 €825（便宜约 ¥5,600） |
 | 4 ✅ | ~~罗弗敦 9/30→10/2~~ **已订：Nordic Lodge Retreat · Lyngvær** | **不用再管。** 4房8床2卫 · ★4.92 · €898/2晚 · 可退 | 唯一保留的动作：**9/23 是部分退款悬崖**，行程有变要在那之前决定 → 换的顺序看开头那张 **backup plan 🅰🅱🅲** 表 |
 | 5 🟠 | 🆕 **Hörgsland Cottages 9/26 整栋 €448（+税 €503）** | "We have 5 left" → 不急；⛔ 但**不可退**（€549 档可退到 9/12） | 9/12 前决定要不要买可退档。🟠 三个卧室都没双人床 |
@@ -378,7 +380,7 @@ Brensholmen 发船 08:45 / 10:45 / 12:45（**周五停**）/ 15:00 / 17:00 / 19:
 
 | # | 事情 | 卡住了什么 |
 |---|---|---|
-| 1 🔴 | **✈️ 10/2 那天 Widerøe SVJ→TOS 直飞有班吗？4 人票价多少？** | 决定「10/2 坐飞机」成不成立 → 连带决定挪威是拆两段（$993）还是一台车连开（$762）。**只能人工上 wideroe.no 查**：官网有 Cloudflare 反爬，而 Widerøe 根本不给 Google Flights 供货（4 个日期试 SVJ/LKN 全零，同工具查 BOO→TOS 正常）。线索：50 min 直飞、全年运营、每周约 8 班，周五历史上有 ~09:05 和 ~15:45；10/2 正是周五 |
+| 1 ✅ | ~~**10/2 那天 Widerøe 直飞有班吗？票价多少？**~~ → 🆕 **2026-09-04 已解除** | Steve 在携程上查到实班：**WF816 · LKN 15:40 → TOS 16:35 · 周五 · Widerøe Dash-8 · 直飞 55 min**（截图 `notes/shots/flight-WF816-lkn-tos-1002-ctrip.jpg`）。三档：¥1,274 **不含托运也不含手提**（只 1 件个人物品）· **¥1,490 含 1×23kg 托运 + 1 件手提** ← 按这档算 · ¥2,065 免费退改。4 人 = **¥5,960**。🔴 **只剩 6 张票，我们要 4 张 → 现在最急。** ⚠️ 三处连带改动：① 起飞地是 **Leknes 不是 Svolvær** ② 是**下午不是早上** ③ 所以车① 还到 **Leknes 14:30**（3 天 $647）、车② 改 **17:30 取**（$224）。📌 教训留档：**Widerøe 不给 Google Flights 供货，但 OTA（携程）看得到** —— 下次查支线航空先上 OTA，别只信 Google Flights 的零结果 |
 | ~~1b~~ ✅ | ~~**Kevin 的 9/29 KEF→OSL 起飞时间**~~ | **已不再阻塞** —— 9/29 改雷克雅内斯轻档（2h 车程、16:00 前回 KEF）后不依赖它了。只有想跑「斯奈山南半段」中档（~5h、08:00→16:30）才需要 18:00 之后的班 |
 | 2 🟠 | **Kevin 的 Oslo→北京 是 10/6 还是 10/7 起飞**（🆕 降为 🟠） | 若 **10/7** → 在奥斯陆一带还要多一晚（第 13 晚），本文没算；最省事是把 Stange 小屋多住一晚（+€306）+ OSL 那台车顺延（+$79）。🆕 **它已不再影响接驳风险** —— 10/5 那个缓冲夜把「当天先飞 TOS→OSL 再接洲际」消掉了。反过来：如果确定是 **10/7**，那这个缓冲夜就多余了，**特罗姆瑟住回 4 晚（多一个极光夜）反而更好**，值得重比。另：Kevin 还要订 **10/5 TOS→OSL**，挑早班 |
 | 3 🟠 | **冰岛租车保险包实价** | $258 → 约 $400–480。去 DiscoverCars 结账页读，或直接问供应商 |

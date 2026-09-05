@@ -208,6 +208,10 @@ tr
 .bk{background:linear-gradient(180deg,rgba(255,93,115,.10),var(--bg2));border:1px solid rgba(255,93,115,.42);
   border-radius:14px;padding:16px 18px;margin-bottom:12px}
 .bk.amber{background:linear-gradient(180deg,rgba(255,180,77,.09),var(--bg2));border-color:rgba(255,180,77,.42)}
+/* 已解除的：绿边，一眼能和还没解决的区分开 */
+.bk.green{background:linear-gradient(180deg,rgba(74,217,145,.09),var(--bg2));border-color:rgba(74,217,145,.42)}
+.bk.green .bid{background:var(--green)}
+.bk.green .blocks{color:var(--green)}
 .bk .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .bk .bid{font:800 12px/1 ui-monospace,monospace;color:#08101f;background:var(--red);
   border-radius:6px;padding:5px 7px}
@@ -516,7 +520,7 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
      <br>🆕 <b>2026-09-02 深夜又多出第四台</b>：10/5 那晚改住 Stange 的森林小屋（房源页写着 "A car is required"）
      → 车③ <b>OSL 10/5 15:00 → 10/6 10:00，1 天 $79–86 ≈ ¥611</b>。不想租这台就换机场旁的 Clarion（见 B5）。
      取/还车点都画在地图上了（<b style="color:var(--violet)">🚗↑</b> / <b style="color:var(--red)">🚗↓</b>，带时间）。
-     <br>⚠️ <b>这是明码加价，不是省钱</b>：车费 $762 → <b>$976</b>（+$214，含奥斯陆那台），再加 4 人机票约 ¥2,400–5,360。
+     <br>⚠️ <b>这是明码加价，不是省钱</b>：车费 $762 → <b>$957</b>（+$195，含奥斯陆那台），再加 4 人机票 <b>¥5,960</b>（WF816 实价，4×¥1,490 含托运）。
      而且机票价<b>没核实</b>（Widerøe 有反爬、且不给 Google Flights 供货 → 见 B1）。</p>
   <div class="cards" id="carseg"></div>
   <div class="cards" style="margin-top:14px">
@@ -524,7 +528,7 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
       <div class="kv"><span>🥇 车① EVE 9/30 11:00 → <b>SVJ 10/2 09:00</b>（2 天 · Yaris Cross 4WD）</span><span><b style="color:var(--green)">$650</b></span></div>
       <div class="kv"><span>🥇 车② TOS 10/2 10:30 → <b>10/5 10:00</b>（🆕 <b>3 天</b> · Vitara）</span><span><b style="color:var(--green)">$240</b></span></div>
       <div class="kv"><span>🆕 车③ OSL 10/5 15:00 → 10/6 10:00（1 天 · 自动四驱）</span><span><b style="color:var(--green)">$86</b></span></div>
-      <div class="kv"><span>合计</span><span><b>$976</b></span></div>
+      <div class="kv"><span>合计</span><span><b>$957</b></span></div>
       <div class="kv" style="border-top:1px dashed var(--line);padding-top:8px"><span>⬅️ 基线：一台车连开 6 天到 10/6（不飞、也不去奥斯陆睡）</span><span><b>$762</b></span></div>
       <div class="kv"><span>为「10/2 不开那 480 km / 6h30」+ 「10/5 睡奥斯陆」一起付的差价</span><span><b style="color:var(--amber)">+$214 ≈ +¥1,519</b></span></div>
       <div class="kv" style="border-top:1px dashed var(--line);padding-top:8px"><span>⬅️ 上一版（车② 4 天、没有奥斯陆那台）</span><span><b>$993</b></span></div>
@@ -1035,7 +1039,7 @@ tbl('cartab',['段','推荐车','取 → 还','裸车报价','折人民币','�
     c.u?`<a href="${c.u}" target="_blank" rel="noopener"><b>去 DiscoverCars ↗</b></a>
          <div style="font-size:12px;color:var(--tx3);margin-top:3px">${md(c.chk||'')}</div>`:'—',
     md(c.note)]}))
-  .concat([{c:['<b>四台合计</b>','—','6+5 = 11 个计费日',{v:'<b>$1,227–1,234</b>',n:1},
+  .concat([{c:['<b>四台合计</b>','—','🆕 5+3+3+1 = <b>12 个计费日</b>',{v:'<b>$1,208–1,215</b>',n:1},
     {v:'<b style="color:var(--cy);font-size:15px">¥'+fmt(totalCar)+'</b>',n:1},
     `<a href="${U.dcars}" target="_blank" rel="noopener">DiscoverCars 首页 ↗</a>`,
     '折 <b>¥609–682 / 天</b> —— 远低于 ¥2,000/天上限']}]));
@@ -1122,7 +1126,7 @@ tbl('provtab',['数据','怎么拿到的','脚本'],
 /* ============ blockers 渲染 ============ */
 const srcHtml=(src)=>src.map(([f,l])=>`<div><b>${f}</b> : ${l}</div>`).join('');
 $('#blockers').innerHTML=BLOCKERS.map(b=>`
-  <div class="bk ${b.sev==='amber'?'amber':''}">
+  <div class="bk ${b.sev==='amber'?'amber':(b.sev==='green'?'green':'')}">
     <div class="top"><span class="bid">${b.id}</span><h3>${b.q}</h3>${b.scope==='global'?'<span class="tag" style="border-color:var(--red);color:var(--red)">全局 · 影响 10 晚</span>':''}</div>
     <div class="blocks">⛔ 卡住：${b.blocks}</div>
     <div class="bkg">

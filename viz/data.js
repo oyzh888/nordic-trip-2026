@@ -67,6 +67,7 @@ const P = {
   budakirkja: [64.8210, -23.3860],
   eve:        [68.4913,  16.6781], svolvaer:  [68.2340, 14.5680],
   svjair:     [68.2433,  14.6692], bodo:      [67.2694, 14.3653],
+  lknair:     [68.1525,  13.6094], leknesair: [68.1525, 13.6094],
   vagan:      [68.2180,  14.4680], henningsvaer:[68.1540,14.2050],
   leknes:     [68.1470,  13.6120], ballstad:  [68.0730, 13.5350],
   ramberg:    [68.0870,  13.2340], nusfjord:  [68.0330, 13.3550],
@@ -121,10 +122,11 @@ const U = {
      （payload 的 Hash 是空串），路径上的 uuid 也不校验 → 可以手工拼出深链，
      人点进去就是结果页，不用再填表单。生成 + 逐条验证：notes/_research/dc_links.py
      （验的是三件事：页面上的日期对不对 · 有没有报价 · 最低价对不对得上量级）*/
-  dc1: 'https://www.discovercars.com/search/b04ea7fd-d6de-4ed9-87a5-f824f122a2d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc2: 'https://www.discovercars.com/search/4b3b7b50-12ff-478b-b382-61e9bdd65414?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MiwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAwODozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc3: 'https://www.discovercars.com/search/1e0735b9-292e-4dda-bcb2-4c2a9295a764?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDEwOjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc4: 'https://www.discovercars.com/search/98bbeeb8-2ae3-49bb-9ca2-baae1f3d4ef8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ'
+  dc1: 'https://www.discovercars.com/search/261123f5-8341-49ae-9a25-94d0a4745780?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc2: 'https://www.discovercars.com/search/d08ab089-1c38-4a90-96f1-a427e6d50932?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc3: 'https://www.discovercars.com/search/7d334b96-ca1b-438c-a266-ab6a3e59725d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc2b: 'https://www.discovercars.com/search/bce93b0b-56a8-4cee-ad56-50b3f03249fc?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc4: 'https://www.discovercars.com/search/f0cefaa6-73a7-4986-b852-2494e80014b2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ'
 };
 
 /* ---------- 两台车的取/还点（画在地图上） ---------- */
@@ -133,14 +135,14 @@ const CARPTS = [
    note:'落地就取（不是第二天）：只贵 $4，但省掉 4 人 ×2 程机场大巴 ≈ ¥1,360'},
   {k:'drop', c:P.kef,    label:'冰岛还车',  when:'9/29 18:00', car:'Peugeot 2008 · 4x4 · 自动',
    note:'⚠️ 还车时间取决于 Kevin 的 KEF→OSL 起飞时间（见 B1）'},
-  {k:'pick', c:P.eve,    label:'挪威提车①', when:'9/30 11:00', car:'Toyota Yaris Cross · 4WD · 自动 · $650/2天',
-   note:'⚠️ 押金（EVE 那台原报价冻结 $1,805）→ 要一张额度够的信用卡。拆两段 = 两次柜台、两次押金冻结'},
-  {k:'drop', c:P.svjair, label:'✈️ 还车① Svolvær 机场', when:'10/2 08:30', car:'Toyota Yaris Cross · 4WD · 自动',
-   note:'🔴 Svolvær 异地还车**只有 6 个报价**（特罗姆瑟 24、Evenes 23）→ 库存薄，最早订这段。09:00 前还车才算 2 个计费日；拖到 14:30 就变 3 天（$650→$763）'},
-  {k:'pick', c:P.tosair, label:'挪威提车②', when:'10/2 10:30', car:'Suzuki Vitara · 4WD · 自动 · 🆕 $240/3天',
-   note:'飞过来直接机场提；10:30 和 16:00 提车同价，所以早班不吃亏。🆕 10/5 那晚改成飞回奥斯陆后，这台从 4 天缩到 **3 天**（$343→$240）'},
+  {k:'pick', c:P.eve,    label:'挪威提车①', when:'9/30 11:00', car:'🆕 Ford Explorer 4WD · 自动 · $647/3天',
+   note:'落地 10:35 → 11:00 取车。⚠️ 押金（EVE 那台原报价冻结 $1,805）→ 要一张额度够的信用卡。拆两段 = 两次柜台、两次押金冻结'},
+  {k:'drop', c:P.lknair, label:'✈️ 🆕 还车① Leknes 机场（LKN）', when:'🆕 10/2 14:15–14:30', car:'Ford Explorer 4WD · 自动',
+   note:'🆕 **2026-09-04 改**：航班定了 —— **WF816 LKN 15:40 → TOS 16:35**，所以还车点从 Svolvær 换成 **Leknes**、时间从 08:30 推到 **14:30**（距起飞 70 分钟，Widerøe 国内线行李截止约 30 分钟前 → 够用，想更稳订 14:00）。Lyngvær → Leknes **63.6 km / 1h16**（OSRM 实测）。🔴 Leknes 异地还车**只有 5 个报价** → 最早订这段。🟠 48h 悬崖：10/2 11:00 前还 = 2 天 $571，14:30 还 = 3 天 $647，**多付 $76 买下最后 3.5 小时**'},
+  {k:'pick', c:P.tosair, label:'挪威提车②', when:'🆕 10/2 17:30', car:'自动四驱 · 🆕 $224/3天',
+   note:'🆕 **从 10:30 推到 17:30** —— 16:35 落地之后取。晚取**不加价**，反而比早取便宜（$224 vs $240，16 个报价里挑）。18:15 到住处，10 月初特罗姆瑟 18:30 天黑 → 当晚极光夜完整'},
   {k:'drop', c:P.tosair, label:'挪威还车②', when:'🆕 10/5 10:00', car:'Suzuki Vitara · 4WD · 自动',
-   note:'🆕 **只租到 10/5**（不是 10/6）—— 当天飞回奥斯陆。三台合计 **$976** vs 一台车连开 6 天 $762 → 为了 10/2 不开 6h30 + 10/5 睡奥斯陆，多付 **$214**，再加机票 ¥2,400–5,360'},
+   note:'🆕 **只租到 10/5**（不是 10/6）—— 当天飞回奥斯陆。三台合计 🆕 **$957**（$647+$224+$86）vs 一台车连开 6 天 $762 → 为了 10/2 不开 6h30 + 10/5 睡奥斯陆，多付 **$195**，再加机票 🆕 **¥5,960 实价**（4×¥1,490 含托运）'},
   {k:'pick', c:P.osl, label:'🆕 奥斯陆提车③', when:'10/5 15:00', car:'自动挡 $79 / 自动四驱 $86 · 1 天',
    note:'🔴 只有选 Stange 那套小屋才需要这台（房源页写 "A car is required"，离 OSL 30 min）。实抓 **23 个报价**，库存充足。换机场旁的 Clarion 就不用租（€193，还便宜、2 卫）'},
   {k:'drop', c:P.osl, label:'🆕 奥斯陆还车③', when:'10/6 10:00', car:'自动挡 / 自动四驱',
@@ -314,10 +316,10 @@ const DAYS = [
          price:'$650 + $240 + $86 = $976（三台）',cny:'¥6,930（三台合计 · 6 个计费日）',
          url:U.dcars, pick:P.eve, drop:P.svjair, pickWhen:'9/30 11:00', dropWhen:'10/2 08:30',
          note:'原方案是**一台车连开 6 天 $762**（Vitara，¥5,410）→ 为了 10/2 不开 480 km 多付 **$231 ≈ ¥1,640**，'+
-              '再加 4 人机票约 ¥2,400–5,360。⚠️ 两段 = 两次柜台、两次押金冻结（EVE 那台原报价 $1,805）。'+
+              '再加 4 人机票 🆕 **¥5,960 实价**（WF816，4×¥1,490 含 23kg 托运）。⚠️ 两段 = 两次柜台、两次押金冻结（EVE 那台原报价 $1,805）。'+
               '🔴 更便宜的都是**纯电** —— 10/5 Senja 往返 ~500 km、10 月低温 + 岛上充电桩稀 → 排除，'+
               '所以上面全是同档（汽油·自动·4WD·免费取消）的比价'},
-    spend:{stay:3592, car:4615}, supply:'amber',
+    spend:{stay:3592, car:4594}, supply:'amber',
     hi:['Svolvær 是罗弗敦唯一像样的镇子：超市 / 餐厅 / 加油站 / 药店都在这儿（我们 4 人自炊，每天要用）',
         'Henningsvær（礁石上的渔村 + 著名足球场）离 Svolvær 只 30 min',
         '10 月初 EVE 19:00 前后天就黑 → 开 2h30 是从容的到达，开 4h 到西侧是更糟的第一晚'],
@@ -342,16 +344,18 @@ const DAYS = [
   },
   {
     id:'D8', date:'10/2', wd:'周五', region:'tromso', base:'特罗姆瑟',
-    title:'✈️ 已改飞：Svolvær 还车 → 直飞 50 min → 特罗姆瑟再提车',
+    title:'✈️ 航班已定：WF816 Leknes 15:40 → 特罗姆瑟 16:35（55 min）',
     anchor:P.tromso,
-    route:[{n:'Vågan 出发 07:30',c:P.vagan},{n:'SVJ 机场还车① 08:30',c:P.svjair},
-           {n:'Widerøe 直飞 SVJ→TOS 约 09:05，50 min',c:P.tosair},
-           {n:'特罗姆瑟机场提车② 10:30',c:P.tosair},
-           {n:'住处 check-in（中午就到）',c:P.tromso}],
-    legs:[{k:'drive',pts:[P.vagan,P.svolvaer,P.svjair]},
-          {k:'fly',from:P.svjair,to:P.tosair},
+    route:[{n:'Lyngvær 出发（最晚 13:00；想去 Henningsvær 就 10:30 走）',c:P.vagan},
+           {n:'（可选）Henningsvær 28 min → 再 1h05 到 Leknes',c:P.henningsvaer},
+           {n:'🔴 Leknes 机场还车① **14:15–14:30**',c:P.lknair},
+           {n:'WF816 LKN 15:40 → TOS 16:35（Widerøe Dash-8，直飞）',c:P.tosair},
+           {n:'特罗姆瑟机场提车② 17:30',c:P.tosair},
+           {n:'住处 check-in 约 18:15（天刚黑，当晚就能追极光）',c:P.tromso}],
+    legs:[{k:'drive',pts:[P.vagan,P.henningsvaer,P.lknair]},
+          {k:'fly',from:P.lknair,to:P.tosair},
           {k:'drive',pts:[P.tosair,P.tromso]}],
-    drive:'开车只剩 30 min（原方案 480 km / 6h30）· 上午白得半天，中午前落地',
+    drive:'Lyngvær → Leknes 机场 **63.6 km / 1h16**（OSRM 实测）· 上午整个是白得的，傍晚落地',
     stay:{name:'Tromsø 4 房 · 4 床 · 2 卫',type:'Airbnb',rb:'4房/4床/2卫',
           price:'€1,526 / **3 晚**（10/2–10/5）· ¥2,035/房/晚',cxl:'✅ 免费退到 10/1',
           url:U.tos4br3n, pt:P.tromso, place:'特罗姆瑟 · 住 3 晚（10/2–10/5）',
@@ -361,18 +365,21 @@ const DAYS = [
                '所以他给的原链接（10/2→10/5）本来就是对的，**不用改日期，也省下那 €453**。'+
                '🟠 我原来的默认 <a href="'+U.houseboat+'" target="_blank">Houseboat "Grosso" 3房/7床/3卫 ★5.0（3 晚 €825）</a> '+
                '仍然便宜约 **€700 ≈ ¥5,600**、卫生间还多一个（住船上）—— 这一段的差价是全程最大的一笔，值得再比一次'},
-    spend:{stay:4069, car:1704, other:5360}, supply:'amber',
-    hi:['🎯 按「10/2 坐飞机别开车，前后可以继续开车」改的：**车拆成两台，中间夹一段 50 分钟的飞**',
-        '车费 $762 → **$890**（车① EVE 9/30→SVJ 10/2 09:00 · 2 天 **$650**；车② TOS 10/2→**10/5** · 3 天 **$240**）= **+$128 ≈ +¥909**（同档比价：汽油·自动·4WD·免费取消）',
-        '🆕 **车② 从 4 天缩到 3 天**（10/5 就飞奥斯陆了）：$343 → 约 **$240**，省 $103 ≈ ¥731。实抓 16 个报价，最便宜的自动四驱 $236–243',
-        '机票 4 人单程约 **NOK 3,600–8,000 ≈ ¥2,400–5,360** → 合计多花约 **¥4,050 ~ ¥7,800**。⚠️ 曲线和总账里**按上限 ¥5,360 计**（往贵的方向保守，实价可能只要 ¥2,400）',
-        '换来的是：中午前落地，下午能采购，**当晚第一场极光完整不打折**（原方案傍晚才到）',
-        '选早班（~09:05）而不是下午班（~15:45）：下午 14:30 还车会跨进第 3 个计费日，车① $650 → $763，白贵 $113'],
-    watch:['🔴 **机票价和 10/2 有没有这班都未核实，要人工上 wideroe.no 查。** 两条自动化路都堵：wideroe.no 有 Cloudflare 反爬；Widerøe **根本不给 Google Flights 供货**（拿 4 个不同日期试 SVJ/LKN 全零结果，同工具查 BOO→TOS 却正常）→ "查不到"是没供货，不是没开售。线索：SVJ→TOS 直飞全年运营、每周约 8 班，周五历史上有 ~09:05 和 ~15:45 两班；10/2 正是周五',
-           '🔴 **Svolvær 异地还车只有 6 个报价**（特罗姆瑟 24 个、Evenes 23 个）→ 库存薄、涨价快，这段要最早订',
-           '🟡 10 月去北极圈的行李量，Widerøe Dash-8 行李额要看清，可能要加购',
-           '❌ 已排除「开到 Evenes 飞 EVE→TOS」：车费其实最便宜（EVE 同地还 2 天只 $254，合计 $597，比基线还省 $165），但**没航班** —— EVE→TOS 直飞每月仅 4 班（≈每周 1），Google Flights 上全经奥斯陆倒 1,200 km、4–6h、NOK 7,768 起',
-           '🟡 备选 Leknes(LKN)→TOS 直飞每月 30 班（≈每天 1，55 min）频次更好，但 Leknes 在西侧、要先开 1h15 过去 → 只在 SVJ 停飞时用',
+    spend:{stay:4069, car:1590, other:5960}, supply:'amber',
+    hi:['🆕🆕 **2026-09-04：航班从「未核实的 SVJ 早班」换成 Steve 查到的实班 —— WF816 Leknes 15:40 → 特罗姆瑟 16:35**（周五，Dash-8，直飞 55 min）。B1 这个红色阻塞**就此解除**',
+        '🔴 **连带把车①的还车点从 Svolvær 换成 Leknes、还车时间从 08:30 推到 14:30** —— 因为飞机从 Leknes 起飞，而且是下午',
+        '**车费几乎没变**：车① EVE 9/30 11:00 → **LKN 10/2 14:30 · 3 天 Ford Explorer 4WD $647**（旧方案 EVE→SVJ 2 天 Yaris Cross $650）—— 多一个计费日、车还大一号，价钱一样',
+        '**车② 反而便宜了**：取车从 10:30 推到 **17:30**（等飞机落地），3 天自动四驱 **$224**（旧 $240）—— 晚取不加价，16 个报价里挑的',
+        '机票实价（携程 2026-09-04）：**¥1,274/人不带行李 · ¥1,490/人含 23kg 托运 · ¥2,065/人免费退改**。4 人按含托运算 = **¥5,960**（旧账按 ¥5,360 估，实际只多 ¥600）',
+        '这一改**上午整个白得**：Lyngvær 13:00 出发就够，想加 Henningsvær 10:30 走，想跑西侧沙滩（Ramberg → Leknes 35 min）09:00 走',
+        '代价：**特罗姆瑟的下午没了** —— 18:15 才到住处（旧方案中午就到）。但 10 月初特罗姆瑟 18:30 天黑，等于只损失采购时间，极光夜完整'],
+    watch:['🔴🔴 **机票只剩 6 张，我们要 4 张 → 这是现在最急的一件事**（携程页面写「剩 6 张」）。⚠️ 最便宜那档 ¥1,274 **不含托运也不含手提**（只给 1 件个人物品）—— 13 天的箱子装不下，**要买 ¥1,490 那档（含 1×23kg 托运 + 1 件手提）**',
+           '🔴 **还车时间不能再往后拖**：14:30 还车 → 距 15:40 起飞 70 分钟。Widerøe 国内线行李截止约 30 分钟前、登机口 20 分钟前，70 分钟是舒服的；再晚就没有余量了。想更稳就订 **14:00**',
+           '🟠 **48 小时那个计费悬崖在这里**：EVE 9/30 11:00 起算，10/2 **11:00 之前**还车 = 2 个计费日 $571；拖到 14:30 = 3 个计费日 $647。**多付 $76 ≈ ¥540 换罗弗敦最后 3.5 小时** —— 我建议付（不然就是在一个很小的机场干等 4h40）',
+           '🔴 **Leknes 异地还车只有 5 个报价**（特罗姆瑟 16 个、Evenes 22 个）→ 库存薄、涨价快，**车①要最早订**',
+           '🟡 Widerøe Dash-8 是小飞机，4 个大箱子的托运额要按人算清（¥1,490 档 = 每人 1×23kg，刚好 4 件）',
+           '✅ **顺便结掉「同地还车 vs 异地还车」这个问题**：同地还回 EVE 确实便宜得多（2 天自动四驱只 $114–129，省 $500+），但**EVE→TOS 没有能用的航班** —— 直飞每月仅 4 班（≈每周 1），其余全经奥斯陆倒 1,200 km / 4–6h / NOK 7,768 起。而且 10/2 那天从 Lyngvær 回 EVE 要**倒开 175 km / 3h02**（去 Leknes 只要 63.6 km / 1h16）。所以：**异地还到 Leknes 是对的**，那 $500 是「不用往回开 175 km + 有飞机可坐」的价钱',
+           '🟡 Svolvær(SVJ) 其实离住处更近（26 min vs 1h16）、异地费也差不多（3 天 $644）—— 但那班早班机我们从来没核实过，而 Leknes 这班是**真的能订的**。除非 SVJ 也查到同价位的班，否则不用回头',
            '⬅️ 不想多花钱就退回自驾：480 km / 6h30，Narvik 一带 10 月初可能已有初雪']
   },
   {
@@ -488,12 +495,12 @@ const CARTAB=[
   {u:U.dc1, chk:'8 个报价 · 最低 $187（不是我们的车：我们要 4x4 + 自动 + 装得下 4 箱）', seg:'🇮🇸 冰岛',    car:'Peugeot 2008 · 4x4 · 自动挡', when:'KEF **9/25 17:00** → KEF **9/29 18:00**（5 天）',
    p:'$258 裸车', cny:'¥1,832（含必买三险最坏 ¥3,408）',
    note:'必买 SCDW + 砂石 + 火山沙尘 ≈ $25–40/天。⛔ 别订 Jimny（装不下 4 人 4 箱）。**取车填 17:00 或更晚**，早 3 小时会跨进第 5 个计费日、白贵 $65'},
-  {u:U.dc2, chk:'🔴 9/3 复查只剩 **5 个报价**（8/31 是 6 个）· 最低 $571 —— 这一段真的在变薄', seg:'🇳🇴 车① 罗弗敦', car:'Toyota Yaris Cross 4WD · 自动挡', when:'EVE **9/30 11:00** → SVJ **10/2 08:30**（2 天）',
-   p:'$650', cny:'¥4,615',
-   note:'🔴 **Svolvær 异地还车只有 6 个车源** → 这一段最早订。选早班（~09:05）；下午班要 14:30 还车、跨第 3 个计费日、$650→$763'},
-  {u:U.dc3, chk:'8 个报价 · 最低 $209', seg:'🇳🇴 车② 特罗姆瑟', car:'Suzuki Vitara 4WD · 自动挡', when:'TOS **10/2 10:30** → **10/5 10:00**（3 天）',
-   p:'$240', cny:'¥1,704',
-   note:'Senja（10/4）往返 ~500 km 走这台 —— 挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500。10:30 和 16:00 提车同价'},
+  {u:U.dc2, chk:'🔴 只有 **5 个报价**（Evenes 22 / 特罗姆瑟 16）· 9/4 实测 · 最低价就是这台 $647', seg:'🇳🇴 车① 罗弗敦', car:'🆕 Ford Explorer 4WD · 自动挡', when:'EVE **9/30 11:00** → 🆕 **Leknes(LKN) 10/2 14:30**（3 天）',
+   p:'$647', cny:'¥4,594',
+   note:'🆕 **按 WF816（LKN 15:40 起飞）重订的时间**：还车点 Svolvær → **Leknes**、还车 08:30 → **14:30**（距起飞 70 min）。Lyngvær → Leknes 63.6 km / **1h16**（OSRM 实测）。🟠 **48h 悬崖**：10/2 **11:00 前**还 = 2 天 **$571**（<a href="'+U.dc2b+'" target="_blank">比价页</a>），14:30 还 = 3 天 **$647** → **多 $76 ≈ ¥540 买下罗弗敦最后 3.5 小时**（否则在一个很小的机场干等 4h40）。🔴 只有 5 个车源 → 四台里**最早订这台**'},
+  {u:U.dc3, chk:'8 个报价 · 最低 $214 · 9/4 实测（17:30 取）', seg:'🇳🇴 车② 特罗姆瑟', car:'自动四驱（16 个报价里挑）', when:'TOS 🆕 **10/2 17:30** → **10/5 10:00**（3 天）',
+   p:'$224', cny:'¥1,590',
+   note:'🆕 **取车从 10:30 推到 17:30**（16:35 落地之后）—— **晚取不加价，反而便宜**（$224 vs $240）。Senja（10/4）往返 ~500 km 走这台，挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500'},
   {u:U.dc4, chk:'8 个报价 · 最低 $68', seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL **10/5 15:00** → **10/6 10:00**（1 天）',
    p:'$79–86', cny:'¥611',
    note:'🟠 **只在住 Stange 森林小屋时才需要**（房源页写 "A car is required"）。不想租就换机场旁的 Clarion（€193、2 卫）—— 见 B5'}
@@ -536,8 +543,8 @@ const URGENCY = [
    why:'**只剩 1 套**（页面写 "Only 1 left"），而它是这一晚最好的那个',
    deadline:'马上', how:'Booking —— **免费退到 9/25 + 到店付 = 零风险**，没有理由不先订下来'},
   {rank:2, sev:'red',   what:'✈️ Widerøe SVJ→TOS 10/2 直飞 ×4 人 + Svolvær 还车那台（$650）',
-   why:'🔴 Svolvær 异地还车**只有 6 个报价**（特罗姆瑟 24、Evenes 23）→ 库存薄、卖空就得改回自驾；机票也是薄班次（每周约 8 班）。**这是唯一还没核实的一项（B1）**',
-   deadline:'确认航班后立刻', how:'机票只能人工上 wideroe.no 订（有反爬，脚本进不去）；车走 DiscoverCars 免费取消'},
+   why:'🔴 🆕 **Leknes 异地还车只有 5 个报价**（Evenes 22、特罗姆瑟 16）→ 库存薄、卖空就得改回自驾。🆕 **机票已经确认存在（WF816 LKN 15:40→TOS 16:35）但只剩 6 张，我们要 4 张** —— B1 从「不知道有没有」变成「快没票了」',
+   deadline:'🔴 现在（票只剩 6 张）', how:'机票在携程上就能订（¥1,490 含托运那档）—— 不用去 wideroe.no；车走 DiscoverCars 免费取消'},
   {rank:3, sev:'red',   what:'🆕 特罗姆瑟 4房2卫 €1,526 / **3 晚（10/2–10/5，日期不用改了）**',
    why:'✅ 原来那个「10/5 没地方住」的窟窿已被 10/5 的奥斯陆小屋补掉 → **你给的原链接本来就是对的**。仍要早订的理由只剩「极光季开季，3 晚整套房不是随时都有」',
    deadline:'尽快，可退到 10/1', how:'Airbnb。🟠 订之前值得再看一眼备选船屋（3 晚 €825，便宜约 ¥5,600、3 卫、★5.0、可退）'},
@@ -643,17 +650,28 @@ const PITFALLS = [
  * 需要人拍板的问题 —— 附出处 file:line
  * ================================================================ */
 const BLOCKERS = [
-  {id:'B1', kind:'block', sev:'red',
-   q:'✈️ 10/2 那天 Widerøe SVJ→TOS 直飞有班吗？4 人票价多少？',
-   blocks:'「10/2 坐飞机别开车」这个方案成不成立 —— 连带决定挪威租车是拆两段（$993）还是一台车连开（$762）',
-   detail:'<b>这个数我核实不了，必须人工查。</b>两条自动化路都堵死：① wideroe.no 有 Cloudflare 反爬（"Performing security verification"），Playwright 进不去；② <b>Widerøe 根本不给 Google Flights 供货</b> —— 我拿 4 个不同日期（2026-09-25 / 10-02 / 11-20 / 2027-06-04）查 SVJ 和 LKN 全部零结果，而同一工具同一天查 BOO→TOS 能正常返回 SAS 的 NOK 2,588/4 人。所以"查不到"是<b>没有供货</b>，不是"还没开售"。联网查到的线索：SVJ→TOS 直飞 50 分钟、全年运营、每周约 8 班，周五历史上有 ~09:05 和 ~15:45 两班；10/2 正是周五。价位区间 4 人单程 <b>NOK 3,600–8,000 ≈ ¥2,400–5,360</b>。',
-   ifUnknown:'<b>有这班 → 10/2 从 480 km / 6h30 变成 50 分钟</b>，代价车费 +$231 + 机票 ¥2,400–5,360（合计约 +¥4,050~7,800）。<b>没有 → 退回自驾</b>（或 SVJ→BOO→TOS 倒 2h50–4h+，那就不如开车）。已排除的：EVE→TOS 每月仅 4 班；LKN→TOS 每天 1 班但要先往西开 1h15。',
-   who:'Steve（上 wideroe.no 查 2026-10-02 SVJ→TOS，5 分钟）',
+  {id:'B1', kind:'block', sev:'green',
+   q:'~~✈️ 10/2 那天 Widerøe 直飞有班吗？4 人票价多少？~~ → 🆕 **2026-09-04 已解除：WF816 Leknes 15:40 → 特罗姆瑟 16:35**',
+   blocks:'（原来阻塞「10/2 坐飞机别开车」成不成立）→ 现在只剩一件事：**只剩 6 张票，我们要 4 张，得马上订**',
+   detail:'🆕 <b>Steve 2026-09-04 在携程上查到了实班</b>（截图 <span class="mono">notes/shots/flight-WF816-lkn-tos-1002-ctrip.jpg</span>）：'+
+     '<b>WF816 · LKN 15:40 → TOS 16:35 · 周五 10/2 · Widerøe Dash-8 · 直飞 55 min</b>。三档票价：'+
+     '<b>¥1,274 不含托运也不含手提</b>（只给 1 件个人物品，13 天的箱子装不下）· '+
+     '<b>¥1,490 含 1×23kg 托运 + 1 件手提</b>（👈 总账按这档算）· ¥2,065 免费退改。'+
+     '4 人 = <b>¥5,960</b>（旧账按 ¥5,360 估，只多 ¥600）。'+
+     '<b>关键差别：从 Leknes 起飞，不是 Svolvær；下午 15:40，不是早上 09:05</b> —— '+
+     '所以车① 的还车点从 Svolvær 换成 Leknes、还车时间从 08:30 推到 14:30（3 个计费日，$647）；'+
+     '车② 的取车从 10:30 推到 17:30（$224，比早取还便宜）。'+
+     '<br><br>原来查不到是因为：wideroe.no 有 Cloudflare 反爬，而 <b>Widerøe 根本不给 Google Flights 供货</b>'+
+     '（4 个不同日期查 SVJ/LKN 全零结果，同工具查 BOO→TOS 却正常）→ <b>"查不到"是没供货，不是没开售</b>。'+
+     '这条教训值得留着：<b>OTA（携程/Expedia 这类）能看到 Google Flights 看不到的支线航空</b>。',
+   ifUnknown:'已经不是「不知道」了。现在唯一的风险是<b>票卖光</b>：页面写着<b>剩 6 张</b>，我们要 4 张。'+
+     '订不到这班 → 要么退回一台车连开 6 天（480 km / 6h30），要么查 SVJ→TOS 的班（Svolvær 离住处只要 26 min，异地费也差不多）。',
+   who:'Steve / Kevin —— <b>现在就订，4 张 ¥1,490 那档（含 23kg 托运）</b>',
    days:['D6','D8'],
-   src:[['notes/CHANGES-0929-1002.md','二、10/2 坐飞机'],
-        ['notes/_research/out_gs_fly/svj-tos-schedule.md','班次线索'],
-        ['notes/_research/log_flyproxy.txt','Google Flights 零结果的证据']],
-   nowdo:'先查航班。有 → 立刻订机票 + Svolvær 还车那段（只有 6 个报价，最薄的一环）；没有 → 一台车连开 6 天的老方案原封不动。'},
+   src:[['notes/shots/flight-WF816-lkn-tos-1002-ctrip.jpg','携程截图（实班证据）'],
+        ['notes/_research/out_lkn/','按这班重报的 4 组车价'],
+        ['notes/_research/log_flyproxy.txt','当初 Google Flights 零结果的证据']],
+   nowdo:'① <b>订机票 4 张（¥1,490 档）</b> —— 只剩 6 张。② 同时订车①（EVE→Leknes 3 天 $647，只有 5 个车源）。③ 车② 记得把取车时间改成 17:30。'},
 
   {id:'B1b', kind:'block', sev:'green',
    q:'~~Kevin 订的 KEF→OSL 9/29 航班是几点起飞？~~ → 已不再阻塞',
