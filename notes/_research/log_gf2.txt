@@ -1,0 +1,41 @@
+== osl-kef-0925 
+    1:55 PM – 11:55 PM Air Baltic 12 hr OSL–KEF 1 stop 6 hr 35 min RIX 1,309 kg CO2e +122% emissions NOK 10,452
+    6:15 AM – 7:05 AM Scandinavian Airlines 2 hr 50 min OSL–KEF Nonstop 541 kg CO2e -8% emissions NOK 19,392 Avoids as much CO2e as 2,922 trees absorb in a day
+    12:50 PM – 4:30 PM Finnair 5 hr 40 min OSL–KEF 1 stop 35 min HEL 1,283 kg CO2e +118% emissions NOK 23,836
+    10:45 AM – 11:55 PM LOT 15 hr 10 min OSL–KEF 1 stop 8 hr 50 min WAW 1,138 kg CO2e +93% emissions NOK 13,724
+    8:00 AM – 4:45 PM Scandinavian Airlines 10 hr 45 min OSL–KEF 1 stop 6 hr 10 min CPH 841 kg CO2e +43% emissions NOK 18,504
+    7:20 PM – 9:40 AM+1 Scandinavian AirlinesOperated by Sas Connect 16 hr 20 min OSL–KEF 1 stop 11 hr 50 min CPH 871 kg CO2e +48% emissions NOK 20,164
+    4:10 PM – 11:55 PM Scandinavian Airlines, Air Baltic 9 hr 45 min OSL–KEF 2 stops ARN, RIX 1,392 kg CO2e +136% emissions NOK 22,608
+    4:00 PM – 11:20 PM AustrianOperated by Air Baltic 9 hr 20 min OSL–KEF 1 stop 2 hr 40 min VIE 1,369 kg CO2e +132% emissions NOK 37,452
+    9:00 AM – 3:00 PM Scandinavian Airlines, IcelandairOperated by Sas Connect, Flugfelag Islands 8 hr OSL–KEF 2 stops CPH, FAE 1,063 kg CO2e +80% emissions NOK 91,504
+== kef-osl-0929 
+    8:05 PM – 12:45 AM+1 Norwegian 2 hr 40 min KEF–OSL Nonstop 497 kg CO2e -16% emissions NOK 4,280
+    6:55 PM – 11:35 PM Scandinavian Airlines 2 hr 40 min KEF–OSL Nonstop 543 kg CO2e -8% emissions NOK 9,845
+    8:35 AM – 4:35 PM FinnairOperated by Jettime A/S for Finnair, Nordic Reg for Finnair 6 hr KEF–OSL 1 stop 1 hr 10 min HEL 1,297 kg CO2e +119% emissions NOK 12,725
+    11:15 AM – 3:55 PM Scandinavian Airlines 2 hr 40 min KEF–OSL Nonstop 543 kg CO2e -8% emissions NOK 14,372
+    7:50 AM – 12:35 PM Icelandair 2 hr 45 min KEF–OSL Nonstop 568 kg CO2e Avg emissions NOK 25,480
+    4:10 PM – 1:15 PM+1 Edelweiss Air, SWISS 19 hr 5 min KEF–OSL 1 stop 12 hr 35 min ZRH 1,337 kg CO2e +126% emissions NOK 7,635
+    12:20 AM – 10:55 AM Lufthansa, Discover Airlines 8 hr 35 min KEF–OSL 2 stops FRA, MUC 1,304 kg CO2e +120% emissions NOK 16,318
+    12:20 AM – 9:05 AM Lufthansa 6 hr 45 min KEF–OSL 1 stop 1 hr 10 min FRA 1,157 kg CO2e +95% emissions NOK 16,330
+    7:50 AM7:50 AM on Tue, Sep 29 – 12:35 PM12:35 PM on Tue, Sep 29Icelandair2 hr 45 minKEFKeflavík International Airport–OSLOslo lufthavnNonstop568 kg CO2eAvg emissionsAvg emissionsNOK 25,480DepartureTue, Sep 29568 kg CO2eA
+== osl-eve-0930 
+    8:55 AM – 10:35 AM NorwegianOperated by Norwegian 1 hr 40 min OSL–EVE Nonstop 355 kg CO2e -28% emissions NOK 4,196
+    1:20 PM – 3:00 PM NorwegianOperated by Norwegian 1 hr 40 min OSL–EVE Nonstop 355 kg CO2e -28% emissions NOK 4,196
+    3:05 PM – 4:45 PM Norwegian 1 hr 40 min OSL–EVE Nonstop 355 kg CO2e -28% emissions NOK 4,196
+    3:00 PM – 4:40 PM Scandinavian Airlines 1 hr 40 min OSL–EVE Nonstop 333 kg CO2e -32% emissions NOK 5,596
+    5:55 PM – 7:35 PM NorwegianOperated by Norwegian 1 hr 40 min OSL–EVE Nonstop 355 kg CO2e -28% emissions NOK 4,596
+    9:00 PM – 10:40 PM Norwegian 1 hr 40 min OSL–EVE Nonstop 355 kg CO2e -28% emissions NOK 4,596
+    8:40 PM – 10:20 PM Scandinavian Airlines 1 hr 40 min OSL–EVE Nonstop 333 kg CO2e -32% emissions NOK 7,996
+    8:40 AM – 10:20 AM Scandinavian Airlines 1 hr 40 min OSL–EVE Nonstop 333 kg CO2e -32% emissions NOK 9,796
+    8:30 PM – 1:15 PM+1 Finnair, WideroeOperated by Nordic Reg for Finnair, Nordic Reg for Finnair 16 hr 45 min OSL–EVE 2 stops HEL, TRD 1,237 kg CO2e +151% emissions NOK 15,408
+== tos-osl-1005 
+    7:50 PM – 9:45 PM Norwegian 1 hr 55 min TOS–OSL Nonstop 353 kg CO2e -43% emissions NOK 4,592
+    7:10 PM – 9:05 PM Scandinavian Airlines 1 hr 55 min TOS–OSL Nonstop 392 kg CO2e -37% emissions NOK 5,196
+    5:25 PM – 7:20 PM NorwegianOperated by Norwegian 1 hr 55 min TOS–OSL Nonstop 407 kg CO2e -34% emissions NOK 5,996
+    6:20 AM – 8:15 AM Norwegian 1 hr 55 min TOS–OSL Nonstop 407 kg CO2e -34% emissions NOK 6,396
+    8:20 AM – 10:15 AM Norwegian 1 hr 55 min TOS–OSL Nonstop 407 kg CO2e -34% emissions NOK 6,396
+    1:00 PM – 2:55 PM Norwegian 1 hr 55 min TOS–OSL Nonstop 407 kg CO2e -34% emissions NOK 7,596
+    10:45 AM – 12:40 PM Norwegian 1 hr 55 min TOS–OSL Nonstop 407 kg CO2e -34% emissions NOK 8,396
+    2:00 PM – 3:55 PM Scandinavian Airlines 1 hr 55 min TOS–OSL Nonstop 392 kg CO2e -37% emissions NOK 8,996
+    6:00 AM – 8:00 AM Scandinavian Airlines 2 hr TOS–OSL Nonstop 392 kg CO2e -37% emissions NOK 9,796
+    8:40 AM – 10:35 AM Scandinavian Airlines 1 hr 55 min TOS–OSL Nonstop 392 kg CO2e -37% emissions NOK 9,796

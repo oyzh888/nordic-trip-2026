@@ -1,0 +1,8 @@
+P-is-1200: 17 offers | dates=('Fri, Sep 25', 'Tue, Sep 29') 
+P-is-1300: 17 offers | dates=('Fri, Sep 25', 'Tue, Sep 29') 
+P-is-1500: 17 offers | dates=('Fri, Sep 25', 'Tue, Sep 29') 
+P-is-1600: 17 offers | dates=('Fri, Sep 25', 'Tue, Sep 29') 
+P-tos-1700: 16 offers | dates=('Fri, Oct 02', 'Mon, Oct 05') 
+P-osl-1300: 19 offers | dates=('Mon, Oct 05', 'Tue, Oct 06') 
+P-osl-1400: 19 offers | dates=('Mon, Oct 05', 'Tue, Oct 06') 
+P-eve-1045: 5 offers | dates=('Wed, Sep 30', 'Fri, Oct 02') 

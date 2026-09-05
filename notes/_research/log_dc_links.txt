@@ -1,4 +1,4 @@
-car1-iceland   offers=8 cheapest=$187 dates=['Fri, Sep 25', 'Tue, Sep 29'] 
+car1-iceland   offers=8 cheapest=$191 dates=['Fri, Sep 25', 'Tue, Sep 29'] 
 car2-lofoten   offers=5 cheapest=$647 dates=['Wed, Sep 30', 'Fri, Oct 02'] 
 car2b-lofoten-48h offers=5 cheapest=$571 dates=['Wed, Sep 30', 'Fri, Oct 02'] 
 car3-tromso    offers=8 cheapest=$214 dates=['Fri, Oct 02', 'Mon, Oct 05'] 

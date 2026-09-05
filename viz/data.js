@@ -122,29 +122,29 @@ const U = {
      （payload 的 Hash 是空串），路径上的 uuid 也不校验 → 可以手工拼出深链，
      人点进去就是结果页，不用再填表单。生成 + 逐条验证：notes/_research/dc_links.py
      （验的是三件事：页面上的日期对不对 · 有没有报价 · 最低价对不对得上量级）*/
-  dc1: 'https://www.discovercars.com/search/261123f5-8341-49ae-9a25-94d0a4745780?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc2: 'https://www.discovercars.com/search/d08ab089-1c38-4a90-96f1-a427e6d50932?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc3: 'https://www.discovercars.com/search/7d334b96-ca1b-438c-a266-ab6a3e59725d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc2b: 'https://www.discovercars.com/search/bce93b0b-56a8-4cee-ad56-50b3f03249fc?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc4: 'https://www.discovercars.com/search/f0cefaa6-73a7-4986-b852-2494e80014b2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ'
+  dc1: 'https://www.discovercars.com/search/062bf0cb-83c1-4d5c-8fe6-346e0ee27aaf?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDEyOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc2: 'https://www.discovercars.com/search/8f410c56-c7fa-46bc-bf62-78eb24390c9d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc3: 'https://www.discovercars.com/search/fe0d3753-6d43-476c-bd12-d35ee46367d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc2b: 'https://www.discovercars.com/search/3d113896-bf97-4dfc-9e46-45456357b0e2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc4: 'https://www.discovercars.com/search/e4787f19-b6c3-47db-b7b1-a4e652055ff8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEwOjQ1IiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ'
 };
 
 /* ---------- 两台车的取/还点（画在地图上） ---------- */
 const CARPTS = [
-  {k:'pick', c:P.kef,    label:'冰岛提车',  when:'9/25 17:00', car:'Peugeot 2008 · 4x4 · 自动',
-   note:'落地就取（不是第二天）：只贵 $4，但省掉 4 人 ×2 程机场大巴 ≈ ¥1,360'},
+  {k:'pick', c:P.kef,    label:'冰岛提车',  when:'🆕 落地 + 30 min（几点都同价）', car:'Peugeot 2008 · 4x4 · 自动',
+   note:'落地就取（不是第二天）：省掉 4 人 ×2 程机场大巴 ≈ ¥1,360。🆕 **2026-09-04 实测：取车钟点对价格完全没影响** —— 08:00 / 10:00 / 12:00 / 13:00 / 15:00 / 16:00 六个点全部同价（$326 那台 Peugeot 2008 4x4 自动，17 个报价，都是 5 个计费日）。⛔ 所以旧注里那句「必须填 17:00，早 3 小时会跨进第 5 个计费日、白贵 $65」**是错的**：那 $65 是两次抓取之间的价格变动，不是计费悬崖。**唯一真的悬崖在 18:00**（9/25 18:00 之后取才降到 4 个计费日，但那就等于放弃第一天）。🔴 而且如果 Kevin 坐唯一那班直飞（SAS 06:15→**07:05**），17:00 取车等于在机场干等 10 小时 → **按落地时间填**'},
   {k:'drop', c:P.kef,    label:'冰岛还车',  when:'9/29 18:00', car:'Peugeot 2008 · 4x4 · 自动',
    note:'⚠️ 还车时间取决于 Kevin 的 KEF→OSL 起飞时间（见 B1）'},
   {k:'pick', c:P.eve,    label:'挪威提车①', when:'9/30 11:00', car:'🆕 Ford Explorer 4WD · 自动 · $647/3天',
    note:'落地 10:35 → 11:00 取车。⚠️ 押金（EVE 那台原报价冻结 $1,805）→ 要一张额度够的信用卡。拆两段 = 两次柜台、两次押金冻结'},
   {k:'drop', c:P.lknair, label:'✈️ 🆕 还车① Leknes 机场（LKN）', when:'🆕 10/2 14:15–14:30', car:'Ford Explorer 4WD · 自动',
    note:'🆕 **2026-09-04 改**：航班定了 —— **WF816 LKN 15:40 → TOS 16:35**，所以还车点从 Svolvær 换成 **Leknes**、时间从 08:30 推到 **14:30**（距起飞 70 分钟，Widerøe 国内线行李截止约 30 分钟前 → 够用，想更稳订 14:00）。Lyngvær → Leknes **63.6 km / 1h16**（OSRM 实测）。🔴 Leknes 异地还车**只有 5 个报价** → 最早订这段。🟠 48h 悬崖：10/2 11:00 前还 = 2 天 $571，14:30 还 = 3 天 $647，**多付 $76 买下最后 3.5 小时**'},
-  {k:'pick', c:P.tosair, label:'挪威提车②', when:'🆕 10/2 17:30', car:'自动四驱 · 🆕 $224/3天',
-   note:'🆕 **从 10:30 推到 17:30** —— 16:35 落地之后取。晚取**不加价**，反而比早取便宜（$224 vs $240，16 个报价里挑）。18:15 到住处，10 月初特罗姆瑟 18:30 天黑 → 当晚极光夜完整'},
+  {k:'pick', c:P.tosair, label:'挪威提车②', when:'🆕 10/2 17:00', car:'自动四驱 · $224/3天',
+   note:'🆕 **16:35 落地 → 17:00 取 = 等 25 分钟**（9/4 又往前挪了半小时：17:00 和 17:30 实测同价 $224，没理由多等）。比原方案的 10:30 取还便宜（$240）。18:00 前后到住处，10 月初特罗姆瑟 18:30 天黑 → 当晚极光夜完整'},
   {k:'drop', c:P.tosair, label:'挪威还车②', when:'🆕 10/5 10:00', car:'Suzuki Vitara · 4WD · 自动',
    note:'🆕 **只租到 10/5**（不是 10/6）—— 当天飞回奥斯陆。三台合计 🆕 **$957**（$647+$224+$86）vs 一台车连开 6 天 $762 → 为了 10/2 不开 6h30 + 10/5 睡奥斯陆，多付 **$195**，再加机票 🆕 **¥5,960 实价**（4×¥1,490 含托运）'},
-  {k:'pick', c:P.osl, label:'🆕 奥斯陆提车③', when:'10/5 15:00', car:'自动挡 $79 / 自动四驱 $86 · 1 天',
-   note:'🔴 只有选 Stange 那套小屋才需要这台（房源页写 "A car is required"，离 OSL 30 min）。实抓 **23 个报价**，库存充足。换机场旁的 Clarion 就不用租（€193，还便宜、2 卫）'},
+  {k:'pick', c:P.osl, label:'🆕 奥斯陆提车③', when:'🆕 10/5 10:45（跟着 08:20 那班）', car:'自动四驱 $85 · 1 天',
+   note:'🆕 **从 15:00 提前到 10:45** —— 建议 Kevin 订 **Norwegian TOS→OSL 08:20 → 10:15**（NOK 6,396/4 人），落地 +30 min 取车。🟢 **10:45 / 13:00 / 14:00 三个点实测同价 $85**，所以提前不花钱。🎯 收益：11:30 就进 Stange 小屋，比坐 13:00 那班多 **4 小时白天**（那一带 10 月初 18:45 天黑），而且**机票还便宜 NOK 2,000 ≈ ¥1,340**。🔴 只有选 Stange 小屋才需要这台（房源页写 "A car is required"）'},
   {k:'drop', c:P.osl, label:'🆕 奥斯陆还车③', when:'10/6 10:00', car:'自动挡 / 自动四驱',
    note:'从 Stange 开 30 min 回 OSL 还车，直接接洲际。若 Kevin 的北京航班是 10/7，这台顺延一天 +$79'}
 ];
@@ -189,7 +189,7 @@ const DAYS = [
          url:U.dcars, pick:P.kef, drop:P.kef, pickWhen:'9/25 17:00', dropWhen:'9/29 18:00',
          note:'冰岛必买三险：SCDW（超级碰撞险）+ gravel（砂石）+ sand&ash（火山沙尘）+ 2026 道路税。'+
               '⛔ 别订 Suzuki Jimny（$247/$251）：装不下 4 人 + 4 个大箱子。不限里程、可免费取消'},
-    spend:{stay:3576, car:3408}, supply:'green',
+    spend:{stay:3576, car:3735}, supply:'green',
     hi:['Hallgrímskirkja / 老港 / Sun Voyager','落地就提车 = 省掉 4 人来回机场大巴 ¥1,360'],
     watch:['🟠 保险包实价要在 DiscoverCars 结账页读一次（$258 → $400–480 的区间还没收窄）']
   },
@@ -492,18 +492,71 @@ const STAYTAB = [
 
 /* ---------- 总览用：四台车一行一台 ---------- */
 const CARTAB=[
-  {u:U.dc1, chk:'8 个报价 · 最低 $187（不是我们的车：我们要 4x4 + 自动 + 装得下 4 箱）', seg:'🇮🇸 冰岛',    car:'Peugeot 2008 · 4x4 · 自动挡', when:'KEF **9/25 17:00** → KEF **9/29 18:00**（5 天）',
+  {u:U.dc1, chk:'8 个报价 · 最低 $187（不是我们的车：我们要 4x4 + 自动 + 装得下 4 箱）', seg:'🇮🇸 冰岛',    car:'Peugeot 2008 · 4x4 · 自动挡', when:'KEF **9/25 落地+30min** → KEF **9/29 18:00**（5 天）',
    p:'$258 裸车', cny:'¥1,832（含必买三险最坏 ¥3,408）',
-   note:'必买 SCDW + 砂石 + 火山沙尘 ≈ $25–40/天。⛔ 别订 Jimny（装不下 4 人 4 箱）。**取车填 17:00 或更晚**，早 3 小时会跨进第 5 个计费日、白贵 $65'},
+   note:'必买 SCDW + 砂石 + 火山沙尘 ≈ $25–40/天。⛔ 别订 Jimny（2 座 3 门，装不下 4 人 4 箱）。🆕 **取车钟点填几点都一样贵** —— 08:00–16:00 六个点实测同价，所以**按落地时间填、别在机场等**（旧注写的「必须 17:00」是错的，见地图上的提车说明）。🔴 **这台在涨价**：9/3 同一台 Peugeot 2008 4x4 自动 $258，9/4 已经 **$326**（+26%）→ 早订'},
   {u:U.dc2, chk:'🔴 只有 **5 个报价**（Evenes 22 / 特罗姆瑟 16）· 9/4 实测 · 最低价就是这台 $647', seg:'🇳🇴 车① 罗弗敦', car:'🆕 Ford Explorer 4WD · 自动挡', when:'EVE **9/30 11:00** → 🆕 **Leknes(LKN) 10/2 14:30**（3 天）',
    p:'$647', cny:'¥4,594',
    note:'🆕 **按 WF816（LKN 15:40 起飞）重订的时间**：还车点 Svolvær → **Leknes**、还车 08:30 → **14:30**（距起飞 70 min）。Lyngvær → Leknes 63.6 km / **1h16**（OSRM 实测）。🟠 **48h 悬崖**：10/2 **11:00 前**还 = 2 天 **$571**（<a href="'+U.dc2b+'" target="_blank">比价页</a>），14:30 还 = 3 天 **$647** → **多 $76 ≈ ¥540 买下罗弗敦最后 3.5 小时**（否则在一个很小的机场干等 4h40）。🔴 只有 5 个车源 → 四台里**最早订这台**'},
-  {u:U.dc3, chk:'8 个报价 · 最低 $214 · 9/4 实测（17:30 取）', seg:'🇳🇴 车② 特罗姆瑟', car:'自动四驱（16 个报价里挑）', when:'TOS 🆕 **10/2 17:30** → **10/5 10:00**（3 天）',
+  {u:U.dc3, chk:'8 个报价 · 最低 $214 · 9/4 实测（17:30 取）', seg:'🇳🇴 车② 特罗姆瑟', car:'自动四驱（16 个报价里挑）', when:'TOS 🆕 **10/2 17:00** → **10/5 10:00**（3 天）',
    p:'$224', cny:'¥1,590',
-   note:'🆕 **取车从 10:30 推到 17:30**（16:35 落地之后）—— **晚取不加价，反而便宜**（$224 vs $240）。Senja（10/4）往返 ~500 km 走这台，挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500'},
-  {u:U.dc4, chk:'8 个报价 · 最低 $68', seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL **10/5 15:00** → **10/6 10:00**（1 天）',
+   note:'🆕 **取车 17:00 = 16:35 落地 + 25 min**（17:00 与 17:30 同价，所以取早的那个）。比原方案 10:30 取还便宜（$224 vs $240）。Senja（10/4）往返 ~500 km 走这台，挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500'},
+  {u:U.dc4, chk:'8 个报价 · 最低 $68', seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL 🆕 **10/5 10:45** → **10/6 10:00**（1 天）',
    p:'$79–86', cny:'¥611',
-   note:'🟠 **只在住 Stange 森林小屋时才需要**（房源页写 "A car is required"）。不想租就换机场旁的 Clarion（€193、2 卫）—— 见 B5'}
+   note:'🆕 **取车从 15:00 提前到 10:45**，配 Norwegian TOS→OSL **08:20→10:15** 那班（落地+30min）。10:45/13:00/14:00 实测同价 $85 → 提前不花钱，白得 4 小时 Mjøsa 湖畔白天。🟠 只在住 Stange 森林小屋时才需要这台（房源页写 "A car is required"）；不想租就换机场旁的 Clarion（€193、2 卫）—— 见 B5'}
+];
+
+/* ---------- 🆕 2026-09-04：航班 ↔ 取还车 对齐表 ----------
+ * Steve 的两个要求：① 取车时间必须是「落地 + 30 min」，不要在机场干等；② 尽量把时间用满。
+ * 关键实测结论（notes/_research/out_pickup/）：
+ *   🟢 **取车钟点对价格是中性的** —— 冰岛 08:00/10:00/12:00/13:00/15:00/16:00 六个点
+ *      全部同价（$326 那台 Peugeot 2008 4x4 自动，17 个报价，5 个计费日）；
+ *      奥斯陆 10:45/13:00/14:00 全部 $85；特罗姆瑟 17:00 与 17:30 全部 $224。
+ *      → **「落地 30 分钟后取车」不用付任何代价，直接照做。**
+ *   🔴 花钱的是**还车**时间，不是取车时间（车① 的 48h 悬崖：$571 → $647）。
+ * 航班时刻 = Google Flights 实抓（SAS/Norwegian 有供货），价格是 NOK / 4 人单程。
+ */
+const FLIGHTS = [
+  {leg:'✈️ 9/25 OSL → KEF', st:'待订', who:'Kevin',
+   best:'唯一直飞：**SAS 06:15 → 07:05**（2h50，NOK 19,392/4 人 ≈ ¥12,993，偏贵）',
+   alt:'其余全是绕的：Air Baltic 13:55→23:55（RIX 停 6h35，NOK 10,452）· Finnair 12:50→16:30（HEL 停 35 min，NOK 23,836）· LOT 10:45→23:55（WAW 停 8h50）',
+   car:'🇮🇸 冰岛那台：**取车 = 落地 + 30 min**',
+   gap:'若坐 07:05 那班 → **07:35 取车**（原方案写的 17:00 会白等 10 小时）',
+   note:'🟢 **取车钟点不影响价格**（08:00–16:00 六个点实测同价）→ 定了航班直接填「落地+30min」。'+
+        '🎯 而且 07:05 落地等于**白得一整天**：D1 现在只排了「傍晚市中心」，完全可以把雷克雅内斯/蓝湖那半天挪到 9/25，'+
+        '给 9/28 让出空间 —— 值得等 Kevin 的票定了再重排一次'},
+  {leg:'✈️ 9/29 KEF → OSL', st:'待订', who:'Kevin',
+   best:'最便宜的直飞：**Norwegian 20:05 → 00:45+1**（2h40，NOK 4,280/4 ≈ ¥2,868）',
+   alt:'SAS 18:55→23:35（NOK 9,845）· SAS 11:15→15:55（NOK 14,372）· Icelandair 07:50→12:35（NOK 25,480）',
+   car:'🇮🇸 冰岛那台：**还车 18:00**',
+   gap:'18:00 还 → 20:05 起飞 = **缓冲 2h05**（国际线，合适）',
+   note:'🔴 **这是全程最紧的一处接驳，但不是车的问题**：20:05 那班 **00:45 才落 OSL**，'+
+        '而 9/30 飞 EVE 的最便宜那班是 **08:55** → 只能睡 5 小时。'+
+        '两个解法：① 9/30 改坐 **13:20→15:00**（同价 NOK 4,196），代价是天快黑才进罗弗敦；'+
+        '② 9/29 改坐 SAS 18:55→23:35（贵 NOK 5,565 ≈ ¥3,729），车提前到 17:00 还'},
+  {leg:'✈️ 9/30 OSL → EVE', st:'✅ 时刻已核实', who:'Kevin 订票',
+   best:'**Norwegian 08:55 → 10:35**（1h40 直飞，NOK 4,196/4 ≈ ¥2,811 —— 最便宜那档）',
+   alt:'同价还有 13:20→15:00 和 15:05→16:45；SAS 15:00→16:40（NOK 5,596）',
+   car:'🇳🇴 车①：**取车 11:00**（可填 10:45，同价）',
+   gap:'10:35 落地 → 11:00 取车 = **等 25 分钟** ✅ 已经是你要的节奏',
+   note:'🟢 计划里那个「10:35 落地」的假设**今天被实测确认了**，就是 Norwegian 这班。'+
+        '10:45 取和 11:00 取同价（$647）→ 想留余量就填 10:45'},
+  {leg:'✈️ 10/2 LKN → TOS', st:'✅ 航班已确认', who:'Steve 已查到（携程）',
+   best:'**WF816 · 15:40 → 16:35**（Widerøe Dash-8，直飞 55 min）· ¥1,490/人含 23kg 托运 → 4 人 **¥5,960**',
+   alt:'🔴 只剩 6 张票，我们要 4 张',
+   car:'🇳🇴 车① **还车 14:30**（Leknes）· 车② **取车 17:00**',
+   gap:'还车 14:30 → 起飞 15:40 = **缓冲 70 分钟**（够）· 落地 16:35 → 取车 17:00 = **等 25 分钟** ✅',
+   note:'🆕 **车② 从 17:30 提前到 17:00** —— 17:00 和 17:30 实测同价（$224），'+
+        '所以没有理由多等半小时。18:00 前后到住处，特罗姆瑟 10 月初 18:30 天黑 → 极光夜完整'},
+  {leg:'✈️ 10/5 TOS → OSL', st:'待订', who:'Kevin',
+   best:'🥇 **Norwegian 08:20 → 10:15**（NOK 6,396/4 ≈ ¥4,285）—— **比 10:45 那班早 2.5 小时、还便宜 NOK 2,000**',
+   alt:'06:20→08:15（同价 6,396，但太早）· 10:45→12:40（**8,396，又晚又贵**）· 13:00→14:55（7,596）· 17:25 之后的都太晚',
+   car:'🇳🇴 车② **还车 07:30**（TOS 机场）· 车③ **取车 10:45**',
+   gap:'还车 07:30 → 起飞 08:20 = 缓冲 50 分钟（国内小机场够）· 落地 10:15 → 取车 10:45 = **等 30 分钟** ✅',
+   note:'🎯 **这是「把时间用满」收益最大的一处**：坐 08:20 那班 → 11:30 就能进 Stange 小屋，'+
+        '比坐 13:00 那班多出 **4 小时白天**（10 月初那一带 18:45 天黑），而且**还省 ¥800**。'+
+        '代价是 10/4 跑完 Senja（500 km）之后要 06:45 起床。'+
+        '不想早起就退到 10:45→12:40，车③ 改 13:10 取（同价 $85）'}
 ];
 
 /* ---------- 我替你做的两个决定 ---------- */

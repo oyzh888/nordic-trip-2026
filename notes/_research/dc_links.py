@@ -24,8 +24,8 @@ LOC = {"KEF": 1787, "EVE": 2088, "SVJ": 2092, "TOS": 2195, "OSL": 1710,
 
 CARS = [
  dict(slug="car1-iceland", label="🇮🇸 冰岛 5 天",
-      pick="KEF", drop="KEF", pick_dt="2026-09-25 17:00", drop_dt="2026-09-29 18:00",
-      expect="$258 裸车（Peugeot 2008 4x4 自动）"),
+      pick="KEF", drop="KEF", pick_dt="2026-09-25 12:00", drop_dt="2026-09-29 18:00",
+      expect="$326 裸车（Peugeot 2008 4x4 自动）· 取车钟点对价格无影响，落地后随便填"),
  dict(slug="car2-lofoten", label="🇳🇴 车① 罗弗敦 3 天（异地还到 Leknes）",
       pick="EVE", drop="LKN", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 14:30",
       expect="$647（Ford Explorer 4WD）· 只有 5 个车源 · 配 WF816 15:40 那班"),
@@ -33,11 +33,11 @@ CARS = [
       pick="EVE", drop="LKN", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 11:00",
       expect="$571（Ford Explorer 4WD）· 便宜 $76 但要在小机场干等 4h40"),
  dict(slug="car3-tromso", label="🇳🇴 车② 特罗姆瑟 3 天",
-      pick="TOS", drop="TOS", pick_dt="2026-10-02 17:30", drop_dt="2026-10-05 10:00",
-      expect="$224（4x4 自动）· 落地 16:35 之后取"),
+      pick="TOS", drop="TOS", pick_dt="2026-10-02 17:00", drop_dt="2026-10-05 10:00",
+      expect="$224（4x4 自动）· 落地 16:35 + 25 min"),
  dict(slug="car4-oslo", label="🇳🇴 车③ 奥斯陆 1 天",
-      pick="OSL", drop="OSL", pick_dt="2026-10-05 15:00", drop_dt="2026-10-06 10:00",
-      expect="$79–86"),
+      pick="OSL", drop="OSL", pick_dt="2026-10-05 10:45", drop_dt="2026-10-06 10:00",
+      expect="$85（4x4 自动）· 配 TOS→OSL 08:20→10:15 那班，落地 +30 min"),
 ]
 
 

@@ -1,0 +1,244 @@
+{
+ "url": "https://www.discovercars.com/search/4b7dd79b-3a39-4eea-a547-2736a1f0e721?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDEzOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+ "dates_on_page": [
+  "Fri, Sep 25",
+  "Tue, Sep 29"
+ ],
+ "n_offers": 17,
+ "rows": [
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    191,
+    212
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Manual | 4 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $191.00 | $212.22 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    234
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Kia Picanto | or similar Mini | Automatic | 5 seats | 5 doors | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 103 ratings | Total for 5 days | $234.06 | Free cancellation | View deal | Prices are even better in the app | Scan to download and book on your phone"
+  },
+  {
+   "car": "Suzuki Jimny",
+   "supplier": null,
+   "prices": [
+    247,
+    274
+   ],
+   "total_days": "5",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Suzuki Jimny | or similar Economy SUV | Manual | 2 seats | 3 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $247.00 | $274.44 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    326
+   ],
+   "total_days": "5",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Peugeot 2008 | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 103 ratings | Total for 5 days | $326.52 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i10",
+   "supplier": null,
+   "prices": [
+    204,
+    226
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i10 | or similar Mini | Automatic | 4 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $204.00 | $226.67 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i20",
+   "supplier": null,
+   "prices": [
+    212,
+    235
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i20 | or similar Economy | Automatic | 5 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $212.00 | $235.56 | Free cancellation | View deal"
+  },
+  {
+   "car": "Toyota Yaris Cross",
+   "supplier": null,
+   "prices": [
+    330
+   ],
+   "total_days": "5",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Toyota Yaris Cross | or similar Economy SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 104 ratings | Total for 5 days | $330.36 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    247
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Volkswagen Polo | or similar Economy | Automatic | 5 seats | 5 doors | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 103 ratings | Total for 5 days | $247.26 | Free cancellation | View deal"
+  },
+  {
+   "car": "Mazda CX-30",
+   "supplier": null,
+   "prices": [
+    338
+   ],
+   "total_days": "5",
+   "awd": true,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Mazda CX-30 | or similar Compact SUV | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 104 ratings | Total for 5 days | $338.26 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Picanto",
+   "supplier": null,
+   "prices": [
+    229
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Picanto | or similar Mini | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 47 ratings | Total for 5 days | $229.50 | Free cancellation | View deal"
+  },
+  {
+   "car": "Kia Picanto",
+   "supplier": null,
+   "prices": [
+    213
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Kia Picanto | or similar Mini | Manual | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Average deposit | Instant confirmation! | Unlimited mileage | 8.5 | Very Good | 47 ratings | Total for 5 days | $213.97 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    313
+   ],
+   "total_days": "5",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Dacia Duster | or similar Compact SUV | Manual | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 103 ratings | Total for 5 days | $313.30 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    316
+   ],
+   "total_days": "5",
+   "awd": true,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Suzuki Jimny | or similar Economy SUV | Manual | 2 seats | 3 doors | Air Conditioning | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 103 ratings | Total for 5 days | $316.61 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i30",
+   "supplier": null,
+   "prices": [
+    225,
+    250
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i30 | or similar Compact | Manual | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $225.00 | $250.00 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i30",
+   "supplier": null,
+   "prices": [
+    234,
+    260
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i30 | or similar Compact | Automatic | 5 seats | 5 doors | Air Conditioning | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $234.00 | $260.00 | Free cancellation | View deal"
+  },
+  {
+   "car": "Excellent service",
+   "supplier": null,
+   "prices": [
+    293
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": true,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Excellent service | Volkswagen Golf | or similar Compact | Automatic | 5 seats | 5 doors | Air Conditioning | Good conditions | Compare | Free shuttle service pick-up — Keflavik Airport (KEF) | No deposit | Instant confirmation! | Unlimited mileage | 8.7 | Very Good | 103 ratings | Total for 5 days | $293.50 | Free cancellation | View deal"
+  },
+  {
+   "car": "Hyundai i20",
+   "supplier": null,
+   "prices": [
+    201,
+    223
+   ],
+   "total_days": "5",
+   "awd": false,
+   "auto": false,
+   "free_cancel": true,
+   "score": null,
+   "raw": "Hyundai i20 | or similar Economy | Manual | 5 seats | 5 doors | Fair conditions | Compare | In terminal pick-up — Keflavik Airport (KEF) | Low deposit | Instant confirmation! | Unlimited mileage | 8.2 | Good | 43 ratings | Total for 5 days | $201.00 | $223.33 | Free cancellation | View deal"
+  }
+ ],
+ "job": {
+  "slug": "P-is-1300",
+  "pick_id": 1787,
+  "pick_dt": "2026-09-25 13:00",
+  "drop_dt": "2026-09-29 18:00"
+ }
+}

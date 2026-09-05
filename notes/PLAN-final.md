@@ -38,8 +38,8 @@
 >
 > 12 晚住宿 + 4 台车全部有实价、全部实测可订：
 > 住宿 **€5,132 ≈ ¥41,055 = ¥1,711 / 房 / 晚**（在你 ¥2,000–4,000 区间的**下沿**）·
-> 四台车 **¥10,203**（¥609–682/天，远低于 ¥2,000/天）·
-> **合计 ≈ ¥57,524（4 人）· 人均 ¥14,381**，不含跨国机票 / 餐饮 / 门票·tour。
+> 四台车 **¥10,530**（¥604–1,531/天，全部远低于 ¥2,000/天）·
+> **合计 ≈ ¥57,851（4 人）· 人均 ¥14,463**，不含跨国机票 / 餐饮 / 门票·tour。
 > （🆕 2026-09-04：10/2 那班飞机确认了实价，机票从「按 ¥5,360 估」变成 **¥5,960 实价**；
 > 车① 和车② 按新时间重报后一降一降，净变化只有 **+¥465**。）
 >
@@ -88,13 +88,13 @@
 |---|---:|---|---|---|
 | **住宿 12 晚**（含已订的罗弗敦 + 10/5 Stange 小屋） | **€5,132 ≈ ¥41,055** | **¥1,711 / 房 / 晚** | ¥2,000–4,000 / 房 | ✅ 仍在下沿内 |
 | *（对照：我原来那套）* | *€3,977 ≈ ¥31,816* | *¥1,326 / 房 / 晚* | 同上 | 便宜 **¥9,239** |
-| **冰岛租车 5 天** | $258 ≈ ¥1,832 | ¥366 / 天 | ≤¥2,000 / 天 | ✅ （+保险后见下） |
+| **冰岛租车 5 天** 🆕 取车=落地+30min | 🔴 **$326 ≈ ¥2,315**（9/3 是 $258） | ¥463 / 天 | ≤¥2,000 / 天 | ✅ 但**一天涨 26%**，早订 |
 | **挪威租车 ①** 🆕 EVE 9/30→**Leknes 10/2 14:30**（3 天） | $647 ≈ ¥4,594 | ¥1,531 / 天 | ≤¥2,000 / 天 | ✅ 多一天、车更大，钱没变 |
-| **挪威租车 ②** TOS 🆕 **10/2 17:30**→**10/5**（3 天） | $224 ≈ ¥1,590 | ¥530 / 天 | ≤¥2,000 / 天 | ✅ 晚取还更便宜 |
-| 🆕 **奥斯陆租车 ③** OSL 10/5 15:00→10/6 10:00（1 天） | $86 ≈ ¥611 | ¥611 / 天 | ≤¥2,000 / 天 | ✅ 只有选 Stange 小屋才需要 |
+| **挪威租车 ②** TOS 🆕 **10/2 17:00**→**10/5**（3 天） | $224 ≈ ¥1,590 | ¥530 / 天 | ≤¥2,000 / 天 | ✅ 落地 16:35 + 25 min |
+| 🆕 **奥斯陆租车 ③** OSL 🆕 **10/5 10:45**→10/6 10:00（1 天） | $85 ≈ ¥604 | ¥604 / 天 | ≤¥2,000 / 天 | ✅ 配 08:20 那班，落地+30min |
 | **✈️ 10/2 LKN→TOS 机票 ×4** 🆕 **实价**（WF816，含 23kg 托运档） | **¥5,960**（4×¥1,490） | — | — | 🔴 只剩 6 张票 |
 | Senja 渡轮（🆕 **10/4** 往返） | NOK 456 ≈ ¥306 | — | — | — |
-| **合计** | **≈ ¥57,524** | 人均 ≈ **¥14,381** | — | 不含跨国机票/门票/吃饭 |
+| **合计** | **≈ ¥57,851** | 人均 ≈ **¥14,463** | — | 不含跨国机票/门票/吃饭 |
 
 🆕 **2026-09-02 下午按 Steve 两句话改过**（详细推导见 `notes/CHANGES-0929-1002.md`）：
 - **「9/29 丢一些景点别那么累」** → 9/29 从斯奈山半岛（7.5h 开车）改成**雷克雅内斯半岛轻档**（~2h、08:30 出发）。
@@ -102,9 +102,10 @@
 - **「10/2 坐飞机别开车」** → 挪威从「一台车连开 6 天 $762」改成**两段夹一段 55 分钟的飞**（🆕 按已确认的 WF816 重报：$647 + $224 + 奥斯陆那台 $86 = **$957**）。
   **多花约 ¥4,050–7,800**（车 +$231 + 机票）换掉 480 km / 6h30 的开车日。上一版总账 ¥39,364 就是这么涨到 ¥45,528 的。
 
-⚠️ **唯一会往上顶的一项**：冰岛租车的 **$258 是裸车价**。加上冰岛必买的保险包
-（SCDW 超级碰撞险 + **砂石险 gravel** + **火山灰/沙尘暴险 sand&ash** + 2026 道路税），
-实际会到 **$400–480 ≈ ¥2,840–3,408**，折 **¥568–682/天** —— 仍然远低于 ¥2,000/天。
+⚠️ **唯一会往上顶的一项**：冰岛租车的 🆕 **$326 是裸车价**（9/3 还是 $258 —— 一天涨了 26%）。
+加上冰岛必买的保险包（SCDW 超级碰撞险 + **砂石险 gravel** + **火山灰/沙尘暴险 sand&ash** + 2026 道路税），
+实际会到 **$451–526 ≈ ¥3,202–3,735**，折 **¥640–747/天** —— 仍然远低于 ¥2,000/天。
+（总账里那 ¥2,315 是裸车价；¥10,530 那一档已经按**保险最坏 ¥3,735** 计。）
 （砂石险和沙尘险不是推销：冰岛 1 号环岛公路碎石路段多，10 月南岸沙尘暴是真实索赔项。）
 
 所以总数按最坏算 **≈ ¥58,700**（换回我原来那套住宿则 ≈ ¥45,500）。
@@ -303,13 +304,13 @@ Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才
 | | 冰岛 | 挪威 ①（罗弗敦） | 挪威 ②（特罗姆瑟） | 🆕 挪威 ③（奥斯陆） |
 |---|---|---|---|---|
 | 车 | **Peugeot 2008 · 4x4 · 自动** | 🆕 **Ford Explorer · 4WD · 自动**（7 座，4 人 4 箱最宽松） | **自动四驱**（16 个报价里挑） | 自动挡（四驱 +$7） |
-| 取/还 | **KEF 9/25 17:00 → KEF 9/29 18:00** | 🆕 **EVE 9/30 11:00 → Leknes(LKN) 10/2 14:30** | 🆕 **特罗姆瑟机场 10/2 17:30 → 10/5 10:00** | **OSL 10/5 15:00 → 10/6 10:00** |
+| 取/还 | 🆕 **KEF 9/25 落地+30min → KEF 9/29 18:00** | **EVE 9/30 11:00 → Leknes(LKN) 10/2 14:30** | 🆕 **特罗姆瑟机场 10/2 17:00 → 10/5 10:00** | 🆕 **OSL 10/5 10:45 → 10/6 10:00** |
 | 天数 | 5 天（4 天 1 小时，按 5 天计） | 🆕 **3 天**（51.5 小时 → 跨 48h） | **3 天** | 1 天 |
-| 含税总价 | **$258 ≈ ¥1,832**（¥366/天） | 🆕 **$647 ≈ ¥4,594** | 🆕 **$224 ≈ ¥1,590** | **$79 自动 / $86 四驱 ≈ ¥611** |
+| 含税总价 | 🔴 **$326 ≈ ¥2,315**（¥463/天）—— 9/3 还是 $258，**一天涨 26%** | **$647 ≈ ¥4,594** | **$224 ≈ ¥1,590** | **$85 ≈ ¥604** |
 | 里程 | 不限 | 不限 | 不限 | 不限 |
 | 退改 | ✅ 免费取消 | ✅ 免费取消 | ✅ 免费取消 | ✅ 免费取消 |
 | 驾照 | 美国驾照可直接用 | 同 | 同 | 同 |
-| 🆕 **🔗 点开就是比价页**（日期/取还点已填好） | [冰岛 5 天 ↗](https://www.discovercars.com/search/261123f5-8341-49ae-9a25-94d0a4745780?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $187 | 🆕 [罗弗敦 EVE→**Leknes** ↗](https://www.discovercars.com/search/d08ab089-1c38-4a90-96f1-a427e6d50932?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>🔴 只有 5 个报价 · 最低就是 $647 这台<br>（[卡在 48h 内的 2 天档 $571 ↗](https://www.discovercars.com/search/bce93b0b-56a8-4cee-ad56-50b3f03249fc?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)）| 🆕 [特罗姆瑟 3 天 · 17:30 取 ↗](https://www.discovercars.com/search/7d334b96-ca1b-438c-a266-ab6a3e59725d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjMwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $214 | [奥斯陆 1 天 ↗](https://www.discovercars.com/search/f0cefaa6-73a7-4986-b852-2494e80014b2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDE1OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $68 |
+| 🆕 **🔗 点开就是比价页**（日期/取还点已填好） | [冰岛 5 天 ↗](https://www.discovercars.com/search/062bf0cb-83c1-4d5c-8fe6-346e0ee27aaf?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDEyOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>⚠️ 链接里填的是 12:00，**改成你落地的时间价格不变** | [罗弗敦 EVE→**Leknes** ↗](https://www.discovercars.com/search/8f410c56-c7fa-46bc-bf62-78eb24390c9d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>🔴 只有 5 个报价 · 最低 $647<br>（[卡在 48h 内的 2 天档 $571 ↗](https://www.discovercars.com/search/3d113896-bf97-4dfc-9e46-45456357b0e2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)）| 🆕 [特罗姆瑟 · **17:00 取** ↗](https://www.discovercars.com/search/fe0d3753-6d43-476c-bd12-d35ee46367d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $214 | 🆕 [奥斯陆 · **10:45 取** ↗](https://www.discovercars.com/search/e4787f19-b6c3-47db-b7b1-a4e652055ff8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEwOjQ1IiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ)<br>8 个报价 · 最低 $68 |
 | ⚠️ | 保险包后 → **$400–480** | 🔴 **Leknes 异地还车只有 5 个报价**（Evenes 22 / 特罗姆瑟 16）→ 四台里最早订这台 · 🟠 **48h 悬崖**：10/2 11:00 前还 = 2 天 **$571**，14:30 还 = 3 天 **$647** | ⚠️ 押金（EVE 那台原报价冻结 $1,805）· 🆕 **17:30 取比 10:30 取还便宜**（$224 vs $240） | 🔴 **只有选 Stange 那套小屋才需要这台**（房源页写 "A car is required"）。选 Clarion 机场酒店就不用租 · 实抓 23 个报价，库存充足 |
 
 > 🔗 **那四条链接是怎么来的、为什么能直接点**：DiscoverCars 的
@@ -324,6 +325,44 @@ Klaustur–Höfn 一带 Airbnb 搜索返回 0（2 卫和 1 卫都试过），才
 > 4 人 4 箱，所以我们的报价总比榜首高一点（冰岛 $187 vs 我们 $258 就是这个差）；
 > **② 价格每天在动**，点开看到的数不会和表里分毫不差；
 > **③ 冰岛的必买三险（SCDW + 砂石 + 火山沙尘）要在结账页加**，不在裸车价里。
+
+### 🆕 ✈️ 航班 ↔ 取还车 对齐（2026-09-04，按 Steve「取车别等太久 + 时间用满」两条要求重排）
+
+> 🟢 **最重要的一条实测结论：取车钟点对价格是中性的。**
+> 冰岛 08:00 / 10:00 / 12:00 / 13:00 / 15:00 / 16:00 六个点**全部同价**（$326 那台 Peugeot 2008
+> 4x4 自动，17 个报价，都算 5 个计费日）· 奥斯陆 10:45 / 13:00 / 14:00 **全部 $85** ·
+> 特罗姆瑟 17:00 与 17:30 **全部 $224**。
+> → **「落地 30 分钟后取车」不用付任何代价，直接照做。花钱的是「还车」时间，不是取车时间。**
+>
+> ⛔ **顺手改掉一句错的**：旧版写「冰岛取车必须填 17:00 或更晚，早 3 小时会跨进第 5 个计费日、
+> 白贵 $65」。**不对** —— 08:00 和 17:00 都是 5 个计费日、同价；那 $65 是 9/1 和 9/3 两次抓取之间
+> 的价格变动，不是计费悬崖。真正的悬崖在 **9/25 18:00**（之后取才降到 4 天，但那等于放弃第一天）。
+
+| 航段 | 状态 | 建议坐哪班（Google Flights 实抓 · NOK/4 人） | 车怎么配 | 等待 / 缓冲 |
+|---|---|---|---|---|
+| ✈️ **9/25 OSL → KEF** | 待订（Kevin） | 唯一直飞 **SAS 06:15 → 07:05**（NOK 19,392，偏贵）；其余全绕（Air Baltic 13:55→23:55 停 RIX 6h35 / NOK 10,452） | 冰岛那台：**落地 + 30 min** | 若坐 07:05 那班 → **07:35 取车**。⚠️ 旧方案写的 17:00 会**白等 10 小时** |
+| ✈️ **9/29 KEF → OSL** | 待订（Kevin） | 最便宜直飞 **Norwegian 20:05 → 00:45+1**（NOK 4,280）；SAS 18:55→23:35（9,845） | 冰岛那台：**还车 18:00** | 缓冲 **2h05** ✅ |
+| ✈️ **9/30 OSL → EVE** | ✅ 时刻已核实 | **Norwegian 08:55 → 10:35**（1h40 直飞，NOK 4,196 = 最便宜档）；同价还有 13:20→15:00 | 车①：**取车 11:00**（10:45 同价） | 落地 10:35 → 取 11:00 = **等 25 分钟** ✅ |
+| ✈️ **10/2 LKN → TOS** | ✅ 已确认 | **WF816 15:40 → 16:35**（Widerøe，携程 ¥1,490/人含托运） | 车① **还车 14:30**（Leknes）· 车② **取车 17:00** | 还车→起飞 **70 min** ✅ · 落地→取车 **25 min** ✅ |
+| ✈️ **10/5 TOS → OSL** | 待订（Kevin） | 🥇 **Norwegian 08:20 → 10:15**（NOK 6,396）—— 比 10:45 那班**早 2.5 小时还便宜 NOK 2,000** | 车② **还车 07:30** · 车③ **取车 10:45** | 还车→起飞 50 min · 落地→取车 **30 分钟** ✅ |
+
+**「把时间用满」这一轮真正拿到的三块时间**：
+
+1. 🎯 **10/5 换成 08:20 那班 = 白得 4 小时 + 省 ¥800。** 11:30 就进 Stange 小屋（那一带 10 月初
+   18:45 天黑），而坐 13:00 那班只剩 2.5 小时白天。代价：跑完 Senja 之后要 06:45 起床。
+   不想早起就退回 10:45→12:40，车③ 改 13:10 取（同价）。
+2. 🎯 **10/2 上午整个是白得的**（航班 15:40 起飞）：直接去 Leknes 只要 1h16 →
+   13:00 出发就够；加 Henningsvær 10:30 走；跑西侧沙滩（Ramberg → Leknes 35 min）09:00 走。
+3. 🎯 **9/25 如果 Kevin 坐 07:05 那班落地，等于白得一整天** —— 现在 D1 只排了「傍晚市中心」。
+   完全可以把雷克雅内斯/蓝湖那半天挪到 9/25，给 9/28 让出空间。**这个要等他的票定了再重排。**
+
+🔴 **顺便发现全程最紧的一处接驳，但不是车的问题**：9/29 那班 Norwegian **00:45 才落 OSL**，
+而 9/30 飞 EVE 最便宜那班是 **08:55** → 只能睡 5 小时。两个解法：
+① 9/30 改坐 **13:20→15:00**（同价 NOK 4,196），代价是天快黑才进罗弗敦；
+② 9/29 改坐 SAS 18:55→23:35（贵 NOK 5,565 ≈ ¥3,729），车提前到 17:00 还。
+
+🔴 **冰岛那台在涨价**：同一台 Peugeot 2008 4x4 自动，9/3 是 **$258**，9/4 已经 **$326**（+26%）。
+四台车里它库存最足（17 个报价）但价在跑 —— 也该早订。
 
 **两个决定的理由**：
 

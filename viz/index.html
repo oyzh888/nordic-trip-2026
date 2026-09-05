@@ -344,6 +344,16 @@ footer{margin-top:40px;padding:24px 0 46px;border-top:1px solid var(--line);colo
      <b>③ 冰岛那台的必买三险（SCDW + 砂石 + 火山沙尘）要在结账页加</b>，不在裸车价里。</p>
   <div class="tw"><table id="cartab"></table></div>
 
+  <h3 class="subh">✈️ 航班 ↔ 取还车 对齐表（🆕 2026-09-04）</h3>
+  <p class="lede">两条要求：<b>① 取车 = 落地 + 30 分钟，不在机场干等；② 把白天用满。</b>
+     下面每一行是一段飞行，配着它前后那台车该几点取、几点还，以及<b>实际等多久 / 缓冲多久</b>。<br>
+     🟢 <b>最重要的一条实测结论：取车钟点对价格是中性的。</b>
+     冰岛 08:00 / 10:00 / 12:00 / 13:00 / 15:00 / 16:00 六个点全部同价；奥斯陆 10:45 / 13:00 / 14:00 全部 $85；
+     特罗姆瑟 17:00 与 17:30 全部 $224 —— <b>所以「落地就取」不用付任何代价，直接照做。</b>
+     花钱的是<b>还车</b>时间（车① 的 48 小时悬崖：$571 → $647）。<br>
+     航班时刻是 Google Flights 实抓（SAS / Norwegian 有供货；Widerøe 那班靠携程），价格是 <b>NOK / 4 人单程</b>。</p>
+  <div class="tw"><table id="flighttab"></table></div>
+
   <h3 class="subh">💰 钱 —— 一张表看完</h3>
   <p class="lede">口径：<b>4 人总额</b>，含住宿 + 四台车 + Senja 渡轮/油 + 10/2 那段机票估值，
      <b>不含</b>跨国机票、餐饮、门票 / tour（那两块在 Kevin 手上）。曲线版在<a href="#cost">第 03 节</a>。</p>
@@ -1033,6 +1043,11 @@ tbl('staytab',['状态','入住 → 退房（就按这个订）','地点','住�
     r.cxl]})));
 
 /* ============ 总览里的车表 + 钱表 ============ */
+tbl('flighttab',['航段','状态','建议坐哪班（实抓）','车怎么配','等待 / 缓冲','说明'],
+  (typeof FLIGHTS!=='undefined'?FLIGHTS:[]).map(f=>({c:[
+    `<b>${md(f.leg)}</b>`, f.st, md(f.best)+'<div style="font-size:12px;color:var(--tx3);margin-top:4px">其他班次：'+md(f.alt)+'</div>',
+    md(f.car), md(f.gap), md(f.note)]})));
+
 tbl('cartab',['段','推荐车','取 → 还','裸车报价','折人民币','🔗 点开比价','要注意的'],
   (typeof CARTAB!=='undefined'?CARTAB:[]).map(c=>({c:[`<b>${md(c.seg)}</b>`, c.car, md(c.when),
     {v:c.p,n:1},{v:`<b style="color:var(--cy)">${c.cny}</b>`,n:1},
