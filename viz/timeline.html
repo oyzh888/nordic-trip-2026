@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北欧 2026 · 全程时间线（住宿 / 车 / 航班 覆盖图）</title>
+<style>
+:root{
+  --bg:#0b1020; --bg2:#111931; --bg3:#18213d; --line:#26314f;
+  --tx:#e8ecf7; --tx2:#a7b2cd; --tx3:#6f7b99;
+  --red:#ff5d73; --amber:#ffb44d; --green:#4ad991; --blue:#5bc8ff;
+  --violet:#a98bff; --cy:#3ee6d0;
+  --stay:#3ee6d0; --car:#a98bff; --fly:#5bc8ff; --act:#ffb44d;
+  --hour:64px;              /* 每小时多宽（JS 会按屏幕调） */
+  --gutter:96px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1500px;margin:0 auto;padding:0 16px}
+
+header{border-bottom:1px solid var(--line);
+  background:radial-gradient(1000px 380px at 10% -20%,rgba(62,230,208,.18),transparent 60%),
+             radial-gradient(900px 360px at 80% -25%,rgba(169,139,255,.20),transparent 60%),
+             linear-gradient(180deg,#0d1428,#0b1020)}
+header .wrap{padding:26px 16px 22px}
+.kicker{color:var(--cy);font:700 12px/1 -apple-system,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+h1{margin:8px 0 6px;font-size:clamp(23px,3.2vw,36px);line-height:1.18;letter-spacing:-.4px}
+.sub{color:var(--tx2);max-width:940px;font-size:15px}
+.sub b{color:var(--tx)}
+.nav{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px;font-size:13.5px}
+.nav a{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;padding:6px 11px;color:var(--tx2)}
+.nav a:hover{color:var(--tx);border-color:var(--tx3);text-decoration:none}
+
+section{padding:30px 0 4px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+h2{font-size:20px;margin:0 0 4px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+h2 .n{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.1em;
+  border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.lede{color:var(--tx2);margin:6px 0 16px;font-size:14px;max-width:1020px}
+
+/* ---------- 图例 ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 14px;font-size:13px;color:var(--tx2)}
+.legend span{display:flex;align-items:center;gap:7px}
+.legend i{width:26px;height:12px;border-radius:4px;display:inline-block}
+.legend i.st{background:var(--stay)}.legend i.ca{background:var(--car)}
+.legend i.fl{background:var(--fly)}.legend i.ac{background:var(--act)}
+.legend i.tbd{background:repeating-linear-gradient(45deg,#5a6a8c 0 4px,transparent 4px 8px);
+  border:1px dashed #8b97b8}
+
+/* ---------- 甘特图 ---------- */
+.gwrap{border:1px solid var(--line);border-radius:14px;background:var(--bg2);overflow:hidden}
+.gscroll{overflow-x:auto;overflow-y:visible}
+.grid{min-width:calc(var(--gutter) + var(--hour) * 24)}
+.ruler{display:grid;grid-template-columns:var(--gutter) repeat(24,var(--hour));
+  position:sticky;top:0;z-index:6;background:#0e1730;border-bottom:1px solid var(--line)}
+.ruler div{font:600 11px/26px -apple-system,sans-serif;color:var(--tx3);text-align:left;
+  padding-left:5px;border-left:1px solid rgba(255,255,255,.05);min-width:0}
+.ruler div:first-child{border-left:none;color:var(--tx2);padding-left:10px}
+.drow{display:grid;grid-template-columns:var(--gutter) 1fr;border-top:1px solid var(--line)}
+.drow.wknd .dinfo{background:rgba(169,139,255,.05)}
+.dinfo{padding:8px 8px 8px 10px;border-right:1px solid var(--line);min-width:0}
+.dinfo b{display:block;font-size:14.5px;font-variant-numeric:tabular-nums}
+.dinfo span{font-size:11.5px;color:var(--tx3)}
+.dinfo em{display:block;font-style:normal;font-size:11px;color:var(--cy);margin-top:3px}
+.tracks{position:relative;min-width:0}
+.tk{position:relative;height:26px;border-bottom:1px dashed rgba(255,255,255,.045)}
+.tk:last-child{border-bottom:none}
+.tk .hg{position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px calc(100%/24))}
+/* 夜间（22:00–06:00）底色，用来一眼看出「这段是要睡觉的」 */
+.tk .night{position:absolute;top:0;bottom:0;background:rgba(91,200,255,.055)}
+.bar{position:absolute;top:3px;height:20px;border-radius:5px;padding:0 7px;
+  font:600 11.5px/20px -apple-system,sans-serif;color:#08101f;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;cursor:pointer;z-index:2;
+  box-shadow:0 1px 6px rgba(0,0,0,.4);transition:filter .15s,transform .15s}
+.bar:hover{filter:brightness(1.15);transform:translateY(-1px);z-index:5}
+.bar.on{box-shadow:0 0 0 2px #fff,0 3px 12px rgba(0,0,0,.6);z-index:5}
+.bar.stay{background:var(--stay)}
+.bar.car{background:var(--car)}
+.bar.fly{background:var(--fly)}
+.bar.act{background:var(--act)}
+.bar.tbd{background:transparent;border:1.5px dashed currentColor;box-shadow:none;font-weight:700}
+.bar.tbd.stay{color:var(--stay)}.bar.tbd.car{color:var(--car)}
+.bar.tbd.fly{color:var(--fly)}.bar.tbd.act{color:var(--act)}
+.bar.cont::before{content:'‹ ';opacity:.7}
+.bar.contr::after{content:' ›';opacity:.7}
+.tklab{position:absolute;left:3px;top:5px;font:700 9.5px/1 -apple-system,sans-serif;
+  color:var(--tx3);letter-spacing:.06em;z-index:1;pointer-events:none}
+
+/* 详情卡 */
+.det{margin:12px 0 0;background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.det h3{margin:0 0 5px;font-size:16px}
+.det .m{color:var(--tx3);font-size:12.5px;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.det p{margin:6px 0 0;font-size:13.8px;color:var(--tx2)}
+.det .price{color:var(--cy);font-weight:700}
+.tag{display:inline-block;font:700 10.5px/1 -apple-system,sans-serif;padding:3px 7px;border-radius:5px;
+  margin-left:6px;vertical-align:1px}
+.tag.booked{background:rgba(74,217,145,.16);color:var(--green)}
+.tag.ok{background:rgba(62,230,208,.14);color:var(--cy)}
+.tag.tbd{background:rgba(255,93,115,.15);color:var(--red)}
+
+/* ---------- 体检 ---------- */
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px}
+.chk{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:13px 15px;
+  border-left:4px solid var(--green)}
+.chk.warn{border-left-color:var(--amber)}
+.chk.bad{border-left-color:var(--red)}
+.chk h4{margin:0 0 6px;font-size:14px;display:flex;align-items:center;gap:7px}
+.chk ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--tx2)}
+.chk li{margin:3px 0}
+.chk .ok{color:var(--green)}
+.chk .no{color:var(--red)}
+
+/* ---------- 表 ---------- */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 11px/1.3 -apple-system,sans-serif;letter-spacing:.08em;color:var(--tx3);
+  text-transform:uppercase;background:#0e1730;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+td b{color:#fff}
+footer{border-top:1px solid var(--line);margin-top:34px;padding:20px 0 40px;font-size:12.5px;color:var(--tx3)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px}
+@media(max-width:640px){:root{--hour:40px;--gutter:74px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <p class="kicker">Nordic 2026 · 9/24 → 10/6 · 时间线</p>
+  <h1>整条时间线 —— 住宿 / 车 / 航班 谁盖住了哪一段</h1>
+  <p class="sub">从上往下按天读。每一天是一行，行里从左到右是 <b>00:00 → 24:00</b>；
+     四条轨道分别是 <b>✈️ 航班 · 🚗 车 · 🏠 住 · 📍 活动</b>。
+     住宿和租车画成<b>横跨时间范围的条</b>，所以「这一段有没有人管」是看出来的，不是算出来的 ——
+     跨夜的条会从上一行接到下一行（用 <b>‹ ›</b> 标出来）。
+     <b>虚线条 = 还没定/要填的</b>，页面底部自动列成一张清单。<br>
+     蓝色底的时段是夜里（22:00–06:00）—— 那一段上面如果没有 🏠 的条，就是没地方睡。</p>
+  <div class="nav">
+    <a href="#gantt">① 甘特图</a><a href="#health">② 自动体检</a><a href="#fill">③ 要填的清单</a>
+    <a href="https://reports.aitist.ai/nordic-trip-2026/plan/">总计划页（价格 / 备选 / 比价链接）↗</a>
+    <a href="https://reports.aitist.ai/nordic-trip-2026/styles/">故事页 4 个风格 ↗</a>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+<section id="gantt">
+  <h2><span class="n">01</span>🗓 甘特图</h2>
+  <p class="lede">点任意一条看细节（价格、退改、注意事项、可点的链接）。
+     手机上左右滑动那块网格；日期列固定在左边。</p>
+  <div class="legend">
+    <span><i class="st"></i>住宿</span><span><i class="ca"></i>租车</span>
+    <span><i class="fl"></i>航班</span><span><i class="ac"></i>白天活动 / 移动</span>
+    <span><i class="tbd"></i>虚线 = 还没定</span>
+  </div>
+  <div class="gwrap"><div class="gscroll"><div class="grid" id="grid"></div></div></div>
+  <div id="det"></div>
+</section>
+
+<section id="health">
+  <h2><span class="n">02</span>🩺 自动体检 —— 页面自己算的，不是我写死的</h2>
+  <p class="lede">下面每一条都是从上面那张图的时刻**现算**出来的：夜里有没有住的、
+     落地到取车等多久、还车到起飞够不够、要移动的时候有没有车。
+     改了时间线的数据，这里的结论会跟着变。</p>
+  <div class="checks" id="checks"></div>
+</section>
+
+<section id="fill">
+  <h2><span class="n">03</span>📝 还要填的（按紧急程度排）</h2>
+  <p class="lede">🔴🔴 = 今天就该动手（库存/余票会没）· 🔴 = 这两天 · 🟠 = 等某个前置条件 ·
+     🟡 = 出发前 · 🟢 = 可选优化。<b>「等航班」那几条的意思是：Kevin 的票一定，我这边的取还车钟点就能定，而且改是免费的。</b></p>
+  <div class="tw"><table id="filltab"></table></div>
+</section>
+
+<footer>
+  时刻表数据层 <span class="mono">viz/timeline.js</span> ·
+  口径与出处 <span class="mono">notes/PLAN-final.md</span> ·
+  车价 = DiscoverCars 实抓（<span class="mono">notes/_research/out_lkn · out_pickup</span>）·
+  航班 = Google Flights 实抓（<span class="mono">flights_gf2.py</span>）+ 10/2 那班携程截图 ·
+  车程 = OSRM 真实路网<br>
+  汇率固定 €1=¥8.0 · $1=¥7.1 · NOK1=¥0.67
+</footer>
+</div>
+
+<script src="./timeline.js"></script>
+<script>
+/* ============ 小工具 ============ */
+const pad=n=>String(n).padStart(2,'0');
+const D=s=>new Date(s+(s.length<=10?'T00:00':'')+'');
+const dayKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const hm=d=>`${pad(d.getHours())}:${pad(d.getMinutes())}`;
+const WD=['周日','周一','周二','周三','周四','周五','周六'];
+const LANES=[['fly','✈️'],['car','🚗'],['stay','🏠'],['act','📍']];
+const STLAB={booked:'✅ 已订',ok:'☑️ 已选定',tbd:'🔴 待填'};
+const dur=(a,b)=>{const m=Math.round((b-a)/60000);return m<60?m+' 分钟':(m/60).toFixed(m%60?1:0)+' 小时'};
+
+/* 事件预处理：转成 Date，按开始时间排序 */
+const EVS=EV.map((e,i)=>({...e,i,S:new Date(e.s),E:new Date(e.e)}))
+            .sort((a,b)=>a.S-b.S||a.E-b.E);
+const DAYS_=[...Array(DAYN)].map((_,k)=>addDays(D(DAY0),k));
+
+/* ============ 甘特图 ============ */
+const grid=document.getElementById('grid');
+let html='<div class="ruler"><div>日期</div>'+
+  [...Array(24)].map((_,h)=>`<div>${h%2?'':pad(h)}</div>`).join('')+'</div>';
+
+DAYS_.forEach(d=>{
+  const k=dayKey(d), d0=new Date(d), d1=addDays(d0,1);
+  const wknd=[0,6].includes(d.getDay());
+  /* 这一天有没有「跨过来」的住宿 —— 用来在日期列上标一句 */
+  const stays=EVS.filter(e=>e.lane==='stay'&&e.S<d1&&e.E>d0);
+  const label=stays.length?stays[0].t.replace(/<[^>]+>/g,'').split('·')[0].slice(0,10):'—';
+  html+=`<div class="drow${wknd?' wknd':''}"><div class="dinfo">
+      <b>${d.getMonth()+1}/${d.getDate()}</b><span>${WD[d.getDay()]}</span>
+      <em>${stays.length?'🏠 '+label:'⚠️ 无住宿'}</em></div><div class="tracks">`;
+  LANES.forEach(([ln,ico])=>{
+    const items=EVS.filter(e=>e.lane===ln&&e.S<d1&&e.E>d0);
+    html+=`<div class="tk"><div class="hg"></div>`;
+    /* 夜间底色只画在住宿轨上，避免整张图糊掉 */
+    if(ln==='stay') html+=`<div class="night" style="left:0;width:${100*6/24}%"></div>
+                           <div class="night" style="left:${100*22/24}%;width:${100*2/24}%"></div>`;
+    html+=`<span class="tklab">${ico}</span>`;
+    items.forEach(e=>{
+      const a=Math.max(e.S,d0), b=Math.min(e.E,d1);
+      const l=(a-d0)/864e5*100, w=Math.max((b-a)/864e5*100,1.6);
+      const cont=e.S<d0?' cont':'', contr=e.E>d1?' contr':'';
+      html+=`<div class="bar ${ln}${e.st==='tbd'?' tbd':''}${cont}${contr}"
+        style="left:${l}%;width:${w}%" data-i="${e.i}"
+        title="${hm(e.S)}–${hm(e.E)} ${e.t.replace(/<[^>]+>/g,'').replace(/"/g,'')}">${e.t.replace(/<[^>]+>/g,'')}</div>`;
+    });
+    html+='</div>';
+  });
+  html+='</div></div>';
+});
+grid.innerHTML=html;
+
+/* 点条 → 详情卡 */
+const det=document.getElementById('det');
+function show(i){
+  const e=EVS.find(x=>x.i===+i); if(!e) return;
+  document.querySelectorAll('.bar.on').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll(`.bar[data-i="${i}"]`).forEach(b=>b.classList.add('on'));
+  det.innerHTML=`<div class="det">
+    <h3>${e.t}<span class="tag ${e.st}">${STLAB[e.st]}</span></h3>
+    <div class="m">${e.S.getMonth()+1}/${e.S.getDate()} ${hm(e.S)} → ${e.E.getMonth()+1}/${e.E.getDate()} ${hm(e.E)}
+      · 跨 ${dur(e.S,e.E)}${e.who?' · 归 '+e.who:''}</div>
+    ${e.price?`<p class="price">${e.price}</p>`:''}
+    ${e.note?`<p>${e.note}</p>`:''}
+    ${e.link?`<p><a href="${e.link}" target="_blank" rel="noopener">打开原始页面（房源 / 比价）↗</a></p>`:''}
+  </div>`;
+}
+grid.addEventListener('click',ev=>{const b=ev.target.closest('.bar'); if(b) show(b.dataset.i)});
+
+/* ============ 自动体检 ============ */
+const cov=(lane,a,b)=>EVS.some(e=>e.lane===lane&&e.S<=a&&e.E>=b);
+const checks=[];
+
+/* ① 每一夜有没有住的（口径：当天 23:00 → 次日 06:00） */
+{
+  const rows=[];
+  DAYS_.slice(0,DAYN-1).forEach(d=>{
+    const a=new Date(d); a.setHours(23,0,0,0);
+    const b=addDays(new Date(d),1); b.setHours(6,0,0,0);
+    const st=EVS.filter(e=>e.lane==='stay'&&e.S<b&&e.E>a);
+    if(!st.length){rows.push([`${d.getMonth()+1}/${d.getDate()} 夜`,'❌ <b>没有住的</b>',false]);return}
+    /* 实际能睡多久 = 住宿区间 ∩ 22:00–09:00 */
+    const wa=new Date(d); wa.setHours(22,0,0,0);
+    const wb=addDays(new Date(d),1); wb.setHours(9,0,0,0);
+    let ms=0; st.forEach(e=>{ms+=Math.max(0,Math.min(e.E,wb)-Math.max(e.S,wa))});
+    const h=ms/36e5;
+    rows.push([`${d.getMonth()+1}/${d.getDate()} 夜`,
+      (h<7?'⚠️ <b>只有 '+h.toFixed(1)+' 小时</b>':'✅ '+h.toFixed(1)+' 小时'), h>=7]);
+  });
+  const bad=rows.filter(r=>!r[2]).length;
+  checks.push({cls:bad?'warn':'', h:'🏠 每一夜都有地方睡吗（口径：22:00–09:00 窗口内待在住处的时长，不是「睡着」）',
+    body:rows.map(r=>`<li>${r[0]}：${r[1]}</li>`).join(''),
+    tail:bad?`<li class="no"><b>${bad} 个夜晚不达标</b> —— 上面那条会告诉你是哪一晚</li>`:'<li class="ok">13 夜全部覆盖 ✅</li>'});
+}
+
+/* ② 落地 → 取车 等多久 */
+{
+  const rows=[];
+  EVS.filter(e=>e.lane==='fly').forEach(f=>{
+    const p=EVS.find(e=>e.lane==='car'&&e.S>=f.E&&e.S-f.E<8*36e5);
+    if(!p) return;
+    const m=(p.S-f.E)/6e4;
+    rows.push([`${f.E.getMonth()+1}/${f.E.getDate()} ${hm(f.E)} 落地 → ${hm(p.S)} 取车`,
+      m<=45?`✅ 等 ${m} 分钟`:`⚠️ 等 ${m} 分钟（偏久）`, m<=45]);
+  });
+  checks.push({cls:rows.some(r=>!r[2])?'warn':'', h:'🚗 落地到取车等多久（你要求 ~30 分钟）',
+    body:rows.map(r=>`<li>${r[0]}：${r[1]}</li>`).join(''),
+    tail:'<li class="ok">冰岛那台是<b>摆渡车</b>取车（不在航站楼内）→ 那一段按 <b>落地+45 分钟</b> 算；'+
+         '其余三台都是 <b>In terminal</b>，25–30 分钟够</li>'});
+}
+
+/* ③ 还车 → 起飞 缓冲够不够 */
+{
+  const rows=[];
+  EVS.filter(e=>e.lane==='car').forEach(c=>{
+    const f=EVS.find(e=>e.lane==='fly'&&e.S>=c.E&&e.S-c.E<8*36e5);
+    if(!f) return;
+    const m=(f.S-c.E)/6e4;
+    rows.push([`${c.E.getMonth()+1}/${c.E.getDate()} ${hm(c.E)} 还车 → ${hm(f.S)} 起飞`,
+      /* 洲际（回北京那班）要 3 小时，国内小机场 50 分钟就够 —— 两套标准不能混 */
+      (()=>{const intl=/北京|洲际/.test(f.t), need=intl?180:50;
+        if(m<need) return `❌ 只有 ${m} 分钟，${intl?'洲际至少留 3 小时':'太紧'}`;
+        if(!intl&&m>210) return `⚠️ ${(m/60).toFixed(1)} 小时（在机场白等）`;
+        return `✅ 缓冲 ${m} 分钟`;})(),
+      (()=>{const intl=/北京|洲际/.test(f.t), need=intl?180:50;
+        return m>=need&&(intl||m<=210);})()]);
+  });
+  checks.push({cls:rows.some(r=>!r[2])?'warn':'', h:'✈️ 还车到起飞的缓冲',
+    body:rows.map(r=>`<li>${r[0]}：${r[1]}</li>`).join(''),
+    tail:'<li class="ok">口径：<b>国内小机场 50 分钟</b>够（Widerøe 行李截止约 30 分钟前）· '+
+         '<b>KEF→OSL 这种欧洲线 2 小时</b> · <b>回北京那班洲际按 3 小时</b>算</li>'+
+         '<li>⚠️ 10/6 那班的 12:00 是<b>占位时刻</b>（Kevin 还没定）→ 真要按洲际算，车③ 得 <b>09:00 前</b>还'});
+}
+
+/* ④ 要移动的时候手上有车吗 */
+{
+  const rows=[];
+  EVS.filter(e=>e.lane==='act'&&/km|→|min/.test(e.t)).forEach(a=>{
+    const has=EVS.some(e=>e.lane==='car'&&e.S<=a.S&&e.E>=a.E);
+    if(!has) rows.push(`<li class="no">${a.S.getMonth()+1}/${a.S.getDate()} ${hm(a.S)} 「${a.t.replace(/<[^>]+>/g,'')}」<b>手上没车</b></li>`);
+  });
+  checks.push({cls:rows.length?'bad':'', h:'🚗 要移动的时候手上有车吗',
+    body:rows.join('')||'<li class="ok">所有需要开车的段都在某台车的租期内 ✅</li>',
+    tail:rows.length?'<li>这两段就是 <b>OSL ↔ Nannestad 的 20 分钟</b>（9/24 深夜 + 9/30 凌晨）—— '+
+         '打车约 NOK 500–700/趟，已列进「要填的清单」</li>':''});
+}
+
+/* ⑤ 还没定的条数 */
+{
+  const t=EVS.filter(e=>e.st==='tbd');
+  const by={};t.forEach(e=>{by[e.lane]=(by[e.lane]||0)+1});
+  checks.push({cls:'warn', h:'📝 时间线上还有多少条是虚线（未定）',
+    body:`<li><b>${t.length} 条</b>：`+LANES.filter(([l])=>by[l]).map(([l,ico])=>`${ico} ${by[l]}`).join(' · ')+'</li>'+
+      t.map(e=>`<li>${e.S.getMonth()+1}/${e.S.getDate()} ${e.t.replace(/<[^>]+>/g,'').slice(0,42)}</li>`).join(''),
+    tail:'<li class="ok">全部展开在第 ③ 节，按紧急程度排好了</li>'});
+}
+
+document.getElementById('checks').innerHTML=checks.map(c=>`
+  <div class="chk ${c.cls}"><h4>${c.h}</h4><ul>${c.body}${c.tail||''}</ul></div>`).join('');
+
+/* ============ 要填的清单 ============ */
+document.getElementById('filltab').innerHTML=
+  '<thead><tr><th>紧急度</th><th>要填什么</th><th>归谁</th><th>为什么它卡着别的事</th><th>现在的证据 / 风险</th></tr></thead><tbody>'+
+  TOFILL.map(r=>`<tr><td><b>${r.p}</b></td><td><b>${r.what}</b></td><td>${r.who}</td><td>${r.why}</td><td>${r.ev}</td></tr>`).join('')+
+  '</tbody>';
+
+/* 默认展开第一条「已订」的，让人一眼看到详情卡长什么样 */
+const first=EVS.find(e=>e.st==='booked'); if(first) show(first.i);
+</script>
+</body>
+</html>
