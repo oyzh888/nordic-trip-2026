@@ -4,10 +4,10 @@
   "label": "🇮🇸 冰岛 5 天",
   "pick": "KEF",
   "drop": "KEF",
-  "pick_dt": "2026-09-25 12:00",
+  "pick_dt": "2026-09-25 08:00",
   "drop_dt": "2026-09-29 18:00",
-  "expect": "$326 裸车（Peugeot 2008 4x4 自动）· 取车钟点对价格无影响，落地后随便填",
-  "url": "https://www.discovercars.com/search/062bf0cb-83c1-4d5c-8fe6-346e0ee27aaf?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDEyOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "expect": "$326 裸车（Peugeot 2008 4x4 自动）· 配 SK4787 07:05 落地 → 08:00 取",
+  "url": "https://www.discovercars.com/search/e85517b5-c5d1-40ac-8683-ac2002667b9d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDA4OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
   "dates_on_page": [
    "Fri, Sep 25",
    "Tue, Sep 29"
@@ -24,7 +24,7 @@
   "pick_dt": "2026-09-30 11:00",
   "drop_dt": "2026-10-02 14:30",
   "expect": "$647（Ford Explorer 4WD）· 只有 5 个车源 · 配 WF816 15:40 那班",
-  "url": "https://www.discovercars.com/search/8f410c56-c7fa-46bc-bf62-78eb24390c9d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "url": "https://www.discovercars.com/search/f7152183-113a-482a-b4c9-d8b4ba64dbf5?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
   "dates_on_page": [
    "Wed, Sep 30",
    "Fri, Oct 02"
@@ -41,7 +41,7 @@
   "pick_dt": "2026-09-30 11:00",
   "drop_dt": "2026-10-02 11:00",
   "expect": "$571（Ford Explorer 4WD）· 便宜 $76 但要在小机场干等 4h40",
-  "url": "https://www.discovercars.com/search/3d113896-bf97-4dfc-9e46-45456357b0e2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "url": "https://www.discovercars.com/search/94d99f7c-11fc-4ede-9ca8-05ac000ef0f5?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
   "dates_on_page": [
    "Wed, Sep 30",
    "Fri, Oct 02"
@@ -58,7 +58,7 @@
   "pick_dt": "2026-10-02 17:00",
   "drop_dt": "2026-10-05 10:00",
   "expect": "$224（4x4 自动）· 落地 16:35 + 25 min",
-  "url": "https://www.discovercars.com/search/fe0d3753-6d43-476c-bd12-d35ee46367d9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "url": "https://www.discovercars.com/search/b91eeeb9-adb0-466d-bd01-8056e7146c32?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
   "dates_on_page": [
    "Fri, Oct 02",
    "Mon, Oct 05"
@@ -75,13 +75,13 @@
   "pick_dt": "2026-10-05 10:45",
   "drop_dt": "2026-10-06 10:00",
   "expect": "$85（4x4 自动）· 配 TOS→OSL 08:20→10:15 那班，落地 +30 min",
-  "url": "https://www.discovercars.com/search/e4787f19-b6c3-47db-b7b1-a4e652055ff8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEwOjQ1IiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "url": "https://www.discovercars.com/search/ce93a27c-2442-4101-8ddd-f11bc2f6463d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEwOjQ1IiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
   "dates_on_page": [
    "Mon, Oct 05",
    "Tue, Oct 06"
   ],
   "n_offers": 8,
-  "cheapest_usd": 68,
+  "cheapest_usd": 66,
   "has_results": true
  }
 ]

@@ -1,0 +1,3 @@
+== radisson-osl
+== park-inn-osl
+== thon-osl

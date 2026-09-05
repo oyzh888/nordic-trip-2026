@@ -24,8 +24,8 @@ LOC = {"KEF": 1787, "EVE": 2088, "SVJ": 2092, "TOS": 2195, "OSL": 1710,
 
 CARS = [
  dict(slug="car1-iceland", label="🇮🇸 冰岛 5 天",
-      pick="KEF", drop="KEF", pick_dt="2026-09-25 12:00", drop_dt="2026-09-29 18:00",
-      expect="$326 裸车（Peugeot 2008 4x4 自动）· 取车钟点对价格无影响，落地后随便填"),
+      pick="KEF", drop="KEF", pick_dt="2026-09-25 08:00", drop_dt="2026-09-29 18:00",
+      expect="$326 裸车（Peugeot 2008 4x4 自动）· 配 SK4787 07:05 落地 → 08:00 取"),
  dict(slug="car2-lofoten", label="🇳🇴 车① 罗弗敦 3 天（异地还到 Leknes）",
       pick="EVE", drop="LKN", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 14:30",
       expect="$647（Ford Explorer 4WD）· 只有 5 个车源 · 配 WF816 15:40 那班"),

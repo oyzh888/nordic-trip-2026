@@ -1,0 +1,75 @@
+{
+ "title": "Thon Hotel Gardermoen, Gardermoen (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/no/thon-gardermoen.html?checkin=2026-09-29&checkout=2026-09-30&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    122,
+    133,
+    122,
+    133
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Standard Twin Room ¶ 2 twin beds ¶ 248 feet² ¶ Attached bathroom ¶ Free Wifi ¶ Toilet Bath or shower Desk TV Telephone Radio Cable channels Wake-up service Wardrobe or closet Wireless internet Toilet paper ¶ Max. people: 2 ¶ € 122 per night ¶ € 133 € 122 ¶ Original price € 133 Current price € 122 ¶ 1 night ¶ 8% off ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 122) ¶ 2          (€ "
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    129,
+    140,
+    129,
+    140
+   ],
+   "cancel": "Free cancellation before September 28, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 129 per night ¶ € 140 € 129 ¶ Original price € 140 Current price € 129 ¶ 1 night ¶ 8% off ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Free cancellation before September 28, 2026 ¶ • ¶ Pay nothing until September 26, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 129) ¶ 2          (€ 257) ¶ 3          (€ 386) ¶ 4          (€ 514) ¶ 5          (€ 643) ¶ 6          (€ 771) ¶ 7          (€ 900) ¶ 8          (€ 1,028) ¶ 9          (€ 1,157) ¶ 10          (€ 1,286)"
+  },
+  {
+   "row": 2,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    108,
+    117,
+    108,
+    117
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 108 per night ¶ € 117 € 108 ¶ Original price € 117 Current price € 108 ¶ 1 night ¶ 8% off ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶ Pay online ¶ Select Rooms ¶ 0 ¶ 1          (€ 108) ¶ 2          (€ 216) ¶ 3          (€ 324) ¶ 4          (€ 432) ¶ 5          (€ 540) ¶ 6          (€ 648) ¶ 7          (€ 756) ¶ 8          (€ 864) ¶ 9          (€ 972) ¶ 10          (€ 1,080)"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    113,
+    123,
+    113,
+    123
+   ],
+   "cancel": "Free cancellation before September 28, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 1 ¶ € 113 per night ¶ € 123 € 113 ¶ Original price € 123 Current price € 113 ¶ 1 night ¶ 8% off ¶ Excluded: 12 % VAT ¶ Excellent breakfast included ¶ Includes high-speed internet ¶ Free cancellation before September 28, 2026 ¶ • ¶ Pay nothing until September 26, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 113) ¶ 2          (€ 227) ¶ 3          (€ 340) ¶ 4          (€ 454) ¶ 5          (€ 567) ¶ 6          (€ 680) ¶ 7          (€ 794) ¶ 8          (€ 907) ¶ 9          (€ 1,020) ¶ 10          (€ 1,134)"
+  }
+ ],
+ "job": {
+  "slug": "thon-0929",
+  "hotel": "no/thon-gardermoen",
+  "checkin": "2026-09-29",
+  "checkout": "2026-09-30",
+  "adults": 4,
+  "rooms": 2
+ }
+}

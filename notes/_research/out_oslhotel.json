@@ -1,0 +1,14 @@
+{
+ "radisson-osl": {
+  "url": "https://www.booking.com/searchresults.html?ss=Radisson+Blu+Airport+Hotel+Oslo+Gardermoen&checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR",
+  "rows": []
+ },
+ "park-inn-osl": {
+  "url": "https://www.booking.com/searchresults.html?ss=Park+Inn+by+Radisson+Oslo+Airport+Hotel+West&checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR",
+  "rows": []
+ },
+ "thon-osl": {
+  "url": "https://www.booking.com/searchresults.html?ss=Thon+Hotel+Oslo+Airport&checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR",
+  "rows": []
+ }
+}

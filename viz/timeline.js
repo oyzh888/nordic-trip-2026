@@ -21,25 +21,34 @@ const DAYN = 14;                     // 9/24 → 10/7（含条件性的第 13 �
 /* ---------- 事件表：lane = stay / car / fly / act ---------- */
 const EV = [
 /* ===== 9/24 四 · 落地奥斯陆 ===== */
- {lane:'fly', s:'2026-09-24T21:30', e:'2026-09-24T22:10', t:'洲际 ✈ 抵 OSL 21:30',
-  st:'tbd', who:'Kevin', note:'🔴 <b>时刻要填</b>：整份计划里 9/24 的「21:30 落地」是假设，Kevin 的票还没定。它只影响当晚几点睡，不影响别的'},
+ {lane:'fly', s:'2026-09-24T21:30', e:'2026-09-24T22:10', t:'✈ 北京首都 T2 → 奥斯陆（9h25，已出票）',
+  st:'ok', who:'预订号 JP1Y15', note:'✅ <b>2026-09-04 已出票</b>（携程截图）。🟠 <b>还差两件事</b>：① <b>落地钟点</b> —— 截图上被裁掉了，时间线里 21:30 还是占位值；② 那一段<b>只显示 1 位出行人（LIU/HANGTAO）</b>，要确认 4 个人是不是同一班（三段的出行人名字两两不同：9/25 是 ZHANG/MINXUAN+WU/QIN…、9/29 是 OUYANG/ZHIHAO+LIU/HA… → 分了几个订单，<b>要逐段点开确认 4 个人齐</b>）'},
  {lane:'act', s:'2026-09-24T22:10', e:'2026-09-24T22:40', t:'OSL → Nannestad 约 20 min',
   st:'tbd', note:'🔴 <b>怎么过去要填</b>：这一段<b>没有车</b>（冰岛那台在 KEF 取）。打车约 NOK 500–700 ≈ ¥335–470，或问房东能不能接。<b>这是全程唯一「没车又要移动」的两段之一</b>'},
- {lane:'stay', s:'2026-09-24T22:40', e:'2026-09-25T10:00', t:'Nannestad · Modern. Quiet area.（3房/5床/2卫）',
-  st:'tbd', price:'€260 ≈ ¥1,040', link:'https://www.airbnb.com/rooms/1616864516592253636?check_in=2026-09-24&check_out=2026-09-25&adults=4&currency=EUR',
-  note:'🔴 <b>还没订</b>，而且<b>不可退</b> → 等 Kevin 的洲际票定了再下单。要弹性就换 Thon Gardermoen（€86–140/间，退到 9/23）'},
+ {lane:'stay', s:'2026-09-24T22:40', e:'2026-09-25T04:30', t:'🆕 建议改：Thon Hotel Gardermoen ×2 间（原 Nannestad Airbnb）',
+  st:'tbd', price:'€107/间 ×2 = €214 ≈ ¥1,712（可退到 9/23）· 原 Airbnb €260 ≈ ¥2,080 不可退',
+  link:'https://www.booking.com/hotel/no/thon-gardermoen.html?checkin=2026-09-24&checkout=2026-09-25&group_adults=4&no_rooms=2&selected_currency=EUR',
+  note:'🆕🆕 <b>2026-09-04 强烈建议改成机场酒店</b>（实价已抓）。理由是算出来的，不是偏好：这一夜本质是<b>「落地→睡几小时→再起飞」的中转</b>，而 Nannestad 那套在 <b>20 分钟车程外、我们又没有车</b>。换成机场酒店同时省三样：<b>省两趟深夜打车（NOK 500–700/趟）· 多睡 40–50 分钟 · 24h 前台（不用赌能不能深夜自助入住）</b>。'+
+    '🔴 <b>这一夜尤其极端：21:30 落地，而 SK4787 是 06:15 起飞 → 04:30 就得走，只能睡 6 小时。</b>'+
+    '钱也是赢的：Thon 2 间 <b>€214 可退</b>（含免费机场班车）vs Airbnb <b>€260 不可退</b> + 两趟打车 ¥670–940 '+
+    '→ <b>省约 ¥1,040–1,310</b>。Clarion 这一晚要 €276（贵一点，但走过去不用班车）。'+
+    '⚠️ Booking 的挪威价通常已含 12% VAT；若不含则是 €214→€240'},
 
 /* ===== 9/25 五 · 飞冰岛 ===== */
- {lane:'fly', s:'2026-09-25T06:15', e:'2026-09-25T07:05', t:'✈ OSL → KEF（唯一直飞 SAS 06:15→07:05）',
-  st:'tbd', who:'Kevin', note:'🔴 <b>要填</b>。Google Flights 实抓：唯一直飞是 SAS 06:15→07:05（NOK 19,392/4 人，偏贵）；其余全绕（Air Baltic 13:55→23:55 停 RIX 6h35，NOK 10,452）。<b>这一班定了，冰岛取车钟点才能定</b>'},
- {lane:'car', s:'2026-09-25T08:00', e:'2026-09-29T18:00', t:'🇮🇸 冰岛 · Peugeot 2008 4x4 自动（5 个计费日）',
+ {lane:'fly', s:'2026-09-25T06:15', e:'2026-09-25T07:05', t:'✈ <b>SK4787</b> OSL 06:15 → KEF 07:05（已出票）',
+  st:'booked', who:'北欧航空 SAS · 已出票', note:'✅ <b>2026-09-04 已出票。</b>正好是我算出来的那班（当天唯一的直飞，2h50）。🎯 <b>两个直接结果</b>：① <b>冰岛取车钟点定了 = 08:00</b>（落地 07:05 + 摆渡车约 45 min）；② <b>9/25 白得一整天</b> —— 原来只排了「傍晚市中心」，现在已按这个重排（见下面 📍 那两条）'},
+ {lane:'car', s:'2026-09-25T08:00', e:'2026-09-29T18:00', t:'🇮🇸 冰岛 · Peugeot 2008 4x4 自动 · <b>08:00 取</b>（5 个计费日）',
   st:'ok', price:'$326 裸车 ≈ ¥2,315（+必买三险 → $451–526）',
-  link:'https://www.discovercars.com/search/062bf0cb-83c1-4d5c-8fe6-346e0ee27a12',
-  note:'⚠️ <b>取车钟点 = 落地 + 45 min</b>（不是 30 —— 这台是<b>摆渡车取车</b>，不在航站楼里）。若坐 07:05 那班 → <b>填 08:00</b>（实测 08:00 有 17 个报价，且 08:00–16:00 全部同价，所以早取不花钱）。🔴 一天涨 26%（9/3 $258 → 9/4 $326）'},
- {lane:'act', s:'2026-09-25T08:45', e:'2026-09-25T09:35', t:'KEF → 雷克雅未克 50 min',
+  link:'https://www.discovercars.com/search/e85517b5-c5d1-40ac-8683-ac2002667b9d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDA4OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  note:'✅ <b>钟点已定：08:00</b>（SK4787 07:05 落地 + 摆渡车约 45 min —— 这台<b>不在航站楼里</b>，要坐摆渡车去取，所以不能按 30 分钟算）。实测 08:00 有 17 个报价，且 08:00–16:00 <b>全部同价</b> → 早取不花钱。🔴 一天涨 26%（9/3 $258 → 9/4 $326）→ 早订。⚠️ 订的时候<b>填航班号 SK4787</b>，柜台会跟航班，晚点也留车'},
+ {lane:'act', s:'2026-09-25T09:00', e:'2026-09-25T12:00', t:'🆕 蓝湖泡汤（KEF 开车 20 min）',
+  st:'tbd', note:'🆕 <b>2026-09-04 新排的：从 9/28 那个 520 km 的巨无霸日子里挪过来。</b>蓝湖离 KEF 只有 20 分钟，而我们 07:05 就落地了 —— 刚下飞机泡温泉是这一天最合理的用法。🔴 <b>蓝湖必须提前订时段票</b>（不是随到随进），这是新增的一项要填'},
+ {lane:'act', s:'2026-09-25T12:15', e:'2026-09-25T15:30', t:'🆕 雷克雅内斯半岛小环线（全在 KEF 15–50 min 圈内）',
+  st:'ok', note:'🆕 <b>从 9/29 挪过来的</b>：两块大陆之间的小桥 · Gunnuhver 泥浆池 · Brimketill 石头浴缸 · Krýsuvík 地热。全都在机场附近，不用绕路'},
+ {lane:'act', s:'2026-09-25T15:30', e:'2026-09-25T16:20', t:'雷克雅内斯 → 雷克雅未克 约 50 min',
   st:'ok', note:'落地就取车 = 省掉 4 人 ×2 程机场大巴 ≈ ¥1,360'},
- {lane:'act', s:'2026-09-25T10:00', e:'2026-09-25T19:00', t:'雷市：Hallgrímskirkja · 老港 · Sun Voyager',
-  st:'ok', note:'🎯 <b>如果 Kevin 真坐 07:05 那班，这一天是白得的一整天</b> —— 现在只排了「傍晚市中心」。可以把雷克雅内斯/蓝湖那半天挪到今天，给 9/28 让位（那天现在是 520 km / 6h30，全程最长）'},
+ {lane:'act', s:'2026-09-25T17:00', e:'2026-09-25T20:00', t:'雷市：Hallgrímskirkja · 老港 · Sun Voyager',
+  st:'ok', note:'🎯 <b>这一天从「傍晚市中心」变成完整一天</b>，就是因为 SK4787 07:05 落地。代价：06:15 的飞机要 04:00 起'},
  {lane:'stay', s:'2026-09-25T15:00', e:'2026-09-26T10:00', t:'雷克雅未克 · Aurora view 3BR 2BATH（3房/3床/2卫）',
   st:'ok', price:'€647→€447 ≈ ¥1,788', link:'https://www.airbnb.com/rooms/1729852848905770040?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR',
   note:'✅ 24h 内免费退，9/18 前部分退'},
@@ -61,29 +70,35 @@ const EV = [
   note:'✅ <b>免费退到 9/25 + 到店付 → 零风险，最该先订的一个</b>。只剩 1 套'},
 
 /* ===== 9/28 一 · 黄金圈（全程最长） ===== */
- {lane:'act', s:'2026-09-28T08:00', e:'2026-09-28T18:30', t:'黄金圈 520 km / 6h30：Þingvellir · Geysir · Gullfoss · 蓝湖',
-  st:'ok', note:'🔴 <b>全程开车最长的一天。</b>如果 9/25 变成整天可用，最该把这天的一部分挪过去'},
+ {lane:'act', s:'2026-09-28T08:30', e:'2026-09-28T17:30', t:'🆕 黄金圈（蓝湖已挪走）约 400 km / 5h：Þingvellir · Geysir · Gullfoss',
+  st:'ok', note:'🆕 <b>已减负</b>：蓝湖挪到 9/25 之后，这天从 <b>520 km / 6h30 → 约 400 km / 5h</b>，而且不用赶在关门前泡汤。晚上仍住 Njarðvík 那套带热浴桶+桑拿的（泡汤不缺）'},
  {lane:'stay', s:'2026-09-28T19:30', e:'2026-09-29T10:00', t:'Njarðvík · Hot tub & Sauna · Ocean Break（3房/3床/<b>1卫</b>）',
   st:'ok', price:'€531→€335 ≈ ¥1,340', link:'https://www.airbnb.com/rooms/1139944377459145061?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
   note:'✅ 免费退到 9/23。🟠 <b>只有 1 个卫生间</b>（4 个人）—— 但带热浴桶+桑拿，跑完 6h30 那天正需要。KEF 只 5 分钟'},
 
 /* ===== 9/29 二 · 减负日 + 飞回奥斯陆 ===== */
- {lane:'act', s:'2026-09-29T08:30', e:'2026-09-29T16:00', t:'雷克雅内斯轻档 ~2h 车程：桥 · Gunnuhver · Brimketill · Krýsuvík',
-  st:'ok', note:'🎯 从斯奈山（7.5h）换过来的，不花钱，还消掉了原来「唯一的硬前提」'},
- {lane:'fly', s:'2026-09-29T20:05', e:'2026-09-30T00:45', t:'✈ KEF → OSL（最便宜直飞 Norwegian 20:05 → 00:45+1）',
-  st:'tbd', who:'Kevin', note:'🔴 <b>要填。</b>最便宜的直飞 Norwegian NOK 4,280/4 人，但<b>00:45 才落地</b>；SAS 18:55→23:35 要 NOK 9,845。<b>还车 18:00 是按 20:05 那班配的（缓冲 2h05）</b>'},
+ {lane:'act', s:'2026-09-29T10:00', e:'2026-09-29T17:00', t:'🆕 真正的休息日：睡到自然醒 + 雷市城里（雷克雅内斯已挪到 9/25）',
+  st:'ok', note:'🆕 <b>这一天现在是空的</b>（雷克雅内斯挪到了 9/25）。🎯 <b>这是好事，不是浪费</b>：今晚 DY1171 20:05 起飞、<b>00:45 才落奥斯陆</b>，明早还要飞 EVE —— 今天越轻越好。想加东西的话：雷市的 Sky Lagoon（市区里，比蓝湖近）或者纯逛街'},
+ {lane:'fly', s:'2026-09-29T20:05', e:'2026-09-30T00:45', t:'✈ <b>DY1171</b> KEF 20:05 → OSL 00:45+1（出票中）',
+  st:'booked', who:'挪威穿梭 Norwegian · 出票中', note:'✅ <b>2026-09-04 已订</b>（出票中）。也正好是我算出来的那班（当天最便宜的直飞，2h40）。<b>冰岛还车 18:00 就是按它配的 —— 缓冲 2h05，合适。</b>🔴 但它带来一个真问题：<b>00:45 落地，明早 08:55 又要飞 EVE</b> → 见下面那一夜'},
  {lane:'act', s:'2026-09-30T00:45', e:'2026-09-30T01:30', t:'OSL → Nannestad 深夜 20 min',
   st:'tbd', note:'🔴 <b>没有车的第二段</b>（挪威那台在 EVE 才取）→ 深夜打车。而且要确认 Airbnb 能不能 <b>01:30 自助入住</b>'},
- {lane:'stay', s:'2026-09-30T01:30', e:'2026-09-30T07:30', t:'Nannestad 5 房 · 5 床 · 1.5 卫（只能睡 ~5 小时）',
-  st:'ok', price:'€292 ≈ ¥1,168', link:'https://www.airbnb.com/rooms/1461656866395092330?check_in=2026-09-29&check_out=2026-09-30&adults=4&currency=EUR',
-  note:'🔴🔴 <b>全程最紧的一处接驳，而且不是车的问题。</b>00:45 落地 → 08:55 又要起飞 = 净睡 5 小时。两个解法：① 9/30 改坐 <b>13:20→15:00</b>（同价 NOK 4,196），代价是天快黑才进罗弗敦；② 9/29 改坐 SAS 18:55→23:35（贵 ¥3,729），车提前到 17:00 还。✅ 房本身免费退到 9/28'},
+ {lane:'stay', s:'2026-09-30T01:10', e:'2026-09-30T07:45', t:'🆕 建议改：Clarion Hotel Oslo Airport ×2 间（原 Nannestad Airbnb）',
+  st:'tbd', price:'€95/间 ×2 = €190 ≈ ¥1,520（可退到 9/28）· 原 Airbnb €292 ≈ ¥1,168 可退',
+  link:'https://www.booking.com/hotel/no/clarion-oslo-airport.html?checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR',
+  note:'🆕🆕 <b>2026-09-04 强烈建议改成机场酒店</b>（实价已抓）。理由是算出来的，不是偏好：这一夜本质是<b>「落地→睡几小时→再起飞」的中转</b>，而 Nannestad 那套在 <b>20 分钟车程外、我们又没有车</b>。换成机场酒店同时省三样：<b>省两趟深夜打车（NOK 500–700/趟）· 多睡 40–50 分钟 · 24h 前台（不用赌能不能深夜自助入住）</b>。'+
+    '🔴🔴 <b>这是全程最紧的一夜，而且 DY1171 已经出票了 —— 00:45 落地是确定的事实，不再是假设。</b>'+
+    '住机场：01:10 就能进房、07:45 再走（<b>约 6.5 小时</b>）；住 Nannestad 要 01:30 才到、07:30 就得走（<b>6 小时</b>），'+
+    '还要赌房东让不让 01:30 自助入住。钱：Clarion 2 间 <b>€190 ≈ ¥1,520 可退</b> vs Airbnb <b>¥1,168 + 两趟打车 ¥670–940 = ¥1,838–2,108</b> '+
+    '→ <b>换酒店反而便宜 ¥320–590</b>。<br>🟠 <b>另一条独立的解法</b>（可叠加）：如果 9/30 那班 EVE 是同价的 '+
+    '<b>13:20→15:00</b>，这一夜能睡到 10 小时以上 —— 代价是天快黑才进罗弗敦。<b>先去确认那班到底几点。</b>'},
 
 /* ===== 9/30 三 · 进罗弗敦 ===== */
- {lane:'fly', s:'2026-09-30T08:55', e:'2026-09-30T10:35', t:'✈ OSL → EVE（Norwegian 08:55→10:35，1h40 直飞）',
-  st:'ok', who:'Kevin 订票', note:'✅ <b>时刻已实测确认</b>（就是这班，NOK 4,196/4 人 = 最便宜档）。同价还有 13:20→15:00 和 15:05→16:45 —— 若睡不够就换 13:20 那班'},
+ {lane:'fly', s:'2026-09-30T08:55', e:'2026-09-30T10:35', t:'✈ OSL → EVE 埃沃内斯（Norwegian 08:55→10:35）',
+  st:'ok', who:'Kevin · 截图里已有这一段', note:'✅ 携程截图最下面已经有「9月30日 前往 埃沃内斯」这一段，<b>但时刻被裁掉了</b> —— 时间线按最便宜也最合理的 Norwegian 08:55→10:35 画（NOK 4,196/4 人）。🔴 <b>要确认它到底是几点</b>：如果真是 08:55，那前一夜只能睡 5 小时（见上一条）；同价的 <b>13:20→15:00</b> 能把那一夜补到 10 小时，代价是天快黑才进罗弗敦'},
  {lane:'car', s:'2026-09-30T11:00', e:'2026-10-02T14:30', t:'🇳🇴 车① · Ford Explorer 4WD（EVE 取 → <b>Leknes 还</b>，3 个计费日）',
   st:'ok', price:'$647 ≈ ¥4,594',
-  link:'https://www.discovercars.com/search/8f410c56-c7fa-46bc-bf62-78eb24390c8a',
+  link:'https://www.discovercars.com/search/f7152183-113a-482a-b4c9-d8b4ba64dbf5?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
   note:'✅ 航站楼内取车 → 落地 10:35、取车 11:00 = <b>等 25 分钟</b>。🔴 <b>Leknes 异地还车只有 5 个报价</b>（Evenes 22 / 特罗姆瑟 16）→ 四台里<b>最早订这台</b>。🟠 48h 悬崖：10/2 11:00 前还 = 2 天 $571，14:30 还 = 3 天 $647（多 $76 买下最后 3.5 小时）。⚠️ 押金冻结曾报到 $1,805 → 要额度够的信用卡'},
  {lane:'act', s:'2026-09-30T11:15', e:'2026-09-30T15:30', t:'EVE → Lyngvær 175 km / <b>3h02</b>（OSRM 实测）',
   st:'ok', note:'⚠️ 文档里旧的「165 km / 2h30」偏乐观，OSRM 真实路网是 3h02。加上拍照停车，到住处约 15:30–16:30'},
@@ -107,7 +122,7 @@ const EV = [
   note:'✅ <b>航班已确认</b>（携程截图留档）。🔴🔴 <b>只剩 6 张票，我们要 4 张 → 这是现在最急的一件事。</b>⚠️ 最便宜 ¥1,274 那档<b>不含托运也不含手提</b>（只 1 件个人物品）→ 要买 <b>¥1,490 含 1×23kg 托运</b> 那档，4 人 = ¥5,960'},
  {lane:'car', s:'2026-10-02T17:00', e:'2026-10-05T07:30', t:'🇳🇴 车② · 自动四驱（TOS 取还，3 个计费日）',
   st:'ok', price:'$224 ≈ ¥1,590',
-  link:'https://www.discovercars.com/search/fe0d3753-6d43-476c-bd12-d35ee46367e4',
+  link:'https://www.discovercars.com/search/b91eeeb9-adb0-466d-bd01-8056e7146c32?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
   note:'✅ 航站楼内取车 → 落地 16:35、取车 17:00 = <b>等 25 分钟</b>（17:00 与 17:30 同价，所以取早的）。Senja 那 500 km 走这台，挪威租车基本不限里程'},
  {lane:'stay', s:'2026-10-02T18:00', e:'2026-10-05T07:00', t:'特罗姆瑟 4 房 · 4 床 · 2 卫（连住 3 晚）',
   st:'ok', price:'€1,526 / 3 晚 ≈ ¥2,035/晚', link:'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-05&adults=4&currency=EUR',
@@ -131,7 +146,7 @@ const EV = [
   note:'🔴 <b>要填。</b>🥇 建议 08:20 那班：<b>比 10:45 那班早 2.5 小时、还便宜 NOK 2,000</b>（6,396 vs 8,396）。🎯 收益 = 11:30 就进小屋，比坐 13:00 那班多 <b>4 小时白天</b>（那一带 18:45 天黑）。代价：跑完 Senja 之后要 06:45 起床 —— 不想早起就退回 10:45→12:40，车③ 改 13:10 取（同价）'},
  {lane:'car', s:'2026-10-05T10:45', e:'2026-10-06T10:00', t:'🇳🇴 车③ · 自动四驱（OSL 取还，1 个计费日）',
   st:'tbd', price:'$85 ≈ ¥604',
-  link:'https://www.discovercars.com/search/e4787f19-b6c3-47db-b7b1-a4e652055f00',
+  link:'https://www.discovercars.com/search/ce93a27c-2442-4101-8ddd-f11bc2f6463d?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEwOjQ1IiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAxMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
   note:'🔴 <b>要不要租这台是个决定（B5）</b>：Stange 小屋房源页写着 "A car is required"。不租就换机场旁的 Clarion（€193、2 卫，反而更便宜）。✅ 航站楼内取车，10:45/13:00/14:00 三个点实测同价 → 跟着航班填就行。⚠️ 最便宜那档是 VW ID.4 <b>电车</b>，1 天短租要留意充电'},
  {lane:'act', s:'2026-10-05T11:00', e:'2026-10-05T18:45', t:'OSL → Stange/Mjøsli 30–40 min，Mjøsa 湖畔（18:45 天黑）',
   st:'ok', note:'🎯 坐 08:20 那班能拿到约 <b>7 小时白天</b>；坐 13:00 那班只剩 2.5 小时'},
@@ -151,6 +166,10 @@ const EV = [
 
 /* ---------- 还要填的东西（页面底部那张表；顺序 = 紧急程度） ---------- */
 const TOFILL = [
+ {p:'✅ 已解决', what:'~~9/25 OSL→KEF 航班~~ → <b>SK4787 06:15→07:05 已出票</b>', who:'—',
+  why:'正好是我算出来的那班 → <b>冰岛取车钟点定了 = 08:00</b>，而且 <b>9/25 白得一整天</b>（已重排）', ev:'携程截图 2026-09-04'},
+ {p:'✅ 已解决', what:'~~9/29 KEF→OSL 航班~~ → <b>DY1171 20:05→00:45+1 已订</b>', who:'—',
+  why:'也是我算出来的那班 → <b>冰岛还车 18:00 确认合适</b>（缓冲 2h05）。但 00:45 落地这件事从假设变成事实', ev:'携程截图 2026-09-04'},
  {p:'🔴🔴 现在', what:'10/2 WF816 机票 ×4 张（¥1,490 含托运那档）', who:'Steve / Kevin',
   why:'页面写着<b>只剩 6 张</b>，我们要 4 张。卖光 → 整个 10/2 的方案（含车①的还车点）要重排', ev:'携程截图已留档'},
  {p:'🔴🔴 现在', what:'车① EVE→Leknes 3 天 $647', who:'Steve',
@@ -171,10 +190,22 @@ const TOFILL = [
   why:'不可退 → 等 Kevin 洲际票定了再下单。要弹性换 Thon Gardermoen（退到 9/23）', ev:'房源页已核'},
  {p:'🟠 决定', what:'10/6 还是 10/7 回北京', who:'Kevin',
   why:'决定要不要第 13 晚；<b>若是 10/7，特罗姆瑟住回 4 晚反而更好</b>（多一个极光夜）', ev:'占位已画在时间线最后'},
- {p:'🟡 出发前', what:'OSL ↔ Nannestad 两趟怎么走（9/24 深夜 + 9/30 凌晨）', who:'Steve',
-  why:'这是全程<b>唯一两段「没车又要移动」</b>：打车约 NOK 500–700/趟，或问房东能不能接', ev:'20 min 车程'},
- {p:'🟡 出发前', what:'Nannestad 5 房能不能 <b>01:30 自助入住</b>', who:'Steve',
-  why:'9/29 那班 00:45 落地 → 到住处约 01:30。不能自助入住就得换', ev:'要问房东'},
+ {p:'🔴 这两天', what:'🆕 <b>两个奥斯陆中转夜换成机场酒店？</b>（9/24 Thon €214 · 9/29 Clarion €190，都可退）', who:'Steve',
+  why:'两夜本质都是「落地→睡几小时→再起飞」，而 Nannestad 在 20 分钟车程外、我们<b>没有车</b>。'+
+      '换机场酒店同时省三样：<b>4 趟深夜打车（约 ¥1,340–1,876）· 多睡 40–50 分钟 · 24h 前台不用赌深夜自助入住</b>。'+
+      '两晚合计 €404 ≈ ¥3,232（都可退）替掉 Airbnb €552 ≈ ¥4,416（9/24 那套还不可退）+ 打车 → <b>净省约 ¥2,500–3,000</b>',
+  ev:'2026-09-04 Booking 物业页实抓：Thon 9/24 €107/间可退到 9/23 · Clarion 9/29 €95/间可退到 9/28 · Clarion 9/24 要 €138/间'},
+ {p:'🔴 这两天', what:'🆕 <b>蓝湖时段票 ×4</b>（9/25 上午，KEF 开车 20 min）', who:'Steve',
+  why:'SK4787 07:05 落地让 9/25 白得一整天，我把蓝湖从 9/28 那个 520 km 的日子挪到了 9/25 → '+
+      '9/28 因此从 6h30 降到约 5h。🔴 但<b>蓝湖是预约时段制，不是随到随进</b>，要单独订', ev:'新排的，还没订'},
+ {p:'🟠 确认', what:'🆕 <b>9/30 OSL→EVE 那班到底几点</b>（截图里被裁掉了）', who:'Kevin',
+  why:'如果是 08:55 → 前一夜只能睡 6 小时；如果换成同价的 <b>13:20→15:00</b> → 那一夜能睡到 10 小时以上，'+
+      '代价是天快黑才进罗弗敦。<b>这一条同时决定车① 的取车钟点</b>（现在按 11:00 排）', ev:'Norwegian 三班同价 NOK 4,196/4 人'},
+ {p:'🟠 确认', what:'🆕 <b>三段机票是不是每段都 4 个人齐</b>', who:'Steve',
+  why:'截图里三段的出行人名字两两不同（9/24 只显示 LIU/HANGTAO；9/25 是 ZHANG/MINXUAN+WU/QIN…；'+
+      '9/29 是 OUYANG/ZHIHAO+LIU/HA…）→ 分了几个订单。<b>任何一段少一个人，车和住的人数都要重算</b>', ev:'逐段点开「订单详情」看出行人'},
+ {p:'🟡 出发前', what:'9/24 洲际的<b>落地钟点</b>（截图被裁）', who:'Kevin',
+  why:'时间线里 21:30 还是占位值。只影响当晚几点进房 —— 但 SK4787 06:15 起飞意味着 <b>04:30 就得走</b>', ev:'预订号 JP1Y15，9h25'},
  {p:'🟡 出发前', what:'10/4（<b>周日</b>）Senja 渡轮班表', who:'Steve',
   why:'Senja 从 10/5 挪到 10/4，周日班次通常更少', ev:'Torghatten Nord / Entur'},
  {p:'🟡 结账时', what:'冰岛必买三险（SCDW + 砂石 + 火山沙尘）', who:'Steve',

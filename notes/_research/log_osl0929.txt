@@ -1,0 +1,3 @@
+clarion-0929: 40 rows
+radisson-0929: 31 rows
+thon-0929: 4 rows
