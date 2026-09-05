@@ -1,6 +1,6 @@
 # `_research/` 是什么 —— 全部价格的原始证据，别删
 
-这个目录里的 **763 个文件 —— 261 张截图 + 378 份 JSON + 58 份日志 + 40 个抓取脚本**，是
+这个目录里的 **916 个文件 —— 306 张截图 + 459 份 JSON + 71 份日志 + 46 个抓取脚本 + 27 份研究笔记**，是
 `notes/*.md` 和 `viz/` `story/` `styles/` 里**每一个价格数字的出处**。
 它占了 repo 的 90 MB，看着像临时文件，**但它不是** ——
 2026 年 9 月这些房源/车/机票的报价，**过了出发日就再也抓不回来**。
@@ -10,7 +10,7 @@
 
 ---
 
-## 一、命名约定（41 组，一眼能找）
+## 一、命名约定（45 组，一眼能找）
 
 每一次抓取都是**同名三件套**，前缀一样：
 
@@ -28,7 +28,7 @@ out_<X>/          ← 产出：每个目标一份 .json（结构化结果）+ �
 
 ---
 
-## 二、41 组分别在回答什么问题
+## 二、45 组分别在回答什么问题
 
 ### 住宿 · Airbnb 搜索与核实
 
@@ -85,6 +85,28 @@ out_<X>/          ← 产出：每个目标一份 .json（结构化结果）+ �
 
 🔴 **Google Flights 抓的是 `for 4 adults` → 返回的价格是 4 人总价，不是单人价。**
 
+### Steve 一个人的后半段（10/6 分手 → 南法/伦敦 → 回湾区）
+
+见 [`../SOLO-after-oslo.md`](../SOLO-after-oslo.md)。**这一组的口径和上面所有机票都不同：**
+
+| 组 | 抓了什么 | 产出 |
+|---|---|---|
+| `solo` | 14 段：OSL→NCE/MRS/LON/CDG（10/6）· NCE/MRS/LON/CDG→SFO/SJC（10/11）· 尼斯↔伦敦连接 · 10/19 多待一周版 | 14 json + **14 png** |
+| `solo2` | **伦敦→SFO 逐日扫 10/9–10/20**（找出价格断崖在 10/15）+ 尼斯→SFO 4 天对照 | 16 json + **16 png** |
+| `solo3` | 5 段：10/5 提前一天走（OSL/TOS 出发）· 10/14·10/18 尼斯→伦敦 · 10/15 LHR 直飞时刻 | 5 json + **5 png** |
+| `solostay` | 尼斯 5/9/13 晚 + 伦敦 1/4 晚的**单人**整套房实价（Airbnb） | 5 json |
+| `solo_q` | 6 份研究笔记：十月气候对比 / 蔚蓝海岸 5 天 / 普罗旺斯 vs 里维埃拉 / 伦敦 5 天 / 尼斯有无跨大西洋 / LHR→SFO·SJC | 6 md |
+
+🔴 **`flights_solo.py` 是全 repo 唯一按 `1 adult` + USD 查的机票脚本。**
+其余 `flights_*.py` 全写死 `for 4 adults` → 那些是 4 人总价。**两边的数字不能放同一张表。**
+
+⚠️ 命名有一处偏离约定：研究那组是 `q_solo.json` / `log_solo_q.txt` / `out_solo_q/`
+（不是 `jobs_solo_q.json`），因为它喂给 `gsearch.py` 而不是抓取脚本 —— 和 `out2/` `out_cars/` 同类。
+
+⚠️ `stay_solo.py` + `log_solostay.txt` 里记着一个坑：**Booking.com 的搜索结果页现在抓不到**
+（2026-09-05：`searchresults.html` 回 HTTP **202** 并跳首页，`[data-testid=property-card]` 为 0
+—— 站方 bot 拦截，不是脚本坏了）。所以这一段住宿价走 Airbnb。
+
 ### 邮轮（Svolvær → Tromsø 10/2）
 
 没有 `jobs_` 文件，是一串**逐步攻破**的探测脚本（Hurtigruten 有 JSON API；
@@ -116,14 +138,15 @@ Havila 是 Flutter/CanvasKit 页面、零 DOM，只能监听网络请求）：
 
 ---
 
-## 三、脚本按目标站点分组（顶层 38 个 + `out_gs_fly/` 里 2 个 Widerøe 试探）
+## 三、脚本按目标站点分组（顶层 44 个 + `out_gs_fly/` 里 2 个 Widerøe 试探）
 
 | 目标 | 脚本 | 备注 |
 |---|---|---|
 | **Booking.com** | `bk_scrape.py`（搜索结果，带房/卫数）· `bk_prop.py`（**房型行 = 主力**）· `bk_shot.py`（房型行截图）· `slug_find.py` `slug_west.py`（从 SEO 落地页刨真实 slug）· `bk_img_fix.py`（监听请求拿带签名的图片 URL） | 🔴 **slug 猜不出来，只能采** |
 | **Airbnb** | `abnb_scrape.py`（搜索）· `abnb_detail.py`（按我们的真实日期逐个核实） | |
+| **Booking（已失效）** | `stay_solo.py` | ⚠️ 2026-09-05 起搜索结果页 HTTP 202 跳首页，留着记录这个坑 |
 | **DiscoverCars** | `dc_direct.py`（**主力**：`/search/<uuid>?sq=<base64 json>` 深链）· `dc_cars.py`（驱动日历表单）· `dc_loc.py`（取地点 id）· `dc_probe.py` | 深链比点表单稳得多 |
-| **Google Flights** | `flights_gf.py` `flights_fly.py` `flights_proxy.py` `flights_isdom.py` | 都是 DOM 渲染后再读 |
+| **Google Flights** | `flights_gf.py` `flights_fly.py` `flights_proxy.py` `flights_isdom.py`（**4 adults**）· `flights_solo.py`（🔴 **1 adult + USD，只给 `../SOLO-after-oslo.md` 用**） | 都是 DOM 渲染后再读 |
 | **Hurtigruten** | `hrg_api.py`（**有 JSON API，最省事**）· `cruise_p2p.py` `cruise_probe.py` `cruise_links.py` `cruise_drive.py` `cruise_drive2.py` `cruise_go.py` `cruise_book.py` | 7 个是逐步摸清表单的过程 |
 | **Havila** | `havila_probe.py` `havila_book.py` `havila_dflow.py` `havila_net.py` `havila_shot.py` `hav_assets.py` | 🔴 Flutter/CanvasKit，**零 DOM，只能抓网络请求**；`/en/booking` 从这里是 CF-403 |
 | **图片** | `wiki_img.py` `wiki_img2.py`（Commons）· `pick_imgs.py`（挑图，含踩过的 3 个坑）· `resolve_thumbs.py` · `img_scrape.py`（住宿实拍 URL） | |
@@ -136,11 +159,13 @@ Havila 是 Flutter/CanvasKit 页面、零 DOM，只能监听网络请求）：
 
 1. 🔴 **Booking 的行价是「每间每晚」**，而**冰岛酒店不含 11% VAT + €6/间/晚城市税**。
    2 间的含税价 = `行价 × 2 × 1.11 + €12`。Airbnb 和挪威的价格**已含税含费**。
-2. 🔴 **Google Flights 那些价格是 4 人总价**（查询串里写了 `for 4 adults`）。
+2. 🔴 **Google Flights 那些价格是 4 人总价**（查询串里写了 `for 4 adults`）——
+   **唯一例外是 `solo*` 那几组**（`flights_solo.py`，`for 1 adult` + USD，给 `../SOLO-after-oslo.md`）。
+   **4 人价和单人价不能放同一张表。**
 3. **汇率全项目固定**：`€1 = ¥8.0` · `$1 = ¥7.1` · `NOK 1 = ¥0.67`。
    所有 `.md` 用的都是这三个数，改汇率会让所有文档互相矛盾。
 
 ## 五、抓取时间线
 
 `2026-09-01`：住宿 + 租车 + 邮轮第一轮 · `2026-09-02`：机票、异地还车、Steve 那套链接、
-冰岛国内线、Borgarnes 复查、图片素材。**报价均为当日实时**，之后可能已变。
+冰岛国内线、Borgarnes 复查、图片素材 · `2026-09-05`：Steve 单人后半段（`solo*`，1 adult/USD）。**报价均为当日实时**，之后可能已变。

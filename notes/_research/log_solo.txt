@@ -1,0 +1,127 @@
+== O-osl-nce-1006  OSL->NCE 2026-10-06  
+    5:20 PM – 8:15 PM NorwegianOperated by Norwegian 2 hr 55 min OSL–NCE Nonstop 134 kg CO2e -27% emissions $86
+    10:00 AM – 12:55 PM NorwegianOperated by Norwegian 2 hr 55 min OSL–NCE Nonstop 134 kg CO2e -27% emissions $108
+    11:50 AM – 4:25 PM KLM 4 hr 35 min OSL–NCE 1 stop 50 min AMS 176 kg CO2e Avg emissions $133
+    6:45 PM – 11:30 PM Lufthansa 4 hr 45 min OSL–NCE 1 stop 1 hr MUC 207 kg CO2e +13% emissions $150
+    6:30 AM – 11:30 AM KLM 5 hr OSL–NCE 1 stop 1 hr 20 min AMS 161 kg CO2e -12% emissions $114
+    7:45 PM – 6:45 PM+1 LOT 23 hr OSL–NCE 1 stop 18 hr 35 min WAW 205 kg CO2e +12% emissions $128
+    7:10 AM – 12:35 PM Lufthansa 5 hr 25 min OSL–NCE 1 stop 1 hr 40 min MUC 183 kg CO2e Avg emissions $150
+    11:45 AM – 5:10 PM Lufthansa 5 hr 25 min OSL–NCE 1 stop 1 hr 40 min MUC 209 kg CO2e +14% emissions $186
+== O-osl-mrs-1006  OSL->MRS 2026-10-06  
+    6:30 AM – 11:30 AM KLMScandinavian Airlines 5 hr OSL–MRS 1 stop 1 hr 15 min AMS 174 kg CO2e -19% emissions $145
+    5:20 PM – 10:45 PM KLMScandinavian Airlines 5 hr 25 min OSL–MRS 1 stop 1 hr 40 min AMS 174 kg CO2e -19% emissions $145 Avoids as much CO2e as 2,496 trees absorb in a day
+    6:30 AM – 11:55 AM Air FranceScandinavian Airlines 5 hr 25 min OSL–MRS 1 stop 1 hr 15 min CDG 214 kg CO2e Avg emissions $163
+    11:50 AM – 4:40 PM KLM 4 hr 50 min OSL–MRS 1 stop 1 hr 5 min AMS 174 kg CO2e -19% emissions $166
+    6:45 AM – 12:45 PM Brussels Airlines 6 hr OSL–MRS 1 stop 2 hr 15 min BRU 219 kg CO2e Avg emissions $168
+    7:10 AM – 9:45 PM Lufthansa 14 hr 35 min OSL–MRS 1 stop 10 hr 35 min MUC 201 kg CO2e -7% emissions $160
+    6:00 AM – 2:15 PM Scandinavian Airlines, Air FranceOperated by Sas Connect 8 hr 15 min OSL–MRS 2 stops CPH, CDG 242 kg CO2e +13% emissions $192
+    7:10 AM – 1:05 PM Lufthansa 5 hr 55 min OSL–MRS 1 stop 1 hr 55 min MUC 208 kg CO2e Avg emissions $212
+== O-osl-lon-1006  OSL->LON 2026-10-06  
+    11:10 PM – 12:20 AM+1 Ryanair UK 2 hr 10 min OSL–STN Nonstop 102 kg CO2e $18
+    10:35 AM – 11:45 AM Ryanair UKOperated by Ryanair 2 hr 10 min OSL–STN Nonstop 102 kg CO2e $31
+    7:10 AM – 8:40 AM Norwegian 2 hr 30 min OSL–LGW Nonstop 112 kg CO2e $54
+    6:50 PM – 8:10 PM Norwegian 2 hr 20 min OSL–LGW Nonstop 112 kg CO2e $65
+    1:05 PM – 2:25 PM Norwegian 2 hr 20 min OSL–LGW Nonstop 112 kg CO2e $86
+    7:45 AM – 9:15 AM British Airways 2 hr 30 min OSL–LHR Nonstop 98 kg CO2e $88
+    7:30 PM – 8:50 PM British Airways 2 hr 20 min OSL–LHR Nonstop 115 kg CO2e $88
+    8:00 AM – 9:35 AM Scandinavian Airlines 2 hr 35 min OSL–LHR Nonstop 107 kg CO2e $93
+== O-osl-cdg-1006  OSL->CDG 2026-10-06  
+    8:45 AM – 11:10 AM Norwegian 2 hr 25 min OSL–CDG Nonstop 120 kg CO2e -26% emissions $140
+    6:30 AM – 9:10 AM Air France 2 hr 40 min OSL–CDG Nonstop 140 kg CO2e -14% emissions $175
+    9:00 AM – 11:30 AM Scandinavian Airlines 2 hr 30 min OSL–CDG Nonstop 116 kg CO2e -28% emissions $189
+    10:45 AM – 10:45 PM LOT 12 hr OSL–CDG 1 stop 7 hr 30 min WAW 236 kg CO2e +46% emissions $99
+    9:40 AM – 9:15 AM+1 Air Serbia 23 hr 35 min OSL–CDG 1 stop 18 hr 5 min BEG 320 kg CO2e +98% emissions $127
+    10:45 AM – 6:50 PM LOT 8 hr 5 min OSL–CDG 1 stop 3 hr 35 min WAW 236 kg CO2e +46% emissions $136
+    6:30 AM – 10:55 AM KLM, Air France 4 hr 25 min OSL–CDG 1 stop 1 hr 20 min AMS 142 kg CO2e -12% emissions $137
+    6:30 AM – 1:40 PM KLM 7 hr 10 min OSL–CDG 1 stop 4 hr 15 min AMS 135 kg CO2e -17% emissions $137
+== R-nce-sfo-1011  NCE->SFO 2026-10-11  
+    10:50 AM – 10:45 AM+1 Turkish Airlines 32 hr 55 min NCE–SFO 1 stop 16 hr 25 min IST 725 kg CO2e +13% emissions $698
+    6:20 AM – 11:45 AM KLMAir France, Delta 14 hr 25 min NCE–SFO 1 stop 1 hr 30 min AMS 478 kg CO2e -25% emissions $1,118
+    12:15 PM – 6:00 PM Air FranceDelta 14 hr 45 min NCE–SFO 1 stop 1 hr 50 min CDG 533 kg CO2e -17% emissions $1,124
+    11:45 AM – 8:39 PM Delta 17 hr 54 min NCE–SFO 1 stop 2 hr 28 min BOS 664 kg CO2e Avg emissions $1,126
+    12:15 PM – 2:05 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 34 hr 50 min NCE–SFO 1 stop 19 hr 30 min LIS 686 kg CO2e +7% emissions $811
+    7:30 PM – 10:45 AM+1 Turkish Airlines 24 hr 15 min NCE–SFO 1 stop 7 hr 50 min IST 740 kg CO2e +16% emissions $887
+    6:45 PM – 2:05 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 28 hr 20 min NCE–SFO 1 stop 13 hr LIS 686 kg CO2e +7% emissions $894
+    7:40 PM – 6:50 PM+1 LOT, Alaska 32 hr 10 min NCE–SFO 2 stops WAW, LAX 764 kg CO2e +19% emissions $1,043
+== R-nce-sjc-1011  NCE->SJC 2026-10-11  
+    6:20 AM – 4:20 PM KLM, Delta 19 hr NCE–SJC 2 stops AMS, SLC 668 kg CO2e Avg emissions $1,123
+    6:20 AM – 3:51 PM KLM, DeltaOperated by SkyWest DBA Delta Connection 18 hr 31 min NCE–SJC 2 stops AMS, LAX 546 kg CO2e -15% emissions $1,123 Avoids as much CO2e as 5,722 trees absorb in a day
+    9:25 AM – 7:52 PM KLM, DeltaOperated by KLM Cityhopper, SkyWest DBA Delta Connection 19 hr 27 min NCE–SJC 2 stops AMS, LAX 576 kg CO2e -10% emissions $1,123
+    10:50 AM – 7:52 PM Air France, DeltaOperated by SkyWest DBA Delta Connection 18 hr 2 min NCE–SJC 2 stops CDG, LAX 666 kg CO2e Avg emissions $1,130
+    11:35 AM – 10:08 PM British Airways, American 19 hr 33 min NCE–SJC 2 stops LHR, DFW 626 kg CO2e Avg emissions $1,183
+    8:00 AM – 10:08 PM British Airways, American 23 hr 8 min NCE–SJC 2 stops LHR, DFW 590 kg CO2e -8% emissions $1,061
+    6:00 AM – 3:51 PM Air France, DeltaOperated by SkyWest DBA Delta Connection 18 hr 51 min NCE–SJC 2 stops CDG, LAX 666 kg CO2e Avg emissions $1,130
+    7:10 AM – 5:02 PM Air France, DeltaOperated by SkyWest DBA Delta Connection 18 hr 52 min NCE–SJC 2 stops CDG, SEA 785 kg CO2e +23% emissions $1,130
+== R-mrs-sfo-1011  MRS->SFO 2026-10-11  
+    6:15 PM – 2:05 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 28 hr 50 min MRS–SFO 1 stop 13 hr 45 min LIS 666 kg CO2e Avg emissions $807
+    7:10 PM – 10:45 AM+1 Turkish Airlines 24 hr 35 min MRS–SFO 1 stop 8 hr IST 787 kg CO2e +22% emissions $886
+    6:45 AM – 12:50 PM Air FranceDelta 15 hr 5 min MRS–SFO 1 stop 2 hr 5 min CDG 604 kg CO2e -6% emissions $1,123
+    12:45 PM – 6:00 PM Air FranceDelta 14 hr 15 min MRS–SFO 1 stop 1 hr 25 min CDG 522 kg CO2e -19% emissions $1,123 Avoids as much CO2e as 7,366 trees absorb in a day
+    7:20 AM – 7:03 PM British Airways, American 20 hr 43 min MRS–SFO 2 stops LHR, LAX 641 kg CO2e Avg emissions $1,062
+    7:20 AM – 7:03 PM British Airways, American 20 hr 43 min MRS–SFO 2 stops LHR, LAX 641 kg CO2e Avg emissions $1,062
+    10:05 AM – 9:07 PM British Airways, American 20 hr 2 min MRS–SFO 2 stops LHR, DFW 645 kg CO2e Avg emissions $1,062
+    7:20 AM – 4:10 PM British Airways, American 17 hr 50 min MRS–SFO 2 stops LHR, PHX 835 kg CO2e +30% emissions $1,184
+== R-lon-sfo-1011  LON->SFO 2026-10-11  
+    9:50 AM – 3:55 PM Aer LingusBritish Airways, American 14 hr 5 min LHR–SFO 1 stop 1 hr 40 min DUB 541 kg CO2e +6% emissions $924
+    1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e +8% emissions $1,121
+    12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,199
+    9:15 PM – 1:35 PM+2 Tap Air Portugal 48 hr 20 min LGW–SFO 2 stops OPO, LIS 694 kg CO2e +36% emissions $625
+    7:50 PM – 2:05 PM+1 Tap Air Portugal 26 hr 15 min LHR–SFO 1 stop 10 hr 55 min LIS 633 kg CO2e +24% emissions $721
+    5:35 PM – 10:45 AM+1 Turkish Airlines 25 hr 10 min STN–SFO 1 stop 7 hr 45 min IST 822 kg CO2e +61% emissions $1,034
+    9:05 AM – 4:15 PM SWISSOperated by Helvetic 15 hr 10 min LGW–SFO 1 stop 1 hr 20 min ZRH 641 kg CO2e +25% emissions $1,102
+    10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e +8% emissions $1,121
+== R-lon-sjc-1011  LON->SJC 2026-10-11  
+    11:25 AM – 5:32 PM United 14 hr 7 min LHR–SJC 1 stop 1 hr 40 min DEN 593 kg CO2e +11% emissions $1,127
+    2:50 PM – 8:48 PM UnitedLufthansa 13 hr 58 min LHR–SJC 1 stop 1 hr 27 min DEN 581 kg CO2e +9% emissions $1,148
+    4:10 PM – 10:43 PM British Airways, AmericanFinnair 14 hr 33 min LHR–SJC 1 stop 1 hr 40 min PHX 528 kg CO2e Avg emissions $1,340
+    10:55 AM – 6:29 PM DeltaKLM, Virgin AtlanticOperated by SkyWest DBA Delta Connection 15 hr 34 min LHR–SJC 1 stop 2 hr 46 min SLC 849 kg CO2e +60% emissions $1,381
+    5:00 PM – 10:59 PM Alaska 13 hr 59 min LHR–SJC 1 stop 1 hr 48 min SEA 554 kg CO2e Avg emissions $1,536
+    12:20 PM – 11:04 AM+1 British Airways, AmericanFinnair 30 hr 44 min LGW–SJC 2 stops TPA, DFW 887 kg CO2e +67% emissions $1,079
+    6:30 PM – 8:48 PM+1 Air Dolomiti, Lufthansa, United 34 hr 18 min LCY–SJC 3 stops FRA, MUC, DEN 738 kg CO2e +39% emissions $1,101
+    1:35 PM – 10:43 PM British Airways, American 17 hr 8 min LHR–SJC 2 stops DEN, PHX 628 kg CO2e +18% emissions $1,112
+== R-cdg-sfo-1011  CDG->SFO 2026-10-11  
+    10:20 AM – 3:55 PM Aer Lingus 14 hr 35 min CDG–SFO 1 stop 1 hr 45 min DUB 569 kg CO2e Avg emissions $929
+    10:20 AM – 12:50 PM Air FranceDelta 11 hr 30 min CDG–SFO Nonstop 528 kg CO2e -11% emissions $1,141
+    3:40 PM – 6:00 PM Air FranceDelta 11 hr 20 min CDG–SFO Nonstop 449 kg CO2e -24% emissions $1,141
+    11:10 AM – 10:27 PM Condor, Alaska 20 hr 17 min CDG–SFO 2 stops FRA, LAS 629 kg CO2e +6% emissions $930
+    7:20 AM – 4:40 PM Turkish Airlines 18 hr 20 min CDG–SFO 1 stop 1 hr 15 min IST 806 kg CO2e +36% emissions $998
+    7:10 AM – 11:45 AM Air France, KLMDelta 13 hr 35 min CDG–SFO 1 stop 1 hr 15 min AMS 446 kg CO2e -25% emissions $1,130
+    4:00 PM – 10:45 PM DeltaAir France, Virgin Atlantic 15 hr 45 min CDG–SFO 1 stop 2 hr 36 min LAX 536 kg CO2e -10% emissions $1,146
+    10:50 AM – 5:15 PM DeltaKLM 15 hr 25 min CDG–SFO 1 stop 1 hr 44 min MSP 636 kg CO2e +7% emissions $1,288
+== C-nce-lon-1010  NCE->LON 2026-10-10  
+    4:50 PM – 6:00 PM Ryanair 2 hr 10 min NCE–STN Nonstop 100 kg CO2e Avg emissions $26
+    11:55 PM – 1:05 AM+1 easyJet 2 hr 10 min NCE–LTN Nonstop 109 kg CO2e +11% emissions $32
+    11:35 AM – 12:50 PM British AirwaysOperated by BA Euroflyer 2 hr 15 min NCE–LGW Nonstop 99 kg CO2e Avg emissions $82
+    7:50 PM – 8:55 PM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $44
+    9:40 PM – 10:45 PM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $44
+    9:40 AM – 10:45 AM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $55
+    12:50 PM – 1:50 PM easyJet 2 hr NCE–LGW Nonstop 102 kg CO2e Avg emissions $55
+    4:20 PM – 5:25 PM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $55
+== C-lon-nce-1008  LON->NCE 2026-10-08  
+    6:50 PM – 10:00 PM Ryanair 2 hr 10 min STN–NCE Nonstop 105 kg CO2e Avg emissions $37
+    5:55 AM – 9:00 AM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $42
+    3:50 PM – 7:05 PM British AirwaysOperated by BA Euroflyer 2 hr 15 min LGW–NCE Nonstop 104 kg CO2e Avg emissions $77
+    1:45 PM – 4:50 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $55
+    6:40 PM – 9:45 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $55
+    7:00 AM – 10:10 AM easyJet 2 hr 10 min LTN–NCE Nonstop 105 kg CO2e Avg emissions $59
+    11:20 AM – 2:25 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $70
+    12:20 PM – 3:25 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $77
+== X-nce-sfo-1019  NCE->SFO 2026-10-19  
+    6:00 AM – 2:05 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 17 hr 5 min NCE–SFO 1 stop 1 hr 45 min LIS 686 kg CO2e +7% emissions $894
+    7:05 AM – 1:50 PM British AirwaysAmerican, Finnair, Iberia 15 hr 45 min NCE–SFO 1 stop 2 hr 25 min LHR 635 kg CO2e Avg emissions $1,056
+    6:20 AM – 11:45 AM KLMAir France, Delta 14 hr 25 min NCE–SFO 1 stop 1 hr 30 min AMS 478 kg CO2e -25% emissions $1,118
+    7:10 AM – 12:50 PM Air FranceDelta 14 hr 40 min NCE–SFO 1 stop 1 hr 30 min CDG 606 kg CO2e Avg emissions $1,124
+    6:15 PM – 1:35 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 28 hr 20 min NCE–SFO 1 stop 13 hr LIS 686 kg CO2e +7% emissions $803
+    7:30 PM – 4:40 PM+1 Turkish Airlines 30 hr 10 min NCE–SFO 1 stop 13 hr 50 min IST 740 kg CO2e +16% emissions $978
+    10:10 AM – 6:51 PM American 17 hr 41 min NCE–SFO 1 stop 2 hr 31 min PHL 708 kg CO2e +11% emissions $1,049
+    11:55 AM – 5:40 PM British AirwaysAmerican, Finnair, Iberia 14 hr 45 min NCE–SFO 1 stop 1 hr 20 min LHR 627 kg CO2e Avg emissions $1,056
+== X-lon-sfo-1019  LON->SFO 2026-10-19  
+    8:40 AM – 4:15 PM SWISSUnited 15 hr 35 min LHR–SFO 1 stop 1 hr 25 min ZRH 610 kg CO2e +19% emissions $489
+    6:30 AM – 12:40 PM Lufthansa City Airlines, LufthansaUnited 14 hr 10 min LHR–SFO 1 stop 1 hr 20 min FRA 599 kg CO2e +17% emissions $502
+    10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e +8% emissions $560
+    1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e +8% emissions $560
+    4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e +8% emissions $560
+    7:30 AM – 3:20 PM Lufthansa, United 15 hr 50 min LHR–SFO 1 stop 2 hr 50 min FRA 679 kg CO2e +33% emissions $528
+    8:30 AM – 3:20 PM Lufthansa City Airlines, UnitedLufthansa 14 hr 50 min LHR–SFO 1 stop 1 hr 50 min FRA 678 kg CO2e +32% emissions $528
+    7:15 PM – 4:35 PM+1 SWISS, UnitedOperated by Helvetic 29 hr 20 min LCY–SFO 1 stop 15 hr 35 min ZRH 531 kg CO2e Avg emissions $560
+DONE

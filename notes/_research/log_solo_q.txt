@@ -1,0 +1,6 @@
+climate-oct: 4635 chars, 23 sources
+riviera-5days: 5926 chars, 17 sources
+provence-vs-riviera: 5386 chars, 31 sources
+london-5days: 8014 chars, 29 sources
+nce-transatlantic: 3082 chars, 13 sources
+lhr-sfo-sjc: 3641 chars, 10 sources

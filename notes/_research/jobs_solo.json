@@ -1,0 +1,19 @@
+[
+ {"slug":"O-osl-nce-1006","from":"OSL","to":"NCE","date":"2026-10-06","note":"分手当天 奥斯陆→尼斯（蔚蓝海岸）"},
+ {"slug":"O-osl-mrs-1006","from":"OSL","to":"MRS","date":"2026-10-06","note":"分手当天 奥斯陆→马赛（普罗旺斯）"},
+ {"slug":"O-osl-lon-1006","from":"OSL","to":"LON","date":"2026-10-06","note":"分手当天 奥斯陆→伦敦（全机场）"},
+ {"slug":"O-osl-cdg-1006","from":"OSL","to":"CDG","date":"2026-10-06","note":"分手当天 奥斯陆→巴黎（作为南法中转/备选）"},
+
+ {"slug":"R-nce-sfo-1011","from":"NCE","to":"SFO","date":"2026-10-11","note":"10/11 尼斯→SFO（无直飞，看中转）"},
+ {"slug":"R-nce-sjc-1011","from":"NCE","to":"SJC","date":"2026-10-11","note":"10/11 尼斯→SJC"},
+ {"slug":"R-mrs-sfo-1011","from":"MRS","to":"SFO","date":"2026-10-11","note":"10/11 马赛→SFO"},
+ {"slug":"R-lon-sfo-1011","from":"LON","to":"SFO","date":"2026-10-11","note":"10/11 伦敦→SFO（有多班直飞）"},
+ {"slug":"R-lon-sjc-1011","from":"LON","to":"SJC","date":"2026-10-11","note":"10/11 伦敦→SJC"},
+ {"slug":"R-cdg-sfo-1011","from":"CDG","to":"SFO","date":"2026-10-11","note":"10/11 巴黎→SFO（有直飞）"},
+
+ {"slug":"C-nce-lon-1010","from":"NCE","to":"LON","date":"2026-10-10","note":"合并玩法：南法玩完飞伦敦，次日回美"},
+ {"slug":"C-lon-nce-1008","from":"LON","to":"NCE","date":"2026-10-08","note":"合并玩法：先伦敦再南法"},
+
+ {"slug":"X-nce-sfo-1019","from":"NCE","to":"SFO","date":"2026-10-19","note":"多待一周版：10/19 尼斯→SFO"},
+ {"slug":"X-lon-sfo-1019","from":"LON","to":"SFO","date":"2026-10-19","note":"多待一周版：10/19 伦敦→SFO"}
+]

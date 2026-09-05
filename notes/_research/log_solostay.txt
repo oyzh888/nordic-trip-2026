@@ -1,0 +1,5 @@
+nice-5n: 24 listings, 0 with 3+ bedrooms
+nice-9n: 24 listings, 0 with 3+ bedrooms
+nice-13n: 24 listings, 0 with 3+ bedrooms
+london-1n: 24 listings, 0 with 3+ bedrooms
+london-4n: 24 listings, 0 with 3+ bedrooms

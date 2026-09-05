@@ -1,0 +1,7 @@
+[
+{"slug":"nice-5n","place":"Nice, France","checkin":"2026-10-06","checkout":"2026-10-11","adults":1,"min_bedrooms":1,"min_bathrooms":1,"bbox":[43.66,7.20,43.73,7.31],"zoom":13},
+{"slug":"nice-9n","place":"Nice, France","checkin":"2026-10-06","checkout":"2026-10-15","adults":1,"min_bedrooms":1,"min_bathrooms":1,"bbox":[43.66,7.20,43.73,7.31],"zoom":13},
+{"slug":"nice-13n","place":"Nice, France","checkin":"2026-10-06","checkout":"2026-10-19","adults":1,"min_bedrooms":1,"min_bathrooms":1,"bbox":[43.66,7.20,43.73,7.31],"zoom":13},
+{"slug":"london-1n","place":"London, United Kingdom","checkin":"2026-10-10","checkout":"2026-10-11","adults":1,"min_bedrooms":1,"min_bathrooms":1,"bbox":[51.48,-0.20,51.55,-0.02],"zoom":12},
+{"slug":"london-4n","place":"London, United Kingdom","checkin":"2026-10-11","checkout":"2026-10-15","adults":1,"min_bedrooms":1,"min_bathrooms":1,"bbox":[51.48,-0.20,51.55,-0.02],"zoom":12}
+]

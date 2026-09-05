@@ -35,10 +35,10 @@ story/     ← 故事页（电影感长卷）
 styles/    ← 故事页的四个风格变体 + 共用 core.js
 notes/     ← 所有 Markdown 文档（结论）
   shots/       ← 14 张精选截图，PLAN-final §八 逐一引用
-  _research/   ← 🔬 全部原始证据，763 个文件：261 张截图 + 378 JSON + 40 抓取脚本（见 INDEX.md）
+  _research/   ← 🔬 全部原始证据，916 个文件：306 张截图 + 459 JSON + 46 抓取脚本（见 INDEX.md）
 ```
 
-### `notes/` 里 9 份文档各自的定位
+### `notes/` 里 10 份文档各自的定位
 
 | 文档 | 是什么 | 什么时候读 |
 |---|---|---|
@@ -46,6 +46,7 @@ notes/     ← 所有 Markdown 文档（结论）
 | [`CANDIDATES.md`](notes/CANDIDATES.md) | 每晚 3–10 个候选 · ⚠️ **自动生成，别手改**（`node notes/_research/gen_candidates.js`） | 想换住哪 |
 | [`PLAN-booking.md`](notes/PLAN-booking.md) | **下单顺序**，按「谁会先卖光」排 | 准备真的付钱 |
 | [`ICELAND-oneway.md`](notes/ICELAND-oneway.md) | 冰岛能不能「不回头」—— 3 个方案实价对比 | 觉得冰岛在走回头路 |
+| [`SOLO-after-oslo.md`](notes/SOLO-after-oslo.md) | **Steve 一个人的后半段**：10/6 奥斯陆分手 → 尼斯/伦敦 → 回 SFO。⚠️ 单人 USD 口径 | 大家回北京、他不回 |
 | [`OPTIONS-cars.md`](notes/OPTIONS-cars.md) | 三段自驾的实时报价池 | 想换车/换档位 |
 | [`OPTIONS-cars-split.md`](notes/OPTIONS-cars-split.md) | 「同地租 N 天 + 最后 1 天异地」到底划不划算 | 想省异地还车费 |
 | [`OPTIONS-stay.md`](notes/OPTIONS-stay.md) | 住宿候选池（⚠️ 开头列了 3 处已修正的错） | 追查某晚为什么这么选 |
