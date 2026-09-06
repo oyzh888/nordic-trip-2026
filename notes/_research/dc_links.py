@@ -33,11 +33,11 @@ CARS = [
       pick="EVE", drop="LKN", pick_dt="2026-09-30 11:00", drop_dt="2026-10-02 11:00",
       expect="$571（Ford Explorer 4WD）· 便宜 $76 但要在小机场干等 4h40"),
  dict(slug="car3-tromso", label="🇳🇴 车② 特罗姆瑟 3 天",
-      pick="TOS", drop="TOS", pick_dt="2026-10-02 17:00", drop_dt="2026-10-05 10:00",
-      expect="$224（4x4 自动）· 落地 16:35 + 25 min"),
+      pick="TOS", drop="TOS", pick_dt="2026-10-02 17:00", drop_dt="2026-10-05 09:45",
+      expect="$224（4x4 自动）· 落地 16:35 + 25 min · 🆕 还车 09:45 配改推的 10:45 那班"),
  dict(slug="car4-oslo", label="🇳🇴 车③ 奥斯陆 1 天",
-      pick="OSL", drop="OSL", pick_dt="2026-10-05 10:45", drop_dt="2026-10-06 10:00",
-      expect="$85（4x4 自动）· 配 TOS→OSL 08:20→10:15 那班，落地 +30 min"),
+      pick="OSL", drop="OSL", pick_dt="2026-10-05 13:10", drop_dt="2026-10-06 09:00",
+      expect="🆕 燃油自动四驱 $120–150（$85 那档是 ID.4 电车）· 配改推的 TOS→OSL 10:45→12:40"),
 ]
 
 

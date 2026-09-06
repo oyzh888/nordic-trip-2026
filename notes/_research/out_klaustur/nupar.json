@@ -1,0 +1,45 @@
+{
+ "title": "Fosshotel Nupar, Kálfafell (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/fosshotel-nupar.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Superior Double Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    476,
+    476,
+    476,
+    27
+   ],
+   "cancel": "Free cancellation before September 24, 2026 ",
+   "currency": "EUR",
+   "raw": "Superior Double Room ¶ We have 1 left ¶ Select your bed (if available): ¶ 2 twin beds ¶ 1 full bed ¶ 248 feet² ¶ View ¶ Patio ¶ Private bathroom ¶ Flat-screen TV ¶ Free Wifi ¶ Max. people: 2 ¶ € 476 per night ¶ € 476 ¶ Price € 476 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Exceptional breakfast € 27 ¶ Free cancellation before September 24, 2026 ¶ • ¶ Pay nothing until September 22, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 476)"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    519,
+    519,
+    519,
+    519
+   ],
+   "cancel": "Free cancellation before September 24, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 519 per night ¶ € 519 ¶ Price € 519 ¶ 1 night ¶ Excluded: 11 % VAT, ISK 800 City tax per night ¶ Exceptional breakfast included ¶ Free cancellation before September 24, 2026 ¶ • ¶ Pay nothing until September 22, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 519)"
+  }
+ ],
+ "job": {
+  "slug": "nupar",
+  "hotel": "is/fosshotel-nupar",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 4,
+  "rooms": 2
+ }
+}

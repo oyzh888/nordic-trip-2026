@@ -1,0 +1,75 @@
+{
+ "title": "Hotel Klaustur, Kirkjubæjarklaustur (updated prices 2026)",
+ "url": "https://www.booking.com/hotel/is/klaustur.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&group_children=0&no_rooms=2&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [
+  {
+   "row": 0,
+   "name": "Twin Guest Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    270,
+    330,
+    270,
+    330
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Twin Guest Room ¶ We have 1 left ¶ Select your bed (if available): ¶ 2 twin beds ¶ 1 queen bed ¶ 215 feet² ¶ Garden view ¶ River view ¶ Inner courtyard view ¶ Attached bathroom ¶ Flat-screen TV ¶ Soundproofing ¶ Coffee machine ¶ Free Wifi ¶ Max. people: 2 ¶ € 270 per night ¶ € 330 € 270 ¶ Original price € 330 Current price € 270 ¶ 1 night ¶ 18% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Non-refundable ¶ Lower price for fixed date"
+  },
+  {
+   "row": 1,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    326,
+    363,
+    326,
+    363
+   ],
+   "cancel": "Free cancellation before September 12, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 326 per night ¶ € 363 € 326 ¶ Original price € 363 Current price € 326 ¶ 1 night ¶ 10% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 12, 2026 ¶ • ¶ Pay nothing until September 10, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 326)"
+  },
+  {
+   "row": 2,
+   "name": "Deluxe Double Room",
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    558,
+    613,
+    558,
+    613
+   ],
+   "cancel": "Non-refundable",
+   "currency": "EUR",
+   "raw": "Deluxe Double Room ¶ We have 2 left ¶ Select your bed (if available): ¶ 2 twin beds ¶ 1 queen bed ¶ 237 feet² ¶ High floor ¶ Mountain view ¶ City view ¶ Attached bathroom ¶ Flat-screen TV ¶ Soundproofing ¶ Coffee machine ¶ Free Wifi ¶ Max. people: 2 ¶ € 558 per night ¶ € 613 € 558 ¶ Original price € 613 Current price € 558 ¶ 1 night ¶ 9% off ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Non-refundable ¶ Lower price for fixed dates ¶ • ¶"
+  },
+  {
+   "row": 3,
+   "name": null,
+   "bedrooms": null,
+   "bathrooms": null,
+   "prices_seen": [
+    674,
+    674,
+    674,
+    6
+   ],
+   "cancel": "Free cancellation before September 12, 2026 ",
+   "currency": "EUR",
+   "raw": "Max. people: 2 ¶ € 674 per night ¶ € 674 ¶ Price € 674 ¶ 1 night ¶ Excluded: 11 % VAT, € 6 City tax per night ¶ Excellent breakfast included ¶ Includes 1 parking spot + high-speed internet ¶ Free cancellation before September 12, 2026 ¶ • ¶ Pay nothing until September 10, 2026 ¶ Select Rooms ¶ 0 ¶ 1          (€ 674) ¶ 2          (€ 1,348)"
+  }
+ ],
+ "job": {
+  "slug": "klaustur",
+  "hotel": "is/klaustur",
+  "checkin": "2026-09-26",
+  "checkout": "2026-09-27",
+  "adults": 4,
+  "rooms": 2
+ }
+}
