@@ -2,15 +2,27 @@
 
 **2026-09-24 → 10-06 · 4 人（两男 + 一对夫妻）· 奥斯陆 → 冰岛 → 罗弗敦 → 特罗姆瑟/Senja → 奥斯陆**
 
-12 晚住宿 + 4 台租车，**全部有实价、全部实测可订**：
-住宿 **€5,132 ≈ ¥41,055**（¥1,711/房/晚）· 车 **¥10,338** → **合计 ≈ ¥57,059，人均 ¥14,265**
-（不含跨国机票 / 餐饮 / 门票·tour）。9/30–10/2 罗弗敦那一段 **Steve 已下单**。
+12 晚住宿 + 4 台租车，**全部有实价、全部实测可订**。
+**合计 ≈ ¥65,700 · 人均 ¥16,425**（不含跨国机票 / 餐饮 / 门票·tour）。
+9/30–10/2 罗弗敦那一段 **已下单**；9/24 洲际 · 9/25 SK4787 · 9/29 DY1171 **三段机票已出票**。
 
-> **这个 repo 的价格不是估的。** 每一个数字都是 2026-09-01/02 用 Playwright 打开
-> Booking / Airbnb / DiscoverCars / Google Flights / Hurtigruten 的**真实页面、按我们真实日期**
+> ## 🥇 要下单就看 [`BUY.md`](BUY.md)
+> 那是一份**可执行的采购清单**（给操作浏览器的 agent 用）：买什么 · 在哪买 ·
+> 怎么在页面上认出正确的那一个 · 期望价 · 退改条件 · **什么情况下不许买**。
+> 租车是重点（四条已验证的 DiscoverCars 深链，点开就是我们的日期地点）。
+
+> ## 🔴 口径：**不省钱，要舒服、要顺**（2026-09-05 Steve 明确）
+> 「合理就可以花。」所有原来靠「便宜多少」挑出来的选择都已按舒适重排（7 处翻转，
+> 每条都写清「多花多少 / 换到了什么」），见 [`notes/PLAN-final.md`](notes/PLAN-final.md) 开头那张表。
+> 总账因此从 ¥57,851 → ¥65,700，副产品是**全程「不可退」项归零**。
+
+> **这个 repo 的价格不是估的。** 每一个数字都是 2026-09-01 → 09-06 用 Playwright 打开
+> Booking / Airbnb / DiscoverCars / Google Flights 的**真实页面、按我们真实日期**
 > 抓下来的，原始 JSON 和截图都在 `notes/_research/`（见那里的 [`INDEX.md`](notes/_research/INDEX.md)）。
 >
 > **汇率全项目固定**：`€1 = ¥8.0` · `$1 = ¥7.1` · `NOK 1 = ¥0.67`。改汇率会让所有文档互相矛盾。
+>
+> 🔒 **这是公开仓库 —— 预订号（PNR）、同行人姓名、账号、付款信息一律不写进来。**
 
 ---
 
@@ -19,6 +31,7 @@
 | 版本 | 干什么用 | 链接 |
 |---|---|---|
 | 🥇 **计划总览** | **要 confirm 就看这个。** 分 Part I 总览 / Part II 参考；候选可点选、总账当场重算 | <https://reports.aitist.ai/nordic-trip-2026/plan/> |
+| 🆕 ⏱ **时间线（甘特图）** | 按时间从上往下看，住宿/车/航班画成覆盖时间范围的横条；**页面自己体检**「每一夜有没有地方睡 / 落地到取车等多久 / 还车到起飞够不够 / 要移动时有没有车」，并列出还要填的 22 项 | <https://reports.aitist.ai/nordic-trip-2026/timeline/> |
 | 🗺️ **行程地图** | 逐日路线 + 里程 | <https://reports.aitist.ai/nordic-trip-2026/trip-map/> |
 | 🎬 **故事页** | 电影感长卷，真实房源照 + 风光图（给同行的人看） | <https://reports.aitist.ai/nordic-trip-2026/journey-north/> |
 | 🎨 **四个风格版** | 故事页的四种排版，挑一个 | <https://reports.aitist.ai/nordic-trip-2026/styles/> |
@@ -30,7 +43,8 @@
 ## 目录结构
 
 ```
-viz/       ← 🥇 计划总览页（index.html + data.js）—— 唯一的「决策页面」
+BUY.md     ← 🥇 采购清单（下单指令，给 agent 用）
+viz/       ← 计划总览页（index.html + data.js）+ 🆕 时间线甘特图（timeline.html + timeline.js）
 story/     ← 故事页（电影感长卷）
 styles/    ← 故事页的四个风格变体 + 共用 core.js
 notes/     ← 所有 Markdown 文档（结论）
@@ -42,6 +56,7 @@ notes/     ← 所有 Markdown 文档（结论）
 
 | 文档 | 是什么 | 什么时候读 |
 |---|---|---|
+| 🥇 [`../BUY.md`](BUY.md) | **采购清单** —— 唯一的「下单」文档，其余都是推导 | **真的要付钱时** |
 | 🥇 [`PLAN-final.md`](notes/PLAN-final.md) | **最终方案**（总/分两层，§一·二·五 看完就够） | **默认入口** |
 | [`CANDIDATES.md`](notes/CANDIDATES.md) | 每晚 3–10 个候选 · ⚠️ **自动生成，别手改**（`node notes/_research/gen_candidates.js`） | 想换住哪 |
 | [`PLAN-booking.md`](notes/PLAN-booking.md) | **下单顺序**，按「谁会先卖光」排 | 准备真的付钱 |
