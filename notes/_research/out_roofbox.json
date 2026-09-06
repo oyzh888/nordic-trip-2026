@@ -1,0 +1,515 @@
+{
+ "iceland": {
+  "url": "https://www.discovercars.com/search/d9de6241-92c4-4473-b06f-7b8f96d58312?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDA4OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "n": 25,
+  "offers": [
+   {
+    "car": null,
+    "klass": "Mini",
+    "gear": "Manual",
+    "seats": 4,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 191.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Mini",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 234.05,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Mini",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 235.97,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy SUV",
+    "gear": "Manual",
+    "seats": 2,
+    "doors": 3,
+    "pickup": "In terminal",
+    "price": 247.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 326.51,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Mini",
+    "gear": "Automatic",
+    "seats": 4,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 204.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 329.2,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 212.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 247.25,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 249.29,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 334.05,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 342.55,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 342.7,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Mini",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 227.75,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 350.45,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Mini",
+    "gear": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 212.22,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 313.29,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 315.88,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy SUV",
+    "gear": "Manual",
+    "seats": 2,
+    "doors": 3,
+    "pickup": "Free shuttle service",
+    "price": 316.59,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy SUV",
+    "gear": "Manual",
+    "seats": 2,
+    "doors": 3,
+    "pickup": "Free shuttle service",
+    "price": 319.22,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 225.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 234.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 293.49,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 295.92,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 201.0,
+    "bags": null
+   }
+  ]
+ },
+ "tromso": {
+  "url": "https://www.discovercars.com/search/47f360c8-4902-4dbc-8ab8-808d632580e9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAwOTo0NSIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ",
+  "n": 25,
+  "offers": [
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "Free shuttle service",
+    "price": 214.59,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Standard SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 227.45,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Standard SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 229.69,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite Crossover",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 237.99,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact Elite",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 226.19,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact Elite",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 228.57,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 230.23,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite Crossover",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 244.92,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 253.58,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 249.35,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite Crossover",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 249.37,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 232.7,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Standard SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 245.0,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite Crossover",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 254.71,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 260.54,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 227.45,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 257.63,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 4,
+    "doors": 5,
+    "pickup": "Free shuttle service",
+    "price": 236.94,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 237.34,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Economy",
+    "gear": "Manual",
+    "seats": 4,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 230.38,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 262.41,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Intermediate Elite SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "pickup": "In terminal",
+    "price": 268.51,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Full-size SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 264.43,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 252.89,
+    "bags": null
+   },
+   {
+    "car": null,
+    "klass": "Compact SUV",
+    "gear": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "pickup": "In terminal",
+    "price": 285.8,
+    "bags": null
+   }
+  ]
+ },
+ "extras_raw": "__ERR__ Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"[data-testid=\\\"virtuoso-item-list\\\"] > div\").nth(4).get_by_text(re.compile(r\"View deal\", re.IGNORECASE)).first\n    - locator resolved to <a target=\"_blank\" class=\"Button Button_Primary Button_SizeDefault Button_isAnchor SearchCar-CtaBtn\" href=\"/offer/18639c43-0a68-4225-ae5a-9146deb6e658-5QF2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ZjI1NzBkYTViMThjY2MxOTdlNzliY2ExYTRhN2UzNyJ9\">View deal</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    58 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n"
+}
