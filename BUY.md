@@ -22,15 +22,18 @@
 
 ## 🚗 A. 租车 —— 四台，这是重点
 
+> 🆕 **2026-09-06：下面四条链接已换成 Steve 亲自挑好的「带签名 offer 链接」** —— 点开直接落在**他选定的那一台车**上，不再是搜索结果页，所以 agent **不需要自己在列表里认车**，只要核对日期时间、填司机信息和航班号、买保险、确认可免费取消。
+> ⚠️ 我**没有打开这四个页面**（Steve 要求不再访问网站）→ **具体车型/供应商/价格这份文档里还是空的**，以页面为准。
+
 **平台：全部走 [DiscoverCars](https://www.discovercars.com/)**（比价平台/broker，背后是 Hertz/Sixt/Avis/Enterprise 等）。
 下面四条链接是**已经填好日期地点、并逐条验证过打得开且有报价**的深链，点开就是结果页。
 
 | # | 段 | 取 → 还 | 目标车 | 期望价 | 链接 |
 |---|---|---|---|---|---|
-| **A1** 🔴🔴 | 🇳🇴 罗弗敦 | EVE 9/30 11:00 → **Leknes 10/2 14:30** | **Ford Explorer 4WD** · Automatic · In terminal | **$647** | [点开](https://www.discovercars.com/search/25779c7d-6688-4265-b905-3cf54c9e3ff6?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxNDozMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ) |
-| **A2** 🔴 | 🇮🇸 冰岛 | KEF **9/25 08:00** → KEF 9/29 18:00 | **Peugeot 2008** 或同级 · Automatic · **Compact SUV** | **$326** 裸车 | [点开](https://www.discovercars.com/search/d9de6241-92c4-4473-b06f-7b8f96d58312?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDA4OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ) |
-| **A3** | 🇳🇴 特罗姆瑟 | TOS 10/2 17:00 → 10/5 **09:45** | 🆕 **Ford Explorer 4WD**（Full-size，**燃油**） | 🆕 **$264** | [点开](https://www.discovercars.com/search/47f360c8-4902-4dbc-8ab8-808d632580e9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAwOTo0NSIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ) |
-| **A4** | 🇳🇴 奥斯陆 1 天 | OSL 10/5 **13:10** → 10/6 **09:00** | **燃油**自动四驱 | $120–150 | [点开](https://www.discovercars.com/search/f7f2adfe-7db5-4081-8249-ae7bf10cc3f1?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEzOjEwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAwOTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ) |
+| **A1** 🔴🔴 | 🇳🇴 罗弗敦 | EVE 9/30 11:00 → **Leknes 10/2 14:30** | **Ford Explorer 4WD** · Automatic · In terminal | **$647** | [点开](https://www.discovercars.com/offer/9693e455-c2bd-4f15-986e-09e8ebb92188-2NDJ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwVDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMlQxNDozMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2NGNjOTIwODQ0M2FkOTFhNGViYTk1YWEzMWZhZTU5MCJ9) |
+| **A2** 🔴 | 🇮🇸 冰岛 | KEF **9/25 08:00** → KEF 9/29 18:00 | **Peugeot 2008** 或同级 · Automatic · **Compact SUV** | **$326** 裸车 | [点开](https://www.discovercars.com/offer/e42e9998-7500-4027-90fa-bb087f945740-PMDB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyOGNlNjY3ZjI2ZWVkNTU4YTQzMTgwMjk2OGJhMDI0NSJ9) |
+| **A3** | 🇳🇴 特罗姆瑟 | TOS 10/2 17:00 → 10/5 **10:00** | 🆕 **Ford Explorer 4WD**（Full-size，**燃油**） | 🆕 **$264** | [点开](https://www.discovercars.com/offer/bd59ee39-0fd4-41ea-9e9e-ad3b5066c5d2-QR2J?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyVDE3OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNVQxMDowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxMzNkMzA5ZDQ0YWQwZDk4NjcxNTM3M2M4YWY0ZjdmMCJ9) |
+| **A4** | 🇳🇴 奥斯陆 1 天 | OSL 10/5 **13:00** → 10/6 **13:00** | **燃油**自动四驱 | $120–150 | [点开](https://www.discovercars.com/offer/6c79398c-62fc-4e95-ad7e-e0790fb480b3-TMQD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1VDEzOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNlQxMzowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjMyOTFmMWNiYWQ2MjU1MTA4OTY5MDBiNmMwYjFhMSJ9) |
 
 ### 顺序：A1 → A2 → A3 → A4（不是按贵排，按「会不会卖光」排）
 **A1 先订** —— Leknes 异地还车**全网只有 5 个报价**（同期 Evenes 22 个、特罗姆瑟 16 个），四台里唯一会真的订不着。

@@ -1,0 +1,30 @@
+[
+ {
+  "loc": "OSL 奥斯陆",
+  "offer": "6c79398c-62fc-4e95-ad7e-e0790fb480b3-TMQD",
+  "url": "https://www.discovercars.com/offer/6c79398c-62fc-4e95-ad7e-e0790fb480b3-TMQD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1VDEzOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNlQxMzowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjMyOTFmMWNiYWQ2MjU1MTA4OTY5MDBiNmMwYjFhMSJ9",
+  "pick": "2026-10-05 13:00",
+  "drop": "2026-10-06 13:00"
+ },
+ {
+  "loc": "KEF 冰岛",
+  "offer": "e42e9998-7500-4027-90fa-bb087f945740-PMDB",
+  "url": "https://www.discovercars.com/offer/e42e9998-7500-4027-90fa-bb087f945740-PMDB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyOGNlNjY3ZjI2ZWVkNTU4YTQzMTgwMjk2OGJhMDI0NSJ9",
+  "pick": "2026-09-25 08:00",
+  "drop": "2026-09-29 18:00"
+ },
+ {
+  "loc": "EVE 埃沃内斯",
+  "offer": "9693e455-c2bd-4f15-986e-09e8ebb92188-2NDJ",
+  "url": "https://www.discovercars.com/offer/9693e455-c2bd-4f15-986e-09e8ebb92188-2NDJ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwVDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMlQxNDozMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2NGNjOTIwODQ0M2FkOTFhNGViYTk1YWEzMWZhZTU5MCJ9",
+  "pick": "2026-09-30 11:00",
+  "drop": "2026-10-02 14:30"
+ },
+ {
+  "loc": "TOS 特罗姆瑟",
+  "offer": "bd59ee39-0fd4-41ea-9e9e-ad3b5066c5d2-QR2J",
+  "url": "https://www.discovercars.com/offer/bd59ee39-0fd4-41ea-9e9e-ad3b5066c5d2-QR2J?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyVDE3OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNVQxMDowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxMzNkMzA5ZDQ0YWQwZDk4NjcxNTM3M2M4YWY0ZjdmMCJ9",
+  "pick": "2026-10-02 17:00",
+  "drop": "2026-10-05 10:00"
+ }
+]

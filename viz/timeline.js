@@ -51,7 +51,7 @@ const EV = [
   st:'booked', who:'北欧航空 SAS · 已出票', note:'✅ <b>2026-09-04 已出票。</b>正好是我算出来的那班（当天唯一的直飞，2h50）。🎯 <b>两个直接结果</b>：① <b>冰岛取车钟点定了 = 08:00</b>（落地 07:05 + 摆渡车约 45 min）；② <b>9/25 白得一整天</b> —— 原来只排了「傍晚市中心」，现在已按这个重排（见下面 📍 那两条）'},
  {lane:'car', s:'2026-09-25T08:00', e:'2026-09-29T18:00', t:'🇮🇸 冰岛 · Peugeot 2008 4x4 自动 · <b>08:00 取</b>（5 个计费日）',
   st:'ok', price:'$326 裸车 ≈ ¥2,315（🆕 <b>按新口径直接上零自付全险 → 约 $550–650 ≈ ¥3,900–4,600</b>）',
-  link:'https://www.discovercars.com/search/d9de6241-92c4-4473-b06f-7b8f96d58312?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDA4OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  link:'https://www.discovercars.com/offer/e42e9998-7500-4027-90fa-bb087f945740-PMDB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyOGNlNjY3ZjI2ZWVkNTU4YTQzMTgwMjk2OGJhMDI0NSJ9',
   note:'✅ <b>钟点已定：08:00</b>（SK4787 07:05 落地 + 摆渡车约 45 min —— 这台<b>不在航站楼里</b>，要坐摆渡车去取，所以不能按 30 分钟算）。实测 08:00 有 17 个报价，且 08:00–16:00 <b>全部同价</b> → 早取不花钱。🔴 一天涨 26%（9/3 $258 → 9/4 $326）→ 早订。⚠️ 订的时候<b>填航班号 SK4787</b>，柜台会跟航班，晚点也留车。'+
     '<br>🆕 <b>2026-09-05 两条按舒适口径改的：</b>'+
     '<br>① <b>保险不要只买最低那三样，直接买零自付（zero-deductible / Premium）那档。</b>冰岛的碎石路和 10 月南岸的火山沙尘暴是真实索赔项，'+
@@ -172,9 +172,9 @@ const EV = [
     '→ <b>按舒适口径买 ¥2,138 那档</b>，4 人 <b>¥8,552</b>（比 ¥1,490 档多 ¥2,592）。'+
     '理由：这是全程<b>唯一一段没有替代路线的航段</b>（Leknes→特罗姆瑟只有 Widerøe 飞，陆路要绕一整天），'+
     '而它前面挂着两个会晚点的东西（9/30 那班 EVE、罗弗敦 E10 风暴封路）。<b>¥2,592 买「随便改」，这钱该花。</b>'},
- {lane:'car', s:'2026-10-02T17:00', e:'2026-10-05T09:45', t:'🇳🇴 车② · 🆕 Ford Explorer 4WD 燃油（TOS 取还，3 个计费日）',
-  st:'ok', price:'🆕 $264 ≈ ¥1,874（原选 Vitara $253；⛔ 别选电车档）',
-  link:'https://www.discovercars.com/search/47f360c8-4902-4dbc-8ab8-808d632580e9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAwOTo0NSIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+ {lane:'car', s:'2026-10-02T17:00', e:'2026-10-05T10:00', t:'🇳🇴 车② · 🆕 Ford Explorer 4WD 燃油（TOS 取还，3 个计费日）',
+  st:'ok', price:'🆕 <b>2026-09-06 Steve 已挑定具体那一台</b>（带签名的 offer 链接）',
+  link:'https://www.discovercars.com/offer/bd59ee39-0fd4-41ea-9e9e-ad3b5066c5d2-QR2J?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyVDE3OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNVQxMDowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxMzNkMzA5ZDQ0YWQwZDk4NjcxNTM3M2M4YWY0ZjdmMCJ9',
   note:'✅ 航站楼内取车 → 落地 16:35、取车 17:00 = <b>等 25 分钟</b>（17:00 与 17:30 同价，所以取早的）。Senja 那 500 km 走这台，挪威租车基本不限里程。'+
     '<br>🆕🆕 <b>2026-09-06 把这个日期的全部 25 个报价抓下来之后，建议换车：改订 Ford Explorer 4WD（Full-size SUV）$264</b>，'+
     '不要原来那台 Suzuki Vitara（Compact SUV）$253 —— <b>只贵约 $11，车大一整档</b>，而且和罗弗敦那台车① 是同款、开着熟。'+
@@ -213,26 +213,26 @@ const EV = [
     '<b>省钱现在不是判据了，而 08:20 那班要在跑完 Senja 500 km 的第二天 06:45 起床</b>，那是全程第三个早起。'+
     '10:45 这班可以<b>睡到 08:30、吃完早饭退房</b>，代价是 13:40 才进小屋（那一带 18:45 天黑 → 还剩约 5 小时白天，够了）。'+
     '💰 NOK 8,396 vs 6,396 = <b>多约 ¥1,400</b>。<br>🟠 仍然想早到就用 08:20（车③ 改 10:45 取，两个钟点同价）。'},
- {lane:'car', s:'2026-10-05T13:10', e:'2026-10-06T09:00', t:'🇳🇴 车③ · 自动四驱 <b>燃油车</b>（OSL 取还，1 个计费日）',
-  st:'tbd', price:'$85 起（🆕 <b>不要最便宜那档</b>，选燃油 SUV，约 $120–150 ≈ ¥850–1,060）',
-  link:'https://www.discovercars.com/search/f7f2adfe-7db5-4081-8249-ae7bf10cc3f1?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEzOjEwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAwOTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+ {lane:'car', s:'2026-10-05T13:00', e:'2026-10-06T13:00', t:'🇳🇴 车③ · <b>✅ 已选定这一台</b>（OSL 13:00 取 → 10/6 13:00 还，1 个计费日）',
+  st:'ok', price:'🆕 <b>2026-09-06 Steve 已挑定具体那一台</b>（链接是带签名的 offer 链接，直接落在那台车上）',
+  link:'https://www.discovercars.com/offer/6c79398c-62fc-4e95-ad7e-e0790fb480b3-TMQD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1VDEzOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNlQxMzowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjMyOTFmMWNiYWQ2MjU1MTA4OTY5MDBiNmMwYjFhMSJ9',
   note:'🆕 <b>2026-09-05：这台改成「租」，B5 这个决定按舒适口径已经有答案了。</b>'+
     '原来的犹豫是「不租车、改住机场 Clarion €193 反而更便宜」—— 但那等于把全程最后一个晚上'+
     '（整栋小木屋 · 私人桑拿 · ★4.98 · 湖景）换成机场旁的连锁酒店，只为了不花 ¥600–1,000 的车钱。<b>按新口径不换。</b>'+
     '<br>✅ 航站楼内取车，10:45 / 13:00 / 14:00 三个钟点实测同价 → 按 10:45 那班航班填 <b>13:10</b>。'+
     '<br>⚠️ <b>别点最便宜那档：$85 是 VW ID.4 电车</b> —— 1 天短租还要摸清挪威充电桩，纯给自己添事。'+
     '往下选<b>燃油自动四驱</b>（贵约 $35–65 ≈ ¥250–460，无所谓）。'+
-    '<br>🔴 <b>还车改成 10/6 09:00</b>（原来写 10:00）：洲际起飞时刻还没定，先按「还车 → 进航站楼 → 至少留 3 小时」排。'},
+    '<br>🔴🔴 <b>2026-09-06：Steve 选的这张单子是「10/6 13:00 还车」，比我排的 09:00 晚了 4 小时 —— 这一条现在是全程唯一一个真冲突。</b>时间线上那个洲际占位是 12:00 起飞，<b>那样车会在飞机起飞之后才还</b>。两种情况：① 洲际是<b>下午/晚上</b>起飞 → 13:00 还车没问题，而且早上多出 4 小时不用赶；② 洲际是<b>上午/中午</b>起飞 → <b>必须把这张单子改成 09:00 还</b>（10:45/13:00/14:00 三个钟点实测同价，改钟点不花钱）。<b>所以现在最要紧的一件事变成了「确认 10/6 洲际几点起飞」。</b>'},
  {lane:'act', s:'2026-10-05T13:20', e:'2026-10-05T18:45', t:'OSL → Stange/Mjøsli 30–40 min，Mjøsa 湖畔（18:45 天黑）',
   st:'ok', note:'🆕 按 10:45 那班算：13:40 进小屋，<b>还剩约 5 小时白天</b> + 一整个傍晚泡桑拿。（坐 08:20 是 7 小时白天，但要 06:45 起床）'},
- {lane:'stay', s:'2026-10-05T13:40', e:'2026-10-06T09:00', t:'Konglehytta 3 · Star View · 私人桑拿（2房/3床/<b>1卫</b>）',
+ {lane:'stay', s:'2026-10-05T13:40', e:'2026-10-06T11:00', t:'Konglehytta 3 · Star View · 私人桑拿（2房/3床/<b>1卫</b>）',
   st:'ok', price:'€306 可退档 ≈ ¥1,224', link:'https://www.airbnb.com/rooms/648419631702172808?check_in=2026-10-05&check_out=2026-10-06&adults=4&currency=EUR',
   note:'★4.98 整栋小木屋。✅ 可退档只比不可退贵 €10 → 直接选可退。🆕 <b>2026-09-05：确定选它（不换机场酒店），车③ 一起租。</b>'+
     '🟠 <b>只有 1 个卫生间</b> —— 4 个人 + 第二天要赶洲际，早上会排队。🔴 <b>所以 10/6 的洲际时刻一定要先确认</b>：'+
     '如果是上午的班，从这里 09:00 前就得走；如果确认是 10/7 才走，这一晚就完全放松了（见最后一条）。'},
 
 /* ===== 10/6 二 · 回家 ===== */
- {lane:'act', s:'2026-10-06T08:00', e:'2026-10-06T09:00', t:'退房 → 开 30–40 min 回 OSL 还车（🆕 提早 1 小时）',
+ {lane:'act', s:'2026-10-06T11:00', e:'2026-10-06T13:00', t:'🆕 退房 → 开 30–40 min 回 OSL <b>13:00 还车</b>（按 Steve 选的那张单子）',
   st:'ok', note:'🟢 10/5 这个缓冲夜的价值：10/6 不用「当天先飞 TOS→OSL 再转洲际」'},
  {lane:'fly', s:'2026-10-06T12:00', e:'2026-10-06T14:00', t:'✈ OSL → 北京（10/6 还是 10/7 未定）',
   st:'tbd', who:'Kevin', note:'🔴 <b>要填。</b>若是 <b>10/7</b> 起飞 → 要加第 13 晚（最省事：Stange 小屋多住一晚 +€306 + 车③ 顺延 +$79）。反过来若确定 10/7，那 10/5 这个缓冲夜就多余了 —— <b>特罗姆瑟住回 4 晚（多一个极光夜）反而更好</b>，值得重比'},

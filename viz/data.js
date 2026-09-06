@@ -126,11 +126,11 @@ const U = {
      （payload 的 Hash 是空串），路径上的 uuid 也不校验 → 可以手工拼出深链，
      人点进去就是结果页，不用再填表单。生成 + 逐条验证：notes/_research/dc_links.py
      （验的是三件事：页面上的日期对不对 · 有没有报价 · 最低价对不对得上量级）*/
-  dc1: 'https://www.discovercars.com/search/d9de6241-92c4-4473-b06f-7b8f96d58312?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1IDA4OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOSAxODowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc1: 'https://www.discovercars.com/offer/e42e9998-7500-4027-90fa-bb087f945740-PMDB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyOGNlNjY3ZjI2ZWVkNTU4YTQzMTgwMjk2OGJhMDI0NSJ9',
   dc2: 'https://www.discovercars.com/search/fb22a8ce-3cbe-4fe3-9460-0f5c3b24eec4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc3: 'https://www.discovercars.com/search/47f360c8-4902-4dbc-8ab8-808d632580e9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyIDE3OjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNSAwOTo0NSIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
+  dc3: 'https://www.discovercars.com/offer/bd59ee39-0fd4-41ea-9e9e-ad3b5066c5d2-QR2J?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyVDE3OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNVQxMDowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxMzNkMzA5ZDQ0YWQwZDk4NjcxNTM3M2M4YWY0ZjdmMCJ9',
   dc2b: 'https://www.discovercars.com/search/fb22a8ce-3cbe-4fe3-9460-0f5c3b24eec4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ',
-  dc4: 'https://www.discovercars.com/search/f7f2adfe-7db5-4081-8249-ae7bf10cc3f1?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1IDEzOjEwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNiAwOTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ'
+  dc4: 'https://www.discovercars.com/offer/6c79398c-62fc-4e95-ad7e-e0790fb480b3-TMQD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1VDEzOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNlQxMzowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjMyOTFmMWNiYWQ2MjU1MTA4OTY5MDBiNmMwYjFhMSJ9'
 };
 
 /* ---------- 两台车的取/还点（画在地图上） ---------- */
@@ -145,9 +145,9 @@ const CARPTS = [
    note:'🆕 **2026-09-04 改**：航班定了 —— **WF816 LKN 15:40 → TOS 16:35**，所以还车点从 Svolvær 换成 **Leknes**、时间从 08:30 推到 **14:30**（距起飞 70 分钟，Widerøe 国内线行李截止约 30 分钟前 → 够用，想更稳订 14:00）。Lyngvær → Leknes **63.6 km / 1h16**（OSRM 实测）。🔴 Leknes 异地还车**只有 5 个报价** → 最早订这段。🟠 48h 悬崖：10/2 11:00 前还 = 2 天 $571，14:30 还 = 3 天 $647，**多付 $76 买下最后 3.5 小时**'},
   {k:'pick', c:P.tosair, label:'挪威提车②', when:'🆕 10/2 17:00', car:'自动四驱 · $224/3天',
    note:'🆕 **16:35 落地 → 17:00 取 = 等 25 分钟**（9/4 又往前挪了半小时：17:00 和 17:30 实测同价 $224，没理由多等）。比原方案的 10:30 取还便宜（$240）。18:00 前后到住处，10 月初特罗姆瑟 18:30 天黑 → 当晚极光夜完整'},
-  {k:'drop', c:P.tosair, label:'挪威还车②', when:'🆕🆕 10/5 **09:45**（配改推的 10:45 那班）', car:'Suzuki Vitara · 4WD · 自动',
+  {k:'drop', c:P.tosair, label:'挪威还车②', when:'🆕 10/5 **10:00**（Steve 选的单子）', car:'Suzuki Vitara · 4WD · 自动',
    note:'🆕 **只租到 10/5**（不是 10/6）—— 当天飞回奥斯陆。三台合计 🆕 **$957**（$647+$224+$86）vs 一台车连开 6 天 $762 → 为了 10/2 不开 6h30 + 10/5 睡奥斯陆，多付 **$195**，再加机票 🆕 **¥5,960 实价**（4×¥1,490 含托运）'},
-  {k:'pick', c:P.osl, label:'🆕 奥斯陆提车③', when:'🆕🆕 10/5 **13:10**（跟着改推的 10:45 那班）', car:'自动四驱 $85 · 1 天',
+  {k:'pick', c:P.osl, label:'🆕 奥斯陆提车③', when:'🆕 10/5 **13:00**（Steve 选的单子）', car:'自动四驱 $85 · 1 天',
    note:'🆕🆕 **2026-09-05 按舒适口径改成 13:10 取**，配 **Norwegian TOS→OSL 10:45→12:40**。'+
         '原来推 08:20 那班（早 2.5 小时 + 便宜 NOK 2,000），但它要求**跑完 Senja 500 km 的第二天 06:45 起床** —— '+
         '省钱不再是判据，那个早起是真代价。10:45 这班能睡到 08:30、吃完早饭走，13:40 进小屋仍有约 5 小时白天。'+
@@ -515,10 +515,10 @@ const CARTAB=[
   {u:U.dc2, chk:'🔴 只有 **5 个报价**（Evenes 22 / 特罗姆瑟 16）· 9/4 实测 · 最低价就是这台 $647', seg:'🇳🇴 车① 罗弗敦', car:'🆕 Ford Explorer 4WD · 自动挡', when:'EVE **9/30 11:00** → 🆕 **Leknes(LKN) 10/2 14:30**（3 天）',
    p:'$647', cny:'¥4,594',
    note:'🆕 **按 WF816（LKN 15:40 起飞）重订的时间**：还车点 Svolvær → **Leknes**、还车 08:30 → **14:30**（距起飞 70 min）。Lyngvær → Leknes 63.6 km / **1h16**（OSRM 实测）。🟠 **48h 悬崖**：10/2 **11:00 前**还 = 2 天 **$571**（<a href="'+U.dc2b+'" target="_blank">比价页</a>），14:30 还 = 3 天 **$647** → **多 $76 ≈ ¥540 买下罗弗敦最后 3.5 小时**（否则在一个很小的机场干等 4h40）。🔴 只有 5 个车源 → 四台里**最早订这台**'},
-  {u:U.dc3, chk:'8 个报价 · 最低 $214 · 9/4 实测（17:30 取）', seg:'🇳🇴 车② 特罗姆瑟', car:'自动四驱（16 个报价里挑）', when:'TOS 🆕 **10/2 17:00** → 🆕 **10/5 09:45**（3 天）',
+  {u:U.dc3, chk:'8 个报价 · 最低 $214 · 9/4 实测（17:30 取）', seg:'🇳🇴 车② 特罗姆瑟', car:'自动四驱（16 个报价里挑）', when:'TOS **10/2 17:00** → 🆕 **10/5 10:00**（3 天）',
    p:'$224', cny:'¥1,590',
    note:'🆕 **取车 17:00 = 16:35 落地 + 25 min**（17:00 与 17:30 同价，所以取早的那个）。比原方案 10:30 取还便宜（$224 vs $240）。Senja（10/4）往返 ~500 km 走这台，挪威租车基本不限里程，边际成本只有渡轮 NOK 456 + 油 ~NOK 500'},
-  {u:U.dc4, chk:'8 个报价 · 最低 $66（🆕 2026-09-05 复验，但那是 ID.4 电车 → 选燃油 $120–150）', seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL 🆕🆕 **10/5 13:10** → **10/6 09:00**（1 天）',
+  {u:U.dc4, chk:'8 个报价 · 最低 $66（🆕 2026-09-05 复验，但那是 ID.4 电车 → 选燃油 $120–150）', seg:'🇳🇴 车③ 奥斯陆', car:'自动挡四驱（1 天）', when:'OSL 🆕 **10/5 13:00** → **10/6 13:00**（1 天）',
    p:'$79–86', cny:'¥611',
    note:'🆕🆕 **2026-09-05：改成 13:10 取**，配 Norwegian TOS→OSL **10:45→12:40**（不再推 08:20 —— 那班要 06:45 起床，见 D11）。'+
         '10:45/13:00/14:00 实测同价 → 改钟点不花钱。✅ **B5 已决定：租这台、住小屋**，⚠️ 选燃油别选 $85 的 ID.4 电车。'+
@@ -570,8 +570,8 @@ const FLIGHTS = [
   {leg:'✈️ 10/5 TOS → OSL', st:'待订', who:'Kevin',
    best:'🆕🥇 **Norwegian 10:45 → 12:40**（NOK 8,396/4 ≈ ¥5,620）—— **2026-09-05 按舒适口径从 08:20 换过来的**：08:20 要在跑完 Senja 的第二天 06:45 起床',
    alt:'08:20→10:15（NOK 6,396，早 2.5h 且便宜 NOK 2,000，但要 06:45 起床）· 06:20→08:15（同价，更早）· 13:00→14:55（7,596，白天只剩 2.5h）',
-   car:'🇳🇴 车② **还车 09:45**（TOS 机场）· 车③ **取车 13:10**',
-   gap:'还车 09:45 → 起飞 10:45 = 缓冲 60 分钟（国内小机场够）· 落地 12:40 → 取车 13:10 = **等 30 分钟** ✅',
+   car:'🇳🇴 车② **还车 10:00**（TOS 机场）· 车③ **取车 13:00**',
+   gap:'🆕 还车 10:00 → 起飞 10:45 = **缓冲 45 分钟**（按 Steve 选的单子；国内小机场勉强够，别更晚）· 落地 12:40 → 取车 13:00 = **等 20 分钟** ✅',
    note:'🆕🆕 **2026-09-05 这一条按舒适口径翻过来了。**原来推 08:20 的两个理由（早到 2.5 小时、便宜 NOK 2,000）'+
         '在新口径下只剩前半个，而它的代价是**跑完 Senja 500 km 的第二天 06:45 起床** —— 那已经是全程第三个早起。'+
         '10:45 这班：睡到 08:30、吃完早饭退房、13:40 进小屋，**白天还剩约 5 小时**（18:45 天黑）+ 一整个傍晚泡私人桑拿。'+
