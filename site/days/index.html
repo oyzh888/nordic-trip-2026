@@ -44,10 +44,12 @@ $('#heroimg').src = hero.src; $('#heroimg').alt = '罗弗敦 Hamnøy 的红色�
 $('#acts').innerHTML = ACTS.map((a, ai) => {
   const mine = DAYS.filter(d => d.act === a.id);
   if (!mine.length) return '';
-  return `<section>
+  /* data-hue = 幕的序号：整段（标题、编号、日卡编号、住宿徽章、背景光）都用同一个色相，
+     下一幕换下一个 —— 一屏之内只有一种颜色，切换发生在幕与幕之间。 */
+  return `<section data-hue="${Math.min(4, ai)}">
     <div class="wrap">
-      <div class="eyebrow" style="color:${a.tone || 'var(--aurora)'}">${esc(a.num)} · ${esc(a.en || '')}</div>
-      <h2><span class="n" style="color:${a.tone || 'var(--aurora)'}">${String(ai).padStart(2,'0')}</span>${esc(a.title)}</h2>
+      <div class="eyebrow" style="color:var(--acc)">${esc(a.num)} · ${esc(a.en || '')}</div>
+      <h2><span class="n">${String(ai).padStart(2,'0')}</span>${esc(a.title)}</h2>
       <p class="lede">${md(a.lede || '')}</p>
     </div>
     <div class="wrap">${mine.map(d => dayCard(d)).join('')}</div>
@@ -79,5 +81,6 @@ function dayCard(d) {
     </div></div>`;
 }
 </script>
+<script src="/anim.js"></script>
 </body>
 </html>

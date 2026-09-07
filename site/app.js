@@ -39,6 +39,20 @@ function foot() {
 function chrome() {
   document.body.insertAdjacentHTML('afterbegin', nav());
   document.body.insertAdjacentHTML('beforeend', foot());
+  hues();
+}
+
+/* 一段一个色调：按段落顺序给 section 写 data-hue（0→4），CSS 里 --acc 跟着变。
+ * 已经自己写了 data-hue 的（逐日页按"幕"分段）不覆盖。
+ * 段落多于 5 个时**停在最后一个色停**，不回头循环 —— 循环会让页面底部忽然回到开头的颜色，
+ * 那就又变成"跳色"了；旅程应该是单向的。 */
+function hues() {
+  const secs = [...document.querySelectorAll('section')].filter(s => !s.hasAttribute('data-hue'));
+  const all = document.querySelectorAll('section').length;
+  secs.forEach((s, i) => s.setAttribute('data-hue',
+    String(Math.min(4, Math.round(i / Math.max(1, all - 1) * 4)))));
+  const h = document.querySelector('.hero');
+  if (h && !h.hasAttribute('data-hue')) h.setAttribute('data-hue', '3');   /* hero 用极光绿 */
 }
 
 /* ---------- 甘特图 ----------
@@ -70,11 +84,14 @@ function gantt(el) {
     }
     h += `</div></div>`;
   }
+  /* 图例的色块直接复用 .bar 的 class，这样它永远和条本身同色 —— 写死颜色迟早会对不上 */
   el.innerHTML = h + `</div><div class="legend">
-    <span><i style="background:#8FBF9E"></i>住宿</span><span><i style="background:#E8C77A"></i>租车</span>
-    <span><i style="background:#8FB6E8"></i>航班</span><span><i style="background:#3A3630;border:1px solid var(--hair2)"></i>活动</span>
-    <span><i style="box-shadow:inset 0 0 0 2px var(--aurora);background:#E8C77A"></i>青色描边 = 已付钱</span>
-    <span><i style="background:repeating-linear-gradient(45deg,#232019,#232019 4px,#1C1915 4px,#1C1915 8px)"></i>斜纹 = 还没定</span>
+    <span><i class="bar stay" style="position:static"></i>住宿</span>
+    <span><i class="bar car"  style="position:static"></i>租车</span>
+    <span><i class="bar fly"  style="position:static"></i>航班</span>
+    <span><i class="bar act"  style="position:static"></i>活动</span>
+    <span><i class="bar car booked" style="position:static"></i>描边 = 已付钱</span>
+    <span><i class="bar tbd"  style="position:static"></i>斜纹 = 还没定</span>
     <span>‹ › = 跨到前/后一天</span></div>`;
 }
 

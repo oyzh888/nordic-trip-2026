@@ -37,7 +37,7 @@
           往返约 500 km、十月、山路，晚上还要在外面追极光。EQS 电池约 107 kWh，
           但<b>低温 + 暖风 + 爬坡会把续航按下来</b> → 现实里要算<b>一次充电停留</b>。
           行动项：① 把 Finnsnes 一带的快充点先标在地图上；② 确认三个住处能不能过夜慢充。
-          ⚠️ EQS 是低底盘轿车不是 SUV，山路遇雪要开慢。</p></div>
+          🆕 <b>更正</b>：这台是 <b>EQS SUV（X296，450+ / 580 那一档）</b>，不是 EQS 轿车 —— 我先前写的「低底盘、山路要小心」<b>不成立</b>，高底盘大 SUV，装人装箱都富余。</p></div>
       <div class="card"><h3>🛡 取车柜台要做的三件</h3>
         <ul>
           <li><b>确认保险含到零自付</b>，尤其冰岛那台（碎石险 + 火山沙尘险是真实索赔项）。
@@ -70,7 +70,9 @@ $('#stats').innerHTML = [
   ['$1,315.60','取车时再付'], ['3 / 4','是纯电'], ['$4,340','押金预授权'],
 ].map(([v,k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
 
-$('#cars').innerHTML = CARS.map(c => `<div class="carcard">
+/* 四张车卡是**纵向**排列的，所以每张可以走一个色停 —— 往下滚颜色跟着走，
+   这和"并排就必须同色"是同一条原则的两面。 */
+$('#cars').innerHTML = CARS.map((c, i) => `<div class="carcard" data-hue="${Math.min(4, i + 1)}" style="--acc:var(--h${Math.min(4, i + 1)})">
   <div class="cph">
     <img src="${c.img.src}" alt="${esc(c.name)}" loading="lazy">
     <div class="cred">照片：${esc(c.img.author)} · ${esc(c.img.lic)} ·
@@ -91,5 +93,6 @@ $('#cars').innerHTML = CARS.map(c => `<div class="carcard">
     <p>${md(c.why)}</p>
   </div></div>`).join('');
 </script>
+<script src="/anim.js"></script>
 </body>
 </html>

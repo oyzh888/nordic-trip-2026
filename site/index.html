@@ -83,15 +83,23 @@ $('#stats').innerHTML = [
   ['$2,409.83', '车费（已付一半）'], ['≈¥71,400', '总账 · 人均 ¥17,850'],
 ].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
 
-$('#acts').innerHTML = ACTS.map(a => `<div class="card" style="border-top:2px solid ${a.tone || 'var(--aurora)'}">
-    <div class="s" style="font-family:var(--mono);letter-spacing:.12em;color:${a.tone || 'var(--aurora)'}">
+/* 五幕卡片是**并排**的，所以这里绝不能一张一个颜色（那正是"廉价"的来源）。
+   统一用本段的 --acc，只让透明度按顺序递增 —— 读起来是"同一族里的深浅"，不是五种颜色。
+   真正的换色发生在 /days/ 页：那里每一幕是自己的一整段，颜色可以各自不同。 */
+$('#acts').innerHTML = ACTS.map((a, i) => {
+  const w = 34 + i * 14;               // 34% → 90%，五级明度阶梯
+  return `<div class="card" style="border-top:2px solid color-mix(in srgb,var(--acc) ${w}%, var(--hair))">
+    <div class="s" style="font-family:var(--mono);letter-spacing:.12em;
+         color:color-mix(in srgb,var(--acc) ${Math.min(100, w + 20)}%, var(--ink3))">
       ${esc(a.num)} · ${esc(a.en || '')}</div>
     <h3 style="font:400 22px/1.25 var(--disp);margin:9px 0 3px">${esc(a.title)}</h3>
     <div class="s" style="margin-bottom:9px">${esc(a.sub || '')}</div>
     <div style="font-size:14px;color:var(--ink2)">${md(a.lede || '')}</div>
-  </div>`).join('');
+  </div>`;
+}).join('');
 
 days($('#days'), 4);
 </script>
+<script src="/anim.js"></script>
 </body>
 </html>

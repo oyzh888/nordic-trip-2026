@@ -30,11 +30,26 @@
   --ink2:    #A8A29A;
   --ink3:    #726C63;
 
-  /* — 状态色（只表示状态，不当装饰用）— */
-  --aurora:  #5FD3A6;     /* 已订 / 已确认 */
-  --ice:     #7FB8FF;     /* 信息 / 链接 */
-  --amber:   #E8B45A;     /* 要注意 */
-  --rust:    #E4785A;     /* 有冲突 / 最急 */
+  /* — 色相旅程（2026-09-07 重做）—
+     之前的问题：绿 / 蓝 / 琥珀 / 砖红四个强调色**同时出现在一屏里**，再加上五幕各自一个颜色，
+     结果是"多彩"而不是"高级"。改法（Steve 的原话）：**同一块地方用同一种颜色的渐变，
+     往下走再换成另一种** —— 所以颜色不再按"状态"分配，而是按**位置**分配：
+     整页只有一个当前强调色 --acc，它随段落沿着下面这条路慢慢走，
+     一屏之内你只会看到一种色相。五个色停的明度和彩度刻意做得接近，
+     所以相邻两段之间是"过渡"，不是"跳色"。
+     路线跟着旅程本身走：奥斯陆的冷钢蓝 → 冰岛的冰川青 → 罗弗敦的海绿 → 特罗姆瑟的极光绿 → 回程的暮金。 */
+  --h0: #7FA6D4;   /* 序 · 奥斯陆中转，冷钢蓝 */
+  --h1: #6FC0C6;   /* I · 冰与水，冰川青 */
+  --h2: #6FC29B;   /* II · 海里立起来的山，海绿 */
+  --h3: #63D0A0;   /* III · 极光之城，极光绿（品牌色） */
+  --h4: #D2AE72;   /* IV · 回到森林，暮金 */
+
+  --acc:   var(--h3);   /* 当前强调色，由 section[data-hue] 覆盖 */
+  --alert: #D08163;     /* 唯一的警示色（陶土红）—— 彩度和上面五个同族，不会跳出来 */
+  --aurora: var(--acc); /* 兼容旧名字：全部指向当前色 */
+  --ice:    var(--acc);
+  --amber:  var(--alert);
+  --rust:   var(--alert);
 
   --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
           "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
@@ -46,7 +61,7 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; overflow-x:clip}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font:16px/1.72 var(--sans);
@@ -69,7 +84,7 @@ a:hover{text-decoration:underline; text-underline-offset:3px}
   display:flex; align-items:center; gap:22px; flex-wrap:wrap;
 }
 .brand{font:600 15px/1 var(--sans); letter-spacing:.02em; color:var(--ink); white-space:nowrap}
-.brand em{font:italic 400 14px/1 var(--disp); color:var(--aurora); font-style:italic; margin-left:7px}
+.brand em{font:italic 400 14px/1 var(--disp); color:var(--h3); font-style:italic; margin-left:7px}
 .nav nav{display:flex; gap:4px; margin-left:auto; flex-wrap:wrap}
 .nav nav a{
   font-size:13.5px; color:var(--ink2); padding:6px 11px; border-radius:7px;
@@ -77,6 +92,13 @@ a:hover{text-decoration:underline; text-underline-offset:3px}
 }
 .nav nav a:hover{background:var(--panel); color:var(--ink); text-decoration:none}
 .nav nav a[aria-current]{color:var(--ink); border-color:var(--hair2); background:var(--panel)}
+
+/* 一段一个色调：data-hue 由 app.js 按段落顺序写上去 */
+section[data-hue="0"],.hero[data-hue="0"]{--acc:var(--h0)}
+section[data-hue="1"],.hero[data-hue="1"]{--acc:var(--h1)}
+section[data-hue="2"],.hero[data-hue="2"]{--acc:var(--h2)}
+section[data-hue="3"],.hero[data-hue="3"]{--acc:var(--h3)}
+section[data-hue="4"],.hero[data-hue="4"]{--acc:var(--h4)}
 
 /* ---------- 布局 ---------- */
 .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
@@ -92,7 +114,7 @@ h2{
   letter-spacing:-.01em; margin:0 0 8px; display:flex; align-items:baseline; gap:13px; flex-wrap:wrap;
 }
 h2 .n{
-  font:500 12px/1 var(--mono); color:var(--aurora);
+  font:500 12px/1 var(--mono); color:var(--acc);
   border:1px solid var(--hair2); border-radius:5px; padding:5px 8px; flex:none;
 }
 h3{font:600 16px/1.4 var(--sans); margin:0 0 6px}
@@ -106,7 +128,8 @@ h3{font:600 16px/1.4 var(--sans); margin:0 0 6px}
 b,strong{color:var(--ink); font-weight:600}
 
 /* ---------- Hero ---------- */
-.hero{position:relative; min-height:clamp(420px,74vh,700px); display:flex; align-items:flex-end; border-bottom:1px solid var(--hair)}
+.hero{position:relative; overflow:hidden;   /* ← 必须有：Ken Burns 会把图放大到超出视口，不裁就会撑宽整个文档 */
+  min-height:clamp(420px,74vh,700px); display:flex; align-items:flex-end; border-bottom:1px solid var(--hair)}
 .hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.52}
 .hero::after{
   content:""; position:absolute; inset:0;
@@ -125,9 +148,11 @@ b,strong{color:var(--ink); font-weight:600}
   border:1px solid var(--hair2); color:var(--ink2); background:color-mix(in srgb,var(--panel) 80%, transparent);
   white-space:nowrap;
 }
-.badge.ok  {color:var(--aurora); border-color:color-mix(in srgb,var(--aurora) 42%, transparent); background:color-mix(in srgb,var(--aurora) 11%, transparent)}
-.badge.amb {color:var(--amber);  border-color:color-mix(in srgb,var(--amber) 42%, transparent);  background:color-mix(in srgb,var(--amber) 11%, transparent)}
-.badge.hot {color:var(--rust);   border-color:color-mix(in srgb,var(--rust) 46%, transparent);   background:color-mix(in srgb,var(--rust) 12%, transparent)}
+/* 只有两种颜色、三个层级：已确认 = 本段色 · 有问题 = 警示色 · 待办 = 中性描边。
+   「待办」故意不给颜色 —— 它不需要抢眼，抢眼的应该只有"出问题了"那一类。 */
+.badge.ok  {color:var(--acc);   border-color:color-mix(in srgb,var(--acc) 40%, transparent);   background:color-mix(in srgb,var(--acc) 10%, transparent)}
+.badge.amb {color:var(--ink2);  border-color:var(--hair2); background:color-mix(in srgb,var(--panel) 70%, transparent)}
+.badge.hot {color:var(--alert); border-color:color-mix(in srgb,var(--alert) 44%, transparent); background:color-mix(in srgb,var(--alert) 11%, transparent)}
 
 /* ---------- 数字条 ---------- */
 .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:12px; overflow:hidden}
@@ -138,9 +163,9 @@ b,strong{color:var(--ink); font-weight:600}
 /* ---------- 卡片 ---------- */
 .cards{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .card{background:var(--panel); border:1px solid var(--hair); border-radius:13px; padding:19px; min-width:0}
-.card.ok{border-color:color-mix(in srgb,var(--aurora) 34%, var(--hair))}
-.card.amb{border-color:color-mix(in srgb,var(--amber) 34%, var(--hair))}
-.card.hot{border-color:color-mix(in srgb,var(--rust) 38%, var(--hair))}
+.card.ok {border-color:color-mix(in srgb,var(--acc) 30%, var(--hair))}
+.card.amb{border-color:var(--hair2)}
+.card.hot{border-color:color-mix(in srgb,var(--alert) 34%, var(--hair))}
 .card ul{margin:9px 0 0; padding-left:19px} .card li{margin:5px 0; font-size:14px; color:var(--ink2)}
 .card li b{color:var(--ink)}
 
@@ -160,7 +185,7 @@ td.num{font-family:var(--mono); white-space:nowrap}
 .day .ph img{width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .day .ph:hover img{transform:scale(1.035)}
 .day .tx{min-width:0}
-.day .no{font:500 12px/1 var(--mono); color:var(--aurora); letter-spacing:.1em}
+.day .no{font:500 12px/1 var(--mono); color:var(--acc); letter-spacing:.1em}
 .day h3{font:400 clamp(21px,2.6vw,29px)/1.2 var(--disp); margin:10px 0 4px}
 .day .en{font:italic 400 15px/1 var(--disp); color:var(--ink3); margin-bottom:12px}
 .day p{color:var(--ink2); font-size:15px; margin:0 0 14px}
@@ -184,12 +209,19 @@ td.num{font-family:var(--mono); white-space:nowrap}
   font:500 11px/21px var(--sans); color:#0B0A08; white-space:nowrap; overflow:hidden;
   text-overflow:ellipsis; cursor:default; border:1px solid transparent;
 }
-.bar.stay{background:#8FBF9E} .bar.car{background:#E8C77A} .bar.fly{background:#8FB6E8} .bar.act{background:#3A3630; color:var(--ink2); border-color:var(--hair2)}
+/* 四条轨不再用四个色相（那是最"廉价"的一处）。改成**同一色相的三级明度阶梯 + 一个中性**：
+   住宿最亮、租车中间、航班最浅淡，活动是灰。靠明度和图例区分，不靠颜色打架。 */
+.bar.stay{background:color-mix(in srgb,var(--acc) 82%, #F4F1EA)}
+.bar.car {background:color-mix(in srgb,var(--acc) 62%, #8A8378)}
+.bar.fly {background:color-mix(in srgb,var(--acc) 34%, #C9C3B8)}
+.bar.act {background:#332F2A; color:var(--ink2); border-color:var(--hair2)}
 .bar.tbd{background:repeating-linear-gradient(45deg,var(--panel2),var(--panel2) 5px,var(--panel) 5px,var(--panel) 10px); color:var(--ink2); border-color:var(--hair2)}
-.bar.booked{box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--aurora) 75%, transparent)}
+.bar.booked{box-shadow:inset 0 0 0 1.5px #0F0E0C, inset 0 0 0 3px color-mix(in srgb,var(--acc) 90%, transparent)}
 .bar:hover{filter:brightness(1.12); z-index:5}
 .legend{display:flex; gap:14px; flex-wrap:wrap; margin:14px 0 0; font-size:12.5px; color:var(--ink3)}
-.legend i{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:-1px}
+.legend i{display:inline-block !important; width:12px !important; height:12px !important;
+  border-radius:3px; margin-right:5px; vertical-align:-1px; padding:0 !important; top:auto !important;
+  left:auto !important; overflow:hidden}
 
 /* ---------- 详情折叠 ---------- */
 details.det{border:1px solid var(--hair); border-radius:11px; background:var(--panel); margin:9px 0; overflow:hidden}
@@ -210,7 +242,7 @@ details.det .bd b{color:var(--ink)}
 .cph .cred{position:absolute; bottom:0; left:0; right:0; padding:6px 9px; font-size:10.5px; color:#C9C4BA; background:linear-gradient(transparent,rgba(0,0,0,.82))}
 .cph .cred a{color:#C9C4BA}
 .cbody{padding:clamp(18px,2.4vw,28px); min-width:0}
-.cbody .seg{font:500 11.5px/1 var(--mono); color:var(--aurora); letter-spacing:.1em}
+.cbody .seg{font:500 11.5px/1 var(--mono); color:var(--acc); letter-spacing:.1em}
 .cbody h3{font:400 clamp(20px,2.4vw,27px)/1.2 var(--disp); margin:11px 0 3px}
 .cbody .kl{font-size:13px; color:var(--ink3); margin-bottom:14px}
 .cbody dl{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:0 0 15px; font-size:13.5px}
@@ -227,3 +259,96 @@ footer .wrap{display:flex; gap:20px; flex-wrap:wrap; justify-content:space-betwe
   .hero{min-height:76vh}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto}}
+
+/* ============================================================
+   动效层 —— 2026-09-07 加
+   目标（Steve 的话）：大气、高级、优雅、梦幻。
+   分寸：**动效只能加强已经存在的层次，不能自己变成内容。**
+   所以五层全部是「慢、低对比、不抢注意力」的：
+     ① 极光环境光  —— 三团超大高斯模糊的渐变在背景极慢地飘（60–96s 一个周期）
+     ② 胶片颗粒    —— 一层 3.5% 的噪点，让纯色区域不"塑料"
+     ③ Ken Burns   —— hero 大图 34 秒缓慢推近再退回
+     ④ 滚动揭示    —— 元素进入视口时淡入 + 上浮 14px，同组元素错开 70ms
+     ⑤ 数字滚动    —— 统计数字从 0 走到目标值（1.1s，缓出）
+   ⛔ prefers-reduced-motion 时**全部关掉**（文件末尾），这不是可选的礼貌。
+   ============================================================ */
+
+/* ① 极光环境光：fixed 容器 + overflow:hidden，绝不参与布局，也不会造成横向溢出 */
+.aurora{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; contain:strict}
+.aurora i{
+  position:absolute; display:block; border-radius:50%;
+  filter:blur(90px); opacity:.22; will-change:transform;
+  mix-blend-mode:screen;
+}
+/* 三团光**用同一个颜色**（原来是绿/蓝/紫三色，一屏里就三个色相，很廉价）。
+   用 currentColor 是为了能过渡 —— 渐变本身不可动画，但 color 可以，
+   所以 anim.js 只改 :root 的 --glow，光晕就会在 2.4 秒里"化"到下一段的色相。 */
+.aurora i{color:var(--glow, var(--h3)); transition:color 2.4s ease}
+.aurora i:nth-child(1){width:60vw; height:60vw; left:-16vw; top:-20vw;
+  background:radial-gradient(circle at 42% 42%, currentColor 0%, transparent 68%);
+  animation:drift1 78s ease-in-out infinite}
+.aurora i:nth-child(2){width:48vw; height:48vw; right:-14vw; top:22vh;
+  background:radial-gradient(circle at 55% 45%, currentColor 0%, transparent 66%);
+  animation:drift2 96s ease-in-out infinite; opacity:.16}
+.aurora i:nth-child(3){width:42vw; height:42vw; left:24vw; bottom:-18vw;
+  background:radial-gradient(circle at 50% 50%, currentColor 0%, transparent 64%);
+  animation:drift3 84s ease-in-out infinite; opacity:.12}
+@keyframes drift1{0%,100%{transform:translate3d(0,0,0) scale(1)}
+  33%{transform:translate3d(7vw,5vh,0) scale(1.14)} 66%{transform:translate3d(-4vw,9vh,0) scale(.94)}}
+@keyframes drift2{0%,100%{transform:translate3d(0,0,0) scale(1)}
+  40%{transform:translate3d(-8vw,-6vh,0) scale(1.1)} 75%{transform:translate3d(3vw,7vh,0) scale(.92)}}
+@keyframes drift3{0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(-6vw,-8vh,0) scale(1.18)}}
+/* 内容要浮在环境光上面 */
+.nav,section,.hero,footer,#acts{position:relative; z-index:1}
+
+/* ② 胶片颗粒 */
+.grain{position:fixed; inset:0; z-index:2; pointer-events:none; opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* ⚠️ 抖动只能动 background-position，**不能动 transform** ——
+     fixed 元素被 transform 推出视口后仍会计入可滚动区域，实测把文档撑宽了 7px。 */
+  animation:grainshift 7s steps(6) infinite}
+@keyframes grainshift{0%{background-position:0 0}20%{background-position:-14px 7px}
+  40%{background-position:7px -14px}60%{background-position:-7px 14px}80%{background-position:14px -7px}
+  100%{background-position:0 0}}
+
+/* ③ Ken Burns —— 只给 hero 的背景大图 */
+.hero img.bg{animation:ken 34s ease-in-out infinite alternate; transform-origin:52% 46%}
+@keyframes ken{from{transform:scale(1.02) translate3d(0,0,0)} to{transform:scale(1.11) translate3d(-1.2%,-1.4%,0)}}
+
+/* hero 文字入场：依次上浮 */
+.hero .in > *{opacity:0; animation:rise .95s cubic-bezier(.16,.84,.28,1) forwards}
+.hero .in > *:nth-child(1){animation-delay:.15s}
+.hero .in > *:nth-child(2){animation-delay:.28s}
+.hero .in > *:nth-child(3){animation-delay:.42s}
+.hero .in > *:nth-child(4){animation-delay:.56s}
+@keyframes rise{from{opacity:0; transform:translate3d(0,22px,0)} to{opacity:1; transform:none}}
+
+/* ④ 滚动揭示 */
+.rv{opacity:0; transform:translate3d(0,14px,0);
+  transition:opacity .8s cubic-bezier(.16,.84,.28,1), transform .8s cubic-bezier(.16,.84,.28,1)}
+.rv.in{opacity:1; transform:none}
+/* 图片进场时轻微回正，像镜头对上焦 */
+.day .ph img,.cph img{transform:scale(1.05); transition:transform 1.2s cubic-bezier(.16,.84,.28,1)}
+.rv.in .ph img,.rv.in .cph img{transform:scale(1)}
+.day .ph:hover img{transform:scale(1.04)}
+
+/* 标题左侧那个编号：进场时点亮一下 */
+h2 .n{transition:box-shadow .9s ease, border-color .9s ease}
+.rv.in h2 .n{box-shadow:0 0 0 1px color-mix(in srgb,var(--aurora) 30%, transparent),
+  0 0 22px -6px color-mix(in srgb,var(--aurora) 55%, transparent)}
+
+/* 卡片抬升 */
+.card,.carcard,.stats > div{transition:transform .5s cubic-bezier(.16,.84,.28,1), border-color .5s ease}
+.card:hover,.carcard:hover{transform:translateY(-3px)}
+
+/* ⑤ 数字滚动用等宽，避免宽度跳动 */
+.stats .v{font-variant-numeric:tabular-nums}
+
+@media (prefers-reduced-motion:reduce){
+  .aurora,.grain{display:none}
+  .hero img.bg{animation:none}
+  .hero .in > *{opacity:1; animation:none}
+  .rv{opacity:1; transform:none; transition:none}
+  .day .ph img,.cph img{transform:none; transition:none}
+}

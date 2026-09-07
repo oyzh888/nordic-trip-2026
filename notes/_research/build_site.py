@@ -32,18 +32,27 @@ st  = js_export("styles/data.js",   ["DAYS", "ACTS", "CREDITS", "STATS", "ALTSTA
 cars_raw = json.loads((ROOT / "notes/_research/out_cars_imgs.json").read_text())
 
 # ---------- 四台车：真实订单 + 一张 CC 图 ----------
-# 挑图的规则（写下来免得以后不知道为什么是这张）：
-#   · Explorer 必须挑标题里带 "Explorer EV" 的 —— 欧版 Explorer 才是电车，
-#     那张 12070px 的 "2024 Ford Explorer.jpg" 是别的车，不能用。
-#   · EQS 挑 V297（轿车）而不是 X296（SUV）—— SIXT 那张单子写的是 EQS 4WD 轿车。
-#   · Macan 挑 "Macan Turbo Electric"。
-def pick(key, must=None, avoid=None):
-    for c in cars_raw[key]:
-        t = c["title"]
-        if must and must.lower() not in t.lower(): continue
-        if avoid and avoid.lower() in t.lower(): continue
-        return c
-    return cars_raw[key][0]
+# 2026-09-07 第二轮换图。第一轮 Steve 指出两个问题：
+#   ① **特罗姆瑟那台是 EQS SUV（X296），不是轿车（V297）** —— 我第一轮挑错了车，
+#      连带写错了「低底盘轿车、山路要慢」那句注解，一起改掉。
+#   ② 有几张不好看：Explorer 用的是**内饰照**、Macan 六张全是车展粉紫灯光+人群。
+# 这一轮改用 **Commons 分类**（人工整理，命中率远高于关键词搜索）取候选，
+# 再拼成联系表用眼睛挑 —— 「好看」没法自动判定，脚本只负责筛掉不合法和明显不能用的。
+# 挑中的四张（都是横图、车身完整、3/4 角度、背景干净）：
+CARS_IMG = {
+ "defender": ("out_cars3.json", "defender", "Land Rover Defender (L663) (Singapore).jpg"),
+ "explorer": ("out_cars_imgs.json", "explorer", "Ford Explorer EV IMG 2131.jpg"),
+ "eqs":      ("out_cars3.json", "eqs", "Mercedes-Benz X296 580 IMG 2963.jpg"),
+ "macan":    ("out_macan.json", None, "Porsche Macan (II) \u2013 f 22022025.jpg"),
+}
+def pick(key):
+    fn, grp, want = CARS_IMG[key]
+    pool = json.loads((ROOT / "notes/_research" / fn).read_text())
+    pool = pool[grp] if grp else pool
+    for c in pool:
+        if c["title"].replace("File:", "").lstrip() == want or want in c["title"]:
+            return c
+    sys.exit(f"挑图失败：{fn} 里找不到 {want!r} —— 候选池变了，去重跑抓取脚本核对")
 
 CARS = [
  dict(id="defender", seg="🇮🇸 冰岛 · 5 天", name="Land Rover Defender 110",
@@ -52,22 +61,24 @@ CARS = [
       total="$1,020.00", paid="全额已付清", cxl="9/23 08:00",
       why="把「4 人 4 箱塞不进」一次解决掉的那台。冰岛环岛路的碎石段正是它的主场；"
           "而且这是四台里唯一的燃油车 —— 冰岛充电桩远不如挪威密，这一段用油车是对的。",
-      img=pick("defender", must="P400SE AWD front")),
+      img=pick("defender")),
  dict(id="explorer", seg="🇳🇴 罗弗敦 · 3 天", name="Ford Explorer 4WD",
       klass="Full-size SUV · 纯电", supplier="SIXT", ev=True,
       pick="埃沃内斯 EVE 9/30 11:00", drop="莱克讷斯 Leknes 10/2 14:30",
       total="$646.14", paid="已付 $14.01 · 取车再付 $632.13", cxl="9/28 11:00",
       why="四台里最难订的一台 —— Leknes 异地还车全网只有 5 个报价（同期 Evenes 有 22 个）。"
           "EVE→Lyngvær 175 km 在一次续航内，罗弗敦 Svolvær / Leknes 都有快充。",
-      img=pick("explorer", must="Explorer EV")),
- dict(id="eqs", seg="🇳🇴 特罗姆瑟 · 3 天", name="Mercedes-Benz EQS 4WD",
-      klass="纯电", supplier="SIXT",  ev=True,
+      img=pick("explorer")),
+ dict(id="eqs", seg="🇳🇴 特罗姆瑟 · 3 天", name="Mercedes-Benz EQS SUV 4MATIC",
+      klass="EQS SUV（X296）· 纯电", supplier="SIXT", ev=True,
       pick="TOS 10/2 17:00", drop="TOS 10/5 17:00（实际 10:00 就还）",
       total="$455.59", paid="已付 $33.77 · 取车再付 $421.82", cxl="9/30 17:00",
-      why="全程唯一需要提前做功课的一台：10/4 要跑 Senja 往返 500 km，10 月、山路、夜里还在外面追极光。"
-          "EQS 电池约 107 kWh，但低温 + 暖风 + 爬坡会把续航按下来 → 现实里要算一次充电停留。"
+      why="🆕 这台是 **EQS SUV（X296，450+ / 580 那一档）**，不是 EQS 轿车 —— 我之前搞错过，"
+          "所以「低底盘轿车、山路要小心」那句话不成立：它是高底盘大 SUV，装人装箱都富余。"
+          "全程唯一需要提前做功课的仍然是它：10/4 要跑 Senja 往返 500 km，10 月、山路、夜里还在外面追极光。"
+          "电池约 108 kWh（WLTP 约 600 km），但低温 + 暖风 + 爬坡会把续航按下来 → 现实里要算一次充电停留。"
           "还车约到 17:00 是免费的富余（取车 17:00 起算正好 72 小时 = 3 个计费日）。",
-      img=pick("eqs", must="EQS 580", avoid="X296")),
+      img=pick("eqs")),
  dict(id="macan", seg="🇳🇴 奥斯陆 · 1 天", name="Porsche Macan 4WD",
       klass="纯电 · 保证车型", supplier="SIXT", ev=True,
       pick="OSL 10/5 13:00", drop="OSL 10/6 13:00",
@@ -75,7 +86,7 @@ CARS = [
       why="四台里唯一「保证车型」——到店就是这台，不是 or similar。这一段最不用担心电："
           "OSL→Stange 小屋单程只 30–40 分钟。⚠️ 但还车约的是 10/6 13:00，"
           "洲际若在上午起飞必须改早到 09:00（24 小时内同为 1 个计费日，改早不涨价）。",
-      img=pick("macan", must="Macan Turbo Electric")),
+      img=pick("macan")),
 ]
 
 ORDERS = [
