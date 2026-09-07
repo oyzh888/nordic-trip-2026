@@ -1,0 +1,18 @@
+// 官网部署配置 —— nordic.airacle.com
+//
+// 为什么是 Worker + 静态资源，而不是 Cloudflare Pages：
+// 这个账号的 **Pages 项目数已经到上限**（建新项目报 code 8000027），
+// 而删掉别人的站点来腾位置是不可接受的。Worker 带静态资源是现在官方推荐的
+// 静态站做法，配额独立（这个账号 40 个 worker，还有余量），能力也够：
+// 目录直出、自动处理 /plan/ → /plan/index.html、自带 CDN 和证书。
+{
+  "name": "nordic-trip-2026",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // custom_domain 会自动建 DNS 记录并签边缘证书，不用手工加 CNAME
+  "routes": [{ "pattern": "nordic.airacle.com", "custom_domain": true }]
+}

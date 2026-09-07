@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>四台车 · 北欧 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<section style="padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">全部已付款 · 2026-09-06</div>
+    <h1 style="margin-bottom:16px">四台车</h1>
+    <p class="lede">十三天里有 <b>12 个计费日</b>在开车，分四段：冰岛五天、罗弗敦三天、特罗姆瑟三天、奥斯陆一天。
+      四台全部在 DiscoverCars 上订（背后是 Avis 和 SIXT），<b>合计 $2,409.83</b> —— 已付 $1,094.23，取车时再付 $1,315.60。</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" id="cars"></div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">!</span>三件出发前要处理的</h2>
+    <div class="cards">
+      <div class="card hot"><h3>🔴 10/6 洲际几点起飞</h3>
+        <p style="font-size:14px;color:var(--ink2);margin:8px 0 0">奥斯陆那台 Macan 约的是 <b>10/6 13:00 还车</b>。
+          洲际若在上午或中午起飞，<b>必须把还车改早到 09:00</b> —— 取车 13:00 起算，24 小时内都算 1 个计费日，
+          <b>改早不涨价</b>，而且免费取消截止在 10/3，还有余地。若是下午/晚上走，13:00 正好，早上白得 4 小时。
+          <b>这是四单里唯一可能和行程打架的地方。</b></p></div>
+      <div class="card amb"><h3>🔌 10/4 Senja 那 500 公里</h3>
+        <p style="font-size:14px;color:var(--ink2);margin:8px 0 0">三台挪威车都是纯电。<b>四段里只有这一天需要提前做功课</b>：
+          往返约 500 km、十月、山路，晚上还要在外面追极光。EQS 电池约 107 kWh，
+          但<b>低温 + 暖风 + 爬坡会把续航按下来</b> → 现实里要算<b>一次充电停留</b>。
+          行动项：① 把 Finnsnes 一带的快充点先标在地图上；② 确认三个住处能不能过夜慢充。
+          ⚠️ EQS 是低底盘轿车不是 SUV，山路遇雪要开慢。</p></div>
+      <div class="card"><h3>🛡 取车柜台要做的三件</h3>
+        <ul>
+          <li><b>确认保险含到零自付</b>，尤其冰岛那台（碎石险 + 火山沙尘险是真实索赔项）。
+            供应商柜台那份是<b>当场免赔</b>；DiscoverCars 的 "Full Coverage" 是第三方、<b>先垫付再报销</b>。</li>
+          <li>两个人轮流开 → 加 <b>additional driver</b>。</li>
+          <li>押金合计 <b>$4,340</b> 预授权 → 额度够的信用卡，别用 debit。
+            📄 美国驾照冰岛挪威都直接认。</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <a class="badge ok" href="/plan/">最终方案与时间线 →</a>
+      <a class="badge" href="/days/">逐日 →</a>
+      <a class="badge" href="/">回首页</a>
+    </div>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script>
+chrome();
+
+$('#stats').innerHTML = [
+  ['4','台车 · 12 个计费日'], ['$2,409.83','合计车费'], ['$1,094.23','已付'],
+  ['$1,315.60','取车时再付'], ['3 / 4','是纯电'], ['$4,340','押金预授权'],
+].map(([v,k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+
+$('#cars').innerHTML = CARS.map(c => `<div class="carcard">
+  <div class="cph">
+    <img src="${c.img.src}" alt="${esc(c.name)}" loading="lazy">
+    <div class="cred">照片：${esc(c.img.author)} · ${esc(c.img.lic)} ·
+      <a href="${c.img.page}" target="_blank" rel="noopener">Wikimedia Commons ↗</a>
+      <br>（同款车型示意，不是我们那台的实车照）</div>
+  </div>
+  <div class="cbody">
+    <div class="seg">${esc(c.seg)}</div>
+    <h3>${esc(c.name)}</h3>
+    <div class="kl">${esc(c.klass)} · ${esc(c.supplier)}
+      ${c.ev ? '· <span style="color:var(--ice)">🔌 纯电</span>' : '· <span style="color:var(--amber)">⛽ 燃油</span>'}</div>
+    <dl>
+      <dt>取车</dt><dd>${esc(c.pick)}</dd>
+      <dt>还车</dt><dd>${esc(c.drop)}</dd>
+      <dt>总价</dt><dd><b>${esc(c.total)}</b> <span class="s">${esc(c.paid)}</span></dd>
+      <dt>免费取消</dt><dd>到 ${esc(c.cxl)}</dd>
+    </dl>
+    <p>${md(c.why)}</p>
+  </div></div>`).join('');
+</script>
+</body>
+</html>

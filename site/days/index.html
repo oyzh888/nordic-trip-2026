@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>逐日 · 北欧 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="hero" style="min-height:clamp(340px,58vh,520px)">
+  <img class="bg" id="heroimg" alt="">
+  <div class="in">
+    <div class="eyebrow">十三天 · 五幕</div>
+    <h1>一天一天地看</h1>
+    <p class="sub">每一天：去哪、开多远、住哪、那一晚看什么。
+      风光照全部来自 Wikimedia（CC 授权），住宿照来自房源页 —— 不是示意图，是真的那栋房子。</p>
+  </div>
+</div>
+
+<div id="acts"></div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">↗</span>接下来</h2>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <a class="badge ok" href="/plan/">最终方案 · 时间线与账单 →</a>
+      <a class="badge" href="/cars/">四台车 →</a>
+      <a class="badge" href="/">回首页</a>
+    </div>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script>
+chrome();
+const findImg = slug => { for (const d of DAYS) for (const i of (d.imgs||[])) if (i.slug === slug) return i; };
+const hero = findImg('hamnoy') || findImg('lofoten') || DAYS[0].imgs[0];
+$('#heroimg').src = hero.src; $('#heroimg').alt = '罗弗敦 Hamnøy 的红色渔屋';
+
+/* 按「幕」分段，每一幕一个 section —— 这样长卷有呼吸，而不是十三张卡一路铺下去 */
+$('#acts').innerHTML = ACTS.map((a, ai) => {
+  const mine = DAYS.filter(d => d.act === a.id);
+  if (!mine.length) return '';
+  return `<section>
+    <div class="wrap">
+      <div class="eyebrow" style="color:${a.tone || 'var(--aurora)'}">${esc(a.num)} · ${esc(a.en || '')}</div>
+      <h2><span class="n" style="color:${a.tone || 'var(--aurora)'}">${String(ai).padStart(2,'0')}</span>${esc(a.title)}</h2>
+      <p class="lede">${md(a.lede || '')}</p>
+    </div>
+    <div class="wrap">${mine.map(d => dayCard(d)).join('')}</div>
+  </section>`;
+}).join('');
+
+/* 单日卡：左图右文，偶数行左右互换（CSS 里做的），图多的日子可以展开看全部 */
+function dayCard(d) {
+  const im = (d.imgs || [])[0];
+  const more = (d.imgs || []).slice(1);
+  const shots = d.shots || [];
+  return `<div class="day">
+    <div class="ph">${im ? `<img src="${im.src}" alt="${esc(d.t)}" loading="lazy">` : ''}</div>
+    <div class="tx">
+      <div class="no">DAY ${esc(d.n)} · ${esc(d.date)} ${esc(d.wd)}</div>
+      <h3>${esc(d.t)}</h3><div class="en">${esc(d.en || '')}</div>
+      <p>${md(d.body || '')}</p>
+      <div class="kv">
+        ${d.drive ? `<span class="badge">🚗 ${esc(d.drive)}</span>` : ''}
+        ${d.stayname ? `<span class="badge ok">🛏 ${esc(d.stayname)}</span>` : ''}
+      </div>
+      ${d.staymeta ? `<div class="s" style="margin-top:9px">${esc(d.staymeta)}</div>` : ''}
+      ${(more.length || shots.length) ? `<details class="det" style="margin-top:13px">
+        <summary>再看 ${more.length + shots.length} 张（风光 ${more.length} · 住处 ${shots.length}）</summary>
+        <div class="bd"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:7px">
+          ${more.map(i => `<a href="${i.src}" target="_blank" rel="noopener"><img src="${i.src}" alt="${esc(i.slug||'')}" loading="lazy" style="aspect-ratio:1;object-fit:cover;border-radius:7px"></a>`).join('')}
+          ${shots.map(s => `<a href="${s}" target="_blank" rel="noopener"><img src="${s}" alt="住处" loading="lazy" style="aspect-ratio:1;object-fit:cover;border-radius:7px;outline:1px solid var(--hair2)"></a>`).join('')}
+        </div></div></details>` : ''}
+    </div></div>`;
+}
+</script>
+</body>
+</html>

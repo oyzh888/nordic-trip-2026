@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>北欧 2026 · 13 天 · 最终方案</title>
+<meta name="description" content="2026-09-24 → 10-06，4 人，奥斯陆 → 冰岛 → 罗弗敦 → 特罗姆瑟 / Senja → 奥斯陆。四台车已订、三段机票已出票，所有价格均为真实页面抓取。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="hero">
+  <img class="bg" id="heroimg" alt="">
+  <div class="in">
+    <div class="eyebrow">2026 · 09 · 24 → 10 · 06 · 十三天 · 四个人</div>
+    <h1>往北，去看那道光</h1>
+    <p class="sub">奥斯陆 → 冰岛环南岸 → 罗弗敦 → 特罗姆瑟与 Senja → 回奥斯陆。
+      两男一对夫妻，四台车，八段飞行，十二晚住宿。</p>
+    <div class="meta" id="herobadges"></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">现在到哪一步了</div>
+    <h2><span class="n">01</span>一句话状态</h2>
+    <p class="lede"><b>四台车已全部付款、三段机票已出票、罗弗敦那两晚已订。</b>
+      剩下的是 <b>10/2 那 4 张机票</b>（只剩 6 张，最急）、<b>8 晚住宿</b>（几乎全部可免费取消 → 先订不吃亏），
+      以及一件必须问清的事：<b>10/6 洲际几点起飞</b> —— 它决定奥斯陆那台车要不要把还车时间改早。</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">五个段落</div>
+    <h2><span class="n">02</span>这十三天是怎么分的</h2>
+    <p class="lede">不是十三个平均的日子，而是五段各有各的性格 —— 中转、冰岛的水与冰、罗弗敦的明信片、
+      特罗姆瑟的极光与 Senja、最后一晚湖边的缓冲。</p>
+    <div class="cards" id="acts"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">头四天</div>
+    <h2><span class="n">03</span>行程预览</h2>
+    <p class="lede">下面是前四天。<a href="/days/">完整十三天 →</a></p>
+  </div>
+  <div class="wrap" id="days"></div>
+  <div class="wrap" style="margin-top:26px">
+    <a class="badge ok" href="/days/">看完整十三天 →</a>
+    <a class="badge" href="/plan/">最终方案与账单 →</a>
+    <a class="badge" href="/cars/">四台车 →</a>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script>
+chrome();
+
+/* Hero 用特罗姆瑟那张极光 —— 这趟的主题就是它 */
+const findImg = slug => { for (const d of DAYS) for (const i of (d.imgs||[])) if (i.slug === slug) return i; };
+const hero = findImg('aurora_no') || findImg('aurora_lof') || DAYS[6].imgs[0];
+$('#heroimg').src = hero.src;
+$('#heroimg').alt = '特罗姆瑟上空的极光';
+
+$('#herobadges').innerHTML = [
+  ['ok',  '✅ 四台车已付款 $2,409.83'],
+  ['ok',  '✅ 三段机票已出票'],
+  ['ok',  '✅ 罗弗敦 2 晚已订'],
+  ['hot', '🔴 10/2 机票只剩 6 张'],
+  ['amb', '🟠 8 晚住宿待下单'],
+].map(([c,t]) => `<span class="badge ${c}">${t}</span>`).join('');
+
+/* 数字条：能从数据里算的就算，不手写 */
+const nights = EV.filter(e => e.lane === 'stay').length;
+const flights = EV.filter(e => e.lane === 'fly').length;
+$('#stats').innerHTML = [
+  ['13', '天'], ['4', '个人'], [String(flights), '段飞行'], ['4', '台车'],
+  ['$2,409.83', '车费（已付一半）'], ['≈¥71,400', '总账 · 人均 ¥17,850'],
+].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+
+$('#acts').innerHTML = ACTS.map(a => `<div class="card" style="border-top:2px solid ${a.tone || 'var(--aurora)'}">
+    <div class="s" style="font-family:var(--mono);letter-spacing:.12em;color:${a.tone || 'var(--aurora)'}">
+      ${esc(a.num)} · ${esc(a.en || '')}</div>
+    <h3 style="font:400 22px/1.25 var(--disp);margin:9px 0 3px">${esc(a.title)}</h3>
+    <div class="s" style="margin-bottom:9px">${esc(a.sub || '')}</div>
+    <div style="font-size:14px;color:var(--ink2)">${md(a.lede || '')}</div>
+  </div>`).join('');
+
+days($('#days'), 4);
+</script>
+</body>
+</html>

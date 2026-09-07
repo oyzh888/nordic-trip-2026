@@ -1,0 +1,229 @@
+/* ============================================================
+   北欧 2026 · 官网统一设计系统
+   nordic.airacle.com
+
+   为什么是「暖黑 + 象牙白 + 极光青」这一套：
+   这个站要同时装两种东西 —— ①很漂亮的风光长卷 ②很详实的方案和账单。
+   过去它们是两个独立页面（story/ 是暖黑影院风，viz/ 是白底信息密集风），
+   拼在一起会像两个网站。统一的做法不是折中，而是**让底色服务照片、让排版服务数据**：
+     · 底色暖黑（#0F0E0C，不是纯黑）→ 极光/雪/黑沙滩的照片在上面最出彩，
+       而纯黑会让照片边缘"糊"进背景，暖黑留得住轮廓。
+     · 数据区不换底色，只换**密度和网格**：hairline 表格 + 等宽数字 + 严格左对齐，
+       这是瑞士式信息排版的做法，在深色底上同样成立。
+     · 只有一个强调色（极光青 #5FD3A6）用来表示"已确认/已订"，
+       另外两个（琥珀/砖红）只用于"要注意/有冲突"。**颜色是状态，不是装饰。**
+
+   字体全部用系统字，不引 CDN —— 页面要能离线打开、也不给第三方留追踪点。
+   ============================================================ */
+
+:root{
+  /* — 底色：暖黑，从深到浅 — */
+  --bg:      #0F0E0C;
+  --bg2:     #16140F;
+  --panel:   #1C1915;
+  --panel2:  #232019;
+  --hair:    #2C2822;     /* 1px 分割线 */
+  --hair2:   #3A352C;
+
+  /* — 字色 — */
+  --ink:     #F4F1EA;     /* 象牙白，不是纯白 */
+  --ink2:    #A8A29A;
+  --ink3:    #726C63;
+
+  /* — 状态色（只表示状态，不当装饰用）— */
+  --aurora:  #5FD3A6;     /* 已订 / 已确认 */
+  --ice:     #7FB8FF;     /* 信息 / 链接 */
+  --amber:   #E8B45A;     /* 要注意 */
+  --rust:    #E4785A;     /* 有冲突 / 最急 */
+
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+          "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --disp: Optima, Palatino, "Palatino Linotype", Georgia, "Songti SC", serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --max: 1180px;
+  --pad: clamp(18px, 4vw, 46px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.72 var(--sans);
+  font-feature-settings:"tnum" 1;   /* 表格里数字等宽对齐 */
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+a{color:var(--ice); text-decoration:none}
+a:hover{text-decoration:underline; text-underline-offset:3px}
+
+/* ---------- 导航 ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(14px) saturate(1.1);
+  border-bottom:1px solid var(--hair);
+}
+.nav .in{
+  max-width:var(--max); margin:0 auto; padding:11px var(--pad);
+  display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+}
+.brand{font:600 15px/1 var(--sans); letter-spacing:.02em; color:var(--ink); white-space:nowrap}
+.brand em{font:italic 400 14px/1 var(--disp); color:var(--aurora); font-style:italic; margin-left:7px}
+.nav nav{display:flex; gap:4px; margin-left:auto; flex-wrap:wrap}
+.nav nav a{
+  font-size:13.5px; color:var(--ink2); padding:6px 11px; border-radius:7px;
+  border:1px solid transparent; white-space:nowrap;
+}
+.nav nav a:hover{background:var(--panel); color:var(--ink); text-decoration:none}
+.nav nav a[aria-current]{color:var(--ink); border-color:var(--hair2); background:var(--panel)}
+
+/* ---------- 布局 ---------- */
+.wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+section{padding:clamp(46px,7vw,86px) 0; border-bottom:1px solid var(--hair)}
+section:last-of-type{border-bottom:0}
+
+h1{
+  font:400 clamp(30px,5.2vw,58px)/1.1 var(--disp);
+  letter-spacing:-.015em; margin:0 0 14px;
+}
+h2{
+  font:400 clamp(23px,3.2vw,34px)/1.22 var(--disp);
+  letter-spacing:-.01em; margin:0 0 8px; display:flex; align-items:baseline; gap:13px; flex-wrap:wrap;
+}
+h2 .n{
+  font:500 12px/1 var(--mono); color:var(--aurora);
+  border:1px solid var(--hair2); border-radius:5px; padding:5px 8px; flex:none;
+}
+h3{font:600 16px/1.4 var(--sans); margin:0 0 6px}
+.lede{color:var(--ink2); font-size:15.5px; max-width:74ch; margin:0 0 26px}
+.eyebrow{
+  font:600 11.5px/1 var(--sans); letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink3); margin:0 0 14px;
+}
+.s{font-size:12.5px; color:var(--ink3)}
+.mono{font-family:var(--mono); font-size:13px}
+b,strong{color:var(--ink); font-weight:600}
+
+/* ---------- Hero ---------- */
+.hero{position:relative; min-height:clamp(420px,74vh,700px); display:flex; align-items:flex-end; border-bottom:1px solid var(--hair)}
+.hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.52}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, color-mix(in srgb,var(--bg) 55%, transparent) 0%,
+             transparent 34%, color-mix(in srgb,var(--bg) 92%, transparent) 88%, var(--bg) 100%);
+}
+.hero .in{position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad) clamp(34px,5vw,60px); width:100%}
+.hero h1{max-width:20ch}
+.hero .sub{font-size:clamp(15px,1.6vw,18px); color:var(--ink); max-width:56ch; margin:0 0 20px}
+.hero .meta{display:flex; gap:9px; flex-wrap:wrap}
+
+/* ---------- 徽章 ---------- */
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font:600 12px/1 var(--sans); padding:6px 10px; border-radius:999px;
+  border:1px solid var(--hair2); color:var(--ink2); background:color-mix(in srgb,var(--panel) 80%, transparent);
+  white-space:nowrap;
+}
+.badge.ok  {color:var(--aurora); border-color:color-mix(in srgb,var(--aurora) 42%, transparent); background:color-mix(in srgb,var(--aurora) 11%, transparent)}
+.badge.amb {color:var(--amber);  border-color:color-mix(in srgb,var(--amber) 42%, transparent);  background:color-mix(in srgb,var(--amber) 11%, transparent)}
+.badge.hot {color:var(--rust);   border-color:color-mix(in srgb,var(--rust) 46%, transparent);   background:color-mix(in srgb,var(--rust) 12%, transparent)}
+
+/* ---------- 数字条 ---------- */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:12px; overflow:hidden}
+.stats > div{background:var(--bg2); padding:18px 16px}
+.stats .v{font:400 clamp(24px,3vw,33px)/1 var(--disp); color:var(--ink); letter-spacing:-.02em}
+.stats .k{font-size:12.5px; color:var(--ink3); margin-top:7px}
+
+/* ---------- 卡片 ---------- */
+.cards{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--panel); border:1px solid var(--hair); border-radius:13px; padding:19px; min-width:0}
+.card.ok{border-color:color-mix(in srgb,var(--aurora) 34%, var(--hair))}
+.card.amb{border-color:color-mix(in srgb,var(--amber) 34%, var(--hair))}
+.card.hot{border-color:color-mix(in srgb,var(--rust) 38%, var(--hair))}
+.card ul{margin:9px 0 0; padding-left:19px} .card li{margin:5px 0; font-size:14px; color:var(--ink2)}
+.card li b{color:var(--ink)}
+
+/* ---------- 表格 ---------- */
+.tw{overflow-x:auto; border:1px solid var(--hair); border-radius:12px; background:var(--bg2)}
+table{width:100%; border-collapse:collapse; font-size:14px; min-width:560px}
+th,td{padding:12px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--hair)}
+th{font:600 11.5px/1.3 var(--sans); letter-spacing:.09em; text-transform:uppercase; color:var(--ink3); background:var(--panel); white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:color-mix(in srgb,var(--panel) 55%, transparent)}
+td.num{font-family:var(--mono); white-space:nowrap}
+
+/* ---------- 日卡（逐日页 / 首页概览共用）---------- */
+.day{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(18px,3vw,40px); align-items:center; padding:clamp(30px,4vw,54px) 0; border-bottom:1px solid var(--hair)}
+.day:nth-child(even) .ph{order:2}
+.day .ph{position:relative; border-radius:13px; overflow:hidden; background:var(--panel); aspect-ratio:4/3}
+.day .ph img{width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.day .ph:hover img{transform:scale(1.035)}
+.day .tx{min-width:0}
+.day .no{font:500 12px/1 var(--mono); color:var(--aurora); letter-spacing:.1em}
+.day h3{font:400 clamp(21px,2.6vw,29px)/1.2 var(--disp); margin:10px 0 4px}
+.day .en{font:italic 400 15px/1 var(--disp); color:var(--ink3); margin-bottom:12px}
+.day p{color:var(--ink2); font-size:15px; margin:0 0 14px}
+.day .kv{display:flex; gap:7px; flex-wrap:wrap}
+
+/* ---------- 甘特图 ---------- */
+.gantt{border:1px solid var(--hair); border-radius:12px; overflow:hidden; background:var(--bg2)}
+.ruler{display:grid; grid-template-columns:88px 1fr; border-bottom:1px solid var(--hair); background:var(--panel)}
+.ruler .h{display:grid; grid-template-columns:repeat(8,1fr)}
+.ruler .h span{font:500 10.5px/1 var(--mono); color:var(--ink3); padding:8px 0 8px 6px; border-left:1px solid var(--hair)}
+.drow{display:grid; grid-template-columns:88px 1fr; border-bottom:1px solid var(--hair); min-width:0}
+.drow:last-child{border-bottom:0}
+.dlab{padding:9px 10px; border-right:1px solid var(--hair); background:var(--panel); min-width:0}
+.dlab b{display:block; font-size:13px}
+.dlab span{font-size:11px; color:var(--ink3)}
+.tracks{position:relative; min-width:0; padding:5px 0}
+.tk{position:relative; height:23px; margin:2px 0}
+.tk::before{content:""; position:absolute; inset:0; background:repeating-linear-gradient(90deg,transparent,transparent calc(12.5% - 1px),var(--hair) calc(12.5% - 1px),var(--hair) 12.5%)}
+.bar{
+  position:absolute; top:1px; height:21px; border-radius:5px; padding:0 7px;
+  font:500 11px/21px var(--sans); color:#0B0A08; white-space:nowrap; overflow:hidden;
+  text-overflow:ellipsis; cursor:default; border:1px solid transparent;
+}
+.bar.stay{background:#8FBF9E} .bar.car{background:#E8C77A} .bar.fly{background:#8FB6E8} .bar.act{background:#3A3630; color:var(--ink2); border-color:var(--hair2)}
+.bar.tbd{background:repeating-linear-gradient(45deg,var(--panel2),var(--panel2) 5px,var(--panel) 5px,var(--panel) 10px); color:var(--ink2); border-color:var(--hair2)}
+.bar.booked{box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--aurora) 75%, transparent)}
+.bar:hover{filter:brightness(1.12); z-index:5}
+.legend{display:flex; gap:14px; flex-wrap:wrap; margin:14px 0 0; font-size:12.5px; color:var(--ink3)}
+.legend i{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:-1px}
+
+/* ---------- 详情折叠 ---------- */
+details.det{border:1px solid var(--hair); border-radius:11px; background:var(--panel); margin:9px 0; overflow:hidden}
+details.det > summary{padding:12px 15px; cursor:pointer; font-size:14px; list-style:none; display:flex; gap:10px; align-items:baseline}
+details.det > summary::-webkit-details-marker{display:none}
+details.det > summary::before{content:"▸"; color:var(--ink3); flex:none}
+details.det[open] > summary::before{content:"▾"}
+details.det .bd{padding:0 15px 15px; font-size:14px; color:var(--ink2); border-top:1px solid var(--hair); padding-top:13px; margin-top:2px}
+details.det .bd b{color:var(--ink)}
+
+/* ---------- 车 ---------- */
+.carcard{border:1px solid var(--hair); border-radius:14px; overflow:hidden; background:var(--panel); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.carcard + .carcard{margin-top:20px}
+.carcard:nth-child(even){grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.carcard:nth-child(even) .cph{order:2}
+.cph{position:relative; background:#000; aspect-ratio:16/10}
+.cph img{width:100%; height:100%; object-fit:cover}
+.cph .cred{position:absolute; bottom:0; left:0; right:0; padding:6px 9px; font-size:10.5px; color:#C9C4BA; background:linear-gradient(transparent,rgba(0,0,0,.82))}
+.cph .cred a{color:#C9C4BA}
+.cbody{padding:clamp(18px,2.4vw,28px); min-width:0}
+.cbody .seg{font:500 11.5px/1 var(--mono); color:var(--aurora); letter-spacing:.1em}
+.cbody h3{font:400 clamp(20px,2.4vw,27px)/1.2 var(--disp); margin:11px 0 3px}
+.cbody .kl{font-size:13px; color:var(--ink3); margin-bottom:14px}
+.cbody dl{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:0 0 15px; font-size:13.5px}
+.cbody dt{color:var(--ink3); white-space:nowrap} .cbody dd{margin:0; color:var(--ink)}
+.cbody p{font-size:14px; color:var(--ink2); margin:0}
+
+footer{padding:36px 0 60px; color:var(--ink3); font-size:13px}
+footer .wrap{display:flex; gap:20px; flex-wrap:wrap; justify-content:space-between}
+
+@media (max-width:820px){
+  .day,.carcard,.carcard:nth-child(even){grid-template-columns:1fr}
+  .day:nth-child(even) .ph,.carcard:nth-child(even) .cph{order:0}
+  .drow,.ruler{grid-template-columns:62px 1fr}
+  .hero{min-height:76vh}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto}}

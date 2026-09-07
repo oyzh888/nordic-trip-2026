@@ -1,5 +1,17 @@
 # 北欧 2026 · 13 天行程规划
 
+## 🌐 官网：**<https://nordic.airacle.com>**
+
+四页，一套统一的设计（暖黑 + 象牙白 + 极光青）：
+**[首页](https://nordic.airacle.com/)** · **[逐日](https://nordic.airacle.com/days/)** ·
+**[最终方案](https://nordic.airacle.com/plan/)**（甘特图 + 自动体检 + 账单）·
+**[四台车](https://nordic.airacle.com/cars/)**
+
+源码在 `site/`，数据层 `site/data.js` **自动生成**（`python3 notes/_research/build_site.py`）——
+它把三处真相合并成一份：`viz/timeline.js`（时刻/已订/待办）· `styles/data.js`（文案/风光图）·
+`notes/_research/out_cars_imgs.json`（四台车的 CC 授权照片）。**别手改 `site/data.js`。**
+部署：`wrangler deploy`（配置见 `wrangler.jsonc`）。
+
 **2026-09-24 → 10-06 · 4 人（两男 + 一对夫妻）· 奥斯陆 → 冰岛 → 罗弗敦 → 特罗姆瑟/Senja → 奥斯陆**
 
 12 晚住宿 + 4 台租车，**全部有实价、全部实测可订**。
@@ -96,3 +108,33 @@ python3 flights_isdom.py jobs_...       out_isdom/      # Google Flights
 
 需要 Playwright + Chromium 且能出网。哪个脚本配哪组 job、每组在回答什么问题，
 全部写在 [`notes/_research/INDEX.md`](notes/_research/INDEX.md)。
+
+---
+
+## 🌐 官网是怎么部署的（nordic.airacle.com）
+
+**Worker + 静态资源，不是 Cloudflare Pages。**
+原因：这个账号的 **Pages 项目数已经到上限**（建新项目直接报 `code 8000027`），
+而删掉别的站点来腾位置不可接受。Worker 带静态资源是官方现在推荐的静态站做法，
+配额独立（该账号 40 个 worker，有余量），能力也够用 —— 目录直出、
+自动把 `/plan/` 映射到 `/plan/index.html`、自带 CDN 与边缘证书。
+
+```bash
+python3 notes/_research/build_site.py     # 重新生成 site/data.js
+wrangler deploy                            # 部署（wrangler.jsonc 里已绑好自定义域名）
+```
+
+`routes` 里写了 `{"pattern":"nordic.airacle.com","custom_domain":true}`，
+所以 **DNS 记录和证书都是 wrangler 自动建的**，不用手工加 CNAME。
+
+### 图片版权
+- **风光图（271 张）+ 四台车**：Wikimedia Commons，**CC BY / CC BY-SA**，页面上逐张署名（作者 + 许可 + 原页链接）。
+  车图是 `notes/_research/wm_cars.py` 用 MediaWiki API 抓的，脚本**会主动丢掉非自由许可**的图。
+  ⚠️ 车图是**同款车型示意，不是我们那台的实车照**，页面上已注明。
+- **住宿照**：Airbnb / Booking 房源页（热链）。这些是版权图，仅作行前参考。
+
+### ⚠️ 文案覆盖层（别删）
+`styles/data.js` 的逐日文案写于 9-02，之后行程改过两轮（9-04 蓝湖/半岛挪到 9/25；
+9-05 两个奥斯陆中转夜改机场连廊酒店）。`build_site.py` 里有一个 `OVERRIDE_DAYS` / `OVERRIDE_ACTS`
+把 **6 处旧描写**改掉了 —— 否则官网会出现「页面说往西开十五分钟到农舍、账单写着机场酒店」这种自相矛盾。
+覆盖表里的日期若和上游对不上，脚本会**直接报错退出**，不会静默漏改。

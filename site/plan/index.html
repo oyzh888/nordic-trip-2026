@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>最终方案 · 北欧 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<section style="border-bottom:1px solid var(--hair);padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">Finalized Plan · 2026-09-06</div>
+    <h1 style="margin-bottom:16px">最终方案</h1>
+    <p class="lede">这一页是<b>可执行的那一份</b>：谁盖住了哪一段时间、哪些已经付了钱、还剩什么没定。
+      下面四项体检全部是从时间线的真实时刻<b>现算</b>出来的 —— 不是手写的结论，改了数据它会跟着变。</p>
+    <div class="meta" id="badges" style="display:flex;gap:9px;flex-wrap:wrap"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">01</span>时间线 —— 谁盖住了哪一段</h2>
+    <p class="lede">每天一行，行内四条轨：<b>住宿 / 租车 / 航班 / 活动</b>。
+      横条的左右两端就是真实的起止时刻，所以「这一夜有没有地方睡」「这段路有没有车」一眼就能看出来。
+      青色描边 = 已付钱；斜纹 = 还没定。</p>
+    <div id="gantt"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">02</span>自动体检</h2>
+    <p class="lede">这四项是这一页最有用的东西 —— 它们独立于我的判断，直接从时刻算。
+      历史上它们抓出过三个真问题：一个 6 小时的夜、两段「要移动但手上没车」、以及一个洲际缓冲不够。</p>
+    <div id="health"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">03</span>已经订掉的 + 总账</h2>
+    <p class="lede"><b>四台车已全部付款，三段机票已出票。</b>确认号只留在本机私有日志，不放在这个页面上。</p>
+    <div class="tw"><table id="orders"></table></div>
+    <div class="cards" style="margin-top:18px" id="money"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">04</span>还剩什么没定</h2>
+    <p class="lede">按急迫程度排。<b>🔴🔴 = 今天就该动手</b>（库存/余票会没）· 🔴 = 这两天 · 🟠 = 等某个前置条件 · 🟡 = 出发前。</p>
+    <div id="fill"></div>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script>
+chrome();
+
+$('#badges').innerHTML = [
+  ['ok','✅ 4 台车已付款'], ['ok','✅ 3 段机票已出票'], ['ok','✅ 罗弗敦 2 晚已订'],
+  ['hot','🔴 10/2 机票只剩 6 张'], ['hot','🔴 10/6 洲际时刻未定'], ['amb','🟠 8 晚住宿待下单'],
+].map(([c,t]) => `<span class="badge ${c}">${t}</span>`).join('');
+
+gantt($('#gantt'));
+health($('#health'));
+tofill($('#fill'));
+
+/* 订单表 */
+$('#orders').innerHTML = `<thead><tr><th>类别</th><th>什么</th><th>取 → 还 / 日期</th><th>金额</th><th>免费取消截止</th></tr></thead>
+<tbody>${ORDERS.map(o => `<tr>
+  <td><span class="badge ok">✅ ${esc(o.kind)}</span></td>
+  <td>${md(o.what)}</td>
+  <td>${md(o.when)}</td>
+  <td class="num"><b>${esc(o.money)}</b>${o.sub ? `<div class="s">${esc(o.sub)}</div>` : ''}</td>
+  <td class="s">${esc(o.cxl)}</td></tr>`).join('')}
+<tr><td colspan="3"><b>四台车合计</b></td>
+    <td class="num"><b>$2,409.83 ≈ ¥17,110</b><div class="s">已付 $1,094.23 · 取车再付 $1,315.60</div></td>
+    <td class="s">押金预授权合计 $4,340（冻结额度，不是扣款）</td></tr></tbody>`;
+
+$('#money').innerHTML = [
+  ['ok','🎯 这四单顺手解决掉的两件事', [
+    '<b>「4 人 4 箱塞不进」没有了</b> —— 冰岛那台从 Compact SUV 变成 <b>Defender 110</b>，行李空间不是一个量级，而碎石路正是它的主场。',
+    '<b>最可能订不着的那台锁住了</b> —— 罗弗敦那台要在 Leknes 异地还车，全网只有 5 个报价（同期 Evenes 有 22 个）。']],
+  ['hot','🔴 还剩两件真的要处理', [
+    '<b>10/6 洲际几点起飞</b> —— 奥斯陆那台约的是 13:00 还车。上午/中午走就<b>必须改早到 09:00</b>（24 小时内同为 1 个计费日，改早不涨价，免费取消到 10/3）；下午/晚上走就正好，早上白得 4 小时。',
+    '<b>10/4 Senja 往返 500 km 用纯电 EQS</b> —— 挪威充电桩最密，但 10 月 + 山路 + 暖风会按下续航 → 现实里要算<b>一次充电停留</b>。出发前把 Finnsnes 一带的快充点标好，并确认三个住处能不能过夜慢充。']],
+  ['amb','🛡 取车时别忘', [
+    '<b>确认保险含到零自付（zero-deductible）</b>，尤其冰岛那台 —— 碎石险 + 火山沙尘险是真实索赔项。供应商柜台那份才是<b>当场免赔</b>；DiscoverCars 自己的 "Full Coverage" 是第三方、<b>要先垫付再报销</b>。',
+    '两个人轮流开 → 加 <b>additional driver</b>。📄 美国驾照冰岛挪威都直接认，不用国际驾照翻译件。',
+    '押金 <b>$4,340</b> 预授权 → 信用卡额度要够，别用 debit。']],
+].map(([c,h,li]) => `<div class="card ${c}"><h3>${h}</h3><ul>${li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+</script>
+</body>
+</html>
