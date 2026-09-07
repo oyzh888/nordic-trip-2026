@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>北欧 2026 · 全程时间线（住宿 / 车 / 航班 覆盖图）</title>
+<title>北欧 2026 · 最终方案（Finalized Plan）</title>
 <style>
 :root{
   --bg:#0b1020; --bg2:#111931; --bg3:#18213d; --line:#26314f;
@@ -127,12 +127,13 @@ td b{color:#fff}
 footer{border-top:1px solid var(--line);margin-top:34px;padding:20px 0 40px;font-size:12.5px;color:var(--tx3)}
 .mono{font-family:ui-monospace,Menlo,monospace;font-size:12px}
 @media(max-width:640px){:root{--hour:40px;--gutter:74px}}
+.s{font-size:12px;color:var(--tx3)}
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <p class="kicker">Nordic 2026 · 9/24 → 10/6 · 时间线</p>
-  <h1>整条时间线 —— 住宿 / 车 / 航班 谁盖住了哪一段</h1>
+  <h1>北欧 2026 · 最终方案 <span style="color:var(--tx3);font-weight:400">Finalized Plan</span></h1>
   <p class="sub">从上往下按天读。每一天是一行，行里从左到右是 <b>00:00 → 24:00</b>；
      四条轨道分别是 <b>✈️ 航班 · 🚗 车 · 🏠 住 · 📍 活动</b>。
      住宿和租车画成<b>横跨时间范围的条</b>，所以「这一段有没有人管」是看出来的，不是算出来的 ——
@@ -140,7 +141,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding:20px 0 40px;font
      <b>虚线条 = 还没定/要填的</b>，页面底部自动列成一张清单。<br>
      蓝色底的时段是夜里（22:00–06:00）—— 那一段上面如果没有 🏠 的条，就是没地方睡。</p>
   <div class="nav">
-    <a href="#gantt">① 甘特图</a><a href="#health">② 自动体检</a><a href="#fill">③ 要填的清单</a><a href="#book">④ 车怎么订</a>
+    <a href="#gantt">① 时间线</a><a href="#health">② 自动体检</a><a href="#fill">③ 还剩什么没定</a><a href="#book">④ 已订 + 总账</a>
     <a href="https://reports.aitist.ai/nordic-trip-2026/plan/">总计划页（价格 / 备选 / 比价链接）↗</a>
     <a href="https://reports.aitist.ai/nordic-trip-2026/styles/">故事页 4 个风格 ↗</a>
   </div>
@@ -177,65 +178,45 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding:20px 0 40px;font
 </section>
 
 <section id="book">
-  <h2><span class="n">04</span>🚗 车怎么订 —— 照着做</h2>
-  <p class="lede"><b>顺序很重要</b>：先订 <b>车①</b>（Leknes 异地还车全网只有 5 个报价，是唯一会真订不着的）→
-     再订 <b>冰岛那台</b>（一天涨了 26%）→ 车②/车③ 不急。
-     <b>四台全部「免费取消」，所以现在锁价、等 Kevin 的票齐了再改时间，改时间不要钱、也不影响价格</b>
-     （取车钟点对价格中性这件事我扫过一排钟点验证过）。</p>
+  <h2><span class="n">04</span>✅ 已经订掉的 + 一共花多少</h2>
+  <p class="lede"><b>2026-09-06：四台车全部付款完成</b>，机票三段已出票。
+     这一节是<b>最终账单</b>，不再是「怎么订」的说明书 —— 确认号只留在本机私有日志，不进这个公开页面。</p>
 
-  <div class="checks">
-    <div class="chk bad"><h4>① 🇳🇴 车① 罗弗敦 —— <b>先订这台</b></h4><ul>
-      <li><a href="https://www.discovercars.com/search/fb22a8ce-3cbe-4fe3-9460-0f5c3b24eec4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMDg4LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjA5MSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTMwIDExOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wMiAxMTowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIifQ" target="_blank" rel="noopener"><b>点这条链接 ↗</b></a>（EVE 9/30 11:00 → <b>Leknes 10/2 14:30</b>，已填好）</li>
-      <li>要选的那台：<b>Ford Explorer 4WD · Automatic · In terminal · Free cancellation · $647 · Total for 3 days</b></li>
-      <li>🔴 <b>只有 5 个报价</b>（Evenes 22 / 特罗姆瑟 16）→ 这是四台里唯一会卖光的</li>
-      <li>⚠️ 押金曾报到 <b>$1,805</b> → 用额度够的信用卡，别用 debit</li>
-      <li>航班号先留空或写 9/30 那班 OSL→EVE（等 Kevin 确认几点）</li>
+  <div class="tw"><table>
+    <thead><tr><th>已订</th><th>什么</th><th>取 → 还 / 日期</th><th>金额</th><th>免费取消截止</th></tr></thead>
+    <tbody>
+      <tr><td>✅ 车</td><td><b>Land Rover Defender 110</b> · Premium SUV · Avis 🇮🇸</td>
+          <td>KEF 9/25 08:00 → 9/29 18:00（5 日）</td><td><b>$1,020.00</b><br><span class="s">已全额付清</span></td><td>9/23 08:00</td></tr>
+      <tr><td>✅ 车</td><td><b>Ford Explorer 4WD</b> · Full-size SUV · <b>纯电</b> · SIXT 🇳🇴</td>
+          <td>EVE 9/30 11:00 → <b>Leknes</b> 10/2 14:30（3 日）</td><td><b>$646.14</b><br><span class="s">已付 $14.01 · 取车付 $632.13</span></td><td>9/28 11:00</td></tr>
+      <tr><td>✅ 车</td><td><b>Mercedes-Benz EQS 4WD</b> · <b>纯电</b> · SIXT 🇳🇴</td>
+          <td>TOS 10/2 17:00 → 10/5 <b>17:00</b>（3 日）<br><span class="s">实际 10:00 就还，多出的 7 小时是免费富余</span></td><td><b>$455.59</b><br><span class="s">已付 $33.77 · 取车付 $421.82</span></td><td>9/30 17:00</td></tr>
+      <tr><td>✅ 车</td><td><b>Porsche Macan 4WD</b> · <b>保证车型</b> · 纯电 · SIXT 🇳🇴</td>
+          <td>OSL 10/5 13:00 → 10/6 13:00（1 日）</td><td><b>$288.10</b><br><span class="s">已付 $26.45 · 取车付 $261.65</span></td><td>10/3 13:00</td></tr>
+      <tr><td>✅ 机票</td><td>北京 → 奥斯陆（洲际，9h25）</td><td>9/24</td><td><span class="s">已出票</span></td><td>—</td></tr>
+      <tr><td>✅ 机票</td><td><b>SK4787</b> 奥斯陆 → 冰岛（SAS，当天唯一直飞）</td><td>9/25 06:15 → 07:05</td><td><span class="s">已出票</span></td><td>—</td></tr>
+      <tr><td>✅ 机票</td><td><b>DY1171</b> 冰岛 → 奥斯陆（Norwegian）</td><td>9/29 20:05 → 00:45+1</td><td><span class="s">已出票</span></td><td>—</td></tr>
+      <tr><td>✅ 住</td><td><b>Nordic Lodge Retreat</b> · Lyngvær（4 房 8 床 2 卫 · ★4.92）</td><td>9/30 → 10/2（2 晚）</td><td><b>€898</b></td><td>9/23 起部分退</td></tr>
+      <tr><td colspan="3"><b>四台车合计</b></td><td><b>$2,409.83 ≈ ¥17,110</b><br><span class="s">已付 $1,094.23 · 取车再付 $1,315.60</span></td><td><span class="s">押金预授权合计 $4,340（冻结额度，不是扣款）</span></td></tr>
+    </tbody></table></div>
+
+  <div class="checks" style="margin-top:16px">
+    <div class="chk ok"><h4>🎯 这四单顺手解决掉的两件事</h4><ul>
+      <li><b>「4 人 4 箱塞不进」没有了</b> —— 冰岛那台从 Compact SUV（Peugeot 2008）变成 <b>Defender 110</b>，
+          行李空间不是一个量级，而碎石路正是它的主场。</li>
+      <li><b>四台里最可能订不着的那台锁住了</b> —— 车① 要在 Leknes 异地还车，全网只有 5 个报价（同期 Evenes 22、特罗姆瑟 16）。</li>
     </ul></div>
-
-    <div class="chk warn"><h4>② 🇮🇸 冰岛 5 天 —— 在涨价</h4><ul>
-      <li><a href="https://www.discovercars.com/offer/e42e9998-7500-4027-90fa-bb087f945740-PMDB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg3LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NywiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA5LTI1VDA4OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wOS0yOVQxODowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyOGNlNjY3ZjI2ZWVkNTU4YTQzMTgwMjk2OGJhMDI0NSJ9" target="_blank" rel="noopener"><b>点这条链接 ↗</b></a>（KEF <b>9/25 08:00</b> → 9/29 18:00，已按 SK4787 填好）</li>
-      <li>要选的那台：<b>Peugeot 2008 · Compact SUV · Automatic · 5 seats · Free shuttle · $326 · Total for 5 days</b></li>
-      <li>⛔ <b>别选榜首那几个</b> —— $191 的 Hyundai i10 是手动小车；<b>$247 的 Suzuki Jimny 是 2 座 3 门</b>，装不下 4 人 4 箱</li>
-      <li>🔴🆕 <b>结账页直接买到「零自付」（zero-deductible / Premium）那一档</b>，不要只加最低的三样
-          （<b>SCDW</b> 超级碰撞险 + <b>Gravel Protection</b> 砂石 + <b>Sand &amp; Ash</b> 火山灰/沙尘暴）。
-          裸车 $326 → 三险约 <b>$451–526</b>，零自付约 <b>$550–650</b>。
-          <b>2026-09-05 按舒适口径：买零自付。</b>冰岛 1 号公路碎石路段多、10 月南岸沙尘暴是真实索赔项，
-          而「先自己垫 ISK 几十万再回来理赔」是这趟最能毁心情的事</li>
-      <li>🆕 <b>看一眼有没有 Intermediate SUV / 旅行车（Estate）的升级档</b> —— 4 个人 4 个大箱子塞 Compact SUV
-          的后备箱偏紧，加一两百美金就升，5 天里天天装卸行李</li>
-      <li>⚠️ 这台是<b>摆渡车取车</b>（不在航站楼里）→ 07:05 落地、08:00 取车是对的，别再往前压</li>
-      <li>航班号填 <b>SK4787</b></li>
+    <div class="chk warn"><h4>🔴 还剩两件真的要处理</h4><ul>
+      <li><b>10/6 洲际几点起飞</b> —— 车③ 约的是 13:00 还车。上午/中午走就<b>必须改早到 09:00</b>
+          （24 小时内都算 1 个计费日，改早不涨价，免费取消到 10/3）；下午/晚上走就正好。</li>
+      <li><b>10/4 Senja 往返 500 km 用纯电 EQS</b> —— 挪威充电桩最密，但 10 月 + 山路 + 暖风会按下续航
+          → 现实里要算<b>一次充电停留</b>，出发前把 Finnsnes 一带的快充点标好，并确认三个住处能不能过夜慢充。</li>
     </ul></div>
-
-    <div class="chk"><h4>③ 🇳🇴 车② 特罗姆瑟</h4><ul>
-      <li><a href="https://www.discovercars.com/offer/bd59ee39-0fd4-41ea-9e9e-ad3b5066c5d2-QR2J?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoyMTk1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MjE5NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTAyVDE3OjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNVQxMDowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxMzNkMzA5ZDQ0YWQwZDk4NjcxNTM3M2M4YWY0ZjdmMCJ9" target="_blank" rel="noopener"><b>点这条链接 ↗</b></a>（TOS <b>10/2 17:00</b> → 10/5 <b>09:45</b>，已填好）</li>
-      <li>要选的那台：<b>任一 4x4 · Automatic · In terminal · $224 · 3 days</b></li>
-      <li>⚠️ <b>榜首那个 $214 的 Toyota Yaris 是 Free shuttle</b> —— 多 $10 换「航站楼内取车」很值（16:35 落地，不想再等摆渡车）</li>
-      <li>航班号填 <b>WF816</b></li>
-    </ul></div>
-
-    <div class="chk"><h4>④ 🇳🇴 车③ 奥斯陆 1 天 —— <b>✅ 已决定要租</b></h4><ul>
-      <li><a href="https://www.discovercars.com/offer/6c79398c-62fc-4e95-ad7e-e0790fb480b3-TMQD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzEwLCJEcm9wT2ZmTG9jYXRpb25JZCI6MTcxMCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTEwLTA1VDEzOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0xMC0wNlQxMzowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJVUyIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjMyOTFmMWNiYWQ2MjU1MTA4OTY5MDBiNmMwYjFhMSJ9" target="_blank" rel="noopener"><b>点这条链接 ↗</b></a>（OSL <b>10/5 13:10</b> → 10/6 <b>09:00</b>，已填好）</li>
-      <li>✅🆕 <b>2026-09-05 已决定：租。</b>不租就得把最后一晚从「整栋小木屋 + 私人桑拿 + ★4.98 湖景」
-          换成机场旁的 Clarion，只为省 ¥600–1,000 —— 按舒适口径不换</li>
-      <li>⛔🆕 <b>别点 $85 那档，那是 VW ID.4 电车</b> —— 1 天短租还要摸清挪威充电桩，纯给自己添事。
-          往下选<b>燃油自动四驱</b>（约 $120–150）</li>
-      <li>🆕 <b>取车填 13:10</b>（配改推的 TOS→OSL <b>10:45→12:40</b>），<b>还车填 10/6 09:00</b>（洲际至少留 3 小时）。
-          10:45 / 13:00 / 14:00 三个钟点实测同价 → 改钟点不花钱</li>
-    </ul></div>
-
-    <div class="chk"><h4>⑤ 四台车共通的六步</h4><ul>
-      <li><b>1.</b> 点链接后<b>先核对页面顶部的取还日期时间</b>（我逐条验过，但保险起见看一眼）</li>
-      <li><b>2.</b> 左侧筛选勾 <b>Automatic</b>；要四驱再勾 SUV / 4x4</li>
-      <li><b>3.</b> 认车看四样：<b>车名 · Automatic · 取车方式（In terminal / Free shuttle）· Free cancellation</b>。
-          ⛔ 别按价格排序取第一个 —— 榜首基本都是手动挡小车</li>
-      <li><b>4.</b> 司机信息：<b>Age 35 · Residence country: United States</b>（这两项会影响价格和保险资格）</li>
-      <li><b>5.</b> 🔑 <b>填航班号</b> —— 柜台会跟航班，飞机晚点也给你留车。这是「落地 30 分钟取车」敢这么排的真正原因</li>
-      <li><b>6.</b> 确认订单上写着 <b>Free cancellation</b>，截图留档。四台<b>分开订</b>，不是一个订单</li>
-      <li>📄 驾照：<b>美国驾照直接用</b>，冰岛挪威都认，不用国际驾照翻译件</li>
-      <li>👥 要两个人轮流开 → <b>订的时候就加 additional driver</b>（通常收费），别到柜台再说</li>
-      <li>🛡 DiscoverCars 自己那个 "Full Coverage" 和冰岛那三险<b>不是一回事</b>：前者是第三方保险、
-          出事<b>要自己先垫付再理赔</b>；后者是供应商的免赔额减免，柜台直接生效。想省事就买供应商的</li>
+    <div class="chk"><h4>🛡 取车时别忘</h4><ul>
+      <li><b>确认保险含到零自付（zero-deductible）</b>，尤其冰岛那台（碎石险 + 火山沙尘险是真实索赔项）。
+          供应商柜台那份才是<b>当场免赔</b>；DiscoverCars 自己的 "Full Coverage" 是第三方、<b>要先垫付再报销</b>。</li>
+      <li>要两个人轮流开 → 加 <b>additional driver</b>。📄 美国驾照冰岛挪威都直接认，不用国际驾照翻译件。</li>
+      <li>押金 <b>$4,340</b> 预授权 → 信用卡额度要够，别用 debit。</li>
     </ul></div>
   </div>
 </section>
