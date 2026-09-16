@@ -1,0 +1,65 @@
+{
+ "slug": "ret-lis-1017",
+ "frm": "LIS",
+ "to": "SFO",
+ "date": "2026-10-17",
+ "label": "🇵🇹 里斯本 · 周六",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+ "offers": [
+  {
+   "price": 793,
+   "mins": 1440,
+   "stops": "1 stop",
+   "air": "7:45 PM – 11:45 AM+1 KLMDelta 24 hr LIS–SFO 1 stop 10 hr 10 min AMS 508 kg CO2e -24% emissions $793"
+  },
+  {
+   "price": 869,
+   "mins": 1597,
+   "stops": "2 stops",
+   "air": "6:35 AM – 1:12 AM+1 Iberia, AmericanFinnair 26 hr 37 min LIS–SFO 2 stops MAD, JFK 1,018 kg CO2e +52% emissions $869"
+  },
+  {
+   "price": 875,
+   "mins": 1900,
+   "stops": "1 stop",
+   "air": "2:35 PM – 2:15 PM+1 LOT 31 hr 40 min LIS–SFO 1 stop 15 hr 20 min WAW 772 kg CO2e +15% emissions $875"
+  },
+  {
+   "price": 967,
+   "mins": 1615,
+   "stops": "1 stop",
+   "air": "6:55 PM – 1:50 PM+1 British AirwaysFinnair, American, Iberia 26 hr 55 min LIS–SFO 1 stop 13 hr 5 min LHR 636 kg CO2e Avg emissions $967"
+  },
+  {
+   "price": 1008,
+   "mins": 745,
+   "stops": "Nonstop",
+   "air": "1:10 PM – 5:35 PM Tap Air PortugalJetBlue 12 hr 25 min LIS–SFO Nonstop 516 kg CO2e -23% emissions $1,008"
+  },
+  {
+   "price": 1028,
+   "mins": 1100,
+   "stops": "1 stop",
+   "air": "5:55 AM – 4:15 PM SWISS 18 hr 20 min LIS–SFO 1 stop 3 hr 20 min ZRH 668 kg CO2e Avg emissions $1,028"
+  },
+  {
+   "price": 1035,
+   "mins": 975,
+   "stops": "1 stop",
+   "air": "6:15 AM – 2:30 PM Lufthansa, United 16 hr 15 min LIS–SFO 1 stop 1 hr 25 min MUC 790 kg CO2e +18% emissions $1,035"
+  },
+  {
+   "price": 1171,
+   "mins": 935,
+   "stops": "1 stop",
+   "air": "5:05 AM – 12:40 PM LufthansaUnited 15 hr 35 min LIS–SFO 1 stop 1 hr 15 min FRA 710 kg CO2e +6% emissions $1,171"
+  },
+  {
+   "price": 1211,
+   "mins": 885,
+   "stops": "1 stop",
+   "air": "5:00 AM – 11:45 AM KLMDelta 14 hr 45 min LIS–SFO 1 stop 55 min AMS 508 kg CO2e -24% emissions $1,211"
+  }
+ ],
+ "waited_s": 7.5
+}

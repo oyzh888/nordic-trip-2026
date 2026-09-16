@@ -1,0 +1,65 @@
+{
+ "slug": "ret-lis-1019",
+ "frm": "LIS",
+ "to": "SFO",
+ "date": "2026-10-19",
+ "label": "🇵🇹 里斯本 · TAP 有直飞",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+ "offers": [
+  {
+   "price": 723,
+   "mins": 1592,
+   "stops": "2 stops",
+   "air": "6:35 AM – 1:07 AM+1 Iberia, AmericanFinnair 26 hr 32 min LIS–SFO 2 stops MAD, JFK 1,049 kg CO2e +57% emissions $723"
+  },
+  {
+   "price": 737,
+   "mins": 1625,
+   "stops": "1 stop",
+   "air": "6:45 PM – 1:50 PM+1 British AirwaysFinnair, American, Iberia 27 hr 5 min LIS–SFO 1 stop 13 hr 15 min LHR 660 kg CO2e Avg emissions $737"
+  },
+  {
+   "price": 745,
+   "mins": 885,
+   "stops": "1 stop",
+   "air": "5:00 AM – 11:45 AM KLMDelta 14 hr 45 min LIS–SFO 1 stop 55 min AMS 508 kg CO2e -24% emissions $745 Avoids as much CO2e as 9,801 trees absorb in a day"
+  },
+  {
+   "price": 745,
+   "mins": 1440,
+   "stops": "1 stop",
+   "air": "7:45 PM – 11:45 AM+1 KLMDelta 24 hr LIS–SFO 1 stop 10 hr 10 min AMS 508 kg CO2e -24% emissions $745"
+  },
+  {
+   "price": 753,
+   "mins": 1560,
+   "stops": "1 stop",
+   "air": "6:50 PM – 12:50 PM+1 Air FranceDelta 26 hr LIS–SFO 1 stop 12 hr CDG 662 kg CO2e Avg emissions $753"
+  },
+  {
+   "price": 827,
+   "mins": 1225,
+   "stops": "1 stop",
+   "air": "5:35 AM – 6:00 PM Air FranceDelta 20 hr 25 min LIS–SFO 1 stop 6 hr 30 min CDG 598 kg CO2e -11% emissions $827"
+  },
+  {
+   "price": 901,
+   "mins": 970,
+   "stops": "1 stop",
+   "air": "9:50 AM – 6:00 PM Air FranceDelta 16 hr 10 min LIS–SFO 1 stop 2 hr 20 min CDG 578 kg CO2e -14% emissions $901"
+  },
+  {
+   "price": 985,
+   "mins": 915,
+   "stops": "1 stop",
+   "air": "5:35 AM – 12:50 PM Air FranceDelta 15 hr 15 min LIS–SFO 1 stop 1 hr 10 min CDG 677 kg CO2e Avg emissions $985"
+  },
+  {
+   "price": 1008,
+   "mins": 755,
+   "stops": "Nonstop",
+   "air": "9:30 AM – 2:05 PM Tap Air PortugalJetBlue 12 hr 35 min LIS–SFO Nonstop 516 kg CO2e -23% emissions $1,008"
+  }
+ ],
+ "waited_s": 7.5
+}

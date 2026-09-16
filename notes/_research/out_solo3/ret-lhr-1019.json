@@ -1,0 +1,95 @@
+{
+ "slug": "ret-lhr-1019",
+ "frm": "LHR",
+ "to": "SFO",
+ "date": "2026-10-19",
+ "label": "🇬🇧 伦敦 · 第一轮查过 $560",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+ "offers": [
+  {
+   "price": 715,
+   "mins": 1545,
+   "stops": "1 stop",
+   "air": "7:50 PM – 1:35 PM+1 Tap Air Portugal 25 hr 45 min LHR–SFO 1 stop 10 hr 20 min LIS 639 kg CO2e +20% emissions $715"
+  },
+  {
+   "price": 762,
+   "mins": 960,
+   "stops": "1 stop",
+   "air": "1:55 PM – 9:55 PM WestJet 16 hr LHR–SFO 1 stop 4 hr 10 min YYC 534 kg CO2e Avg emissions $762"
+  },
+  {
+   "price": 916,
+   "mins": 840,
+   "stops": "1 stop",
+   "air": "9:50 AM – 3:50 PM Aer LingusBritish Airways, American 14 hr LHR–SFO 1 stop 1 hr 30 min DUB 541 kg CO2e Avg emissions $916"
+  },
+  {
+   "price": 1092,
+   "mins": 935,
+   "stops": "1 stop",
+   "air": "8:40 AM – 4:15 PM SWISSUnited 15 hr 35 min LHR–SFO 1 stop 1 hr 25 min ZRH 610 kg CO2e +15% emissions $1,092"
+  },
+  {
+   "price": 1103,
+   "mins": 917,
+   "stops": "1 stop",
+   "air": "8:20 AM – 3:37 PM AmericanBritish AirwaysOperated by SkyWest Airlines as American Eagle 15 hr 17 min LHR–SFO 1 stop 2 hr 20 min LAX 520 kg CO2e Avg em"
+  },
+  {
+   "price": 1112,
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e Avg emissions $1,112"
+  },
+  {
+   "price": 1120,
+   "mins": 850,
+   "stops": "1 stop",
+   "air": "6:30 AM – 12:40 PM Lufthansa City Airlines, LufthansaUnited 14 hr 10 min LHR–SFO 1 stop 1 hr 20 min FRA 599 kg CO2e +13% emissions $1,120"
+  },
+  {
+   "price": 1128,
+   "mins": 829,
+   "stops": "1 stop",
+   "air": "5:00 PM – 10:49 PM Alaska 13 hr 49 min LHR–SFO 1 stop 1 hr 36 min SEA 548 kg CO2e Avg emissions $1,128"
+  },
+  {
+   "price": 1156,
+   "mins": 795,
+   "stops": "1 stop",
+   "air": "6:30 AM – 11:45 AM KLMDelta, Virgin Atlantic 13 hr 15 min LHR–SFO 1 stop 1 hr AMS 428 kg CO2e -20% emissions $1,156"
+  },
+  {
+   "price": 1163,
+   "mins": 875,
+   "stops": "1 stop",
+   "air": "6:15 AM – 12:50 PM Air FranceDelta, Virgin Atlantic 14 hr 35 min LHR–SFO 1 stop 1 hr 40 min CDG 585 kg CO2e +10% emissions $1,163"
+  },
+  {
+   "price": 1174,
+   "mins": 670,
+   "stops": "Nonstop",
+   "air": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,174"
+  },
+  {
+   "price": 1351,
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e Avg emissions $1,351"
+  },
+  {
+   "price": 1490,
+   "mins": 665,
+   "stops": "Nonstop",
+   "air": "10:45 AM – 1:50 PM British AirwaysAmerican, Iberia, Finnair 11 hr 5 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,490"
+  },
+  {
+   "price": 1490,
+   "mins": 670,
+   "stops": "Nonstop",
+   "air": "2:30 PM – 5:40 PM British AirwaysAmerican, Iberia, Finnair 11 hr 10 min LHR–SFO Nonstop 529 kg CO2e Avg emissions $1,490"
+  }
+ ],
+ "waited_s": 7.5
+}

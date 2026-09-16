@@ -1,0 +1,62 @@
+{
+ "E-osl-nce-1005": [
+  "5:20 PM – 10:25 PM KLM 5 hr 5 min OSL–NCE 1 stop 1 hr 15 min AMS 176 kg CO2e Avg emissions $133",
+  "4:00 PM – 9:00 PM Norwegian 5 hr OSL–NCE 1 stop 1 hr 30 min CPH 170 kg CO2e -7% emissions $164",
+  "10:00 AM – 1:00 PM Scandinavian Airlines 3 hr OSL–NCE Nonstop 150 kg CO2e -18% emissions $172",
+  "10:00 AM – 12:55 PM Norwegian 2 hr 55 min OSL–NCE Nonstop 134 kg CO2e -27% emissions $194",
+  "6:30 AM – 11:30 AM KLM 5 hr OSL–NCE 1 stop 1 hr 20 min AMS 161 kg CO2e -12% emissions $114",
+  "7:45 PM – 9:50 AM+1 LOT 14 hr 5 min OSL–NCE 1 stop 9 hr 35 min WAW 241 kg CO2e +32% emissions $117",
+  "6:45 PM – 11:30 PM Lufthansa 4 hr 45 min OSL–NCE 1 stop 1 hr MUC 194 kg CO2e +6% emissions $150",
+  "11:50 AM – 4:25 PM KLM 4 hr 35 min OSL–NCE 1 stop 50 min AMS 175 kg CO2e Avg emissions $155",
+  "3:00 PM – 8:15 PM Norwegian 5 hr 15 min OSL–NCE 1 stop 1 hr 15 min ARN 192 kg CO2e Avg emissions $166",
+  "5:20 PM5:20 PM on Mon, Oct 5 – 10:25 PM10:25 PM on Mon, Oct 5KLM5 hr 5 minOSLOslo lufthavn–NCENice Côte d'Azur Airport1 stop1 hr 15 min AMSAmsterdam Airport Schiphol176 kg CO2eAvg emissionsAvg emissions$133DepartureMon, Oct 5176 kg CO2eAvg emissionsAvg emissionsSelect flight$1335:20 PMOSL10:25 PMNCE$1331 stop in AMS1 stop5 hr 5 minKLM176 kg CO2eAvg emissionsAvg emissions"
+ ],
+ "E-tos-nce-1005": [
+  "6:00 AM – 1:00 PM Scandinavian Airlines 7 hr TOS–NCE 1 stop 2 hr OSL 248 kg CO2e -13% emissions $195",
+  "6:20 AM – 12:55 PM Norwegian 6 hr 35 min TOS–NCE 1 stop 1 hr 45 min OSL 235 kg CO2e -18% emissions $325",
+  "8:40 AM – 4:25 PM Scandinavian Airlines, KLM 7 hr 45 min TOS–NCE 2 stops OSL, AMS 273 kg CO2e Avg emissions $335",
+  "10:30 AM – 6:25 PM FinnairOperated by Nordic Reg for Finnair, Nordic Reg for Finnair, Jettime A/S for Finnair 7 hr 55 min TOS–NCE 2 stops RVN, HEL 330 kg CO2e +16% emissions $352",
+  "2:00 PM – 1:25 PM+1 Scandinavian AirlinesOperated by Sas Connect 23 hr 25 min TOS–NCE 2 stops OSL, CPH 277 kg CO2e Avg emissions $269 Premium Economy",
+  "2:00 PM – 1:25 PM+1 Scandinavian AirlinesOperated by Sas Connect 23 hr 25 min TOS–NCE 2 stops OSL, CPH 279 kg CO2e Avg emissions $269 Premium Economy",
+  "2:00 PM – 1:25 PM+1 Scandinavian AirlinesOperated by Sas Connect 23 hr 25 min TOS–NCE 2 stops OSL, CPH 279 kg CO2e Avg emissions $269 Premium Economy",
+  "8:00 AM – 10:25 PM Wideroe, KLM 14 hr 25 min TOS–NCE 2 stops BGO, AMS 314 kg CO2e +10% emissions $299",
+  "7:10 PM – 1:00 PM+1 Scandinavian Airlines, Air France 17 hr 50 min TOS–NCE 2 stops OSL, CDG 320 kg CO2e +12% emissions $312",
+  "11:05 AM – 10:25 PM Wideroe, KLM 11 hr 20 min TOS–NCE 2 stops BGO, AMS 314 kg CO2e +10% emissions $331"
+ ],
+ "C-nce-lon-1014": [
+  "11:45 PM – 12:55 AM+1 Ryanair 2 hr 10 min NCE–STN Nonstop 85 kg CO2e -13% emissions $35",
+  "9:40 AM – 10:50 AM easyJet 2 hr 10 min NCE–LTN Nonstop 109 kg CO2e +11% emissions $43",
+  "9:45 AM – 10:50 AM easyJet 2 hr 5 min NCE–LGW Nonstop 94 kg CO2e Avg emissions $44",
+  "10:50 PM – 11:55 PM easyJet 2 hr 5 min NCE–LGW Nonstop 98 kg CO2e Avg emissions $44",
+  "7:20 AM – 8:35 AM British Airways 2 hr 15 min NCE–LHR Nonstop 83 kg CO2e -15% emissions $130",
+  "12:10 PM – 1:15 PM easyJet 2 hr 5 min NCE–LGW Nonstop 98 kg CO2e Avg emissions $87",
+  "8:20 PM – 9:25 PM easyJet 2 hr 5 min NCE–LGW Nonstop 94 kg CO2e Avg emissions $98",
+  "10:50 AM – 12:05 PM British Airways 2 hr 15 min NCE–LHR Nonstop 86 kg CO2e -12% emissions $213",
+  "12:15 PM – 1:30 PM British Airways 2 hr 15 min NCE–LHR Nonstop 115 kg CO2e +17% emissions $232",
+  "12:15 PM – 1:20 PM British AirwaysOperated by BA Cityflyer 2 hr 5 min NCE–LCY Nonstop 120 kg CO2e +22% emissions $238"
+ ],
+ "C-nce-lon-1018": [
+  "11:55 AM – 1:00 PM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $89",
+  "11:35 AM – 12:50 PM British Airways 2 hr 15 min NCE–LHR Nonstop 98 kg CO2e Avg emissions $130",
+  "12:10 PM – 1:25 PM British Airways 2 hr 15 min NCE–LHR Nonstop 83 kg CO2e -15% emissions $130",
+  "11:10 PM – 12:15 AM+1 easyJet 2 hr 5 min NCE–LTN Nonstop 101 kg CO2e Avg emissions $80",
+  "10:45 PM – 11:55 PM Ryanair 2 hr 10 min NCE–STN Nonstop 100 kg CO2e Avg emissions $98",
+  "12:55 PM – 1:55 PM easyJet 2 hr NCE–LGW Nonstop 102 kg CO2e Avg emissions $117",
+  "11:00 PM – 12:10 AM+1 easyJet 2 hr 10 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $124",
+  "9:45 AM – 10:50 AM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $127",
+  "8:00 AM – 9:15 AM British Airways 2 hr 15 min NCE–LHR Nonstop 101 kg CO2e Avg emissions $130",
+  "12:10 PM – 1:20 PM British AirwaysOperated by BA Euroflyer 2 hr 10 min NCE–LGW Nonstop 101 kg CO2e Avg emissions $149"
+ ],
+ "D-lon-sfo-1015b": [
+  "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e Avg emissions $617",
+  "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e Avg emissions $617",
+  "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 551 kg CO2e Avg emissions $617",
+  "6:00 AM – 4:15 PM SWISSOperated by Air Baltic 18 hr 15 min LHR–SFO 1 stop 4 hr 35 min ZRH 632 kg CO2e +20% emissions $471",
+  "8:45 AM – 4:15 PM SWISSUnited 15 hr 30 min LHR–SFO 1 stop 1 hr 30 min ZRH 610 kg CO2e +16% emissions $579",
+  "7:25 AM – 2:30 PM Lufthansa, United 15 hr 5 min LHR–SFO 1 stop 1 hr 25 min MUC 724 kg CO2e +37% emissions $584",
+  "6:30 AM – 12:40 PM Lufthansa City Airlines, LufthansaUnited 14 hr 10 min LHR–SFO 1 stop 1 hr 20 min FRA 599 kg CO2e +14% emissions $585",
+  "8:30 AM – 3:20 PM Lufthansa City Airlines, UnitedLufthansa 14 hr 50 min LHR–SFO 1 stop 1 hr 50 min FRA 678 kg CO2e +29% emissions $585",
+  "5:00 PM – 10:49 PM Alaska 13 hr 49 min LHR–SFO 1 stop 1 hr 36 min SEA 544 kg CO2e Avg emissions $640",
+  "10:45 AM – 1:50 PM British AirwaysAmerican, Iberia, Finnair 11 hr 5 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,106"
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "slug": "mid-nce-lis-1013",
+ "frm": "NCE",
+ "to": "LIS",
+ "date": "2026-10-13",
+ "label": "尼斯→里斯本 晚一天",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LIS%20on%202026-10-13%20for%201%20adult",
+ "offers": [
+  {
+   "price": 114,
+   "mins": 160,
+   "stops": "Nonstop",
+   "air": "7:25 PM – 9:05 PM easyJet 2 hr 40 min NCE–LIS Nonstop 131 kg CO2e -22% emissions $114 Avoids as much CO2e as 2,192 trees absorb in a day"
+  },
+  {
+   "price": 118,
+   "mins": 640,
+   "stops": "1 stop",
+   "air": "10:50 PM – 8:30 AM+1 VuelingIberia 10 hr 40 min NCE–LIS 1 stop 7 hr 5 min BCN 160 kg CO2e Avg emissions $118"
+  },
+  {
+   "price": 156,
+   "mins": 315,
+   "stops": "1 stop",
+   "air": "7:10 PM – 11:25 PM SWISSOperated by Helvetic 5 hr 15 min NCE–LIS 1 stop 1 hr ZRH 195 kg CO2e +17% emissions $156"
+  },
+  {
+   "price": 156,
+   "mins": 455,
+   "stops": "1 stop",
+   "air": "10:50 AM – 5:25 PM SWISS 7 hr 35 min NCE–LIS 1 stop 3 hr 25 min ZRH 195 kg CO2e +17% emissions $156"
+  },
+  {
+   "price": 177,
+   "mins": 160,
+   "stops": "Nonstop",
+   "air": "6:40 PM – 8:20 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 40 min NCE–LIS Nonstop 163 kg CO2e Avg emissions $177"
+  },
+  {
+   "price": 189,
+   "mins": 370,
+   "stops": "1 stop",
+   "air": "8:10 AM – 1:20 PM VuelingIberia 6 hr 10 min NCE–LIS 1 stop 2 hr 40 min BCN 160 kg CO2e Avg emissions $189"
+  },
+  {
+   "price": 212,
+   "mins": 375,
+   "stops": "1 stop",
+   "air": "1:45 PM – 7:00 PM Brussels Airlines 6 hr 15 min NCE–LIS 1 stop 1 hr 35 min BRU 263 kg CO2e +57% emissions $212"
+  },
+  {
+   "price": 242,
+   "mins": 370,
+   "stops": "1 stop",
+   "air": "9:35 AM – 2:45 PM SWISS 6 hr 10 min NCE–LIS 1 stop 2 hr ZRH 194 kg CO2e +16% emissions $242"
+  },
+  {
+   "price": 282,
+   "mins": 355,
+   "stops": "1 stop",
+   "air": "8:45 AM – 1:40 PM LufthansaOperated by Air Baltic 5 hr 55 min NCE–LIS 1 stop 1 hr 5 min MUC 232 kg CO2e +39% emissions $282"
+  },
+  {
+   "price": 513,
+   "mins": 260,
+   "stops": "1 stop",
+   "air": "12:45 PM – 4:05 PM IberiaOperated by Air Nostrum for Iberia 4 hr 20 min NCE–LIS 1 stop 55 min MAD 181 kg CO2e +8% emissions $513"
+  }
+ ],
+ "waited_s": 7.5
+}

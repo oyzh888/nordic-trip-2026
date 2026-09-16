@@ -1,0 +1,77 @@
+{
+ "slug": "alt-osl-lon-1006",
+ "frm": "OSL",
+ "to": "LON",
+ "date": "2026-10-06",
+ "label": "奥斯陆→伦敦（先英国方案）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20OSL%20to%20LON%20on%202026-10-06%20for%201%20adult",
+ "offers": [
+  {
+   "price": 18,
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "11:10 PM – 12:20 AM+1 Ryanair UK 2 hr 10 min OSL–STN Nonstop 102 kg CO2e Avg emissions $18"
+  },
+  {
+   "price": 41,
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "10:35 AM – 11:45 AM Ryanair UKOperated by Ryanair 2 hr 10 min OSL–STN Nonstop 102 kg CO2e Avg emissions $41"
+  },
+  {
+   "price": 54,
+   "mins": 150,
+   "stops": "Nonstop",
+   "air": "7:10 AM – 8:40 AM Norwegian 2 hr 30 min OSL–LGW Nonstop 112 kg CO2e +6% emissions $54"
+  },
+  {
+   "price": 65,
+   "mins": 140,
+   "stops": "Nonstop",
+   "air": "6:50 PM – 8:10 PM Norwegian 2 hr 20 min OSL–LGW Nonstop 112 kg CO2e +6% emissions $65"
+  },
+  {
+   "price": 70,
+   "mins": 150,
+   "stops": "Nonstop",
+   "air": "7:45 AM – 9:15 AM British Airways 2 hr 30 min OSL–LHR Nonstop 98 kg CO2e -8% emissions $70"
+  },
+  {
+   "price": 88,
+   "mins": 140,
+   "stops": "Nonstop",
+   "air": "5:45 PM – 7:05 PM British Airways 2 hr 20 min OSL–LHR Nonstop 115 kg CO2e +8% emissions $88"
+  },
+  {
+   "price": 118,
+   "mins": 140,
+   "stops": "Nonstop",
+   "air": "1:05 PM – 2:25 PM Norwegian 2 hr 20 min OSL–LGW Nonstop 112 kg CO2e +6% emissions $118"
+  },
+  {
+   "price": 132,
+   "mins": 135,
+   "stops": "Nonstop",
+   "air": "8:20 PM – 9:35 PM Scandinavian AirlinesOperated by Sas Connect 2 hr 15 min OSL–LHR Nonstop 105 kg CO2e Avg emissions $132"
+  },
+  {
+   "price": 132,
+   "mins": 155,
+   "stops": "Nonstop",
+   "air": "8:00 AM – 9:35 AM Scandinavian Airlines 2 hr 35 min OSL–LHR Nonstop 107 kg CO2e Avg emissions $132"
+  },
+  {
+   "price": 175,
+   "mins": 140,
+   "stops": "Nonstop",
+   "air": "5:30 PM – 6:50 PM Scandinavian Airlines 2 hr 20 min OSL–LHR Nonstop 107 kg CO2e Avg emissions $175"
+  },
+  {
+   "price": 269,
+   "mins": 140,
+   "stops": "Nonstop",
+   "air": "1:15 PM – 2:35 PM Scandinavian AirlinesOperated by Sas Connect 2 hr 20 min OSL–LHR Nonstop 105 kg CO2e Avg emissions $269"
+  }
+ ],
+ "waited_s": 7.5
+}

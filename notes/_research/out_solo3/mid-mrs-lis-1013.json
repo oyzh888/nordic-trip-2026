@@ -1,0 +1,71 @@
+{
+ "slug": "mid-mrs-lis-1013",
+ "frm": "MRS",
+ "to": "LIS",
+ "date": "2026-10-13",
+ "label": "马赛→里斯本（若最后一站是普罗旺斯）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20MRS%20to%20LIS%20on%202026-10-13%20for%201%20adult",
+ "offers": [
+  {
+   "price": 62,
+   "mins": 145,
+   "stops": "Nonstop",
+   "air": "4:15 PM – 5:40 PM Ryanair 2 hr 25 min MRS–LIS Nonstop 115 kg CO2e -25% emissions $62 Avoids as much CO2e as 2,374 trees absorb in a day"
+  },
+  {
+   "price": 100,
+   "mins": 480,
+   "stops": "1 stop",
+   "air": "11:25 AM – 6:25 PM VuelingIberia 8 hr MRS–LIS 1 stop 4 hr 50 min BCN 151 kg CO2e Avg emissions $100"
+  },
+  {
+   "price": 165,
+   "mins": 585,
+   "stops": "1 stop",
+   "air": "2:40 PM – 11:25 PM SWISSOperated by Helvetic 9 hr 45 min MRS–LIS 1 stop 5 hr 20 min ZRH 202 kg CO2e +31% emissions $165"
+  },
+  {
+   "price": 166,
+   "mins": 150,
+   "stops": "Nonstop",
+   "air": "6:20 PM – 7:50 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 30 min MRS–LIS Nonstop 156 kg CO2e Avg emissions $166"
+  },
+  {
+   "price": 224,
+   "mins": 330,
+   "stops": "1 stop",
+   "air": "6:40 AM – 11:10 AM Brussels Airlines 5 hr 30 min MRS–LIS 1 stop 50 min BRU 266 kg CO2e +73% emissions $224"
+  },
+  {
+   "price": 299,
+   "mins": 515,
+   "stops": "1 stop",
+   "air": "6:05 AM – 1:40 PM Lufthansa 8 hr 35 min MRS–LIS 1 stop 3 hr 35 min MUC 243 kg CO2e +58% emissions $299"
+  },
+  {
+   "price": 308,
+   "mins": 400,
+   "stops": "1 stop",
+   "air": "6:05 AM – 11:45 AM Lufthansa City Airlines, Lufthansa 6 hr 40 min MRS–LIS 1 stop 1 hr 40 min FRA 224 kg CO2e +45% emissions $308"
+  },
+  {
+   "price": 319,
+   "mins": 545,
+   "stops": "1 stop",
+   "air": "6:30 AM – 2:35 PM KLM 9 hr 5 min MRS–LIS 1 stop 4 hr AMS 210 kg CO2e +36% emissions $319"
+  },
+  {
+   "price": 512,
+   "mins": 265,
+   "stops": "1 stop",
+   "air": "12:40 PM – 4:05 PM IberiaOperated by Air Nostrum for Iberia 4 hr 25 min MRS–LIS 1 stop 1 hr 10 min MAD 167 kg CO2e +8% emissions $512"
+  },
+  {
+   "price": 541,
+   "mins": 310,
+   "stops": "1 stop",
+   "air": "7:05 AM – 11:15 AM Air France 5 hr 10 min MRS–LIS 1 stop 1 hr CDG 226 kg CO2e +47% emissions $541"
+  }
+ ],
+ "waited_s": 7.5
+}

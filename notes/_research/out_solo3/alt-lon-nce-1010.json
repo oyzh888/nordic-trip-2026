@@ -1,0 +1,83 @@
+{
+ "slug": "alt-lon-nce-1010",
+ "frm": "LON",
+ "to": "NCE",
+ "date": "2026-10-10",
+ "label": "伦敦→尼斯（先英国方案）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20NCE%20on%202026-10-10%20for%201%20adult",
+ "offers": [
+  {
+   "price": 40,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "8:05 PM – 11:10 PM easyJet 2 hr 5 min LTN–NCE Nonstop 113 kg CO2e +11% emissions $40"
+  },
+  {
+   "price": 52,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "6:00 PM – 9:05 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $52"
+  },
+  {
+   "price": 52,
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "1:05 PM – 4:15 PM Ryanair 2 hr 10 min STN–NCE Nonstop 105 kg CO2e Avg emissions $52"
+  },
+  {
+   "price": 54,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "4:00 PM – 7:05 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $54"
+  },
+  {
+   "price": 57,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "6:00 AM – 9:05 AM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $57"
+  },
+  {
+   "price": 63,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "8:35 AM – 11:40 AM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $63"
+  },
+  {
+   "price": 108,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "12:40 PM – 3:45 PM easyJet 2 hr 5 min LGW–NCE Nonstop 107 kg CO2e Avg emissions $108"
+  },
+  {
+   "price": 111,
+   "mins": 120,
+   "stops": "Nonstop",
+   "air": "8:40 PM – 11:40 PM British Airways 2 hr LHR–NCE Nonstop 101 kg CO2e Avg emissions $111"
+  },
+  {
+   "price": 112,
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "6:05 AM – 9:10 AM British Airways 2 hr 5 min LHR–NCE Nonstop 86 kg CO2e -16% emissions $112"
+  },
+  {
+   "price": 147,
+   "mins": 140,
+   "stops": "Nonstop",
+   "air": "7:25 AM – 10:45 AM British AirwaysOperated by BA Euroflyer 2 hr 20 min LGW–NCE Nonstop 104 kg CO2e Avg emissions $147"
+  },
+  {
+   "price": 180,
+   "mins": 135,
+   "stops": "Nonstop",
+   "air": "5:25 PM – 8:40 PM British Airways 2 hr 15 min LHR–NCE Nonstop 119 kg CO2e +17% emissions $180"
+  },
+  {
+   "price": 187,
+   "mins": 120,
+   "stops": "Nonstop",
+   "air": "7:20 AM – 10:20 AM British AirwaysOperated by BA Cityflyer 2 hr LCY–NCE Nonstop 131 kg CO2e +28% emissions $187"
+  }
+ ],
+ "waited_s": 7.5
+}

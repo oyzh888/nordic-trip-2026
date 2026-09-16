@@ -1,0 +1,65 @@
+{
+ "slug": "ret-opo-1019",
+ "frm": "OPO",
+ "to": "SFO",
+ "date": "2026-10-19",
+ "label": "🇵🇹 波尔图",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20OPO%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+ "offers": [
+  {
+   "price": 737,
+   "mins": 905,
+   "stops": "1 stop",
+   "air": "7:00 AM – 2:05 PM Tap Air PortugalJetBlue 15 hr 5 min OPO–SFO 1 stop 1 hr 30 min LIS 555 kg CO2e -19% emissions $737"
+  },
+  {
+   "price": 737,
+   "mins": 1385,
+   "stops": "1 stop",
+   "air": "10:30 PM – 1:35 PM+1 Tap Air Portugal 23 hr 5 min OPO–SFO 1 stop 9 hr 40 min LIS 559 kg CO2e -19% emissions $737"
+  },
+  {
+   "price": 738,
+   "mins": 885,
+   "stops": "1 stop",
+   "air": "5:00 AM – 11:45 AM KLMDelta 14 hr 45 min OPO–SFO 1 stop 1 hr 20 min AMS 514 kg CO2e -25% emissions $738"
+  },
+  {
+   "price": 738,
+   "mins": 1430,
+   "stops": "1 stop",
+   "air": "7:55 PM – 11:45 AM+1 KLMDeltaOperated by KLM Cityhopper 23 hr 50 min OPO–SFO 1 stop 10 hr 25 min AMS 530 kg CO2e -23% emissions $738"
+  },
+  {
+   "price": 752,
+   "mins": 1465,
+   "stops": "1 stop",
+   "air": "9:25 PM – 1:50 PM+1 British AirwaysAmerican, Finnair, IberiaOperated by BA Euroflyer 24 hr 25 min OPO–SFO 1 stop Change of airport 643 kg CO2e -6% emi"
+  },
+  {
+   "price": 757,
+   "mins": 1705,
+   "stops": "1 stop",
+   "air": "4:25 PM – 12:50 PM+1 Air FranceDelta 28 hr 25 min OPO–SFO 1 stop 14 hr 45 min CDG 645 kg CO2e -6% emissions $757"
+  },
+  {
+   "price": 787,
+   "mins": 1170,
+   "stops": "1 stop",
+   "air": "6:30 AM – 6:00 PM Air FranceKLM, Delta 19 hr 30 min OPO–SFO 1 stop 5 hr 55 min CDG 562 kg CO2e -18% emissions $787"
+  },
+  {
+   "price": 1027,
+   "mins": 955,
+   "stops": "1 stop",
+   "air": "11:05 AM – 7:00 PM LufthansaUnited 15 hr 55 min OPO–SFO 1 stop 1 hr 35 min MUC 649 kg CO2e -6% emissions $1,027"
+  },
+  {
+   "price": 1531,
+   "mins": 924,
+   "stops": "1 stop",
+   "air": "12:35 PM – 7:59 PM UnitedBrussels Airlines 15 hr 24 min OPO–SFO 1 stop 1 hr 25 min EWR 789 kg CO2e +15% emissions $1,531"
+  }
+ ],
+ "waited_s": 7.5
+}

@@ -1,0 +1,71 @@
+{
+ "slug": "ret-lis-1022",
+ "frm": "LIS",
+ "to": "SFO",
+ "date": "2026-10-22",
+ "label": "🇵🇹 里斯本 · 再晚 3 天",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-22%20for%201%20adult",
+ "offers": [
+  {
+   "price": 682,
+   "mins": 1522,
+   "stops": "2 stops",
+   "air": "5:05 AM – 10:27 PM Lufthansa, Condor, Alaska 25 hr 22 min LIS–SFO 2 stops FRA, LAS 711 kg CO2e +6% emissions $682"
+  },
+  {
+   "price": 723,
+   "mins": 1555,
+   "stops": "2 stops",
+   "air": "6:35 AM – 12:30 AM+1 Iberia, AmericanFinnair 25 hr 55 min LIS–SFO 2 stops MAD, ORD 762 kg CO2e +14% emissions $723"
+  },
+  {
+   "price": 737,
+   "mins": 1625,
+   "stops": "1 stop",
+   "air": "6:45 PM – 1:50 PM+1 British AirwaysFinnair, American, Iberia 27 hr 5 min LIS–SFO 1 stop 13 hr 15 min LHR 660 kg CO2e Avg emissions $737"
+  },
+  {
+   "price": 745,
+   "mins": 885,
+   "stops": "1 stop",
+   "air": "5:00 AM – 11:45 AM KLMDelta 14 hr 45 min LIS–SFO 1 stop 55 min AMS 508 kg CO2e -24% emissions $745"
+  },
+  {
+   "price": 751,
+   "mins": 1100,
+   "stops": "1 stop",
+   "air": "7:20 AM – 5:40 PM British AirwaysAmerican, Finnair, Iberia 18 hr 20 min LIS–SFO 1 stop 4 hr 10 min LHR 668 kg CO2e Avg emissions $751"
+  },
+  {
+   "price": 762,
+   "mins": 1440,
+   "stops": "1 stop",
+   "air": "7:45 PM – 11:45 AM+1 KLMDelta 24 hr LIS–SFO 1 stop 10 hr 10 min AMS 508 kg CO2e -24% emissions $762"
+  },
+  {
+   "price": 768,
+   "mins": 1086,
+   "stops": "1 stop",
+   "air": "10:00 AM – 8:06 PM DeltaKLM, Air France, Virgin Atlantic 18 hr 6 min LIS–SFO 1 stop 3 hr 30 min JFK 603 kg CO2e -10% emissions $768"
+  },
+  {
+   "price": 768,
+   "mins": 1179,
+   "stops": "1 stop",
+   "air": "12:45 PM – 12:24 AM+1 Delta 19 hr 39 min LIS–SFO 1 stop 5 hr 23 min BOS 637 kg CO2e Avg emissions $768"
+  },
+  {
+   "price": 822,
+   "mins": 915,
+   "stops": "1 stop",
+   "air": "5:35 AM – 12:50 PM Air FranceDelta 15 hr 15 min LIS–SFO 1 stop 1 hr 10 min CDG 677 kg CO2e Avg emissions $822"
+  },
+  {
+   "price": 883,
+   "mins": 755,
+   "stops": "Nonstop",
+   "air": "9:55 AM – 2:30 PM Tap Air PortugalJetBlue 12 hr 35 min LIS–SFO Nonstop 516 kg CO2e -23% emissions $883"
+  }
+ ],
+ "waited_s": 7.5
+}

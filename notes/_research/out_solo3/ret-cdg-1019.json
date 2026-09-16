@@ -1,0 +1,65 @@
+{
+ "slug": "ret-cdg-1019",
+ "frm": "CDG",
+ "to": "SFO",
+ "date": "2026-10-19",
+ "label": "🇫🇷 巴黎",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20CDG%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+ "offers": [
+  {
+   "price": 866,
+   "mins": 1087,
+   "stops": "2 stops",
+   "air": "11:10 AM – 8:17 PM Condor, Alaska 18 hr 7 min CDG–SFO 2 stops FRA, SEA 637 kg CO2e +7% emissions $866"
+  },
+  {
+   "price": 1008,
+   "mins": 815,
+   "stops": "1 stop",
+   "air": "7:10 AM – 11:45 AM Air France, KLMDelta 13 hr 35 min CDG–SFO 1 stop 1 hr 15 min AMS 444 kg CO2e -25% emissions $1,008"
+  },
+  {
+   "price": 1012,
+   "mins": 870,
+   "stops": "1 stop",
+   "air": "10:20 AM – 3:50 PM Aer Lingus 14 hr 30 min CDG–SFO 1 stop 1 hr 35 min DUB 569 kg CO2e Avg emissions $1,012"
+  },
+  {
+   "price": 1019,
+   "mins": 690,
+   "stops": "Nonstop",
+   "air": "10:20 AM – 12:50 PM Air FranceDelta 11 hr 30 min CDG–SFO Nonstop 528 kg CO2e -11% emissions $1,019"
+  },
+  {
+   "price": 1024,
+   "mins": 945,
+   "stops": "1 stop",
+   "air": "4:00 PM – 10:45 PM DeltaAir France, Virgin Atlantic 15 hr 45 min CDG–SFO 1 stop 2 hr 36 min LAX 537 kg CO2e -9% emissions $1,024"
+  },
+  {
+   "price": 1024,
+   "mins": 1018,
+   "stops": "1 stop",
+   "air": "2:40 PM – 10:38 PM DeltaVirgin Atlantic, KLM 16 hr 58 min CDG–SFO 1 stop 1 hr 49 min JFK 763 kg CO2e +29% emissions $1,024"
+  },
+  {
+   "price": 1082,
+   "mins": 680,
+   "stops": "Nonstop",
+   "air": "3:40 PM – 6:00 PM Air FranceDelta 11 hr 20 min CDG–SFO Nonstop 449 kg CO2e -24% emissions $1,082"
+  },
+  {
+   "price": 1140,
+   "mins": 892,
+   "stops": "1 stop",
+   "air": "10:25 AM – 4:17 PM DeltaKLM, Virgin Atlantic 14 hr 52 min CDG–SFO 1 stop 1 hr 56 min SLC 544 kg CO2e -8% emissions $1,140"
+  },
+  {
+   "price": 1892,
+   "mins": 695,
+   "stops": "Nonstop",
+   "air": "9:15 AM – 11:50 AM UnitedLufthansa, Brussels Airlines 11 hr 35 min CDG–SFO Nonstop 684 kg CO2e +15% emissions $1,892"
+  }
+ ],
+ "waited_s": 7.5
+}

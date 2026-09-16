@@ -1,0 +1,77 @@
+{
+ "slug": "mid-nce-lis-1012",
+ "frm": "NCE",
+ "to": "LIS",
+ "date": "2026-10-12",
+ "label": "尼斯→里斯本",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LIS%20on%202026-10-12%20for%201%20adult",
+ "offers": [
+  {
+   "price": 116,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "6:00 AM – 7:45 AM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 45 min NCE–LIS Nonstop 163 kg CO2e Avg emissions $116"
+  },
+  {
+   "price": 158,
+   "mins": 880,
+   "stops": "2 stops",
+   "air": "9:45 AM – 11:25 PM SWISS 14 hr 40 min NCE–LIS 2 stops GVA, ZRH 233 kg CO2e +40% emissions $158"
+  },
+  {
+   "price": 181,
+   "mins": 585,
+   "stops": "1 stop",
+   "air": "2:40 PM – 11:25 PM SWISSOperated by Edelweiss Air 9 hr 45 min NCE–LIS 1 stop 5 hr 30 min ZRH 191 kg CO2e +14% emissions $181"
+  },
+  {
+   "price": 184,
+   "mins": 900,
+   "stops": "1 stop",
+   "air": "8:45 AM – 10:45 PM LufthansaOperated by Air Baltic 15 hr NCE–LIS 1 stop 10 hr 10 min MUC 232 kg CO2e +39% emissions $184"
+  },
+  {
+   "price": 189,
+   "mins": 160,
+   "stops": "Nonstop",
+   "air": "5:35 PM – 7:15 PM easyJet 2 hr 40 min NCE–LIS Nonstop 131 kg CO2e -22% emissions $189"
+  },
+  {
+   "price": 203,
+   "mins": 350,
+   "stops": "1 stop",
+   "air": "5:55 PM – 10:45 PM Lufthansa 5 hr 50 min NCE–LIS 1 stop 1 hr MUC 224 kg CO2e +34% emissions $203"
+  },
+  {
+   "price": 246,
+   "mins": 315,
+   "stops": "1 stop",
+   "air": "7:10 PM – 11:25 PM SWISS 5 hr 15 min NCE–LIS 1 stop 1 hr ZRH 194 kg CO2e +16% emissions $246"
+  },
+  {
+   "price": 256,
+   "mins": 375,
+   "stops": "1 stop",
+   "air": "1:45 PM – 7:00 PM Brussels Airlines 6 hr 15 min NCE–LIS 1 stop 1 hr 35 min BRU 263 kg CO2e +57% emissions $256"
+  },
+  {
+   "price": 258,
+   "mins": 325,
+   "stops": "1 stop",
+   "air": "8:55 AM – 1:20 PM VuelingIberia 5 hr 25 min NCE–LIS 1 stop 1 hr 55 min BCN 160 kg CO2e Avg emissions $258"
+  },
+  {
+   "price": 315,
+   "mins": 300,
+   "stops": "1 stop",
+   "air": "9:45 AM – 1:45 PM SWISS 5 hr NCE–LIS 1 stop 1 hr 20 min GVA 206 kg CO2e +23% emissions $315"
+  },
+  {
+   "price": 459,
+   "mins": 300,
+   "stops": "1 stop",
+   "air": "1:50 PM – 5:50 PM Air France 5 hr NCE–LIS 1 stop 45 min CDG 213 kg CO2e +28% emissions $459"
+  }
+ ],
+ "waited_s": 7.5
+}

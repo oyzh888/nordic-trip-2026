@@ -1,0 +1,83 @@
+{
+ "slug": "mid-lis-lhr-1019",
+ "frm": "LIS",
+ "to": "LHR",
+ "date": "2026-10-19",
+ "label": "里斯本→伦敦（两个都去时的接法）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20LHR%20on%202026-10-19%20for%201%20adult",
+ "offers": [
+  {
+   "price": 125,
+   "mins": 175,
+   "stops": "Nonstop",
+   "air": "8:00 PM – 10:55 PM Tap Air Portugal 2 hr 55 min LIS–LHR Nonstop 117 kg CO2e -11% emissions $125"
+  },
+  {
+   "price": 143,
+   "mins": 655,
+   "stops": "1 stop",
+   "air": "9:10 AM – 8:05 PM VuelingIberia 10 hr 55 min LIS–LHR 1 stop 6 hr 25 min BCN 206 kg CO2e +56% emissions $143"
+  },
+  {
+   "price": 161,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "7:35 AM – 10:20 AM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 117 kg CO2e -11% emissions $161"
+  },
+  {
+   "price": 197,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "6:45 PM – 9:30 PM British Airways 2 hr 45 min LIS–LHR Nonstop 139 kg CO2e Avg emissions $197"
+  },
+  {
+   "price": 232,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "7:15 PM – 10:00 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $232"
+  },
+  {
+   "price": 247,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "5:10 PM – 7:55 PM British Airways 2 hr 45 min LIS–LHR Nonstop 135 kg CO2e Avg emissions $247"
+  },
+  {
+   "price": 269,
+   "mins": 180,
+   "stops": "Nonstop",
+   "air": "7:10 AM – 10:10 AM British Airways 3 hr LIS–LHR Nonstop 115 kg CO2e -13% emissions $269"
+  },
+  {
+   "price": 280,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "4:05 PM – 6:50 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $280"
+  },
+  {
+   "price": 333,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "3:00 PM – 5:45 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $333"
+  },
+  {
+   "price": 335,
+   "mins": 305,
+   "stops": "1 stop",
+   "air": "12:00 PM – 5:05 PM Brussels Airlines 5 hr 5 min LIS–LHR 1 stop 1 hr 15 min BRU 222 kg CO2e +68% emissions $335"
+  },
+  {
+   "price": 396,
+   "mins": 165,
+   "stops": "Nonstop",
+   "air": "10:00 AM – 12:45 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 117 kg CO2e -11% emissions $396"
+  },
+  {
+   "price": 472,
+   "mins": 170,
+   "stops": "Nonstop",
+   "air": "11:00 AM – 1:50 PM British Airways 2 hr 50 min LIS–LHR Nonstop 119 kg CO2e -10% emissions $472"
+  }
+ ],
+ "waited_s": 7.5
+}
