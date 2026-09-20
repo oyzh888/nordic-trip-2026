@@ -1,0 +1,82 @@
+{
+ "slug": "c-nce-sfo-1017",
+ "frm": "NCE",
+ "to": "SFO",
+ "date": "2026-10-17",
+ "label": "尼斯→SFO 周六（先伦敦方案的回程）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+ "offers": [
+  {
+   "price": 865,
+   "dep": "10:40",
+   "arr": "20:50",
+   "mins": 1150,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1146,
+   "dep": "06:00",
+   "arr": "17:35",
+   "mins": 1235,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1159,
+   "dep": "10:40",
+   "arr": "08:01",
+   "mins": 3261,
+   "stops": "2 stops",
+   "air": "?"
+  },
+  {
+   "price": 1245,
+   "dep": "06:20",
+   "arr": "11:45",
+   "mins": 865,
+   "stops": "1 stop",
+   "air": "KLM"
+  },
+  {
+   "price": 1519,
+   "dep": "10:10",
+   "arr": "18:51",
+   "mins": 1061,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1873,
+   "dep": "10:25",
+   "arr": "16:15",
+   "mins": 890,
+   "stops": "1 stop",
+   "air": "United"
+  },
+  {
+   "price": 1873,
+   "dep": "10:25",
+   "arr": "16:35",
+   "mins": 910,
+   "stops": "1 stop",
+   "air": "United"
+  },
+  {
+   "price": 1881,
+   "dep": "13:20",
+   "arr": "19:00",
+   "mins": 880,
+   "stops": "1 stop",
+   "air": "Lufthansa"
+  },
+  {
+   "price": 1889,
+   "dep": "14:30",
+   "arr": "19:50",
+   "mins": 860,
+   "stops": "1 stop",
+   "air": "Lufthansa"
+  }
+ ]
+}

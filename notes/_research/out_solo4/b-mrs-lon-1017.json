@@ -1,0 +1,90 @@
+{
+ "slug": "b-mrs-lon-1017",
+ "frm": "MRS",
+ "to": "LON",
+ "date": "2026-10-17",
+ "label": "马赛→伦敦 周六（搬家放周末）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20MRS%20to%20LON%20on%202026-10-17%20for%201%20adult",
+ "offers": [
+  {
+   "price": 81,
+   "dep": "00:25",
+   "arr": "14:20",
+   "mins": 895,
+   "stops": "1 stop",
+   "air": "Vueling"
+  },
+  {
+   "price": 101,
+   "dep": "22:15",
+   "arr": "23:15",
+   "mins": 120,
+   "stops": "Nonstop",
+   "air": "Ryanair"
+  },
+  {
+   "price": 107,
+   "dep": "00:25",
+   "arr": "09:10",
+   "mins": 585,
+   "stops": "1 stop",
+   "air": "Vueling"
+  },
+  {
+   "price": 151,
+   "dep": "10:35",
+   "arr": "11:35",
+   "mins": 120,
+   "stops": "Nonstop",
+   "air": "Ryanair"
+  },
+  {
+   "price": 156,
+   "dep": "14:10",
+   "arr": "15:05",
+   "mins": 115,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 332,
+   "dep": "17:05",
+   "arr": "18:05",
+   "mins": 120,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 339,
+   "dep": "17:30",
+   "arr": "20:55",
+   "mins": 265,
+   "stops": "1 stop",
+   "air": "KLM"
+  },
+  {
+   "price": 352,
+   "dep": "07:25",
+   "arr": "08:30",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 401,
+   "dep": "10:50",
+   "arr": "11:55",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 484,
+   "dep": "13:15",
+   "arr": "14:20",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  }
+ ]
+}

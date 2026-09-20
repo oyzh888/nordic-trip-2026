@@ -1,0 +1,146 @@
+{
+ "slug": "c-lhr-sfo-1024",
+ "frm": "LHR",
+ "to": "SFO",
+ "date": "2026-10-24",
+ "label": "伦敦→SFO 周六（+2 周版）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-24%20for%201%20adult",
+ "offers": [
+  {
+   "price": 711,
+   "dep": "06:00",
+   "arr": "17:35",
+   "mins": 1175,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 807,
+   "dep": "08:00",
+   "arr": "17:35",
+   "mins": 1055,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 983,
+   "dep": "07:40",
+   "arr": "15:55",
+   "mins": 975,
+   "stops": "1 stop",
+   "air": "Aer Lingus"
+  },
+  {
+   "price": 1009,
+   "dep": "08:50",
+   "arr": "15:55",
+   "mins": 905,
+   "stops": "1 stop",
+   "air": "Aer Lingus"
+  },
+  {
+   "price": 1046,
+   "dep": "09:50",
+   "arr": "15:55",
+   "mins": 845,
+   "stops": "1 stop",
+   "air": "Aer Lingus"
+  },
+  {
+   "price": 1077,
+   "dep": "14:10",
+   "arr": "16:50",
+   "mins": 2080,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1085,
+   "dep": "08:45",
+   "arr": "16:15",
+   "mins": 930,
+   "stops": "1 stop",
+   "air": "United"
+  },
+  {
+   "price": 1096,
+   "dep": "16:55",
+   "arr": "23:37",
+   "mins": 882,
+   "stops": "1 stop",
+   "air": "British Airways"
+  },
+  {
+   "price": 1111,
+   "dep": "11:25",
+   "arr": "17:23",
+   "mins": 838,
+   "stops": "1 stop",
+   "air": "United"
+  },
+  {
+   "price": 1113,
+   "dep": "06:30",
+   "arr": "12:40",
+   "mins": 850,
+   "stops": "1 stop",
+   "air": "Lufthansa"
+  },
+  {
+   "price": 1115,
+   "dep": "17:00",
+   "arr": "22:49",
+   "mins": 829,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1345,
+   "dep": "12:45",
+   "arr": "15:55",
+   "mins": 670,
+   "stops": "Nonstop",
+   "air": "Virgin Atlantic"
+  },
+  {
+   "price": 1347,
+   "dep": "16:30",
+   "arr": "19:45",
+   "mins": 675,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 1545,
+   "dep": "10:45",
+   "arr": "13:50",
+   "mins": 665,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 1699,
+   "dep": "10:35",
+   "arr": "13:35",
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "United"
+  },
+  {
+   "price": 2555,
+   "dep": "13:00",
+   "arr": "16:00",
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "United"
+  },
+  {
+   "price": 2555,
+   "dep": "16:15",
+   "arr": "19:15",
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "United"
+  }
+ ]
+}

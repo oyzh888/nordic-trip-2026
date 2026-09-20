@@ -1,0 +1,130 @@
+{
+ "slug": "b-nce-lon-1017",
+ "frm": "NCE",
+ "to": "LON",
+ "date": "2026-10-17",
+ "label": "尼斯→伦敦 周六",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LON%20on%202026-10-17%20for%201%20adult",
+ "offers": [
+  {
+   "price": 38,
+   "dep": "23:55",
+   "arr": "01:05",
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 54,
+   "dep": "21:40",
+   "arr": "22:45",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 73,
+   "dep": "16:50",
+   "arr": "18:00",
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "Ryanair"
+  },
+  {
+   "price": 78,
+   "dep": "11:35",
+   "arr": "12:50",
+   "mins": 135,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 86,
+   "dep": "19:50",
+   "arr": "20:55",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 97,
+   "dep": "16:20",
+   "arr": "17:25",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 99,
+   "dep": "21:35",
+   "arr": "22:40",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 99,
+   "dep": "18:35",
+   "arr": "19:45",
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 107,
+   "dep": "09:40",
+   "arr": "10:45",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 119,
+   "dep": "12:50",
+   "arr": "13:50",
+   "mins": 120,
+   "stops": "Nonstop",
+   "air": "easyJet"
+  },
+  {
+   "price": 192,
+   "dep": "15:55",
+   "arr": "17:05",
+   "mins": 130,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 209,
+   "dep": "07:20",
+   "arr": "08:35",
+   "mins": 135,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 213,
+   "dep": "14:05",
+   "arr": "15:20",
+   "mins": 135,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 236,
+   "dep": "10:05",
+   "arr": "11:20",
+   "mins": 135,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 289,
+   "dep": "10:25",
+   "arr": "11:30",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  }
+ ]
+}

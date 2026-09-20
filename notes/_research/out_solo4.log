@@ -1,0 +1,69 @@
+== a-osl-nce-1006     先法国：奥斯陆→尼斯
+   $   85 17:20→20:15 2h55 Nonstop  Norwegian
+   $  139 10:00→12:55 2h55 Nonstop  Norwegian
+   $  142 19:45→18:45 23h00 1 stop   ?
+   $  144 20:25→09:05 12h40 1 stop   ?
+   $  163 18:45→23:30 4h45 1 stop   Lufthansa
+== a-osl-lon-1006     先伦敦：奥斯陆→伦敦
+   $   18 23:10→00:20 2h10 Nonstop  Ryanair
+   $   35 10:35→11:45 2h10 Nonstop  Ryanair
+   $   54 07:10→08:40 2h30 Nonstop  Norwegian
+   $   66 07:45→09:15 2h30 Nonstop  British Airways
+   $   75 18:50→20:10 2h20 Nonstop  Norwegian
+== b-mrs-lhr-1015     马赛→伦敦 周四
+   $  106 15:00→16:05 2h05 Nonstop  British Airways
+   $  158 06:30→19:25 13h55 1 stop   KLM
+   $  183 17:30→20:55 4h25 1 stop   KLM
+   $  183 06:30→10:45 5h15 1 stop   KLM
+   $  188 07:20→08:25 2h05 Nonstop  British Airways
+== b-mrs-lon-1017     马赛→伦敦 周六（搬家放周末）
+   $   81 00:25→14:20 14h55 1 stop   Vueling
+   $  101 22:15→23:15 2h00 Nonstop  Ryanair
+   $  107 00:25→09:10 9h45 1 stop   Vueling
+   $  151 10:35→11:35 2h00 Nonstop  Ryanair
+   $  156 14:10→15:05 1h55 Nonstop  easyJet
+== b-nce-lon-1017     尼斯→伦敦 周六
+   $   38 23:55→01:05 2h10 Nonstop  easyJet
+   $   54 21:40→22:45 2h05 Nonstop  easyJet
+   $   73 16:50→18:00 2h10 Nonstop  Ryanair
+   $   78 11:35→12:50 2h15 Nonstop  British Airways
+   $   86 19:50→20:55 2h05 Nonstop  easyJet
+== c-lhr-sfo-1017     伦敦→SFO 周六
+   $  920 08:00→17:35 17h35 1 stop   ?
+   $ 1077 14:10→21:55 15h45 1 stop   ?
+   $ 1176 10:20→20:50 18h30 1 stop   ?
+   $ 1284 07:40→15:55 16h15 1 stop   Aer Lingus
+   $ 1291 08:50→15:55 15h05 1 stop   Aer Lingus
+== c-lhr-sfo-1018     伦敦→SFO 周日
+   $  711 19:50→14:05 26h15 1 stop   ?
+   $  980 17:15→16:15 31h00 1 stop   ?
+   $ 1077 14:10→21:55 15h45 1 stop   ?
+   $ 1113 06:30→12:40 14h10 1 stop   Lufthansa
+   $ 1115 17:00→22:49 13h49 1 stop   ?
+== c-lhr-sfo-1024     伦敦→SFO 周六（+2 周版）
+   $  711 06:00→17:35 19h35 1 stop   ?
+   $  807 08:00→17:35 17h35 1 stop   ?
+   $  983 07:40→15:55 16h15 1 stop   Aer Lingus
+   $ 1009 08:50→15:55 15h05 1 stop   Aer Lingus
+   $ 1046 09:50→15:55 14h05 1 stop   Aer Lingus
+== c-lhr-sfo-1016     伦敦→SFO 周五（对照：会吃掉工作日）
+   $  807 19:50→17:35 29h45 1 stop   ?
+   $  818 14:10→21:55 39h45 1 stop   ?
+   $  852 14:10→12:00 29h50 1 stop   ?
+   $ 1098 07:30→14:30 15h00 1 stop   Lufthansa
+   $ 1328 06:30→11:45 13h15 1 stop   KLM
+== c-cdg-sfo-1017     巴黎→SFO 周六（若最后一站放巴黎）
+   $  873 10:45→20:50 19h05 1 stop   ?
+   $  892 19:45→14:15 27h30 1 stop   ?
+   $  965 08:25→18:50 19h25 2 stops  ?
+   $ 1180 12:05→18:50 15h45 1 stop   ?
+   $ 1180 12:05→19:03 15h58 1 stop   ?
+== c-nce-sfo-1017     尼斯→SFO 周六（先伦敦方案的回程）
+   $  865 10:40→20:50 19h10 1 stop   ?
+   $ 1146 06:00→17:35 20h35 1 stop   ?
+   $ 1159 10:40→08:01 54h21 2 stops  ?
+   $ 1245 06:20→11:45 14h25 1 stop   KLM
+   $ 1519 10:10→18:51 17h41 1 stop   ?
+
+→ out_solo4/summary.json
+DONE

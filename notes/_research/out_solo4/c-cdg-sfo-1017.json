@@ -1,0 +1,138 @@
+{
+ "slug": "c-cdg-sfo-1017",
+ "frm": "CDG",
+ "to": "SFO",
+ "date": "2026-10-17",
+ "label": "巴黎→SFO 周六（若最后一站放巴黎）",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20CDG%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+ "offers": [
+  {
+   "price": 873,
+   "dep": "10:45",
+   "arr": "20:50",
+   "mins": 1145,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 892,
+   "dep": "19:45",
+   "arr": "14:15",
+   "mins": 1650,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 965,
+   "dep": "08:25",
+   "arr": "18:50",
+   "mins": 1165,
+   "stops": "2 stops",
+   "air": "?"
+  },
+  {
+   "price": 1180,
+   "dep": "12:05",
+   "arr": "18:50",
+   "mins": 945,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1180,
+   "dep": "12:05",
+   "arr": "19:03",
+   "mins": 958,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1196,
+   "dep": "12:25",
+   "arr": "23:37",
+   "mins": 1212,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1274,
+   "dep": "10:25",
+   "arr": "16:07",
+   "mins": 882,
+   "stops": "1 stop",
+   "air": "Delta"
+  },
+  {
+   "price": 1274,
+   "dep": "10:50",
+   "arr": "17:05",
+   "mins": 915,
+   "stops": "1 stop",
+   "air": "Delta"
+  },
+  {
+   "price": 1274,
+   "dep": "16:00",
+   "arr": "22:15",
+   "mins": 915,
+   "stops": "1 stop",
+   "air": "Delta"
+  },
+  {
+   "price": 1274,
+   "dep": "13:25",
+   "arr": "19:42",
+   "mins": 917,
+   "stops": "1 stop",
+   "air": "Air France"
+  },
+  {
+   "price": 1274,
+   "dep": "16:05",
+   "arr": "22:38",
+   "mins": 933,
+   "stops": "1 stop",
+   "air": "Air France"
+  },
+  {
+   "price": 1274,
+   "dep": "09:05",
+   "arr": "15:54",
+   "mins": 949,
+   "stops": "1 stop",
+   "air": "Air France"
+  },
+  {
+   "price": 1274,
+   "dep": "12:10",
+   "arr": "20:06",
+   "mins": 1016,
+   "stops": "1 stop",
+   "air": "Delta"
+  },
+  {
+   "price": 1526,
+   "dep": "10:20",
+   "arr": "15:55",
+   "mins": 875,
+   "stops": "1 stop",
+   "air": "Aer Lingus"
+  },
+  {
+   "price": 1709,
+   "dep": "10:20",
+   "arr": "12:50",
+   "mins": 690,
+   "stops": "Nonstop",
+   "air": "Air France"
+  },
+  {
+   "price": 1881,
+   "dep": "09:15",
+   "arr": "11:50",
+   "mins": 695,
+   "stops": "Nonstop",
+   "air": "United"
+  }
+ ]
+}

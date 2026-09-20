@@ -1,0 +1,90 @@
+{
+ "slug": "b-mrs-lhr-1015",
+ "frm": "MRS",
+ "to": "LHR",
+ "date": "2026-10-15",
+ "label": "马赛→伦敦 周四",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20MRS%20to%20LHR%20on%202026-10-15%20for%201%20adult",
+ "offers": [
+  {
+   "price": 106,
+   "dep": "15:00",
+   "arr": "16:05",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 158,
+   "dep": "06:30",
+   "arr": "19:25",
+   "mins": 835,
+   "stops": "1 stop",
+   "air": "KLM"
+  },
+  {
+   "price": 183,
+   "dep": "17:30",
+   "arr": "20:55",
+   "mins": 265,
+   "stops": "1 stop",
+   "air": "KLM"
+  },
+  {
+   "price": 183,
+   "dep": "06:30",
+   "arr": "10:45",
+   "mins": 315,
+   "stops": "1 stop",
+   "air": "KLM"
+  },
+  {
+   "price": 188,
+   "dep": "07:20",
+   "arr": "08:25",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 197,
+   "dep": "12:40",
+   "arr": "13:45",
+   "mins": 125,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 205,
+   "dep": "17:50",
+   "arr": "22:40",
+   "mins": 350,
+   "stops": "1 stop",
+   "air": "Lufthansa"
+  },
+  {
+   "price": 217,
+   "dep": "17:15",
+   "arr": "21:25",
+   "mins": 310,
+   "stops": "1 stop",
+   "air": "Air France"
+  },
+  {
+   "price": 467,
+   "dep": "07:05",
+   "arr": "10:30",
+   "mins": 265,
+   "stops": "1 stop",
+   "air": "Air France"
+  },
+  {
+   "price": 731,
+   "dep": "09:45",
+   "arr": "13:00",
+   "mins": 255,
+   "stops": "1 stop",
+   "air": "?"
+  }
+ ]
+}

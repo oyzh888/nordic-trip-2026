@@ -1,0 +1,106 @@
+{
+ "slug": "c-lhr-sfo-1018",
+ "frm": "LHR",
+ "to": "SFO",
+ "date": "2026-10-18",
+ "label": "伦敦→SFO 周日",
+ "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-18%20for%201%20adult",
+ "offers": [
+  {
+   "price": 711,
+   "dep": "19:50",
+   "arr": "14:05",
+   "mins": 1575,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 980,
+   "dep": "17:15",
+   "arr": "16:15",
+   "mins": 1860,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1077,
+   "dep": "14:10",
+   "arr": "21:55",
+   "mins": 945,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1113,
+   "dep": "06:30",
+   "arr": "12:40",
+   "mins": 850,
+   "stops": "1 stop",
+   "air": "Lufthansa"
+  },
+  {
+   "price": 1115,
+   "dep": "17:00",
+   "arr": "22:49",
+   "mins": 829,
+   "stops": "1 stop",
+   "air": "?"
+  },
+  {
+   "price": 1148,
+   "dep": "06:30",
+   "arr": "11:45",
+   "mins": 795,
+   "stops": "1 stop",
+   "air": "KLM"
+  },
+  {
+   "price": 1166,
+   "dep": "12:45",
+   "arr": "15:55",
+   "mins": 670,
+   "stops": "Nonstop",
+   "air": "Virgin Atlantic"
+  },
+  {
+   "price": 1433,
+   "dep": "10:35",
+   "arr": "13:35",
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "United"
+  },
+  {
+   "price": 1433,
+   "dep": "13:00",
+   "arr": "16:00",
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "United"
+  },
+  {
+   "price": 1433,
+   "dep": "16:15",
+   "arr": "19:15",
+   "mins": 660,
+   "stops": "Nonstop",
+   "air": "United"
+  },
+  {
+   "price": 2967,
+   "dep": "10:45",
+   "arr": "13:50",
+   "mins": 665,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  },
+  {
+   "price": 2967,
+   "dep": "14:30",
+   "arr": "17:40",
+   "mins": 670,
+   "stops": "Nonstop",
+   "air": "British Airways"
+  }
+ ]
+}
