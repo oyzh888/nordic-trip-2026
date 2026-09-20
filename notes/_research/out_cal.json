@@ -1,0 +1,179 @@
+{
+ "k-rak-mrs-1013": {
+  "label": "马拉喀什→马赛（回南法第二城）",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20MRS%20on%202026-10-13%20for%201%20adult",
+  "offers": [
+   {
+    "price": 67,
+    "dep": "07:55",
+    "arr": "12:40",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 72,
+    "dep": "07:45",
+    "arr": "12:35",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Transavia"
+   },
+   {
+    "price": 98,
+    "dep": "13:15",
+    "arr": "18:00",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 116,
+    "dep": "16:10",
+    "arr": "12:00",
+    "mins": 1070,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 361,
+    "dep": "14:15",
+    "arr": "23:20",
+    "mins": 425,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 376,
+    "dep": "09:40",
+    "arr": "17:55",
+    "mins": 375,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 429,
+    "dep": "15:00",
+    "arr": "22:50",
+    "mins": 350,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 511,
+    "dep": "15:40",
+    "arr": "09:20",
+    "mins": 940,
+    "stops": "1 stop",
+    "air": "?"
+   }
+  ]
+ },
+ "k-mrs-lhr-1016": {
+  "label": "马赛→伦敦 周五",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20MRS%20to%20LHR%20on%202026-10-16%20for%201%20adult",
+  "offers": [
+   {
+    "price": 188,
+    "dep": "17:25",
+    "arr": "18:25",
+    "mins": 120,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 188,
+    "dep": "07:20",
+    "arr": "08:25",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 189,
+    "dep": "19:05",
+    "arr": "20:00",
+    "mins": 115,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 190,
+    "dep": "15:05",
+    "arr": "16:10",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 213,
+    "dep": "09:15",
+    "arr": "14:05",
+    "mins": 350,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 285,
+    "dep": "06:40",
+    "arr": "21:35",
+    "mins": 955,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 401,
+    "dep": "11:00",
+    "arr": "12:05",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 511,
+    "dep": "17:30",
+    "arr": "20:55",
+    "mins": 265,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 565,
+    "dep": "20:30",
+    "arr": "07:55",
+    "mins": 745,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 727,
+    "dep": "19:10",
+    "arr": "09:50",
+    "mins": 940,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 802,
+    "dep": "07:05",
+    "arr": "10:30",
+    "mins": 265,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 848,
+    "dep": "14:40",
+    "arr": "17:50",
+    "mins": 250,
+    "stops": "1 stop",
+    "air": "?"
+   }
+  ]
+ },
+ "k-rak-lhr-1013": {
+  "label": "马拉喀什→伦敦 周二（对照）",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20LHR%20on%202026-10-13%20for%201%20adult",
+  "offers": []
+ }
+}
