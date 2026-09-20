@@ -1,0 +1,504 @@
+{
+ "s-lhr-sfo-1011": {
+  "label": "伦敦→SFO 周日 10/11（最短版回程）",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-11%20for%201%20adult",
+  "offers": [
+   {
+    "price": 711,
+    "dep": "19:50",
+    "arr": "14:05",
+    "mins": 1575,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1113,
+    "dep": "22:40",
+    "arr": "10:45",
+    "mins": 1205,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1179,
+    "dep": "07:30",
+    "arr": "18:50",
+    "mins": 1160,
+    "stops": "2 stops",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 1231,
+    "dep": "14:10",
+    "arr": "21:55",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1353,
+    "dep": "08:45",
+    "arr": "16:15",
+    "mins": 930,
+    "stops": "1 stop",
+    "air": "United"
+   },
+   {
+    "price": 1364,
+    "dep": "08:20",
+    "arr": "15:37",
+    "mins": 917,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 1367,
+    "dep": "06:30",
+    "arr": "11:45",
+    "mins": 795,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 1373,
+    "dep": "11:30",
+    "arr": "18:00",
+    "mins": 870,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 1373,
+    "dep": "06:15",
+    "arr": "12:50",
+    "mins": 875,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 1378,
+    "dep": "11:25",
+    "arr": "17:23",
+    "mins": 838,
+    "stops": "1 stop",
+    "air": "United"
+   },
+   {
+    "price": 1378,
+    "dep": "13:05",
+    "arr": "19:15",
+    "mins": 850,
+    "stops": "1 stop",
+    "air": "United"
+   },
+   {
+    "price": 1383,
+    "dep": "17:00",
+    "arr": "22:49",
+    "mins": 829,
+    "stops": "1 stop",
+    "air": "?"
+   }
+  ]
+ },
+ "s-lhr-sfo-1012": {
+  "label": "伦敦→SFO 周一（对照：吃掉工作日）",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-12%20for%201%20adult",
+  "offers": [
+   {
+    "price": 807,
+    "dep": "19:50",
+    "arr": "13:35",
+    "mins": 1545,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 903,
+    "dep": "13:55",
+    "arr": "12:00",
+    "mins": 1805,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1050,
+    "dep": "13:55",
+    "arr": "21:55",
+    "mins": 960,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1099,
+    "dep": "22:40",
+    "arr": "16:40",
+    "mins": 1560,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1353,
+    "dep": "08:40",
+    "arr": "16:15",
+    "mins": 935,
+    "stops": "1 stop",
+    "air": "United"
+   },
+   {
+    "price": 1364,
+    "dep": "08:20",
+    "arr": "15:37",
+    "mins": 917,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 1367,
+    "dep": "06:30",
+    "arr": "11:45",
+    "mins": 795,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 1373,
+    "dep": "13:00",
+    "arr": "16:00",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1373,
+    "dep": "06:15",
+    "arr": "12:50",
+    "mins": 875,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 1378,
+    "dep": "13:05",
+    "arr": "19:15",
+    "mins": 850,
+    "stops": "1 stop",
+    "air": "United"
+   },
+   {
+    "price": 1381,
+    "dep": "06:30",
+    "arr": "12:40",
+    "mins": 850,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 1383,
+    "dep": "17:00",
+    "arr": "22:49",
+    "mins": 829,
+    "stops": "1 stop",
+    "air": "?"
+   }
+  ]
+ },
+ "s-nce-lhr-1009": {
+  "label": "尼斯→伦敦 周五",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LHR%20on%202026-10-09%20for%201%20adult",
+  "offers": [
+   {
+    "price": 99,
+    "dep": "21:40",
+    "arr": "22:45",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 126,
+    "dep": "07:20",
+    "arr": "08:35",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 182,
+    "dep": "16:30",
+    "arr": "21:35",
+    "mins": 365,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 184,
+    "dep": "17:55",
+    "arr": "22:40",
+    "mins": 345,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 206,
+    "dep": "16:55",
+    "arr": "20:55",
+    "mins": 300,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 209,
+    "dep": "12:50",
+    "arr": "14:05",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 241,
+    "dep": "19:45",
+    "arr": "20:50",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 263,
+    "dep": "15:05",
+    "arr": "16:20",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 277,
+    "dep": "14:40",
+    "arr": "17:50",
+    "mins": 250,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 278,
+    "dep": "13:45",
+    "arr": "17:05",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 289,
+    "dep": "11:35",
+    "arr": "12:50",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 565,
+    "dep": "07:10",
+    "arr": "10:30",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "Air France"
+   }
+  ]
+ },
+ "s-nce-lhr-1010": {
+  "label": "尼斯→伦敦 周六",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LHR%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 98,
+    "dep": "18:35",
+    "arr": "19:45",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 99,
+    "dep": "21:35",
+    "arr": "22:40",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 99,
+    "dep": "07:20",
+    "arr": "08:35",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 126,
+    "dep": "15:55",
+    "arr": "17:05",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 126,
+    "dep": "10:05",
+    "arr": "11:20",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 142,
+    "dep": "08:55",
+    "arr": "20:05",
+    "mins": 730,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 180,
+    "dep": "09:00",
+    "arr": "19:20",
+    "mins": 680,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 192,
+    "dep": "10:20",
+    "arr": "16:40",
+    "mins": 440,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 209,
+    "dep": "14:20",
+    "arr": "15:35",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 289,
+    "dep": "10:20",
+    "arr": "14:40",
+    "mins": 320,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 534,
+    "dep": "08:35",
+    "arr": "11:30",
+    "mins": 235,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 565,
+    "dep": "07:10",
+    "arr": "10:30",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "Air France"
+   }
+  ]
+ },
+ "s-nce-lhr-1013": {
+  "label": "尼斯→伦敦 周二（中版）",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LHR%20on%202026-10-13%20for%201%20adult",
+  "offers": [
+   {
+    "price": 91,
+    "dep": "22:50",
+    "arr": "09:10",
+    "mins": 680,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 99,
+    "dep": "10:50",
+    "arr": "12:05",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 99,
+    "dep": "11:55",
+    "arr": "13:10",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 99,
+    "dep": "15:10",
+    "arr": "16:25",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 99,
+    "dep": "07:20",
+    "arr": "08:35",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 126,
+    "dep": "17:15",
+    "arr": "18:25",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 126,
+    "dep": "13:30",
+    "arr": "14:45",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 174,
+    "dep": "19:30",
+    "arr": "20:35",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 180,
+    "dep": "14:40",
+    "arr": "17:50",
+    "mins": 250,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 182,
+    "dep": "13:45",
+    "arr": "17:05",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 334,
+    "dep": "07:10",
+    "arr": "10:30",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "Air France"
+   }
+  ]
+ }
+}

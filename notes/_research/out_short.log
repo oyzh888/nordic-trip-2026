@@ -1,0 +1,21 @@
+== s-lhr-sfo-1011   伦敦→SFO 周日 10/11（最短版回程）
+   $ 1385 12:45→15:55 11h10 Nonstop  Virgin Atlantic
+   $ 1478 10:35→13:35 11h00 Nonstop  United
+   $ 1478 13:00→16:00 11h00 Nonstop  United
+== s-lhr-sfo-1012   伦敦→SFO 周一（对照：吃掉工作日）
+   $ 1373 13:00→16:00 11h00 Nonstop  United
+   $ 1385 12:45→15:55 11h10 Nonstop  Virgin Atlantic
+   $ 1413 16:15→19:15 11h00 Nonstop  United
+== s-nce-lhr-1009   尼斯→伦敦 周五
+   $   99 21:40→22:45 2h05 Nonstop  British Airways
+   $  126 07:20→08:35 2h15 Nonstop  British Airways
+   $  209 12:50→14:05 2h15 Nonstop  British Airways
+== s-nce-lhr-1010   尼斯→伦敦 周六
+   $   98 18:35→19:45 2h10 Nonstop  British Airways
+   $   99 21:35→22:40 2h05 Nonstop  British Airways
+   $   99 07:20→08:35 2h15 Nonstop  British Airways
+== s-nce-lhr-1013   尼斯→伦敦 周二（中版）
+   $   99 10:50→12:05 2h15 Nonstop  British Airways
+   $   99 11:55→13:10 2h15 Nonstop  British Airways
+   $   99 15:10→16:25 2h15 Nonstop  British Airways
+DONE
