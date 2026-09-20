@@ -1,0 +1,30 @@
+== m-nce-rak-1010   尼斯→马拉喀什
+   $  161 06:00→14:45 10h45 1 stop   ?                 ✅
+   $  185 06:00→09:55 5h55 1 stop   ?                 ✅
+   $  237 11:35→09:20 23h45 1 stop   British Airways   ✅
+   ⚠️ 无直飞
+== m-mrs-rak-1010   马赛→马拉喀什（南法西段出发）
+   $   90 22:30→23:20 2h50 Nonstop  Ryanair           ⚠️
+   $  112 11:25→12:15 2h50 Nonstop  Ryanair           ✅
+   $  133 20:55→21:40 2h45 Nonstop  Royal Air Maroc   ⚠️
+   $  168 11:55→12:55 3h00 Nonstop  Transavia         ✅
+== m-rak-lon-1014   马拉喀什→伦敦
+   $  225 03:55→08:45 7h50 Nonstop  Air Arabia        ✅
+   $  225 13:45→18:35 7h50 Nonstop  Air Arabia        ⚠️
+   $  639 14:15→18:40 7h25 Nonstop  ?                 ⚠️
+   $  639 14:15→18:45 7h30 Nonstop  ?                 ⚠️
+== m-rak-lgw-1015   马拉喀什→伦敦 Gatwick 晚一天
+   ⚠️ 无直飞
+== m-lhr-sfo-1019   伦敦→SFO 周一
+   ⚠️ 无直飞
+== m-lhr-sfo-1020   伦敦→SFO 周二
+   $ 1091 10:45→13:50 11h05 Nonstop  British Airways   ✅
+   $ 1105 10:35→13:35 11h00 Nonstop  United            ✅
+   $ 1105 13:00→16:00 11h00 Nonstop  United            ⚠️
+   $ 1105 16:15→19:15 11h00 Nonstop  United            ⚠️
+== m-lhr-sfo-1021   伦敦→SFO 周三
+   $ 1082 14:20→17:30 11h10 Nonstop  British Airways   ⚠️
+   $ 1091 10:45→13:50 11h05 Nonstop  British Airways   ✅
+   $ 1105 10:35→13:35 11h00 Nonstop  United            ✅
+   $ 1105 13:00→16:00 11h00 Nonstop  United            ⚠️
+DONE

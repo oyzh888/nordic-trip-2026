@@ -1,0 +1,482 @@
+{
+ "m-nce-rak-1010": {
+  "label": "尼斯→马拉喀什",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20RAK%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 161,
+    "dep": "06:00",
+    "arr": "14:45",
+    "mins": 645,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 185,
+    "dep": "06:00",
+    "arr": "09:55",
+    "mins": 355,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 237,
+    "dep": "11:35",
+    "arr": "09:20",
+    "mins": 1425,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 267,
+    "dep": "11:35",
+    "arr": "16:55",
+    "mins": 440,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 293,
+    "dep": "06:30",
+    "arr": "20:30",
+    "mins": 960,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 293,
+    "dep": "19:30",
+    "arr": "14:40",
+    "mins": 1270,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 300,
+    "dep": "17:55",
+    "arr": "07:40",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 375,
+    "dep": "16:40",
+    "arr": "22:15",
+    "mins": 455,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 381,
+    "dep": "17:55",
+    "arr": "22:15",
+    "mins": 380,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 389,
+    "dep": "12:45",
+    "arr": "20:30",
+    "mins": 585,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 463,
+    "dep": "06:30",
+    "arr": "11:20",
+    "mins": 410,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 491,
+    "dep": "10:05",
+    "arr": "15:00",
+    "mins": 415,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 859,
+    "dep": "09:20",
+    "arr": "16:05",
+    "mins": 525,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 923,
+    "dep": "09:45",
+    "arr": "13:55",
+    "mins": 370,
+    "stops": "1 stop",
+    "air": "Air France"
+   }
+  ]
+ },
+ "m-mrs-rak-1010": {
+  "label": "马赛→马拉喀什（南法西段出发）",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20MRS%20to%20RAK%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 90,
+    "dep": "22:30",
+    "arr": "23:20",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 112,
+    "dep": "11:25",
+    "arr": "12:15",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 133,
+    "dep": "20:55",
+    "arr": "21:40",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Royal Air Maroc"
+   },
+   {
+    "price": 143,
+    "dep": "00:25",
+    "arr": "06:35",
+    "mins": 490,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 168,
+    "dep": "11:55",
+    "arr": "12:55",
+    "mins": 180,
+    "stops": "Nonstop",
+    "air": "Transavia"
+   },
+   {
+    "price": 403,
+    "dep": "06:00",
+    "arr": "09:55",
+    "mins": 355,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 544,
+    "dep": "06:15",
+    "arr": "11:20",
+    "mins": 425,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 565,
+    "dep": "12:45",
+    "arr": "16:50",
+    "mins": 365,
+    "stops": "1 stop",
+    "air": "Air France"
+   }
+  ]
+ },
+ "m-rak-lon-1014": {
+  "label": "马拉喀什→伦敦",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20LON%20on%202026-10-14%20for%201%20adult",
+  "offers": [
+   {
+    "price": 201,
+    "dep": "11:00",
+    "arr": "19:10",
+    "mins": 670,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 208,
+    "dep": "04:50",
+    "arr": "15:40",
+    "mins": 830,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 215,
+    "dep": "04:50",
+    "arr": "14:15",
+    "mins": 745,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 219,
+    "dep": "04:50",
+    "arr": "13:35",
+    "mins": 705,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 222,
+    "dep": "03:05",
+    "arr": "10:50",
+    "mins": 645,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 225,
+    "dep": "03:55",
+    "arr": "08:45",
+    "mins": 470,
+    "stops": "Nonstop",
+    "air": "Air Arabia"
+   },
+   {
+    "price": 225,
+    "dep": "13:45",
+    "arr": "18:35",
+    "mins": 470,
+    "stops": "Nonstop",
+    "air": "Air Arabia"
+   },
+   {
+    "price": 329,
+    "dep": "06:30",
+    "arr": "15:25",
+    "mins": 715,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 380,
+    "dep": "07:55",
+    "arr": "15:20",
+    "mins": 625,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 416,
+    "dep": "00:30",
+    "arr": "06:40",
+    "mins": 550,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 639,
+    "dep": "14:15",
+    "arr": "18:40",
+    "mins": 445,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "14:15",
+    "arr": "18:45",
+    "mins": 450,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "15:45",
+    "arr": "20:15",
+    "mins": 450,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "02:30",
+    "arr": "07:05",
+    "mins": 455,
+    "stops": "Nonstop",
+    "air": "?"
+   }
+  ]
+ },
+ "m-rak-lgw-1015": {
+  "label": "马拉喀什→伦敦 Gatwick 晚一天",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20LGW%20on%202026-10-15%20for%201%20adult",
+  "offers": []
+ },
+ "m-lhr-sfo-1019": {
+  "label": "伦敦→SFO 周一",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+  "offers": []
+ },
+ "m-lhr-sfo-1020": {
+  "label": "伦敦→SFO 周二",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-20%20for%201%20adult",
+  "offers": [
+   {
+    "price": 711,
+    "dep": "18:45",
+    "arr": "14:35",
+    "mins": 1670,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 924,
+    "dep": "09:50",
+    "arr": "15:55",
+    "mins": 845,
+    "stops": "1 stop",
+    "air": "Aer Lingus"
+   },
+   {
+    "price": 951,
+    "dep": "07:30",
+    "arr": "20:17",
+    "mins": 1247,
+    "stops": "2 stops",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 1091,
+    "dep": "10:45",
+    "arr": "13:50",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 1105,
+    "dep": "10:35",
+    "arr": "13:35",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1105,
+    "dep": "13:00",
+    "arr": "16:00",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1105,
+    "dep": "16:15",
+    "arr": "19:15",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1167,
+    "dep": "12:45",
+    "arr": "15:55",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic"
+   },
+   {
+    "price": 1348,
+    "dep": "14:30",
+    "arr": "17:40",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   }
+  ]
+ },
+ "m-lhr-sfo-1021": {
+  "label": "伦敦→SFO 周三",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-21%20for%201%20adult",
+  "offers": [
+   {
+    "price": 711,
+    "dep": "19:50",
+    "arr": "14:30",
+    "mins": 1600,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 757,
+    "dep": "14:10",
+    "arr": "21:55",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 933,
+    "dep": "08:50",
+    "arr": "15:55",
+    "mins": 905,
+    "stops": "1 stop",
+    "air": "Aer Lingus"
+   },
+   {
+    "price": 983,
+    "dep": "09:50",
+    "arr": "15:55",
+    "mins": 845,
+    "stops": "1 stop",
+    "air": "Aer Lingus"
+   },
+   {
+    "price": 1082,
+    "dep": "14:20",
+    "arr": "17:30",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 1091,
+    "dep": "10:45",
+    "arr": "13:50",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 1105,
+    "dep": "10:35",
+    "arr": "13:35",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1105,
+    "dep": "13:00",
+    "arr": "16:00",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1105,
+    "dep": "16:15",
+    "arr": "19:15",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United"
+   },
+   {
+    "price": 1167,
+    "dep": "12:45",
+    "arr": "15:55",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic"
+   }
+  ]
+ }
+}
