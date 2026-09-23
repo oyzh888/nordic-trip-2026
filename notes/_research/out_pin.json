@@ -1,0 +1,171 @@
+{
+ "PIN-pek-osl": {
+  "frm": "PEK",
+  "to": "OSL",
+  "date": "2026-09-24",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20PEK%20to%20OSL%20on%202026-09-24",
+  "offers": [
+   {
+    "dep": "03:20",
+    "arr": "06:45",
+    "nxt": "",
+    "mins": 565,
+    "stops": "Nonstop",
+    "air": "Hainan",
+    "price": 1705
+   },
+   {
+    "dep": "07:20",
+    "arr": "18:00",
+    "nxt": "+1",
+    "mins": 1000,
+    "stops": "1 stop",
+    "air": "Turkish",
+    "price": 3049
+   },
+   {
+    "dep": "13:55",
+    "arr": "12:45",
+    "nxt": "+1",
+    "mins": 1730,
+    "stops": "2 stops",
+    "air": "Emirates",
+    "price": 1953
+   },
+   {
+    "dep": "13:55",
+    "arr": "14:10",
+    "nxt": "+1",
+    "mins": 1815,
+    "stops": "2 stops",
+    "air": "Scandinavian",
+    "price": 2851
+   },
+   {
+    "dep": "13:25",
+    "arr": "10:55",
+    "nxt": "+1",
+    "mins": 1650,
+    "stops": "1 stop",
+    "air": "Lufthansa",
+    "price": 3103
+   },
+   {
+    "dep": "13:25",
+    "arr": "09:05",
+    "nxt": "+1",
+    "mins": 1540,
+    "stops": "2 stops",
+    "air": "Lufthansa",
+    "price": 3155
+   },
+   {
+    "dep": "08:20",
+    "arr": "09:55",
+    "nxt": "+1",
+    "mins": 1895,
+    "stops": "2 stops",
+    "air": "?",
+    "price": 3424
+   },
+   {
+    "dep": "02:55",
+    "arr": "11:35",
+    "nxt": "",
+    "mins": 880,
+    "stops": "1 stop",
+    "air": "Air China",
+    "price": 6997
+   }
+  ]
+ },
+ "PIN-osl-eve": {
+  "frm": "OSL",
+  "to": "EVE",
+  "date": "2026-09-30",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20OSL%20to%20EVE%20on%202026-09-30",
+  "offers": [
+   {
+    "dep": "15:05",
+    "arr": "16:45",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Norwegian",
+    "price": 143
+   },
+   {
+    "dep": "17:55",
+    "arr": "19:35",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Norwegian",
+    "price": 143
+   },
+   {
+    "dep": "13:20",
+    "arr": "15:00",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Norwegian",
+    "price": 165
+   },
+   {
+    "dep": "15:00",
+    "arr": "16:40",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Scandinavian",
+    "price": 170
+   },
+   {
+    "dep": "08:55",
+    "arr": "10:35",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Norwegian",
+    "price": 165
+   },
+   {
+    "dep": "21:00",
+    "arr": "22:40",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Norwegian",
+    "price": 165
+   },
+   {
+    "dep": "20:40",
+    "arr": "22:20",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Scandinavian",
+    "price": 170
+   },
+   {
+    "dep": "08:40",
+    "arr": "10:20",
+    "nxt": "",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Scandinavian",
+    "price": 429
+   },
+   {
+    "dep": "12:50",
+    "arr": "13:15",
+    "nxt": "+1",
+    "mins": 1465,
+    "stops": "2 stops",
+    "air": "Finnair",
+    "price": 631
+   }
+  ]
+ }
+}

@@ -39,10 +39,15 @@ cars_raw = json.loads((ROOT / "notes/_research/out_cars_imgs.json").read_text())
 # 这一轮改用 **Commons 分类**（人工整理，命中率远高于关键词搜索）取候选，
 # 再拼成联系表用眼睛挑 —— 「好看」没法自动判定，脚本只负责筛掉不合法和明显不能用的。
 # 挑中的四张（都是横图、车身完整、3/4 角度、背景干净）：
+# 🔴 2026-09-22 第三轮换图：罗弗敦和特罗姆瑟那两台**被重新订过了**
+#   车① Ford Explorer 4WD（纯电）→ **Toyota RAV4 4WD（燃油）**
+#   车② Mercedes EQS SUV（纯电）→ **Volvo V90 4WD 旅行车（燃油）**
+# 所以之前挑的 Explorer / EQS 两张照片是**错的车**，必须换。
+# ⚠️ RAV4 那个分类里大半是葡萄牙警车，能用的民用车照片很少；V90 挑到一张 CC0 的街拍。
 CARS_IMG = {
  "defender": ("out_cars3.json", "defender", "Land Rover Defender (L663) (Singapore).jpg"),
- "explorer": ("out_cars_imgs.json", "explorer", "Ford Explorer EV IMG 2131.jpg"),
- "eqs":      ("out_cars3.json", "eqs", "Mercedes-Benz X296 580 IMG 2963.jpg"),
+ "rav4":     ("out_cars4.json", "rav4", "2020 Toyota RAV4 2.5 LTD in Urban Khaki"),
+ "v90":      ("out_cars4.json", "v90", "Volvo V90 (48013919628).jpg"),
  "macan":    ("out_macan.json", None, "Porsche Macan (II) \u2013 f 22022025.jpg"),
 }
 def pick(key):
@@ -62,23 +67,25 @@ CARS = [
       why="把「4 人 4 箱塞不进」一次解决掉的那台。冰岛环岛路的碎石段正是它的主场；"
           "而且这是四台里唯一的燃油车 —— 冰岛充电桩远不如挪威密，这一段用油车是对的。",
       img=pick("defender")),
- dict(id="explorer", seg="🇳🇴 罗弗敦 · 3 天", name="Ford Explorer 4WD",
-      klass="Full-size SUV · 纯电", supplier="SIXT", ev=True,
-      pick="埃沃内斯 EVE 9/30 11:00", drop="莱克讷斯 Leknes 10/2 14:30",
-      total="$646.14", paid="已付 $14.01 · 取车再付 $632.13", cxl="9/28 11:00",
-      why="四台里最难订的一台 —— Leknes 异地还车全网只有 5 个报价（同期 Evenes 有 22 个）。"
-          "EVE→Lyngvær 175 km 在一次续航内，罗弗敦 Svolvær / Leknes 都有快充。",
-      img=pick("explorer")),
- dict(id="eqs", seg="🇳🇴 特罗姆瑟 · 3 天", name="Mercedes-Benz EQS SUV 4MATIC",
-      klass="EQS SUV（X296）· 纯电", supplier="SIXT", ev=True,
+ dict(id="rav4", seg="🇳🇴 罗弗敦 · 3 天", name="Toyota RAV4 4WD",
+      klass="Standard · 自动挡", supplier="SIXT", ev=False,
+      pick="埃沃内斯 EVE 9/30 15:30", drop="莱克讷斯 Leknes 10/2 14:30",
+      total="$952.49", paid="已付 $25.55 · 取车再付 $926.94", cxl="见订单",
+      why="🔴 **2026-09-22 更新：这台被重新订过了** —— 原来是 Ford Explorer 4WD（纯电，$646），"
+          "现在是 **Toyota RAV4 4WD 燃油版**（$952.49）。贵了 $306，但**换掉了纯电**："
+          "罗弗敦这一段要在 E10 上跑 175 km、十月、可能遇风暴封路，燃油车不用惦记充电桩。"
+          "四台里最难订的仍然是它 —— Leknes 异地还车全网只有 5 个报价。",
+      img=pick("rav4")),
+ dict(id="v90", seg="🇳🇴 特罗姆瑟 · 3 天", name="Volvo V90 4WD",
+      klass="Premium 旅行车 · 自动挡（或同级）", supplier="SIXT", ev=False,
       pick="TOS 10/2 17:00", drop="TOS 10/5 17:00（实际 10:00 就还）",
-      total="$455.59", paid="已付 $33.77 · 取车再付 $421.82", cxl="9/30 17:00",
-      why="🆕 这台是 **EQS SUV（X296，450+ / 580 那一档）**，不是 EQS 轿车 —— 我之前搞错过，"
-          "所以「低底盘轿车、山路要小心」那句话不成立：它是高底盘大 SUV，装人装箱都富余。"
-          "全程唯一需要提前做功课的仍然是它：10/4 要跑 Senja 往返 500 km，10 月、山路、夜里还在外面追极光。"
-          "电池约 108 kWh（WLTP 约 600 km），但低温 + 暖风 + 爬坡会把续航按下来 → 现实里要算一次充电停留。"
-          "还车约到 17:00 是免费的富余（取车 17:00 起算正好 72 小时 = 3 个计费日）。",
-      img=pick("eqs")),
+      total="$401.88", paid="已付 $30.18 · 取车再付 $371.70", cxl="9/30 17:00",
+      why="🔴🔴 **2026-09-22 更新，而且这条改动作废了我写了好几轮的一个担忧** —— "
+          "原来订的是 Mercedes EQS SUV（**纯电**），我为此反复提醒「10/4 Senja 往返 500 km、十月、山路、"
+          "夜里追极光，要算一次充电停留」。**现在换成了 Volvo V90 燃油旅行车（还便宜了 $54）→ "
+          "整个充电焦虑直接消失**，Senja 那天加满油就走。"
+          "还车单子上约到 17:00（免费的富余），实际 10:00 就还 —— 10:45 那班飞机。",
+      img=pick("v90")),
  dict(id="macan", seg="🇳🇴 奥斯陆 · 1 天", name="Porsche Macan 4WD",
       klass="纯电 · 保证车型", supplier="SIXT", ev=True,
       pick="OSL 10/5 13:00", drop="OSL 10/6 13:00",
@@ -92,8 +99,9 @@ CARS = [
 ORDERS = [
  dict(kind="车", what="Land Rover Defender 110 · Avis 🇮🇸", when="KEF 9/25 08:00 → 9/29 18:00（5 日）",
       money="$1,020.00", sub="全额已付清", cxl="9/23 08:00"),
- dict(kind="车", what="Ford Explorer 4WD · 纯电 · SIXT 🇳🇴", when="EVE 9/30 11:00 → Leknes 10/2 14:30（3 日）",
-      money="$646.14", sub="已付 $14.01 · 取车 $632.13", cxl="9/28 11:00"),
+ dict(kind="车", what="🔴 Toyota RAV4 4WD · 燃油 · SIXT 🇳🇴（原 Ford Explorer 纯电，已改订）",
+      when="EVE 9/30 15:30 → Leknes 10/2 14:30（3 日）",
+      money="$952.49", sub="已付 $25.55 · 取车 $926.94", cxl="见订单"),
  dict(kind="车", what="Mercedes-Benz EQS 4WD · 纯电 · SIXT 🇳🇴", when="TOS 10/2 17:00 → 10/5 17:00（3 日）",
       money="$455.59", sub="已付 $33.77 · 取车 $421.82", cxl="9/30 17:00"),
  dict(kind="车", what="Porsche Macan 4WD · 纯电 · 保证车型 · SIXT 🇳🇴", when="OSL 10/5 13:00 → 10/6 13:00（1 日）",

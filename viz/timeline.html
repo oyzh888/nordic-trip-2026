@@ -350,6 +350,15 @@ const checks=[];
 {
   const rows=[];
   EVS.filter(e=>e.lane==='car').forEach(c=>{
+    /* 🔴 2026-09-22 修一个静默失败：原来只往**后**找航班（e.S >= c.E），
+       于是「车还得比飞机起飞还晚」这种真冲突会让整行**消失**而不是报错 ——
+       一个不会失败的检查不是检查。所以先往前查一遍。 */
+    const bad=EVS.filter(e=>e.lane==='fly'&&e.S<c.E&&c.E-e.S<12*36e5).sort((a,b)=>b.S-a.S)[0];
+    if(bad){
+      rows.push([`${c.E.getMonth()+1}/${c.E.getDate()} ${hm(c.E)} 还车 —— 但 ${hm(bad.S)} 那班飞机已经走了`,
+        `❌ <b>还车比起飞晚 ${Math.round((c.E-bad.S)/6e4)} 分钟，顺序反了</b>`, false]);
+      return;
+    }
     const f=EVS.find(e=>e.lane==='fly'&&e.S>=c.E&&e.S-c.E<8*36e5);
     if(!f) return;
     const m=(f.S-c.E)/6e4;
