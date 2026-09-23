@@ -378,6 +378,53 @@ const checks=[];
          '<li>⚠️ 10/6 那班的 12:00 是<b>占位时刻</b>（Kevin 还没定）→ 真要按洲际算，车③ 得 <b>09:00 前</b>还'});
 }
 
+/* ⑤ 🆕 例会冲突 —— 完全由 MEETINGS × ZONES 算出来，不是手写的
+ * 口径：把每个会议的 PT 时段换成当天所在地的本地时段，再和「活动 / 航班 / 取还车」求交集。
+ * 住宿不算冲突（在住处开会正是我们想要的）。 */
+{
+  const zoneOf = d => {
+    const iso = d.toISOString().slice(0,10);
+    return ZONES.find(z => iso >= z.from && iso < z.to) || ZONES[ZONES.length-1];
+  };
+  const rows = [];
+  for (let i = 0; i < DAYN; i++) {
+    const day = new Date(new Date(DAY0+'T00:00').getTime() + i*864e5);
+    const z = zoneOf(day);
+    for (const m of MEETINGS.filter(m => m.dow === day.getDay())) {
+      /* 本地钟点 = PT 钟点 + (tz + 7)。PT = UTC−7。 */
+      const shift = z.tz + 7;
+      const mk = hhmm => {
+        const [h,mi] = hhmm.split(':').map(Number);
+        return new Date(day.getTime() + ((h+shift)*60+mi)*6e4);
+      };
+      const ms = mk(m.s), me = mk(m.e);
+      /* 🔴 修一个误判：租车的条跨好几天，如果整段都算冲突，那每个会都会「撞上租车」——
+         但开会时车停在楼下不是冲突。**只有取车/还车那一刻算**（各按 ±30 分钟的动作窗口）。
+         住宿同理排除：在住处开会正是我们想要的。 */
+      const clash = EVS.filter(e => {
+        if (e.lane === 'stay') return false;
+        if (e.lane === 'car') {
+          const w = 30*6e4;
+          return (e.S - w < me && e.S + w > ms) || (e.E - w < me && e.E + w > ms);
+        }
+        return e.E > ms && e.S < me;
+      });
+      rows.push([`${day.getMonth()+1}/${day.getDate()} ${'日一二三四五六'[day.getDay()]} · ${m.t}`,
+        `本地 <b>${hm(ms)}–${hm(me)}</b>（${z.name} UTC${z.tz>=0?'+':''}${z.tz}）`,
+        clash.length ? clash.map(c => (c.lane==='car' ? '（取/还车）' : '') + c.t.replace(/<[^>]+>/g,'').slice(0,38)).join(' / ') : '—',
+        clash.length === 0]);
+    }
+  }
+  const bad = rows.filter(r => !r[3]);
+  checks.push({cls: bad.length ? 'warn' : 'ok',
+    h: '🗓 例会撞不撞行程（PT → 本地，自动换算）',
+    body: rows.map(r => `<li>${r[0]}：${r[1]} → ${r[3] ? '✅ 不撞' : '⚠️ 撞上 <b>'+r[2]+'</b>'}</li>`).join(''),
+    tail: (bad.length ? `<b>${bad.length} 处相撞</b>（住在住处开会不算冲突，只算撞到活动/航班/取还车）。`
+                      : '没有相撞 ✅')
+      + '🔴 <b>最反直觉的一条：周二/周五那个「凌晨 0–2 点」的会，在欧洲是早上 07:00–11:00</b> —— '
+      + '它挡的是<b>早班机和早出门</b>，不是睡觉。'});
+}
+
 /* ④ 要移动的时候手上有车吗 */
 {
   const rows=[];
