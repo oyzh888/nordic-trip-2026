@@ -1,0 +1,31 @@
+== W-lhr-sfo-1013 LHR→SFO 2026-10-13  13 条
+   $ 1356 10:45→13:50 11h05 Nonstop  British Airways  ✅
+   $ 1356 14:30→17:40 11h10 Nonstop  British Airways  ⚠️
+   $ 1371 10:35→13:35 11h00 Nonstop  United           ✅
+   $ 1371 13:00→16:00 11h00 Nonstop  United           ✅
+== W-lis-sfo-1013 LIS→SFO 2026-10-13  8 条
+   $ 1001 09:00→13:35 12h35 Nonstop  ?                ✅
+== W-nce-lis-1010 NCE→LIS 2026-10-10  8 条
+   $   85 20:20→22:00 2h40 Nonstop  easyJet          ⚠️
+   $  153 06:00→07:45 2h45 Nonstop  ?                ✅
+   $  204 12:15→14:00 2h45 Nonstop  ?                ✅
+== W-osl-lis-1006 OSL→LIS 2026-10-06  10 条
+   $  301 18:50→22:05 4h15 Nonstop  ?                ⚠️
+== W-lis-lon-1010 LIS→LON 2026-10-10  23 条
+   $   93 06:05→08:45 2h40 Nonstop  easyJet          ✅
+   $  100 21:35→00:10 2h35 Nonstop  easyJet          ⚠️
+   $  101 11:05→13:50 2h45 Nonstop  easyJet          ✅
+   $  102 06:30→09:15 2h45 Nonstop  Ryanair          ✅
+== W-osl-rak-1006 OSL→RAK 2026-10-06  8 条
+   $  244 13:45→16:50 5h05 Nonstop  Norwegian        ✅
+== W-rak-lon-1010 RAK→London 2026-10-10  22 条
+   $  225 13:45→18:35 7h50 Nonstop  ?                ⚠️
+   $  268 03:55→08:45 7h50 Nonstop  ?                ✅
+   $  639 14:15→18:40 7h25 Nonstop  ?                ⚠️
+   $  639 14:15→18:45 7h30 Nonstop  ?                ⚠️
+== W-rak-lis-1010 RAK→LIS 2026-10-10  8 条
+   $   71 20:45→23:20 1h35 Nonstop  easyJet          ⚠️
+   $   74 18:15→20:55 1h40 Nonstop  Ryanair          ⚠️
+   $  279 10:45→13:25 1h40 Nonstop  ?                ✅
+   $  279 15:35→18:15 1h40 Nonstop  ?                ⚠️
+DONE

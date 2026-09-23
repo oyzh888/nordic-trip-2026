@@ -1,0 +1,761 @@
+{
+ "P1-nce-lon-1011": {
+  "frm": "NCE",
+  "to": "LON",
+  "date": "2026-10-11",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LON%20on%202026-10-11%20for%201%20adult",
+  "offers": [
+   {
+    "price": 60,
+    "dep": "23:10",
+    "arr": "00:15",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 73,
+    "dep": "09:45",
+    "arr": "10:50",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 90,
+    "dep": "23:00",
+    "arr": "00:10",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 97,
+    "dep": "11:55",
+    "arr": "13:00",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 99,
+    "dep": "08:00",
+    "arr": "09:15",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 115,
+    "dep": "12:55",
+    "arr": "13:55",
+    "mins": 120,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 131,
+    "dep": "21:40",
+    "arr": "22:45",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 165,
+    "dep": "17:15",
+    "arr": "18:25",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 165,
+    "dep": "15:30",
+    "arr": "16:45",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 170,
+    "dep": "18:20",
+    "arr": "19:30",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 177,
+    "dep": "12:10",
+    "arr": "13:20",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 180,
+    "dep": "09:35",
+    "arr": "17:50",
+    "mins": 555,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 192,
+    "dep": "11:35",
+    "arr": "12:50",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 209,
+    "dep": "12:10",
+    "arr": "13:25",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 209,
+    "dep": "13:55",
+    "arr": "15:10",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   }
+  ]
+ },
+ "P1-lon-lis-1014": {
+  "frm": "LON",
+  "to": "LIS",
+  "date": "2026-10-14",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20LIS%20on%202026-10-14%20for%201%20adult",
+  "offers": [
+   {
+    "price": 121,
+    "dep": "10:00",
+    "arr": "06:50",
+    "mins": 1250,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 130,
+    "dep": "16:25",
+    "arr": "19:20",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 131,
+    "dep": "06:00",
+    "arr": "08:50",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 131,
+    "dep": "18:45",
+    "arr": "21:35",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 134,
+    "dep": "16:40",
+    "arr": "19:30",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 138,
+    "dep": "18:10",
+    "arr": "21:00",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 160,
+    "dep": "19:50",
+    "arr": "22:40",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 162,
+    "dep": "20:00",
+    "arr": "22:50",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 170,
+    "dep": "17:05",
+    "arr": "19:55",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 187,
+    "dep": "12:50",
+    "arr": "15:40",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 196,
+    "dep": "09:10",
+    "arr": "12:00",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 201,
+    "dep": "09:40",
+    "arr": "12:30",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 217,
+    "dep": "19:40",
+    "arr": "22:30",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 232,
+    "dep": "12:15",
+    "arr": "15:10",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 237,
+    "dep": "07:15",
+    "arr": "10:05",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   }
+  ]
+ },
+ "P1-lis-sfo-1017": {
+  "frm": "LIS",
+  "to": "SFO",
+  "date": "2026-10-17",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+  "offers": [
+   {
+    "price": 923,
+    "dep": "19:45",
+    "arr": "11:45",
+    "mins": 1440,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 957,
+    "dep": "06:35",
+    "arr": "00:30",
+    "mins": 1555,
+    "stops": "2 stops",
+    "air": "Iberia"
+   },
+   {
+    "price": 1002,
+    "dep": "14:35",
+    "arr": "14:15",
+    "mins": 1900,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1022,
+    "dep": "05:55",
+    "arr": "16:15",
+    "mins": 1100,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 1029,
+    "dep": "06:15",
+    "arr": "14:30",
+    "mins": 975,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 1029,
+    "dep": "06:15",
+    "arr": "19:00",
+    "mins": 1245,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 1139,
+    "dep": "13:10",
+    "arr": "17:35",
+    "mins": 745,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 1200,
+    "dep": "05:05",
+    "arr": "12:40",
+    "mins": 935,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 1204,
+    "dep": "05:00",
+    "arr": "11:45",
+    "mins": 885,
+    "stops": "1 stop",
+    "air": "KLM"
+   }
+  ]
+ },
+ "P2-rak-ltn-1013": {
+  "frm": "RAK",
+  "to": "LTN",
+  "date": "2026-10-13",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20LTN%20on%202026-10-13%20for%201%20adult",
+  "offers": []
+ },
+ "P2-rak-lon-1013": {
+  "frm": "RAK",
+  "to": "London",
+  "date": "2026-10-13",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20London%20on%202026-10-13%20for%201%20adult",
+  "offers": [
+   {
+    "price": 201,
+    "dep": "11:00",
+    "arr": "19:10",
+    "mins": 670,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 215,
+    "dep": "04:50",
+    "arr": "14:15",
+    "mins": 745,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 220,
+    "dep": "04:50",
+    "arr": "13:35",
+    "mins": 705,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 222,
+    "dep": "03:05",
+    "arr": "10:50",
+    "mins": 645,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 225,
+    "dep": "03:55",
+    "arr": "08:45",
+    "mins": 470,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 225,
+    "dep": "13:45",
+    "arr": "18:35",
+    "mins": 470,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 271,
+    "dep": "23:35",
+    "arr": "06:55",
+    "mins": 620,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 329,
+    "dep": "06:30",
+    "arr": "15:25",
+    "mins": 715,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 416,
+    "dep": "00:30",
+    "arr": "06:40",
+    "mins": 550,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 639,
+    "dep": "14:15",
+    "arr": "18:40",
+    "mins": 445,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "14:15",
+    "arr": "18:45",
+    "mins": 450,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "15:45",
+    "arr": "20:15",
+    "mins": 450,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "02:30",
+    "arr": "07:05",
+    "mins": 455,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "07:45",
+    "arr": "12:25",
+    "mins": 460,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 639,
+    "dep": "09:40",
+    "arr": "14:25",
+    "mins": 465,
+    "stops": "Nonstop",
+    "air": "?"
+   }
+  ]
+ },
+ "P4-lon-lis-1016": {
+  "frm": "LON",
+  "to": "LIS",
+  "date": "2026-10-16",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20LIS%20on%202026-10-16%20for%201%20adult",
+  "offers": [
+   {
+    "price": 102,
+    "dep": "15:45",
+    "arr": "18:35",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 110,
+    "dep": "18:25",
+    "arr": "21:15",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 118,
+    "dep": "14:15",
+    "arr": "17:05",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 125,
+    "dep": "07:00",
+    "arr": "09:55",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 128,
+    "dep": "07:55",
+    "arr": "10:45",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 130,
+    "dep": "12:15",
+    "arr": "15:10",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 132,
+    "dep": "18:15",
+    "arr": "21:05",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 146,
+    "dep": "06:00",
+    "arr": "08:50",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 176,
+    "dep": "20:45",
+    "arr": "23:40",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 200,
+    "dep": "10:00",
+    "arr": "12:50",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 204,
+    "dep": "10:35",
+    "arr": "13:25",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 206,
+    "dep": "07:15",
+    "arr": "10:05",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   },
+   {
+    "price": 209,
+    "dep": "08:00",
+    "arr": "10:50",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 209,
+    "dep": "19:50",
+    "arr": "22:40",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 211,
+    "dep": "17:10",
+    "arr": "20:00",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   }
+  ]
+ },
+ "P4-lis-sfo-1019": {
+  "frm": "LIS",
+  "to": "SFO",
+  "date": "2026-10-19",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+  "offers": [
+   {
+    "price": 719,
+    "dep": "06:35",
+    "arr": "01:07",
+    "mins": 1592,
+    "stops": "2 stops",
+    "air": "Iberia"
+   },
+   {
+    "price": 733,
+    "dep": "18:45",
+    "arr": "13:50",
+    "mins": 1625,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 741,
+    "dep": "05:00",
+    "arr": "11:45",
+    "mins": 885,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 741,
+    "dep": "19:45",
+    "arr": "11:45",
+    "mins": 1440,
+    "stops": "1 stop",
+    "air": "KLM"
+   },
+   {
+    "price": 748,
+    "dep": "18:50",
+    "arr": "12:50",
+    "mins": 1560,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 752,
+    "dep": "07:10",
+    "arr": "19:03",
+    "mins": 1193,
+    "stops": "2 stops",
+    "air": "British Airways"
+   },
+   {
+    "price": 878,
+    "dep": "09:30",
+    "arr": "14:05",
+    "mins": 755,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 991,
+    "dep": "05:35",
+    "arr": "12:50",
+    "mins": 915,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 1037,
+    "dep": "05:05",
+    "arr": "12:40",
+    "mins": 935,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   }
+  ]
+ },
+ "P5-rak-lis-1013": {
+  "frm": "RAK",
+  "to": "LIS",
+  "date": "2026-10-13",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20RAK%20to%20LIS%20on%202026-10-13%20for%201%20adult",
+  "offers": [
+   {
+    "price": 73,
+    "dep": "19:15",
+    "arr": "21:55",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 104,
+    "dep": "15:00",
+    "arr": "17:35",
+    "mins": 95,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 151,
+    "dep": "12:40",
+    "arr": "17:40",
+    "mins": 240,
+    "stops": "1 stop",
+    "air": "Royal Air Maroc"
+   },
+   {
+    "price": 180,
+    "dep": "16:10",
+    "arr": "18:50",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 182,
+    "dep": "20:05",
+    "arr": "08:30",
+    "mins": 685,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 191,
+    "dep": "08:15",
+    "arr": "17:25",
+    "mins": 490,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 308,
+    "dep": "01:00",
+    "arr": "13:40",
+    "mins": 700,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 381,
+    "dep": "05:10",
+    "arr": "14:55",
+    "mins": 525,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 385,
+    "dep": "10:45",
+    "arr": "13:25",
+    "mins": 100,
+    "stops": "Nonstop",
+    "air": "?"
+   }
+  ]
+ }
+}

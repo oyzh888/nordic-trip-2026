@@ -1,0 +1,49 @@
+== A1-osl-nce OSL→NCE 2026-10-06  共 12 条
+   $   85 17:20→20:15 2h55 Nonstop  Norwegian
+   $  139 10:00→12:55 2h55 Nonstop  Norwegian
+== A2-nce-lis NCE→LIS 2026-10-09  共 9 条
+   $  145 21:15→22:55 2h40 Nonstop  easyJet
+   $  485 06:00→07:45 2h45 Nonstop  ?
+== A3-lis-lon LIS→LON 2026-10-12  共 23 条
+   $  174 21:30→00:05 2h35 Nonstop  easyJet
+   $  221 14:25→17:10 2h45 Nonstop  Ryanair
+   $  223 06:40→09:20 2h40 Nonstop  easyJet
+== A4-lhr-sfo LHR→SFO 2026-10-15  共 9 条
+   $ 1346 12:45→15:55 11h10 Nonstop  Virgin Atlantic
+   $ 1358 10:45→13:50 11h05 Nonstop  British Airways
+   $ 1373 10:35→13:35 11h00 Nonstop  United
+== B1-osl-lon OSL→LON 2026-10-06  共 12 条
+   $   18 23:10→00:20 2h10 Nonstop  Ryanair
+   $   30 10:35→11:45 2h10 Nonstop  Ryanair
+   $   54 07:10→08:40 2h30 Nonstop  Norwegian
+== B2-lon-nce LON→NCE 2026-10-09  共 14 条
+   $   57 05:35→08:40 2h05 Nonstop  easyJet
+   $   75 16:20→19:30 2h10 Nonstop  easyJet
+   $   82 07:15→10:25 2h10 Nonstop  easyJet
+== B3-nce-lis NCE→LIS 2026-10-12  共 10 条
+   $  128 06:00→07:45 2h45 Nonstop  ?
+   $  190 17:35→19:15 2h40 Nonstop  easyJet
+== B4-lis-sfo LIS→SFO 2026-10-15  共 8 条
+   $  878 09:55→14:30 12h35 Nonstop  ?
+== C2-nce-rak NCE→RAK 2026-10-10  共 14 条
+   $  161 06:00→14:45 10h45 1 stop   ?
+   $  185 06:00→09:55 5h55 1 stop   ?
+   $  237 11:35→09:20 23h45 1 stop   British Airways
+   ⚠️ 无直飞
+== C3-rak-lgw RAK→LGW 2026-10-13  共 0 条
+   ❌ 没抓到
+== C4-lhr-sfo LHR→SFO 2026-10-16  共 14 条
+   $ 1346 12:45→15:55 11h10 Nonstop  Virgin Atlantic
+   $ 1373 16:15→19:15 11h00 Nonstop  United
+   $ 1559 10:45→13:50 11h05 Nonstop  British Airways
+== X-lhr-sjc LHR→SJC 2026-10-15  共 19 条
+   $  951 09:30→22:59 21h29 2 stops  Lufthansa
+   $  978 09:30→20:00 18h30 2 stops  Lufthansa
+   $ 1138 13:05→22:59 17h54 2 stops  ?
+   ⚠️ 无直飞
+== X-lis-sjc LIS→SJC 2026-10-15  共 19 条
+   $  912 05:00→15:51 18h51 2 stops  KLM
+   $  912 05:00→17:02 20h02 2 stops  KLM
+   $  918 09:50→23:00 21h10 2 stops  Air France
+   ⚠️ 无直飞
+DONE

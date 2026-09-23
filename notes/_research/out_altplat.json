@@ -1,0 +1,38 @@
+{
+ "kayak": {
+  "durs": [
+   "3h35",
+   "3h40",
+   "3h45",
+   "4h35",
+   "4h40",
+   "4h45"
+  ],
+  "prices": [
+   25,
+   35,
+   39,
+   40,
+   48,
+   49,
+   54,
+   56
+  ],
+  "url": "https://www.kayak.com/flights/RAK-LON/2026-10-14?sort=bestflight_a&fs=stops=0",
+  "has_direct": true
+ },
+ "kiwi": {
+  "durs": [
+   "3h35",
+   "3h40",
+   "7h10"
+  ],
+  "prices": [
+   66,
+   71,
+   86
+  ],
+  "url": "https://www.kiwi.com/en/search/results/marrakesh-morocco/london-united-kingdom/2026-10-14",
+  "has_direct": true
+ }
+}
