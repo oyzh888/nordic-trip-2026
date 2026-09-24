@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>后半段订票参考 · 尼斯 → 里斯本 → 伦敦</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<section style="padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">Steve 一个人 · 10/6 → 10/18 · 价格 2026-09-20 → 09-24 实抓</div>
+    <h1 style="margin-bottom:16px">后半段 · 订票参考</h1>
+    <p class="lede">🇫🇷 <b>尼斯 4 晚</b> → 🇵🇹 <b>里斯本 4 晚</b> → 🇬🇧 <b>伦敦 4 晚</b> → 10/18 周日落 SFO。
+      四张机票 + 三处住宿，<b>从上往下点、从上往下买</b>。全部都还<b>没下单</b>。</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">01</span>机票 · 按先后顺序</h2>
+    <p class="lede">链接是 Google Flights 按日期、单程、1 位成人预先填好的搜索，点开就能看到那一班。
+      廉航（Norwegian / easyJet / Ryanair）<b>在官网下单</b>，结算页再看一眼行李费。</p>
+    <div class="tw"><table>
+      <thead><tr><th>#</th><th>日期</th><th>航班</th><th>价</th><th>为什么这班</th><th>去哪买</th></tr></thead>
+      <tbody id="fly"></tbody></table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">02</span>住宿 · 每城一个首选 + 备选</h2>
+    <p class="lede"><b>尼斯和伦敦选 Airbnb</b>（同价位的酒店只给小房间）；<b>里斯本可以考虑酒店</b> ——
+      老城陡坡、老楼常没电梯，拖箱子上四楼很痛苦。价格是 4 晚含税含费的总价（欧元）。</p>
+    <div class="card amb" style="margin-bottom:22px"><h3>下单前每一套都过这三条</h3><ul>
+      <li>房源页搜 <b>“Wifi”</b>，要写了具体速度（如 “Fast wifi – 100 Mbps”）；没写就问房东要测速截图。</li>
+      <li>照片里要有一张<b>能坐着工作 6 小时的桌子 + 有靠背的椅子</b>（不是吧台凳）。</li>
+      <li>评论里搜 <b>work / wifi / noise</b>。⛔ 别住尼斯老城、里斯本 Bairro Alto —— 夜里最吵的时候正是你的工作时段。</li>
+    </ul></div>
+    <div id="stays"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">03</span>要提前约的（躺平版只剩这几件）</h2>
+    <div class="tw"><table>
+      <thead><tr><th>什么</th><th>哪天</th><th>要不要提前</th><th>链接</th></tr></thead>
+      <tbody id="pre"></tbody></table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">!</span>三件别踩的</h2>
+    <div class="cards">
+      <div class="card hot"><h3>🔴 回程先买</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
+        LHR→SFO 占机票总额 76%，而且 9/5 是 $560、9/20 已经 $1,166。其他三段晚几天买差不了多少，这张会涨。</p></div>
+      <div class="card amb"><h3>🟠 Ryanair 落哪个机场</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
+        它飞 <b>Stansted 或 Luton</b>，不是希思罗。Stansted Express 47 分钟 / Luton 约 35 分钟进城。回程那天仍然从希思罗走。</p></div>
+      <div class="card"><h3>🧳 不要机+酒打包</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
+        四段是四家航司，其中两家是廉航，打包平台基本不收；退改还会绑在一起。分开订。</p></div>
+    </div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:26px">
+      <a class="badge ok" href="https://github.com/oyzh888/nordic-trip-2026/blob/main/notes/BUY-SOLO.md" target="_blank" rel="noopener">完整下单清单 + 逐日（GitHub）↗</a>
+      <a class="badge" href="/">回首页</a>
+    </div>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script>
+chrome();
+
+const gf = (a, b, d) => `https://www.google.com/travel/flights?hl=en&curr=USD&q=${
+  encodeURIComponent(`one-way flights from ${a} to ${b} on ${d} for 1 adult`)}`;
+const A = (h, t) => `<a href="${h}" target="_blank" rel="noopener">${t} ↗</a>`;
+
+const FLY = [
+  ['🔴🔴 1', '10/18 日', 'LHR 12:45 → SFO 15:55 · 直飞 11h10 · Virgin Atlantic', '$1,166',
+   '唯一不可替代、而且两周翻倍的一张。周日 13:30 PT 的会在飞机上 → 选有 wifi 的',
+   [gf('LHR', 'SFO', '2026-10-18'), 'Google Flights'], ['https://www.virginatlantic.com/', 'Virgin 官网']],
+  ['🔴 2', '10/10 六', 'NCE 12:15 → LIS 14:00 · 直飞 2h45', '$204',
+   '周六睡到自然醒，14:00 到，整个周六下午和晚上在里斯本。$153 那班要 04:30 起',
+   [gf('NCE', 'LIS', '2026-10-10'), 'Google Flights'], null],
+  ['🔴 3', '10/6 二', 'OSL 17:20 → NCE 20:15 · 直飞 2h55 · Norwegian', '$85',
+   '09:00–11:00 的会在奥斯陆开完再走；比 10:00 那班还便宜 $54',
+   [gf('OSL', 'NCE', '2026-10-06'), 'Google Flights'], ['https://www.norwegian.com/', 'Norwegian 官网']],
+  ['🟠 4', '10/14 三', 'LIS 09:40 → 伦敦 12:25 · 直飞 · Ryanair', '$82',
+   '周三没会；12:25 落地，18:00 前能进住处开工',
+   [gf('LIS', 'LON', '2026-10-14'), 'Google Flights'], ['https://www.ryanair.com/', 'Ryanair 官网']],
+];
+$('#fly').innerHTML = FLY.map(([p, d, f, $p, why, g, off]) => `<tr>
+  <td><span class="badge ${/🔴🔴/.test(p) ? 'hot' : 'amb'}">${p}</span></td>
+  <td>${d}</td><td><b>${f}</b></td><td><b>${$p}</b></td><td class="s">${why}</td>
+  <td>${A(...g)}${off ? '<br>' + A(...off) : ''}</td></tr>`).join('');
+
+/* Airbnb 链接带上入住日期，点开直接是那 4 晚的价 */
+const ab = (id, i, o) => `https://www.airbnb.com/rooms/${id}?check_in=${i}&check_out=${o}&adults=1`;
+const STAYS = [
+  { city: '🇫🇷 尼斯', when: '10/6 → 10/10 · 4 晚', med: '€622', i: '2026-10-06', o: '2026-10-10',
+    note: '住 Place Masséna ↔ Nice-Ville 车站之间：老城和海都在步行圈，但不在老城里面。',
+    rows: [
+      ['🥇', '€393', '★4.96', '走到 Place Masséna 2 分钟，带私人露台', 'airbnb', '1443297416255023788'],
+      ['', '€388', '★5.0', '安静明亮，离海滨大道 700 m', 'airbnb', '1755951383141506994'],
+      ['', '€395', '★4.96', 'Avenue Jean-Médecin 高楼层', 'airbnb', '48658006'],
+      ['', '€375', '★4.97', '私人露台，海景 + 山景', 'airbnb', '13017164'],
+    ] },
+  { city: '🇵🇹 里斯本', when: '10/10 → 10/14 · 4 晚', med: '€557', i: '2026-10-10', o: '2026-10-14',
+    note: '住 Baixa / Chiado。Airbnb 一定要问<b>有没有电梯</b>；嫌麻烦就直接订酒店（下面三家，价格点开看当天实价 —— 这三家我没抓到实价）。',
+    rows: [
+      ['🥇', '€362', '★4.96', 'Alfama 老城，Tagus 河景（⚠️ 问电梯）', 'airbnb', '13292214'],
+      ['', '€497', '★4.94', 'Arroios 明亮现代公寓', 'airbnb', '18047870'],
+      ['', '€234', '★4.88', '设计师公寓，18 世纪瓷砖墙（⚠️ 便宜得可疑，点开确认面积和位置）', 'airbnb', '34102943'],
+      ['🏨', '点开看', '', 'Martinhal Chiado（公寓式酒店，有厨房，就在 Chiado）', 'bk', 'pt/martinhal-lisbon-chiado-family-suites'],
+      ['🏨', '点开看', '', 'Heritage Avenida Liberdade（精品酒店，平地大道上）', 'bk', 'pt/heritage-avenida-liberdade'],
+      ['🏨', '点开看', '', 'Mundial（Baixa，地铁口，屋顶露台）', 'bk', 'pt/mundial'],
+    ] },
+  { city: '🇬🇧 伦敦', when: '10/14 → 10/18 · 4 晚', med: '€781', i: '2026-10-14', o: '2026-10-18',
+    note: 'Paddington / Hyde Park 一带：Heathrow Express 15 分钟直达，10/18 走最省心；Hyde Park 就在门口（10/14 的锚点）。',
+    rows: [
+      ['🥇', '€595', '★4.82', 'Marylebone 与 Edgware Road 地铁之间', 'airbnb', '1281197209882921388'],
+      ['', '€627', '★4.64', '走到海德公园 6 分钟', 'airbnb', '1620969860892941249'],
+      ['', '€709', '★5.0', '走到 Kensington Gardens 7 分钟', 'airbnb', '1670183614080025358'],
+      ['🏨', '€978', '可退', 'Native Hyde Park（公寓式，有厨房）· <b>免费取消到 10/12、10/10 前不付钱</b> → 可以现在零成本先占位。⚠️ 不含 20% VAT', 'bk', 'gb/native-hyde-park'],
+    ] },
+];
+const bk = (slug, i, o) => `https://www.booking.com/hotel/${slug}.html?checkin=${i}&checkout=${o}&group_adults=1&no_rooms=1&selected_currency=EUR`;
+$('#stays').innerHTML = STAYS.map(c => `
+  <h3 style="font:400 24px/1.3 var(--disp);margin:26px 0 4px">${c.city} <span class="s">${c.when} · 中位 ${c.med}</span></h3>
+  <p class="s" style="margin:0 0 10px">${c.note}</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>4 晚</th><th>评分</th><th>房源</th><th>链接</th></tr></thead>
+    <tbody>${c.rows.map(([m, p, r, t, k, id]) => `<tr>
+      <td>${m}</td><td><b>${p}</b></td><td class="s">${r}</td><td>${t}</td>
+      <td>${k === 'airbnb' ? A(ab(id, c.i, c.o), 'Airbnb') : A(bk(id, c.i, c.o), 'Booking')}</td></tr>`).join('')}
+    </tbody></table></div>`).join('');
+
+const PRE = [
+  ['🎭 伦敦西区看戏', '10/17 六 晚', '🔴 <b>要</b> —— 热门剧几周前就满，这周订', A('https://officiallondontheatre.com/', 'Official London Theatre')],
+  ['🏙 Sky Garden（免费，坐着看景）', '10/16 五', '🟠 要预约免费时段，开放时间提前约 3 周放票', A('https://skygarden.london/booking/', 'Sky Garden')],
+  ['⛴ 泰晤士河游船 Westminster→Greenwich', '10/16 五', '🟢 不用，当天码头买', A('https://www.thamesclippers.com/', 'Uber Boat')],
+  ['🎨 马蒂斯美术馆', '10/9 五', '🟢 不用，小馆现场买', A('https://www.musee-matisse-nice.org/', '官网')],
+  ['⛪ 热罗尼莫斯修道院（Belém）', '10/12 一', '🟢 建议网上买，省掉排队', A('https://www.museusemonumentos.pt/', '官方票务')],
+  ['🏰 Sintra 佩纳宫', '（已砍）', '只有你决定放回来时才要订时段票', A('https://www.parquesdesintra.pt/', 'Parques de Sintra')],
+];
+$('#pre').innerHTML = PRE.map(r => `<tr>${r.map((x, i) => `<td${i === 1 ? ' class="s"' : ''}>${x}</td>`).join('')}</tr>`).join('');
+
+$('#stats').innerHTML = [
+  ['$1,537', '四张机票'], ['€1,350', '住宿（三个首选）'], ['≈$3,060', '合计'],
+  ['12', '晚'], ['0 / 7', '已下单'],
+].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+</script>
+<script src="/anim.js"></script>
+</body>
+</html>
