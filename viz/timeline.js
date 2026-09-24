@@ -71,7 +71,7 @@ const EV = [
     '<br>🟠 <b>但别排太满</b>：这是一段 9h25 的红眼航班（北京 03:20 起飞），落地时基本是没睡好的状态。'+
     '<b>建议只选两样</b>（比如歌剧院屋顶 + Vigeland），16:00 前回酒店，早点睡 —— 明早 05:00 就要走。'},
  {lane:'stay', s:'2026-09-24T16:00', e:'2026-09-25T05:00', t:'🆕🆕 <b>Radisson Blu Airport Hotel</b> ×2 间 · 连廊直通航站楼（Standard 含早）',
-  st:'tbd', price:'Superior 大床 €309 + Standard 双床 €296 = <b>€605</b>（+12% VAT ≈ €678 ≈ ¥5,420）· 含早 · <b>可退到当天 18:00</b>',
+  st:'booked', price:'Superior 大床 €309 + Standard 双床 €296 = <b>€605</b>（+12% VAT ≈ €678 ≈ ¥5,420）· 含早 · <b>可退到当天 18:00</b>',
   link:'https://www.booking.com/hotel/no/radisson-blu-airport-oslo.html?checkin=2026-09-24&checkout=2026-09-25&group_adults=4&no_rooms=2&selected_currency=EUR',
   note:'🆕🆕 <b>2026-09-05 按「舒适优先」改成这家</b>（实价 9-05 抓的）。<b>它是 OSL 唯一走连廊直通航站楼的酒店</b> —— 不打车、不等班车、下雨下雪都不出户。'+
     '🔴 <b>2026-09-22 更正了这一条的论证。</b>我原来写的是「21:30 落地、只能睡 6.7 小时」——'+
@@ -114,14 +114,14 @@ const EV = [
  {lane:'act', s:'2026-09-25T17:00', e:'2026-09-25T20:00', t:'雷市：Hallgrímskirkja · 老港 · Sun Voyager',
   st:'ok', note:'🎯 <b>这一天从「傍晚市中心」变成完整一天</b>，就是因为 SK4787 07:05 落地。代价：06:15 的飞机要 04:00 起'},
  {lane:'stay', s:'2026-09-25T15:00', e:'2026-09-26T10:00', t:'雷克雅未克 · Aurora view 3BR 2BATH（3房/3床/2卫）',
-  st:'ok', price:'€647→€447 ≈ ¥1,788', link:'https://www.airbnb.com/rooms/1729852848905770040?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR',
+  st:'booked', price:'€647→€447 ≈ ¥1,788', link:'https://www.airbnb.com/rooms/1729852848905770040?check_in=2026-09-25&check_out=2026-09-26&adults=4&currency=EUR',
   note:'✅ 24h 内免费退，9/18 前部分退'},
 
 /* ===== 9/26 六 · 南岸 ===== */
  {lane:'act', s:'2026-09-26T09:00', e:'2026-09-26T17:30', t:'南岸 300 km / 3h45：Seljalandsfoss · Skógafoss · Dyrhólaey · Reynisfjara',
   st:'ok', note:'第一道瀑布能从背后绕过去；第二道 60 m 宽'},
  {lane:'stay', s:'2026-09-26T17:30', e:'2026-09-27T10:00', t:'Hörgsland Cottages · 3 卧整栋（Klaustur 东 10 km）',
-  st:'ok', price:'🆕 <b>€615 档（可退 + 含早）</b> +11% VAT +€6 城市税 ≈ <b>€689 ≈ ¥5,512</b>（原打算订的不可退档 €497）',
+  st:'booked', price:'🆕 <b>€615 档（可退 + 含早）</b> +11% VAT +€6 城市税 ≈ <b>€689 ≈ ¥5,512</b>（原打算订的不可退档 €497）',
   link:'https://www.booking.com/hotel/is/horgsland-cottages.html?checkin=2026-09-26&checkout=2026-09-27&group_adults=4&no_rooms=2&selected_currency=EUR',
   note:'🆕 <b>2026-09-05 改成买 €615 那档</b>（9-05 实抓）：<b>可免费退到 9/12 · 含早餐 · 9/10 之前一分钱不付</b>。'+
     '比原来那个 €497 不可退档贵 €118 ≈ ¥944，换到的是「行程还在动的时候不被锁死」+「第二天不用自己做早饭就能出发跑南岸」。'+
@@ -143,14 +143,14 @@ const EV = [
  {lane:'act', s:'2026-09-27T22:00', e:'2026-09-28T00:30', t:'🆕 夜：开去 Stokksnes 等极光（<b>22:00 之后</b>，让开周日例会）',
   st:'ok', note:'成败看云量，不看经度 —— 往东住不会让极光更好。'+'<br>🆕 <b>2026-09-23 按例会挪过：周日 13:30–15:00 PT 的会在冰岛是 20:30–22:00</b>，原来排的 20:30 出发正好撞上 → <b>改成 22:00 之后再出门</b>。'+'🟢 这反而更好：极光活动通常 22:00–01:00 最强，早去多半只是在黑地里等。'},
  {lane:'stay', s:'2026-09-27T17:00', e:'2026-09-28T10:00', t:'Guesthouse Birkifell · 2 卧整栋（Höfn 西 10 km）',
-  st:'ok', price:'€504 +税 = €565 ≈ ¥2,260', link:'https://www.booking.com/hotel/is/guesthouse-birkifell.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR',
+  st:'booked', price:'€504 +税 = €565 ≈ ¥2,260', link:'https://www.booking.com/hotel/is/guesthouse-birkifell.html?checkin=2026-09-27&checkout=2026-09-28&group_adults=4&no_rooms=2&selected_currency=EUR',
   note:'✅ <b>免费退到 9/25 + 到店付 → 零风险，最该先订的一个</b>。只剩 1 套'},
 
 /* ===== 9/28 一 · 黄金圈（全程最长） ===== */
  {lane:'act', s:'2026-09-28T08:30', e:'2026-09-28T17:30', t:'🆕 黄金圈（蓝湖已挪走）约 400 km / 5h：Þingvellir · Geysir · Gullfoss',
   st:'ok', note:'🆕 <b>已减负</b>：蓝湖挪到 9/25 之后，这天从 <b>520 km / 6h30 → 约 400 km / 5h</b>，而且不用赶在关门前泡汤。晚上仍住 Njarðvík 那套带热浴桶+桑拿的（泡汤不缺）'},
  {lane:'stay', s:'2026-09-28T19:30', e:'2026-09-29T10:00', t:'Njarðvík · Hot tub & Sauna · Ocean Break（3房/3床/<b>1卫</b>）',
-  st:'ok', price:'€531→€335 ≈ ¥1,340', link:'https://www.airbnb.com/rooms/1139944377459145061?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
+  st:'booked', price:'€531→€335 ≈ ¥1,340', link:'https://www.airbnb.com/rooms/1139944377459145061?check_in=2026-09-28&check_out=2026-09-29&adults=4&currency=EUR',
   note:'✅ 免费退到 9/23。🟠 <b>只有 1 个卫生间</b>（4 个人）—— 但带热浴桶+桑拿，跑完黄金圈那天正需要。KEF 只 5 分钟。'+
     '🆕 <b>2026-09-05 复核后维持不换</b>：第二天 9/29 是休息日、不用早起，1 卫的代价只落在早上，而热浴桶+桑拿是这一段最想要的东西。'},
 
@@ -162,7 +162,7 @@ const EV = [
  {lane:'act', s:'2026-09-30T00:45', e:'2026-09-30T01:00', t:'🆕 深夜走连廊到酒店 约 5 min（原方案是 01:30 才到 Nannestad）',
   st:'ok', note:'🆕 <b>2026-09-05 舒适优先</b>：00:45 落地那一刻还要去等出租车 / 等班车是全程最难受的一段，直接删掉'},
  {lane:'stay', s:'2026-09-30T01:00', e:'2026-09-30T11:30', t:'🆕🆕 <b>Radisson Blu Airport Hotel</b> ×2 间 · 连廊直通航站楼',
-  st:'tbd', price:'Superior 大床 €256 + Standard 双床 €240 = <b>€496</b>（+12% VAT ≈ €556 ≈ ¥4,450）· 含早 · <b>可退到当天 18:00</b>',
+  st:'booked', price:'Superior 大床 €256 + Standard 双床 €240 = <b>€496</b>（+12% VAT ≈ €556 ≈ ¥4,450）· 含早 · <b>可退到当天 18:00</b>',
   link:'https://www.booking.com/hotel/no/radisson-blu-airport-oslo.html?checkin=2026-09-29&checkout=2026-09-30&group_adults=4&no_rooms=2&selected_currency=EUR',
   note:'🆕🆕 <b>2026-09-05 按「舒适优先」也改成连廊那家。</b>🔴🔴 <b>这是全程最紧的一夜，而且 DY1171 已出票 —— 00:45 落地是事实，不是假设。</b>'+
     '🆕 <b>2026-09-22：EVE 那班改推 13:20 之后，这一夜不再紧张</b> —— <b>01:00 进房、睡到 11:00、11:30 走（约 8 小时）</b>，中间一步都不用出楼；'+
@@ -222,7 +222,7 @@ const EV = [
   st:'booked', price:'<b>$401.88</b> ≈ ¥2,853（已付 $30.18 · 取车再付 $371.70）· 免费取消到 <b>9/30 17:00</b>',
   note:'✅ <b>已确认。</b>TOS 航站楼 10/2 17:00 取、10/5 17:00 还；自动挡、5 座、押金 $1,450。'},
 {lane:'stay', s:'2026-10-02T18:00', e:'2026-10-05T09:00', t:'特罗姆瑟 4 房 · 4 床 · 2 卫（连住 3 晚）',
-  st:'ok', price:'€1,526 / 3 晚 ≈ ¥2,035/晚', link:'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-05&adults=4&currency=EUR',
+  st:'booked', price:'€1,526 / 3 晚 ≈ ¥2,035/晚', link:'https://www.airbnb.com/rooms/825162133059470411?check_in=2026-10-02&check_out=2026-10-05&adults=4&currency=EUR',
   note:'✅ 免费退到 10/1。🆕 <b>2026-09-05：船屋那条便宜 ¥5,600 的建议已撤销，就订这套。</b>'+
     '理由按新口径：<b>4 房 4 床 2 卫的固定房子在市区里</b> —— 连住 3 晚、每晚都要出去追极光再回来，'+
     '船上（摇、上下船、极光夜零点回来）不是这一段该省钱的地方。这也是全程唯一连住 3 晚的家，值得住最舒服的那个。'},
@@ -262,7 +262,7 @@ const EV = [
 {lane:'act', s:'2026-10-05T13:20', e:'2026-10-05T18:45', t:'OSL → Stange/Mjøsli 30–40 min，Mjøsa 湖畔（18:45 天黑）',
   st:'ok', note:'🆕 按 10:45 那班算：13:40 进小屋，<b>还剩约 5 小时白天</b> + 一整个傍晚泡桑拿。（坐 08:20 是 7 小时白天，但要 06:45 起床）'},
  {lane:'stay', s:'2026-10-05T13:40', e:'2026-10-06T11:00', t:'Konglehytta 3 · Star View · 私人桑拿（2房/3床/<b>1卫</b>）',
-  st:'ok', price:'€306 可退档 ≈ ¥1,224', link:'https://www.airbnb.com/rooms/648419631702172808?check_in=2026-10-05&check_out=2026-10-06&adults=4&currency=EUR',
+  st:'booked', price:'€306 可退档 ≈ ¥1,224', link:'https://www.airbnb.com/rooms/648419631702172808?check_in=2026-10-05&check_out=2026-10-06&adults=4&currency=EUR',
   note:'★4.98 整栋小木屋。✅ 可退档只比不可退贵 €10 → 直接选可退。🆕 <b>2026-09-05：确定选它（不换机场酒店），车③ 一起租。</b>'+
     '🟠 <b>只有 1 个卫生间</b> —— 4 个人 + 第二天要赶洲际，早上会排队。🔴 <b>所以 10/6 的洲际时刻一定要先确认</b>：'+
     '如果是上午的班，从这里 09:00 前就得走；如果确认是 10/7 才走，这一晚就完全放松了（见最后一条）。'},
@@ -306,11 +306,7 @@ const TOFILL = [
       '（24 小时内都算 1 个计费日，改早不涨价，免费取消到 10/3 还有余地）；若是下午/晚上走 → 13:00 正好，早上白得 4 小时。'+
       '<b>这是全程唯一一个「已付钱但可能和行程打架」的地方。</b>',
   ev:'时间线里 12:00 起飞还是占位值'},
- {p:'🔴 这两天', what:'<b>8 晚住宿下单</b>：Radisson ×2 夜（9/24 · 9/29）· Birkifell（9/27，只剩 1 套）· 雷市（9/25）· Hörgsland（9/26 买 €615 可退含早档）· Njarðvík（9/28）· 特罗姆瑟 ×3 晚 · Konglehytta（10/5）', who:'Steve',
-  why:'车全订完了，住宿是现在唯一还敞着的大块。<b>几乎全部可免费取消 → 先订下来再慢慢调，不吃亏。</b>'+
-      '两个例外要注意：<b>Birkifell 只剩 1 套</b>（且免费退 + 到店付 = 零风险，最该先订）；'+
-      '<b>Hörgsland 要买 €615 那档</b>并在备注里请他们把卧室 3 的两张单人床并起来（整栋没有一张双人床）',
-  ev:'逐个房源页实抓，价和退改条款都核过'},
+ {p:'✅ 已完成', what:'~~8 晚住宿下单~~ → <b>Steve 9/23 确认：住宿全部已订，没问题</b>', who:'Steve', why:'🔴 这一条在 9/23 之前一直显示「还没订」，但那不是数据没拉到新 —— git 本地和远端是一致的，<b>是「已订」这件事从来没被写回仓库</b>：十条住宿里只有罗弗敦那套标着 <code>已订</code>，其余六条停在 <code>已选定</code>、两夜 Radisson 停在 <code>待填</code>，而现实里都已经下单了。教训：<b>看板上没打勾 ≠ 现实里没做</b> —— 订完没人回写状态，它就会一直报一件已经解决的事，还会挤掉真正还没做的那两条。确认号按惯例不进公开仓库。', ev:'Steve 口头确认 2026-09-23'},
  {p:'🔴 这两天', what:'<b>蓝湖 Premium 票 ×4</b>（9/25 上午 09:00 那批）', who:'Steve',
   why:'预约时段制，不是随到随进。SK4787 07:05 落地让 9/25 白得一整天，蓝湖离 KEF 只 20 分钟 —— 刚下飞机泡温泉。'+
       '⚠️ 顺便看清行李寄存（那时刚取车、车上四个大箱子）',
