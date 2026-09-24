@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/fr/okko-nice-centre.html?checkin=2026-10-06&checkout=2026-10-10&group_adults=1&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "nice-okko",
+  "hotel": "fr/okko-nice-centre",
+  "checkin": "2026-10-06",
+  "checkout": "2026-10-10",
+  "adults": 1,
+  "rooms": 1
+ }
+}

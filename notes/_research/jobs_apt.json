@@ -1,0 +1,11 @@
+[
+ {"slug":"nice-residhome","hotel":"fr/residhome-nice-promenade","checkin":"2026-10-06","checkout":"2026-10-10","adults":1,"rooms":1},
+ {"slug":"nice-adagio","hotel":"fr/adagio-access-nice-magnan","checkin":"2026-10-06","checkout":"2026-10-10","adults":1,"rooms":1},
+ {"slug":"nice-okko","hotel":"fr/okko-nice-centre","checkin":"2026-10-06","checkout":"2026-10-10","adults":1,"rooms":1},
+ {"slug":"lis-mundial","hotel":"pt/mundial","checkin":"2026-10-10","checkout":"2026-10-14","adults":1,"rooms":1},
+ {"slug":"lis-martinhal","hotel":"pt/martinhal-lisbon-chiado-family-suites","checkin":"2026-10-10","checkout":"2026-10-14","adults":1,"rooms":1},
+ {"slug":"lis-heritage","hotel":"pt/heritage-avenida-liberdade","checkin":"2026-10-10","checkout":"2026-10-14","adults":1,"rooms":1},
+ {"slug":"lon-novotel-pad","hotel":"gb/novotel-london-paddington","checkin":"2026-10-14","checkout":"2026-10-18","adults":1,"rooms":1},
+ {"slug":"lon-hilton-pad","hotel":"gb/hilton-london-paddington","checkin":"2026-10-14","checkout":"2026-10-18","adults":1,"rooms":1},
+ {"slug":"lon-native-hp","hotel":"gb/native-hyde-park","checkin":"2026-10-14","checkout":"2026-10-18","adults":1,"rooms":1}
+]

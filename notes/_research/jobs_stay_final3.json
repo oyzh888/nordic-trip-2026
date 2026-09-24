@@ -1,0 +1,5 @@
+[
+ {"slug":"nice",   "place":"Nice, France",            "checkin":"2026-10-06","checkout":"2026-10-10","adults":1,"min_bedrooms":1,"min_bathrooms":1},
+ {"slug":"lisbon", "place":"Lisbon, Portugal",        "checkin":"2026-10-10","checkout":"2026-10-14","adults":1,"min_bedrooms":1,"min_bathrooms":1},
+ {"slug":"london", "place":"Paddington, London",      "checkin":"2026-10-14","checkout":"2026-10-18","adults":1,"min_bedrooms":1,"min_bathrooms":1}
+]

@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/pt/heritage-avenida-liberdade.html?checkin=2026-10-10&checkout=2026-10-14&group_adults=1&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "lis-heritage",
+  "hotel": "pt/heritage-avenida-liberdade",
+  "checkin": "2026-10-10",
+  "checkout": "2026-10-14",
+  "adults": 1,
+  "rooms": 1
+ }
+}

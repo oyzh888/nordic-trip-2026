@@ -1,0 +1,14 @@
+{
+ "title": "Booking.com Online Hotel Reservations",
+ "url": "https://www.booking.com/hotel/pt/martinhal-lisbon-chiado-family-suites.html?checkin=2026-10-10&checkout=2026-10-14&group_adults=1&group_children=0&no_rooms=1&selected_currency=EUR&lang=en-us",
+ "sold_out": false,
+ "rows": [],
+ "job": {
+  "slug": "lis-martinhal",
+  "hotel": "pt/martinhal-lisbon-chiado-family-suites",
+  "checkin": "2026-10-10",
+  "checkout": "2026-10-14",
+  "adults": 1,
+  "rooms": 1
+ }
+}
