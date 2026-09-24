@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>打包清单 · 北欧 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="stylesheet" href="/style.css">
+<style>
+/* 这一页和站里其他页不同：它是**在手机上单手边收东西边点**的，
+   所以点击目标要大（≥48px 高）、字要够、勾完要明显。 */
+/* 🔴 全站 style.css 里是 body{overflow-x:hidden} —— 那会让 body 变成滚动容器，
+   **position:sticky 整站失效**（导航其实一直没真吸顶，只是没人注意）。
+   overflow-x:clip 同样挡住横向溢出，但**不**创建滚动容器 → sticky 恢复。
+   只在这一页覆盖：这页是边收东西边滚着勾的，进度条必须一直看得见。 */
+body{overflow-x:clip}
+.pk{max-width:760px}
+.batch{margin:26px 0 0}
+.batch h2{font-size:clamp(19px,2.2vw,23px);margin:0 0 2px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.batch .when{font:600 12px/1 var(--mono);letter-spacing:.06em;color:var(--acc);
+  border:1px solid currentColor;border-radius:999px;padding:5px 9px;white-space:nowrap}
+.batch .why{color:var(--ink2);font-size:14.5px;margin:6px 0 12px}
+ul.items{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
+ul.items li{border-bottom:1px solid var(--hair)}
+label.it{display:flex;gap:13px;align-items:flex-start;padding:13px 4px;min-height:48px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent}
+label.it input{appearance:none;flex:0 0 auto;width:23px;height:23px;margin:1px 0 0;border-radius:6px;
+  border:1.5px solid var(--hair2);background:transparent;cursor:pointer;position:relative;transition:.16s}
+label.it input:checked{background:var(--acc);border-color:var(--acc)}
+label.it input:checked::after{content:'';position:absolute;left:7px;top:3px;width:6px;height:11px;
+  border:solid #0F0E0C;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+label.it input:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+label.it .tx{flex:1;min-width:0;line-height:1.45}
+label.it .tx .n{display:block;color:var(--ink2);font-size:13px;margin-top:3px}
+label.it input:checked ~ .tx{color:var(--ink3)}
+label.it input:checked ~ .tx b{color:var(--ink3);font-weight:600}
+label.it input:checked ~ .tx .n{color:var(--ink3);opacity:.7}
+/* 进度条：吸在视口顶端，随时知道还剩多少。
+   ⚠️ 不要按导航高度做偏移 —— 站里的导航**本身不吸顶**（见上面那条 overflow 的注释，
+   它是 .nav 自己的问题），偏移只会在滚动时留出一条空白。 */
+.prog{position:sticky;top:0;z-index:40;background:rgba(15,14,12,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair);margin:0 0 4px}
+.prog .in{max-width:760px;margin:0 auto;padding:11px clamp(16px,4vw,28px) 12px;
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.prog .bar{flex:1;min-width:120px;height:6px;border-radius:99px;background:var(--panel2);overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.prog .num{font:700 15px/1 var(--mono);white-space:nowrap}
+.prog .sync{font:500 11.5px/1 var(--mono);color:var(--ink3);white-space:nowrap}
+.prog .sync.on{color:var(--acc)}
+.prog .sync.err{color:#D98859}
+.tools{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 0}
+.tools button{font:600 13px/1 var(--sans);color:var(--ink2);background:transparent;
+  border:1px solid var(--hair2);border-radius:999px;padding:9px 14px;cursor:pointer}
+.tools button:hover{color:var(--ink);border-color:var(--acc)}
+.done .batch{opacity:.45}
+@media(max-width:520px){label.it{padding:14px 2px}}
+</style>
+</head>
+<body>
+
+<div class="prog"><div class="in">
+  <span class="num" id="num">0 / 0</span>
+  <span class="bar"><i id="bar"></i></span>
+  <span class="sync" id="sync">···</span>
+</div></div>
+
+<section style="padding-top:22px">
+  <div class="wrap pk">
+    <div class="eyebrow">9/23 出发前 · 60–75 分钟</div>
+    <h1 style="margin-bottom:14px">打包清单</h1>
+    <p class="lede">顺序不是按物品分类排的，是<b>按「忘了有多贵」排的</b> ——
+      最上面那批是店会关门、过了今天就补不上的；最下面那批随时能买，时间不够就砍。
+      <b>先把会「等」的启动（洗衣机 / 充电 / 下地图），再做要「手」的。</b></p>
+    <p class="lede s">勾选状态存在云端 —— <b>手机和电脑上都能点，会互相同步</b>。
+      同一条以后勾的为准，所以两台设备同时开着也不会互相抹掉。</p>
+    <div class="tools">
+      <button id="hide">隐藏已完成</button>
+      <button id="pull">立刻同步</button>
+    </div>
+  </div>
+</section>
+
+<section><div class="wrap pk" id="list"></div></section>
+
+<script src="/app.js"></script>
+<script>
+/* ==================================================================
+   清单数据 —— 顺序 = 推荐的打包顺序
+   id 一旦发布就不要改（改了等于把那一条的勾选丢掉）
+   ================================================================== */
+const BATCHES = [
+ {t:'🚀 第 0 步 · 先启动会「等」的', when:'现在 · 5 分钟', acc:0,
+  why:'打包慢从来不是手慢，是最后卡在洗衣机没转完、充电宝没充满、地图没下完。这一批全部是「按一下就走开」的，必须第一个做。后两条是<b>店会关门</b>，过了今天没机会。',
+  items:[
+   ['s0-wash','洗衣机开起来','后半段要穿的那几件'],
+   ['s0-batt','所有电池插上充电','充电宝 · 相机备用电池 ×2 · Watch · AirPods · iPad · MBP'],
+   ['s0-maps','手机下离线地图','冰岛 / 挪威北部 / 尼斯 / 马拉喀什 / 伦敦 —— 很大很慢'],
+   ['s0-rx','<b>点一下处方药够不够 25 天</b>','9/23→10/18 是 25 天，不是 13 天。不够现在就去药房'],
+   ['s0-uk','<b>英标插头 ×2 找出来或今天买掉</b>','法国和摩洛哥是欧标 C/E，<b>英国是完全不同的三方插</b> —— 伦敦 4 晚每晚要工作 6 小时，这一项直接决定能不能开工'],
+   ['s0-pin','信用卡设 4 位 PIN','欧洲加油站和自动机要 PIN，不是签名'],
+  ]},
+
+ {t:'① 忘了就废', when:'10 分钟', acc:1,
+  why:'这一批在路上买不到，或者买得到但整趟行程会被打断。装完这一批，最坏情况也只是「不方便」，不会是「进不去」。',
+  items:[
+   ['b1-passport','护照','顺手确认<b>英国签证</b>那一页/电子记录在'],
+   ['b1-cards','信用卡 ×2','<b>分开放</b>（一张在随身包、一张在身上），其中一张有 PIN'],
+   ['b1-cash','现金 €100–200','摩洛哥的迪拉姆境外换不到，落地 ATM 取'],
+   ['b1-rx','处方药（原包装）','原包装 + 处方照片，过关不解释'],
+   ['b1-glasses','隐形眼镜 + <b>备用框架眼镜</b>','25 天，隐形出问题没有第二条路'],
+   ['b1-mbp','MBP + 充电器 ×2','每晚要工作 6 小时，充电器带两个是对的'],
+   ['b1-plug','欧标 C/F ×2 + <b>英标 G ×2</b>',''],
+   ['b1-dl','驾照','用中国驾照要带 IDP。后半段不租车，但别专门拆出来'],
+   ['b1-docs','订单 + 保险纸质副本','手机没电时唯一能拿出来的东西'],
+  ]},
+
+ {t:'② 忘了很烦', when:'15 分钟', acc:1,
+  why:'都能在当地买到，但都要花半天找店、而且买回来的是将就的。按「袋」装，装完一袋勾一次。',
+  items:[
+   ['b2-cables','🔌 线材袋','iPad Type-C ×4 · Watch 充电线套装 · GaN 多口 · 短电源板（一转多，酒店插座永远不够）'],
+   ['b2-power','充电宝','充满后<b>装随身，不托运</b>'],
+   ['b2-cam','🎥 相机袋','运动相机 + 三脚架 + 备用电池 ×2 + 存储卡 + 读卡器'],
+   ['b2-ipad','iPad 12" + 便携显示屏',''],
+   ['b2-hdd','移动硬盘 · 录音笔 · eSIM · 行李秤',''],
+   ['b2-wash','🧴 洗护袋','牙刷牙膏牙套 · 护唇膏 · <b>防晒</b> · 润肤水面霜面膜 · 刮胡刀（<b>刀片必须托运</b>）'],
+   ['b2-med','💊 药袋','晕车 · 感冒 · 布洛芬 · 止泻 · 过敏 · 创可贴'],
+   ['b2-laundry','洗衣凝珠 <b>×8</b>（不是 3）· 消毒湿巾','25 天要洗三轮 —— 这比多带衣服划算得多'],
+   ['b2-sleep','墨镜 · 眼罩 · 耳塞 · 旅行脖枕','9/24 是红眼航班（北京 03:20 起飞）'],
+  ]},
+
+ {t:'③ 衣服 —— 按袋，不按件', when:'20 分钟', acc:2,
+  why:'⛔ <b>不要逐件核对</b>，那是最大的时间黑洞。分成三袋：全程穿的、只有北欧要的、只有后半段要的。<b>「北欧专用」那袋要独立</b> —— 10/6 在奥斯陆整袋拎出来交给回北京的人，不用现场翻箱。',
+  items:[
+   ['b3-shell','🧳 硬壳冲锋衣 ×1','防风防水带帽 —— 冰岛和伦敦都靠它，全程留着'],
+   ['b3-down','🧳 可压缩羽绒 / Primaloft ×1','伦敦夜里约 9°C，羽绒+硬壳就够'],
+   ['b3-wool','🧳 羊毛长袖 ×2',''],
+   ['b3-tops','🧳 长袖 ×2 · 短袖 ×2',''],
+   ['b3-pants','🧳 长裤 ×2',''],
+   ['b3-under','🧳 内裤 ×6 · 袜子 ×5','件数<b>不用加</b>，加的是洗衣次数'],
+   ['b3-swim','🧳 泳衣 · 快干毛巾','冰岛温泉 · 挪威桑拿+热浴桶 · 尼斯海水还有 20°C'],
+   ['b3-slip','🧳 拖鞋 · 压缩袋 · 脏衣袋 · 大塑料袋',''],
+   ['b3a-rainpants','🟦 防水外裤',''],
+   ['b3a-fleece','🟦 抓绒',''],
+   ['b3a-thermal','🟦 薄保暖长裤袜 · 厚羊毛袜 ×2',''],
+   ['b3a-hat','🟦 毛线帽 · 脖套 · 能触屏的手套',''],
+   ['b3a-boots','🟦 防水徒步鞋 —— <b>9/24 穿在脚上，别装箱</b>','最占地方的东西不要进箱子。10/6 换成城市鞋，徒步鞋归进这袋交出去'],
+   ['b3a-car','🟦 车充 + 手机车架 + 长充电线','后半段全程火车/地铁/打车，一次都用不上'],
+   ['b3a-torch','🟦 头灯（有红光档）','追极光用；城市段是纯重量'],
+   ['b3a-food','🟦 调料包 · 茶咖 · 方便面/挂面/榨菜 · 厨房纸','北欧是自炊，后半段是城市餐馆'],
+   ['b3b-shirt','🟩 <b>薄长袖衬衫 ×2</b>（一件深色）· 新增','一件顶三个用途：马拉喀什防晒 · souk 着装得体（别露肩露膝）· 见朋友和看西区演出时体面'],
+   ['b3b-shoes','🟩 <b>城市走路鞋 ×1</b>（轻便运动鞋）· 新增','伦敦一天走一万五千步 + 三个大馆，徒步鞋太重太热'],
+   ['b3b-cap','🟩 <b>遮阳帽 / 棒球帽 ×1</b>· 新增','马拉喀什白天约 28°C 烈日 —— 现在清单里只有毛线帽'],
+   ['b3b-shorts','🟩 短裤 ×1 · 新增','酒店/花园/尼斯海边穿，⛔ 进老城 souk 换长裤'],
+   ['b3b-sling','🟩 能拉拉链的斜挎包 · 新增','尼斯老城 / 马拉喀什 souk / 伦敦地铁都是扒手高发，别用敞口托特'],
+   ['b3b-fold','🟩 <b>可压扁的软折叠包</b> · 新增','① 10/6 装北欧那一袋交出去 ② 伦敦买东西后回程超重时当第二件。平时压扁塞箱子里'],
+  ]},
+
+ {t:'④ 随时能买 —— 时间不够就砍', when:'剩多少做多少', acc:3,
+  why:'这一批全部是可再生的。<b>不要在这里花时间</b>，它挤掉的是上面三批。',
+  items:[
+   ['b4-bottle','保温杯 <b>或</b> 折叠水壶（留一个，不要两个）',''],
+   ['b4-trash','垃圾袋 · 湿巾',''],
+   ['b4-extra','其余吃的',''],
+  ]},
+
+ {t:'🎒 分装：三个包各装什么', when:'装完之后', acc:3,
+  why:'<b>结论：不带登机箱。</b>一个大托运箱 + 一个背包。原因：后半段两段 easyJet / Ryanair，<b>Ryanair 免费随身只有约 40×25×20 cm 的小包，标准登机箱要付费</b>；而 9/24 行李<b>不直挂</b>（洲际和 SK4787 是两张订单），那天要自己拖着走一整天 —— 件数越少越轻松。',
+  items:[
+   ['bp-batt','🟥 随身：<b>全部锂电池</b>','充电宝 · 相机备用电池 ×2 —— 锂电池不能托运'],
+   ['bp-work','🟥 随身：MBP + iPad + 便携显示屏 + 充电器','贵重 + 你靠它工作，不进托运'],
+   ['bp-doc','🟥 随身：护照 · 卡 · 现金 · 处方药',''],
+   ['bp-spare','🟥 随身：<b>一套换洗内衣 + 一件保暖层</b>','防行李丢 + 红眼航班机舱冷'],
+   ['bp-size','🟥 <b>试装一次：背包能塞进 40×25×20 吗</b>','塞不下就在那两段买 priority / 大舱行李（约 €20–30/段，合计约 $65）—— 这比带个登机箱全程被盯尺寸更省'],
+   ['ov-bag','⬜ <b>「过夜包」放箱子最外层</b>','9/24 晚 16:00 入住 Radisson、05:00 就出门。牙刷 · 隐形+药水 · 9/25 那天的一套衣服 · 一条充电线 + 插头 · 眼罩耳塞 —— <b>到酒店只拿这袋，不开箱</b>'],
+   ['bag-blue','🟦 北欧专用那袋<b>单独封好、放箱子最上层</b>','10/6 在 OSL 整袋交给回北京的人（约 3–4 kg）。⚠️ 只有在有人能带到你之后拿得回来的地方时才成立，否则背着走完 12 天'],
+   ['bag-green','🟩 后半段那袋<b>塞箱子最底层</b>','前两周完全不用动它'],
+  ]},
+
+ {t:'✅ 出门前最后 3 分钟', when:'出门前', acc:4,
+  why:'',
+  items:[
+   ['z-weigh','称一次行李','清单里有行李秤 —— 别到机场才发现'],
+   ['z-photo','拍一张箱内照片','行李丢失索赔时唯一有用的证据'],
+   ['z-cloud','证件拍照存云端',''],
+   ['z-charge','手机充满 · 充电宝拔下来装随身',''],
+   ['z-time','<b>00:20 到首都机场</b>','9/24 03:20 起飞，国际航班留 3 小时'],
+  ]},
+];
+
+/* ==================================================================
+   同步层
+   为什么不是 localStorage / cookie：那是**按设备**存的，手机上勾的电脑看不到。
+   这里两层都用 —— 本机 localStorage 保证离线/断网也能勾（收东西时网可能不稳），
+   云端 KV 负责跨设备。合并规则：**同一条取时间戳更晚的**，所以两台设备同时开着
+   也不会互相抹掉（不是整份覆盖）。
+   ================================================================== */
+const LS = 'pack:v1';
+let state = {};                 // { id: {c:bool, t:ms} }
+let dirty = false;
+
+const load = () => { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch { return {}; } };
+const save = () => { try { localStorage.setItem(LS, JSON.stringify(state)); } catch {} };
+
+function mergeIn(incoming) {
+  let changed = false;
+  for (const [id, v] of Object.entries(incoming || {})) {
+    if (!v || typeof v.t !== 'number') continue;
+    if (!state[id] || v.t > state[id].t) { state[id] = { c: !!v.c, t: v.t }; changed = true; }
+  }
+  return changed;
+}
+
+const sync = document.getElementById('sync');
+const setSync = (txt, cls = '') => { sync.textContent = txt; sync.className = 'sync ' + cls; };
+
+async function pull() {
+  try {
+    const r = await fetch('/api/pack', { cache: 'no-store' });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    if (mergeIn(d.items)) { save(); render(); }
+    setSync('已同步 ' + new Date().toTimeString().slice(0, 5), 'on');
+  } catch { setSync('离线（本机已存）', 'err'); }
+}
+
+let pushTimer = null;
+function push() {
+  dirty = true;
+  setSync('保存中…');
+  clearTimeout(pushTimer);
+  // 防抖：连着勾五条只发一次请求
+  pushTimer = setTimeout(async () => {
+    try {
+      const r = await fetch('/api/pack', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ items: state }),
+      });
+      if (!r.ok) throw new Error(r.status);
+      const d = await r.json();
+      mergeIn(d.items); save(); render();
+      dirty = false;
+      setSync('已同步 ' + new Date().toTimeString().slice(0, 5), 'on');
+    } catch { setSync('离线（本机已存）', 'err'); }
+  }, 700);
+}
+
+/* ---------- 渲染 ---------- */
+const ALL = BATCHES.flatMap(b => b.items.map(i => i[0]));
+function render() {
+  const done = ALL.filter(id => state[id] && state[id].c).length;
+  document.getElementById('num').textContent = `${done} / ${ALL.length}`;
+  document.getElementById('bar').style.width = (done / ALL.length * 100) + '%';
+  document.querySelectorAll('input[data-id]').forEach(el => {
+    el.checked = !!(state[el.dataset.id] && state[el.dataset.id].c);
+  });
+  document.querySelectorAll('.batch').forEach(sec => {
+    const ids = [...sec.querySelectorAll('input[data-id]')].map(e => e.dataset.id);
+    sec.classList.toggle('alldone', ids.every(id => state[id] && state[id].c));
+  });
+}
+
+document.getElementById('list').innerHTML = BATCHES.map(b => `
+  <div class="batch" data-hue="${b.acc}">
+    <h2>${b.t}<span class="when">${b.when}</span></h2>
+    ${b.why ? `<p class="why">${b.why}</p>` : ''}
+    <ul class="items">${b.items.map(([id, tx, note]) => `
+      <li><label class="it">
+        <input type="checkbox" data-id="${id}">
+        <span class="tx">${tx}${note ? `<span class="n">${note}</span>` : ''}</span>
+      </label></li>`).join('')}</ul>
+  </div>`).join('');
+
+document.getElementById('list').addEventListener('change', e => {
+  const el = e.target.closest('input[data-id]');
+  if (!el) return;
+  state[el.dataset.id] = { c: el.checked, t: Date.now() };
+  save(); render(); push();
+});
+
+document.getElementById('hide').addEventListener('click', e => {
+  const on = document.body.classList.toggle('hidedone');
+  e.target.textContent = on ? '显示全部' : '隐藏已完成';
+  document.querySelectorAll('ul.items li').forEach(li => {
+    const el = li.querySelector('input[data-id]');
+    li.style.display = (on && el.checked) ? 'none' : '';
+  });
+});
+document.getElementById('pull').addEventListener('click', pull);
+
+state = load();
+render();
+chrome();
+pull();
+/* 回到这个页面时拉一次（在另一台设备上勾过的会出现）。
+   ⚠️ KV 是最终一致的，跨地区最多约 60 秒 —— 合并是按条目的，所以只会「晚点看到」，不会丢。 */
+document.addEventListener('visibilitychange', () => { if (!document.hidden) pull(); });
+setInterval(() => { if (!document.hidden && !dirty) pull(); }, 20000);
+</script>
+<style>
+.batch.alldone h2,.batch.alldone .why{opacity:.5}
+body.hidedone .batch.alldone ul.items{display:none}
+</style>
+</body>
+</html>

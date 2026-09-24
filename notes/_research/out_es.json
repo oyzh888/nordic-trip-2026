@@ -1,0 +1,698 @@
+{
+ "E-nce-bcn": {
+  "frm": "NCE",
+  "to": "BCN",
+  "date": "2026-10-10",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20BCN%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 71,
+    "dep": "15:10",
+    "arr": "16:35",
+    "mins": 85,
+    "stops": "Nonstop",
+    "air": "Vueling"
+   },
+   {
+    "price": 77,
+    "dep": "08:55",
+    "arr": "10:15",
+    "mins": 80,
+    "stops": "Nonstop",
+    "air": "Vueling"
+   },
+   {
+    "price": 141,
+    "dep": "09:00",
+    "arr": "19:10",
+    "mins": 610,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 144,
+    "dep": "17:55",
+    "arr": "22:25",
+    "mins": 270,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 198,
+    "dep": "19:20",
+    "arr": "23:15",
+    "mins": 235,
+    "stops": "1 stop",
+    "air": "ITA"
+   },
+   {
+    "price": 253,
+    "dep": "19:10",
+    "arr": "23:35",
+    "mins": 265,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 288,
+    "dep": "10:20",
+    "arr": "15:35",
+    "mins": 315,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 300,
+    "dep": "11:20",
+    "arr": "15:55",
+    "mins": 275,
+    "stops": "1 stop",
+    "air": "ITA"
+   },
+   {
+    "price": 378,
+    "dep": "09:00",
+    "arr": "14:05",
+    "mins": 305,
+    "stops": "1 stop",
+    "air": "?"
+   }
+  ]
+ },
+ "E-bcn-lon": {
+  "frm": "BCN",
+  "to": "LON",
+  "date": "2026-10-14",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20BCN%20to%20LON%20on%202026-10-14%20for%201%20adult",
+  "offers": [
+   {
+    "price": 18,
+    "dep": "13:25",
+    "arr": "14:50",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 18,
+    "dep": "19:30",
+    "arr": "20:55",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 22,
+    "dep": "09:35",
+    "arr": "11:00",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Wizz"
+   },
+   {
+    "price": 24,
+    "dep": "07:40",
+    "arr": "09:10",
+    "mins": 150,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 25,
+    "dep": "16:40",
+    "arr": "18:05",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Wizz"
+   },
+   {
+    "price": 26,
+    "dep": "05:55",
+    "arr": "07:20",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 26,
+    "dep": "16:30",
+    "arr": "17:55",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 26,
+    "dep": "17:35",
+    "arr": "19:00",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 26,
+    "dep": "10:35",
+    "arr": "12:00",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 30,
+    "dep": "21:30",
+    "arr": "22:50",
+    "mins": 140,
+    "stops": "Nonstop",
+    "air": "Vueling"
+   },
+   {
+    "price": 30,
+    "dep": "10:50",
+    "arr": "12:15",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Vueling"
+   },
+   {
+    "price": 30,
+    "dep": "20:20",
+    "arr": "21:45",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   }
+  ]
+ },
+ "E-nce-mad": {
+  "frm": "NCE",
+  "to": "MAD",
+  "date": "2026-10-10",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20MAD%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 138,
+    "dep": "06:00",
+    "arr": "00:20",
+    "mins": 1100,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 183,
+    "dep": "11:35",
+    "arr": "22:10",
+    "mins": 635,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 210,
+    "dep": "19:20",
+    "arr": "10:45",
+    "mins": 925,
+    "stops": "1 stop",
+    "air": "ITA"
+   },
+   {
+    "price": 230,
+    "dep": "18:55",
+    "arr": "20:55",
+    "mins": 120,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 277,
+    "dep": "19:20",
+    "arr": "00:10",
+    "mins": 290,
+    "stops": "1 stop",
+    "air": "ITA"
+   },
+   {
+    "price": 282,
+    "dep": "06:30",
+    "arr": "08:35",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 302,
+    "dep": "12:45",
+    "arr": "14:45",
+    "mins": 120,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 366,
+    "dep": "08:45",
+    "arr": "14:10",
+    "mins": 325,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 375,
+    "dep": "06:40",
+    "arr": "12:20",
+    "mins": 340,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 459,
+    "dep": "14:30",
+    "arr": "19:50",
+    "mins": 320,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 523,
+    "dep": "06:05",
+    "arr": "11:05",
+    "mins": 300,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   }
+  ]
+ },
+ "E-mad-lon": {
+  "frm": "MAD",
+  "to": "LON",
+  "date": "2026-10-14",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20MAD%20to%20LON%20on%202026-10-14%20for%201%20adult",
+  "offers": [
+   {
+    "price": 62,
+    "dep": "06:30",
+    "arr": "07:55",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 79,
+    "dep": "21:10",
+    "arr": "22:30",
+    "mins": 140,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 80,
+    "dep": "20:35",
+    "arr": "08:30",
+    "mins": 775,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 81,
+    "dep": "22:20",
+    "arr": "23:45",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 96,
+    "dep": "10:15",
+    "arr": "11:40",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 98,
+    "dep": "19:35",
+    "arr": "21:00",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 105,
+    "dep": "10:15",
+    "arr": "11:40",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 112,
+    "dep": "07:00",
+    "arr": "08:25",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 112,
+    "dep": "16:50",
+    "arr": "18:15",
+    "mins": 145,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 112,
+    "dep": "15:45",
+    "arr": "17:15",
+    "mins": 150,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 113,
+    "dep": "09:30",
+    "arr": "10:50",
+    "mins": 140,
+    "stops": "Nonstop",
+    "air": "Iberia"
+   },
+   {
+    "price": 114,
+    "dep": "07:40",
+    "arr": "09:00",
+    "mins": 140,
+    "stops": "Nonstop",
+    "air": "British Airways"
+   }
+  ]
+ },
+ "E-nce-agp": {
+  "frm": "NCE",
+  "to": "AGP",
+  "date": "2026-10-10",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20AGP%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 145,
+    "dep": "15:10",
+    "arr": "22:05",
+    "mins": 415,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 173,
+    "dep": "11:35",
+    "arr": "19:45",
+    "mins": 490,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 182,
+    "dep": "08:55",
+    "arr": "17:00",
+    "mins": 485,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 211,
+    "dep": "09:00",
+    "arr": "00:05",
+    "mins": 905,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 220,
+    "dep": "06:00",
+    "arr": "22:55",
+    "mins": 1015,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 223,
+    "dep": "11:35",
+    "arr": "18:45",
+    "mins": 430,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 225,
+    "dep": "06:00",
+    "arr": "14:30",
+    "mins": 510,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 274,
+    "dep": "08:35",
+    "arr": "18:00",
+    "mins": 565,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 297,
+    "dep": "09:00",
+    "arr": "15:25",
+    "mins": 385,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 319,
+    "dep": "08:35",
+    "arr": "15:40",
+    "mins": 425,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 391,
+    "dep": "16:40",
+    "arr": "22:35",
+    "mins": 355,
+    "stops": "1 stop",
+    "air": "Air France"
+   },
+   {
+    "price": 422,
+    "dep": "12:45",
+    "arr": "16:55",
+    "mins": 250,
+    "stops": "1 stop",
+    "air": "Iberia"
+   }
+  ]
+ },
+ "E-agp-lon": {
+  "frm": "AGP",
+  "to": "LON",
+  "date": "2026-10-14",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20AGP%20to%20LON%20on%202026-10-14%20for%201%20adult",
+  "offers": [
+   {
+    "price": 19,
+    "dep": "00:10",
+    "arr": "01:55",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 19,
+    "dep": "23:45",
+    "arr": "01:30",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 26,
+    "dep": "10:50",
+    "arr": "12:40",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 26,
+    "dep": "21:45",
+    "arr": "23:35",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 26,
+    "dep": "21:00",
+    "arr": "22:55",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 46,
+    "dep": "07:00",
+    "arr": "09:00",
+    "mins": 180,
+    "stops": "Nonstop",
+    "air": "Vueling"
+   },
+   {
+    "price": 52,
+    "dep": "20:30",
+    "arr": "22:20",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 65,
+    "dep": "20:40",
+    "arr": "22:40",
+    "mins": 180,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 70,
+    "dep": "12:50",
+    "arr": "14:45",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 72,
+    "dep": "06:10",
+    "arr": "08:05",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 73,
+    "dep": "19:50",
+    "arr": "21:45",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 79,
+    "dep": "12:25",
+    "arr": "14:20",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "?"
+   }
+  ]
+ },
+ "E-nce-svq": {
+  "frm": "NCE",
+  "to": "SVQ",
+  "date": "2026-10-10",
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20SVQ%20on%202026-10-10%20for%201%20adult",
+  "offers": [
+   {
+    "price": 229,
+    "dep": "08:55",
+    "arr": "14:45",
+    "mins": 350,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 234,
+    "dep": "06:00",
+    "arr": "00:25",
+    "mins": 1105,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 247,
+    "dep": "15:10",
+    "arr": "22:15",
+    "mins": 425,
+    "stops": "1 stop",
+    "air": "Vueling"
+   },
+   {
+    "price": 285,
+    "dep": "12:15",
+    "arr": "00:25",
+    "mins": 730,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 288,
+    "dep": "06:30",
+    "arr": "21:05",
+    "mins": 875,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 304,
+    "dep": "11:35",
+    "arr": "13:20",
+    "mins": 1545,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 316,
+    "dep": "10:05",
+    "arr": "19:00",
+    "mins": 535,
+    "stops": "1 stop",
+    "air": "British Airways"
+   },
+   {
+    "price": 350,
+    "dep": "06:30",
+    "arr": "12:45",
+    "mins": 375,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 350,
+    "dep": "12:45",
+    "arr": "21:05",
+    "mins": 500,
+    "stops": "1 stop",
+    "air": "Iberia"
+   },
+   {
+    "price": 376,
+    "dep": "10:50",
+    "arr": "17:35",
+    "mins": 1845,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 427,
+    "dep": "06:05",
+    "arr": "12:05",
+    "mins": 360,
+    "stops": "1 stop",
+    "air": "Lufthansa"
+   },
+   {
+    "price": 473,
+    "dep": "17:55",
+    "arr": "23:25",
+    "mins": 330,
+    "stops": "1 stop",
+    "air": "Air France"
+   }
+  ]
+ }
+}

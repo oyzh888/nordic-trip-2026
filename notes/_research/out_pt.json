@@ -1,0 +1,107 @@
+{
+ "P-lis-lon-1014": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20LON%20on%202026-10-14%20for%201%20adult",
+  "offers": [
+   {
+    "price": 66,
+    "dep": "05:55",
+    "arr": "08:40",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 80,
+    "dep": "20:20",
+    "arr": "23:05",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 82,
+    "dep": "09:40",
+    "arr": "12:25",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 85,
+    "dep": "16:30",
+    "arr": "19:15",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "Ryanair"
+   },
+   {
+    "price": 89,
+    "dep": "21:35",
+    "arr": "00:10",
+    "mins": 155,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 97,
+    "dep": "13:00",
+    "arr": "15:40",
+    "mins": 160,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 100,
+    "dep": "06:10",
+    "arr": "08:50",
+    "mins": 160,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 103,
+    "dep": "10:30",
+    "arr": "13:15",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "easyJet"
+   },
+   {
+    "price": 109,
+    "dep": "16:15",
+    "arr": "20:25",
+    "mins": 250,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 109,
+    "dep": "07:00",
+    "arr": "11:20",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "?"
+   },
+   {
+    "price": 111,
+    "dep": "19:15",
+    "arr": "22:00",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?"
+   },
+   {
+    "price": 111,
+    "dep": "20:10",
+    "arr": "22:55",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?"
+   }
+  ]
+ },
+ "P-nce-lis-1010b": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LIS%20on%202026-10-10%20for%201%20adult",
+  "offers": []
+ }
+}

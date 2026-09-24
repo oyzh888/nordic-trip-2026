@@ -18,6 +18,7 @@ const md_ = d => `${d.getMonth() + 1}/${d.getDate()}`;
 /* ---------- 导航（每页一样，当前页高亮） ---------- */
 const PAGES = [
   ['/', '首页'], ['/days/', '逐日'], ['/plan/', '最终方案'], ['/cars/', '四台车'],
+  ['/pack/', '打包'],
 ];
 function nav() {
   const here = location.pathname.replace(/index\.html$/, '') || '/';
