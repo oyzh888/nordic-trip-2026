@@ -19,6 +19,12 @@ TOKEN_FILE = "/sensei-fs-3/users/zouyang/.secrets/pluto-auth-token-steve-train.t
 
 
 def client():
+    # 首选网关代发（pod 上 PLUTO_AUTH_TOKEN 自动注入）；旧的固定 token 文件 5 月就写死了，会过期
+    try:
+        from foundry_aws_gateway.llm import get_google_genai
+        return get_google_genai(location="global")
+    except Exception:  # noqa: BLE001
+        pass
     token = open(TOKEN_FILE).read().strip()
     data = requests.get(
         "https://foundry-aws-pluto.adobe.io/iam/credentials/gcp",

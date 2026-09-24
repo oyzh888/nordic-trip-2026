@@ -1,0 +1,738 @@
+[
+ {
+  "city": "lon",
+  "url": "https://www.booking.com/searchresults.html?dest_id=43&dest_type=district&checkin=2026-10-14&checkout=2026-10-17&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204",
+  "found": "53",
+  "unavail_pct": "81",
+  "cards": [
+   {
+    "name": "Grand Concerto Hotel",
+    "url": "https://www.booking.com/hotel/gb/castleton.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/668710450.webp?k=8a12196d08b5b157395c4f941570c19f06bf5ab6813b40c363ad1e89779a4524&o=",
+    "raw": "Grand Concerto Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 965 reviews ¶ Location 9.3 ¶ Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 206 ¶ € 773€ 619 ¶ Original price € 773. Current price € 619. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Shakespeare Hotel",
+    "url": "https://www.booking.com/hotel/gb/shakespeare-london.html",
+    "price_4n": 580,
+    "score": "7.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/492207491.webp?k=345ea2fee286f9e751f27af099b24d5aecd909593888f53fbc991d3b58a69841&o=",
+    "raw": "Shakespeare Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.0 ¶ 7.0 ¶ Good ¶ 2,170 reviews ¶ Location 9.3 ¶ Family Room (2 Adults + 3 Children) ¶ Multiple bed types ¶ Per night€ 193 ¶ € 580 ¶ Price € 580 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hilton London Metropole",
+    "url": "https://www.booking.com/hotel/gb/hilton-london-metropole.html",
+    "price_4n": 707,
+    "score": "7.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/837637151.webp?k=80fb25b2b15a41cd1f5da2228e7af9ce59d1b7d9ad3df7d2fd613948631781b2&o=",
+    "raw": "Hilton London Metropole ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 7.5 ¶ 7.5 ¶ Good ¶ 8,546 reviews ¶ Queen Room ¶ 1 queen bed ¶ Per night€ 236 ¶ € 707 ¶ Price € 707 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Prince William Hotel",
+    "url": "https://www.booking.com/hotel/gb/prince-william.html",
+    "price_4n": null,
+    "score": "7.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/589481950.webp?k=370baa52ffb68283502bf5929164843f15c0af12d960836d4ac19cf783433c76&o=",
+    "raw": "Prince William Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.2 ¶ 7.2 ¶ Good ¶ 1,811 reviews ¶ Double Room ¶ 1 full bed ¶ Per night€ 139 ¶ € 509€ 417 ¶ Original price € 509. Current price € 417. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Putera Puteri Residence",
+    "url": "https://www.booking.com/hotel/gb/putera-puteri-residence.html",
+    "price_4n": 301,
+    "score": "7.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/556695497.webp?k=89ee03f4c78ff0bee9de0ba0da6e9a05a37a297c29810e8caf01deb0a7ccf8a3&o=",
+    "raw": "Putera Puteri Residence ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.2 ¶ 7.2 ¶ Good ¶ 842 reviews ¶ Location 9.3 ¶ Single Room ¶ 1 twin bed ¶ Per night€ 100 ¶ € 301 ¶ Price € 301 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "St. David's Hotels Paddington",
+    "url": "https://www.booking.com/hotel/gb/st-david-39-s-hotels.html",
+    "price_4n": 444,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/536484438.webp?k=71b68db712e076b57289e7dcc391655613d71c864cef165b80937e8735a2d96f&o=",
+    "raw": "St. David's Hotels Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,071 reviews ¶ Location 9.5 ¶ Single Room with Shared Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 148 ¶ € 444 ¶ Price € 444 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "MARINA HOTEL London",
+    "url": "https://www.booking.com/hotel/gb/marina-london-greater-london.html",
+    "price_4n": 484,
+    "score": "7.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/655494376.webp?k=1392c63af4b6c07b14c748df4c773dfb93648e3d45eb54d5f6b909cc4f5926f2&o=",
+    "raw": "MARINA HOTEL London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.5 ¶ 7.5 ¶ Good ¶ 1,060 reviews ¶ Classic Double or Twin ¶ 2 twin beds ¶ Per night€ 161 ¶ € 484 ¶ Price € 484 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hilton London Paddington",
+    "url": "https://www.booking.com/hotel/gb/hilton-london-paddington.html",
+    "price_4n": 935,
+    "score": "7.9",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/832759848.webp?k=77877611bf0b94af9ff911b906aec253e7981b4579b0081ee120d68af2fb955f&o=",
+    "raw": "Hilton London Paddington ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 7.9 ¶ 7.9 ¶ Good ¶ 3,436 reviews ¶ Location 9.4 ¶ Family Room ¶ 1 full bed ¶ Per night€ 312 ¶ € 935 ¶ Price € 935 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Seymour Hotel",
+    "url": "https://www.booking.com/hotel/gb/seymourhotel.html",
+    "price_4n": 266,
+    "score": "6.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/14446216.webp?k=c71b15a8794d2a74f3442aa35cb75f032092649a74607a980dde3e302371818b&o=",
+    "raw": "Seymour Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.5 ¶ 6.5 ¶ Review score ¶ 1,368 reviews ¶ Twin Room ¶ 2 twin beds ¶ Breakfast included ¶ Per night€ 89 ¶ € 266 ¶ Price € 266 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Ascot Hyde Park Hotel",
+    "url": "https://www.booking.com/hotel/gb/ascot-hyde-park.html",
+    "price_4n": 402,
+    "score": "5.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/42247256.webp?k=d7fc7843bf6b267154105f25db9775998f9c2e780c362029e55be47d4956ffcc&o=",
+    "raw": "Ascot Hyde Park Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 5.5 ¶ 5.5 ¶ Review score ¶ 4,661 reviews ¶ Double Room ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 134 ¶ € 402 ¶ Price € 402 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Omega Hotel",
+    "url": "https://www.booking.com/hotel/gb/theomegahotel.html",
+    "price_4n": null,
+    "score": "7.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/27046759.webp?k=4651cc60b59fc52dae40184eb7d5f579f865fa7bd5fdc245406808db3f37be33&o=",
+    "raw": "The Omega Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.7 ¶ 7.7 ¶ Good ¶ 1,204 reviews ¶ Single Room ¶ 1 twin bed ¶ Breakfast included ¶ We have 2 left at this price ¶ Per night€ 150 ¶ € 549€ 450 ¶ Original price € 549. Current price € 450. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Mercure London Paddington Hotel",
+    "url": "https://www.booking.com/hotel/gb/londoncrownhotel.html",
+    "price_4n": 698,
+    "score": "7.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/909612136.webp?k=7772bc6b3d6c435d0ab4d18c5be1bad01c471325002d9d262ab47a177a89d953&o=",
+    "raw": "Mercure London Paddington Hotel ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 7.4 ¶ 7.4 ¶ Good ¶ 2,319 reviews ¶ Location 9.4 ¶ Small Double Room ¶ 1 full bed ¶ We have 7 left at this price ¶ Per night€ 233 ¶ € 698 ¶ Price € 698 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Norfolk, Paddington",
+    "url": "https://www.booking.com/hotel/gb/paddington-inn.html",
+    "price_4n": null,
+    "score": "7.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/864773959.webp?k=81cec187683f3968d0f92b2d102897c1157c80fd284b03a62b8add30581fc43f&o=",
+    "raw": "The Norfolk, Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.4 ¶ 7.4 ¶ Good ¶ 786 reviews ¶ Late Escape Deal ¶ Cosy Double Park View Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 153 ¶ € 660€ 459 ¶ Original price € 660. Current price € 459. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Orchard Hotel",
+    "url": "https://www.booking.com/hotel/gb/orchard-greater-london.html",
+    "price_4n": 489,
+    "score": "7.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/319448786.webp?k=0cca95db25df5e572c31ff4f42b6871d2a9c17cbf27125722a3d09fdf88365ad&o=",
+    "raw": "Orchard Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.1 ¶ 7.1 ¶ Good ¶ 1,921 reviews ¶ Standard Triple Room ¶ 2 beds (1 twin, 1 full) ¶ Breakfast included ¶ Per night€ 163 ¶ € 489 ¶ Price € 489 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Gresham Hotel",
+    "url": "https://www.booking.com/hotel/gb/gresham-london.html",
+    "price_4n": null,
+    "score": "7.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/271743830.webp?k=16512d5bfe72c0052dd7867f77e0cfcaedb8958c960c1014fa538ad8a4153f18&o=",
+    "raw": "Gresham Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.5 ¶ 7.5 ¶ Good ¶ 3,546 reviews ¶ Standard Single Room ¶ 1 twin bed ¶ We have 6 left at this price ¶ Per night€ 138 ¶ € 576€ 415 ¶ Original price € 576. Current price € 415. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Best Western Plus Delmere Hotel",
+    "url": "https://www.booking.com/hotel/gb/thedelmerehotel.html",
+    "price_4n": 577,
+    "score": "8.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/887426760.webp?k=ea686efa6810002a1d4f122d89a666d2c409f9c0b3d4885967dee8687a6ca403&o=",
+    "raw": "Best Western Plus Delmere Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,263 reviews ¶ Location 9.5 ¶ Cozy Single Room - Non-Smoking ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 192 ¶ € 577 ¶ Price € 577 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Tony's House Hotel",
+    "url": "https://www.booking.com/hotel/gb/tony-s-house.html",
+    "price_4n": 402,
+    "score": "6.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/4258365.webp?k=5f14d7d87fa7a7433a7329bcd1f50675c2d84394fc34fc902d86ae7f48b667c9&o=",
+    "raw": "Tony's House Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.5 ¶ 6.5 ¶ Review score ¶ 1,716 reviews ¶ Family Room (3 Adults) ¶ 2 beds (1 twin, 1 full) ¶ Breakfast included ¶ Per night€ 134 ¶ € 402 ¶ Price € 402 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Westpoint Hotel",
+    "url": "https://www.booking.com/hotel/gb/westpointhotel.html",
+    "price_4n": null,
+    "score": "7.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/84224902.webp?k=5560074000aa74df22c86321734885221a5112c8ff5fb5b9d4fcaca1d858dc72&o=",
+    "raw": "Westpoint Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.2 ¶ 7.2 ¶ Good ¶ 2,831 reviews ¶ One Bedroom Apartment ¶ Entire apartment • 1 bedroom • 1 living room • 1 bathroom • 1 kitchen • 172 ft² ¶ 2 beds (1 full, 1 sofa bed) ¶ We have 2 left at this price ¶ Per night€ 202 ¶ € 740€ 606 ¶ Original price € 740. Current price € 606. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Falcon Hotel",
+    "url": "https://www.booking.com/hotel/gb/falcon-london.html",
+    "price_4n": 368,
+    "score": "6.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/859945947.webp?k=202240c2f5ac716d2f19916c8995a877afe56ee069a45d6fe2aa96d94aacd53d&o=",
+    "raw": "Falcon Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.1 ¶ 6.1 ¶ Review score ¶ 1,148 reviews ¶ Standard Single Room ¶ 1 twin bed ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 123 ¶ € 368 ¶ Price € 368 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Rove Hotel London Paddington",
+    "url": "https://www.booking.com/hotel/gb/rove-hotel-london-paddington.html",
+    "price_4n": null,
+    "score": "7.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/524205117.webp?k=8d1ca5f1aef2a1e3d602b85569e4c1835f44ed9c9676c26d78e59f73460b714e&o=",
+    "raw": "Rove Hotel London Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.5 ¶ 7.5 ¶ Good ¶ 4,693 reviews ¶ Small Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 124 ¶ € 455€ 373 ¶ Original price € 455. Current price € 373. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Mercure London Hyde Park Hotel",
+    "url": "https://www.booking.com/hotel/gb/qualityhotelpaddington.html",
+    "price_4n": 799,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914552707.webp?k=f307c7ee11accf77ad963243be8aac823e39cafae80dd38c2f375c016800455b&o=",
+    "raw": "Mercure London Hyde Park Hotel ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,975 reviews ¶ Location 9.3 ¶ Standard King Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 266 ¶ € 799 ¶ Price € 799 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Royal Cambridge Hotel",
+    "url": "https://www.booking.com/hotel/gb/royalcambridgehotel.html",
+    "price_4n": 295,
+    "score": "7.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/81104503.webp?k=f44eca66312a8f571f0167b59963f6fbdf61a8c85e6f1512a51fc2493631c734&o=",
+    "raw": "Royal Cambridge Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.0 ¶ 7.0 ¶ Good ¶ 1,001 reviews ¶ Single Room ¶ 1 twin bed ¶ Per night€ 98 ¶ € 295 ¶ Price € 295 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Roseate House London",
+    "url": "https://www.booking.com/hotel/gb/theroyalparkhotel.html",
+    "price_4n": 766,
+    "score": "8.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912279940.webp?k=f642eb1017a7c9a87c50b813d1dc4b7faa7b0a1a630a3dafd42ab1126b435df0&o=",
+    "raw": "Roseate House London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 1,233 reviews ¶ Location 9.5 ¶ Superior Double Room ¶ 1 queen bed ¶ Per night€ 255 ¶ € 766 ¶ Price € 766 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Crescent Hyde Park",
+    "url": "https://www.booking.com/hotel/gb/paddington-scancourt.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194200824.webp?k=365701c4eaac3ebc8396f28b161ac54aabdd678edbaab8cb0def6382a4eb1880&o=",
+    "raw": "The Crescent Hyde Park ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 2,552 reviews ¶ Standard Double (Lower Ground) ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 171 ¶ € 563€ 512 ¶ Original price € 563. Current price € 512. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Pilgrm",
+    "url": "https://www.booking.com/hotel/gb/the-pilgrm.html",
+    "price_4n": null,
+    "score": "7.8",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/821340652.webp?k=d356feefc786185e03c4aed6ec51a5aea3a4800809c0a2bf130a40d38e5f14e1&o=",
+    "raw": "The Pilgrm ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.8 ¶ 7.8 ¶ Good ¶ 1,752 reviews ¶ Location 9.3 ¶ Snug Double Room ¶ 1 full bed ¶ We have 7 left at this price ¶ Per night€ 231 ¶ € 762€ 694 ¶ Original price € 762. Current price € 694. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Paddington Townhouse Hotel by OYO",
+    "url": "https://www.booking.com/hotel/gb/thirty-sussex.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/913233623.webp?k=a6f31f578f6dd90d9ccf2a21383039c49b89857ce62e5de33799bb4a42ecdd76&o=",
+    "raw": "Paddington Townhouse Hotel by OYO ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 80 reviews ¶ Late Escape Deal ¶ Superior Triple Room ¶ 3 beds (2 twins, 1 sofa bed) ¶ We have 2 left at this price ¶ Per night€ 270 ¶ € 1,087€ 848 ¶ Original price € 1,087. Current price € 848. ¶ 3 nights, 1"
+   },
+   {
+    "name": "Dolphin Hotel",
+    "url": "https://www.booking.com/hotel/gb/dolphin-london.html",
+    "price_4n": 516,
+    "score": "7.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/492211794.webp?k=d2865ccf5d26a94f1588409c4252a4810980f67750f9054433305b1e71f78bac&o=",
+    "raw": "Dolphin Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.2 ¶ 7.2 ¶ Good ¶ 959 reviews ¶ Quad Room ¶ 4 twin beds ¶ Per night€ 172 ¶ € 516 ¶ Price € 516 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Voyage Hotel Paddington",
+    "url": "https://www.booking.com/hotel/gb/sonder-the-voyage.html",
+    "price_4n": 419,
+    "score": "7.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/819377594.webp?k=91bdb238638d881be0b98abf9859a4384bef849a435af3444ef4684d67f1fd5d&o=",
+    "raw": "The Voyage Hotel Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.3 ¶ 7.3 ¶ Good ¶ 1,898 reviews ¶ Location 9.3 ¶ Small Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 140 ¶ € 419 ¶ Price € 419 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Belmont Hotel",
+    "url": "https://www.booking.com/hotel/gb/belmont-astoria.html",
+    "price_4n": 269,
+    "score": "6.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/690796563.webp?k=bccef83ab5406438e84cf631bb434e5f34b8bdcc3585134296f51bfc60c9acc8&o=",
+    "raw": "Belmont Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.5 ¶ 6.5 ¶ Review score ¶ 756 reviews ¶ Twin Room ¶ 2 twin beds ¶ Per night€ 90 ¶ € 269 ¶ Price € 269 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "St George Hotel Paddington",
+    "url": "https://www.booking.com/hotel/gb/st-george.html",
+    "price_4n": 601,
+    "score": "6.6",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/824263408.webp?k=572ecd324598432aa39739108b3d6bfb458b6e53f55646a50c322841308205ec&o=",
+    "raw": "St George Hotel Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.6 ¶ 6.6 ¶ Review score ¶ 586 reviews ¶ Standard Double Room ¶ 1 full bed ¶ We have 4 left at this price ¶ Per night€ 200 ¶ € 601 ¶ Price € 601 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Lancaster Court Hotel",
+    "url": "https://www.booking.com/hotel/gb/lancaster-court-greater-london.html",
+    "price_4n": null,
+    "score": "6.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/520836450.webp?k=043a35b16cf1af17a03b32685fa662bae08f81d96d7a8984be0d03c72920a8e6&o=",
+    "raw": "Lancaster Court Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.5 ¶ 6.5 ¶ Review score ¶ 766 reviews ¶ Late Escape Deal ¶ Single Room with Shared Toilet ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 96 ¶ € 413€ 289 ¶ Original price € 413. Current price € 289. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Sophia",
+    "url": "https://www.booking.com/hotel/gb/sophia.html",
+    "price_4n": 271,
+    "score": "6.6",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/2932438.webp?k=e1205194737661825ea8cff3bc73f8acbab450be1a1d3d097f86b48d6cecbfa9&o=",
+    "raw": "Hotel Sophia ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 6.6 ¶ 6.6 ¶ Review score ¶ 905 reviews ¶ Double Room ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 90 ¶ € 271 ¶ Price € 271 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Stylotel",
+    "url": "https://www.booking.com/hotel/gb/ruddimanshotel.html",
+    "price_4n": 469,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5909244.webp?k=f3eee3660f640c86b61bfcc3f54907e553e471c9f9677335a85ce863bf9e2a1c&o=",
+    "raw": "Stylotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 2,748 reviews ¶ Location 9.5 ¶ Double Styloroom ¶ 1 full bed ¶ Breakfast included ¶ Per night€ 156 ¶ € 469 ¶ Price € 469 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Belvedere Hotel",
+    "url": "https://www.booking.com/hotel/gb/belvederehotellondon.html",
+    "price_4n": 437,
+    "score": "7.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251533244.webp?k=f0894b6fdf4b7d6227238f892f29fb1a2730ae76e767526357742dd50fd530db&o=",
+    "raw": "Belvedere Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.2 ¶ 7.2 ¶ Good ¶ 2,093 reviews ¶ Triple Room ¶ 2 beds (1 twin, 1 full) ¶ Free cancellation ¶ Per night€ 146 ¶ € 437 ¶ Price € 437 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Point A Hotel London Paddington",
+    "url": "https://www.booking.com/hotel/gb/point-a-hotel-london-paddington.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/867092506.webp?k=9086ca7cd94577120bbb31feaded203abaa752347f9e6f3677ac93bb57a72072&o=",
+    "raw": "Point A Hotel London Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 4,838 reviews ¶ Cozy Double Room with Window ¶ 1 full bed ¶ Free cancellation ¶ Per night€ 192 ¶ € 640€ 576 ¶ Original price € 640. Current price € 576. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Picton House Hotel by Citystaylondon",
+    "url": "https://www.booking.com/hotel/gb/picton-house-hotel.html",
+    "price_4n": 376,
+    "score": "5.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/746264144.webp?k=22faa0fe296dc801df4bd8397a68073337d78bc060ef8f7867e5d612eedb0c9b&o=",
+    "raw": "Picton House Hotel by Citystaylondon ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 5.5 ¶ 5.5 ¶ Review score ¶ 23 reviews ¶ Double Room ¶ 1 full bed ¶ Per night€ 125 ¶ € 376 ¶ Price € 376 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Olympic House Hotel",
+    "url": "https://www.booking.com/hotel/gb/olympic-house-london.html",
+    "price_4n": 552,
+    "score": "7.6",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/53150338.webp?k=839024d152d1ae8cefb000c1b7f29ee84fcb30cbd940f2b83c7befa62aed7647&o=",
+    "raw": "Olympic House Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.6 ¶ 7.6 ¶ Good ¶ 1,604 reviews ¶ Location 9.3 ¶ Standard Quadruple Room ¶ 3 beds (2 twins, 1 full) ¶ Breakfast included ¶ Per night€ 184 ¶ € 552 ¶ Price € 552 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Aspen Hotel",
+    "url": "https://www.booking.com/hotel/gb/aspen-apartments.html",
+    "price_4n": null,
+    "score": "7.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/20760049.webp?k=f7917d3219dec5beb2dd1246a8c939787039f4e4a4dbb3334cb7cc5b2da2a7e8&o=",
+    "raw": "Aspen Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.7 ¶ 7.7 ¶ Good ¶ 1,037 reviews ¶ Location 9.3 ¶ Double Studio ¶ Entire studio • 1 bathroom • 140 ft² ¶ 2 beds (1 full, 1 sofa bed) ¶ We have 2 left at this price ¶ Per night€ 212 ¶ € 775€ 635 ¶ Original price € 775. Current price € 635. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "easyHotel Paddington",
+    "url": "https://www.booking.com/hotel/gb/boulevardhotel.html",
+    "price_4n": 362,
+    "score": "7.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/698395071.webp?k=58437b61dec6a43383473d6371753379f35a4a0c27374a69f17714930ad10c27&o=",
+    "raw": "easyHotel Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.0 ¶ 7.0 ¶ Good ¶ 362 reviews ¶ Double Room with Window ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 121 ¶ € 362 ¶ Price € 362 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Balmoral House Hotel",
+    "url": "https://www.booking.com/hotel/gb/balmoral-house.html",
+    "price_4n": 510,
+    "score": "7.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/573541492.webp?k=b9f7d732388fe72b40e55b596e8efef63dc58f2d347dbc368d11a38c90fd0970&o=",
+    "raw": "Balmoral House Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 7.3 ¶ 7.3 ¶ Good ¶ 1,636 reviews ¶ Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Per night€ 170 ¶ € 510 ¶ Price € 510 ¶ 3 nights, 1 adult ¶ See availability"
+   }
+  ]
+ },
+ {
+  "city": "lon",
+  "url": "https://www.booking.com/searchresults.html?dest_id=43&dest_type=district&checkin=2026-10-14&checkout=2026-10-17&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204%3Breview_score%3D80&order=price",
+  "found": "13",
+  "unavail_pct": "95",
+  "cards": [
+   {
+    "name": "Travelodge London Balham",
+    "url": "https://www.booking.com/hotel/gb/po-travelodge-london-balham-wandsworth.html",
+    "price_4n": 330,
+    "score": null,
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/813271860.webp?k=6f0796c63069e731ca6702cbec2b356ed96efafdefc2c01473411b8d024ecc8b&o=",
+    "raw": "Travelodge London Balham ¶ Opens in new window ¶ Partner Offer ¶ Wandsworth, LondonShow on map ¶ 5.2 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Very Good 8.0 ¶ 230 external reviews ¶ Double Room ¶ 1 king bed ¶ Per night€ 110 ¶ € 330 ¶ Price € 330 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "St. David's Hotels Paddington",
+    "url": "https://www.booking.com/hotel/gb/st-david-39-s-hotels.html",
+    "price_4n": 444,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/536484438.webp?k=71b68db712e076b57289e7dcc391655613d71c864cef165b80937e8735a2d96f&o=",
+    "raw": "St. David's Hotels Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,071 reviews ¶ Location 9.5 ¶ Single Room with Shared Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 148 ¶ € 444 ¶ Price € 444 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Montcalm Chilworth Townhouse",
+    "url": "https://www.booking.com/hotel/gb/montcalm-chilworth-townhouse.html",
+    "price_4n": 508,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147562016.webp?k=3f0bdc4803ee613616e5bcbd2f897169d9795a0a9c2b0d893a4d1021e294150a&o=",
+    "raw": "Montcalm Chilworth Townhouse ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 7,403 reviews ¶ Location 9.4 ¶ Deluxe Single Room ¶ 1 twin bed ¶ Per night€ 169 ¶ € 508 ¶ Price € 508 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Crescent Hyde Park",
+    "url": "https://www.booking.com/hotel/gb/paddington-scancourt.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194200824.webp?k=365701c4eaac3ebc8396f28b161ac54aabdd678edbaab8cb0def6382a4eb1880&o=",
+    "raw": "The Crescent Hyde Park ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 2,552 reviews ¶ Standard Double (Lower Ground) ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 171 ¶ € 563€ 512 ¶ Original price € 563. Current price € 512. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Stylotel",
+    "url": "https://www.booking.com/hotel/gb/ruddimanshotel.html",
+    "price_4n": 527,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5909244.webp?k=f3eee3660f640c86b61bfcc3f54907e553e471c9f9677335a85ce863bf9e2a1c&o=",
+    "raw": "Stylotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 2,748 reviews ¶ Location 9.5 ¶ Double Styloroom ¶ 1 full bed ¶ Breakfast included ¶ Per night€ 176 ¶ € 527 ¶ Price € 527 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Point A Hotel London Paddington",
+    "url": "https://www.booking.com/hotel/gb/point-a-hotel-london-paddington.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/867092506.webp?k=9086ca7cd94577120bbb31feaded203abaa752347f9e6f3677ac93bb57a72072&o=",
+    "raw": "Point A Hotel London Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 4,838 reviews ¶ Cozy Double Room with Window ¶ 1 full bed ¶ Free cancellation ¶ Per night€ 192 ¶ € 640€ 576 ¶ Original price € 640. Current price € 576. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Best Western Plus Delmere Hotel",
+    "url": "https://www.booking.com/hotel/gb/thedelmerehotel.html",
+    "price_4n": 577,
+    "score": "8.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/887426760.webp?k=ea686efa6810002a1d4f122d89a666d2c409f9c0b3d4885967dee8687a6ca403&o=",
+    "raw": "Best Western Plus Delmere Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,263 reviews ¶ Location 9.5 ¶ Cozy Single Room - Non-Smoking ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 192 ¶ € 577 ¶ Price € 577 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Grand Concerto Hotel",
+    "url": "https://www.booking.com/hotel/gb/castleton.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/668710450.webp?k=8a12196d08b5b157395c4f941570c19f06bf5ab6813b40c363ad1e89779a4524&o=",
+    "raw": "Grand Concerto Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 965 reviews ¶ Location 9.3 ¶ Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 206 ¶ € 773€ 619 ¶ Original price € 773. Current price € 619. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Indigo London Hyde Park Paddington by IHG",
+    "url": "https://www.booking.com/hotel/gb/indigo-london-paddington.html",
+    "price_4n": 796,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/920604627.webp?k=160b13244d67e540f3e13e5b64e3f85a3622570d11ed0df8e778fd895cd8b067&o=",
+    "raw": "Hotel Indigo London Hyde Park Paddington by IHG ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 509 reviews ¶ Location 9.5 ¶ Standard Room ¶ 1 full bed ¶ Per night€ 265 ¶ € 796 ¶ Price € 796 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Mercure London Hyde Park Hotel",
+    "url": "https://www.booking.com/hotel/gb/qualityhotelpaddington.html",
+    "price_4n": 799,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914552707.webp?k=f307c7ee11accf77ad963243be8aac823e39cafae80dd38c2f375c016800455b&o=",
+    "raw": "Mercure London Hyde Park Hotel ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,975 reviews ¶ Location 9.3 ¶ Standard King Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 266 ¶ € 799 ¶ Price € 799 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Paddington Townhouse Hotel by OYO",
+    "url": "https://www.booking.com/hotel/gb/thirty-sussex.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/913233623.webp?k=a6f31f578f6dd90d9ccf2a21383039c49b89857ce62e5de33799bb4a42ecdd76&o=",
+    "raw": "Paddington Townhouse Hotel by OYO ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 80 reviews ¶ Late Escape Deal ¶ Superior Triple Room ¶ 3 beds (2 twins, 1 sofa bed) ¶ We have 2 left at this price ¶ Per night€ 270 ¶ € 1,087€ 848 ¶ Original price € 1,087. Current price € 848. ¶ 3 nights, 1"
+   },
+   {
+    "name": "Grand Hotel Bellevue London",
+    "url": "https://www.booking.com/hotel/gb/grand-hotel-bellevue-london.html",
+    "price_4n": 851,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/539895200.webp?k=58be58c48faccd341aacf79232445498afd493161fe5ee3de77cb57430f8a8aa&o=",
+    "raw": "Grand Hotel Bellevue London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 243 reviews ¶ Location 9.4 ¶ Master Cabin ¶ 1 king bed ¶ Per night€ 284 ¶ € 851 ¶ Price € 851 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Roseate House London",
+    "url": "https://www.booking.com/hotel/gb/theroyalparkhotel.html",
+    "price_4n": 862,
+    "score": "8.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912279940.webp?k=f642eb1017a7c9a87c50b813d1dc4b7faa7b0a1a630a3dafd42ab1126b435df0&o=",
+    "raw": "Roseate House London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 1,233 reviews ¶ Location 9.5 ¶ Double Economy ¶ 1 queen bed ¶ Per night€ 287 ¶ € 862 ¶ Price € 862 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Athena Hotel",
+    "url": "https://www.booking.com/hotel/gb/athena.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/824312735.webp?k=2c0c4c1dc3826dd197a79b4b92853132cb650545759cb88c53d4b93e798fbc34&o=",
+    "raw": "Athena Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,654 reviews ¶ Location 9.3 ¶ Late Escape Deal ¶ Standard Family Room ¶ 3 beds (1 twin, 1 full, 1 bunk bed) ¶ We have 1 left at this price ¶ Per night€ 310 ¶ € 1,338€ 931 ¶ Original price € 1,338. Current price € 931. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Homefield Lodge",
+    "url": "https://www.booking.com/hotel/gb/homefield-lodge.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/468748862.webp?k=9ee287d10f24529ce346c61ac013f93058759eebf649a6fec2928589b46be7e4&o=",
+    "raw": "Homefield Lodge ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 4.1 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,764 reviews ¶ Double Room ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 74 ¶ € 273€ 223 ¶ Original price € 273. Current price € 223. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Chelsea Guest House",
+    "url": "https://www.booking.com/hotel/gb/chelseaguesthouse.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646588738.webp?k=ec482656b82c7b8919ce8effd6fa123d65922745f8c696e5f62a48020e8e3de4&o=",
+    "raw": "Chelsea Guest House ¶ Opens in new window ¶ Lambeth, LondonShow on map ¶ 3.5 miles from Paddington ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 3,189 reviews ¶ Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 93 ¶ € 307€ 279 ¶ Original price € 307. Current price € 279. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Wembley Park Hotel",
+    "url": "https://www.booking.com/hotel/gb/wembley-park.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/136038384.webp?k=e7a7f242ee4be6be863fdf1975cdec874a161113cc0e6575fbb4b6be3163cc73&o=",
+    "raw": "Wembley Park Hotel ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 5.7 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 975 reviews ¶ Deluxe Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 89 ¶ € 295€ 266 ¶ Original price € 295. Current price € 266. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Star Hotel",
+    "url": "https://www.booking.com/hotel/gb/star-hotel.html",
+    "price_4n": 266,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/536536712.webp?k=4709ee405605649373c0668004efee8719ae194a8862c8bdd2091b959a78f2fa&o=",
+    "raw": "Star Hotel ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.4 miles from Paddington ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,969 reviews ¶ Single Room ¶ 1 twin bed ¶ Free cancellation ¶ Per night€ 89 ¶ € 266 ¶ Price € 266 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Novotel London Brentford",
+    "url": "https://www.booking.com/hotel/gb/novotel-london-brentford.html",
+    "price_4n": 316,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/713702677.webp?k=0f4b3347da46cf797c67f0d60d6ba10c4faa8e0d6301aa5741f96a68f56d02aa&o=",
+    "raw": "Novotel London Brentford ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ BrentfordShow on map ¶ 5.7 miles from Paddington ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,735 reviews ¶ Superior Double Room with 1 Sofa Bed ¶ 2 beds (1 sofa bed, 1 queen) ¶ We have 7 left at this price ¶ Per night€ 105 ¶ € 316 ¶ Price € 316 ¶ 3 nights, 1 adult ¶ See av"
+   },
+   {
+    "name": "Regal Hotel",
+    "url": "https://www.booking.com/hotel/gb/regal.html",
+    "price_4n": 349,
+    "score": "8.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/613883150.webp?k=01bb13e6a8c55d56048ccb9a34948c6d280a86f6a4008a60d323b95ac4e1c70f&o=",
+    "raw": "Regal Hotel ¶ Opens in new window ¶ Golders Green, LondonShow on map ¶ 4.2 miles from Paddington ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 235 reviews ¶ One-Bedroom Apartment - Non-Smoking ¶ Entire apartment • 1 bedroom • 1 bathroom • 377 ft² ¶ 1 full bed ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 116 ¶ € 349 ¶ Price € 349 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Unique",
+    "url": "https://www.booking.com/hotel/gb/unique.html",
+    "price_4n": 357,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/7322035.webp?k=5f5f399e9b9c1dd0ead1859c1e42f12eb5bcad2aa9d3ea7e04023ee9ce421ebd&o=",
+    "raw": "Hotel Unique ¶ Opens in new window ¶ Golders Green, LondonShow on map ¶ 4.1 miles from PaddingtonSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 927 reviews ¶ Triple Room ¶ Multiple bed types ¶ We have 1 left at this price ¶ Per night€ 119 ¶ € 357 ¶ Price € 357 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The W14 Kensington",
+    "url": "https://www.booking.com/hotel/gb/ace.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646856814.webp?k=2034bfdaf7e3cd0338922bdd0ae1a69bba41a4cf3d72eef6368ac0d8b6cac858&o=",
+    "raw": "The W14 Kensington ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,249 reviews ¶ Late Escape Deal ¶ Single Room with Private Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 120 ¶ € 513€ 359 ¶ Original price € 513. Current price € 359. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Comfort Inn Edgware Road W2",
+    "url": "https://www.booking.com/hotel/gb/comfortinnedgware.html",
+    "price_4n": 361,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/663328311.webp?k=22bb1689fd8c8b472a715040c13e703234f843acf3bd662249dc5df10ca6963c&o=",
+    "raw": "Comfort Inn Edgware Road W2 ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 0.5 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,885 reviews ¶ Double Room ¶ 1 full bed ¶ We have 5 left at this price ¶ Per night€ 120 ¶ € 361 ¶ Price € 361 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NOX Belsize Park",
+    "url": "https://www.booking.com/hotel/gb/haverstock.html",
+    "price_4n": 362,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/911347558.webp?k=045cb79dc904cf9fc846c372bc624dd762bc0b2db1c4b0327133bf9170c7d998&o=",
+    "raw": "NOX Belsize Park ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,072 reviews ¶ Small Double Room ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 121 ¶ € 362 ¶ Price € 362 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Green Man Pub and Hotel by OYO",
+    "url": "https://www.booking.com/hotel/gb/the-green-man-pub-and.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/666435829.webp?k=fd1dd0dd6d7b9e844fd228d96fbdc6c392f6191bfae814f8d2165e8a235fd587&o=",
+    "raw": "The Green Man Pub and Hotel by OYO ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 5.7 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 501 reviews ¶ Late Escape Deal ¶ Standard Double Room ¶ 1 queen bed ¶ We have 2 left at this price ¶ Per night€ 98 ¶ € 450€ 316 ¶ Original price € 450. Current price € 316. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "St Athans Hotel",
+    "url": "https://www.booking.com/hotel/gb/athans.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/76404464.webp?k=b561512b473e4bff64a6e894b4fe5c698f5f755fe1909eb3f5145e6c662a6895&o=",
+    "raw": "St Athans Hotel ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.2 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,815 reviews ¶ Location 9.4 ¶ Double Room with Shared Bathroom ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 112 ¶ € 368€ 335 ¶ Original price € 368. Current price € 335. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Pig and Whistle",
+    "url": "https://www.booking.com/hotel/gb/the-pig-and-whistle.html",
+    "price_4n": 378,
+    "score": "8.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/402141236.webp?k=335357ea5cb7cafaa1f5a2f06a2fc78b663ec78eee7802aaa715f4dd0338a67c&o=",
+    "raw": "The Pig and Whistle ¶ Opens in new window ¶ Mortlake, LondonShow on map ¶ 5.3 miles from Paddington ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 292 reviews ¶ Location 9.3 ¶ Deluxe Double Room ¶ 1 queen bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 2 left at this price ¶ Per night€ 126 ¶ € 378 ¶ Price € 378 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Limehouse Library Hotel",
+    "url": "https://www.booking.com/hotel/gb/limehouse-library.html",
+    "price_4n": null,
+    "score": "8.6",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429887703.webp?k=332e78b0982dcee48d35deefea530bd652055c3f0f5fb86563737d9e22d00053&o=",
+    "raw": "Limehouse Library Hotel ¶ Opens in new window ¶ Tower Hamlets, LondonShow on map ¶ 6.1 miles from Paddington ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 1,981 reviews ¶ Limited-time Deal ¶ Superior Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 117 ¶ € 586€ 352 ¶ Original price € 586. Current price € 352. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Best Western Chiswick Rooms",
+    "url": "https://www.booking.com/hotel/gb/stpetershotel.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912637283.webp?k=0223aa54c062b05c7527fb790c5878d9d7f2fa82de2f9e007d2c6ca880ecd0d6&o=",
+    "raw": "Best Western Chiswick Rooms ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 3.4 miles from PaddingtonSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 19 reviews ¶ Cozy Double Room with Shower - Non-Smoking ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 119 ¶ € 436€ 357 ¶ Original price € 436. Current price € 357. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Quality Hotel Hampstead",
+    "url": "https://www.booking.com/hotel/gb/qualityhotelhampstead.html",
+    "price_4n": null,
+    "score": "8.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646041549.webp?k=0fb5bdeb74deaa4f9288a992efcaf5f678b4bc18fb161fec677e6a998f414a5f&o=",
+    "raw": "Quality Hotel Hampstead ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 2,762 reviews ¶ Twin Room - Non Smoking ¶ 2 twin beds ¶ Breakfast included ¶ We have 5 left at this price ¶ Per night€ 119 ¶ € 394€ 358 ¶ Original price € 394. Current price € 358. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hampton by Hilton London Park Royal",
+    "url": "https://www.booking.com/hotel/gb/hampton-by-hilton-london-park-royal.html",
+    "price_4n": 394,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484051068.webp?k=5c63db659969c1d25c5be4f879d7535e6a732e601197572bb34274b0236b9f90&o=",
+    "raw": "Hampton by Hilton London Park Royal ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Ealing, LondonShow on map ¶ 4.8 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 3,473 reviews ¶ Twin Room ¶ 2 twin beds ¶ Breakfast included ¶ Per night€ 131 ¶ € 394 ¶ Price € 394 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Abbey Point Hotel",
+    "url": "https://www.booking.com/hotel/gb/abbey-point.html",
+    "price_4n": 200,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/514295647.webp?k=49a2beda163aae1486ca259bc514a2489c47492735610b6eae2a6a7ac3532556&o=",
+    "raw": "Abbey Point Hotel ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 4.5 miles from Paddington ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 3,059 reviews ¶ Micro Double Room ¶ 1 full bed ¶ Per night€ 67 ¶ € 200 ¶ Price € 200 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "ibis Styles London Ealing",
+    "url": "https://www.booking.com/hotel/gb/ibis-styles-london-ealing.html",
+    "price_4n": 403,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/751491795.webp?k=f067749ea4152ff85e172033032d2ef365b103b9b886ff5d9eed5510e13ca117&o=",
+    "raw": "ibis Styles London Ealing ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Ealing, LondonShow on map ¶ 5.8 miles from Paddington ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,068 reviews ¶ Queen Room ¶ 1 queen bed ¶ Per night€ 134 ¶ € 403 ¶ Price € 403 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Reem Hotel",
+    "url": "https://www.booking.com/hotel/gb/reemhotel.html",
+    "price_4n": 410,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646478346.webp?k=2beae62a4fb5046d9e8bf51a79ef6184d70421e13afe8afc1c2a7c98e2c1e025&o=",
+    "raw": "Reem Hotel ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 0.8 miles from PaddingtonSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,336 reviews ¶ Single Room ¶ 1 twin bed ¶ Per night€ 137 ¶ € 410 ¶ Price € 410 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Fox & Goose Hotel",
+    "url": "https://www.booking.com/hotel/gb/foxgoosehotel.html",
+    "price_4n": 413,
+    "score": "9.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/207589661.webp?k=a4fe0e5181f8c557d50c7245d61d6cd96dedfdd87867e0a8e057f7901cf0dc8a&o=",
+    "raw": "The Fox & Goose Hotel ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 5.3 miles from PaddingtonSubway Access ¶ Scored 9.2 ¶ 9.2 ¶ Wonderful ¶ 5,482 reviews ¶ Twin Room ¶ 2 twin beds ¶ Breakfast included ¶ Per night€ 138 ¶ € 413 ¶ Price € 413 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Victoria",
+    "url": "https://www.booking.com/hotel/gb/the-victoria-london.html",
+    "price_4n": 413,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/27492946.webp?k=0d8c07d38701e7800eb1dff1cdf02b36b70b37339132fe9fffffa958c9102b57&o=",
+    "raw": "The Victoria ¶ Opens in new window ¶ Mortlake, LondonShow on map ¶ 5.8 miles from Paddington ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 216 reviews ¶ Double Room ¶ 1 full bed ¶ Breakfast included ¶ Free cancellation ¶ We have 3 left at this price ¶ Per night€ 138 ¶ € 413 ¶ Price € 413 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Ravna Gora",
+    "url": "https://www.booking.com/hotel/gb/ravna-gora-london.html",
+    "price_4n": null,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251826817.webp?k=4bb1b796c48855ded0bd4cc56fce8c0e3ae9f7aa1f60afa068fcd43dfa880b05&o=",
+    "raw": "Ravna Gora ¶ Opens in new window ¶ Kensington and Chelsea, LondonShow on map ¶ 1.4 miles from PaddingtonSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,971 reviews ¶ Location 9.4 ¶ Twin Room with Shared Bathroom ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 139 ¶ € 465€ 418 ¶ Original price € 465. Current price € 418. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Adria Hotel",
+    "url": "https://www.booking.com/hotel/gb/adria-hotel.html",
+    "price_4n": null,
+    "score": "8.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/25234963.webp?k=69f14aa098a2544f67cab9e63cbdba1384bd46e70fdac977cfb5bb6223d05956&o=",
+    "raw": "Adria Hotel ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.8 miles from PaddingtonSubway Access ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 1,778 reviews ¶ Location 9.4 ¶ En-Suite Double Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 140 ¶ € 467€ 420 ¶ Original price € 467. Current price € 420. ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Holiday Inn London West by IHG",
+    "url": "https://www.booking.com/hotel/gb/holiday-inn-london-west.html",
+    "price_4n": 421,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/226969251.webp?k=be224996a2541ca997e7218d09a09f3a90c0ddd912fe93fdae4f2253af469d3e&o=",
+    "raw": "Holiday Inn London West by IHG ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 3.8 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,587 reviews ¶ Standard Room with Two Single Beds ¶ 2 twin beds ¶ Per night€ 140 ¶ € 421 ¶ Price € 421 ¶ 3 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "ibis London Shepherds Bush - Hammersmith",
+    "url": "https://www.booking.com/hotel/gb/ibis-london-shepherd-s-bush.html",
+    "price_4n": 421,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/750465091.webp?k=789f09cf591c96909b2df11bd05e82d87ace682eb769717ede48247c1d03e034&o=",
+    "raw": "ibis London Shepherds Bush - Hammersmith ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.1 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,316 reviews ¶ Double Room ¶ 1 full bed ¶ We have 7 left at this price ¶ Per night€ 140 ¶ € 421 ¶ Price € 421 ¶ 3 nights, 1 adult ¶"
+   }
+  ]
+ }
+]

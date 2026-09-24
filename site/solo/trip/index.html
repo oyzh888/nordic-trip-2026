@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>后半段行程图 · 地图 + 时间轴</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+<style>
+  .map { height: 420px; border-radius: 10px; border: 1px solid var(--hair); background: var(--bg2); }
+  .cmaps { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 16px; }
+  .cmaps .map { height: 360px; }
+  .cmaps h3 { font: 400 20px/1.3 var(--disp); margin: 0 0 8px; }
+  .leaflet-container { font: 12px/1.4 var(--sans); background: var(--bg2); }
+  .leaflet-tooltip { background: var(--panel); color: var(--ink); border: 1px solid var(--hair2); box-shadow: none; }
+  .leaflet-tooltip:before { display: none; }
+  .pin { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+         font: 700 12px/1 var(--mono); color: #0F0E0C; background: var(--acc); border: 2px solid #0F0E0C; }
+  .pin.home { background: var(--ink); width: 30px; height: 30px; font-size: 15px; }
+  .pin.air { background: var(--ink3); color: var(--ink); }
+
+  /* 时间轴：一天一行，0–24 当地时间 */
+  .tl { margin-top: 10px; }
+  .tl .hd, .tl .row { display: grid; grid-template-columns: 118px 1fr 190px; gap: 12px; align-items: center; }
+  .tl .hd { color: var(--ink3); font: 11px var(--mono); margin-bottom: 6px; }
+  .tl .hd .ax { display: flex; justify-content: space-between; }
+  .tl .row { padding: 7px 0; border-top: 1px solid var(--hair); }
+  .tl .dl b { font: 600 15px var(--mono); } .tl .dl span { color: var(--ink3); margin-left: 6px; }
+  .tl .dl div { font-size: 12px; color: var(--ink2); margin-top: 2px; }
+  .tl .bar { position: relative; height: 30px; background: var(--bg2); border-radius: 5px; overflow: hidden; }
+  .tl .bar i { position: absolute; top: 0; bottom: 0; border-radius: 3px; }
+  .tl .bar i.sleep { background: #25221C; top: 9px; bottom: 9px; }
+  .tl .bar i.work  { background: repeating-linear-gradient(135deg, #3A352C 0 6px, #2C2822 6px 12px); }
+  .tl .bar i.meet  { background: #6E6A8C; }
+  .tl .bar i.fly   { background: var(--ink2); }
+  .tl .bar i.move  { background: var(--ink3); }
+  .tl .bar i.act   { background: var(--acc); }
+  .tl .bar i.opt   { background: transparent; border: 1.5px dashed var(--acc); }
+  .tl .bar i.bad   { outline: 2px solid var(--alert); outline-offset: -2px; z-index: 3; }
+  .tl .bar .gl { position: absolute; top: 0; bottom: 0; width: 1px; background: #ffffff0d; }
+  .tl .m { font: 12px/1.5 var(--mono); color: var(--ink2); }
+  .tl .m .w { color: var(--alert); }
+  .legend2 { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 14px; font-size: 12px; color: var(--ink2); }
+  .legend2 i { display: inline-block; width: 22px; height: 11px; border-radius: 2px; vertical-align: -1px; margin-right: 5px; }
+  @media (max-width: 760px) { .tl .hd, .tl .row { grid-template-columns: 74px 1fr; } .tl .m { grid-column: 2; } .tl .hd > :last-child { display: none; } }
+</style>
+</head>
+<body>
+
+<section style="padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">方案 B · 10/6 → 10/17 · 周六经卡尔加里回旧金山</div>
+    <h1 style="margin-bottom:16px">后半段行程图</h1>
+    <p class="lede">上面是<b>空间</b>：每天从住处去哪、多远、怎么去。下面是<b>时间</b>：每天 24 小时里，
+      上班、例会、飞行、睡觉、玩各占哪一段 —— 冲突和睡不够的夜会<b>自动</b>标红，不是我手写的结论。</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">01</span>地图 · 四段飞行</h2>
+    <div class="map" id="m0"></div>
+    <p class="s" style="margin-top:8px">卡尔加里 → 旧金山那两段在地图外（往西 7,000 公里），用箭头示意。</p>
+
+    <h2 style="margin-top:44px"><span class="n">02</span>地图 · 每天的那一件事</h2>
+    <p class="lede">⌂ 是住处（每城首选），数字是日期。线上的数字是<b>直线距离</b>，旁边写着实际怎么去。</p>
+    <div class="cmaps" id="cmaps"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">03</span>时间轴 · 每天 24 小时（当地时间）</h2>
+    <div class="card amb" id="checks" style="margin-bottom:18px"></div>
+    <div class="tl" id="tl"></div>
+    <div class="legend2">
+      <span><i style="background:var(--acc)"></i>当天唯一的锚点</span>
+      <span><i style="border:1.5px dashed var(--acc)"></i>可选</span>
+      <span><i style="background:repeating-linear-gradient(135deg,#3A352C 0 6px,#2C2822 6px 12px)"></i>上班（美西 10–16 点）</span>
+      <span><i style="background:#6E6A8C"></i>例会</span>
+      <span><i style="background:var(--ink2)"></i>飞行</span>
+      <span><i style="background:var(--ink3)"></i>去机场 / 城内交通</span>
+      <span><i style="background:#25221C;height:5px"></i>睡觉</span>
+      <span><i style="outline:2px solid var(--alert);background:transparent"></i>和上班/例会撞了</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <a class="badge ok" href="/solo/">订票参考（机票 + 住宿）→</a>
+      <a class="badge" href="https://github.com/oyzh888/nordic-trip-2026/blob/main/notes/BUY-SOLO.md" target="_blank" rel="noopener">下单清单（GitHub）↗</a>
+    </div>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script src="/solo/stays.js"></script>
+<script src="/solo/trip.js"></script>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script>
+chrome();
+
+/* ---------- 工作 / 例会：从 PT 规则生成，存成 UTC 小时（从 10/1 00:00 UTC 起算） ---------- */
+const DAY = d => { const [m, dd] = d.split('/').map(Number); return (m === 10 ? dd - 1 : 0) * 24; };   // 10/x → UTC 小时偏移
+const WD = d => new Date(Date.UTC(2026, 9, +d.split('/')[1])).getUTCDay();                          // 0=日
+const busy = [];
+for (let dd = 5; dd <= 18; dd++) {
+  const d = `10/${dd}`, base = DAY(d), w = WD(d);
+  if (w >= 1 && w <= 5) busy.push({ k: 'work', a: base + 10 - PT, b: base + 16 - PT });        // 美西 10–16
+  if (w === 0) busy.push({ k: 'meet', a: base + 13.5 - PT, b: base + 15 - PT, t: '周日例会' });  // 周日 13:30–15:00 PT
+  if (w === 2 || w === 5) busy.push({ k: 'meet', a: base + 0 - PT, b: base + 2 - PT, t: w === 2 ? '周二例会' : '周五例会' });
+}
+/* 10/17 起人已经在回家路上 —— 周日 10/18 的会在家开，不画在旅行时间轴里 */
+
+const fmt = h => { h = ((h % 24) + 24) % 24; const H = Math.floor(h + 1e-6), M = Math.round((h - H) * 60); return `${String(H).padStart(2, '0')}:${String(M % 60).padStart(2, '0')}`; };
+const ov = (x, y) => Math.max(0, Math.min(x.b, y.b) - Math.max(x.a, y.a));
+
+/* ---------- 时间轴 + 自动体检 ---------- */
+const problems = [], rows = [];
+let totAct = 0, totMove = 0;
+TDAYS.forEach(day => {
+  const z = DAY(day.d) - day.tz;                   // 当地 0 点对应的 UTC 小时
+  const mine = day.blocks.map(b => ({ ...b, A: z + b.a, B: z + b.b }));
+  const theirs = busy.filter(x => x.b > z && x.a < z + 24).map(x => ({ ...x, A: x.a, B: x.b, a: x.a - z, b: x.b - z }));
+  const all = [...mine, ...theirs];
+  // 冲突：玩 / 飞 / 交通 和 上班 / 例会 重叠
+  mine.filter(b => ['act', 'fly', 'move'].includes(b.k)).forEach(b => {
+    theirs.forEach(x => {
+      const o = ov({ a: b.A, b: b.B }, { a: x.A, b: x.B });
+      if (o > 0.01) { b.bad = x.bad = true;
+        problems.push(`<b>${day.d} ${day.wd}</b>：「${b.t}」和${x.k === 'work' ? '上班' : x.t}重叠 <b>${o.toFixed(1)} 小时</b>（${fmt(Math.max(b.a, x.a))}–${fmt(Math.min(b.b, x.b))}）`); }
+    });
+  });
+  const sleep = mine.filter(b => b.k === 'sleep').reduce((s, b) => s + b.b - b.a, 0);
+  const act = mine.filter(b => b.k === 'act').reduce((s, b) => s + b.b - b.a, 0);
+  const move = mine.filter(b => b.k === 'move' || b.k === 'fly').reduce((s, b) => s + b.b - b.a, 0);
+  const workH = theirs.reduce((s, x) => s + Math.max(0, Math.min(24, x.b) - Math.max(0, x.a)), 0);
+  if (sleep < 7) problems.push(`<b>${day.d} ${day.wd}</b>：前一晚只睡 <b>${sleep.toFixed(1)} 小时</b>`);
+  totAct += act; totMove += move;
+  const cells = all.map(b => {
+    const a = Math.max(0, b.a), bb = Math.min(24, b.b);
+    if (bb <= a) return '';
+    const tip = `${b.t || { sleep: '睡觉', work: '上班', meet: '例会' }[b.k]}  ${fmt(b.a)}–${fmt(b.b)}`;
+    return `<i class="${b.k}${b.bad ? ' bad' : ''}" style="left:${a / 24 * 100}%;width:${(bb - a) / 24 * 100}%" title="${esc(tip)}"></i>`;
+  }).join('');
+  const grid = [3, 6, 9, 12, 15, 18, 21].map(h => `<span class="gl" style="left:${h / 24 * 100}%"></span>`).join('');
+  const a0 = mine.find(b => b.k === 'act');
+  rows.push(`<div class="row">
+    <div class="dl"><b>${day.d}</b><span>${day.wd}</span><div>${esc(day.title)}</div></div>
+    <div class="bar">${grid}${cells}</div>
+    <div class="m">${a0 ? `玩 ${act.toFixed(1)}h` : '—'} · 路上 ${move.toFixed(1)}h<br>
+      <span class="${sleep < 7 ? 'w' : ''}">睡 ${sleep.toFixed(1)}h</span> · 上班 ${workH.toFixed(0)}h</div>
+  </div>`);
+});
+$('#tl').innerHTML = `<div class="hd"><div>日期</div><div class="ax">${[0, 3, 6, 9, 12, 15, 18, 21, 24].map(h => `<span>${h}</span>`).join('')}</div><div>当天负荷</div></div>` + rows.join('');
+$('#checks').innerHTML = problems.length
+  ? `<h3>⚠️ 自动体检发现 ${problems.length} 处</h3><ul>${problems.map(p => `<li>${p}</li>`).join('')}</ul>
+     ${Object.values(FIXES).map(f => `<p style="margin:10px 0 0;font-size:14px;color:var(--ink2)">💡 ${f}</p>`).join('')}
+     <p class="s" style="margin-top:10px;color:var(--ink2)">口径：锚点 / 飞行 / 去机场的交通，和「美西 10–16 点上班」或例会有任何重叠就算冲突；前一晚睡眠少于 7 小时算睡不够。</p>`
+  : '<h3>✅ 没有冲突，每晚都睡够 7 小时</h3>';
+$('#checks').className = 'card ' + (problems.length ? 'amb' : 'ok');
+
+$('#stats').innerHTML = [
+  ['12', '天'], ['4', '段飞行'], ['1', '件事 / 天'],
+  [(totAct / TDAYS.length).toFixed(1) + 'h', '平均每天玩'], [String(problems.length), '处需要注意'],
+].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+
+/* ---------- 地图 ---------- */
+/* 底图：Esri 深灰（底 + 地名两层）。CARTO 的 dark_all 2026 年起要 API key，否则整张图打水印 */
+const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_';
+const ATTR = 'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors';
+const base = m => { L.tileLayer(ESRI + 'Base/MapServer/tile/{z}/{y}/{x}', { attribution: ATTR, maxZoom: 16 }).addTo(m);
+                    L.tileLayer(ESRI + 'Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16 }).addTo(m); };
+const icon = (txt, cls = '') => L.divIcon({ className: '', html: `<div class="pin ${cls}">${txt}</div>`, iconSize: [30, 30], iconAnchor: [15, 15] });
+const km = (p, q) => { const R = 6371, r = Math.PI / 180, dl = (q[0] - p[0]) * r, dn = (q[1] - p[1]) * r;
+  const s = Math.sin(dl / 2) ** 2 + Math.cos(p[0] * r) * Math.cos(q[0] * r) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(s)); };
+const ACC = getComputedStyle(document.documentElement).getPropertyValue('--h3').trim() || '#63D0A0';
+
+/* 总览：欧洲四城 + 往北美的两段（大圆弧太长，画成向西的箭头） */
+const m0 = L.map('m0', { scrollWheelZoom: false, attributionControl: true }).setView([50, 0], 4);
+base(m0);
+LEGS.forEach((g, i) => {
+  const p = POI[g.from].ll, q = POI[g.to].ll;
+  const west = g.to === 'yyc' || g.from === 'yyc';
+  const q2 = west ? [p[0] + 2.5, p[1] - 12] : q;
+  if (g.from === 'yyc') return;
+  L.polyline([p, q2], { color: ACC, weight: 2, opacity: .85, dashArray: west ? '6 6' : null }).addTo(m0)
+    .bindTooltip(g.t, { sticky: true });
+  if (west) L.marker(q2, { icon: icon('➜', 'air') }).addTo(m0).bindTooltip('往卡尔加里 → 旧金山', { permanent: false });
+});
+[['osl', '奥斯陆'], ['nce', '尼斯 4 晚'], ['lis_ap', '里斯本 4 晚'], ['lhr', '伦敦 3 晚']].forEach(([k, n], i) =>
+  L.marker(POI[k].ll, { icon: icon(i + 1) }).addTo(m0).bindTooltip(n, { permanent: true, direction: 'right', offset: [14, 0] }));
+
+/* 每城一张：住处 + 每天的锚点 */
+const CITY = [
+  { key: 'nice', name: '🇫🇷 尼斯 · 10/6–10/10', fallback: [43.6975, 7.2703], zoom: 13, air: 'nce' },
+  { key: 'lis', name: '🇵🇹 里斯本 · 10/10–10/14', fallback: [38.7115, -9.1390], zoom: 13, air: 'lis_ap' },
+  { key: 'lon', name: '🇬🇧 伦敦 · 10/14–10/17', fallback: [51.5154, -0.1755], zoom: 12, air: 'lhr' },
+];
+$('#cmaps').innerHTML = CITY.map((c, i) => `<div><h3>${c.name}</h3><div class="map" id="mc${i}"></div><div class="s" id="mcs${i}" style="margin-top:6px"></div></div>`).join('');
+CITY.forEach((c, i) => {
+  const st = (typeof STAYS !== 'undefined' ? STAYS.find(s => s.key === c.key) : null);
+  const top = st && st.opts.find(o => o.lat);
+  const home = top ? [top.lat, top.lng] : c.fallback;
+  const m = L.map('mc' + i, { scrollWheelZoom: false }).setView(home, c.zoom);
+  base(m);
+  L.marker(home, { icon: icon('⌂', 'home'), zIndexOffset: 1000 }).addTo(m)
+    .bindTooltip(top ? `住处：${top.name || top.pick}` : '住处（首选还没定位，先放在街区中心）');
+  const pts = [home];
+  TDAYS.filter(d => d.city === c.key || d.city.endsWith('→' + c.key) || d.city.startsWith(c.key + '→'))
+    .forEach(d => d.blocks.filter(b => b.k === 'act' && b.poi && POI[b.poi]).forEach(b => {
+      const ll = POI[b.poi].ll; if (km(home, ll) > 40) return;
+      pts.push(ll);
+      L.polyline([home, ll], { color: ACC, weight: 1.5, opacity: .6, dashArray: '4 5' }).addTo(m);
+      L.marker(ll, { icon: icon(d.d.split('/')[1]) }).addTo(m)
+        .bindTooltip(`<b>${d.d} ${d.wd}</b> ${POI[b.poi].name}<br>${km(home, ll).toFixed(1)} km · ${b.mode || ''}`, { direction: 'top' });
+    }));
+  m.fitBounds(L.latLngBounds(pts).pad(0.25));
+  const ds = TDAYS.filter(d => d.city.includes(c.key)).flatMap(d => d.blocks.filter(b => b.k === 'act' && b.poi).map(b => [d, b]))
+    .filter(([, b]) => km(home, POI[b.poi].ll) <= 40)
+    .map(([d, b]) => `${d.d.split('/')[1]} 号 ${km(home, POI[b.poi].ll).toFixed(1)} km（${b.mode}）`);
+  $('#mcs' + i).innerHTML = ds.join(' · ');
+});
+</script>
+<script src="/anim.js"></script>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+{
+ "lon-sfo-1018": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20SFO%20on%202026-10-18%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 717,
+    "dep": "21:15",
+    "arr": "14:05",
+    "plus": "+1",
+    "mins": 1490,
+    "stops": "2 stops",
+    "air": "?",
+    "route": "LGW–SFO",
+    "layover": [
+     "24 hr 50 min",
+     "LGW"
+    ],
+    "raw": "9:15 PM – 2:05 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 24 hr 50 min LGW–SFO 2 stops OPO, LIS 696 kg CO2e +35% emissions $717"
+   },
+   {
+    "price": 1014,
+    "dep": "18:30",
+    "arr": "12:40",
+    "plus": "+1",
+    "mins": 1570,
+    "stops": "1 stop",
+    "air": "Lufthansa, United",
+    "route": "LCY–SFO",
+    "layover": [
+     "26 hr 10 min",
+     "LCY"
+    ],
+    "raw": "6:30 PM – 12:40 PM+1 Air Dolomiti, LufthansaUnited 26 hr 10 min LCY–SFO 1 stop 13 hr 30 min FRA 629 kg CO2e +22% emissions $1,014"
+   },
+   {
+    "price": 1080,
+    "dep": "17:35",
+    "arr": "10:45",
+    "plus": "+1",
+    "mins": 1510,
+    "stops": "1 stop",
+    "air": "Turkish",
+    "route": "STN–SFO",
+    "layover": [
+     "25 hr 10 min",
+     "STN"
+    ],
+    "raw": "5:35 PM – 10:45 AM+1 Turkish Airlines 25 hr 10 min STN–SFO 1 stop 7 hr 45 min IST 821 kg CO2e +59% emissions $1,080"
+   },
+   {
+    "price": 1161,
+    "dep": "06:30",
+    "arr": "14:15",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "6:30 AM – 2:15 PM LOT 15 hr 45 min LHR–SFO 1 stop 1 hr 5 min WAW 557 kg CO2e +8% emissions $1,161"
+   },
+   {
+    "price": 1228,
+    "dep": "14:10",
+    "arr": "21:55",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "WestJet",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "2:10 PM – 9:55 PM WestJet 15 hr 45 min LHR–SFO 1 stop 3 hr 55 min YYC 534 kg CO2e Avg emissions $1,228"
+   },
+   {
+    "price": 1335,
+    "dep": "09:05",
+    "arr": "16:15",
+    "plus": "",
+    "mins": 910,
+    "stops": "1 stop",
+    "air": "SWISS",
+    "route": "LGW–SFO",
+    "layover": [
+     "15 hr 10 min",
+     "LGW"
+    ],
+    "raw": "9:05 AM – 4:15 PM SWISSOperated by Helvetic 15 hr 10 min LGW–SFO 1 stop 1 hr 20 min ZRH 641 kg CO2e +24% emissions $1,335"
+   },
+   {
+    "price": 1339,
+    "dep": "12:45",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic, Air France, Delta, KLM",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,339"
+   },
+   {
+    "price": 1554,
+    "dep": "13:00",
+    "arr": "16:00",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "16:15",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 2929,
+    "dep": "10:45",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 5 min",
+     "LHR"
+    ],
+    "raw": "10:45 AM – 1:50 PM British AirwaysFinnair, Iberia, American 11 hr 5 min LHR–SFO Nonstop 522 kg CO2e Avg emissions $2,929"
+   },
+   {
+    "price": 2929,
+    "dep": "14:30",
+    "arr": "17:40",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "2:30 PM – 5:40 PM British AirwaysFinnair, Iberia, American 11 hr 10 min LHR–SFO Nonstop 531 kg CO2e Avg emissions $2,929"
+   }
+  ]
+ },
+ "lon-sjc-1018": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20SJC%20on%202026-10-18%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 104,
+    "dep": "18:36",
+    "arr": "20:07",
+    "plus": "",
+    "mins": 91,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 31 min",
+     "LAX"
+    ],
+    "raw": "6:36 PM – 8:07 PM Frontier 1 hr 31 min LAX–SJC Nonstop 49 kg CO2e -44% emissions 0 0 $104"
+   },
+   {
+    "price": 139,
+    "dep": "10:35",
+    "arr": "11:45",
+    "plus": "",
+    "mins": 70,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 10 min",
+     "LAX"
+    ],
+    "raw": "10:35 AM – 11:45 AM Southwest 1 hr 10 min LAX–SJC Nonstop 80 kg CO2e -9% emissions 1 0 $139"
+   },
+   {
+    "price": 139,
+    "dep": "06:40",
+    "arr": "07:50",
+    "plus": "",
+    "mins": 70,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 10 min",
+     "LAX"
+    ],
+    "raw": "6:40 AM – 7:50 AM Southwest 1 hr 10 min LAX–SJC Nonstop 80 kg CO2e -9% emissions 1 0 $139"
+   },
+   {
+    "price": 139,
+    "dep": "08:00",
+    "arr": "09:10",
+    "plus": "",
+    "mins": 70,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 10 min",
+     "LAX"
+    ],
+    "raw": "8:00 AM – 9:10 AM Southwest 1 hr 10 min LAX–SJC Nonstop 60 kg CO2e -32% emissions 1 0 $139"
+   },
+   {
+    "price": 139,
+    "dep": "19:40",
+    "arr": "20:50",
+    "plus": "",
+    "mins": 70,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 10 min",
+     "LAX"
+    ],
+    "raw": "7:40 PM – 8:50 PM Southwest 1 hr 10 min LAX–SJC Nonstop 80 kg CO2e -9% emissions 1 0 $139"
+   },
+   {
+    "price": 139,
+    "dep": "09:30",
+    "arr": "10:46",
+    "plus": "",
+    "mins": 76,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 16 min",
+     "LAX"
+    ],
+    "raw": "9:30 AM – 10:46 AM Delta 1 hr 16 min LAX–SJC Nonstop 75 kg CO2e -15% emissions 1 0 $139"
+   },
+   {
+    "price": 139,
+    "dep": "07:59",
+    "arr": "09:18",
+    "plus": "",
+    "mins": 79,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 19 min",
+     "LAX"
+    ],
+    "raw": "7:59 AM – 9:18 AM DeltaOperated by SkyWest DBA Delta Connection 1 hr 19 min LAX–SJC Nonstop 84 kg CO2e Avg emissions 1 0 $139"
+   },
+   {
+    "price": 159,
+    "dep": "12:59",
+    "arr": "14:13",
+    "plus": "",
+    "mins": 74,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 14 min",
+     "LAX"
+    ],
+    "raw": "12:59 PM – 2:13 PM DeltaOperated by SkyWest DBA Delta Connection 1 hr 14 min LAX–SJC Nonstop 91 kg CO2e Avg emissions 1 0 $159"
+   },
+   {
+    "price": 179,
+    "dep": "13:35",
+    "arr": "14:45",
+    "plus": "",
+    "mins": 70,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 10 min",
+     "LAX"
+    ],
+    "raw": "1:35 PM – 2:45 PM Southwest 1 hr 10 min LAX–SJC Nonstop 60 kg CO2e -32% emissions 1 0 $179"
+   },
+   {
+    "price": 179,
+    "dep": "18:20",
+    "arr": "19:30",
+    "plus": "",
+    "mins": 70,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 10 min",
+     "LAX"
+    ],
+    "raw": "6:20 PM – 7:30 PM Southwest 1 hr 10 min LAX–SJC Nonstop 60 kg CO2e -32% emissions 1 0 $179"
+   },
+   {
+    "price": 179,
+    "dep": "22:10",
+    "arr": "23:25",
+    "plus": "",
+    "mins": 75,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "1 hr 15 min",
+     "LAX"
+    ],
+    "raw": "10:10 PM – 11:25 PM Southwest 1 hr 15 min LAX–SJC Nonstop 60 kg CO2e -32% emissions 1 0 $179"
+   },
+   {
+    "price": 199,
+    "dep": "18:39",
+    "arr": "19:52",
+    "plus": "",
+    "mins": 73,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 13 min",
+     "LAX"
+    ],
+    "raw": "6:39 PM – 7:52 PM DeltaOperated by SkyWest DBA Delta Connection 1 hr 13 min LAX–SJC Nonstop 84 kg CO2e Avg emissions 1 0 $199"
+   },
+   {
+    "price": 199,
+    "dep": "20:55",
+    "arr": "22:08",
+    "plus": "",
+    "mins": 73,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 13 min",
+     "LAX"
+    ],
+    "raw": "8:55 PM – 10:08 PM Delta 1 hr 13 min LAX–SJC Nonstop 75 kg CO2e -15% emissions 1 0 $199"
+   },
+   {
+    "price": 199,
+    "dep": "16:23",
+    "arr": "17:38",
+    "plus": "",
+    "mins": 75,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 15 min",
+     "LAX"
+    ],
+    "raw": "4:23 PM – 5:38 PM Delta 1 hr 15 min LAX–SJC Nonstop 75 kg CO2e -15% emissions 1 0 $199"
+   },
+   {
+    "price": 259,
+    "dep": "14:35",
+    "arr": "15:51",
+    "plus": "",
+    "mins": 76,
+    "stops": "Nonstop",
+    "air": "Delta",
+    "route": null,
+    "layover": [
+     "1 hr 16 min",
+     "LAX"
+    ],
+    "raw": "2:35 PM – 3:51 PM DeltaOperated by SkyWest DBA Delta Connection 1 hr 16 min LAX–SJC Nonstop 84 kg CO2e Avg emissions 1 0 $259"
+   }
+  ]
+ },
+ "lon-oak-1018": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20OAK%20on%202026-10-18%20for%201%20adult",
+  "insight": {
+   "level": null,
+   "range": null
+  },
+  "offers": []
+ },
+ "lhr-sfo-1018": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LHR%20to%20SFO%20on%202026-10-18%20for%201%20adult",
+  "insight": {
+   "level": "high",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 1161,
+    "dep": "06:30",
+    "arr": "14:15",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "6:30 AM – 2:15 PM LOT 15 hr 45 min LHR–SFO 1 stop 1 hr 5 min WAW 557 kg CO2e Avg emissions $1,161"
+   },
+   {
+    "price": 1228,
+    "dep": "14:10",
+    "arr": "21:55",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "WestJet",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "2:10 PM – 9:55 PM WestJet 15 hr 45 min LHR–SFO 1 stop 3 hr 55 min YYC 534 kg CO2e Avg emissions $1,228"
+   },
+   {
+    "price": 1243,
+    "dep": "07:30",
+    "arr": "21:49",
+    "plus": "",
+    "mins": 1339,
+    "stops": "2 stops",
+    "air": "Lufthansa, Condor, Alaska",
+    "route": "LHR–SFO",
+    "layover": [
+     "22 hr 19 min",
+     "LHR"
+    ],
+    "raw": "7:30 AM – 9:49 PM Lufthansa, Condor, Alaska 22 hr 19 min LHR–SFO 2 stops FRA, SEA 625 kg CO2e +16% emissions $1,243"
+   },
+   {
+    "price": 1322,
+    "dep": "06:30",
+    "arr": "11:45",
+    "plus": "",
+    "mins": 795,
+    "stops": "1 stop",
+    "air": "KLM, Delta, Virgin Atlantic",
+    "route": "LHR–SFO",
+    "layover": [
+     "13 hr 15 min",
+     "LHR"
+    ],
+    "raw": "6:30 AM – 11:45 AM KLMDelta, Virgin Atlantic 13 hr 15 min LHR–SFO 1 stop 1 hr AMS 428 kg CO2e -20% emissions $1,322"
+   },
+   {
+    "price": 1339,
+    "dep": "12:45",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic, Air France, Delta, KLM",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,339"
+   },
+   {
+    "price": 1381,
+    "dep": "17:00",
+    "arr": "22:49",
+    "plus": "",
+    "mins": 829,
+    "stops": "1 stop",
+    "air": "Alaska",
+    "route": "LHR–SFO",
+    "layover": [
+     "13 hr 49 min",
+     "LHR"
+    ],
+    "raw": "5:00 PM – 10:49 PM Alaska 13 hr 49 min LHR–SFO 1 stop 1 hr 36 min SEA 544 kg CO2e Avg emissions $1,381"
+   },
+   {
+    "price": 1554,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e Avg emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "13:00",
+    "arr": "16:00",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e Avg emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "16:15",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e Avg emissions $1,554"
+   },
+   {
+    "price": 2929,
+    "dep": "10:45",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 5 min",
+     "LHR"
+    ],
+    "raw": "10:45 AM – 1:50 PM British AirwaysFinnair, Iberia, American 11 hr 5 min LHR–SFO Nonstop 522 kg CO2e Avg emissions $2,929"
+   },
+   {
+    "price": 2929,
+    "dep": "14:30",
+    "arr": "17:40",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "2:30 PM – 5:40 PM British AirwaysFinnair, Iberia, American 11 hr 10 min LHR–SFO Nonstop 531 kg CO2e Avg emissions $2,929"
+   }
+  ]
+ },
+ "lon-sfo-1017": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 594,
+    "dep": "19:50",
+    "arr": "14:05",
+    "plus": "+2",
+    "mins": 3015,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "50 hr 15 min",
+     "LHR"
+    ],
+    "raw": "7:50 PM – 2:05 PM+2 Tap Air Portugal 50 hr 15 min LHR–SFO 1 stop 34 hr 50 min LIS 639 kg CO2e +24% emissions $594"
+   },
+   {
+    "price": 746,
+    "dep": "14:10",
+    "arr": "21:55",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "WestJet",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "2:10 PM – 9:55 PM WestJet 15 hr 45 min LHR–SFO 1 stop 3 hr 55 min YYC 516 kg CO2e Avg emissions $746"
+   },
+   {
+    "price": 949,
+    "dep": "08:15",
+    "arr": "19:32",
+    "plus": "",
+    "mins": 1157,
+    "stops": "1 stop",
+    "air": "JetBlue",
+    "route": "LHR–SFO",
+    "layover": [
+     "19 hr 17 min",
+     "LHR"
+    ],
+    "raw": "8:15 AM – 7:32 PM JetBlue 19 hr 17 min LHR–SFO 1 stop 4 hr 36 min JFK 998 kg CO2e +93% emissions $949"
+   },
+   {
+    "price": 949,
+    "dep": "11:55",
+    "arr": "23:37",
+    "plus": "",
+    "mins": 1182,
+    "stops": "1 stop",
+    "air": "JetBlue",
+    "route": "LHR–SFO",
+    "layover": [
+     "19 hr 42 min",
+     "LHR"
+    ],
+    "raw": "11:55 AM – 11:37 PM JetBlue 19 hr 42 min LHR–SFO 1 stop 4 hr 49 min JFK 998 kg CO2e +93% emissions $949"
+   },
+   {
+    "price": 1059,
+    "dep": "08:00",
+    "arr": "17:35",
+    "plus": "",
+    "mins": 1055,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "17 hr 35 min",
+     "LHR"
+    ],
+    "raw": "8:00 AM – 5:35 PM Tap Air Portugal 17 hr 35 min LHR–SFO 1 stop 2 hr 20 min LIS 633 kg CO2e +23% emissions $1,059"
+   },
+   {
+    "price": 1090,
+    "dep": "18:35",
+    "arr": "16:15",
+    "plus": "+1",
+    "mins": 1780,
+    "stops": "1 stop",
+    "air": "SWISS",
+    "route": "LGW–SFO",
+    "layover": [
+     "29 hr 40 min",
+     "LGW"
+    ],
+    "raw": "6:35 PM – 4:15 PM+1 SWISSOperated by Helvetic 29 hr 40 min LGW–SFO 1 stop 15 hr 50 min ZRH 641 kg CO2e +24% emissions $1,090"
+   },
+   {
+    "price": 1205,
+    "dep": "17:45",
+    "arr": "16:40",
+    "plus": "+1",
+    "mins": 1855,
+    "stops": "1 stop",
+    "air": "Turkish",
+    "route": "STN–SFO",
+    "layover": [
+     "30 hr 55 min",
+     "STN"
+    ],
+    "raw": "5:45 PM – 4:40 PM+1 Turkish Airlines 30 hr 55 min STN–SFO 1 stop 13 hr 35 min IST 792 kg CO2e +53% emissions $1,205"
+   },
+   {
+    "price": 1554,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "13:00",
+    "arr": "16:00",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "16:15",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 2684,
+    "dep": "12:45",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic, Air France, Delta, KLM",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $2,684"
+   },
+   {
+    "price": 2929,
+    "dep": "10:45",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 5 min",
+     "LHR"
+    ],
+    "raw": "10:45 AM – 1:50 PM British AirwaysFinnair, Iberia, American 11 hr 5 min LHR–SFO Nonstop 522 kg CO2e Avg emissions $2,929"
+   },
+   {
+    "price": 2929,
+    "dep": "14:30",
+    "arr": "17:40",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "2:30 PM – 5:40 PM British AirwaysFinnair, Iberia, American 11 hr 10 min LHR–SFO Nonstop 531 kg CO2e Avg emissions $2,929"
+   }
+  ]
+ },
+ "lon-sfo-1019": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20SFO%20on%202026-10-19%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 708,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "+1",
+    "mins": 2100,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LGW–SFO",
+    "layover": [
+     "35 hr",
+     "LGW"
+    ],
+    "raw": "10:35 AM – 1:35 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 35 hr LGW–SFO 1 stop 19 hr 35 min LIS 695 kg CO2e +35% emissions $708"
+   },
+   {
+    "price": 717,
+    "dep": "12:05",
+    "arr": "13:35",
+    "plus": "+1",
+    "mins": 2010,
+    "stops": "2 stops",
+    "air": "?",
+    "route": "LGW–SFO",
+    "layover": [
+     "33 hr 30 min",
+     "LGW"
+    ],
+    "raw": "12:05 PM – 1:35 PM+1 Tap Air Portugal 33 hr 30 min LGW–SFO 2 stops OPO, LIS 677 kg CO2e +31% emissions $717"
+   },
+   {
+    "price": 941,
+    "dep": "12:40",
+    "arr": "12:20",
+    "plus": "+1",
+    "mins": 1900,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LGW–SFO",
+    "layover": [
+     "31 hr 40 min",
+     "LGW"
+    ],
+    "raw": "12:40 PM – 12:20 PM+1 Air Transat, Porter Airlines 31 hr 40 min LGW–SFO 1 stop 18 hr 5 min YYZ 768 kg CO2e +49% emissions $941"
+   },
+   {
+    "price": 965,
+    "dep": "07:30",
+    "arr": "20:17",
+    "plus": "",
+    "mins": 1247,
+    "stops": "2 stops",
+    "air": "Lufthansa, Condor, Alaska",
+    "route": "LHR–SFO",
+    "layover": [
+     "20 hr 47 min",
+     "LHR"
+    ],
+    "raw": "7:30 AM – 8:17 PM Lufthansa, Condor, Alaska 20 hr 47 min LHR–SFO 2 stops FRA, SEA 641 kg CO2e +24% emissions $965"
+   },
+   {
+    "price": 978,
+    "dep": "10:20",
+    "arr": "20:17",
+    "plus": "",
+    "mins": 1077,
+    "stops": "2 stops",
+    "air": "Condor, Alaska",
+    "route": "LGW–SFO",
+    "layover": [
+     "17 hr 57 min",
+     "LGW"
+    ],
+    "raw": "10:20 AM – 8:17 PM Condor, Alaska 17 hr 57 min LGW–SFO 2 stops FRA, SEA 664 kg CO2e +29% emissions $978"
+   },
+   {
+    "price": 1040,
+    "dep": "10:50",
+    "arr": "16:40",
+    "plus": "+1",
+    "mins": 2270,
+    "stops": "1 stop",
+    "air": "Turkish",
+    "route": "STN–SFO",
+    "layover": [
+     "37 hr 50 min",
+     "STN"
+    ],
+    "raw": "10:50 AM – 4:40 PM+1 Turkish Airlines 37 hr 50 min STN–SFO 1 stop 20 hr 30 min IST 821 kg CO2e +59% emissions $1,040"
+   },
+   {
+    "price": 1043,
+    "dep": "13:55",
+    "arr": "21:55",
+    "plus": "",
+    "mins": 960,
+    "stops": "1 stop",
+    "air": "WestJet",
+    "route": "LHR–SFO",
+    "layover": [
+     "16 hr",
+     "LHR"
+    ],
+    "raw": "1:55 PM – 9:55 PM WestJet 16 hr LHR–SFO 1 stop 4 hr 10 min YYC 534 kg CO2e Avg emissions $1,043"
+   },
+   {
+    "price": 1322,
+    "dep": "06:30",
+    "arr": "11:45",
+    "plus": "",
+    "mins": 795,
+    "stops": "1 stop",
+    "air": "KLM, Delta, Virgin Atlantic",
+    "route": "LHR–SFO",
+    "layover": [
+     "13 hr 15 min",
+     "LHR"
+    ],
+    "raw": "6:30 AM – 11:45 AM KLMDelta, Virgin Atlantic 13 hr 15 min LHR–SFO 1 stop 1 hr AMS 428 kg CO2e -17% emissions $1,322"
+   },
+   {
+    "price": 1339,
+    "dep": "12:45",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic, Air France, Delta, KLM",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,339"
+   },
+   {
+    "price": 1369,
+    "dep": "09:50",
+    "arr": "15:50",
+    "plus": "",
+    "mins": 840,
+    "stops": "1 stop",
+    "air": "Aer Lingus, British Airways, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "14 hr",
+     "LHR"
+    ],
+    "raw": "9:50 AM – 3:50 PM Aer LingusBritish Airways, American 14 hr LHR–SFO 1 stop 1 hr 30 min DUB 541 kg CO2e Avg emissions $1,369"
+   },
+   {
+    "price": 1554,
+    "dep": "16:15",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1595,
+    "dep": "10:45",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 5 min",
+     "LHR"
+    ],
+    "raw": "10:45 AM – 1:50 PM British AirwaysFinnair, Iberia, American 11 hr 5 min LHR–SFO Nonstop 522 kg CO2e Avg emissions $1,595"
+   },
+   {
+    "price": 1595,
+    "dep": "14:30",
+    "arr": "17:40",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways, Iberia, Finnair, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "2:30 PM – 5:40 PM British AirwaysIberia, Finnair, American 11 hr 10 min LHR–SFO Nonstop 531 kg CO2e Avg emissions $1,595"
+   },
+   {
+    "price": 1622,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "10:35 AM – 1:35 PM UnitedLufthansa, Brussels Airlines, Austrian 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,622"
+   },
+   {
+    "price": 1622,
+    "dep": "13:00",
+    "arr": "16:00",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "1:00 PM – 4:00 PM UnitedLufthansa, Brussels Airlines, Austrian 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,622"
+   }
+  ]
+ }
+}

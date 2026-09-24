@@ -1,0 +1,1106 @@
+[
+ {
+  "city": "nice",
+  "url": "https://www.booking.com/searchresults.html?dest_id=-1454990&dest_type=city&checkin=2026-10-06&checkout=2026-10-10&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204%3Breview_score%3D80&order=price",
+  "found": "74",
+  "unavail_pct": "98",
+  "cards": [
+   {
+    "name": "Villa Serafina Apartements",
+    "url": "https://www.booking.com/hotel/fr/villa-serafina.html",
+    "price_4n": null,
+    "score": "8.4",
+    "dist": "1.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/44774382.webp?k=f17ab7a4878a0739686ae8f18556f207f12a129840d64b506ca4e52b312ae9b8&o=",
+    "raw": "Villa Serafina Apartements ¶ Opens in new window ¶ NiceShow on map ¶ 1.5 miles from downtownBeach Nearby ¶ 1.1 miles from beach ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,616 reviews ¶ Double Studio with Terrasse ¶ Entire studio • 1 bathroom • 1 kitchen • 248 ft² ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 72 ¶ € 341€ 313 ¶ Original price € 341. Current price € 313. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Restaurant Isidore by Soniho",
+    "url": "https://www.booking.com/hotel/fr/kyriad-nice-ouest-saint-isidore.html",
+    "price_4n": 417,
+    "score": "8.0",
+    "dist": "3.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/521079884.webp?k=0000713ae213003270a6c1556f5dd40fcc6bb15483d46e7f72d9520086163bc7&o=",
+    "raw": "Hotel Restaurant Isidore by Soniho ¶ Opens in new window ¶ Saint-Isidore, NiceShow on map ¶ 3.9 miles from downtown ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,952 reviews ¶ Twin Room ¶ 2 twin beds ¶ We have 4 left at this price ¶ Per night€ 104 ¶ € 417 ¶ Price € 417 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Logis Hôtel Villa Victorine",
+    "url": "https://www.booking.com/hotel/fr/villa-victorine.html",
+    "price_4n": 430,
+    "score": "8.2",
+    "dist": "2.7 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/89343344.webp?k=c4b9d4afc739923aa33e3f65cb97550222093bc41ed2a392dafd68677843ee0a&o=",
+    "raw": "Logis Hôtel Villa Victorine ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 2.7 miles from downtownBeach Nearby ¶ 1,500 feet from beach ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 199 reviews ¶ Small Single Room ¶ 1 twin bed ¶ Free cancellation ¶ We have 2 left at this price ¶ Per night€ 108 ¶ € 430 ¶ Price € 430 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Villa Saint Hubert",
+    "url": "https://www.booking.com/hotel/fr/villa-saint-hubert.html",
+    "price_4n": 455,
+    "score": "9.4",
+    "dist": "1.1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/298557194.webp?k=e3988cf44fed4bb214446315cf9685f8f92d801ad0a1e149ee704422624ee3f3&o=",
+    "raw": "Villa Saint Hubert ¶ Opens in new window ¶ Liberation, NiceShow on map ¶ 1.1 miles from downtownBeach Nearby ¶ 1.2 miles from beach ¶ Scored 9.4 ¶ 9.4 ¶ Wonderful ¶ 246 reviews ¶ Location 9.5 ¶ Double Room - Standard ¶ 1 full bed ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 114 ¶ € 455 ¶ Price € 455 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Residhome Nice Aéroport",
+    "url": "https://www.booking.com/hotel/fr/residhome-nice-aeroport.html",
+    "price_4n": 477,
+    "score": "8.3",
+    "dist": "3.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/510692301.webp?k=eeb4bbf731f7575bc3ec630f33006f430086a9dfe871d0f0abaedc41a8ebc7ba&o=",
+    "raw": "Residhome Nice Aéroport ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.5 miles from downtownBeach Nearby ¶ 1.1 miles from beach ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 3,251 reviews ¶ Studio ¶ Entire studio • 1 bathroom • 237 ft² ¶ 2 twin beds ¶ We have 2 left at this price ¶ Per night€ 119 ¶ € 477 ¶ Price € 477 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Trocadero",
+    "url": "https://www.booking.com/hotel/fr/trocaderonice.html",
+    "price_4n": 485,
+    "score": "8.1",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/13498572.webp?k=8eb983efcd08c59cbe625a33b519bdacbb1aea3b1352efd72294a370a7f22777&o=",
+    "raw": "Trocadero ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.5 miles from downtownBeach Nearby ¶ 3,550 feet from beach ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 5,880 reviews ¶ Standard Double Room ¶ 1 full bed ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 121 ¶ € 485 ¶ Price € 485 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Moxy Nice",
+    "url": "https://www.booking.com/hotel/fr/moxy-nice.html",
+    "price_4n": 491,
+    "score": "8.4",
+    "dist": "3.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/865899745.webp?k=2c43a2cfe547a545b95961c26456c6d89d398a5dabe965d9beacda4af5f305da&o=",
+    "raw": "Moxy Nice ¶ Opens in new window ¶ NiceShow on map ¶ 3.5 miles from downtownBeach Nearby ¶ 1.5 miles from beach ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 349 reviews ¶ Moxy Queen Room ¶ Private suite ¶ 1 queen bed ¶ We have 3 left at this price ¶ Per night€ 123 ¶ € 491 ¶ Price € 491 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel de Berne",
+    "url": "https://www.booking.com/hotel/fr/deberne.html",
+    "price_4n": 495,
+    "score": "8.2",
+    "dist": "0.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/795525612.webp?k=f0d07d6105560338b29c5fe8e710d15257fd4ac790f4806fc9959ba0f8530d0a&o=",
+    "raw": "Hotel de Berne ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.6 miles from downtownBeach Nearby ¶ 3,800 feet from beach ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 6,060 reviews ¶ Standard Double Room ¶ 1 full bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 3 left at this price ¶ Per night€ 124 ¶ € 495 ¶ Price € 495 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Servotel Saint-Vincent",
+    "url": "https://www.booking.com/hotel/fr/servotelsaintvincent.html",
+    "price_4n": 509,
+    "score": "8.3",
+    "dist": "4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/677635615.webp?k=37d03ef8bfa1e3898d187b834c3e824a05c4456069e7e777357a6f685acdaecd&o=",
+    "raw": "Servotel Saint-Vincent ¶ Opens in new window ¶ Saint-Isidore, NiceShow on map ¶ 4 miles from downtown ¶ Sustainability certification ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 762 reviews ¶ Classic Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Per night€ 127 ¶ € 509 ¶ Price € 509 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "ibis Nice Aéroport Promenade des Anglais",
+    "url": "https://www.booking.com/hotel/fr/ibis-nice-aa-c-roport.html",
+    "price_4n": 536,
+    "score": "8.0",
+    "dist": "2.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/881684394.webp?k=560ebfb3a326ab55535ae1a8f9e7e534c1501955218c73b26442d7950384adf2&o=",
+    "raw": "ibis Nice Aéroport Promenade des Anglais ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 2.9 miles from downtownBeach Nearby ¶ 2,950 feet from beach ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 2,160 reviews ¶ Standard Double Room ¶ 1 full bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 7 left at this price ¶ Per night€ 134 ¶ € 536 ¶ Price € 536 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "easyHotel Nice Old Town",
+    "url": "https://www.booking.com/hotel/fr/easyhotel-nice.html",
+    "price_4n": 545,
+    "score": "8.2",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/558192386.webp?k=bc54805cdcb4af139769fa73a1fd46dfaa129179fb7deac7a859e70b38f8c4dc&o=",
+    "raw": "easyHotel Nice Old Town ¶ Opens in new window ¶ Riquier, NiceShow on map ¶ 0.9 miles from downtownBeach Nearby ¶ 4,100 feet from beach ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,294 reviews ¶ Twin Room ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 136 ¶ € 545 ¶ Price € 545 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Crisol Promenade",
+    "url": "https://www.booking.com/hotel/fr/crisol-promenade.html",
+    "price_4n": null,
+    "score": "8.2",
+    "dist": "1.3 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/795676596.webp?k=ea5d6d48041ce22be1e24a10663a03de0c0e3133572fe0f6a3a8b06bd8f034cd&o=",
+    "raw": "Crisol Promenade ¶ Opens in new window ¶ Les Baumettes, NiceShow on map ¶ 1.3 miles from downtownBeach Nearby ¶ 250 feet from beach ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,097 reviews ¶ Limited-time Deal ¶ Double Room ¶ 1 queen bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 1 left at this price ¶ Per night€ 142 ¶ € 964€ 569 ¶ Original price € 964. Current price € 569. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "ibis Styles Nice Aéroport Arenas",
+    "url": "https://www.booking.com/hotel/fr/all-seasons-nice-aeroport.html",
+    "price_4n": 569,
+    "score": "8.3",
+    "dist": "3.3 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/876530073.webp?k=5382f7297eba7329d73fc9ea0ac5289ddde2cbb45107919e26a2f30ab95c2410&o=",
+    "raw": "ibis Styles Nice Aéroport Arenas ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.3 miles from downtownBeach Nearby ¶ 4,800 feet from beach ¶ Sustainability certification ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 2,379 reviews ¶ Standard Double Room ¶ 1 full bed ¶ Breakfast included ¶ Free cancellation ¶ Per night€ 142 ¶ € 569 ¶ Price € 569 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "OKKO Hotels Nice Aéroport",
+    "url": "https://www.booking.com/hotel/fr/okko-hotels-nice-aeroport.html",
+    "price_4n": 582,
+    "score": "8.5",
+    "dist": "3.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/300242369.webp?k=dd58d3a03b36301a7613c6bc312a1bcc33649a3c6ab8e34af185f59464ef491a&o=",
+    "raw": "OKKO Hotels Nice Aéroport ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.4 miles from downtownBeach Nearby ¶ 1 miles from beach ¶ Sustainability certification ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,347 reviews ¶ Twin Room ¶ 2 twin beds ¶ Per night€ 145 ¶ € 582 ¶ Price € 582 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Novotel Nice Arenas Aeroport",
+    "url": "https://www.booking.com/hotel/fr/novotel-nice-arenas.html",
+    "price_4n": 597,
+    "score": "8.5",
+    "dist": "3.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914379992.webp?k=2927d5045ca8bf6765eb08e74a63ea32081d867542576a4c7912f6aca1f972d4&o=",
+    "raw": "Novotel Nice Arenas Aeroport ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.5 miles from downtownBeach Nearby ¶ 1.1 miles from beach ¶ Sustainability certification ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,944 reviews ¶ Superior Twin Room ¶ 2 twin beds ¶ We have 7 left at this price ¶ Per night€ 149 ¶ € 597 ¶ Price € 597 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Novotel Suites Nice Airport",
+    "url": "https://www.booking.com/hotel/fr/suitehotel-nice-aeroport.html",
+    "price_4n": 601,
+    "score": "8.4",
+    "dist": "3.3 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/750281428.webp?k=f4ecbd4e61b04534f25a9b4e244c73aab9c22c912d002b72a9125fcc635f9409&o=",
+    "raw": "Novotel Suites Nice Airport ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.3 miles from downtownBeach Nearby ¶ 4,850 feet from beach ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,474 reviews ¶ Superior Suite with Double Bed and Sofa Bed ¶ Private suite ¶ 2 beds (1 full, 1 sofa bed) ¶ We have 7 left at this price ¶ Per night€ 150 ¶ € 601 ¶ Price € 601 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel 64 Nice",
+    "url": "https://www.booking.com/hotel/fr/national.html",
+    "price_4n": 604,
+    "score": "8.9",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/834372226.webp?k=90cd0c186978f72189e91f180e4533887f0e1ddc8a637c7c011ca8ad02249a09&o=",
+    "raw": "Hotel 64 Nice ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.5 miles from downtownBeach Nearby ¶ 3,800 feet from beach ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 2,489 reviews ¶ Location 9.4 ¶ Club Single Room ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 151 ¶ € 604 ¶ Price € 604 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Quality Aparthotel Nice",
+    "url": "https://www.booking.com/hotel/fr/zenitude-residences-nice.html",
+    "price_4n": 604,
+    "score": "8.3",
+    "dist": "1.3 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/783230182.webp?k=9a67b6678570d89684c2fd85879e2bb35609d5639afd4c7393bc0c686b9713a9&o=",
+    "raw": "Quality Aparthotel Nice ¶ Opens in new window ¶ NiceShow on map ¶ 1.3 miles from downtownBeach Nearby ¶ 1.1 miles from beach ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 872 reviews ¶ Studio ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 151 ¶ € 604 ¶ Price € 604 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hôtel Helvétique",
+    "url": "https://www.booking.com/hotel/fr/helvetiquenice.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": "450 feet",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/639878209.webp?k=234157de5908d4e5f59657af6bd4a0cd5c8773564d68db7745cb841d86e556b5&o=",
+    "raw": "Hôtel Helvétique ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 450 feet from downtownBeach Nearby ¶ 1,550 feet from beach ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,979 reviews ¶ Location 9.6 ¶ Late Escape Deal ¶ Superior Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 163 ¶ € 767€ 652 ¶ Original price € 767. Current price € 652. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Ikonik Marengo",
+    "url": "https://www.booking.com/hotel/fr/ikonikmarengo.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": "0.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/795637157.webp?k=34f6ef2822a08cf9b43391f497fd2478be0649fb87caa186148316c479eb9923&o=",
+    "raw": "Ikonik Marengo ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.6 miles from downtownBeach Nearby ¶ 4,050 feet from beach ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,091 reviews ¶ Single Room ¶ 1 twin bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 1 left at this price ¶ Per night€ 164 ¶ € 1,093€ 656 ¶ Original price € 1,093. Current price € 656. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Residhome Nice Promenade",
+    "url": "https://www.booking.com/hotel/fr/citadines-aparthotel-nicepromenade.html",
+    "price_4n": 656,
+    "score": "8.4",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/78147697.webp?k=433c2afcf9b3b5c3889c4299bc1dcb4c9ed92266f79151df18ee35f176ae8c46&o=",
+    "raw": "Residhome Nice Promenade ¶ Opens in new window ¶ Gambetta, NiceShow on map ¶ 0.9 miles from downtownBeach Nearby ¶ 800 feet from beach ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,356 reviews ¶ Standard Studio (2 Adults) ¶ Entire studio • 1 bathroom • 1 kitchen • 269 ft² ¶ Beds: 1 double or 2 twins ¶ We have 5 left at this price ¶ Per night€ 164 ¶ € 656 ¶ Price € 656 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Maison Astéria",
+    "url": "https://www.booking.com/hotel/fr/maison-asteria.html",
+    "price_4n": 675,
+    "score": "8.4",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/888651161.webp?k=7b96f94458c840c1a3e8b5347484968b7807a69e8876f4179666ae4114f0fa36&o=",
+    "raw": "Maison Astéria ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.5 miles from downtownBeach Nearby ¶ 3,250 feet from beach ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 62 reviews ¶ Duplex Apartment ¶ Entire apartment • 1 bedroom • 1 living room • 1 bathroom • 1 kitchen • 323 ft² ¶ 2 beds (1 sofa bed, 1 queen) ¶ We have 5 left at this price ¶ Per night€ 156 ¶ € 675 ¶ Price € 675 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Holiday Inn Express - Nice - Grand Arenas by IHG",
+    "url": "https://www.booking.com/hotel/fr/holiday-inn-express-nice-grand-arenas.html",
+    "price_4n": 681,
+    "score": "8.2",
+    "dist": "3.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/908613454.webp?k=0dae15300477487f7bc6427036c80dfa8bfc8de596d3bf513a6ff1b164c0ef74&o=",
+    "raw": "Holiday Inn Express - Nice - Grand Arenas by IHG ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.6 miles from downtownBeach Nearby ¶ 1 miles from beach ¶ Sustainability certification ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 3,099 reviews ¶ Standard Twin Room with Free Breakfast ¶ 2 twin beds ¶ Breakfast included ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 4 left at this price ¶ Per night€ 170 ¶ € 681 ¶ Price € 681 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Lepante",
+    "url": "https://www.booking.com/hotel/fr/hotellepante.html",
+    "price_4n": 687,
+    "score": "8.0",
+    "dist": "0.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/645682256.webp?k=546f2ae1d5c14c73bac987c33c20efcce7c9322aa934231fcbeeffc9dc4f7b3d&o=",
+    "raw": "Hotel Lepante ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.4 miles from downtownBeach Nearby ¶ 3,100 feet from beach ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,285 reviews ¶ Standard Double Room ¶ Beds: 1 double or 2 twins ¶ We have 5 left at this price ¶ Per night€ 172 ¶ € 687 ¶ Price € 687 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hôtel Alcôve Nice",
+    "url": "https://www.booking.com/hotel/fr/dante.html",
+    "price_4n": null,
+    "score": "9.2",
+    "dist": "0.8 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/195626509.webp?k=500a76848e13cf9bb573c77be6d0798344f70a6137cb3f4a03714263423e283b&o=",
+    "raw": "Hôtel Alcôve Nice ¶ Opens in new window ¶ Gambetta, NiceShow on map ¶ 0.8 miles from downtownBeach Nearby ¶ 1,000 feet from beach ¶ Scored 9.2 ¶ 9.2 ¶ Wonderful ¶ 2,384 reviews ¶ Location 9.5 ¶ Small Double Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 173 ¶ € 726€ 690 ¶ Original price € 726. Current price € 690. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hôtel Byakko Nice",
+    "url": "https://www.booking.com/hotel/fr/hotel-nicea.html",
+    "price_4n": 695,
+    "score": "8.2",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/296680039.webp?k=d6f50c4cd85b6e20ba52de323b9caec076783e0ac4447d9eaee4424a5a8dd5df&o=",
+    "raw": "Hôtel Byakko Nice ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.5 miles from downtownBeach Nearby ¶ 3,800 feet from beach ¶ Sustainability certification ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 3,879 reviews ¶ Standard Double Room ¶ 1 queen bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 1 left at this price ¶ Per night€ 174 ¶ € 695 ¶ Price € 695 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "App-Art",
+    "url": "https://www.booking.com/hotel/fr/app-art-nice.html",
+    "price_4n": null,
+    "score": "8.7",
+    "dist": "0.7 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/579179915.webp?k=d473ed5bedbc475242247bcbea502c36931e7e2273216c6d9a3f70b2b6eade89&o=",
+    "raw": "App-Art ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.7 miles from downtownBeach Nearby ¶ 800 feet from beach ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 526 reviews ¶ Comfort Studio ¶ Entire studio • 1 bathroom • 183 ft² ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 159 ¶ € 697€ 634 ¶ Original price € 697. Current price € 634. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Nice Pam Hotel",
+    "url": "https://www.booking.com/hotel/fr/nice-pam-hotel-fully-renovated.html",
+    "price_4n": 704,
+    "score": "8.4",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/552322305.webp?k=cca7fabec7229331c7730daecb60fbf3f9a1cdf3f510cf9efcea1d0175967f16&o=",
+    "raw": "Nice Pam Hotel ¶ Opens in new window ¶ Riquier, NiceShow on map ¶ 0.9 miles from downtownBeach Nearby ¶ 3,650 feet from beach ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,271 reviews ¶ Double Room ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 176 ¶ € 704 ¶ Price € 704 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Carlton Nice",
+    "url": "https://www.booking.com/hotel/fr/carlton-nice.html",
+    "price_4n": 709,
+    "score": "8.2",
+    "dist": "0.3 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/723812974.webp?k=70c7f514b6dcdca8ce8ad0b9e0f7b85f406308ac8450ddb14ab54ab323f08a27&o=",
+    "raw": "Hotel Carlton Nice ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.3 miles from downtownBeach Nearby ¶ 1,700 feet from beach ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 937 reviews ¶ Location 9.4 ¶ Double Room ¶ Beds: 1 double or 2 twins ¶ We have 1 left at this price ¶ Per night€ 177 ¶ € 709 ¶ Price € 709 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Busby",
+    "url": "https://www.booking.com/hotel/fr/busby.html",
+    "price_4n": 713,
+    "score": "8.0",
+    "dist": "0.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/479492670.webp?k=cf51f5df11c2cc7a7b5065c3f9ab5c88ff87945948b5c126131692bb268cd57b&o=",
+    "raw": "Hotel Busby ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.4 miles from downtownBeach Nearby ¶ 1,300 feet from beach ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 3,052 reviews ¶ Location 9.3 ¶ Comfort Twin Room ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 178 ¶ € 713 ¶ Price € 713 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Villa Bougainville by Happyculture",
+    "url": "https://www.booking.com/hotel/fr/choiseul-nice.html",
+    "price_4n": 722,
+    "score": "8.1",
+    "dist": "0.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/803730999.webp?k=a53aec2885305cb08fd3a8c9e332f515d8f51eb2d8c588d41b04ec851bd65006&o=",
+    "raw": "Villa Bougainville by Happyculture ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.6 miles from downtownBeach Nearby ¶ 3,100 feet from beach ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,485 reviews ¶ Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 180 ¶ € 722 ¶ Price € 722 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Le Windsor, Jungle Art Hotel",
+    "url": "https://www.booking.com/hotel/fr/hotel-windsor-nice1.html",
+    "price_4n": 773,
+    "score": "8.3",
+    "dist": "0.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/35056033.webp?k=c2f538c89f00c02f19aea4c74c78675f6f8a4afbfc8b8c9c584a039459686de1&o=",
+    "raw": "Le Windsor, Jungle Art Hotel ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.4 miles from downtownBeach Nearby ¶ 1,250 feet from beach ¶ Sustainability certification ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 1,550 reviews ¶ Location 9.4 ¶ Comfort Double Room - Creation ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 193 ¶ € 773 ¶ Price € 773 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel So’Co by Happyculture",
+    "url": "https://www.booking.com/hotel/fr/hotel-soco-by-happyculture.html",
+    "price_4n": 804,
+    "score": "8.2",
+    "dist": "0.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/94046601.webp?k=020cda7a9aaebeba3ccee329c90cf760b96c88421b2e11e3500e0ac624c8d0d8&o=",
+    "raw": "Hotel So’Co by Happyculture ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.6 miles from downtownBeach Nearby ¶ 3,100 feet from beach ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,459 reviews ¶ Single Room ¶ 1 twin bed ¶ Breakfast included ¶ We have 1 left at this price ¶ Per night€ 201 ¶ € 804 ¶ Price € 804 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Sheraton Nice",
+    "url": "https://www.booking.com/hotel/fr/sheraton-nice-airport.html",
+    "price_4n": 806,
+    "score": "8.0",
+    "dist": "3.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/906447787.webp?k=1b177096ae52a3847cc01098acaed1503cf0cd6e0f478bebe95ea33d64cd0827&o=",
+    "raw": "Sheraton Nice ¶ Opens in new window ¶ Arenas, NiceShow on map ¶ 3.6 miles from downtownBeach Nearby ¶ 1 miles from beach ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,899 reviews ¶ Deluxe Twin Room ¶ 2 twin beds ¶ Per night€ 201 ¶ € 806 ¶ Price € 806 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Nap By HappyCulture",
+    "url": "https://www.booking.com/hotel/fr/crillon.html",
+    "price_4n": 825,
+    "score": "8.6",
+    "dist": "0.1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/889065123.webp?k=66fa1538d6728ea2b6f007c70e631fc3c1d55c6ad75a641170a8dd31cc46fc60&o=",
+    "raw": "Hotel Nap By HappyCulture ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.1 miles from downtownBeach Nearby ¶ 1,900 feet from beach ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 2,769 reviews ¶ Location 9.7 ¶ Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 206 ¶ € 825 ¶ Price € 825 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Khla Nice",
+    "url": "https://www.booking.com/hotel/fr/azurea.html",
+    "price_4n": 827,
+    "score": "8.5",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/426478443.webp?k=9c86f92836c4746899c9b0f9e5cf9a24471f73047147b72d795cc1198e08e6ed&o=",
+    "raw": "Hotel Khla Nice ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.5 miles from downtownBeach Nearby ¶ 3,550 feet from beach ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 4,629 reviews ¶ Superior Double Room ¶ Multiple bed types ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 3 left at this price ¶ Per night€ 207 ¶ € 827 ¶ Price € 827 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hôtel Locarno Nice",
+    "url": "https://www.booking.com/hotel/fr/locarno.html",
+    "price_4n": null,
+    "score": "8.4",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/745267325.webp?k=94bae79e6bf70feebc0865eb08eb4685af1d376cd0aa7e95b1543fdca91c060e&o=",
+    "raw": "Hôtel Locarno Nice ¶ Opens in new window ¶ Les Baumettes, NiceShow on map ¶ 0.9 miles from downtownBeach Nearby ¶ 700 feet from beach ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,805 reviews ¶ Deluxe Double Room ¶ Beds: 1 double or 2 twins ¶ Free cancellation ¶ We have 2 left at this price ¶ Per night€ 191 ¶ € 841€ 765 ¶ Original price € 841. Current price € 765. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Le Meurice",
+    "url": "https://www.booking.com/hotel/fr/le-meurice.html",
+    "price_4n": 844,
+    "score": "8.6",
+    "dist": "0.2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/663005844.webp?k=3af1009161094920df68b9aef0aefb456567260024403e41ed63b349109a79da&o=",
+    "raw": "Hotel Le Meurice ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.2 miles from downtownBeach Nearby ¶ 650 feet from beach ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 506 reviews ¶ Location 9.8 ¶ Superior Double Room ¶ 1 queen bed ¶ We have 2 left at this price ¶ Per night€ 211 ¶ € 844 ¶ Price € 844 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel 66 Nice",
+    "url": "https://www.booking.com/hotel/fr/66-nice.html",
+    "price_4n": 844,
+    "score": "8.7",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/427440750.webp?k=01bbaf1282b1c6bc021fb6339a40103304a0c6a4ddf45b8f782692291c6e35c1&o=",
+    "raw": "Hotel 66 Nice ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.5 miles from downtownBeach Nearby ¶ 3,600 feet from beach ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 1,751 reviews ¶ Superior Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ We have 2 left at this price ¶ Per night€ 211 ¶ € 844 ¶ Price € 844 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hôtel Nice Azur Riviera",
+    "url": "https://www.booking.com/hotel/fr/nice-azur-riviera.html",
+    "price_4n": null,
+    "score": "8.6",
+    "dist": "0.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/422196234.webp?k=0f7e051621ad7136b554361ea081bea832990413ae52b6b8d5b102543d7f2692&o=",
+    "raw": "Hôtel Nice Azur Riviera ¶ Opens in new window ¶ Nice City Centre, NiceShow on map ¶ 0.6 miles from downtownBeach Nearby ¶ 4,050 feet from beach ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 3,441 reviews ¶ Late Escape Deal ¶ Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 213 ¶ € 1,065€ 852 ¶ Original price € 1,065. Current price € 852. ¶ 4 nights, 1 adult ¶ See availability"
+   }
+  ]
+ },
+ {
+  "city": "lis",
+  "url": "https://www.booking.com/searchresults.html?dest_id=-2167973&dest_type=city&checkin=2026-10-10&checkout=2026-10-14&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204%3Breview_score%3D80&order=price",
+  "found": "106",
+  "unavail_pct": "98",
+  "cards": [
+   {
+    "name": "Hotel ibis Lisboa Alfragide",
+    "url": "https://www.booking.com/hotel/pt/ibis-lisboa-alfragide.html",
+    "price_4n": 414,
+    "score": "8.1",
+    "dist": "3.8 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914479382.webp?k=4b81898ac7d548cc5e73d317db1a84ffba857be2a1bc850ca80b638df11a4e86&o=",
+    "raw": "Hotel ibis Lisboa Alfragide ¶ Opens in new window ¶ LisbonShow on map ¶ 3.8 miles from downtown ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 5,009 reviews ¶ Double Room - Non-Smoking ¶ 1 full bed ¶ We have 7 left at this price ¶ Per night€ 103 ¶ € 414 ¶ Price € 414 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "LSA Alvalade by Numa",
+    "url": "https://www.booking.com/hotel/pt/lisbon-serviced-apartments-alvalade.html",
+    "price_4n": 464,
+    "score": "8.1",
+    "dist": "2.8 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/798967834.webp?k=93f70f8d78fe4a8f2282c6c4bb028cb52caceaedb3041eb307b6c0d670eca60a&o=",
+    "raw": "LSA Alvalade by Numa ¶ Opens in new window ¶ Alvalade, LisbonShow on map ¶ 2.8 miles from downtownSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 2,626 reviews ¶ Superior Studio ¶ Entire studio • 1 bathroom • 194 ft² ¶ 1 full bed ¶ Per night€ 116 ¶ € 464 ¶ Price € 464 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "B&B HOTEL Lisboa Aeroporto",
+    "url": "https://www.booking.com/hotel/pt/b-amp-b-lisboa-aeroporto.html",
+    "price_4n": 512,
+    "score": "8.3",
+    "dist": "5.1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/903246311.webp?k=44c1c369b866e7bb9699df21a8f77f7dead8fe86340a65f270e1d0ab3d5ea81a&o=",
+    "raw": "B&B HOTEL Lisboa Aeroporto ¶ Opens in new window ¶ LisbonShow on map ¶ 5.1 miles from downtown ¶ Sustainability certification ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 9,514 reviews ¶ Double Room ¶ 1 queen bed ¶ Per night€ 128 ¶ € 512 ¶ Price € 512 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel ibis Lisboa Jose Malhoa",
+    "url": "https://www.booking.com/hotel/pt/ibis-lisboa-josa-c-malhoa.html",
+    "price_4n": 516,
+    "score": "8.1",
+    "dist": "2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912493754.webp?k=bba7648582d785dcc33dc21b62d0cba4c921bcff781f835b145ef3f6783a04c9&o=",
+    "raw": "Hotel ibis Lisboa Jose Malhoa ¶ Opens in new window ¶ Campolide, LisbonShow on map ¶ 2 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 6,943 reviews ¶ Standard Double Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 129 ¶ € 516 ¶ Price € 516 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel DAH - Dom Afonso Henriques",
+    "url": "https://www.booking.com/hotel/pt/d-afonso-henriques.html",
+    "price_4n": 549,
+    "score": "8.0",
+    "dist": "1.7 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/386284968.webp?k=18958f4d1e71f3879ee769220b31416ab4b54d2c1ce6fab2808aa265a02f64a4&o=",
+    "raw": "Hotel DAH - Dom Afonso Henriques ¶ Opens in new window ¶ Penha de Franca, LisbonShow on map ¶ 1.7 miles from downtownSubway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 275 reviews ¶ Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Per night€ 137 ¶ € 549 ¶ Price € 549 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Limehome Lisbon Calçada do Cardeal",
+    "url": "https://www.booking.com/hotel/pt/staynco-lisbon-santa-apolonia-lisboa.html",
+    "price_4n": 587,
+    "score": "8.2",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/554348086.webp?k=26e5c649b27ca847e1ac4a602bf009ff14f65ccda55963d00c9510055a6bdea0&o=",
+    "raw": "Limehome Lisbon Calçada do Cardeal ¶ Opens in new window ¶ Sao Vicente, LisbonShow on map ¶ 0.9 miles from downtownSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 693 reviews ¶ Comfort Studio with sofa bed ¶ Entire studio • 1 bathroom • 1 kitchen • 463 ft² ¶ 2 beds (1 full, 1 sofa bed) ¶ We have 4 left at this price ¶ Per night€ 147 ¶ € 587 ¶ Price € 587 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Limehome Lisbon Campo Pequeno",
+    "url": "https://www.booking.com/hotel/pt/limehome-lisbon-defensores-de-chaves.html",
+    "price_4n": 642,
+    "score": "8.7",
+    "dist": "1.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/689435037.webp?k=30268db422d46f0f4ab376fa4da7e81efbdb2e105f43e1fd29d523a4eb7d718f&o=",
+    "raw": "Limehome Lisbon Campo Pequeno ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.9 miles from downtownSubway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 1,345 reviews ¶ Studio with Sofa Bed ¶ Entire studio • 1 bathroom • 1 kitchen • 269 ft² ¶ 2 beds (1 sofa bed, 1 queen) ¶ Per night€ 160 ¶ € 642 ¶ Price € 642 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Upon Lisbon Prime Residences",
+    "url": "https://www.booking.com/hotel/pt/upon-lisbon-residences.html",
+    "price_4n": 653,
+    "score": "8.8",
+    "dist": "3.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/176719347.webp?k=987cbb1c03ea7e66a213ff5ffd74775e56895205099e2f6b944605983a118739&o=",
+    "raw": "Upon Lisbon Prime Residences ¶ Opens in new window ¶ Sao Domingos de Benfica, LisbonShow on map ¶ 3.6 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 3,153 reviews ¶ Studio ¶ Entire studio • 1 kitchen • 431 ft² ¶ 1 queen bed ¶ We have 3 left at this price ¶ Per night€ 163 ¶ € 653 ¶ Price € 653 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Capital Lisboa",
+    "url": "https://www.booking.com/hotel/pt/residencia-capital.html",
+    "price_4n": 660,
+    "score": "8.1",
+    "dist": "1.8 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/107356440.webp?k=a9bf320199fde4b9cb42ea53b29a75656cd611f9b82a1d55bdade7a9bcf7c60a&o=",
+    "raw": "Hotel Capital Lisboa ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.8 miles from downtownSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 611 reviews ¶ Twin Room with Private Bathroom ¶ 2 twin beds ¶ We have 2 left at this price ¶ Per night€ 165 ¶ € 660 ¶ Price € 660 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Albergaria Senhora do Monte",
+    "url": "https://www.booking.com/hotel/pt/albergaria-senhora-do-monte.html",
+    "price_4n": 670,
+    "score": "8.2",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/8859647.webp?k=32d057f3e66acef9dd85543a0c06219e38ec1d5ca19c88ca1ff71f258b59c37d&o=",
+    "raw": "Albergaria Senhora do Monte ¶ Opens in new window ¶ Sao Vicente, LisbonShow on map ¶ 0.5 miles from downtownSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,362 reviews ¶ Double Room ¶ 2 twin beds ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 1 left at this price ¶ Per night€ 167 ¶ € 670 ¶ Price € 670 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Czar Lisbon Hotel",
+    "url": "https://www.booking.com/hotel/pt/tsar-lisbon.html",
+    "price_4n": null,
+    "score": "8.4",
+    "dist": "1.1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/150459087.webp?k=b8eb2676768c13f55743f09f80dcc6baa1a375961ea900fe641247d41a2385be&o=",
+    "raw": "Czar Lisbon Hotel ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.1 miles from downtownSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,331 reviews ¶ Late Escape Deal ¶ Single Room ¶ Multiple bed types ¶ We have 2 left at this price ¶ Per night€ 181 ¶ € 907€ 725 ¶ Original price € 907. Current price € 725. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Limehome Lisbon Rua Eça de Queiroz",
+    "url": "https://www.booking.com/hotel/pt/staynco-lisbon-marques-de-pombal.html",
+    "price_4n": 734,
+    "score": "8.4",
+    "dist": "1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553171904.webp?k=75d2285eacc10dcedfc130d5057666ac12580bfa50a260af8ec242f9895a96a5&o=",
+    "raw": "Limehome Lisbon Rua Eça de Queiroz ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 662 reviews ¶ Studio with Sofa Bed ¶ Entire studio • 1 bathroom • 1 kitchen • 377 ft² ¶ 2 beds (1 sofa bed, 1 queen) ¶ We have 2 left at this price ¶ Per night€ 184 ¶ € 734 ¶ Price € 734 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "OMID Saldanha Hotel",
+    "url": "https://www.booking.com/hotel/pt/omid-saldanha.html",
+    "price_4n": 750,
+    "score": "8.5",
+    "dist": "1.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/314471206.webp?k=aa142e5414b0b767276e85caeddeca1124b1bf34bb1ef2a17d212d34c5af315c&o=",
+    "raw": "OMID Saldanha Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.4 miles from downtownSubway Access ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 4,234 reviews ¶ Double Room ¶ 1 full bed ¶ Per night€ 188 ¶ € 750 ¶ Price € 750 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "TURIM Ibéria Hotel",
+    "url": "https://www.booking.com/hotel/pt/turim-iberia.html",
+    "price_4n": null,
+    "score": "8.7",
+    "dist": "1.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/465959810.webp?k=8424ca749a6a0511f2352dedb634601e3cb09a1dce31663a2bb7eec5316ca706&o=",
+    "raw": "TURIM Ibéria Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.9 miles from downtownSubway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 5,632 reviews ¶ Executive Twin Room ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 189 ¶ € 1,048€ 755 ¶ Original price € 1,048. Current price € 755. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "VIP Inn Berna Hotel",
+    "url": "https://www.booking.com/hotel/pt/berna.html",
+    "price_4n": 779,
+    "score": "8.3",
+    "dist": "2.1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/256176071.webp?k=a37aaf7820e5b70b7c98b08ccd147c0a814f674195b00684be80cdb0b303ee0b&o=",
+    "raw": "VIP Inn Berna Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 2.1 miles from downtownSubway Access ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 4,362 reviews ¶ Executive Twin Room ¶ 2 twin beds ¶ We have 2 left at this price ¶ Per night€ 195 ¶ € 779 ¶ Price € 779 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Numa Lisbon Anjos",
+    "url": "https://www.booking.com/hotel/pt/numa-lisbon-anjos.html",
+    "price_4n": 779,
+    "score": "9.0",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/656951745.webp?k=f1c75ee039bba80be8fb528fcd7a5b86a03e8331d8690cf46bd1fd5722c6674b&o=",
+    "raw": "Numa Lisbon Anjos ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 0.9 miles from downtownSubway Access ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 2,156 reviews ¶ Large Studio with Kitchenette ¶ Entire studio • 1 bathroom • 291 ft² ¶ 1 queen bed ¶ Per night€ 195 ¶ € 779 ¶ Price € 779 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NH Lisboa Campo Grande",
+    "url": "https://www.booking.com/hotel/pt/nhlisboacampogrande.html",
+    "price_4n": 788,
+    "score": "8.8",
+    "dist": "2.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/694789939.webp?k=b8c017527e48408d1976dad59b923f5b905dbf4bb36713dc014d3f5781dd16f8&o=",
+    "raw": "NH Lisboa Campo Grande ¶ Opens in new window ¶ Alvalade, LisbonShow on map ¶ 2.5 miles from downtown ¶ Sustainability certification ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 1,399 reviews ¶ Standard Room with View ¶ Beds: 1 double or 2 twins ¶ We have 2 left at this price ¶ Per night€ 197 ¶ € 788 ¶ Price € 788 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Numa Lisbon Rato",
+    "url": "https://www.booking.com/hotel/pt/numa-i-voga-rooms-amp-apartments.html",
+    "price_4n": 789,
+    "score": "8.9",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/668583299.webp?k=47c911b64d1f3b45a11020ab2f510d1a0390fc640610f46d5677921489a99c48&o=",
+    "raw": "Numa Lisbon Rato ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.9 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 1,652 reviews ¶ Medium Studio with Kitchenette ¶ Entire studio • 1 bathroom • 1 kitchen • 205 ft² ¶ 1 queen bed ¶ We have 3 left at this price ¶ Per night€ 197 ¶ € 789 ¶ Price € 789 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Acta Moa",
+    "url": "https://www.booking.com/hotel/pt/acta-moa.html",
+    "price_4n": 838,
+    "score": "8.5",
+    "dist": "2.2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/766173641.webp?k=96dcbae6c7546bc425c4f798cbc12c8e778be1124ff0b93632cad6afc4aa38d7&o=",
+    "raw": "Hotel Acta Moa ¶ Opens in new window ¶ Areeiro, LisbonShow on map ¶ 2.2 miles from downtownSubway Access ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,701 reviews ¶ Junior Suite ¶ Private suite • 1 bedroom • 1 living room • 1 bathroom • 312 ft² ¶ 2 beds (1 sofa bed, 1 queen) ¶ We have 2 left at this price ¶ Per night€ 210 ¶ € 838 ¶ Price € 838 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Alif Avenidas",
+    "url": "https://www.booking.com/hotel/pt/alif-avenidas.html",
+    "price_4n": null,
+    "score": "8.7",
+    "dist": "1.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/65715679.webp?k=f4a4cae902e28b486e86f5c95974e9b77f267f3a4b5f9aec210f4b0d913d9846&o=",
+    "raw": "Hotel Alif Avenidas ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.6 miles from downtownSubway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 3,836 reviews ¶ Twin Room ¶ 2 twin beds ¶ Free cancellation ¶ We have 2 left at this price ¶ Per night€ 213 ¶ € 947€ 852 ¶ Original price € 947. Current price € 852. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Lis Baixa",
+    "url": "https://www.booking.com/hotel/pt/lis-baixa.html",
+    "price_4n": null,
+    "score": "8.7",
+    "dist": "0.2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/43677934.webp?k=8fbde9ffdda66be9ab0f866668b851888b111f811d7912c1f43496e833caea20&o=",
+    "raw": "Hotel Lis Baixa ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 0.2 miles from downtownSubway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 4,184 reviews ¶ Location 9.8 ¶ Double or Twin Room with Balcony ¶ Beds: 1 double or 2 twins ¶ We have 1 left at this price ¶ Per night€ 215 ¶ € 935€ 860 ¶ Original price € 935. Current price € 860. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Patria Hotel",
+    "url": "https://www.booking.com/hotel/pt/pensao-residencial-patria.html",
+    "price_4n": 860,
+    "score": "8.2",
+    "dist": "1.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/444763044.webp?k=ae2af3fd4635c1861caf362634d04018df40fa1ae652ac16e4faf90a8bdd8d05&o=",
+    "raw": "Patria Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.5 miles from downtownSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 3,799 reviews ¶ Family Room ¶ Multiple bed types ¶ We have 2 left at this price ¶ Per night€ 215 ¶ € 860 ¶ Price € 860 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Star inn Lisbon Airport",
+    "url": "https://www.booking.com/hotel/pt/star-inn-lisbon-smart-choice.html",
+    "price_4n": 873,
+    "score": "8.7",
+    "dist": "4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/87977574.webp?k=f844d2aacb419821f5b427751b785e4b9d68ee640db9699fbb64798b0dc48453&o=",
+    "raw": "Star inn Lisbon Airport ¶ Opens in new window ¶ Olivais, LisbonShow on map ¶ 4 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 10,365 reviews ¶ Location 9.6 ¶ Standard Single Room ¶ 1 twin bed ¶ Breakfast included ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 218 ¶ € 873 ¶ Price € 873 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "HF Fénix Garden",
+    "url": "https://www.booking.com/hotel/pt/fenix-garden.html",
+    "price_4n": 887,
+    "score": "9.0",
+    "dist": "1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/365202927.webp?k=86b7d9bea440cfb0fb5d1f74d233c7e48f9e885d3d02fe1c1961e999e2e60b46&o=",
+    "raw": "HF Fénix Garden ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 2,320 reviews ¶ Location 9.3 ¶ Economy Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 222 ¶ € 887 ¶ Price € 887 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Jupiter Lisboa Hotel - Rooftop & Spa",
+    "url": "https://www.booking.com/hotel/pt/jupiter-lisboa.html",
+    "price_4n": 887,
+    "score": "8.7",
+    "dist": "1.8 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/573828372.webp?k=6f43b8d748ecaaa43d4fb302c93ad64ab8d5280c7a4a0977ef6cb090565c17d5&o=",
+    "raw": "Jupiter Lisboa Hotel - Rooftop & Spa ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.8 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 3,592 reviews ¶ Standard Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ We have 1 left at this price ¶ Per night€ 222 ¶ € 887 ¶ Price € 887 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "America Diamonds Hotel",
+    "url": "https://www.booking.com/hotel/pt/america-diamond-s.html",
+    "price_4n": 896,
+    "score": "8.4",
+    "dist": "1.2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/601034166.webp?k=ef85efaf698eb0a37d1336e39426aebd4ea107c4cd19eccd5436a106d1ea4b66&o=",
+    "raw": "America Diamonds Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.2 miles from downtownSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 8,148 reviews ¶ Double room with Hot Tub Romantic Package ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 224 ¶ € 896 ¶ Price € 896 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Cloud One Lisbon",
+    "url": "https://www.booking.com/hotel/pt/cloud-one-lisbon.html",
+    "price_4n": 899,
+    "score": "9.0",
+    "dist": "1.6 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/866761461.webp?k=1917e195492f0b0984d182b32edb4c5775aaa2d60bbec3702f5d2076cf4dc509&o=",
+    "raw": "The Cloud One Lisbon ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.6 miles from downtownSubway Access ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 390 reviews ¶ Location 9.4 ¶ Standard Double Room ¶ 1 king bed ¶ We have 1 left at this price ¶ Per night€ 225 ¶ € 899 ¶ Price € 899 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Esqina Cosmopolitan Lodge",
+    "url": "https://www.booking.com/hotel/pt/esqina-cosmopolitan-lodge.html",
+    "price_4n": null,
+    "score": "8.8",
+    "dist": "0.2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/873089300.webp?k=0952e8284aa6ae90112d160bb5d421a81fa0f8fe70c73b75eb65d5c6e644fbdf&o=",
+    "raw": "Esqina Cosmopolitan Lodge ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 0.2 miles from downtownSubway Access ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 829 reviews ¶ Location 9.6 ¶ Late Escape Deal ¶ Cozy Room ¶ 1 full bed ¶ Breakfast included ¶ We have 1 left at this price ¶ Per night€ 226 ¶ € 1,275€ 906 ¶ Original price € 1,275. Current price € 906. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Locke de Santa Joana",
+    "url": "https://www.booking.com/hotel/pt/locke-de-santa-joana.html",
+    "price_4n": 913,
+    "score": "8.5",
+    "dist": "0.9 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/821199163.webp?k=e70e43a1a48fd760f47b9acfb6c9f2bb680ff1c845f5133a66d55b9b3aa8ba8f&o=",
+    "raw": "Locke de Santa Joana ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.9 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,690 reviews ¶ Deluxe Studio ¶ Entire studio • 1 bathroom • 1 kitchen • 258 ft² ¶ 1 queen bed ¶ Per night€ 228 ¶ € 913 ¶ Price € 913 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "LIOZ Hotel & Apartments",
+    "url": "https://www.booking.com/hotel/pt/lioz-lisboa.html",
+    "price_4n": null,
+    "score": "9.4",
+    "dist": "0.5 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/721228000.webp?k=d5e1e024f5b836606be425cbaa1c5f37233dee8f6d65ce7dd21fbbb807c5a673&o=",
+    "raw": "LIOZ Hotel & Apartments ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 0.5 miles from downtownSubway Access ¶ Scored 9.4 ¶ 9.4 ¶ Wonderful ¶ 309 reviews ¶ Location 9.7 ¶ Late Escape Deal ¶ Studio ¶ Entire studio • 1 bathroom • 603 ft² ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 230 ¶ € 1,080€ 918 ¶ Original price € 1,080. Current price € 918. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Ikonik Lisboa",
+    "url": "https://www.booking.com/hotel/pt/ikonik-lisboa.html",
+    "price_4n": null,
+    "score": "8.9",
+    "dist": "4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/325916464.webp?k=186d06003e229d850a17869bcbb671022f85a56cf4872b0e3051808d1cf319b0&o=",
+    "raw": "Ikonik Lisboa ¶ Opens in new window ¶ Parque das Nacoes, LisbonShow on map ¶ 4 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 7,616 reviews ¶ Late Escape Deal ¶ Double or Twin Room ¶ 1 full bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ Per night€ 231 ¶ € 1,538€ 923 ¶ Original price € 1,538. Current price € 923. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Ramada by Wyndham Lisbon",
+    "url": "https://www.booking.com/hotel/pt/ramada-by-wyndham-lisbon.html",
+    "price_4n": 937,
+    "score": "8.3",
+    "dist": "2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/892654578.webp?k=4ba15a00e2da5c319feee080d61c55100fd251fbdad87158fbd76d2e386b0632&o=",
+    "raw": "Ramada by Wyndham Lisbon ¶ Opens in new window ¶ Areeiro, LisbonShow on map ¶ 2 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 6,651 reviews ¶ 2 Twin Beds, Superior Room, River View, Non-Smoking ¶ 2 twin beds ¶ Breakfast included ¶ We have 2 left at this price ¶ Per night€ 234 ¶ € 937 ¶ Price € 937 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "ibis Styles Lisboa Aeroporto",
+    "url": "https://www.booking.com/hotel/pt/ibis-styles-lisboa-aeroporto.html",
+    "price_4n": 969,
+    "score": "8.9",
+    "dist": "5.3 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/781588336.webp?k=92cafd4f6101f7d8cf6d07ee00fcef47a2c8d10309b26128a7572ba77e7fa348&o=",
+    "raw": "ibis Styles Lisboa Aeroporto ¶ Opens in new window ¶ LisbonShow on map ¶ 5.3 miles from downtown ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 7,075 reviews ¶ Superior Twin Room ¶ 1 twin bed ¶ We have 7 left at this price ¶ Per night€ 242 ¶ € 969 ¶ Price € 969 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Limehome Lisbon Rua do Arsenal",
+    "url": "https://www.booking.com/hotel/pt/staynco-lisbon-terreiro-do-paco.html",
+    "price_4n": 995,
+    "score": "8.4",
+    "dist": "0.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/550594118.webp?k=71e3bf820317856e9074faa8086d0386cf9c45e1b92a5d6dc6fe4c3c5887f47a&o=",
+    "raw": "Limehome Lisbon Rua do Arsenal ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 0.4 miles from downtownSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 505 reviews ¶ Location 9.5 ¶ One-Bedroom Apartment ¶ Entire apartment • 1 bedroom • 1 living room • 1 bathroom • 1 kitchen • 506 ft² ¶ 2 beds (1 sofa bed, 1 queen) ¶ We have 1 left at this price ¶ Per night€ 249 ¶ € 995 ¶ Price € 995 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Holiday Inn Lisbon by IHG",
+    "url": "https://www.booking.com/hotel/pt/holiday-inn-lisboa.html",
+    "price_4n": 1009,
+    "score": "8.1",
+    "dist": "1.7 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/272432534.webp?k=038c9653659a636f8fc16aa5a2b2237df0cc40ee794fcb3d9cb11e02a9b9aade&o=",
+    "raw": "Holiday Inn Lisbon by IHG ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Areeiro, LisbonShow on map ¶ 1.7 miles from downtownSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 2,578 reviews ¶ Standard Double Room - Smoking ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 252 ¶ € 1,009 ¶ Price € 1,009 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Metropole",
+    "url": "https://www.booking.com/hotel/pt/metropole.html",
+    "price_4n": 1014,
+    "score": "8.5",
+    "dist": "200 feet",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/687693629.webp?k=c8d017d983f5a7b37ebbd24cb3ada556113796649499d6f14f0d1739b80478cd&o=",
+    "raw": "Hotel Metropole ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 200 feet from downtownSubway Access ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 1,247 reviews ¶ Location 9.8 ¶ Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Breakfast included ¶ We have 1 left at this price ¶ Per night€ 254 ¶ € 1,014 ¶ Price € 1,014 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NEYA Lisboa Hotel",
+    "url": "https://www.booking.com/hotel/pt/neya-lisboa-lisboa.html",
+    "price_4n": null,
+    "score": "8.3",
+    "dist": "1.1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/195662323.webp?k=f2b3f8a7959a012ad6b14af534097f1b319b5a3b6df0d5669e4de454dbf361a9&o=",
+    "raw": "NEYA Lisboa Hotel ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.1 miles from downtown ¶ Sustainability certification ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 1,594 reviews ¶ Late Escape Deal ¶ Suite ¶ Private suite • 1 bedroom • 1 living room • 1 bathroom • 409 ft² ¶ 2 beds (1 king, 1 sofa bed) ¶ We have 1 left at this price ¶ Per night€ 260 ¶ € 1,299€ 1,039 ¶ Original price € 1,299. Current price € 1,039. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Dorma Saldanha",
+    "url": "https://www.booking.com/hotel/pt/dorma-saldanha.html",
+    "price_4n": null,
+    "score": "8.8",
+    "dist": "1.4 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/226736330.webp?k=c15ca78ad8809aaa7fca51f00d26ec3d7e87a8b7b3b49c318fc992ce0aa5e405&o=",
+    "raw": "Dorma Saldanha ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.4 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 3,761 reviews ¶ Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ Per night€ 268 ¶ € 1,788€ 1,073 ¶ Original price € 1,788. Current price € 1,073. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "JAM Lisbon",
+    "url": "https://www.booking.com/hotel/pt/jam-lisbon.html",
+    "price_4n": null,
+    "score": "8.9",
+    "dist": "1.2 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/480474452.webp?k=da0bf17773365adedc33a2dd93251a56ee4ea213c7f55b0c52f6f4e123a8655e&o=",
+    "raw": "JAM Lisbon ¶ Opens in new window ¶ Estrela, LisbonShow on map ¶ 1.2 miles from downtown ¶ Sustainability certification ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 3,750 reviews ¶ Late Escape Deal ¶ Standard Double Room ¶ 1 queen bed ¶ We have 6 left at this price ¶ Per night€ 275 ¶ € 1,832€ 1,099 ¶ Original price € 1,832. Current price € 1,099. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "VIP Executive Suites do Marquês Hotel",
+    "url": "https://www.booking.com/hotel/pt/vip-executive-suites-do-marques.html",
+    "price_4n": 1102,
+    "score": "9.1",
+    "dist": "1 miles",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/587199790.webp?k=fa4c095d1ae7cb0ab2ff8dd1991093e57fcd50c8c7974c9d55cf4333397ce068&o=",
+    "raw": "VIP Executive Suites do Marquês Hotel ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Sustainability certification ¶ Scored 9.1 ¶ 9.1 ¶ Wonderful ¶ 2,628 reviews ¶ Double Room ¶ 2 twin beds ¶ We have 2 left at this price ¶ Per night€ 276 ¶ € 1,102 ¶ Price € 1,102 ¶ 4 nights, 1 adult ¶ See availability"
+   }
+  ]
+ },
+ {
+  "city": "lon",
+  "url": "https://www.booking.com/searchresults.html?dest_id=43&dest_type=district&checkin=2026-10-14&checkout=2026-10-18&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204%3Breview_score%3D80&order=price",
+  "found": "16",
+  "unavail_pct": "94",
+  "cards": [
+   {
+    "name": "Travelodge London Balham",
+    "url": "https://www.booking.com/hotel/gb/po-travelodge-london-balham-wandsworth.html",
+    "price_4n": 524,
+    "score": null,
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/813271860.webp?k=6f0796c63069e731ca6702cbec2b356ed96efafdefc2c01473411b8d024ecc8b&o=",
+    "raw": "Travelodge London Balham ¶ Opens in new window ¶ Partner Offer ¶ Wandsworth, LondonShow on map ¶ 5.2 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Very Good 8.0 ¶ 230 external reviews ¶ Double Room ¶ 1 king bed ¶ Per night€ 131 ¶ € 524 ¶ Price € 524 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "St. David's Hotels Paddington",
+    "url": "https://www.booking.com/hotel/gb/st-david-39-s-hotels.html",
+    "price_4n": 669,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/536484438.webp?k=71b68db712e076b57289e7dcc391655613d71c864cef165b80937e8735a2d96f&o=",
+    "raw": "St. David's Hotels Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,071 reviews ¶ Location 9.5 ¶ Single Room with Shared Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 167 ¶ € 669 ¶ Price € 669 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Point A Hotel London Paddington",
+    "url": "https://www.booking.com/hotel/gb/point-a-hotel-london-paddington.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/867092506.webp?k=9086ca7cd94577120bbb31feaded203abaa752347f9e6f3677ac93bb57a72072&o=",
+    "raw": "Point A Hotel London Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 4,838 reviews ¶ Cozy Double Room with Window ¶ 1 full bed ¶ Per night€ 184 ¶ € 907€ 735 ¶ Original price € 907. Current price € 735. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Crescent Hyde Park",
+    "url": "https://www.booking.com/hotel/gb/paddington-scancourt.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/194200824.webp?k=365701c4eaac3ebc8396f28b161ac54aabdd678edbaab8cb0def6382a4eb1880&o=",
+    "raw": "The Crescent Hyde Park ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 2,552 reviews ¶ Standard Double (Lower Ground) ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 174 ¶ € 763€ 695 ¶ Original price € 763. Current price € 695. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Montcalm Chilworth Townhouse",
+    "url": "https://www.booking.com/hotel/gb/montcalm-chilworth-townhouse.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147562016.webp?k=3f0bdc4803ee613616e5bcbd2f897169d9795a0a9c2b0d893a4d1021e294150a&o=",
+    "raw": "Montcalm Chilworth Townhouse ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 7,403 reviews ¶ Location 9.4 ¶ Deluxe Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 178 ¶ € 784€ 714 ¶ Original price € 784. Current price € 714. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Grand Concerto Hotel",
+    "url": "https://www.booking.com/hotel/gb/castleton.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/668710450.webp?k=8a12196d08b5b157395c4f941570c19f06bf5ab6813b40c363ad1e89779a4524&o=",
+    "raw": "Grand Concerto Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 965 reviews ¶ Location 9.3 ¶ Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 199 ¶ € 1,060€ 795 ¶ Original price € 1,060. Current price € 795. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Stylotel",
+    "url": "https://www.booking.com/hotel/gb/ruddimanshotel.html",
+    "price_4n": 803,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5909244.webp?k=f3eee3660f640c86b61bfcc3f54907e553e471c9f9677335a85ce863bf9e2a1c&o=",
+    "raw": "Stylotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 2,748 reviews ¶ Location 9.5 ¶ Double Styloroom ¶ 1 full bed ¶ Breakfast included ¶ Free cancellation ¶ We have 4 left at this price ¶ Per night€ 201 ¶ € 803 ¶ Price € 803 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Best Western Plus Delmere Hotel",
+    "url": "https://www.booking.com/hotel/gb/thedelmerehotel.html",
+    "price_4n": 875,
+    "score": "8.5",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/887426760.webp?k=ea686efa6810002a1d4f122d89a666d2c409f9c0b3d4885967dee8687a6ca403&o=",
+    "raw": "Best Western Plus Delmere Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,263 reviews ¶ Location 9.5 ¶ Cozy Double Room - Non-Smoking ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 219 ¶ € 875 ¶ Price € 875 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Wilde Aparthotels London Paddington",
+    "url": "https://www.booking.com/hotel/gb/wilde-aparthotels-by-staycity-london-paddington.html",
+    "price_4n": null,
+    "score": "8.8",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/858873404.webp?k=758e32b02bffda1bf03ec9806b289251fc86f93e25a0e1d614671ef37a8a558e&o=",
+    "raw": "Wilde Aparthotels London Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 4,775 reviews ¶ Studio ¶ Entire studio • 1 bathroom • 226 ft² ¶ 1 queen bed ¶ Per night€ 235 ¶ € 1,034€ 941 ¶ Original price € 1,034. Current price € 941. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Indigo London Hyde Park Paddington by IHG",
+    "url": "https://www.booking.com/hotel/gb/indigo-london-paddington.html",
+    "price_4n": 1042,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/920604627.webp?k=160b13244d67e540f3e13e5b64e3f85a3622570d11ed0df8e778fd895cd8b067&o=",
+    "raw": "Hotel Indigo London Hyde Park Paddington by IHG ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 509 reviews ¶ Location 9.5 ¶ Standard Room ¶ 1 full bed ¶ Per night€ 261 ¶ € 1,042 ¶ Price € 1,042 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Mercure London Hyde Park Hotel",
+    "url": "https://www.booking.com/hotel/gb/qualityhotelpaddington.html",
+    "price_4n": 1056,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914552707.webp?k=f307c7ee11accf77ad963243be8aac823e39cafae80dd38c2f375c016800455b&o=",
+    "raw": "Mercure London Hyde Park Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,975 reviews ¶ Location 9.3 ¶ Standard King Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 264 ¶ € 1,056 ¶ Price € 1,056 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Seven Paddington",
+    "url": "https://www.booking.com/hotel/gb/seven-paddington.html",
+    "price_4n": null,
+    "score": "9.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/857570094.webp?k=3fd55dad8db8843c4fb28cd8d6895e256339eb480de0c5d419e6acfd9e37d927&o=",
+    "raw": "Seven Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 326 reviews ¶ Location 9.8 ¶ Cozy Double Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 222 ¶ € 975€ 887 ¶ Original price € 975. Current price € 887. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Native Hyde Park",
+    "url": "https://www.booking.com/hotel/gb/go-native-hyde-park.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/766947567.webp?k=4a83f7a1d1937cbaae10a55b2dae1fcba1ea809e2326a89a098b4c920b311272&o=",
+    "raw": "Native Hyde Park ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 381 reviews ¶ Location 9.3 ¶ Premium Studio Apartment ¶ Entire apartment • 1 bedroom • 1 bathroom • 1 kitchen • 301 ft² ¶ 1 full bed ¶ Per night€ 211 ¶ € 1,031€ 845 ¶ Original price € 1,031. Current price € 845. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Roseate House London",
+    "url": "https://www.booking.com/hotel/gb/theroyalparkhotel.html",
+    "price_4n": null,
+    "score": "8.7",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912279940.webp?k=f642eb1017a7c9a87c50b813d1dc4b7faa7b0a1a630a3dafd42ab1126b435df0&o=",
+    "raw": "Roseate House London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 1,233 reviews ¶ Location 9.5 ¶ Classic Double Room ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 271 ¶ € 1,191€ 1,084 ¶ Original price € 1,191. Current price € 1,084. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Paddington Townhouse Hotel by OYO",
+    "url": "https://www.booking.com/hotel/gb/thirty-sussex.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/913233623.webp?k=a6f31f578f6dd90d9ccf2a21383039c49b89857ce62e5de33799bb4a42ecdd76&o=",
+    "raw": "Paddington Townhouse Hotel by OYO ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 80 reviews ¶ Late Escape Deal ¶ Superior Triple Room ¶ 3 beds (2 twins, 1 sofa bed) ¶ We have 2 left at this price ¶ Per night€ 292 ¶ € 1,569€ 1,224 ¶ Original price € 1,569. Current price € 1,224. ¶ 4 night"
+   },
+   {
+    "name": "Athena Hotel",
+    "url": "https://www.booking.com/hotel/gb/athena.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/824312735.webp?k=2c0c4c1dc3826dd197a79b4b92853132cb650545759cb88c53d4b93e798fbc34&o=",
+    "raw": "Athena Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,654 reviews ¶ Location 9.3 ¶ Late Escape Deal ¶ Standard Family Room ¶ 3 beds (1 twin, 1 full, 1 bunk bed) ¶ We have 1 left at this price ¶ Per night€ 323 ¶ € 1,858€ 1,294 ¶ Original price € 1,858. Current price € 1,294. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Grand Hotel Bellevue London",
+    "url": "https://www.booking.com/hotel/gb/grand-hotel-bellevue-london.html",
+    "price_4n": null,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/539895200.webp?k=58be58c48faccd341aacf79232445498afd493161fe5ee3de77cb57430f8a8aa&o=",
+    "raw": "Grand Hotel Bellevue London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 243 reviews ¶ Location 9.4 ¶ Deluxe Double Room ¶ 3 beds (2 twins, 1 king) ¶ We have 3 left at this price ¶ Per night€ 389 ¶ € 1,902€ 1,558 ¶ Original price € 1,902. Current price € 1,558. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "London Visitors Hotel",
+    "url": "https://www.booking.com/hotel/gb/london-visitors.html",
+    "price_4n": null,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/658618195.webp?k=f8d9c69791b0c01ede16bbee9fefbf4a8475bc37ba316030a7a972c76afeba84&o=",
+    "raw": "London Visitors Hotel ¶ Opens in new window ¶ Kensington and Chelsea, LondonShow on map ¶ 1.9 miles from PaddingtonSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,725 reviews ¶ Single Room with Communal Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 83 ¶ € 741€ 333 ¶ Original price € 741. Current price € 333. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NOX Golders Green",
+    "url": "https://www.booking.com/hotel/gb/mstay-golders-green.html",
+    "price_4n": 374,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/911346894.webp?k=0f6e631a9e7ad107269e7e38ce75012b68f304ed15a7ed56739e939d6e9b10b5&o=",
+    "raw": "NOX Golders Green ¶ Opens in new window ¶ Golders Green, LondonShow on map ¶ 4.2 miles from Paddington ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 3,216 reviews ¶ Double Room ¶ 1 full bed ¶ We have 6 left at this price ¶ Per night€ 93 ¶ € 374 ¶ Price € 374 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Homefield Lodge",
+    "url": "https://www.booking.com/hotel/gb/homefield-lodge.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/468748862.webp?k=9ee287d10f24529ce346c61ac013f93058759eebf649a6fec2928589b46be7e4&o=",
+    "raw": "Homefield Lodge ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 4.1 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,764 reviews ¶ Double Room ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 89 ¶ € 435€ 356 ¶ Original price € 435. Current price € 356. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NOX Kilburn",
+    "url": "https://www.booking.com/hotel/gb/the-kilburn.html",
+    "price_4n": 436,
+    "score": "8.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/916722885.webp?k=c46feab1cd10684a7deba9f6ee919d8a9c4e0110b5e9113d62d9a963502c4336&o=",
+    "raw": "NOX Kilburn ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 24 reviews ¶ Double Studio (No Window) ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 109 ¶ € 436 ¶ Price € 436 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NOX West Hampstead",
+    "url": "https://www.booking.com/hotel/gb/291-suites.html",
+    "price_4n": 455,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/872432746.webp?k=ef236771146b6028e58ebeaa91daa59f99dacd3d01d84beeb41d58f8cb698fea&o=",
+    "raw": "NOX West Hampstead ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.6 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 2,114 reviews ¶ Double Studio ¶ Entire studio • 1 bathroom • 1 kitchen • 161 ft² ¶ 1 full bed ¶ Per night€ 114 ¶ € 455 ¶ Price € 455 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hotel Unique",
+    "url": "https://www.booking.com/hotel/gb/unique.html",
+    "price_4n": 497,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/7322035.webp?k=5f5f399e9b9c1dd0ead1859c1e42f12eb5bcad2aa9d3ea7e04023ee9ce421ebd&o=",
+    "raw": "Hotel Unique ¶ Opens in new window ¶ Golders Green, LondonShow on map ¶ 4.1 miles from PaddingtonSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 927 reviews ¶ Triple Room ¶ Multiple bed types ¶ We have 1 left at this price ¶ Per night€ 124 ¶ € 497 ¶ Price € 497 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "St Athans Hotel",
+    "url": "https://www.booking.com/hotel/gb/athans.html",
+    "price_4n": null,
+    "score": "8.0",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/76404464.webp?k=b561512b473e4bff64a6e894b4fe5c698f5f755fe1909eb3f5145e6c662a6895&o=",
+    "raw": "St Athans Hotel ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.2 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,815 reviews ¶ Location 9.4 ¶ Double Room with Shared Bathroom ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 113 ¶ € 498€ 453 ¶ Original price € 498. Current price € 453. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Novotel London Brentford",
+    "url": "https://www.booking.com/hotel/gb/novotel-london-brentford.html",
+    "price_4n": 500,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/713702677.webp?k=0f4b3347da46cf797c67f0d60d6ba10c4faa8e0d6301aa5741f96a68f56d02aa&o=",
+    "raw": "Novotel London Brentford ¶ Opens in new window ¶ BrentfordShow on map ¶ 5.7 miles from Paddington ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,735 reviews ¶ Superior Double Room with 1 Sofa Bed ¶ 2 beds (1 sofa bed, 1 queen) ¶ We have 7 left at this price ¶ Per night€ 125 ¶ € 500 ¶ Price € 500 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "NOX Belsize Park",
+    "url": "https://www.booking.com/hotel/gb/haverstock.html",
+    "price_4n": 503,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/911347558.webp?k=045cb79dc904cf9fc846c372bc624dd762bc0b2db1c4b0327133bf9170c7d998&o=",
+    "raw": "NOX Belsize Park ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,072 reviews ¶ Small Double Room ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 126 ¶ € 503 ¶ Price € 503 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The W14 Kensington",
+    "url": "https://www.booking.com/hotel/gb/ace.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646856814.webp?k=2034bfdaf7e3cd0338922bdd0ae1a69bba41a4cf3d72eef6368ac0d8b6cac858&o=",
+    "raw": "The W14 Kensington ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,249 reviews ¶ Late Escape Deal ¶ Single Room with Private Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 128 ¶ € 729€ 510 ¶ Original price € 729. Current price € 510. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Aparthotel Adagio London Brentford",
+    "url": "https://www.booking.com/hotel/gb/urban-villa.html",
+    "price_4n": 537,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/890874369.webp?k=c4ef93328e3ad0d9fa12bb93cebc509991f4ce46807c7d8b83883ded615eaf8b&o=",
+    "raw": "Aparthotel Adagio London Brentford ¶ Opens in new window ¶ BrentfordShow on map ¶ 5.8 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,176 reviews ¶ Studio ¶ Entire studio • 1 bathroom • 1 kitchen • 388 ft² ¶ 1 full bed ¶ Per night€ 134 ¶ € 537 ¶ Price € 537 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Wembley Park Hotel",
+    "url": "https://www.booking.com/hotel/gb/wembley-park.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/136038384.webp?k=e7a7f242ee4be6be863fdf1975cdec874a161113cc0e6575fbb4b6be3163cc73&o=",
+    "raw": "Wembley Park Hotel ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 5.7 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 975 reviews ¶ Deluxe Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 115 ¶ € 513€ 461 ¶ Original price € 513. Current price € 461. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Hampton by Hilton London Park Royal",
+    "url": "https://www.booking.com/hotel/gb/hampton-by-hilton-london-park-royal.html",
+    "price_4n": 543,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/484051068.webp?k=5c63db659969c1d25c5be4f879d7535e6a732e601197572bb34274b0236b9f90&o=",
+    "raw": "Hampton by Hilton London Park Royal ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 4.8 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 3,473 reviews ¶ Twin Room ¶ 2 twin beds ¶ Breakfast included ¶ We have 7 left at this price ¶ Per night€ 136 ¶ € 543 ¶ Price € 543 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Comfort Inn Edgware Road W2",
+    "url": "https://www.booking.com/hotel/gb/comfortinnedgware.html",
+    "price_4n": 544,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/663328311.webp?k=22bb1689fd8c8b472a715040c13e703234f843acf3bd662249dc5df10ca6963c&o=",
+    "raw": "Comfort Inn Edgware Road W2 ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 0.5 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,885 reviews ¶ Double Room ¶ 1 full bed ¶ We have 5 left at this price ¶ Per night€ 136 ¶ € 544 ¶ Price € 544 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "The Green Man Pub and Hotel by OYO",
+    "url": "https://www.booking.com/hotel/gb/the-green-man-pub-and.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/666435829.webp?k=fd1dd0dd6d7b9e844fd228d96fbdc6c392f6191bfae814f8d2165e8a235fd587&o=",
+    "raw": "The Green Man Pub and Hotel by OYO ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 5.7 miles from Paddington ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 501 reviews ¶ Late Escape Deal ¶ Standard Double Room ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 127 ¶ € 773€ 542 ¶ Original price € 773. Current price € 542. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Best Western Chiswick Rooms",
+    "url": "https://www.booking.com/hotel/gb/stpetershotel.html",
+    "price_4n": null,
+    "score": "8.1",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912637283.webp?k=0223aa54c062b05c7527fb790c5878d9d7f2fa82de2f9e007d2c6ca880ecd0d6&o=",
+    "raw": "Best Western Chiswick Rooms ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 3.4 miles from PaddingtonSubway Access ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 19 reviews ¶ Cozy Double Room with Shower - Non-Smoking ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 127 ¶ € 619€ 507 ¶ Original price € 619. Current price € 507. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Holiday Inn London West by IHG",
+    "url": "https://www.booking.com/hotel/gb/holiday-inn-london-west.html",
+    "price_4n": 559,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/226969251.webp?k=be224996a2541ca997e7218d09a09f3a90c0ddd912fe93fdae4f2253af469d3e&o=",
+    "raw": "Holiday Inn London West by IHG ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 3.8 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 2,587 reviews ¶ Standard Room with Two Single Beds ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 140 ¶ € 559 ¶ Price € 559 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "ibis Styles London Ealing",
+    "url": "https://www.booking.com/hotel/gb/ibis-styles-london-ealing.html",
+    "price_4n": 562,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/751491795.webp?k=f067749ea4152ff85e172033032d2ef365b103b9b886ff5d9eed5510e13ca117&o=",
+    "raw": "ibis Styles London Ealing ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 5.8 miles from Paddington ¶ Sustainability certification ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,068 reviews ¶ Queen Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 140 ¶ € 562 ¶ Price € 562 ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Quality Hotel Hampstead",
+    "url": "https://www.booking.com/hotel/gb/qualityhotelhampstead.html",
+    "price_4n": null,
+    "score": "8.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646041549.webp?k=0fb5bdeb74deaa4f9288a992efcaf5f678b4bc18fb161fec677e6a998f414a5f&o=",
+    "raw": "Quality Hotel Hampstead ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 2,762 reviews ¶ Twin Room - Non Smoking ¶ 2 twin beds ¶ Breakfast included ¶ We have 5 left at this price ¶ Per night€ 128 ¶ € 565€ 514 ¶ Original price € 565. Current price € 514. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Ravna Gora",
+    "url": "https://www.booking.com/hotel/gb/ravna-gora-london.html",
+    "price_4n": null,
+    "score": "8.2",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251826817.webp?k=4bb1b796c48855ded0bd4cc56fce8c0e3ae9f7aa1f60afa068fcd43dfa880b05&o=",
+    "raw": "Ravna Gora ¶ Opens in new window ¶ Kensington and Chelsea, LondonShow on map ¶ 1.4 miles from PaddingtonSubway Access ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,971 reviews ¶ Location 9.4 ¶ Twin Room with Shared Bathroom ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 143 ¶ € 633€ 570 ¶ Original price € 633. Current price € 570. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Reem Hotel",
+    "url": "https://www.booking.com/hotel/gb/reemhotel.html",
+    "price_4n": null,
+    "score": "8.4",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646478346.webp?k=2beae62a4fb5046d9e8bf51a79ef6184d70421e13afe8afc1c2a7c98e2c1e025&o=",
+    "raw": "Reem Hotel ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 0.8 miles from PaddingtonSubway Access ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,336 reviews ¶ Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 145 ¶ € 644€ 580 ¶ Original price € 644. Current price € 580. ¶ Sign in for this members-only price ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Limehouse Library Hotel",
+    "url": "https://www.booking.com/hotel/gb/limehouse-library.html",
+    "price_4n": null,
+    "score": "8.6",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429887703.webp?k=332e78b0982dcee48d35deefea530bd652055c3f0f5fb86563737d9e22d00053&o=",
+    "raw": "Limehouse Library Hotel ¶ Opens in new window ¶ Tower Hamlets, LondonShow on map ¶ 6.1 miles from Paddington ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 1,981 reviews ¶ Limited-time Deal ¶ Superior Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 132 ¶ € 881€ 529 ¶ Original price € 881. Current price € 529. ¶ 4 nights, 1 adult ¶ See availability"
+   },
+   {
+    "name": "Adria Hotel",
+    "url": "https://www.booking.com/hotel/gb/adria-hotel.html",
+    "price_4n": null,
+    "score": "8.3",
+    "dist": null,
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/25234963.webp?k=69f14aa098a2544f67cab9e63cbdba1384bd46e70fdac977cfb5bb6223d05956&o=",
+    "raw": "Adria Hotel ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.8 miles from PaddingtonSubway Access ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 1,778 reviews ¶ Location 9.4 ¶ En-Suite Double Room ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 147 ¶ € 652€ 586 ¶ Original price € 652. Current price € 586. ¶ 4 nights, 1 adult ¶ See availability"
+   }
+  ]
+ }
+]

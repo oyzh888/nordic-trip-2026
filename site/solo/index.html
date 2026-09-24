@@ -11,10 +11,11 @@
 
 <section style="padding-top:clamp(38px,5vw,64px)">
   <div class="wrap">
-    <div class="eyebrow">Steve 一个人 · 10/6 → 10/18 · 价格 2026-09-20 → 09-24 实抓</div>
+    <div class="eyebrow">Steve 一个人 · 方案 B · 10/6 → 10/17 · 价格 2026-09-24 实抓</div>
     <h1 style="margin-bottom:16px">后半段 · 订票参考</h1>
-    <p class="lede">🇫🇷 <b>尼斯 4 晚</b> → 🇵🇹 <b>里斯本 4 晚</b> → 🇬🇧 <b>伦敦 4 晚</b> → 10/18 周日落 SFO。
-      四张机票 + 三处住宿，<b>从上往下点、从上往下买</b>。全部都还<b>没下单</b>。</p>
+    <p class="lede">🇫🇷 <b>尼斯 4 晚</b> → 🇵🇹 <b>里斯本 4 晚</b> → 🇬🇧 <b>伦敦 3 晚</b> → <b>10/17 周六经卡尔加里回旧金山</b>（周日在家）。
+      四张机票 + 三处住宿，<b>从上往下点、从上往下买</b>。全部都还<b>没下单</b>。
+      <a href="/solo/trip/">→ 地图 + 时间轴：确认每天在时间和空间上都轻松</a></p>
     <div class="stats" id="stats"></div>
   </div>
 </section>
@@ -33,14 +34,18 @@
 <section>
   <div class="wrap">
     <h2><span class="n">02</span>住宿 · Airbnb 和直订酒店并排比</h2>
-    <p class="lede">每城 5–6 个选项，<b>有图、有 4 晚总价、点图就进预订页</b>（日期已填好）。
+    <p class="lede">每城 <b>5 套 Airbnb + 4 家酒店</b>，每一张卡都写了<b>它好在哪</b>：
+      ⚖️ 平衡最好 · 📍 离好玩的最近 · 🛋 住得最舒服 · 🏛 房子最有特色 · 💰 性价比。
+      「🚶 步行」那行是我用房源坐标算的到这城几个核心点的步行分钟（Airbnb 坐标有一两百米模糊，按「约」看）。
+      点图进预订页，日期已填好。
       价格是 9/24 在 Airbnb / Booking 上按你的日期实抓的；美元按 €1 = $1.13 折算。</p>
     <div class="card amb" style="margin-bottom:10px"><h3>🔴 酒店几乎被订光了（Booking 自己显示的数）</h3>
       <p style="font-size:14px;color:var(--ink2);margin:8px 0 0" id="soldline"></p></div>
     <div class="card" style="margin-bottom:22px"><h3>Airbnb 下单前每一套都过这三条</h3><ul>
       <li>房源页搜 <b>“Wifi”</b>，要写了具体网速；下面标「⚠️ 没写网速」的，下单前问房东要测速截图。</li>
       <li>照片里要有一张<b>能坐着工作 6 小时的桌子 + 有靠背的椅子</b>。</li>
-      <li>评论里搜 <b>work / wifi / noise</b>。⛔ 别住尼斯老城、里斯本 Bairro Alto —— 夜里最吵的时候正是你的工作时段。</li>
+      <li>「⚠️」那行是<b>房源页上明确写了</b>的缺点（几楼没电梯、面积小等），不是我猜的。吵不吵这次不考虑。</li>
+      <li>已经自动排除：<b>共用浴室、沙发床、地下室、20 平米以下</b>（一晚要在里面坐 6 小时），以及超过本城中位价 1.6 倍的。</li>
     </ul></div>
     <div id="stays"></div>
   </div>
@@ -59,8 +64,9 @@
   <div class="wrap">
     <h2><span class="n">!</span>三件别踩的</h2>
     <div class="cards">
-      <div class="card hot"><h3>🔴 回程先买</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
-        LHR→SFO 占机票总额 76%，而且 9/5 是 $560、9/20 已经 $1,166。其他三段晚几天买差不了多少，这张会涨。</p></div>
+      <div class="card hot"><h3>🔴 回程先确认证件、再买</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
+        加拿大<b>没有「不出机场免签」</b>：卡尔加里要先过加拿大边检、提行李再托运，再办美国预检。
+        如果要办加拿大过境签，<b>来不及就换不经加拿大的</b>：葡萄牙航空经里斯本 $1,059 · 捷蓝经纽约 $949 · 美联航直飞 $1,554。</p></div>
       <div class="card amb"><h3>🟠 瑞安航空落哪个机场</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
         它飞 <b>Stansted 或 Luton</b>，不是希思罗。Stansted Express 47 分钟 / Luton 约 35 分钟进城。回程那天仍然从希思罗走。</p></div>
       <div class="card"><h3>🧳 不要机+酒打包</h3><p style="font-size:14px;color:var(--ink2);margin:8px 0 0">
@@ -84,9 +90,9 @@ const gf = (a, b, d) => `https://www.google.com/travel/flights?hl=en&curr=USD&q=
 const A = (h, t) => `<a href="${h}" target="_blank" rel="noopener">${t} ↗</a>`;
 
 const FLY = [
-  ['🔴🔴 1', '10/18 日', 'LHR 12:45 → SFO 15:55 · 直飞 11h10<br><span class="s">维珍航空 Virgin Atlantic（英国的全服务航司）</span>', '$1,166',
-   '唯一不可替代、而且两周翻倍的一张。周日 13:30 PT 的会在飞机上 → 选有 wifi 的',
-   [gf('LHR', 'SFO', '2026-10-18'), 'Google Flights'], ['https://www.virginatlantic.com/', '维珍官网']],
+  ['🔴🔴 1', '10/17 六', 'LHR 14:10 → 卡尔加里（转机 3h55）→ SFO 21:55 · 15h45<br><span class="s">西捷航空 WestJet（加拿大的航空公司）</span>', '$746',
+   '比 10/18 维珍直飞（$1,339，还在涨）便宜 $593，周日在家。<b style="color:var(--alert)">⚠️ 先确认加拿大转机证件</b>：美国公民/绿卡不用签证；只有中国护照+美国签证要办加拿大过境签。卡尔加里要提行李再托运',
+   [gf('LHR', 'SFO', '2026-10-17'), 'Google Flights'], ['https://www.westjet.com/', '西捷官网']],
   ['🔴 2', '10/10 六', 'NCE 12:15 → LIS 14:00 · 直飞 2h45<br><span class="s">多半是葡萄牙航空 TAP（抓取时航司名没显示，点进去确认）</span>', '$204',
    '周六睡到自然醒，14:00 到，整个周六下午和晚上在里斯本。$153 那班要 04:30 起',
    [gf('NCE', 'LIS', '2026-10-10'), 'Google Flights'], ['https://www.flytap.com/', 'TAP 官网']],
@@ -94,7 +100,7 @@ const FLY = [
    '09:00–11:00 的会在奥斯陆开完再走；比 10:00 那班还便宜 $54',
    [gf('OSL', 'NCE', '2026-10-06'), 'Google Flights'], ['https://www.norwegian.com/', '挪威航空官网']],
   ['🟠 4', '10/14 三', 'LIS 09:40 → 伦敦 12:25 · 直飞 2h45<br><span class="s">瑞安航空 Ryanair（欧洲最大的廉价航空，行李另收费）</span>', '$82',
-   '周三没会；12:25 落地，18:00 前能进住处开工',
+   '周三没会；12:25 落地，14:15 左右进住处，18:00 开工',
    [gf('LIS', 'LON', '2026-10-14'), 'Google Flights'], ['https://www.ryanair.com/', '瑞安官网']],
 ];
 $('#fly').innerHTML = FLY.map(([p, d, f, $p, why, g, off]) => `<tr>
@@ -111,7 +117,7 @@ $('#stays').innerHTML = STAYS.map(c => `
   <p style="margin:0 0 14px;color:var(--ink2);font-size:15px">${c.verdict}</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
   ${c.opts.map(o => `<a href="${o.url}" target="_blank" rel="noopener"
-      style="display:block;background:var(--panel);border:1px solid ${/🥇/.test(o.pick) ? 'var(--acc)' : 'var(--hair)'};
+      style="display:block;background:var(--panel);border:1px solid ${/⚖️/.test(o.pick) ? 'var(--acc)' : 'var(--hair)'};
              border-radius:10px;overflow:hidden;color:inherit;text-decoration:none">
     <div style="display:grid;grid-template-columns:${o.imgs.length > 1 ? '2fr 1fr' : '1fr'};grid-template-rows:88px 88px;gap:2px;background:var(--bg)">
       <img src="${o.imgs[0]}" loading="lazy" alt="" style="grid-row:1/3;width:100%;height:100%;object-fit:cover">
@@ -121,15 +127,17 @@ $('#stays').innerHTML = STAYS.map(c => `
       <div class="s" style="letter-spacing:.06em">${o.pick}${/酒店|Airbnb/.test(o.pick) ? '' : ' · ' + o.kind}${o.score ? ' · ' + o.score : ''}</div>
       ${o.name ? `<div style="font-weight:600;margin:4px 0 2px">${esc(o.name)}</div>` : ''}
       <div style="margin:6px 0"><b style="font-size:20px">€${o.eur.toLocaleString('en-US')}</b>
-        <span class="s">4 晚 · ≈ ${usd(o.usd)}${o.vat ? '（已按另加 20% 英国增值税折算）' : ''}</span></div>
+        <span class="s">${c.when.split('· ')[1]} · ≈ ${usd(o.usd)}${o.vat ? '（已按另加 20% 英国增值税折算）' : ''}</span></div>
       <div style="font-size:14px;color:var(--ink2)">${o.note}</div>
+      ${o.walk ? `<div class="s" style="margin-top:6px">${o.walk}</div>` : ''}
+      ${o.con && !/没写明显缺点/.test(o.con) ? `<div class="s" style="margin-top:4px;color:var(--alert)">⚠️ ${o.con}</div>` : ''}
       ${o.tags.length ? `<div class="s" style="margin-top:8px">${o.tags.join(' · ')}</div>` : ''}
       <div class="s" style="margin-top:9px;color:var(--acc)">去 ${o.kind === 'Airbnb' ? 'Airbnb' : 'Booking'} 预订 ↗</div>
     </div></a>`).join('')}
   </div>`).join('');
 
 const PRE = [
-  ['🎭 伦敦西区看戏', '10/17 六 晚', '🔴 <b>要</b> —— 热门剧几周前就满，这周订', A('https://officiallondontheatre.com/', 'Official London Theatre')],
+  ['🎭 伦敦西区看戏（改看日场）', '10/15 四 14:30', '🔴 <b>要</b> —— 周六晚上已经在飞机上了；工作日晚上要上班，只能看周四日场', A('https://officiallondontheatre.com/', 'Official London Theatre')],
   ['🏙 Sky Garden（免费，坐着看景）', '10/16 五', '🟠 要预约免费时段，开放时间提前约 3 周放票', A('https://skygarden.london/booking/', 'Sky Garden')],
   ['⛴ 泰晤士河游船 Westminster→Greenwich', '10/16 五', '🟢 不用，当天码头买', A('https://www.thamesclippers.com/', 'Uber Boat')],
   ['🎨 马蒂斯美术馆', '10/9 五', '🟢 不用，小馆现场买', A('https://www.musee-matisse-nice.org/', '官网')],
@@ -138,9 +146,10 @@ const PRE = [
 ];
 $('#pre').innerHTML = PRE.map(r => `<tr>${r.map((x, i) => `<td${i === 1 ? ' class="s"' : ''}>${x}</td>`).join('')}</tr>`).join('');
 
+const stayUsd = STAYS.reduce((s, c) => s + c.opts[0].usd, 0);   // 每城「⚖️ 平衡最好」那套
 $('#stats').innerHTML = [
-  ['$1,537', '四张机票'], ['$2,492', '住宿（三城首选）'], ['≈$4,030', '合计'],
-  ['12', '晚'], ['0 / 7', '已下单'],
+  ['$1,117', '四张机票'], [usd(stayUsd), '住宿（每城 ⚖️ 那套）'], ['≈' + usd(1117 + stayUsd), '合计'],
+  ['11', '晚'], ['0 / 7', '已下单'],
 ].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
 </script>
 <script src="/anim.js"></script>
