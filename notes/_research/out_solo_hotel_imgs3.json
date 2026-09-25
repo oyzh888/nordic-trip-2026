@@ -1,0 +1,20 @@
+{
+ "https://www.booking.com/hotel/pt/liberator-rossio.html": [
+  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/460784167.jpg?k=710572e489ff1583a620891ee008cd2dff4b5254173c20dbfe4021697ef4ba67&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max500/851209000.jpg?k=83fc3a88fd727d9cd54d1a760e5028a73339bfb506b8f23f4f81dae4c2811dce&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max500/851209005.jpg?k=5f16c303657647b6c9679dd6e214b6dca6596de172e976d74dd20e74c1661d68&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max300/466834623.jpg?k=7985112b4a644210c5b29d3f86ba29885f8235668fb0f200a00417cf1d69983f&o="
+ ],
+ "https://www.booking.com/hotel/pt/pensao-residencial-portuense.html": [
+  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/256869871.jpg?k=78d4e91c9be533c65f7142ddafed1f5963cad258dee288abeba754a1a9f91040&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max500/134154848.jpg?k=f0eb842b34f05dc9961fcab4b5b61b9074f4231032d44d0ed7f3e90919d4d39d&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max500/6920027.jpg?k=97d1093df28752716814585eae62c1bf35bd1d2d6a0d3e50739c9d6eb3b2bc0b&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max300/256869858.jpg?k=efef5936dea3bcf8b82889df4bdea0e93e9ab91516c78a49db817da8a57a3c5f&o="
+ ],
+ "https://www.booking.com/hotel/pt/1904-benfica-flh-hotels.html": [
+  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/809444729.jpg?k=a1c3989287d1a54790b12199b563296866cb984154dd81603117e56bc99da50a&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max500/795982289.jpg?k=e086ae1e3ef9506056a88bf248f003794a1b297d86d2bf2471be54d5382d9285&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max500/803698878.jpg?k=f3ecae1394b6d14357b576334fd31a0f1303fbd17ec76ff5f6f50b33dc2b36fb&o=",
+  "https://cf.bstatic.com/xdata/images/hotel/max300/803314711.jpg?k=85eabeeeed1bf760e99ea567e30594f5006a27801d04623588c42b71ad16d27a&o="
+ ]
+}

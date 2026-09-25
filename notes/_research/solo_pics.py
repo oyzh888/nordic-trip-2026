@@ -20,8 +20,8 @@ from playwright.sync_api import sync_playwright
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
-DATES = {"nice": ("2026-10-06", "2026-10-10"), "lis": ("2026-10-10", "2026-10-14"),
-         "lon": ("2026-10-14", "2026-10-17")}
+DATES = {"nice": ("2026-10-06", "2026-10-10"), "lis": ("2026-10-13", "2026-10-17"),
+         "lon": ("2026-10-10", "2026-10-13")}
 
 HOTELS = [
     ("nice", "Okko Hotels Nice Centre"),

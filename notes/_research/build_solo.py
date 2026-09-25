@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """生成 site/solo/stays.js —— 订票页的住宿卡片（价 + 图 + 链接 + 「它的特点是什么」）。
 
-🆕 2026-09-24 第三版（方案 B：伦敦 3 晚；Steve：「不用担心吵，找有意思的房子，平衡各方面；
+🆕 2026-09-25 第四版（方案 C：尼斯 → 伦敦 10/10–10/13 → 里斯本 10/13–10/17；
+   2026-09-24 第三版是方案 B：伦敦 3 晚；Steve：「不用担心吵，找有意思的房子，平衡各方面；
    它们的特点是什么 —— 靠近好玩的地方还是住宿环境好？」）
 
 每城 5 套 Airbnb + 4 家酒店，每一张卡都带一个「它好在哪」的标签：
@@ -26,24 +27,26 @@ import re
 HERE = pathlib.Path(__file__).parent
 SITE = HERE.parent.parent / "site" / "solo" / "stays.js"
 EUR_USD = 1.13
-DATES = {"nice": ("2026-10-06", "2026-10-10"), "lis": ("2026-10-10", "2026-10-14"),
-         "lon": ("2026-10-14", "2026-10-17")}
+DATES = {"nice": ("2026-10-06", "2026-10-10"), "lon": ("2026-10-10", "2026-10-13"),
+         "lis": ("2026-10-13", "2026-10-17")}
 NIGHTS = {"nice": 4, "lis": 4, "lon": 3}
 
 himg = {}
-for f in ("out_solo_hotel_imgs.json", "out_solo_hotel_imgs2.json"):
+for f in ("out_solo_hotel_imgs.json", "out_solo_hotel_imgs2.json", "out_solo_hotel_imgs3.json"):
     p = HERE / f
     if p.exists():
         himg.update(json.load(open(p)))
 pool = {"nice": [], "lis": [], "lon": []}
-for f in ("out_solo_bkcheap.json", "out_solo_bksearch.json"):
+for f in ("out_solo_bkcheap.json", "out_solo_bksearch.json"):   # 尼斯日期没变，用 9/24 那两份
     for r in json.load(open(HERE / f)):
-        if r["city"] in ("nice", "lis"):
-            pool[r["city"]] += r["cards"]
-for r in json.load(open(HERE / "out_bk_lon3.json")):          # 伦敦只用 3 晚的价
-    pool["lon"] += r["cards"]
+        if r["city"] == "nice":
+            pool["nice"] += r["cards"]
+bkc = json.load(open(HERE / "out_bk_c.json"))                    # 伦敦 / 里斯本按方案 C 的新日期（9/25）
+for k in ("lon", "lis"):
+    for r in bkc[k]:
+        pool[k] += r["cards"]
 unavail = {r["city"]: r["unavail_pct"] for r in json.load(open(HERE / "out_solo_bksearch.json"))}
-unavail["lon"] = json.load(open(HERE / "out_bk_lon3.json"))[0]["unavail_pct"]
+unavail.update(lon=bkc["lon"][0]["unavail_pct"], lis=bkc["lis"][0]["unavail_pct"])
 
 
 # ---------------- Airbnb：按规则挑 ----------------
@@ -53,7 +56,7 @@ def pick_airbnb(city):
     for r in rows:
         txt = (r.get("con", "") + " " + r.get("desc", "")).lower()
         small = [float(x) for x in re.findall(r"(\d{2}(?:\.\d)?)\s*(?:m2|m²|sqm|平米|㎡)", txt)]
-        r["flag"] = bool(re.search(r"共用|shared bath|沙发床|sofa bed|地下|basement|lower ground", txt)) or any(x <= 20 for x in small)
+        r["flag"] = bool(re.search(r"共用|shared bath|沙发床|sofa bed|地下|basement|lower ground|面积(?:很|较|非常)?小|tiny|micro studio", txt)) or any(x <= 20 for x in small)
     med = sorted(r["total_eur"] for r in rows)[len(rows) // 2]
     cap = 1.6 * med                          # 任何一类都不挑超过中位价 1.6 倍的（「平衡」不是「最贵的那套」）
     good = [r for r in rows if float(r["rating"]) >= 4.8 and r["total_eur"] <= cap]
@@ -103,7 +106,7 @@ def bk(city, prefix, pick, note, con="", vat=False, eur=None, url=None, tags=(),
             "url": f"{u}?checkin={ci}&checkout={co}&group_adults=1&no_rooms=1&selected_currency=EUR"}
 
 
-nat = json.load(open(HERE / "out_native_3n.json"))
+nat = json.load(open(HERE / "out_native_c.json"))
 
 HOTELS = {
     "nice": [
@@ -115,19 +118,18 @@ HOTELS = {
         bk("nice", "Maison Albar", "🌟 奢华 · 彻底躺平", "五星，<b>正对海滩</b>，Junior Suite 有独立起居区，能好好工作"),
     ],
     "lis": [
-        bk("lis", "Limehome Lisbon Calçada", "💰 普通 · 公寓式", "整套开间（有小厨房），自助入住，8.2 分",
-           con="离 Baixa 约 1.5 公里，靠 Santa Apolónia 车站"),
+        bk("lis", "Hotel Portuense", "💰 普通酒店 · 位置 9.7", "8.6 分，<b>Rossio 旁边的老牌小旅馆</b>，下楼就是老城",
+           con="这个价是单人间", tags=["✅ 免费取消"]),
         bk("lis", "Albergaria Senhora do Monte", "🏛 有特色 · 城市最美观景台旁", "Graça 区，<b>就在 Senhora do Monte 观景台边上</b>，看全城落日；28 路电车门口过",
            con="在山顶，回住处要上坡（有电车）", tags=["✅ 免费取消"]),
-        bk("lis", "Hotel Metropole", "📍 离好玩的最近", "<b>Rossio 广场正中间</b>，老城、河边、地铁都在门口，含早餐"),
-        bk("lis", "Wilde Aparthotels", "🛋 住得最舒服 · 可零成本占位", "9.2 分，整套开间带小厨房和桌子，在平路一侧",
-           tags=["✅ 免费取消", "✅ 到店付款"]),
+        bk("lis", "Liberator Rossio", "📍 离好玩的最近", "8.9 分、位置 9.7，<b>离 Rossio 广场 90 米</b>，这个价是能看城堡的房型"),
+        bk("lis", "1904 Benfica", "🌟 精品 · 9.3 分", "位置 9.8，就在市中心，这几天还有房的酒店里评分最高的一批"),
     ],
     "lon": [
         bk("lon", "Stylotel", "💰 普通酒店", "Paddington 站走路 3 分钟，位置 9.5，设计感小酒店", con="房间小（伦敦普遍）", vat=True),
-        bk("lon", "Roseate House", "🏛 有特色 · 精品", "<b>8.7 分</b>，维多利亚式联排别墅改的精品酒店，Hyde Park 走路 5 分钟", vat=True),
-        {"kind": "酒店", "pick": "🛋 住得最舒服 · 整套公寓", "name": "Native Hyde Park", "eur": 854, "score": "", "vat": True,
-         "note": "整套开间，有厨房和洗碗机。<b>免费取消到 10/12、10/10 之前不扣钱</b>",
+        bk("lon", "Roseate House", "🏛 有特色 · 精品", "<b>8.7 分</b>，Hyde Park 旁边的精品酒店", vat=True),
+        {"kind": "酒店", "pick": "🛋 住得最舒服 · 整套公寓", "name": "Native Hyde Park", "eur": 830, "score": "", "vat": True,
+         "note": "整套开间，有厨房和洗碗机。<b>10/8 前免费取消、10/6 之前不扣钱</b>",
          "con": "", "tags": ["✅ 免费取消", "✅ 整套公寓"], "imgs": nat["imgs"][:3], "url": nat["book_url"]},
         bk("lon", "Mercure London Hyde Park", "📍 大连锁 · 稳", "8.1 分，Paddington 站和 Hyde Park 之间", vat=True),
     ],
@@ -135,12 +137,12 @@ HOTELS = {
 
 META = {
     "nice": ("🇫🇷 尼斯", "10/6 → 10/10 · 4 晚"),
-    "lis": ("🇵🇹 里斯本", "10/10 → 10/14 · 4 晚"),
-    "lon": ("🇬🇧 伦敦", "10/14 → 10/17 · 3 晚"),
+    "lon": ("🇬🇧 伦敦", "10/10 → 10/13 · 3 晚（周末）"),
+    "lis": ("🇵🇹 里斯本", "10/13 → 10/17 · 4 晚"),
 }
 
 CITIES = []
-for key in ("nice", "lis", "lon"):
+for key in ("nice", "lon", "lis"):
     abs_ = pick_airbnb(key)
     hs = HOTELS[key]
     for o in abs_ + hs:

@@ -50,7 +50,7 @@
 
 <section style="padding-top:clamp(38px,5vw,64px)">
   <div class="wrap">
-    <div class="eyebrow">方案 B · 10/6 → 10/17 · 周六经卡尔加里回旧金山</div>
+    <div class="eyebrow">方案 C · 10/6 → 10/17 · 尼斯 → 伦敦（周末）→ 里斯本 → 周六直飞回旧金山</div>
     <h1 style="margin-bottom:16px">后半段行程图</h1>
     <p class="lede">上面是<b>空间</b>：每天从住处去哪、多远、怎么去。下面是<b>时间</b>：每天 24 小时里，
       上班、例会、飞行、睡觉、玩各占哪一段 —— 冲突和睡不够的夜会<b>自动</b>标红，不是我手写的结论。</p>
@@ -62,7 +62,7 @@
   <div class="wrap">
     <h2><span class="n">01</span>地图 · 四段飞行</h2>
     <div class="map" id="m0"></div>
-    <p class="s" style="margin-top:8px">卡尔加里 → 旧金山那两段在地图外（往西 7,000 公里），用箭头示意。</p>
+    <p class="s" style="margin-top:8px">里斯本 → 旧金山那段直飞在地图外（往西 9,000 公里），用箭头示意。</p>
 
     <h2 style="margin-top:44px"><span class="n">02</span>地图 · 每天的那一件事</h2>
     <p class="lede">⌂ 是住处（每城首选），数字是日期。线上的数字是<b>直线距离</b>，旁边写着实际怎么去。</p>
@@ -116,7 +116,7 @@ for (let dd = 5; dd <= 18; dd++) {
   if (w === 0) busy.push({ k: 'meet', a: base + 13.5 - PT, b: base + 15 - PT, t: '周日例会' });  // 周日 13:30–15:00 PT
   if (w === 2 || w === 5) busy.push({ k: 'meet', a: base + 0 - PT, b: base + 2 - PT, t: w === 2 ? '周二例会' : '周五例会' });
 }
-/* 10/17 起人已经在回家路上 —— 周日 10/18 的会在家开，不画在旅行时间轴里 */
+/* 10/17 傍晚已经到家 —— 周日 10/18 的会在家开，不画在旅行时间轴里 */
 
 const fmt = h => { h = ((h % 24) + 24) % 24; const H = Math.floor(h + 1e-6), M = Math.round((h - H) * 60); return `${String(H).padStart(2, '0')}:${String(M % 60).padStart(2, '0')}`; };
 const ov = (x, y) => Math.max(0, Math.min(x.b, y.b) - Math.max(x.a, y.a));
@@ -185,23 +185,21 @@ const ACC = getComputedStyle(document.documentElement).getPropertyValue('--h3').
 /* 总览：欧洲四城 + 往北美的两段（大圆弧太长，画成向西的箭头） */
 const m0 = L.map('m0', { scrollWheelZoom: false, attributionControl: true }).setView([50, 0], 4);
 base(m0);
-LEGS.forEach((g, i) => {
-  const p = POI[g.from].ll, q = POI[g.to].ll;
-  const west = g.to === 'yyc' || g.from === 'yyc';
-  const q2 = west ? [p[0] + 2.5, p[1] - 12] : q;
-  if (g.from === 'yyc') return;
-  L.polyline([p, q2], { color: ACC, weight: 2, opacity: .85, dashArray: west ? '6 6' : null }).addTo(m0)
+LEGS.forEach(g => {
+  const p = POI[g.from].ll;
+  const q = g.toSfo ? [p[0] + 4, p[1] - 14] : POI[g.to].ll;     // 去旧金山那段画成往西的箭头
+  L.polyline([p, q], { color: ACC, weight: 2, opacity: .85, dashArray: g.toSfo ? '6 6' : null }).addTo(m0)
     .bindTooltip(g.t, { sticky: true });
-  if (west) L.marker(q2, { icon: icon('➜', 'air') }).addTo(m0).bindTooltip('往卡尔加里 → 旧金山', { permanent: false });
+  if (g.toSfo) L.marker(q, { icon: icon('➜', 'air') }).addTo(m0).bindTooltip('直飞旧金山 · 12h25');
 });
-[['osl', '奥斯陆'], ['nce', '尼斯 4 晚'], ['lis_ap', '里斯本 4 晚'], ['lhr', '伦敦 3 晚']].forEach(([k, n], i) =>
+STOPS.forEach(([k, n], i) =>
   L.marker(POI[k].ll, { icon: icon(i + 1) }).addTo(m0).bindTooltip(n, { permanent: true, direction: 'right', offset: [14, 0] }));
 
 /* 每城一张：住处 + 每天的锚点 */
 const CITY = [
   { key: 'nice', name: '🇫🇷 尼斯 · 10/6–10/10', fallback: [43.6975, 7.2703], zoom: 13, air: 'nce' },
-  { key: 'lis', name: '🇵🇹 里斯本 · 10/10–10/14', fallback: [38.7115, -9.1390], zoom: 13, air: 'lis_ap' },
-  { key: 'lon', name: '🇬🇧 伦敦 · 10/14–10/17', fallback: [51.5154, -0.1755], zoom: 12, air: 'lhr' },
+  { key: 'lon', name: '🇬🇧 伦敦 · 10/10–10/13（周末）', fallback: [51.5154, -0.1755], zoom: 12, air: 'lhr' },
+  { key: 'lis', name: '🇵🇹 里斯本 · 10/13–10/17', fallback: [38.7115, -9.1390], zoom: 13, air: 'lis_ap' },
 ];
 $('#cmaps').innerHTML = CITY.map((c, i) => `<div><h3>${c.name}</h3><div class="map" id="mc${i}"></div><div class="s" id="mcs${i}" style="margin-top:6px"></div></div>`).join('');
 CITY.forEach((c, i) => {
