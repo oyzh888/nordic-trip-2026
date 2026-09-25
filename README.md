@@ -42,6 +42,10 @@
 
 > ## 📱 今天收东西：**<https://nordic.airacle.com/pack/>**（可勾选，手机/电脑同步）
 >
+> ## 📶 流量 / SIM 卡：**[`notes/CONNECTIVITY.md`](notes/CONNECTIVITY.md)**
+> 🔴 国行 iPhone 15 Pro Max **不支持 eSIM**（Apple 规格：A3104/A3108 = 双卡 nano-SIM）→ 只能用实体卡。
+> 文末带一份**给 agent 的核查任务**（AT&T 账户 8 项 + 不用登录的 4 项），含安全红线：凭证不进这个 public 仓库。
+>
 > ## 🥇 要下单看这两份
 > · **[`BUY.md`](BUY.md)** —— 4 人北欧段（9/24–10/6）
 > · 🆕 **[`notes/BUY-SOLO.md`](notes/BUY-SOLO.md)** —— **Steve 后半段（10/6–10/18）：法国 → 葡萄牙 → 英国**，
