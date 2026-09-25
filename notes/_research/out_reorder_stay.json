@@ -1,0 +1,1670 @@
+{
+ "lon": {
+  "airbnb": [
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "St John’s Wood near Regent’s Park, with a workspace and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 639,
+    "rating": "5.0",
+    "raw": "Photo 1 of 14 | Superhost | St John’s Wood near Regent’s Park, with a workspace and A/C | 2 beds | , | · | 1 bath | €705 | €639 | Show price breakdown | for 3 nights | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Photo 1 of 16",
+    "loc": "",
+    "title": "1900s wood floors near Hyde Park",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 566,
+    "rating": "4.74",
+    "raw": "Photo 1 of 16 | Superhost | 1900s wood floors near Hyde Park | 2 beds | , | · | 1 bath | €566 | Show price breakdown | for 3 nights | €566 for 3 nights | 4.74 out of 5 average rating | 4.74"
+   },
+   {
+    "kind": "Photo 1 of 23",
+    "loc": "",
+    "title": "Notting Hill, 5-min walk to the station, with high ceilings and large windows",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 542,
+    "rating": "4.8",
+    "raw": "Photo 1 of 23 | Notting Hill, 5-min walk to the station, with high ceilings and large windows | 1 bed | , | · | 1 bath | €542 | Show price breakdown | for 3 nights | €542 for 3 nights | Pay €0 today | Free cancellation | 4.8 out of 5 average rating | 4.8"
+   },
+   {
+    "kind": "Photo 1 of 26",
+    "loc": "",
+    "title": "10-min walk to Hyde Park in Paddington, with a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 698,
+    "rating": "4.69",
+    "raw": "Photo 1 of 26 | 10-min walk to Hyde Park in Paddington, with a private entrance | 2 beds | , | · | 1 bath | €698 | Show price breakdown | for 3 nights | €698 for 3 nights | 4.69 out of 5 average rating | 4.69"
+   },
+   {
+    "kind": "Photo 1 of 10",
+    "loc": "",
+    "title": "Victorian home adjacent to Kensington Palace",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 488,
+    "rating": "4.76",
+    "raw": "Photo 1 of 10 | Victorian home adjacent to Kensington Palace | 1 double bed | , | · | 1 bath | €488 | Show price breakdown | for 3 nights | €488 for 3 nights | 4.76 out of 5 average rating | 4.76"
+   },
+   {
+    "kind": "Photo 1 of 11",
+    "loc": "",
+    "title": "Art Deco charm next to Hyde Park, with original parquet floors and a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 637,
+    "rating": "4.85",
+    "raw": "Photo 1 of 11 | Guest favorite | Art Deco charm next to Hyde Park, with original parquet floors and a private entrance | 1 king bed | , | · | 1 bath | €637 | Show price breakdown | for 3 nights | €637 for 3 nights | 4.85 out of 5 average rating | 4.85"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Bright Notting Hill flat near Portobello Road",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 1019,
+    "rating": "4.83",
+    "raw": "Photo 1 of 29 | Bright Notting Hill flat near Portobello Road | 1 double bed | , | · | 1 bath | €1,019 | Show price breakdown | for 3 nights | €1,019 for 3 nights | Pay €0 today | Free cancellation | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 11",
+    "loc": "",
+    "title": "Bright Bayswater retreat near Hyde Park, with a dedicated workspace",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 535,
+    "rating": null,
+    "raw": "Photo 1 of 11 | Bright Bayswater retreat near Hyde Park, with a dedicated workspace | 1 bed | , | · | 1 bath | €535 | Show price breakdown | for 3 nights | €535 for 3 nights | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 19",
+    "loc": "",
+    "title": "2-min walk to Royal Oak station, with a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 517,
+    "rating": "4.67",
+    "raw": "Photo 1 of 19 | 2-min walk to Royal Oak station, with a private entrance | 1 double bed | , | · | 1 bath | €517 | Show price breakdown | for 3 nights | €517 for 3 nights | 4.67 out of 5 average rating | 4.67"
+   },
+   {
+    "kind": "Photo 1 of 17",
+    "loc": "",
+    "title": "Canal views in Little Venice, with easy access to Paddington",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 427,
+    "rating": "4.38",
+    "raw": "Photo 1 of 17 | Canal views in Little Venice, with easy access to Paddington | 2 beds | , | · | 1 bath | €427 | Show price breakdown | for 3 nights | €427 for 3 nights | 4.38 out of 5 average rating | 4.38"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Modern Paddington flat, 4 minutes to Tube",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 653,
+    "rating": "4.48",
+    "raw": "Photo 1 of 21 | Modern Paddington flat, 4 minutes to Tube | 1 double bed | , | · | 1 bath | €653 | Show price breakdown | for 3 nights | €653 for 3 nights | Pay €0 today | Free cancellation | 4.48 out of 5 average rating | 4.48"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Newly refurbished with a private patio",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 584,
+    "rating": "4.6",
+    "raw": "Photo 1 of 13 | Newly refurbished with a private patio | 1 double bed | , | · | 1 bath | €584 | Show price breakdown | for 3 nights | €584 for 3 nights | 4.6 out of 5 average rating | 4.6"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Show price breakdown",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 798,
+    "rating": "4.8",
+    "raw": "Photo 1 of 29 | Superhost | Victorian white stucco on Prince’s Square, with parquet floors and heated bathroom floors | 1 bed | , | · | 1 bath | €798 | Show price breakdown | for 3 nights | €798 for 3 nights | Pay €0 today | Free cancellation | 4.8 out of 5 average rating | 4.8"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Top-floor between Paddington and Bayswater, with a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 761,
+    "rating": "4.86",
+    "raw": "Photo 1 of 14 | Top-floor between Paddington and Bayswater, with a private entrance | 1 double bed | , | · | 1 bath | €761 | Show price breakdown | for 3 nights | €761 for 3 nights | Pay €0 today | Free cancellation | 4.86 out of 5 average rating | 4.86"
+   },
+   {
+    "kind": "Photo 1 of 24",
+    "loc": "",
+    "title": "Maida Vale first-floor retreat, with a garden patio and alfresco dining",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 499,
+    "rating": "4.64",
+    "raw": "Photo 1 of 24 | Maida Vale first-floor retreat, with a garden patio and alfresco dining | 1 double bed | , | · | 1 bath | €499 | Show price breakdown | for 3 nights | €499 for 3 nights | 4.64 out of 5 average rating | 4.64"
+   },
+   {
+    "kind": "Photo 1 of 6",
+    "loc": "",
+    "title": "Top-floor studio with a rooftop feel",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 435,
+    "rating": null,
+    "raw": "Photo 1 of 6 | Top-floor studio with a rooftop feel | 1 double bed | , | · | 1 bath | €435 | Show price breakdown | for 3 nights | €435 for 3 nights | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Zone 1 near Hyde Park, with 4 tube stations within a 10-min walk",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 855,
+    "rating": null,
+    "raw": "Photo 1 of 14 | Zone 1 near Hyde Park, with 4 tube stations within a 10-min walk | 1 double bed | , | · | 1 bath | €1,038 | €855 | Show price breakdown | for 3 nights | Pay €0 today | Free cancellation | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Open-plan flat near Regent’s Park",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 662,
+    "rating": "4.67",
+    "raw": "Photo 1 of 29 | Open-plan flat near Regent’s Park | 2 beds | , | · | 1 bath | €662 | Show price breakdown | for 3 nights | €662 for 3 nights | 4.67 out of 5 average rating | 4.67"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Modern studio facing Little Venice Canal",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 467,
+    "rating": "4.69",
+    "raw": "Photo 1 of 13 | Modern studio facing Little Venice Canal | 1 double bed | , | · | 1 bath | €467 | Show price breakdown | for 3 nights | €467 for 3 nights | 4.69 out of 5 average rating | 4.69"
+   },
+   {
+    "kind": "Photo 1 of 18",
+    "loc": "",
+    "title": "Victorian flat with soaring ceilings, near Baker Street",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 851,
+    "rating": "4.8",
+    "raw": "Photo 1 of 18 | Superhost | Victorian flat with soaring ceilings, near Baker Street | 2 beds | , | · | 1 bath | €851 | Show price breakdown | for 3 nights | €851 for 3 nights | 4.8 out of 5 average rating | 4.8"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Zone 1 near Hyde Park, with 4 tube stations within a 10-min walk",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 855,
+    "rating": null,
+    "raw": "Photo 1 of 14 | Zone 1 near Hyde Park, with 4 tube stations within a 10-min walk | 1 double bed | , | · | 1 bath | €1,038 | €855 | Show price breakdown | for 3 nights | Pay €0 today | Free cancellation | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 27",
+    "loc": "",
+    "title": "5-min walk to Hyde Park and Portobello Market, with high ceilings",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 565,
+    "rating": "4.52",
+    "raw": "Photo 1 of 27 | 5-min walk to Hyde Park and Portobello Market, with high ceilings | 1 bed | , | · | 1 bath | €565 | Show price breakdown | for 3 nights | €565 for 3 nights | Pay €0 today | Free cancellation | 4.52 out of 5 average rating | 4.52"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Modern Zone 1 flat near four tubes",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 786,
+    "rating": "4.8",
+    "raw": "Photo 1 of 14 | Superhost | Modern Zone 1 flat near four tubes | 3 beds | , | · | 1 bath | €786 | Show price breakdown | for 3 nights | €786 for 3 nights | 4.8 out of 5 average rating | 4.8"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "3-min walk to Notting Hill Gate tube, with a private terrace and alfresco dining",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 877,
+    "rating": "5.0",
+    "raw": "Photo 1 of 13 | Guest favorite | 3-min walk to Notting Hill Gate tube, with a private terrace and alfresco dining | 1 double bed | , | · | 1 bath | €877 | Show price breakdown | for 3 nights | €877 for 3 nights | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Photo 1 of 6",
+    "loc": "",
+    "title": "Newly renovated in Central London, with Hyde Park a 10-min walk away",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 667,
+    "rating": null,
+    "raw": "Photo 1 of 6 | Newly renovated in Central London, with Hyde Park a 10-min walk away | 1 bed | , | · | 1 bath | €667 | Show price breakdown | for 3 nights | €667 for 3 nights | Pay €0 today | Free cancellation | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 7",
+    "loc": "",
+    "title": "Quiet 1929 block near Portobello Road, with a park-facing view",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 407,
+    "rating": null,
+    "raw": "Photo 1 of 7 | Quiet 1929 block near Portobello Road, with a park-facing view | 1 double bed | , | · | 1 bath | €407 | Show price breakdown | for 3 nights | €407 for 3 nights | Pay €0 today | Free cancellation"
+   },
+   {
+    "kind": "Photo 1 of 16",
+    "loc": "",
+    "title": "Newly renovated near Little Venice, with a private entrance and a walk-in shower",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 485,
+    "rating": "4.24",
+    "raw": "Photo 1 of 16 | Newly renovated near Little Venice, with a private entrance and a walk-in shower | 1 double bed | , | · | 1 bath | €485 | Show price breakdown | for 3 nights | €485 for 3 nights | 4.24 out of 5 average rating | 4.24"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Private patio near Portobello Road Market",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 467,
+    "rating": "4.71",
+    "raw": "Photo 1 of 14 | Private patio near Portobello Road Market | 1 double bed | , | · | 1 bath | €467 | Show price breakdown | for 3 nights | €467 for 3 nights | 4.71 out of 5 average rating | 4.71"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Show price breakdown",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 859,
+    "rating": "4.91",
+    "raw": "Photo 1 of 13 | Guest favorite | Minutes from Hyde Park, with a private entrance and a bathtub | 3 beds | , | · | 1 bath | €859 | Show price breakdown | for 3 nights | €859 for 3 nights | 4.91 out of 5 average rating | 4.91"
+   },
+   {
+    "kind": "Photo 1 of 20",
+    "loc": "",
+    "title": "Show price breakdown",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 835,
+    "rating": "4.92",
+    "raw": "Photo 1 of 20 | Guest favorite | Notting Hill, 10-min walk to Hyde Park, with a rainfall shower and a deep bathtub | 1 double bed | , | · | 1 bath | €835 | Show price breakdown | for 3 nights | €835 for 3 nights | 4.92 out of 5 average rating | 4.92"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Quiet gated mews near the tube",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 623,
+    "rating": "5.0",
+    "raw": "Photo 1 of 21 | Guest favorite | Quiet gated mews near the tube | 1 double bed | , | · | 1 bath | €623 | Show price breakdown | for 3 nights | €623 for 3 nights | Pay €0 today | Free cancellation | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Central Bayswater, 5 min to the Tube, with a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 484,
+    "rating": "4.78",
+    "raw": "Photo 1 of 13 | Central Bayswater, 5 min to the Tube, with a private entrance | 1 double bed | , | · | 1 bath | €484 | Show price breakdown | for 3 nights | €484 for 3 nights | 4.78 out of 5 average rating | 4.78"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "St John’s Wood near Regent’s Park, with a workspace and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 639,
+    "rating": "5.0",
+    "raw": "Photo 1 of 14 | Superhost | St John’s Wood near Regent’s Park, with a workspace and A/C | 2 beds | , | · | 1 bath | €705 | €639 | Show price breakdown | for 3 nights | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Photo 1 of 23",
+    "loc": "",
+    "title": "Notting Hill, 5-min walk to the station, with high ceilings and large windows",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 542,
+    "rating": "4.8",
+    "raw": "Photo 1 of 23 | Notting Hill, 5-min walk to the station, with high ceilings and large windows | 1 bed | , | · | 1 bath | €542 | Show price breakdown | for 3 nights | €542 for 3 nights | Pay €0 today | Free cancellation | 4.8 out of 5 average rating | 4.8"
+   },
+   {
+    "kind": "Photo 1 of 10",
+    "loc": "",
+    "title": "Victorian home adjacent to Kensington Palace",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 488,
+    "rating": "4.76",
+    "raw": "Photo 1 of 10 | Victorian home adjacent to Kensington Palace | 1 double bed | , | · | 1 bath | €488 | Show price breakdown | for 3 nights | €488 for 3 nights | 4.76 out of 5 average rating | 4.76"
+   },
+   {
+    "kind": "Photo 1 of 11",
+    "loc": "",
+    "title": "Art Deco charm next to Hyde Park, with original parquet floors and a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 637,
+    "rating": "4.85",
+    "raw": "Photo 1 of 11 | Guest favorite | Art Deco charm next to Hyde Park, with original parquet floors and a private entrance | 1 king bed | , | · | 1 bath | €637 | Show price breakdown | for 3 nights | €637 for 3 nights | 4.85 out of 5 average rating | 4.85"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Newly redecorated Victorian flat in Kensington",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 1487,
+    "rating": "4.98",
+    "raw": "Photo 1 of 29 | Guest favorite | Newly redecorated Victorian flat in Kensington | 2 beds | , | · | 1 bath | €1,487 | Show price breakdown | for 3 nights | €1,487 for 3 nights | 4.98 out of 5 average rating | 4.98"
+   },
+   {
+    "kind": "Photo 1 of 19",
+    "loc": "",
+    "title": "Private garden flat near Hyde Park",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 888,
+    "rating": "5.0",
+    "raw": "Photo 1 of 19 | Guest favorite | Private garden flat near Hyde Park | 1 king bed | , | · | 1 bath | €888 | Show price breakdown | for 3 nights | €888 for 3 nights | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Quiet gated mews near the tube",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 623,
+    "rating": "5.0",
+    "raw": "Photo 1 of 21 | Guest favorite | Quiet gated mews near the tube | 1 double bed | , | · | 1 bath | €623 | Show price breakdown | for 3 nights | €623 for 3 nights | Pay €0 today | Free cancellation | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Newly refurbished, 5-min walk to Hyde Park, with a kitchenette",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 584,
+    "rating": "4.54",
+    "raw": "Photo 1 of 13 | Newly refurbished, 5-min walk to Hyde Park, with a kitchenette | 1 double bed | , | · | 1 bath | €584 | Show price breakdown | for 3 nights | €584 for 3 nights | 4.54 out of 5 average rating | 4.54"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Central Bayswater, 5 min to the Tube, with a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 484,
+    "rating": "4.78",
+    "raw": "Photo 1 of 13 | Central Bayswater, 5 min to the Tube, with a private entrance | 1 double bed | , | · | 1 bath | €484 | Show price breakdown | for 3 nights | €484 for 3 nights | 4.78 out of 5 average rating | 4.78"
+   },
+   {
+    "kind": "Photo 1 of 12",
+    "loc": "",
+    "title": "Bright Maida Vale retreat, with a private entrance and a modern kitchen",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 3,
+    "total_eur": 773,
+    "rating": null,
+    "raw": "Photo 1 of 12 | Superhost | Bright Maida Vale retreat, with a private entrance and a modern kitchen | 3 beds | , | · | 1 bath | €773 | Show price breakdown | for 3 nights | €773 for 3 nights | Pay €0 today | Free cancellation"
+   }
+  ],
+  "booking": {
+   "city": "lon",
+   "url": "https://www.booking.com/searchresults.html?dest_id=43&dest_type=district&checkin=2026-10-10&checkout=2026-10-13&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204%3Breview_score%3D80&order=price",
+   "found": "11",
+   "unavail_pct": "96",
+   "cards": [
+    {
+     "name": "Kensington Gardens Hotel",
+     "url": "https://www.booking.com/hotel/gb/kensington-gardens-hotel-london.html",
+     "price_4n": 310,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/202346459.webp?k=ceefe8216f12293203141daf32bb0f3950f53d7be26aff8e529381f2aa2683f2&o=",
+     "raw": "Kensington Gardens Hotel ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 0.7 miles from PaddingtonSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,473 reviews ¶ Location 9.5 ¶ Single Room with Private Bathroom ¶ 1 twin bed ¶ Per night€ 103 ¶ € 310 ¶ Price € 310 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Travelodge London Balham",
+     "url": "https://www.booking.com/hotel/gb/po-travelodge-london-balham-wandsworth.html",
+     "price_4n": 413,
+     "score": null,
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/813271860.webp?k=6f0796c63069e731ca6702cbec2b356ed96efafdefc2c01473411b8d024ecc8b&o=",
+     "raw": "Travelodge London Balham ¶ Opens in new window ¶ Partner Offer ¶ Wandsworth, LondonShow on map ¶ 5.2 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ 24-hour front desk ¶ Daily housekeeping ¶ Very Good 8.0 ¶ 230 external reviews ¶ Double Room ¶ 1 king bed ¶ Per night€ 138 ¶ € 413 ¶ Price € 413 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "St. David's Hotels Paddington",
+     "url": "https://www.booking.com/hotel/gb/st-david-39-s-hotels.html",
+     "price_4n": 462,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/536484438.webp?k=71b68db712e076b57289e7dcc391655613d71c864cef165b80937e8735a2d96f&o=",
+     "raw": "St. David's Hotels Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,073 reviews ¶ Location 9.5 ¶ Single Room with Shared Bathroom ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 154 ¶ € 462 ¶ Price € 462 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Grand Concerto Hotel",
+     "url": "https://www.booking.com/hotel/gb/castleton.html",
+     "price_4n": null,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/668710450.webp?k=8a12196d08b5b157395c4f941570c19f06bf5ab6813b40c363ad1e89779a4524&o=",
+     "raw": "Grand Concerto Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 965 reviews ¶ Location 9.3 ¶ Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 183 ¶ € 686€ 549 ¶ Original price € 686. Current price € 549. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Point A Hotel London Paddington",
+     "url": "https://www.booking.com/hotel/gb/point-a-hotel-london-paddington.html",
+     "price_4n": null,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/867092506.webp?k=9086ca7cd94577120bbb31feaded203abaa752347f9e6f3677ac93bb57a72072&o=",
+     "raw": "Point A Hotel London Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 4,838 reviews ¶ Cozy Double Room no Window ¶ 1 full bed ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 185 ¶ € 616€ 554 ¶ Original price € 616. Current price € 554. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Norfolk Towers Paddington",
+     "url": "https://www.booking.com/hotel/gb/norfolktowershotel.html",
+     "price_4n": 561,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/79560308.webp?k=6beb4637a60dbd24dfd8c3e40b2c1ed6dc56b1d26f09a76946efdba93017f266&o=",
+     "raw": "Norfolk Towers Paddington ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 8,883 reviews ¶ Location 9.3 ¶ Executive Double Room ¶ 1 full bed ¶ Per night€ 187 ¶ € 561 ¶ Price € 561 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Athena Hotel",
+     "url": "https://www.booking.com/hotel/gb/athena.html",
+     "price_4n": null,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/824312735.webp?k=2c0c4c1dc3826dd197a79b4b92853132cb650545759cb88c53d4b93e798fbc34&o=",
+     "raw": "Athena Hotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Shuttle service ¶ Free Wifi ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,654 reviews ¶ Location 9.3 ¶ Standard Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 212 ¶ € 915€ 637 ¶ Original price € 915. Current price € 637. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Stylotel",
+     "url": "https://www.booking.com/hotel/gb/ruddimanshotel.html",
+     "price_4n": 709,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/5909244.webp?k=f3eee3660f640c86b61bfcc3f54907e553e471c9f9677335a85ce863bf9e2a1c&o=",
+     "raw": "Stylotel ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 2,748 reviews ¶ Location 9.5 ¶ Twin Styloroom ¶ 2 twin beds ¶ Breakfast included ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 236 ¶ € 709 ¶ Price € 709 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Mercure London Hyde Park Hotel",
+     "url": "https://www.booking.com/hotel/gb/qualityhotelpaddington.html",
+     "price_4n": 735,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914552707.webp?k=f307c7ee11accf77ad963243be8aac823e39cafae80dd38c2f375c016800455b&o=",
+     "raw": "Mercure London Hyde Park Hotel ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,975 reviews ¶ Location 9.3 ¶ Standard King Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 245 ¶ € 735 ¶ Price € 735 ¶ 3 nights"
+    },
+    {
+     "name": "Hotel Indigo London Hyde Park Paddington by IHG",
+     "url": "https://www.booking.com/hotel/gb/indigo-london-paddington.html",
+     "price_4n": 757,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/920604627.webp?k=160b13244d67e540f3e13e5b64e3f85a3622570d11ed0df8e778fd895cd8b067&o=",
+     "raw": "Hotel Indigo London Hyde Park Paddington by IHG ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Sustainability certification ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 509 reviews ¶ Location 9.5 ¶ Standard Double Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 252 ¶ € 757 ¶ Price € 757 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Paddington Townhouse Hotel by OYO",
+     "url": "https://www.booking.com/hotel/gb/thirty-sussex.html",
+     "price_4n": null,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/913233623.webp?k=a6f31f578f6dd90d9ccf2a21383039c49b89857ce62e5de33799bb4a42ecdd76&o=",
+     "raw": "Paddington Townhouse Hotel by OYO ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 80 reviews ¶ Late Escape Deal ¶ Superior Triple Room ¶ 3 beds (2 twins, 1 sofa bed) ¶ We have 1 left at this price ¶ Per night€ 314 ¶ € 1,264€ 986 ¶ Original price € 1,264. C"
+    },
+    {
+     "name": "Grand Hotel Bellevue London",
+     "url": "https://www.booking.com/hotel/gb/grand-hotel-bellevue-london.html",
+     "price_4n": null,
+     "score": "8.2",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/539895200.webp?k=58be58c48faccd341aacf79232445498afd493161fe5ee3de77cb57430f8a8aa&o=",
+     "raw": "Grand Hotel Bellevue London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 243 reviews ¶ Location 9.4 ¶ Superior Double Room ¶ 3 beds (2 twins, 1 king) ¶ We have 5 left at this price ¶ Per night€ 303 ¶ € 1,110€ 909 ¶ Original price € 1,110. Current price € 909. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Roseate House London",
+     "url": "https://www.booking.com/hotel/gb/theroyalparkhotel.html",
+     "price_4n": null,
+     "score": "8.7",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912279940.webp?k=f642eb1017a7c9a87c50b813d1dc4b7faa7b0a1a630a3dafd42ab1126b435df0&o=",
+     "raw": "Roseate House London ¶ Opens in new window ¶ Paddington, LondonShow on map ¶ Subway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 1,233 reviews ¶ Location 9.5 ¶ Superior Double Room ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 320 ¶ € 1,055€ 960 ¶ Original price € 1,055. Current price € 960. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Homefield Lodge",
+     "url": "https://www.booking.com/hotel/gb/homefield-lodge.html",
+     "price_4n": null,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/468748862.webp?k=9ee287d10f24529ce346c61ac013f93058759eebf649a6fec2928589b46be7e4&o=",
+     "raw": "Homefield Lodge ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 4.1 miles from Paddington ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,764 reviews ¶ Double Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 74 ¶ € 273€ 223 ¶ Original price € 273. Current price € 223. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Ravna Gora",
+     "url": "https://www.booking.com/hotel/gb/ravna-gora-london.html",
+     "price_4n": null,
+     "score": "8.2",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251826817.webp?k=4bb1b796c48855ded0bd4cc56fce8c0e3ae9f7aa1f60afa068fcd43dfa880b05&o=",
+     "raw": "Ravna Gora ¶ Opens in new window ¶ Kensington and Chelsea, LondonShow on map ¶ 1.4 miles from PaddingtonSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,971 reviews ¶ Location 9.4 ¶ Single Room with Shared Bathroom ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 90 ¶ € 301€ 271 ¶ Original price € 301. Current price € 271. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Novotel London Brentford",
+     "url": "https://www.booking.com/hotel/gb/novotel-london-brentford.html",
+     "price_4n": 316,
+     "score": "8.4",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/713702677.webp?k=0f4b3347da46cf797c67f0d60d6ba10c4faa8e0d6301aa5741f96a68f56d02aa&o=",
+     "raw": "Novotel London Brentford ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ BrentfordShow on map ¶ 5.7 miles from Paddington ¶ Sustainability certification ¶ Fitness center ¶ Free Wifi ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,735 reviews ¶ Superior Twin Room ¶ 2 twin beds ¶ Per night€ 105 ¶ € 316 ¶ Price € 316 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Regal Hotel",
+     "url": "https://www.booking.com/hotel/gb/regal.html",
+     "price_4n": 349,
+     "score": "8.7",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/613883150.webp?k=01bb13e6a8c55d56048ccb9a34948c6d280a86f6a4008a60d323b95ac4e1c70f&o=",
+     "raw": "Regal Hotel ¶ Opens in new window ¶ Golders Green, LondonShow on map ¶ 4.2 miles from Paddington ¶ Free Wifi ¶ Free parking ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 235 reviews ¶ One-Bedroom Apartment - Non-Smoking ¶ Entire apartment • 1 bedroom • 1 bathroom • 377 ft² ¶ 1 full bed ¶ Free cancellation ¶ We have 2 left at this price ¶ Per night€ 116 ¶ € 349 ¶ Price € 349 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Limehouse Library Hotel",
+     "url": "https://www.booking.com/hotel/gb/limehouse-library.html",
+     "price_4n": null,
+     "score": "8.6",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/429887703.webp?k=332e78b0982dcee48d35deefea530bd652055c3f0f5fb86563737d9e22d00053&o=",
+     "raw": "Limehouse Library Hotel ¶ Opens in new window ¶ Tower Hamlets, LondonShow on map ¶ 6.1 miles from Paddington ¶ Fitness center ¶ Free Wifi ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 1,981 reviews ¶ Limited-time Deal ¶ Superior Single Room ¶ 1 twin bed ¶ We have 3 left at this price ¶ Per night€ 110 ¶ € 551€ 331 ¶ Original price € 551. Current price € 331. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "ibis Styles London Ealing",
+     "url": "https://www.booking.com/hotel/gb/ibis-styles-london-ealing.html",
+     "price_4n": 365,
+     "score": "8.4",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/751491795.webp?k=f067749ea4152ff85e172033032d2ef365b103b9b886ff5d9eed5510e13ca117&o=",
+     "raw": "ibis Styles London Ealing ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Ealing, LondonShow on map ¶ 5.8 miles from Paddington ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,068 reviews ¶ Queen Room ¶ 1 queen bed ¶ Per night€ 122 ¶ € 365 ¶ Price € 365 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "The Pig and Whistle",
+     "url": "https://www.booking.com/hotel/gb/the-pig-and-whistle.html",
+     "price_4n": 378,
+     "score": "8.7",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/402141236.webp?k=335357ea5cb7cafaa1f5a2f06a2fc78b663ec78eee7802aaa715f4dd0338a67c&o=",
+     "raw": "The Pig and Whistle ¶ Opens in new window ¶ Mortlake, LondonShow on map ¶ 5.3 miles from Paddington ¶ Non-smoking rooms ¶ Free parking ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 292 reviews ¶ Location 9.3 ¶ Deluxe Double Room ¶ 1 queen bed ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 2 left at this price ¶ Per night€ 126 ¶ € 378 ¶ Price € 378 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Westbury Hotel",
+     "url": "https://www.booking.com/hotel/gb/westbury.html",
+     "price_4n": null,
+     "score": "8.3",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/187991344.webp?k=374395e9be4d86bf0b8e3073169b2ec7879668a949191b3d1273f561b85ac28d&o=",
+     "raw": "Westbury Hotel ¶ Opens in new window ¶ Kensington and Chelsea, LondonShow on map ¶ 1.7 miles from PaddingtonSubway Access ¶ Free Wifi ¶ Baggage storage ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 4,272 reviews ¶ Location 9.5 ¶ Double Room ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 126 ¶ € 421€ 379 ¶ Original price € 421. Current price € 379. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hilton London Wembley",
+     "url": "https://www.booking.com/hotel/gb/hilton-wembley.html",
+     "price_4n": 379,
+     "score": "8.8",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/486740856.webp?k=66efd12346c43bb2b9993eb540fa7987d2751534ddfba8cd5bf197eb17e62645&o=",
+     "raw": "Hilton London Wembley ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Brent, LondonShow on map ¶ 5.4 miles from Paddington ¶ Sustainability certification ¶ Fitness center ¶ Wifi ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 6,778 reviews ¶ Location 9.5 ¶ King Guest Room ¶ 1 king bed ¶ Per night€ 126 ¶ € 379 ¶ Price € 379 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "The W14 Kensington",
+     "url": "https://www.booking.com/hotel/gb/ace.html",
+     "price_4n": null,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646856814.webp?k=2034bfdaf7e3cd0338922bdd0ae1a69bba41a4cf3d72eef6368ac0d8b6cac858&o=",
+     "raw": "The W14 Kensington ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 2.3 miles from PaddingtonSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 3,250 reviews ¶ Late Escape Deal ¶ Single Room with Private Bathroom ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 129 ¶ € 551€ 386 ¶ Original price € 551. Current price € 386. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "The Green Man Pub and Hotel by OYO",
+     "url": "https://www.booking.com/hotel/gb/the-green-man-pub-and.html",
+     "price_4n": null,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/666435829.webp?k=fd1dd0dd6d7b9e844fd228d96fbdc6c392f6191bfae814f8d2165e8a235fd587&o=",
+     "raw": "The Green Man Pub and Hotel by OYO ¶ Opens in new window ¶ Brent, LondonShow on map ¶ 5.7 miles from Paddington ¶ Free Wifi ¶ Meeting/Banquet facilities ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 501 reviews ¶ Late Escape Deal ¶ Standard Double Room ¶ 1 queen bed ¶ We have 2 left at this price ¶ Per night€ 104 ¶ € 478€ 336 ¶ Original price € 478. Current price € 336. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "The Lodge Hotel - Putney",
+     "url": "https://www.booking.com/hotel/gb/bestwesternlodge.html",
+     "price_4n": null,
+     "score": "9.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141109565.webp?k=e5acf76454b9c1627f71008141090cfecaa2442de30af3db5ced422dfbdad1f0&o=",
+     "raw": "The Lodge Hotel - Putney ¶ Opens in new window ¶ Wandsworth, LondonShow on map ¶ 4.3 miles from PaddingtonSubway Access ¶ Fitness center ¶ Free Wifi ¶ Scored 9.1 ¶ 9.1 ¶ Wonderful ¶ 3,324 reviews ¶ Standard Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 118 ¶ € 388€ 353 ¶ Original price € 388. Current price € 353. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Crowne Plaza London Ealing by IHG",
+     "url": "https://www.booking.com/hotel/gb/crowne-plaza-london-ealing.html",
+     "price_4n": 389,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/907042953.webp?k=7622044786753c34f3d8449530dac8e11a1d0f5fdaf4478101e5aacb4d1b27c4&o=",
+     "raw": "Crowne Plaza London Ealing by IHG ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 5.2 miles from PaddingtonSubway Access ¶ Fitness center ¶ Free Wifi ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 1,296 reviews ¶ Standard Room ¶ Beds: 1 double or 2 twins ¶ Per night€ 130 ¶ € 389 ¶ Price € 389 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Chelsea Guest House",
+     "url": "https://www.booking.com/hotel/gb/chelseaguesthouse.html",
+     "price_4n": 339,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/646588738.webp?k=ec482656b82c7b8919ce8effd6fa123d65922745f8c696e5f62a48020e8e3de4&o=",
+     "raw": "Chelsea Guest House ¶ Opens in new window ¶ Lambeth, LondonShow on map ¶ 3.5 miles from Paddington ¶ Free Wifi ¶ Baggage storage ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 3,189 reviews ¶ Superior Room ¶ 2 twin beds ¶ Per night€ 113 ¶ € 339 ¶ Price € 339 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Clayton Hotel Chiswick",
+     "url": "https://www.booking.com/hotel/gb/chiswickmoranhotel.html",
+     "price_4n": null,
+     "score": "8.4",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295332551.webp?k=298d6ea87b22e24eba238087d8b01451edc1091c9edc575e2f3a0f1606715229&o=",
+     "raw": "Clayton Hotel Chiswick ¶ Opens in new window ¶ Chiswick, LondonShow on map ¶ 4.7 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Fitness center ¶ Free Wifi ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 4,140 reviews ¶ Deluxe Double Room ¶ 1 full bed ¶ Per night€ 133 ¶ € 442€ 398 ¶ Original price € 442. Current price € 398. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Mentone Hotel",
+     "url": "https://www.booking.com/hotel/gb/mentone.html",
+     "price_4n": null,
+     "score": "8.3",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/117482871.webp?k=f1f4b28eb96b6b8ff956c7852d815c22ef1e17703d9723460f905e2e3e0434b7&o=",
+     "raw": "Mentone Hotel ¶ Opens in new window ¶ Camden, LondonShow on map ¶ 2.2 miles from PaddingtonSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 3,045 reviews ¶ Location 9.4 ¶ Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 124 ¶ € 408€ 371 ¶ Original price € 408. Current price € 371. ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "The Victoria",
+     "url": "https://www.booking.com/hotel/gb/the-victoria-london.html",
+     "price_4n": 408,
+     "score": "8.4",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/27492946.webp?k=0d8c07d38701e7800eb1dff1cdf02b36b70b37339132fe9fffffa958c9102b57&o=",
+     "raw": "The Victoria ¶ Opens in new window ¶ Mortlake, LondonShow on map ¶ 5.8 miles from Paddington ¶ Free Wifi ¶ Baggage storage ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 216 reviews ¶ Double Room ¶ 1 full bed ¶ Breakfast included ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 136 ¶ € 408 ¶ Price € 408 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Park Plaza London, Park Royal",
+     "url": "https://www.booking.com/hotel/gb/park-plaza-london-park-royal.html",
+     "price_4n": null,
+     "score": "8.6",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/731793399.webp?k=bdb6947c1b05b1464516700c4e0b5788c004157bb0eb90d23acac1a85bcfdc36&o=",
+     "raw": "Park Plaza London, Park Royal ¶ Opens in new window ¶ Ealing, LondonShow on map ¶ 4.7 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Fitness center ¶ Free Wifi ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 6,563 reviews ¶ Superior King Room ¶ 1 king bed ¶ Per night€ 138 ¶ € 460€ 414 ¶ Original price € 460. Current price € 414. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Maids Guest Rooms",
+     "url": "https://www.booking.com/hotel/gb/maids-of-honour-greater-london.html",
+     "price_4n": 418,
+     "score": "8.3",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/423434424.webp?k=ebd7bb24f9f40a83ec823e396f73630037d3abf66d239c539a295be0dc9f4b7b&o=",
+     "raw": "Maids Guest Rooms ¶ Opens in new window ¶ Mortlake, KewShow on map ¶ 5.5 miles from PaddingtonSubway Access ¶ Free Wifi ¶ Baggage storage ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 249 reviews ¶ Location 9.6 ¶ Deluxe Double or Twin Room ¶ Multiple bed types ¶ Free cancellation ¶ We have 3 left at this price ¶ Per night€ 139 ¶ € 418 ¶ Price € 418 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "City Gate Guest House",
+     "url": "https://www.booking.com/hotel/gb/city-gate-guest-house.html",
+     "price_4n": null,
+     "score": "8.0",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/675457855.webp?k=ac396b7f73d51f32b517831ac1c98d17fd70aa4e5056a5278424bed93f0a7735&o=",
+     "raw": "City Gate Guest House ¶ Opens in new window ¶ Tower Hamlets, LondonShow on map ¶ 5.4 miles from PaddingtonSubway Access ¶ Free Wifi ¶ Non-smoking rooms ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 1,507 reviews ¶ Late Escape Deal ¶ Double Room with Shared Bathroom ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 87 ¶ € 457€ 262 ¶ Original price € 457. Current price € 262. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "DoubleTree by Hilton London Ealing",
+     "url": "https://www.booking.com/hotel/gb/jarvis-ealing.html",
+     "price_4n": 420,
+     "score": "8.2",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/857074773.webp?k=69688a68fb0f2e14e84a02d8a79f10fef8ea4183873532387639bfa492d001e2&o=",
+     "raw": "DoubleTree by Hilton London Ealing ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Ealing, LondonShow on map ¶ 5 miles from PaddingtonSubway Access ¶ Sustainability certification ¶ Fitness center ¶ Free Wifi ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,602 reviews ¶ Queen Room ¶ 1 queen bed ¶ Per night€ 140 ¶ € 420 ¶ Price € 420 ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Best Western Chiswick Rooms",
+     "url": "https://www.booking.com/hotel/gb/stpetershotel.html",
+     "price_4n": null,
+     "score": "8.1",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912637283.webp?k=0223aa54c062b05c7527fb790c5878d9d7f2fa82de2f9e007d2c6ca880ecd0d6&o=",
+     "raw": "Best Western Chiswick Rooms ¶ Opens in new window ¶ Hammersmith and Fulham, LondonShow on map ¶ 3.4 miles from PaddingtonSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 19 reviews ¶ Cozy Double Room with Shower - Non-Smoking ¶ 1 full bed ¶ We have 1 left at this price ¶ Per night€ 129 ¶ € 471€ 386 ¶ Original price € 471. Current price € 386. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Spark by Hilton London Chiswick",
+     "url": "https://www.booking.com/hotel/gb/best-western-chiswick-palace-suites-london.html",
+     "price_4n": 426,
+     "score": "8.4",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/893610373.webp?k=b756b005a928b4f14941ef085b544aeb6da1bd5e84c603e89207eedc861e29d7&o=",
+     "raw": "Spark by Hilton London Chiswick ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Chiswick, LondonShow on map ¶ 3.7 miles from PaddingtonSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 2,700 reviews ¶ Twin Room with No Window ¶ 2 twin beds ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 4 left at this price ¶ "
+    },
+    {
+     "name": "Novotel London Wembley",
+     "url": "https://www.booking.com/hotel/gb/novotel-london-wembley.html",
+     "price_4n": 426,
+     "score": "8.7",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/751033570.webp?k=00d4cea52a15f7e47d38b452f62225d2b22bf2d539f1993dec3e3a45a1aaa963&o=",
+     "raw": "Novotel London Wembley ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Brent, LondonShow on map ¶ 5.5 miles from Paddington ¶ Sustainability certification ¶ Fitness center ¶ Free Wifi ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 3,692 reviews ¶ Location 9.6 ¶ Superior Twin Room ¶ 2 twin beds ¶ We have 7 left at this price ¶ Per night€ 142 ¶ € 426 ¶ Price € 426 ¶ 3 nights, 1 adu"
+    },
+    {
+     "name": "Eurotraveller Hotel - Premier - Tower Bridge",
+     "url": "https://www.booking.com/hotel/gb/premier-by-eurotraveller.html",
+     "price_4n": null,
+     "score": "8.2",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/847837644.webp?k=44c5aae38fc8438c1329c313eb8af1197dab712ec6c853705d5684ff073ff65f&o=",
+     "raw": "Eurotraveller Hotel - Premier - Tower Bridge ¶ Opens in new window ¶ Southwark, LondonShow on map ¶ 4.4 miles from Paddington ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 4,072 reviews ¶ Double Room ¶ 1 full bed ¶ Free cancellation ¶ We have 1 left at this price ¶ Per night€ 142 ¶ € 475€ 427 ¶ Original price € 475. Current price € 427. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Sidney Hotel London-Victoria",
+     "url": "https://www.booking.com/hotel/gb/sidneyhotel.html",
+     "price_4n": null,
+     "score": "8.3",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/719068346.webp?k=002ec3d0336ee05be6f8cf29655b742145d844371325c4ce9d5cfaf15be86926&o=",
+     "raw": "Sidney Hotel London-Victoria ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 2.4 miles from PaddingtonSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 10,229 reviews ¶ Location 9.3 ¶ Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 131 ¶ € 480€ 393 ¶ Original price € 480. Current price € 393. ¶ Sign in for this members-only price ¶ 3 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Commodore Hotel",
+     "url": "https://www.booking.com/hotel/gb/commodore-london.html",
+     "price_4n": null,
+     "score": "8.2",
+     "dist": null,
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/320805814.webp?k=cc4348180ba06779a006a2f2affb2df6ae16bd2b12645001ea6418b2204603fe&o=",
+     "raw": "Commodore Hotel ¶ Opens in new window ¶ Westminster Borough, LondonShow on map ¶ 0.4 miles from PaddingtonSubway Access ¶ Fitness center ¶ Free Wifi ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 5,450 reviews ¶ Location 9.3 ¶ Limited-time Deal ¶ Superior Single Room ¶ 1 twin bed ¶ We have 2 left at this price ¶ Per night€ 132 ¶ € 724€ 395 ¶ Original price € 724. Current price € 395. ¶ 3 nights, 1 adult ¶ See availability"
+    }
+   ]
+  }
+ },
+ "lis": {
+  "airbnb": [
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Renovated Alfama flat with river views",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 347,
+    "rating": "4.68",
+    "raw": "Photo 1 of 29 | Renovated Alfama flat with river views | 1 double bed | , | · | 1 bath | €392 | €347 | Show price breakdown | for 4 nights | Pay €0 today | Free cancellation | 4.68 out of 5 average rating | 4.68"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Architect-renovated in quiet Alfama, with a balcony and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 412,
+    "rating": "4.87",
+    "raw": "Photo 1 of 21 | Superhost | Architect-renovated in quiet Alfama, with a balcony and A/C | 1 queen bed | , | · | 1 bath | €412 | Show price breakdown | for 4 nights | €412 for 4 nights | Pay €0 today | Free cancellation | 4.87 out of 5 average rating | 4.87"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Alfama duplex with stunning river views",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 423,
+    "rating": "4.77",
+    "raw": "Photo 1 of 29 | Superhost | Alfama duplex with stunning river views | 2 beds | , | · | 1 bath | €423 | Show price breakdown | for 4 nights | €423 for 4 nights | 4.77 out of 5 average rating | 4.77"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Peaceful hilltop retreat with open city views, a private entrance, and tram 28 below",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 363,
+    "rating": "4.83",
+    "raw": "Photo 1 of 29 | Guest favorite | Peaceful hilltop retreat with open city views, a private entrance, and tram 28 below | 1 double bed | , | · | 1 bath | €363 | Show price breakdown | for 4 nights | €363 for 4 nights | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 23",
+    "loc": "",
+    "title": "Designer-renovated flat in the heart of Chiado",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 872,
+    "rating": "5.0",
+    "raw": "Photo 1 of 23 | Guest favorite | Designer-renovated flat in the heart of Chiado | 1 queen bed | , | · | 1 bath | €872 | Show price breakdown | for 4 nights | €872 for 4 nights | Pay €0 today | Free cancellation | 5.0 out of 5 average rating | 5.0"
+   },
+   {
+    "kind": "Loft in an 18th-century palace",
+    "loc": "an 18th-century palace",
+    "title": "Show price breakdown",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 448,
+    "rating": "4.73",
+    "raw": "Photo 1 of 23 | Loft in an 18th-century palace | 1 queen bed | , | · | 1 bath | €448 | Show price breakdown | for 4 nights | €448 for 4 nights | Pay €0 today | Free cancellation | 4.73 out of 5 average rating | 4.73"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "Charming Studio in Alfama",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 280,
+    "rating": null,
+    "raw": "Photo 1 of 13 | Charming Studio in Alfama | Walk Everywhere | 1 double bed | , | · | 1 bath | €280 | Show price breakdown | for 4 nights | €280 for 4 nights | Pay €0 today | Free cancellation | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Brand-new studio in the heart of Graça",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 391,
+    "rating": "4.84",
+    "raw": "Photo 1 of 21 | Guest favorite | Brand-new studio in the heart of Graça | 1 bed | , | · | 1 bath | €426 | €391 | Show price breakdown | for 4 nights | Pay €0 today | Free cancellation | 4.84 out of 5 average rating | 4.84"
+   },
+   {
+    "kind": "Photo 1 of 19",
+    "loc": "",
+    "title": "Floor-to-ceiling windows over terracotta rooftops",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 559,
+    "rating": "4.89",
+    "raw": "Photo 1 of 19 | Superhost | Floor-to-ceiling windows over terracotta rooftops | 2 beds | , | · | 1 bath | €559 | Show price breakdown | for 4 nights | €559 for 4 nights | 4.89 out of 5 average rating | 4.89"
+   },
+   {
+    "kind": "Photo 1 of 13",
+    "loc": "",
+    "title": "On Lisbon’s most photographed street",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 547,
+    "rating": "4.77",
+    "raw": "Photo 1 of 13 | Superhost | On Lisbon’s most photographed street | 1 queen bed | , | · | 1 bath | €669 | €547 | Show price breakdown | for 4 nights | 4.77 out of 5 average rating | 4.77"
+   },
+   {
+    "kind": "Photo 1 of 26",
+    "loc": "",
+    "title": "Alfama balcony flat near São Jorge Castle",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 498,
+    "rating": "4.83",
+    "raw": "Photo 1 of 26 | Superhost | Alfama balcony flat near São Jorge Castle | 1 bed | , | · | 1 bath | €498 | Show price breakdown | for 4 nights | €498 for 4 nights | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Panoramic Tagus views from a private rooftop terrace in Bairro Alto",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 826,
+    "rating": "4.87",
+    "raw": "Photo 1 of 29 | Guest favorite | Panoramic Tagus views from a private rooftop terrace in Bairro Alto | 1 queen bed | , | · | 1 bath | €826 | Show price breakdown | for 4 nights | €826 for 4 nights | Pay €0 today | Free cancellation | 4.87 out of 5 average rating | 4.87"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Cleverly designed with a private patio",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 338,
+    "rating": "4.61",
+    "raw": "Photo 1 of 29 | Cleverly designed with a private patio | 1 sofa bed | , | · | 1 bath | €456 | €338 | Show price breakdown | for 4 nights | 4.61 out of 5 average rating | 4.61"
+   },
+   {
+    "kind": "Photo 1 of 10",
+    "loc": "",
+    "title": "Historic bohemian quarter near Intendente, with a shared terrace and a courtyard",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 361,
+    "rating": null,
+    "raw": "Photo 1 of 10 | Historic bohemian quarter near Intendente, with a shared terrace and a courtyard | 2 beds | , | · | 1 bath | €361 | Show price breakdown | for 4 nights | €361 for 4 nights | Pay €0 today | Free cancellation | New place to stay | New"
+   },
+   {
+    "kind": "Photo 1 of 18",
+    "loc": "",
+    "title": "Restored 17th-century Alfama gem, with picturesque neighborhood views",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 492,
+    "rating": "4.89",
+    "raw": "Photo 1 of 18 | Superhost | Restored 17th-century Alfama gem, with picturesque neighborhood views | 1 queen bed | , | · | 1 bath | €492 | Show price breakdown | for 4 nights | €492 for 4 nights | 4.89 out of 5 average rating | 4.89"
+   },
+   {
+    "kind": "Photo 1 of 20",
+    "loc": "",
+    "title": "Central Lisbon in Santa Catarina, with a kitchen and a TV",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 314,
+    "rating": "4.5",
+    "raw": "Photo 1 of 20 | Central Lisbon in Santa Catarina, with a kitchen and a TV | 2 beds | , | · | 1 bath | €314 | Show price breakdown | for 4 nights | €314 for 4 nights | 4.5 out of 5 average rating | 4.5"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Light-filled with river and city views",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 556,
+    "rating": "4.83",
+    "raw": "Photo 1 of 14 | Superhost | Light-filled with river and city views | 1 double bed | , | · | 1 bath | €556 | Show price breakdown | for 4 nights | €556 for 4 nights | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 18",
+    "loc": "",
+    "title": "Traditional Madragoa charm, with Santos bars and shops a short walk away",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 321,
+    "rating": "4.41",
+    "raw": "Photo 1 of 18 | Traditional Madragoa charm, with Santos bars and shops a short walk away | 2 beds | , | · | 1 bath | €429 | €321 | Show price breakdown | for 4 nights | Extended stay discount | 4.41 out of 5 average rating | 4.41"
+   },
+   {
+    "kind": "Photo 1 of 18",
+    "loc": "",
+    "title": "Traditional Madragoa charm, with Santos bars and shops a short walk away",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 321,
+    "rating": "4.41",
+    "raw": "Photo 1 of 18 | Traditional Madragoa charm, with Santos bars and shops a short walk away | 2 beds | , | · | 1 bath | €429 | €321 | Show price breakdown | for 4 nights | Extended stay discount | 4.41 out of 5 average rating | 4.41"
+   },
+   {
+    "kind": "Photo 1 of 17",
+    "loc": "",
+    "title": "Renovated in the heart of Bairro Alto",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 465,
+    "rating": "4.87",
+    "raw": "Photo 1 of 17 | Superhost | Renovated in the heart of Bairro Alto | 2 beds | , | · | 1 bath | €465 | Show price breakdown | for 4 nights | €465 for 4 nights | 4.87 out of 5 average rating | 4.87"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Balcony overlooking the iconic tram route",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 585,
+    "rating": "4.83",
+    "raw": "Photo 1 of 29 | Guest favorite | Balcony overlooking the iconic tram route | 2 double beds | , | · | 1 bath | €585 | Show price breakdown | for 4 nights | €585 for 4 nights | Pay €0 today | Free cancellation | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "In a historic 1909 village in Graça",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 338,
+    "rating": "4.78",
+    "raw": "Photo 1 of 29 | Guest favorite | In a historic 1909 village in Graça | 2 single beds | , | · | 1 bath | €338 | Show price breakdown | for 4 nights | €338 for 4 nights | 4.78 out of 5 average rating | 4.78"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Renovated 1910 gem in Graça, with a private courtyard and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 467,
+    "rating": "4.72",
+    "raw": "Photo 1 of 29 | Guest favorite | Renovated 1910 gem in Graça, with a private courtyard and A/C | 2 double beds | , | · | 1 bath | €467 | Show price breakdown | for 4 nights | €467 for 4 nights | Pay €0 today | Free cancellation | 4.72 out of 5 average rating | 4.72"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Renovated in Mouraria, birthplace of Fado",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 324,
+    "rating": "4.5",
+    "raw": "Photo 1 of 29 | Renovated in Mouraria, birthplace of Fado | 1 bed | , | · | 1 bath | €366 | €324 | Show price breakdown | for 4 nights | Pay €0 today | Free cancellation | 4.5 out of 5 average rating | 4.5"
+   },
+   {
+    "kind": "Photo 1 of 8",
+    "loc": "",
+    "title": "Newly renovated in Santos, with a dedicated workspace and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 409,
+    "rating": "4.61",
+    "raw": "Photo 1 of 8 | Superhost | Newly renovated in Santos, with a dedicated workspace and A/C | 1 double bed | , | · | 1 bath | €409 | Show price breakdown | for 4 nights | €409 for 4 nights | Pay €0 today | Free cancellation | 4.61 out of 5 average rating | 4.61"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Central Lisbon, 6 min to the metro, with a terrace and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 477,
+    "rating": "4.59",
+    "raw": "Photo 1 of 29 | Central Lisbon, 6 min to the metro, with a terrace and A/C | 1 double bed | , | · | 1 bath | €477 | Show price breakdown | for 4 nights | €477 for 4 nights | Pay €0 today | Free cancellation | 4.59 out of 5 average rating | 4.59"
+   },
+   {
+    "kind": "Photo 1 of 23",
+    "loc": "",
+    "title": "City views next to the Gloria tram, with a fully renovated interior and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 519,
+    "rating": "4.75",
+    "raw": "Photo 1 of 23 | Superhost | City views next to the Gloria tram, with a fully renovated interior and A/C | 1 double bed | , | · | 1 bath | €519 | Show price breakdown | for 4 nights | €519 for 4 nights | 4.75 out of 5 average rating | 4.75"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Rooftop views in Alfama’s historic heart",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 475,
+    "rating": "4.72",
+    "raw": "Photo 1 of 29 | Rooftop views in Alfama’s historic heart | 1 bed | , | · | 1 bath | €475 | Show price breakdown | for 4 nights | €475 for 4 nights | Pay €0 today | Free cancellation | 4.72 out of 5 average rating | 4.72"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Luxury finishes on Rua do Comércio",
+    "bedrooms": null,
+    "baths": 1.5,
+    "nights": 4,
+    "total_eur": 777,
+    "rating": "4.88",
+    "raw": "Photo 1 of 29 | Superhost | Luxury finishes on Rua do Comércio | 1 queen bed | , | · | 1.5 baths | €777 | Show price breakdown | for 4 nights | €777 for 4 nights | 4.88 out of 5 average rating | 4.88"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Rooftop views in Mouraria, birthplace of fado",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 389,
+    "rating": "4.74",
+    "raw": "Photo 1 of 29 | Rooftop views in Mouraria, birthplace of fado | 3 beds | , | · | 1 bath | €389 | Show price breakdown | for 4 nights | €389 for 4 nights | 4.74 out of 5 average rating | 4.74"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Alfama duplex with stunning river views",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 423,
+    "rating": "4.77",
+    "raw": "Photo 1 of 29 | Superhost | Alfama duplex with stunning river views | 2 beds | , | · | 1 bath | €423 | Show price breakdown | for 4 nights | €423 for 4 nights | 4.77 out of 5 average rating | 4.77"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Peaceful hilltop retreat with open city views, a private entrance, and tram 28 below",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 363,
+    "rating": "4.83",
+    "raw": "Photo 1 of 29 | Guest favorite | Peaceful hilltop retreat with open city views, a private entrance, and tram 28 below | 1 double bed | , | · | 1 bath | €363 | Show price breakdown | for 4 nights | €363 for 4 nights | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Architect-renovated in quiet Alfama, with a balcony and A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 412,
+    "rating": "4.87",
+    "raw": "Photo 1 of 21 | Superhost | Architect-renovated in quiet Alfama, with a balcony and A/C | 1 queen bed | , | · | 1 bath | €412 | Show price breakdown | for 4 nights | €412 for 4 nights | Pay €0 today | Free cancellation | 4.87 out of 5 average rating | 4.87"
+   },
+   {
+    "kind": "Photo 1 of 21",
+    "loc": "",
+    "title": "Brand-new studio in the heart of Graça",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 391,
+    "rating": "4.84",
+    "raw": "Photo 1 of 21 | Guest favorite | Brand-new studio in the heart of Graça | 1 bed | , | · | 1 bath | €426 | €391 | Show price breakdown | for 4 nights | Pay €0 today | Free cancellation | 4.84 out of 5 average rating | 4.84"
+   },
+   {
+    "kind": "Photo 1 of 26",
+    "loc": "",
+    "title": "Alfama balcony flat near São Jorge Castle",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 498,
+    "rating": "4.83",
+    "raw": "Photo 1 of 26 | Superhost | Alfama balcony flat near São Jorge Castle | 1 bed | , | · | 1 bath | €498 | Show price breakdown | for 4 nights | €498 for 4 nights | 4.83 out of 5 average rating | 4.83"
+   },
+   {
+    "kind": "Photo 1 of 18",
+    "loc": "",
+    "title": "Restored 17th-century Alfama gem, with picturesque neighborhood views",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 492,
+    "rating": "4.89",
+    "raw": "Photo 1 of 18 | Superhost | Restored 17th-century Alfama gem, with picturesque neighborhood views | 1 queen bed | , | · | 1 bath | €492 | Show price breakdown | for 4 nights | €492 for 4 nights | 4.89 out of 5 average rating | 4.89"
+   },
+   {
+    "kind": "Photo 1 of 14",
+    "loc": "",
+    "title": "Tagus views from a private terrace in historic Graça, with A/C",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 639,
+    "rating": "4.86",
+    "raw": "Photo 1 of 14 | Guest favorite | Tagus views from a private terrace in historic Graça, with A/C | 1 queen bed | , | · | 1 bath | €639 | Show price breakdown | for 4 nights | €639 for 4 nights | Pay €0 today | Free cancellation | 4.86 out of 5 average rating | 4.86"
+   },
+   {
+    "kind": "Photo 1 of 28",
+    "loc": "",
+    "title": "River views from a balcony in Graça, with free parking and a private entrance",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 547,
+    "rating": "4.77",
+    "raw": "Photo 1 of 28 | River views from a balcony in Graça, with free parking and a private entrance | 1 double bed | , | · | 1 bath | €547 | Show price breakdown | for 4 nights | €547 for 4 nights | Pay €0 today | Free cancellation | 4.77 out of 5 average rating | 4.77"
+   },
+   {
+    "kind": "Photo 1 of 29",
+    "loc": "",
+    "title": "Brand-new flat in Principe Real",
+    "bedrooms": null,
+    "baths": 2.0,
+    "nights": 4,
+    "total_eur": 598,
+    "rating": "4.87",
+    "raw": "Photo 1 of 29 | Superhost | Brand-new flat in Principe Real | 1 double bed | , | · | 2 baths | €598 | Show price breakdown | for 4 nights | €598 for 4 nights | 4.87 out of 5 average rating | 4.87"
+   },
+   {
+    "kind": "Photo 1 of 22",
+    "loc": "",
+    "title": "Spacious loft flooded with natural light",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 330,
+    "rating": "4.89",
+    "raw": "Photo 1 of 22 | Spacious loft flooded with natural light | 1 double bed | , | · | 1 bath | €330 | Show price breakdown | for 4 nights | €330 for 4 nights | Free cancellation | 4.89 out of 5 average rating | 4.89"
+   },
+   {
+    "kind": "Photo 1 of 18",
+    "loc": "",
+    "title": "Quiet São Bento flat near Parliament",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 388,
+    "rating": "4.48",
+    "raw": "Photo 1 of 18 | Quiet São Bento flat near Parliament | 2 beds | , | · | 1 bath | €388 | Show price breakdown | for 4 nights | €388 for 4 nights | Pay €0 today | Free cancellation | 4.48 out of 5 average rating | 4.48"
+   },
+   {
+    "kind": "Photo 1 of 19",
+    "loc": "",
+    "title": "High ceilings in a historic building, with a balcony over cobbled streets",
+    "bedrooms": null,
+    "baths": 1.0,
+    "nights": 4,
+    "total_eur": 770,
+    "rating": "4.89",
+    "raw": "Photo 1 of 19 | Guest favorite | High ceilings in a historic building, with a balcony over cobbled streets | 2 beds | , | · | 1 bath | €770 | Show price breakdown | for 4 nights | €770 for 4 nights | 4.89 out of 5 average rating | 4.89"
+   }
+  ],
+  "booking": {
+   "city": "lis",
+   "url": "https://www.booking.com/searchresults.html?dest_id=-2167973&dest_type=city&checkin=2026-10-13&checkout=2026-10-17&group_adults=1&no_rooms=1&group_children=0&selected_currency=EUR&lang=en-us&nflt=ht_id%3D204%3Breview_score%3D80&order=price",
+   "found": "132",
+   "unavail_pct": "98",
+   "cards": [
+    {
+     "name": "Hotel ibis Lisboa Alfragide",
+     "url": "https://www.booking.com/hotel/pt/ibis-lisboa-alfragide.html",
+     "price_4n": 384,
+     "score": "8.1",
+     "dist": "3.8 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/914479382.webp?k=4b81898ac7d548cc5e73d317db1a84ffba857be2a1bc850ca80b638df11a4e86&o=",
+     "raw": "Hotel ibis Lisboa Alfragide ¶ Opens in new window ¶ LisbonShow on map ¶ 3.8 miles from downtown ¶ Sustainability certification ¶ Fitness center ¶ Free Wifi ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 5,009 reviews ¶ Twin Room - Non-Smoking ¶ 2 twin beds ¶ Per night€ 96 ¶ € 384 ¶ Price € 384 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel DAH - Dom Afonso Henriques",
+     "url": "https://www.booking.com/hotel/pt/d-afonso-henriques.html",
+     "price_4n": 436,
+     "score": "8.0",
+     "dist": "1.7 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/386284968.webp?k=18958f4d1e71f3879ee769220b31416ab4b54d2c1ce6fab2808aa265a02f64a4&o=",
+     "raw": "Hotel DAH - Dom Afonso Henriques ¶ Opens in new window ¶ Penha de Franca, LisbonShow on map ¶ 1.7 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 275 reviews ¶ Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Per night€ 109 ¶ € 436 ¶ Price € 436 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "easyHotel Lisbon",
+     "url": "https://www.booking.com/hotel/pt/easyhotel-lisbon.html",
+     "price_4n": 458,
+     "score": "8.7",
+     "dist": "0.9 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/169301066.webp?k=c12af4d33b58baee7147d8a3f1f6bd38f51c00c0ac903b893380ca6a47a32e14&o=",
+     "raw": "easyHotel Lisbon ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.9 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 4,434 reviews ¶ Twin Room ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 115 ¶ € 458 ¶ Price € 458 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Italia",
+     "url": "https://www.booking.com/hotel/pt/residencialitalia.html",
+     "price_4n": 481,
+     "score": "8.3",
+     "dist": "1.7 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/193827194.webp?k=cd3c8a02ba4e1f7fccce54dc188b6f13e1d6a6d805163561ba0ff02ecbc7e483&o=",
+     "raw": "Hotel Italia ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.7 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 551 reviews ¶ Economy Twin Room ¶ 2 twin beds ¶ Free cancellation ¶ We have 3 left at this price ¶ Per night€ 120 ¶ € 481 ¶ Price € 481 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel ibis Lisboa Jose Malhoa",
+     "url": "https://www.booking.com/hotel/pt/ibis-lisboa-josa-c-malhoa.html",
+     "price_4n": 516,
+     "score": "8.1",
+     "dist": "2 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/912493754.webp?k=bba7648582d785dcc33dc21b62d0cba4c921bcff781f835b145ef3f6783a04c9&o=",
+     "raw": "Hotel ibis Lisboa Jose Malhoa ¶ Opens in new window ¶ Campolide, LisbonShow on map ¶ 2 miles from downtownSubway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 6,936 reviews ¶ Standard Double Room ¶ 1 queen bed ¶ Per night€ 129 ¶ € 516 ¶ Price € 516 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Botanico",
+     "url": "https://www.booking.com/hotel/pt/botanico.html",
+     "price_4n": 532,
+     "score": "8.7",
+     "dist": "0.5 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/266527398.webp?k=1b6c18a1de3acc1898ae6a9b827a7a1b4fc8a2d59b53f95e5f7e9d63bc0b114a&o=",
+     "raw": "Hotel Botanico ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.5 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 2,776 reviews ¶ Triple Room ¶ Multiple bed types ¶ We have 4 left at this price ¶ Per night€ 133 ¶ € 532 ¶ Price € 532 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel ibis Lisboa Saldanha",
+     "url": "https://www.booking.com/hotel/pt/ibis-lisboa-saldanha.html",
+     "price_4n": 563,
+     "score": "8.4",
+     "dist": "1.3 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/779370968.webp?k=2c3972969dc9856b33c16d5d340e5f09e0c5c26ea307ba0b5641f52713aba4de&o=",
+     "raw": "Hotel ibis Lisboa Saldanha ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.3 miles from downtownSubway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 3,953 reviews ¶ Standard Double Room ¶ 1 full bed ¶ We have 7 left at this price ¶ Per night€ 141 ¶ € 563 ¶ Price € 563 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "OMID Boutique",
+     "url": "https://www.booking.com/hotel/pt/omid-boutique.html",
+     "price_4n": 565,
+     "score": "8.5",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/257858722.webp?k=fa88da15c30560374597d82cc0429021483960710d4153ddc5a2ee696fb74555&o=",
+     "raw": "OMID Boutique ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1 miles from downtown ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 201 reviews ¶ Double Room ¶ 1 queen bed ¶ We have 6 left at this price ¶ Per night€ 141 ¶ € 565 ¶ Price € 565 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Duplo Charme Boutique Hotel",
+     "url": "https://www.booking.com/hotel/pt/duplo-charme-boutique.html",
+     "price_4n": 574,
+     "score": "8.3",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/444785660.webp?k=01b950128263bef819dace32ce31417d64146acda281440a9af9b5e22f38593e&o=",
+     "raw": "Duplo Charme Boutique Hotel ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 3,892 reviews ¶ Small Double Room ¶ 1 full bed ¶ We have 2 left at this price ¶ Per night€ 143 ¶ € 574 ¶ Price € 574 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Dom Sancho I",
+     "url": "https://www.booking.com/hotel/pt/residencialdomsanchoi.html",
+     "price_4n": 581,
+     "score": "8.3",
+     "dist": "0.6 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/37767827.webp?k=3803796a2330993ce49ae502151fc7b0e39ef66e016bb7eb8c63b1708155ded1&o=",
+     "raw": "Hotel Dom Sancho I ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.6 miles from downtownSubway Access ¶ Shuttle service ¶ Free Wifi ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 2,371 reviews ¶ Location 9.6 ¶ Double Room ¶ Beds: 1 double or 2 twins ¶ Breakfast included ¶ We have 1 left at this price ¶ Per night€ 145 ¶ € 581 ¶ Price € 581 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "M'AR De AR Auria",
+     "url": "https://www.booking.com/hotel/pt/mar-de-ar-auria.html",
+     "price_4n": 590,
+     "score": "8.6",
+     "dist": "1.2 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/617057852.webp?k=f67e6e4828e8b1d6e19708d107c8c66063ce70ac87d02054b1a277f3096cfb05&o=",
+     "raw": "M'AR De AR Auria ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.2 miles from downtown ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 3,076 reviews ¶ Classic Single Room ¶ 1 twin bed ¶ We have 1 left at this price ¶ Per night€ 148 ¶ € 590 ¶ Price € 590 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Portuense Lisboa",
+     "url": "https://www.booking.com/hotel/pt/pensao-residencial-portuense.html",
+     "price_4n": 599,
+     "score": "8.6",
+     "dist": "0.3 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/256869871.webp?k=5ad1905645160e959e1ebd228a350e02e4bb8c406d71b4e8604aa3ad6ec6f023&o=",
+     "raw": "Hotel Portuense Lisboa ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.3 miles from downtownSubway Access ¶ Sustainability certification ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 2,004 reviews ¶ Location 9.7 ¶ Single Room ¶ 1 twin bed ¶ Breakfast included ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 3 left at this price ¶ Per night€ 150 ¶ € 599 ¶ Price € 599 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Albergaria Senhora do Monte",
+     "url": "https://www.booking.com/hotel/pt/albergaria-senhora-do-monte.html",
+     "price_4n": 599,
+     "score": "8.2",
+     "dist": "0.5 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/8859647.webp?k=32d057f3e66acef9dd85543a0c06219e38ec1d5ca19c88ca1ff71f258b59c37d&o=",
+     "raw": "Albergaria Senhora do Monte ¶ Opens in new window ¶ Sao Vicente, LisbonShow on map ¶ 0.5 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,362 reviews ¶ Double Room ¶ 2 twin beds ¶ Free cancellation ¶ No prepayment needed – pay at the property ¶ We have 1 left at this price ¶ Per night€ 150 ¶ € 599 ¶ Price € 599 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel 77 Lisbon",
+     "url": "https://www.booking.com/hotel/pt/77-lisbon.html",
+     "price_4n": 600,
+     "score": "9.0",
+     "dist": "0.3 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/906595334.webp?k=f9b4d2232a265fed4566de05cd3e3a0f10fbaa8f05dc13fb98596fd07e5df682&o=",
+     "raw": "Hotel 77 Lisbon ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 0.3 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 4 reviews ¶ Location 10 ¶ New to Booking.com ¶ Double or Twin Room ¶ 2 twin beds ¶ Free cancellation ¶ We have 2 left at this price ¶ Per night€ 150 ¶ € 600 ¶ Price € 600 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "TURIM Europa Hotel",
+     "url": "https://www.booking.com/hotel/pt/turim-europa.html",
+     "price_4n": 601,
+     "score": "8.3",
+     "dist": "1.2 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/565260863.webp?k=cbf0632438fcbdc8f8cbf9f883c2e07c0c950f3a6bed80cdb37b55cba9894a68&o=",
+     "raw": "TURIM Europa Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.2 miles from downtownSubway Access ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 3,212 reviews ¶ Double Room ¶ 1 full bed ¶ Per night€ 150 ¶ € 601 ¶ Price € 601 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "TURIM Luxe Hotel",
+     "url": "https://www.booking.com/hotel/pt/luxe-by-turim-hoteis.html",
+     "price_4n": null,
+     "score": "8.2",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/10125342.webp?k=984e5f7a135ae5f30539f5980314ea16f4dc71192f20267f52d0fa88ee7f0a95&o=",
+     "raw": "TURIM Luxe Hotel ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 1,803 reviews ¶ Standard Double Room ¶ 1 full bed ¶ Per night€ 152 ¶ € 758€ 607 ¶ Original price € 758. Current price € 607. ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Travel Park Lisboa",
+     "url": "https://www.booking.com/hotel/pt/travelparklisboa.html",
+     "price_4n": 611,
+     "score": "8.5",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/439100281.webp?k=09e7e94a874fb2a9568739273ab02c62e36ff720e67e164a174249a080ec1827&o=",
+     "raw": "Hotel Travel Park Lisboa ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 4,575 reviews ¶ Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Breakfast included ¶ We have 1 left at this price ¶ Per night€ 153 ¶ € 611 ¶ Price € 611 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Ibis Styles Lisboa Centro Liberdade NE",
+     "url": "https://www.booking.com/hotel/pt/embaixador.html",
+     "price_4n": 622,
+     "score": "8.6",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/919943108.webp?k=ec75f0f1868ffc770669b80f0f15fde7773f5bd0f3eb38348f189f1c65a9ae90&o=",
+     "raw": "Ibis Styles Lisboa Centro Liberdade NE ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 3,544 reviews ¶ Double Room ¶ 1 full bed ¶ We have 7 left at this price ¶ Per night€ 156 ¶ € 622 ¶ Price € 622 ¶ 4"
+    },
+    {
+     "name": "VIP Executive Zurique Hotel",
+     "url": "https://www.booking.com/hotel/pt/hotelvipzurique.html",
+     "price_4n": 645,
+     "score": "8.0",
+     "dist": "2.1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/903379095.webp?k=64644c2c60ec7b02bf2d17b81459c9d9d09981b58c52b399f8905a18c9679d12&o=",
+     "raw": "VIP Executive Zurique Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 2.1 miles from downtownSubway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.0 ¶ 8.0 ¶ Very Good ¶ 4,680 reviews ¶ Executive Twin Room ¶ 2 twin beds ¶ Per night€ 161 ¶ € 645 ¶ Price € 645 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Ibis Styles Lisboa Centro Marquês de Pombal",
+     "url": "https://www.booking.com/hotel/pt/hoteleduardovii.html",
+     "price_4n": 647,
+     "score": "8.7",
+     "dist": "1.1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/898456277.webp?k=5c01ba28b576428c644108bce31ed9203f62f856ea6e9b7bb5a6201804b1e002&o=",
+     "raw": "Ibis Styles Lisboa Centro Marquês de Pombal ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Avenidas Novas, LisbonShow on map ¶ 1.1 miles from downtownSubway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 6,917 reviews ¶ Standard Queen Room ¶ 1 twin bed ¶ Breakfast included ¶ We have 7 left at this price ¶ Per"
+    },
+    {
+     "name": "Hotel Capital Lisboa",
+     "url": "https://www.booking.com/hotel/pt/residencia-capital.html",
+     "price_4n": 660,
+     "score": "8.1",
+     "dist": "1.8 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/107356440.webp?k=a9bf320199fde4b9cb42ea53b29a75656cd611f9b82a1d55bdade7a9bcf7c60a&o=",
+     "raw": "Hotel Capital Lisboa ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.8 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 611 reviews ¶ Standard Twin Room ¶ 2 twin beds ¶ We have 1 left at this price ¶ Per night€ 165 ¶ € 660 ¶ Price € 660 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "TURIM Alameda Hotel",
+     "url": "https://www.booking.com/hotel/pt/turim-alameda.html",
+     "price_4n": null,
+     "score": "8.5",
+     "dist": "1.5 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/9819345.webp?k=86ee9a00bbe13d56faba417e1123d0e5338c38ade9f7bbfb8700712dd159c5ec&o=",
+     "raw": "TURIM Alameda Hotel ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.5 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 2,922 reviews ¶ Double Room ¶ 1 full bed ¶ We have 3 left at this price ¶ Per night€ 167 ¶ € 926€ 667 ¶ Original price € 926. Current price € 667. ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "HF Fénix Music",
+     "url": "https://www.booking.com/hotel/pt/hf-fenix-music.html",
+     "price_4n": 682,
+     "score": "9.0",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/920449325.webp?k=df28d25f4bea1fdaf632ac54139be0d78297476b1c67dd9c4beb9c6d9600c247&o=",
+     "raw": "HF Fénix Music ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 3,096 reviews ¶ Economy Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Free cancellation ¶ We have 4 left at this price ¶ Per night€ 171 ¶ € 682 ¶ Price € 682 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Next Level Premium Hotels",
+     "url": "https://www.booking.com/hotel/pt/next-level-premium-hotels.html",
+     "price_4n": null,
+     "score": "8.7",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/478005972.webp?k=867117a9d6e8c898abf0e4bce6aa8459a0f78f41c3844da540719dba604a797a&o=",
+     "raw": "Next Level Premium Hotels ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 4,503 reviews ¶ Standard Twin Room ¶ Multiple bed types ¶ We have 1 left at this price ¶ Per night€ 171 ¶ € 807€ 686 ¶ Original price € 807. Current price € 686. ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "HF Fénix Garden",
+     "url": "https://www.booking.com/hotel/pt/fenix-garden.html",
+     "price_4n": 688,
+     "score": "9.0",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/365202927.webp?k=86b7d9bea440cfb0fb5d1f74d233c7e48f9e885d3d02fe1c1961e999e2e60b46&o=",
+     "raw": "HF Fénix Garden ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 9.0 ¶ 9.0 ¶ Wonderful ¶ 2,320 reviews ¶ Location 9.3 ¶ Economy Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Free cancellation ¶ We have 2 left at this price ¶ Per night€ 172 ¶ € 688 ¶ Price € 688 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "TURIM Ibéria Hotel",
+     "url": "https://www.booking.com/hotel/pt/turim-iberia.html",
+     "price_4n": 662,
+     "score": "8.7",
+     "dist": "1.9 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/465959810.webp?k=8424ca749a6a0511f2352dedb634601e3cb09a1dce31663a2bb7eec5316ca706&o=",
+     "raw": "TURIM Ibéria Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.9 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.7 ¶ 8.7 ¶ Excellent ¶ 5,632 reviews ¶ Executive Twin Room ¶ 2 twin beds ¶ Per night€ 166 ¶ € 662 ¶ Price € 662 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Luena",
+     "url": "https://www.booking.com/hotel/pt/luena.html",
+     "price_4n": 665,
+     "score": "8.8",
+     "dist": "1.2 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/463399427.webp?k=d5ee5dc47ae50f485d98554a0c2300edc13557fbe7f295f89246e6dbc3246e2c&o=",
+     "raw": "Hotel Luena ¶ Opens in new window ¶ Arroios, LisbonShow on map ¶ 1.2 miles from downtownSubway Access ¶ Shuttle service ¶ Free Wifi ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 3,180 reviews ¶ Deluxe Family Room ¶ 3 beds (2 twins, 1 full) ¶ Breakfast included ¶ Per night€ 166 ¶ € 665 ¶ Price € 665 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Hotel Florida",
+     "url": "https://www.booking.com/hotel/pt/hotelflorida.html",
+     "price_4n": 666,
+     "score": "8.3",
+     "dist": "0.9 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/563442007.webp?k=9b40c84cfa8df1ff9a727967248b3be3ee7d7c7e55a9119673660cb6c14363d2&o=",
+     "raw": "Hotel Florida ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.9 miles from downtownSubway Access ¶ Fitness center ¶ Free Wifi ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 2,182 reviews ¶ Location 9.3 ¶ Standard Double or Twin Room ¶ Multiple bed types ¶ Per night€ 167 ¶ € 666 ¶ Price € 666 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "B&B HOTEL Lisboa Aeroporto",
+     "url": "https://www.booking.com/hotel/pt/b-amp-b-lisboa-aeroporto.html",
+     "price_4n": 716,
+     "score": "8.3",
+     "dist": "5.1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/903246311.webp?k=44c1c369b866e7bb9699df21a8f77f7dead8fe86340a65f270e1d0ab3d5ea81a&o=",
+     "raw": "B&B HOTEL Lisboa Aeroporto ¶ Opens in new window ¶ LisbonShow on map ¶ 5.1 miles from downtown ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 9,514 reviews ¶ Double Room ¶ 1 queen bed ¶ We have 5 left at this price ¶ Per night€ 179 ¶ € 716 ¶ Price € 716 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Patria Hotel",
+     "url": "https://www.booking.com/hotel/pt/pensao-residencial-patria.html",
+     "price_4n": 717,
+     "score": "8.2",
+     "dist": "1.5 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/444763044.webp?k=ae2af3fd4635c1861caf362634d04018df40fa1ae652ac16e4faf90a8bdd8d05&o=",
+     "raw": "Patria Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.5 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.2 ¶ 8.2 ¶ Very Good ¶ 3,799 reviews ¶ Triple Room ¶ Multiple bed types ¶ We have 1 left at this price ¶ Per night€ 179 ¶ € 717 ¶ Price € 717 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Independente Bica",
+     "url": "https://www.booking.com/hotel/pt/independente-bica.html",
+     "price_4n": 724,
+     "score": "8.5",
+     "dist": "0.5 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/482761645.webp?k=2a6bc8559f6277f77c80542058e94bcc7540ce3b2dfe1712465ab1fc9ff9dec7&o=",
+     "raw": "Independente Bica ¶ Opens in new window ¶ Misericordia, LisbonShow on map ¶ 0.5 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 1,764 reviews ¶ Location 9.5 ¶ Double Room ¶ 1 queen bed ¶ Breakfast included ¶ Per night€ 181 ¶ € 724 ¶ Price € 724 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Dorma Liberdade",
+     "url": "https://www.booking.com/hotel/pt/dorma-liberdade.html",
+     "price_4n": 727,
+     "score": "8.6",
+     "dist": "1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/151242042.webp?k=69e26044df7fd70dd16013d92bc42398a02aefa2182626caebb2f5eef6c09487&o=",
+     "raw": "Dorma Liberdade ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 1 miles from downtownSubway Access ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.6 ¶ 8.6 ¶ Excellent ¶ 3,774 reviews ¶ Double for Single Use ¶ 1 full bed ¶ Breakfast included ¶ Per night€ 182 ¶ € 727 ¶ Price € 727 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "VIP Inn Berna Hotel",
+     "url": "https://www.booking.com/hotel/pt/berna.html",
+     "price_4n": 733,
+     "score": "8.3",
+     "dist": "2.1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/256176071.webp?k=a37aaf7820e5b70b7c98b08ccd147c0a814f674195b00684be80cdb0b303ee0b&o=",
+     "raw": "VIP Inn Berna Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 2.1 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.3 ¶ 8.3 ¶ Very Good ¶ 4,362 reviews ¶ Executive Twin Room ¶ 2 twin beds ¶ We have 2 left at this price ¶ Per night€ 183 ¶ € 733 ¶ Price € 733 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Czar Lisbon Hotel",
+     "url": "https://www.booking.com/hotel/pt/tsar-lisbon.html",
+     "price_4n": null,
+     "score": "8.4",
+     "dist": "1.1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/150459087.webp?k=b8eb2676768c13f55743f09f80dcc6baa1a375961ea900fe641247d41a2385be&o=",
+     "raw": "Czar Lisbon Hotel ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ Arroios, LisbonShow on map ¶ 1.1 miles from downtownSubway Access ¶ Airport shuttle ¶ Fitness center ¶ Scored 8.4 ¶ 8.4 ¶ Very Good ¶ 1,331 reviews ¶ Late Escape Deal ¶ Single Room ¶ Multiple bed types ¶ We have 3 left at this price ¶ Per night€ 185 ¶ € 926€ 741 ¶ Original price € 926. Current price €"
+    },
+    {
+     "name": "Select Liberdade",
+     "url": "https://www.booking.com/hotel/pt/room007-select-liberdade.html",
+     "price_4n": 745,
+     "score": "8.8",
+     "dist": "0.4 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/497089286.webp?k=1ea7705424b5a88569bfc42bc06b4158fea131844d238e0c82b6766ca4e2da9f&o=",
+     "raw": "Select Liberdade ¶ Opens in new window ¶ Santo Antonio, LisbonShow on map ¶ 0.4 miles from downtownSubway Access ¶ Shuttle service ¶ Free Wifi ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 2,182 reviews ¶ Location 9.6 ¶ Single Room ¶ 1 twin bed ¶ Per night€ 186 ¶ € 745 ¶ Price € 745 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "HF Fénix Urban",
+     "url": "https://www.booking.com/hotel/pt/hf-fenix-urban.html",
+     "price_4n": 756,
+     "score": "8.8",
+     "dist": "1.2 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/351732850.webp?k=4e236197e3f87531a1810bc2a0b2ba42ffeed795e915375f86c0e4ebf2b8a2c9&o=",
+     "raw": "HF Fénix Urban ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.2 miles from downtownSubway Access ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.8 ¶ 8.8 ¶ Excellent ¶ 2,467 reviews ¶ Economy Double or Twin Room ¶ Beds: 1 double or 2 twins ¶ Free cancellation ¶ We have 4 left at this price ¶ Per night€ 189 ¶ € 756 ¶ Price € 756 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "JAM Lisbon",
+     "url": "https://www.booking.com/hotel/pt/jam-lisbon.html",
+     "price_4n": null,
+     "score": "8.9",
+     "dist": "1.2 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/480474452.webp?k=da0bf17773365adedc33a2dd93251a56ee4ea213c7f55b0c52f6f4e123a8655e&o=",
+     "raw": "JAM Lisbon ¶ Opens in new window ¶ Estrela, LisbonShow on map ¶ 1.2 miles from downtown ¶ Sustainability certification ¶ Free Wifi ¶ 24-hour front desk ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 3,750 reviews ¶ Late Escape Deal ¶ Standard Double Room ¶ 1 queen bed ¶ We have 7 left at this price ¶ Per night€ 192 ¶ € 1,280€ 768 ¶ Original price € 1,280. Current price € 768. ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Liberator Rossio",
+     "url": "https://www.booking.com/hotel/pt/liberator-rossio.html",
+     "price_4n": 773,
+     "score": "8.9",
+     "dist": "300 feet",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/460784167.webp?k=5b7896909fdcc7593fa646616a020d88370ab02455cbdec647e71da6d917963a&o=",
+     "raw": "Liberator Rossio ¶ Opens in new window ¶ Santa Maria Maior, LisbonShow on map ¶ 300 feet from downtownSubway Access ¶ Free Wifi ¶ Baggage storage ¶ Scored 8.9 ¶ 8.9 ¶ Excellent ¶ 2,391 reviews ¶ Location 9.7 ¶ Deluxe Double Room with Castle View ¶ 1 queen bed ¶ We have 1 left at this price ¶ Per night€ 193 ¶ € 773 ¶ Price € 773 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "OMID Saldanha Hotel",
+     "url": "https://www.booking.com/hotel/pt/omid-saldanha.html",
+     "price_4n": 774,
+     "score": "8.5",
+     "dist": "1.4 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/314471206.webp?k=aa142e5414b0b767276e85caeddeca1124b1bf34bb1ef2a17d212d34c5af315c&o=",
+     "raw": "OMID Saldanha Hotel ¶ Opens in new window ¶ Avenidas Novas, LisbonShow on map ¶ 1.4 miles from downtownSubway Access ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.5 ¶ 8.5 ¶ Very Good ¶ 4,234 reviews ¶ Superior Double Room ¶ 1 king bed ¶ We have 5 left at this price ¶ Per night€ 194 ¶ € 774 ¶ Price € 774 ¶ 4 nights, 1 adult ¶ See availability"
+    },
+    {
+     "name": "Holiday Inn Express Lisbon Airport by IHG",
+     "url": "https://www.booking.com/hotel/pt/holiday-inn-express-lisboa-aeroporto.html",
+     "price_4n": 796,
+     "score": "8.1",
+     "dist": "5.1 miles",
+     "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/226138909.webp?k=19cfc674c19558e7daded36c222f50e41262c43d5d0f919a869562529fd9f8f6&o=",
+     "raw": "Holiday Inn Express Lisbon Airport by IHG ¶ Opens in new window ¶ Featured ¶ This property matches your criteria and may be ranked higher in your search results. It will pay us a higher commission if you make a booking. ¶ LisbonShow on map ¶ 5.1 miles from downtown ¶ Airport shuttle ¶ Free Wifi ¶ Scored 8.1 ¶ 8.1 ¶ Very Good ¶ 6,820 reviews ¶ Standard Double Room with Free Breakfast ¶ 1 full bed ¶ Breakfast included ¶ Per night€ 199 ¶ € 796 ¶ Price € 796 ¶ 4 nights, 1 adult ¶ See availability"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1784 @@
+{
+ "lon-sfo-1017": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+  "insight": {
+   "level": "high",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 746,
+    "dep": "14:10",
+    "arr": "21:55",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "WestJet",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "2:10 PM – 9:55 PM WestJet 15 hr 45 min LHR–SFO 1 stop 3 hr 55 min YYC 516 kg CO2e Avg emissions $746"
+   },
+   {
+    "price": 1059,
+    "dep": "08:00",
+    "arr": "17:35",
+    "plus": "",
+    "mins": 1055,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "17 hr 35 min",
+     "LHR"
+    ],
+    "raw": "8:00 AM – 5:35 PM Tap Air Portugal 17 hr 35 min LHR–SFO 1 stop 2 hr 20 min LIS 633 kg CO2e +23% emissions $1,059"
+   },
+   {
+    "price": 1088,
+    "dep": "08:15",
+    "arr": "19:32",
+    "plus": "",
+    "mins": 1157,
+    "stops": "1 stop",
+    "air": "JetBlue",
+    "route": "LHR–SFO",
+    "layover": [
+     "19 hr 17 min",
+     "LHR"
+    ],
+    "raw": "8:15 AM – 7:32 PM JetBlue 19 hr 17 min LHR–SFO 1 stop 4 hr 36 min JFK 998 kg CO2e +93% emissions $1,088"
+   },
+   {
+    "price": 1088,
+    "dep": "11:55",
+    "arr": "23:37",
+    "plus": "",
+    "mins": 1182,
+    "stops": "1 stop",
+    "air": "JetBlue",
+    "route": "LHR–SFO",
+    "layover": [
+     "19 hr 42 min",
+     "LHR"
+    ],
+    "raw": "11:55 AM – 11:37 PM JetBlue 19 hr 42 min LHR–SFO 1 stop 4 hr 49 min JFK 998 kg CO2e +93% emissions $1,088"
+   },
+   {
+    "price": 1091,
+    "dep": "18:35",
+    "arr": "16:15",
+    "plus": "+1",
+    "mins": 1780,
+    "stops": "1 stop",
+    "air": "SWISS",
+    "route": "LGW–SFO",
+    "layover": [
+     "29 hr 40 min",
+     "LGW"
+    ],
+    "raw": "6:35 PM – 4:15 PM+1 SWISSOperated by Helvetic 29 hr 40 min LGW–SFO 1 stop 15 hr 50 min ZRH 641 kg CO2e +24% emissions $1,091"
+   },
+   {
+    "price": 1162,
+    "dep": "10:20",
+    "arr": "20:50",
+    "plus": "",
+    "mins": 1110,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "18 hr 30 min",
+     "LHR"
+    ],
+    "raw": "10:20 AM – 8:50 PM LOT 18 hr 30 min LHR–SFO 1 stop 3 hr 40 min WAW 694 kg CO2e +34% emissions $1,162"
+   },
+   {
+    "price": 1206,
+    "dep": "17:45",
+    "arr": "16:40",
+    "plus": "+1",
+    "mins": 1855,
+    "stops": "1 stop",
+    "air": "Turkish",
+    "route": "STN–SFO",
+    "layover": [
+     "30 hr 55 min",
+     "STN"
+    ],
+    "raw": "5:45 PM – 4:40 PM+1 Turkish Airlines 30 hr 55 min STN–SFO 1 stop 13 hr 35 min IST 792 kg CO2e +53% emissions $1,206"
+   },
+   {
+    "price": 1284,
+    "dep": "06:30",
+    "arr": "11:45",
+    "plus": "",
+    "mins": 795,
+    "stops": "1 stop",
+    "air": "KLM, Delta, Virgin Atlantic",
+    "route": "LHR–SFO",
+    "layover": [
+     "13 hr 15 min",
+     "LHR"
+    ],
+    "raw": "6:30 AM – 11:45 AM KLMDelta, Virgin Atlantic 13 hr 15 min LHR–SFO 1 stop 1 hr AMS 428 kg CO2e -17% emissions $1,284"
+   },
+   {
+    "price": 1554,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1679,
+    "dep": "13:00",
+    "arr": "16:00",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,679"
+   },
+   {
+    "price": 1679,
+    "dep": "16:15",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,679"
+   },
+   {
+    "price": 2714,
+    "dep": "12:45",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic, Air France, Delta, KLM",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $2,714"
+   },
+   {
+    "price": 2931,
+    "dep": "10:45",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 5 min",
+     "LHR"
+    ],
+    "raw": "10:45 AM – 1:50 PM British AirwaysFinnair, Iberia, American 11 hr 5 min LHR–SFO Nonstop 522 kg CO2e Avg emissions $2,931"
+   },
+   {
+    "price": 2931,
+    "dep": "14:30",
+    "arr": "17:40",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "2:30 PM – 5:40 PM British AirwaysFinnair, Iberia, American 11 hr 10 min LHR–SFO Nonstop 531 kg CO2e Avg emissions $2,931"
+   }
+  ]
+ },
+ "lon-sfo-1018": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20SFO%20on%202026-10-18%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 702,
+    "dep": "19:50",
+    "arr": "14:05",
+    "plus": "+1",
+    "mins": 1575,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "26 hr 15 min",
+     "LHR"
+    ],
+    "raw": "7:50 PM – 2:05 PM+1 Tap Air Portugal 26 hr 15 min LHR–SFO 1 stop 10 hr 55 min LIS 639 kg CO2e +24% emissions $702"
+   },
+   {
+    "price": 717,
+    "dep": "21:15",
+    "arr": "14:05",
+    "plus": "+1",
+    "mins": 1490,
+    "stops": "2 stops",
+    "air": "?",
+    "route": "LGW–SFO",
+    "layover": [
+     "24 hr 50 min",
+     "LGW"
+    ],
+    "raw": "9:15 PM – 2:05 PM+1 Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 24 hr 50 min LGW–SFO 2 stops OPO, LIS 696 kg CO2e +35% emissions $717"
+   },
+   {
+    "price": 1015,
+    "dep": "18:30",
+    "arr": "12:40",
+    "plus": "+1",
+    "mins": 1570,
+    "stops": "1 stop",
+    "air": "Lufthansa, United",
+    "route": "LCY–SFO",
+    "layover": [
+     "26 hr 10 min",
+     "LCY"
+    ],
+    "raw": "6:30 PM – 12:40 PM+1 Air Dolomiti, LufthansaUnited 26 hr 10 min LCY–SFO 1 stop 13 hr 30 min FRA 629 kg CO2e +22% emissions $1,015"
+   },
+   {
+    "price": 1077,
+    "dep": "14:10",
+    "arr": "12:00",
+    "plus": "+1",
+    "mins": 1790,
+    "stops": "1 stop",
+    "air": "WestJet",
+    "route": "LHR–SFO",
+    "layover": [
+     "29 hr 50 min",
+     "LHR"
+    ],
+    "raw": "2:10 PM – 12:00 PM+1 WestJet 29 hr 50 min LHR–SFO 1 stop 18 hr YYC 516 kg CO2e Avg emissions $1,077"
+   },
+   {
+    "price": 1162,
+    "dep": "06:30",
+    "arr": "14:15",
+    "plus": "",
+    "mins": 945,
+    "stops": "1 stop",
+    "air": "?",
+    "route": "LHR–SFO",
+    "layover": [
+     "15 hr 45 min",
+     "LHR"
+    ],
+    "raw": "6:30 AM – 2:15 PM LOT 15 hr 45 min LHR–SFO 1 stop 1 hr 5 min WAW 557 kg CO2e +8% emissions $1,162"
+   },
+   {
+    "price": 1369,
+    "dep": "09:50",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 845,
+    "stops": "1 stop",
+    "air": "Aer Lingus, British Airways, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "14 hr 5 min",
+     "LHR"
+    ],
+    "raw": "9:50 AM – 3:55 PM Aer LingusBritish Airways, American 14 hr 5 min LHR–SFO 1 stop 1 hr 40 min DUB 541 kg CO2e Avg emissions $1,369"
+   },
+   {
+    "price": 1382,
+    "dep": "12:45",
+    "arr": "15:55",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "Virgin Atlantic, Air France, Delta, KLM",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "12:45 PM – 3:55 PM Virgin AtlanticAir France, Delta, KLM 11 hr 10 min LHR–SFO Nonstop 520 kg CO2e Avg emissions $1,382"
+   },
+   {
+    "price": 1554,
+    "dep": "10:35",
+    "arr": "13:35",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "10:35 AM – 1:35 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "13:00",
+    "arr": "16:00",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "1:00 PM – 4:00 PM UnitedLufthansa, Austrian, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 1554,
+    "dep": "16:15",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 660,
+    "stops": "Nonstop",
+    "air": "United, Lufthansa",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr",
+     "LHR"
+    ],
+    "raw": "4:15 PM – 7:15 PM UnitedLufthansa, Brussels Airlines 11 hr LHR–SFO Nonstop 548 kg CO2e +6% emissions $1,554"
+   },
+   {
+    "price": 2931,
+    "dep": "10:45",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 665,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 5 min",
+     "LHR"
+    ],
+    "raw": "10:45 AM – 1:50 PM British AirwaysFinnair, Iberia, American 11 hr 5 min LHR–SFO Nonstop 522 kg CO2e Avg emissions $2,931"
+   },
+   {
+    "price": 2931,
+    "dep": "14:30",
+    "arr": "17:40",
+    "plus": "",
+    "mins": 670,
+    "stops": "Nonstop",
+    "air": "British Airways, Finnair, Iberia, American",
+    "route": "LHR–SFO",
+    "layover": [
+     "11 hr 10 min",
+     "LHR"
+    ],
+    "raw": "2:30 PM – 5:40 PM British AirwaysFinnair, Iberia, American 11 hr 10 min LHR–SFO Nonstop 531 kg CO2e Avg emissions $2,931"
+   }
+  ]
+ },
+ "lis-sfo-1017": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-17%20for%201%20adult",
+  "insight": {
+   "level": "high",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 949,
+    "dep": "06:35",
+    "arr": "00:30",
+    "plus": "+1",
+    "mins": 1555,
+    "stops": "2 stops",
+    "air": "Iberia, American, Finnair",
+    "route": null,
+    "layover": [
+     "25 hr 55 min",
+     "LIS"
+    ],
+    "raw": "6:35 AM – 12:30 AM+1 Iberia, AmericanFinnair 25 hr 55 min LIS–SFO 2 stops MAD, ORD 708 kg CO2e +6% emissions $949"
+   },
+   {
+    "price": 994,
+    "dep": "14:35",
+    "arr": "14:15",
+    "plus": "+1",
+    "mins": 1900,
+    "stops": "1 stop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "31 hr 40 min",
+     "LIS"
+    ],
+    "raw": "2:35 PM – 2:15 PM+1 LOT 31 hr 40 min LIS–SFO 1 stop 15 hr 20 min WAW 636 kg CO2e Avg emissions $994"
+   },
+   {
+    "price": 1035,
+    "dep": "19:45",
+    "arr": "11:45",
+    "plus": "+1",
+    "mins": 1440,
+    "stops": "1 stop",
+    "air": "KLM, Delta",
+    "route": null,
+    "layover": [
+     "24 hr",
+     "LIS"
+    ],
+    "raw": "7:45 PM – 11:45 AM+1 KLMDelta 24 hr LIS–SFO 1 stop 10 hr 10 min AMS 508 kg CO2e -24% emissions $1,035"
+   },
+   {
+    "price": 1066,
+    "dep": "13:10",
+    "arr": "17:35",
+    "plus": "",
+    "mins": 745,
+    "stops": "Nonstop",
+    "air": "JetBlue",
+    "route": null,
+    "layover": [
+     "12 hr 25 min",
+     "LIS"
+    ],
+    "raw": "1:10 PM – 5:35 PM Tap Air PortugalJetBlue 12 hr 25 min LIS–SFO Nonstop 516 kg CO2e -23% emissions $1,066"
+   },
+   {
+    "price": 1175,
+    "dep": "05:55",
+    "arr": "16:15",
+    "plus": "",
+    "mins": 1100,
+    "stops": "1 stop",
+    "air": "SWISS",
+    "route": null,
+    "layover": [
+     "18 hr 20 min",
+     "LIS"
+    ],
+    "raw": "5:55 AM – 4:15 PM SWISS 18 hr 20 min LIS–SFO 1 stop 3 hr 20 min ZRH 669 kg CO2e Avg emissions $1,175"
+   },
+   {
+    "price": 1182,
+    "dep": "06:15",
+    "arr": "14:30",
+    "plus": "",
+    "mins": 975,
+    "stops": "1 stop",
+    "air": "Lufthansa, United",
+    "route": null,
+    "layover": [
+     "16 hr 15 min",
+     "LIS"
+    ],
+    "raw": "6:15 AM – 2:30 PM Lufthansa, United 16 hr 15 min LIS–SFO 1 stop 1 hr 25 min MUC 791 kg CO2e +18% emissions $1,182"
+   },
+   {
+    "price": 1366,
+    "dep": "05:55",
+    "arr": "16:35",
+    "plus": "",
+    "mins": 1120,
+    "stops": "1 stop",
+    "air": "SWISS, United",
+    "route": null,
+    "layover": [
+     "18 hr 40 min",
+     "LIS"
+    ],
+    "raw": "5:55 AM – 4:35 PM SWISS, United 18 hr 40 min LIS–SFO 1 stop 3 hr 40 min ZRH 570 kg CO2e -15% emissions $1,366"
+   },
+   {
+    "price": 1379,
+    "dep": "05:00",
+    "arr": "11:45",
+    "plus": "",
+    "mins": 885,
+    "stops": "1 stop",
+    "air": "KLM, Delta",
+    "route": null,
+    "layover": [
+     "14 hr 45 min",
+     "LIS"
+    ],
+    "raw": "5:00 AM – 11:45 AM KLMDelta 14 hr 45 min LIS–SFO 1 stop 55 min AMS 508 kg CO2e -24% emissions $1,379"
+   }
+  ]
+ },
+ "lis-sfo-1018": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20SFO%20on%202026-10-18%20for%201%20adult",
+  "insight": {
+   "level": "high",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 911,
+    "dep": "19:45",
+    "arr": "11:45",
+    "plus": "+1",
+    "mins": 1440,
+    "stops": "1 stop",
+    "air": "KLM, Delta",
+    "route": null,
+    "layover": [
+     "24 hr",
+     "LIS"
+    ],
+    "raw": "7:45 PM – 11:45 AM+1 KLMDelta 24 hr LIS–SFO 1 stop 10 hr 10 min AMS 508 kg CO2e -24% emissions $911"
+   },
+   {
+    "price": 949,
+    "dep": "06:35",
+    "arr": "00:30",
+    "plus": "+1",
+    "mins": 1555,
+    "stops": "2 stops",
+    "air": "Iberia, American, Finnair",
+    "route": null,
+    "layover": [
+     "25 hr 55 min",
+     "LIS"
+    ],
+    "raw": "6:35 AM – 12:30 AM+1 Iberia, AmericanFinnair 25 hr 55 min LIS–SFO 2 stops MAD, ORD 769 kg CO2e +15% emissions $949"
+   },
+   {
+    "price": 1014,
+    "dep": "05:55",
+    "arr": "16:15",
+    "plus": "",
+    "mins": 1100,
+    "stops": "1 stop",
+    "air": "SWISS",
+    "route": null,
+    "layover": [
+     "18 hr 20 min",
+     "LIS"
+    ],
+    "raw": "5:55 AM – 4:15 PM SWISS 18 hr 20 min LIS–SFO 1 stop 3 hr 15 min ZRH 667 kg CO2e Avg emissions $1,014"
+   },
+   {
+    "price": 1021,
+    "dep": "06:15",
+    "arr": "19:00",
+    "plus": "",
+    "mins": 1245,
+    "stops": "1 stop",
+    "air": "Lufthansa, United",
+    "route": null,
+    "layover": [
+     "20 hr 45 min",
+     "LIS"
+    ],
+    "raw": "6:15 AM – 7:00 PM LufthansaUnited 20 hr 45 min LIS–SFO 1 stop 6 hr MUC 761 kg CO2e +14% emissions $1,021"
+   },
+   {
+    "price": 1035,
+    "dep": "18:50",
+    "arr": "12:50",
+    "plus": "+1",
+    "mins": 1560,
+    "stops": "1 stop",
+    "air": "Air France, Delta",
+    "route": null,
+    "layover": [
+     "26 hr",
+     "LIS"
+    ],
+    "raw": "6:50 PM – 12:50 PM+1 Air FranceDelta 26 hr LIS–SFO 1 stop 12 hr CDG 662 kg CO2e Avg emissions $1,035"
+   },
+   {
+    "price": 1054,
+    "dep": "22:15",
+    "arr": "15:50",
+    "plus": "+1",
+    "mins": 1535,
+    "stops": "1 stop",
+    "air": "Aer Lingus, American",
+    "route": null,
+    "layover": [
+     "25 hr 35 min",
+     "LIS"
+    ],
+    "raw": "10:15 PM – 3:50 PM+1 Aer LingusAmerican 25 hr 35 min LIS–SFO 1 stop 11 hr 51 min DUB 640 kg CO2e Avg emissions $1,054"
+   },
+   {
+    "price": 1117,
+    "dep": "07:40",
+    "arr": "19:20",
+    "plus": "",
+    "mins": 1180,
+    "stops": "1 stop",
+    "air": "United",
+    "route": null,
+    "layover": [
+     "19 hr 40 min",
+     "LIS"
+    ],
+    "raw": "7:40 AM – 7:20 PM Tap Air Portugal, United 19 hr 40 min LIS–SFO 1 stop 5 hr 30 min BCN 605 kg CO2e -10% emissions $1,117"
+   },
+   {
+    "price": 1190,
+    "dep": "05:05",
+    "arr": "12:40",
+    "plus": "",
+    "mins": 935,
+    "stops": "1 stop",
+    "air": "Lufthansa, United",
+    "route": null,
+    "layover": [
+     "15 hr 35 min",
+     "LIS"
+    ],
+    "raw": "5:05 AM – 12:40 PM LufthansaUnited 15 hr 35 min LIS–SFO 1 stop 1 hr 15 min FRA 711 kg CO2e +6% emissions $1,190"
+   },
+   {
+    "price": 1206,
+    "dep": "05:00",
+    "arr": "11:45",
+    "plus": "",
+    "mins": 885,
+    "stops": "1 stop",
+    "air": "KLM, Delta",
+    "route": null,
+    "layover": [
+     "14 hr 45 min",
+     "LIS"
+    ],
+    "raw": "5:00 AM – 11:45 AM KLMDelta 14 hr 45 min LIS–SFO 1 stop 55 min AMS 508 kg CO2e -24% emissions $1,206"
+   },
+   {
+    "price": 1540,
+    "dep": "10:25",
+    "arr": "17:48",
+    "plus": "",
+    "mins": 923,
+    "stops": "1 stop",
+    "air": "United",
+    "route": null,
+    "layover": [
+     "15 hr 23 min",
+     "LIS"
+    ],
+    "raw": "10:25 AM – 5:48 PM UnitedBrussels Airlines 15 hr 23 min LIS–SFO 1 stop 1 hr 25 min EWR 590 kg CO2e -12% emissions $1,540"
+   },
+   {
+    "price": 2526,
+    "dep": "05:35",
+    "arr": "12:50",
+    "plus": "",
+    "mins": 915,
+    "stops": "1 stop",
+    "air": "Air France, Delta",
+    "route": null,
+    "layover": [
+     "15 hr 15 min",
+     "LIS"
+    ],
+    "raw": "5:35 AM – 12:50 PM Air FranceDelta 15 hr 15 min LIS–SFO 1 stop 1 hr 10 min CDG 677 kg CO2e Avg emissions $2,526"
+   }
+  ]
+ },
+ "nce-lon-1010": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LON%20on%202026-10-10%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 38,
+    "dep": "23:55",
+    "arr": "01:05",
+    "plus": "+1",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 10 min",
+     "NCE"
+    ],
+    "raw": "11:55 PM – 1:05 AM+1 easyJet 2 hr 10 min NCE–LTN Nonstop 109 kg CO2e +11% emissions $38"
+   },
+   {
+    "price": 48,
+    "dep": "16:50",
+    "arr": "18:00",
+    "plus": "",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 10 min",
+     "NCE"
+    ],
+    "raw": "4:50 PM – 6:00 PM Ryanair 2 hr 10 min NCE–STN Nonstop 100 kg CO2e Avg emissions $48"
+   },
+   {
+    "price": 66,
+    "dep": "16:20",
+    "arr": "17:25",
+    "plus": "",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 5 min",
+     "NCE"
+    ],
+    "raw": "4:20 PM – 5:25 PM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $66"
+   },
+   {
+    "price": 67,
+    "dep": "09:40",
+    "arr": "10:45",
+    "plus": "",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 5 min",
+     "NCE"
+    ],
+    "raw": "9:40 AM – 10:45 AM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $67"
+   },
+   {
+    "price": 73,
+    "dep": "12:50",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 120,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr",
+     "NCE"
+    ],
+    "raw": "12:50 PM – 1:50 PM easyJet 2 hr NCE–LGW Nonstop 102 kg CO2e Avg emissions $73"
+   },
+   {
+    "price": 77,
+    "dep": "11:35",
+    "arr": "12:50",
+    "plus": "",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 15 min",
+     "NCE"
+    ],
+    "raw": "11:35 AM – 12:50 PM British AirwaysOperated by BA Euroflyer 2 hr 15 min NCE–LGW Nonstop 99 kg CO2e Avg emissions $77"
+   },
+   {
+    "price": 94,
+    "dep": "19:50",
+    "arr": "20:55",
+    "plus": "",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 5 min",
+     "NCE"
+    ],
+    "raw": "7:50 PM – 8:55 PM easyJet 2 hr 5 min NCE–LGW Nonstop 102 kg CO2e Avg emissions $94"
+   },
+   {
+    "price": 125,
+    "dep": "18:35",
+    "arr": "19:45",
+    "plus": "",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 10 min",
+     "NCE"
+    ],
+    "raw": "6:35 PM – 7:45 PM British Airways 2 hr 10 min NCE–LHR Nonstop 86 kg CO2e -12% emissions $125"
+   },
+   {
+    "price": 164,
+    "dep": "21:35",
+    "arr": "22:40",
+    "plus": "",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 5 min",
+     "NCE"
+    ],
+    "raw": "9:35 PM – 10:40 PM British Airways 2 hr 5 min NCE–LHR Nonstop 115 kg CO2e +17% emissions $164"
+   },
+   {
+    "price": 164,
+    "dep": "15:55",
+    "arr": "17:05",
+    "plus": "",
+    "mins": 130,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 10 min",
+     "NCE"
+    ],
+    "raw": "3:55 PM – 5:05 PM British Airways 2 hr 10 min NCE–LHR Nonstop 86 kg CO2e -12% emissions $164"
+   },
+   {
+    "price": 164,
+    "dep": "10:05",
+    "arr": "11:20",
+    "plus": "",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 15 min",
+     "NCE"
+    ],
+    "raw": "10:05 AM – 11:20 AM British Airways 2 hr 15 min NCE–LHR Nonstop 83 kg CO2e -15% emissions $164"
+   },
+   {
+    "price": 174,
+    "dep": "14:20",
+    "arr": "15:35",
+    "plus": "",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 15 min",
+     "NCE"
+    ],
+    "raw": "2:20 PM – 3:35 PM British Airways 2 hr 15 min NCE–LHR Nonstop 86 kg CO2e -12% emissions $174"
+   },
+   {
+    "price": 217,
+    "dep": "10:25",
+    "arr": "11:30",
+    "plus": "",
+    "mins": 125,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 5 min",
+     "NCE"
+    ],
+    "raw": "10:25 AM – 11:30 AM British AirwaysOperated by BA Cityflyer 2 hr 5 min NCE–LCY Nonstop 125 kg CO2e +28% emissions $217"
+   },
+   {
+    "price": 217,
+    "dep": "07:20",
+    "arr": "08:35",
+    "plus": "",
+    "mins": 135,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 15 min",
+     "NCE"
+    ],
+    "raw": "7:20 AM – 8:35 AM British Airways 2 hr 15 min NCE–LHR Nonstop 115 kg CO2e +17% emissions $217"
+   }
+  ]
+ },
+ "lon-lis-1013": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LON%20to%20LIS%20on%202026-10-13%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 65,
+    "dep": "06:20",
+    "arr": "09:10",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "STN"
+    ],
+    "raw": "6:20 AM – 9:10 AM Ryanair 2 hr 50 min STN–LIS Nonstop 115 kg CO2e -12% emissions $65"
+   },
+   {
+    "price": 69,
+    "dep": "07:00",
+    "arr": "09:55",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LTN"
+    ],
+    "raw": "7:00 AM – 9:55 AM easyJet 2 hr 55 min LTN–LIS Nonstop 137 kg CO2e Avg emissions $69"
+   },
+   {
+    "price": 82,
+    "dep": "15:25",
+    "arr": "18:20",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LTN"
+    ],
+    "raw": "3:25 PM – 6:20 PM easyJet 2 hr 55 min LTN–LIS Nonstop 137 kg CO2e Avg emissions $82"
+   },
+   {
+    "price": 92,
+    "dep": "20:10",
+    "arr": "23:00",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LGW"
+    ],
+    "raw": "8:10 PM – 11:00 PM easyJet 2 hr 50 min LGW–LIS Nonstop 133 kg CO2e Avg emissions $92"
+   },
+   {
+    "price": 96,
+    "dep": "18:20",
+    "arr": "21:10",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "STN"
+    ],
+    "raw": "6:20 PM – 9:10 PM Ryanair 2 hr 50 min STN–LIS Nonstop 137 kg CO2e Avg emissions $96"
+   },
+   {
+    "price": 97,
+    "dep": "13:55",
+    "arr": "16:45",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "STN"
+    ],
+    "raw": "1:55 PM – 4:45 PM Ryanair 2 hr 50 min STN–LIS Nonstop 115 kg CO2e -12% emissions $97"
+   },
+   {
+    "price": 97,
+    "dep": "17:10",
+    "arr": "20:00",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LGW"
+    ],
+    "raw": "5:10 PM – 8:00 PM easyJet 2 hr 50 min LGW–LIS Nonstop 143 kg CO2e +9% emissions $97"
+   },
+   {
+    "price": 107,
+    "dep": "12:15",
+    "arr": "15:10",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LTN"
+    ],
+    "raw": "12:15 PM – 3:10 PM easyJet 2 hr 55 min LTN–LIS Nonstop 137 kg CO2e Avg emissions $107"
+   },
+   {
+    "price": 112,
+    "dep": "09:40",
+    "arr": "12:30",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LGW"
+    ],
+    "raw": "9:40 AM – 12:30 PM easyJet 2 hr 50 min LGW–LIS Nonstop 138 kg CO2e Avg emissions $112"
+   },
+   {
+    "price": 119,
+    "dep": "06:00",
+    "arr": "08:45",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LHR"
+    ],
+    "raw": "6:00 AM – 8:45 AM Tap Air Portugal 2 hr 45 min LHR–LIS Nonstop 122 kg CO2e -7% emissions $119"
+   },
+   {
+    "price": 119,
+    "dep": "08:00",
+    "arr": "10:50",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LHR"
+    ],
+    "raw": "8:00 AM – 10:50 AM Tap Air Portugal 2 hr 50 min LHR–LIS Nonstop 122 kg CO2e -7% emissions $119"
+   },
+   {
+    "price": 119,
+    "dep": "18:45",
+    "arr": "21:35",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LHR"
+    ],
+    "raw": "6:45 PM – 9:35 PM Tap Air Portugal 2 hr 50 min LHR–LIS Nonstop 117 kg CO2e -11% emissions $119"
+   },
+   {
+    "price": 119,
+    "dep": "19:50",
+    "arr": "22:40",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LHR"
+    ],
+    "raw": "7:50 PM – 10:40 PM Tap Air Portugal 2 hr 50 min LHR–LIS Nonstop 122 kg CO2e -7% emissions $119"
+   },
+   {
+    "price": 129,
+    "dep": "13:45",
+    "arr": "16:35",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LHR"
+    ],
+    "raw": "1:45 PM – 4:35 PM Tap Air Portugal 2 hr 50 min LHR–LIS Nonstop 122 kg CO2e -7% emissions $129"
+   },
+   {
+    "price": 129,
+    "dep": "10:35",
+    "arr": "13:25",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LGW"
+    ],
+    "raw": "10:35 AM – 1:25 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 50 min LGW–LIS Nonstop 179 kg CO2e +37% emissions $129"
+   },
+   {
+    "price": 129,
+    "dep": "16:25",
+    "arr": "19:25",
+    "plus": "",
+    "mins": 180,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "3 hr",
+     "LGW"
+    ],
+    "raw": "4:25 PM – 7:25 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 3 hr LGW–LIS Nonstop 179 kg CO2e +37% emissions $129"
+   },
+   {
+    "price": 159,
+    "dep": "11:20",
+    "arr": "14:15",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LHR"
+    ],
+    "raw": "11:20 AM – 2:15 PM Tap Air Portugal 2 hr 55 min LHR–LIS Nonstop 122 kg CO2e -7% emissions $159"
+   },
+   {
+    "price": 234,
+    "dep": "07:15",
+    "arr": "10:05",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LHR"
+    ],
+    "raw": "7:15 AM – 10:05 AM British Airways 2 hr 50 min LHR–LIS Nonstop 138 kg CO2e Avg emissions $234"
+   },
+   {
+    "price": 274,
+    "dep": "20:20",
+    "arr": "23:10",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LHR"
+    ],
+    "raw": "8:20 PM – 11:10 PM British Airways 2 hr 50 min LHR–LIS Nonstop 119 kg CO2e -9% emissions $274"
+   },
+   {
+    "price": 293,
+    "dep": "12:50",
+    "arr": "15:45",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LHR"
+    ],
+    "raw": "12:50 PM – 3:45 PM British Airways 2 hr 55 min LHR–LIS Nonstop 119 kg CO2e -9% emissions $293"
+   },
+   {
+    "price": 394,
+    "dep": "15:00",
+    "arr": "17:55",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LHR"
+    ],
+    "raw": "3:00 PM – 5:55 PM British Airways 2 hr 55 min LHR–LIS Nonstop 138 kg CO2e Avg emissions $394"
+   },
+   {
+    "price": 416,
+    "dep": "10:00",
+    "arr": "12:55",
+    "plus": "",
+    "mins": 175,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 55 min",
+     "LHR"
+    ],
+    "raw": "10:00 AM – 12:55 PM British Airways 2 hr 55 min LHR–LIS Nonstop 134 kg CO2e Avg emissions $416"
+   }
+  ]
+ },
+ "nce-lis-1010": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20NCE%20to%20LIS%20on%202026-10-10%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 100,
+    "dep": "20:20",
+    "arr": "22:00",
+    "plus": "",
+    "mins": 160,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 40 min",
+     "NCE"
+    ],
+    "raw": "8:20 PM – 10:00 PM easyJet 2 hr 40 min NCE–LIS Nonstop 127 kg CO2e -24% emissions $100 Avoids as much CO2e as 2,435 trees absorb in a day"
+   },
+   {
+    "price": 171,
+    "dep": "06:00",
+    "arr": "07:45",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "NCE"
+    ],
+    "raw": "6:00 AM – 7:45 AM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 45 min NCE–LIS Nonstop 170 kg CO2e Avg emissions $171"
+   },
+   {
+    "price": 211,
+    "dep": "08:55",
+    "arr": "18:40",
+    "plus": "",
+    "mins": 645,
+    "stops": "1 stop",
+    "air": "Iberia",
+    "route": null,
+    "layover": [
+     "10 hr 45 min",
+     "NCE"
+    ],
+    "raw": "8:55 AM – 6:40 PM VuelingIberia 10 hr 45 min NCE–LIS 1 stop 7 hr 15 min BCN 160 kg CO2e Avg emissions $211"
+   },
+   {
+    "price": 217,
+    "dep": "15:10",
+    "arr": "18:40",
+    "plus": "",
+    "mins": 270,
+    "stops": "1 stop",
+    "air": "Iberia",
+    "route": null,
+    "layover": [
+     "4 hr 30 min",
+     "NCE"
+    ],
+    "raw": "3:10 PM – 6:40 PM VuelingIberia 4 hr 30 min NCE–LIS 1 stop 55 min BCN 173 kg CO2e Avg emissions $217"
+   },
+   {
+    "price": 222,
+    "dep": "08:55",
+    "arr": "13:20",
+    "plus": "",
+    "mins": 325,
+    "stops": "1 stop",
+    "air": "Iberia",
+    "route": null,
+    "layover": [
+     "5 hr 25 min",
+     "NCE"
+    ],
+    "raw": "8:55 AM – 1:20 PM VuelingIberia 5 hr 25 min NCE–LIS 1 stop 1 hr 55 min BCN 160 kg CO2e Avg emissions $222"
+   },
+   {
+    "price": 298,
+    "dep": "12:15",
+    "arr": "14:00",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "NCE"
+    ],
+    "raw": "12:15 PM – 2:00 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 45 min NCE–LIS Nonstop 170 kg CO2e Avg emissions $298"
+   },
+   {
+    "price": 323,
+    "dep": "13:45",
+    "arr": "19:00",
+    "plus": "",
+    "mins": 375,
+    "stops": "1 stop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "6 hr 15 min",
+     "NCE"
+    ],
+    "raw": "1:45 PM – 7:00 PM Brussels Airlines 6 hr 15 min NCE–LIS 1 stop 1 hr 35 min BRU 270 kg CO2e +62% emissions $323"
+   },
+   {
+    "price": 604,
+    "dep": "06:30",
+    "arr": "11:50",
+    "plus": "",
+    "mins": 380,
+    "stops": "1 stop",
+    "air": "Iberia",
+    "route": null,
+    "layover": [
+     "6 hr 20 min",
+     "NCE"
+    ],
+    "raw": "6:30 AM – 11:50 AM IberiaOperated by Air Nostrum for Iberia 6 hr 20 min NCE–LIS 1 stop 2 hr 50 min MAD 289 kg CO2e +73% emissions $604 Business Class"
+   }
+  ]
+ },
+ "lis-lon-1014": {
+  "url": "https://www.google.com/travel/flights?hl=en&curr=USD&q=one-way%20flights%20from%20LIS%20to%20LON%20on%202026-10-14%20for%201%20adult",
+  "insight": {
+   "level": "typical",
+   "range": null
+  },
+  "offers": [
+   {
+    "price": 61,
+    "dep": "05:55",
+    "arr": "08:40",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "5:55 AM – 8:40 AM Ryanair 2 hr 45 min LIS–STN Nonstop 116 kg CO2e -12% emissions $61"
+   },
+   {
+    "price": 85,
+    "dep": "16:30",
+    "arr": "19:15",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "4:30 PM – 7:15 PM Ryanair 2 hr 45 min LIS–STN Nonstop 137 kg CO2e Avg emissions $85"
+   },
+   {
+    "price": 89,
+    "dep": "21:35",
+    "arr": "00:10",
+    "plus": "+1",
+    "mins": 155,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 35 min",
+     "LIS"
+    ],
+    "raw": "9:35 PM – 12:10 AM+1 easyJet 2 hr 35 min LIS–LTN Nonstop 138 kg CO2e Avg emissions $89"
+   },
+   {
+    "price": 91,
+    "dep": "20:20",
+    "arr": "23:05",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "8:20 PM – 11:05 PM Ryanair 2 hr 45 min LIS–STN Nonstop 137 kg CO2e Avg emissions $91"
+   },
+   {
+    "price": 94,
+    "dep": "09:40",
+    "arr": "12:25",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "9:40 AM – 12:25 PM Ryanair 2 hr 45 min LIS–STN Nonstop 137 kg CO2e Avg emissions $94"
+   },
+   {
+    "price": 99,
+    "dep": "06:10",
+    "arr": "08:50",
+    "plus": "",
+    "mins": 160,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 40 min",
+     "LIS"
+    ],
+    "raw": "6:10 AM – 8:50 AM easyJet 2 hr 40 min LIS–LGW Nonstop 137 kg CO2e Avg emissions $99"
+   },
+   {
+    "price": 103,
+    "dep": "10:30",
+    "arr": "13:15",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "10:30 AM – 1:15 PM easyJet 2 hr 45 min LIS–LTN Nonstop 138 kg CO2e Avg emissions $103"
+   },
+   {
+    "price": 109,
+    "dep": "16:15",
+    "arr": "20:25",
+    "plus": "",
+    "mins": 250,
+    "stops": "1 stop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "4 hr 10 min",
+     "LIS"
+    ],
+    "raw": "4:15 PM – 8:25 PM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 4 hr 10 min LIS–LGW 1 stop 55 min OPO 181 kg CO2e +37% emissions $109"
+   },
+   {
+    "price": 109,
+    "dep": "07:00",
+    "arr": "11:20",
+    "plus": "",
+    "mins": 260,
+    "stops": "1 stop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "4 hr 20 min",
+     "LIS"
+    ],
+    "raw": "7:00 AM – 11:20 AM Tap Air Portugal 4 hr 20 min LIS–LGW 1 stop 1 hr OPO 146 kg CO2e +11% emissions $109"
+   },
+   {
+    "price": 111,
+    "dep": "19:15",
+    "arr": "22:00",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "7:15 PM – 10:00 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $111"
+   },
+   {
+    "price": 111,
+    "dep": "20:10",
+    "arr": "22:55",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "8:10 PM – 10:55 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $111"
+   },
+   {
+    "price": 114,
+    "dep": "13:00",
+    "arr": "15:40",
+    "plus": "",
+    "mins": 160,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 40 min",
+     "LIS"
+    ],
+    "raw": "1:00 PM – 3:40 PM easyJet 2 hr 40 min LIS–LGW Nonstop 137 kg CO2e Avg emissions $114"
+   },
+   {
+    "price": 119,
+    "dep": "16:00",
+    "arr": "18:40",
+    "plus": "",
+    "mins": 160,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 40 min",
+     "LIS"
+    ],
+    "raw": "4:00 PM – 6:40 PM easyJet 2 hr 40 min LIS–LGW Nonstop 137 kg CO2e Avg emissions $119"
+   },
+   {
+    "price": 120,
+    "dep": "07:00",
+    "arr": "09:45",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "7:00 AM – 9:45 AM Tap Air PortugalOperated by Portugalia - Companhia Portuguesa 2 hr 45 min LIS–LGW Nonstop 171 kg CO2e +30% emissions $120"
+   },
+   {
+    "price": 135,
+    "dep": "15:45",
+    "arr": "18:30",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "3:45 PM – 6:30 PM easyJet 2 hr 45 min LIS–LTN Nonstop 148 kg CO2e +12% emissions $135"
+   },
+   {
+    "price": 146,
+    "dep": "18:45",
+    "arr": "21:30",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "6:45 PM – 9:30 PM British Airways 2 hr 45 min LIS–LHR Nonstop 115 kg CO2e -13% emissions $146"
+   },
+   {
+    "price": 153,
+    "dep": "12:50",
+    "arr": "15:35",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "12:50 PM – 3:35 PM Tap Air Portugal 2 hr 45 min LIS–LGW Nonstop 142 kg CO2e +8% emissions $153"
+   },
+   {
+    "price": 156,
+    "dep": "07:35",
+    "arr": "10:20",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "7:35 AM – 10:20 AM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 117 kg CO2e -11% emissions $156"
+   },
+   {
+    "price": 160,
+    "dep": "16:25",
+    "arr": "19:10",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "4:25 PM – 7:10 PM British Airways 2 hr 45 min LIS–LHR Nonstop 119 kg CO2e -10% emissions $160"
+   },
+   {
+    "price": 178,
+    "dep": "10:00",
+    "arr": "12:45",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "10:00 AM – 12:45 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 117 kg CO2e -11% emissions $178"
+   },
+   {
+    "price": 185,
+    "dep": "16:05",
+    "arr": "18:50",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "4:05 PM – 6:50 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $185"
+   },
+   {
+    "price": 200,
+    "dep": "07:20",
+    "arr": "10:20",
+    "plus": "",
+    "mins": 180,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "3 hr",
+     "LIS"
+    ],
+    "raw": "7:20 AM – 10:20 AM British Airways 3 hr LIS–LHR Nonstop 119 kg CO2e -10% emissions $200"
+   },
+   {
+    "price": 201,
+    "dep": "15:15",
+    "arr": "18:00",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "3:15 PM – 6:00 PM British Airways 2 hr 45 min LIS–LHR Nonstop 139 kg CO2e Avg emissions $201"
+   },
+   {
+    "price": 354,
+    "dep": "11:00",
+    "arr": "13:50",
+    "plus": "",
+    "mins": 170,
+    "stops": "Nonstop",
+    "air": "British Airways",
+    "route": null,
+    "layover": [
+     "2 hr 50 min",
+     "LIS"
+    ],
+    "raw": "11:00 AM – 1:50 PM British Airways 2 hr 50 min LIS–LHR Nonstop 115 kg CO2e -13% emissions $354"
+   },
+   {
+    "price": 472,
+    "dep": "15:00",
+    "arr": "17:45",
+    "plus": "",
+    "mins": 165,
+    "stops": "Nonstop",
+    "air": "?",
+    "route": null,
+    "layover": [
+     "2 hr 45 min",
+     "LIS"
+    ],
+    "raw": "3:00 PM – 5:45 PM Tap Air Portugal 2 hr 45 min LIS–LHR Nonstop 123 kg CO2e -7% emissions $472"
+   }
+  ]
+ }
+}

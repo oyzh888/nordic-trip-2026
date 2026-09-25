@@ -111,6 +111,7 @@ const WD = d => new Date(Date.UTC(2026, 9, +d.split('/')[1])).getUTCDay();      
 const busy = [];
 for (let dd = 5; dd <= 18; dd++) {
   const d = `10/${dd}`, base = DAY(d), w = WD(d);
+  if (PTO.includes(d)) continue;
   if (w >= 1 && w <= 5) busy.push({ k: 'work', a: base + 10 - PT, b: base + 16 - PT });        // 美西 10–16
   if (w === 0) busy.push({ k: 'meet', a: base + 13.5 - PT, b: base + 15 - PT, t: '周日例会' });  // 周日 13:30–15:00 PT
   if (w === 2 || w === 5) busy.push({ k: 'meet', a: base + 0 - PT, b: base + 2 - PT, t: w === 2 ? '周二例会' : '周五例会' });
