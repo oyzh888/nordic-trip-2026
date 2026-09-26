@@ -44,6 +44,9 @@ async function sign(env, msg) {
   if (!hkey) hkey = await crypto.subtle.importKey('raw', enc.encode(env.SESSION_SECRET), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   return b64u(await crypto.subtle.sign('HMAC', hkey, enc.encode(msg)));
 }
+/** 口令宽松比较：手机键盘会自动把首字母大写、中文输入法会打出全角字符和「—」—— 这些都不该算错 */
+function normPass(s) { return String(s || '').normalize('NFKC').toLowerCase().replace(/[\s\u2010-\u2015\u2212_-]+/g, '-').replace(/^-|-$/g, ''); }
+
 function safeEq(a, b) {
   a = String(a); b = String(b);
   if (a.length !== b.length) return false;
@@ -104,7 +107,7 @@ export default {
       const ip = req.headers.get('cf-connecting-ip') || 'x';
       if (!(await album.loginAllowed(ip))) return J({ error: '尝试太多次了，一小时后再试' }, 429);
       const { pass, name } = await body();
-      if (!env.ALBUM_PASS || !safeEq(String(pass || '').trim(), env.ALBUM_PASS)) {
+      if (!env.ALBUM_PASS || !safeEq(normPass(pass), normPass(env.ALBUM_PASS))) {
         await album.loginFailed(ip);
         return J({ error: '口令不对' }, 403);
       }
