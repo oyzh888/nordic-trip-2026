@@ -120,7 +120,7 @@ $('#todo').innerHTML = `<h3>⚠️ ${todo.length} 件（都是从时刻表和订
 $('#stays').innerHTML = INFO.stays.map(s => `<tr>
   <td><b>${esc(s.name)}</b></td>
   <td class="s">${s.nights.map(([a, b]) => `${+a.slice(0, 2)}/${+a.slice(3)} → ${+b.slice(0, 2)}/${+b.slice(3)}`).join('<br>')}</td>
-  <td>${s.exact ? esc(s.addr) : `${esc(s.area || '')}<div class="s">精确门牌号见 Airbnb 订单</div>`}
+  <td>${s.addr ? esc(s.addr) : `${esc(s.area || '')}<div class="s">精确门牌号见 Airbnb 订单</div>`}
       <div><a href="${s.gmap}" target="_blank" rel="noopener">地图 ↗</a></div></td>
   <td>${s.checkin || '—'}</td><td>${s.checkout || '—'}</td><td class="s">${esc(s.how || '')}</td>
   <td><a href="${s.url}" target="_blank" rel="noopener">房源页 ↗</a></td></tr>`).join('');

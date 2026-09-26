@@ -67,12 +67,24 @@ def t24(s):
 
 # ---------------- 地点库 ----------------
 # kind: stay / air / car / act。addr 只写**核实过**的；拿不准的只给 q（地图搜索词）。
+#
+# 2026-09-26：Airbnb 5 家已订房源的精确地址 —— 逐单从用户 Airbnb 订单页实查
+# （公开房源页不显示门牌号，9/26 的 practical_scrape.py 抓不到，所以在这里覆盖）。
+# 另：njardvik 实际订单不是 Ocean Break，而是 "Family friendly home!"（Gónhóll 18，
+# €289.26，确认码 HMRZQFBWRS），名称和房源链接一并更正。
+ADDR_FIX = {
+    "rvk":         "Hringbraut 120, Reykjavík, Reykjavíkurborg 101, Iceland",
+    "njardvik":    "Gónhóll 18, Njarðvík, Reykjanesbær 260, Iceland",
+    "lyngvaer":    "Veg 2803, Vågan, Nordland 8313, Norway",
+    "tromso":      "Tønsvikvegen 444, Tromsø, Troms og Finnmark 9022, Norway",
+    "konglehytta": "Lushattvegen 16 Konglehytte III, Stange, Innlandet 2338, Norway",
+}
 def stay(key, name, q, how_note=""):
     p = PR[key]
     exact = p["src"] == "booking"
     ci = t24(p.get("checkin_t") or p.get("checkin") or "")
     co = t24(p.get("checkout_t") or p.get("checkout") or "")
-    addr = re.split(r"\s*After booking", p.get("addr", ""))[0].strip() if exact else None
+    addr = ADDR_FIX.get(key) or (re.split(r"\s*After booking", p.get("addr", ""))[0].strip() if exact else None)
     area = p.get("where") if p.get("where") and "," in p.get("where", "") else q    # 「Find things to do」这种是抓错了
     return {"kind": "stay", "name": name, "addr": addr,
             "area": None if exact else area,
@@ -90,7 +102,7 @@ PLACE = {
     "rvk": stay("rvk", "雷克雅未克 · Aurora view 3BR 2BATH（Airbnb）", "Reykjavík"),
     "horgsland": stay("horgsland", "Hörgsland Cottages", "Hörgsland Cottages", "前台办理"),
     "birkifell": stay("birkifell", "Guesthouse Birkifell", "Guesthouse Birkifell"),
-    "njardvik": stay("njardvik", "Njarðvík · Ocean Break（Airbnb）", "Njarðvík, Reykjanesbær"),
+    "njardvik": stay("njardvik", "Njarðvík · Family friendly home!（Airbnb）", "Njarðvík, Reykjanesbær"),
     "lyngvaer": stay("lyngvaer", "Nordic Lodge Retreat · Lyngvær（Airbnb）", "Lyngvær, Vågan"),
     "tromso": stay("tromso", "特罗姆瑟 4 房公寓（Airbnb）", "Tromsø"),
     "kongle": stay("konglehytta", "Konglehytta 3 · Star View（Airbnb）", "Stange, Innlandet, Norway"),

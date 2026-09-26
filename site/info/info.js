@@ -120,16 +120,16 @@ const INFO = {
    "e": "2026-09-26T10:00",
    "tz_s": 0,
    "tz_e": 0,
-   "loc": "Reykjavík, Reykjavíkurborg, Iceland（精确门牌号在 Airbnb 订单 / App 里）",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Reykjav%C3%ADk",
-   "amap": "https://maps.apple.com/?q=Reykjav%C3%ADk",
+   "loc": "Hringbraut 120, Reykjavík, Reykjavíkurborg 101, Iceland",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Hringbraut%20120%2C%20Reykjav%C3%ADk%2C%20Reykjav%C3%ADkurborg%20101%2C%20Iceland",
+   "amap": "https://maps.apple.com/?q=Hringbraut%20120%2C%20Reykjav%C3%ADk%2C%20Reykjav%C3%ADkurborg%20101%2C%20Iceland",
    "exact": false,
    "area": "Reykjavík, Reykjavíkurborg, Iceland",
    "checkin": "15:00",
    "checkout": "11:00",
    "url": "https://www.airbnb.com/rooms/1729852848905770040",
    "detail": "雷克雅未克 · Aurora view 3BR 2BATH（3房/3床/2卫）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%E9%9B%B7%E5%85%8B%E9%9B%85%E6%9C%AA%E5%85%8B+%C2%B7+Aurora+view+3BR+2BATH%EF%BC%88Airbnb%EF%BC%89&dates=20260925T150000Z%2F20260926T100000Z&location=Reykjav%C3%ADk%2C+Reykjav%C3%ADkurborg%2C+Iceland%EF%BC%88%E7%B2%BE%E7%A1%AE%E9%97%A8%E7%89%8C%E5%8F%B7%E5%9C%A8+Airbnb+%E8%AE%A2%E5%8D%95+%2F+App+%E9%87%8C%EF%BC%89&details=%E9%9B%B7%E5%85%8B%E9%9B%85%E6%9C%AA%E5%85%8B+%C2%B7+Aurora+view+3BR+2BATH%EF%BC%883%E6%88%BF%2F3%E5%BA%8A%2F2%E5%8D%AB%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%E9%9B%B7%E5%85%8B%E9%9B%85%E6%9C%AA%E5%85%8B+%C2%B7+Aurora+view+3BR+2BATH%EF%BC%88Airbnb%EF%BC%89&dates=20260925T150000Z%2F20260926T100000Z&location=Hringbraut+120%2C+Reykjav%C3%ADk%2C+Reykjav%C3%ADkurborg+101%2C+Iceland&details=%E9%9B%B7%E5%85%8B%E9%9B%85%E6%9C%AA%E5%85%8B+%C2%B7+Aurora+view+3BR+2BATH%EF%BC%883%E6%88%BF%2F3%E5%BA%8A%2F2%E5%8D%AB%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -250,14 +250,14 @@ const INFO = {
    "kind": "stay",
    "st": "已订",
    "raw": "booked",
-   "title": "🛏 Njarðvík · Ocean Break（Airbnb）",
+   "title": "🛏 Njarðvík · Family friendly home!（Airbnb）",
    "s": "2026-09-28T19:30",
    "e": "2026-09-29T10:00",
    "tz_s": 0,
    "tz_e": 0,
-   "loc": "Njarðvík, Reykjanesbær, Iceland（精确门牌号在 Airbnb 订单 / App 里）",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r",
-   "amap": "https://maps.apple.com/?q=Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r",
+   "loc": "Gónhóll 18, Njarðvík, Reykjanesbær 260, Iceland",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=G%C3%B3nh%C3%B3ll%2018%2C%20Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r%20260%2C%20Iceland",
+   "amap": "https://maps.apple.com/?q=G%C3%B3nh%C3%B3ll%2018%2C%20Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r%20260%2C%20Iceland",
    "exact": false,
    "area": "Njarðvík, Reykjanesbær, Iceland",
    "checkin": "14:00–02:00",
@@ -265,7 +265,7 @@ const INFO = {
    "how": "密码箱自助取钥匙",
    "url": "https://www.airbnb.com/rooms/1139944377459145061",
    "detail": "Njarðvík · Hot tub & Sauna · Ocean Break（3房/3床/ 1卫 ）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Njar%C3%B0v%C3%ADk+%C2%B7+Ocean+Break%EF%BC%88Airbnb%EF%BC%89&dates=20260928T193000Z%2F20260929T100000Z&location=Njar%C3%B0v%C3%ADk%2C+Reykjanesb%C3%A6r%2C+Iceland%EF%BC%88%E7%B2%BE%E7%A1%AE%E9%97%A8%E7%89%8C%E5%8F%B7%E5%9C%A8+Airbnb+%E8%AE%A2%E5%8D%95+%2F+App+%E9%87%8C%EF%BC%89&details=Njar%C3%B0v%C3%ADk+%C2%B7+Hot+tub+%26+Sauna+%C2%B7+Ocean+Break%EF%BC%883%E6%88%BF%2F3%E5%BA%8A%2F+1%E5%8D%AB+%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Njar%C3%B0v%C3%ADk+%C2%B7+Family+friendly+home%21%EF%BC%88Airbnb%EF%BC%89&dates=20260928T193000Z%2F20260929T100000Z&location=G%C3%B3nh%C3%B3ll+18%2C+Njar%C3%B0v%C3%ADk%2C+Reykjanesb%C3%A6r+260%2C+Iceland&details=Njar%C3%B0v%C3%ADk+%C2%B7+Hot+tub+%26+Sauna+%C2%B7+Ocean+Break%EF%BC%883%E6%88%BF%2F3%E5%BA%8A%2F+1%E5%8D%AB+%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -405,9 +405,9 @@ const INFO = {
    "e": "2026-10-02T10:00",
    "tz_s": 2,
    "tz_e": 2,
-   "loc": "Vågan, Nordland, Norway（精确门牌号在 Airbnb 订单 / App 里）",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Lyngv%C3%A6r%2C%20V%C3%A5gan",
-   "amap": "https://maps.apple.com/?q=Lyngv%C3%A6r%2C%20V%C3%A5gan",
+   "loc": "Veg 2803, Vågan, Nordland 8313, Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Veg%202803%2C%20V%C3%A5gan%2C%20Nordland%208313%2C%20Norway",
+   "amap": "https://maps.apple.com/?q=Veg%202803%2C%20V%C3%A5gan%2C%20Nordland%208313%2C%20Norway",
    "exact": false,
    "area": "Vågan, Nordland, Norway",
    "checkin": "16:00",
@@ -415,7 +415,7 @@ const INFO = {
    "how": "门锁密码自助入住",
    "url": "https://www.airbnb.com/rooms/1303545546783105490",
    "detail": "✅ Nordic Lodge Retreat · Lyngvær（4房/8床/2卫 · 桑拿+按摩浴缸）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%88Airbnb%EF%BC%89&dates=20260930T170000Z%2F20261002T080000Z&location=V%C3%A5gan%2C+Nordland%2C+Norway%EF%BC%88%E7%B2%BE%E7%A1%AE%E9%97%A8%E7%89%8C%E5%8F%B7%E5%9C%A8+Airbnb+%E8%AE%A2%E5%8D%95+%2F+App+%E9%87%8C%EF%BC%89&details=%E2%9C%85+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%884%E6%88%BF%2F8%E5%BA%8A%2F2%E5%8D%AB+%C2%B7+%E6%A1%91%E6%8B%BF%2B%E6%8C%89%E6%91%A9%E6%B5%B4%E7%BC%B8%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%88Airbnb%EF%BC%89&dates=20260930T170000Z%2F20261002T080000Z&location=Veg+2803%2C+V%C3%A5gan%2C+Nordland+8313%2C+Norway&details=%E2%9C%85+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%884%E6%88%BF%2F8%E5%BA%8A%2F2%E5%8D%AB+%C2%B7+%E6%A1%91%E6%8B%BF%2B%E6%8C%89%E6%91%A9%E6%B5%B4%E7%BC%B8%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -524,9 +524,9 @@ const INFO = {
    "e": "2026-10-05T09:00",
    "tz_s": 2,
    "tz_e": 2,
-   "loc": "Tromsø, Troms og Finnmark, Norway（精确门牌号在 Airbnb 订单 / App 里）",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Troms%C3%B8",
-   "amap": "https://maps.apple.com/?q=Troms%C3%B8",
+   "loc": "Tønsvikvegen 444, Tromsø, Troms og Finnmark 9022, Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=T%C3%B8nsvikvegen%20444%2C%20Troms%C3%B8%2C%20Troms%20og%20Finnmark%209022%2C%20Norway",
+   "amap": "https://maps.apple.com/?q=T%C3%B8nsvikvegen%20444%2C%20Troms%C3%B8%2C%20Troms%20og%20Finnmark%209022%2C%20Norway",
    "exact": false,
    "area": "Tromsø, Troms og Finnmark, Norway",
    "checkin": "15:00",
@@ -534,7 +534,7 @@ const INFO = {
    "how": "密码箱自助取钥匙",
    "url": "https://www.airbnb.com/rooms/825162133059470411",
    "detail": "特罗姆瑟 4 房 · 4 床 · 2 卫（连住 3 晚）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%E7%89%B9%E7%BD%97%E5%A7%86%E7%91%9F+4+%E6%88%BF%E5%85%AC%E5%AF%93%EF%BC%88Airbnb%EF%BC%89&dates=20261002T160000Z%2F20261005T070000Z&location=Troms%C3%B8%2C+Troms+og+Finnmark%2C+Norway%EF%BC%88%E7%B2%BE%E7%A1%AE%E9%97%A8%E7%89%8C%E5%8F%B7%E5%9C%A8+Airbnb+%E8%AE%A2%E5%8D%95+%2F+App+%E9%87%8C%EF%BC%89&details=%E7%89%B9%E7%BD%97%E5%A7%86%E7%91%9F+4+%E6%88%BF+%C2%B7+4+%E5%BA%8A+%C2%B7+2+%E5%8D%AB%EF%BC%88%E8%BF%9E%E4%BD%8F+3+%E6%99%9A%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%E7%89%B9%E7%BD%97%E5%A7%86%E7%91%9F+4+%E6%88%BF%E5%85%AC%E5%AF%93%EF%BC%88Airbnb%EF%BC%89&dates=20261002T160000Z%2F20261005T070000Z&location=T%C3%B8nsvikvegen+444%2C+Troms%C3%B8%2C+Troms+og+Finnmark+9022%2C+Norway&details=%E7%89%B9%E7%BD%97%E5%A7%86%E7%91%9F+4+%E6%88%BF+%C2%B7+4+%E5%BA%8A+%C2%B7+2+%E5%8D%AB%EF%BC%88%E8%BF%9E%E4%BD%8F+3+%E6%99%9A%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -658,9 +658,9 @@ const INFO = {
    "e": "2026-10-06T11:00",
    "tz_s": 2,
    "tz_e": 2,
-   "loc": "Stange, Innlandet, Norway（精确门牌号在 Airbnb 订单 / App 里）",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Stange%2C%20Innlandet%2C%20Norway",
-   "amap": "https://maps.apple.com/?q=Stange%2C%20Innlandet%2C%20Norway",
+   "loc": "Lushattvegen 16 Konglehytte III, Stange, Innlandet 2338, Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Lushattvegen%2016%20Konglehytte%20III%2C%20Stange%2C%20Innlandet%202338%2C%20Norway",
+   "amap": "https://maps.apple.com/?q=Lushattvegen%2016%20Konglehytte%20III%2C%20Stange%2C%20Innlandet%202338%2C%20Norway",
    "exact": false,
    "area": "Stange, Innlandet, Norway",
    "checkin": "15:00",
@@ -671,7 +671,7 @@ const INFO = {
    ],
    "url": "https://www.airbnb.com/rooms/648419631702172808",
    "detail": "Konglehytta 3 · Star View · 私人桑拿（2房/3床/ 1卫 ）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Konglehytta+3+%C2%B7+Star+View%EF%BC%88Airbnb%EF%BC%89&dates=20261005T114000Z%2F20261006T090000Z&location=Stange%2C+Innlandet%2C+Norway%EF%BC%88%E7%B2%BE%E7%A1%AE%E9%97%A8%E7%89%8C%E5%8F%B7%E5%9C%A8+Airbnb+%E8%AE%A2%E5%8D%95+%2F+App+%E9%87%8C%EF%BC%89&details=Konglehytta+3+%C2%B7+Star+View+%C2%B7+%E7%A7%81%E4%BA%BA%E6%A1%91%E6%8B%BF%EF%BC%882%E6%88%BF%2F3%E5%BA%8A%2F+1%E5%8D%AB+%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Konglehytta+3+%C2%B7+Star+View%EF%BC%88Airbnb%EF%BC%89&dates=20261005T114000Z%2F20261006T090000Z&location=Lushattvegen+16+Konglehytte+III%2C+Stange%2C+Innlandet+2338%2C+Norway&details=Konglehytta+3+%C2%B7+Star+View+%C2%B7+%E7%A7%81%E4%BA%BA%E6%A1%91%E6%8B%BF%EF%BC%882%E6%88%BF%2F3%E5%BA%8A%2F+1%E5%8D%AB+%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -1051,14 +1051,14 @@ const INFO = {
   },
   {
    "name": "雷克雅未克 · Aurora view 3BR 2BATH（Airbnb）",
-   "addr": null,
+   "addr": "Hringbraut 120, Reykjavík, Reykjavíkurborg 101, Iceland",
    "area": "Reykjavík, Reykjavíkurborg, Iceland",
    "exact": false,
    "checkin": "15:00",
    "checkout": "11:00",
    "how": "",
    "url": "https://www.airbnb.com/rooms/1729852848905770040",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Reykjav%C3%ADk",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Hringbraut%20120%2C%20Reykjav%C3%ADk%2C%20Reykjav%C3%ADkurborg%20101%2C%20Iceland",
    "nights": [
     [
      "09-25",
@@ -1101,15 +1101,15 @@ const INFO = {
    ]
   },
   {
-   "name": "Njarðvík · Ocean Break（Airbnb）",
-   "addr": null,
+   "name": "Njarðvík · Family friendly home!（Airbnb）",
+   "addr": "Gónhóll 18, Njarðvík, Reykjanesbær 260, Iceland",
    "area": "Njarðvík, Reykjanesbær, Iceland",
    "exact": false,
    "checkin": "14:00–02:00",
    "checkout": "11:00",
    "how": "密码箱自助取钥匙",
    "url": "https://www.airbnb.com/rooms/1139944377459145061",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=G%C3%B3nh%C3%B3ll%2018%2C%20Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r%20260%2C%20Iceland",
    "nights": [
     [
      "09-28",
@@ -1119,14 +1119,14 @@ const INFO = {
   },
   {
    "name": "Nordic Lodge Retreat · Lyngvær（Airbnb）",
-   "addr": null,
+   "addr": "Veg 2803, Vågan, Nordland 8313, Norway",
    "area": "Vågan, Nordland, Norway",
    "exact": false,
    "checkin": "16:00",
    "checkout": "11:00",
    "how": "门锁密码自助入住",
    "url": "https://www.airbnb.com/rooms/1303545546783105490",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Lyngv%C3%A6r%2C%20V%C3%A5gan",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Veg%202803%2C%20V%C3%A5gan%2C%20Nordland%208313%2C%20Norway",
    "nights": [
     [
      "09-30",
@@ -1136,14 +1136,14 @@ const INFO = {
   },
   {
    "name": "特罗姆瑟 4 房公寓（Airbnb）",
-   "addr": null,
+   "addr": "Tønsvikvegen 444, Tromsø, Troms og Finnmark 9022, Norway",
    "area": "Tromsø, Troms og Finnmark, Norway",
    "exact": false,
    "checkin": "15:00",
    "checkout": "11:00",
    "how": "密码箱自助取钥匙",
    "url": "https://www.airbnb.com/rooms/825162133059470411",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Troms%C3%B8",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=T%C3%B8nsvikvegen%20444%2C%20Troms%C3%B8%2C%20Troms%20og%20Finnmark%209022%2C%20Norway",
    "nights": [
     [
      "10-02",
@@ -1153,14 +1153,14 @@ const INFO = {
   },
   {
    "name": "Konglehytta 3 · Star View（Airbnb）",
-   "addr": null,
+   "addr": "Lushattvegen 16 Konglehytte III, Stange, Innlandet 2338, Norway",
    "area": "Stange, Innlandet, Norway",
    "exact": false,
    "checkin": "15:00",
    "checkout": "11:00",
    "how": "密码箱自助取钥匙",
    "url": "https://www.airbnb.com/rooms/648419631702172808",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Stange%2C%20Innlandet%2C%20Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Lushattvegen%2016%20Konglehytte%20III%2C%20Stange%2C%20Innlandet%202338%2C%20Norway",
    "nights": [
     [
      "10-05",
@@ -1169,5 +1169,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-26 10:27 UTC"
+ "built": "2026-09-26 10:37 UTC"
 };
