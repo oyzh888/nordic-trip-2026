@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>相册 · 北欧 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0F0E0C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="北欧相册">
+<link rel="manifest" href="/photos/manifest.webmanifest">
+<link rel="icon" href="/photos/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/photos/icon-180.png">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/photos/app.css">
+</head>
+<body>
+
+
+
+<!-- 登录：一个口令 + 一个名字 -->
+<main id="gate" class="gate" hidden>
+  <div class="card">
+    <div class="eyebrow">北欧 2026 · 共享相册</div>
+    <h1>大家的照片都放这里</h1>
+    <p class="lede">原图原画质保存 · 同一张传两次会自动识别 · 断网了接着传 · AI 自动认人、打标签。</p>
+    <form id="f-pass">
+      <label>相册口令<input id="pass" autocomplete="current-password" required placeholder="群里发的那个"></label>
+      <button class="btn pri">进入</button>
+      <p id="pass-err" class="err"></p>
+    </form>
+    <form id="f-name" hidden>
+      <p>你是谁？（只用来标记「谁传的」，点一个或新写一个）</p>
+      <div id="names" class="chips"></div>
+      <label>名字<input id="name" maxlength="24" placeholder="比如：Steve"></label>
+      <button class="btn pri">就是我</button>
+    </form>
+  </div>
+</main>
+
+<main id="app" hidden>
+  <nav class="tabs" role="tablist">
+    <button data-tab="grid" aria-selected="true">照片</button>
+    <button data-tab="people">人物</button>
+    <button data-tab="insight">分析</button>
+    <span class="grow"></span>
+    <span id="pipe" class="pipe" hidden></span>
+    <button id="me" class="chip ghost" hidden></button>
+    <button id="btn-up" class="btn pri up">＋ 上传</button>
+  </nav>
+
+  <!-- 照片 -->
+  <section id="tab-grid" class="pane">
+    <div class="fbar">
+      <form id="f-search" class="search">
+        <input id="q" type="search" placeholder="搜：极光 / 瀑布 / 车 / 名字 / 冰岛 …" enterkeyhint="search">
+        <button type="button" class="chip" id="more-f"></button>
+      </form>
+      <div class="chips scroll" id="quick">
+        <button class="chip" data-f="all" aria-pressed="true">全部</button>
+        <button class="chip" data-f="mine">⭐ 与我相关</button>
+        <button class="chip" data-f="hl" title="AI 认为值得纪念的：极光、合影、日落、瀑布、冰川、野生动物……">★ 精选</button>
+        <button class="chip" data-f="up">我传的</button>
+        <button class="chip" data-f="v">🎬 视频</button>
+        <button class="chip" data-f="i">照片</button>
+        <button class="chip" id="burst" aria-pressed="true" title="角度几乎一样的几张只显示 AI 打分最高的那张（点开能看整组、能换）">相似只留最好</button>
+      </div>
+      <div class="chips scroll" id="grouping">
+        <span class="lbl">分组</span>
+        <button class="chip" data-gp="day">📅 按天</button>
+        <button class="chip" data-gp="place">📍 按地点</button>
+        <button class="chip" data-gp="moment">✨ 按时刻</button>
+        <button class="chip" data-gp="cam">📷 按设备</button>
+        <button class="chip ghost" id="order"></button>
+      </div>
+      <div class="chips scroll" id="days"></div>
+      <div class="chips scroll" id="pchips"></div>
+      <div class="chips scroll" id="specials"></div>
+      <div class="chips scroll" id="cams"></div>
+      <div class="chips scroll" id="sugg"></div>
+    </div>
+    <div id="sum" class="sum"></div>
+    <div id="grid"></div>
+    <p id="empty" class="empty" hidden>还没有照片 —— 点右上角「＋ 上传」，或者直接把文件拖进来。</p>
+  </section>
+
+  <!-- 人物 -->
+  <section id="tab-people" class="pane" hidden>
+    <p class="lede">AI 把照片里的脸按长相分了组。<b>找到你自己那组，点「这是我」</b> —— 之后「⭐ 与我相关」就会包含所有拍到你的照片（不只是你自己传的），以后新传的照片也会自动认出来。</p>
+    <div id="people"></div>
+  </section>
+
+  <!-- 分析 -->
+  <section id="tab-insight" class="pane" hidden>
+    <div id="insight"></div>
+  </section>
+</main>
+
+<!-- 选择模式底栏 -->
+<div id="selbar" class="selbar" hidden>
+  <span id="selcount"></span>
+  <span class="grow"></span>
+  <button class="btn" id="sel-all">全选当前</button>
+  <button class="btn" id="sel-share" title="iPhone/安卓：直接存进系统相册">📲 存到手机</button>
+  <button class="btn pri" id="sel-zip">⬇ 打包下载</button>
+  <button class="btn ghost" id="sel-x">✕</button>
+</div>
+<button id="btn-sel" class="fab2" hidden>选择</button>
+
+<!-- 上传面板 -->
+<div id="upsheet" class="sheet" hidden>
+  <div class="sheet-in">
+    <div class="sh-top">
+      <b>上传</b><span id="up-sum" class="s"></span><span class="grow"></span>
+      <button class="btn ghost" id="up-close">收起</button>
+    </div>
+    <label class="drop" id="drop">
+      <input id="file" type="file" multiple accept="image/*,video/*,.heic,.heif,.dng,.mov">
+      <span>点这里选照片 / 视频<br><span class="s">电脑上也可以直接把一堆文件拖进来 · 可以一次选几百个</span></span>
+    </label>
+    <p id="resume-hint" class="tip warn" hidden></p>
+    <p class="s tip">📌 传的时候保持这个页面开着（手机会自动保持亮屏）。断网或关掉页面没关系：<b>重新选同样的文件，会从断点接着传</b>，已经传完的一秒跳过。</p>
+    <div id="uplist" class="uplist"></div>
+  </div>
+</div>
+
+<!-- 大图 -->
+<div id="lb" class="lb" hidden>
+  <div class="lb-media" id="lb-media"></div>
+  <button class="lb-x" id="lb-x" aria-label="关闭">✕</button>
+  <button class="lb-nav l" id="lb-prev" aria-label="上一张">‹</button>
+  <button class="lb-nav r" id="lb-next" aria-label="下一张">›</button>
+  <div class="lb-info" id="lb-info"></div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+<div id="dragcover" class="dragcover" hidden>松手就开始上传</div>
+
+<script src="/app.js"></script>
+<script type="module" src="/photos/app.js"></script>
+</body>
+</html>

@@ -17,8 +17,13 @@
     "directory": "./site",
     "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // /photos/* 一律先进 worker → 转给相册 worker（否则 assets 的 404 页会先接住）
+    "run_worker_first": ["/photos", "/photos/*"]
   },
+  // 共享相册是单独的 worker（photos/，名字 nordic-photos），经 service binding 挂在 /photos/ 下：
+  // 同域 → 同一套导航和样式、cookie 不跨站；相册自己挂了也不影响主站。
+  "services": [{ "binding": "PHOTOS", "service": "nordic-photos" }],
   "kv_namespaces": [
     { "binding": "PACK", "id": "710b23e0205b43759cfd6eb6f75e9d08" }
   ],

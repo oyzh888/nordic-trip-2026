@@ -7,6 +7,9 @@
 **[最终方案](https://nordic.airacle.com/plan/)**（甘特图 + 自动体检 + 账单）·
 **[四台车](https://nordic.airacle.com/cars/)**
 
+🆕 **[📷 共享相册](https://nordic.airacle.com/photos/)**（要口令）：大家的照片视频传到一处，自动认人、按天 / 地点 / 时刻 / 设备分组、
+连拍只留最好的一张、以文搜图、一句话 AI 改图、一键打包下载 —— 独立的 Worker，源码和用法见 [`photos/README.md`](photos/README.md)。
+
 源码在 `site/`，数据层 `site/data.js` **自动生成**（`python3 notes/_research/build_site.py`）——
 它把三处真相合并成一份：`viz/timeline.js`（时刻/已订/待办）· `styles/data.js`（文案/风光图）·
 `notes/_research/out_cars_imgs.json`（四台车的 CC 授权照片）。**别手改 `site/data.js`。**

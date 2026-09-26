@@ -26,3 +26,8 @@ test-results/
 .env
 .env.*
 *.pem
+
+# 相册：本地 wrangler dev 的 secret 和状态（真值只在 Cloudflare secret + ~/.secrets/nordic-photos.env）
+.dev.vars
+.wrangler/
+photos/test/out/

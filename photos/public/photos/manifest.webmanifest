@@ -1,0 +1,14 @@
+{
+  "name": "北欧 2026 · 共享相册",
+  "short_name": "北欧相册",
+  "start_url": "/photos/",
+  "scope": "/photos/",
+  "display": "standalone",
+  "background_color": "#0F0E0C",
+  "theme_color": "#0F0E0C",
+  "icons": [
+    { "src": "/photos/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/photos/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/photos/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

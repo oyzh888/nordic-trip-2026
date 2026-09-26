@@ -44,6 +44,9 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // 共享相册（photos/ 下的独立 worker，见 wrangler.jsonc 的 services）
+    if (url.pathname === '/photos' || url.pathname.startsWith('/photos/')) return env.PHOTOS.fetch(request);
+
     if (url.pathname === '/api/pack') {
       const stored = (await env.PACK.get(KEY, 'json')) || {};
 

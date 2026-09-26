@@ -1,0 +1,21 @@
+// 共享相册 —— 单独一个 Worker（nordic-photos），由主站 nordic-trip-2026 通过 service binding
+// 把 /photos/* 转发过来，所以用户看到的永远是 nordic.airacle.com/photos/（同一个站、同一套设计）。
+//
+// 存储：R2 桶 nordic-photos（私有，不开公网访问，所有读取都经过这个 Worker 验 cookie）
+// 元数据：Durable Object「Album」自带的 SQLite（这个账号的 API token 没有 D1 权限，DO 反而更合适，见 src/album.js）
+// 三个 secret（不在仓库里，用 `wrangler secret put` 设）：ALBUM_PASS · SESSION_SECRET · PIPE_TOKEN
+{
+  "name": "nordic-photos",
+  "main": "./src/index.js",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash"
+  },
+  "durable_objects": { "bindings": [{ "name": "ALBUM", "class_name": "Album" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Album"] }],
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "nordic-photos" }],
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}

@@ -1,0 +1,18 @@
+# GPU 分析端（worker.py）的依赖。另需系统的 ffmpeg / ffprobe（视频抽帧、转 720p）。
+# 装在本地盘上：uv venv /mnt/localssd/venvs/photos && uv pip install --python /mnt/localssd/venvs/photos/bin/python -r requirements.txt
+torch>=2.4
+transformers>=5.0          # Qwen3-VL 需要 5.x
+accelerate
+insightface>=0.7
+onnxruntime-gpu
+opencv-python-headless
+scikit-learn
+numpy
+pillow
+pillow-heif                # iPhone 的 HEIC
+requests
+websockets>=13             # 搜索词实时算向量的那条常连
+opencc                     # OSM 里的中文地名很多是繁体，统一转简体
+# AI 改图（可选）：经模型网关调 Vertex / OpenAI。网关包本身不在 PyPI，用 GATEWAY_SRCS 指向它的源码
+google-genai
+openai

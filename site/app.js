@@ -18,7 +18,7 @@ const md_ = d => `${d.getMonth() + 1}/${d.getDate()}`;
 /* ---------- 导航（每页一样，当前页高亮） ---------- */
 const PAGES = [
   ['/', '首页'], ['/info/', '📍 路上用的'], ['/days/', '逐日'], ['/plan/', '最终方案'], ['/cars/', '四台车'],
-  ['/pack/', '打包'], ['/solo/', '后半段订票'], ['/solo/trip/', '后半段行程图'],
+  ['/pack/', '打包'], ['/photos/', '📷 相册'], ['/solo/', '后半段订票'], ['/solo/trip/', '后半段行程图'],
 ];
 function nav() {
   const here = location.pathname.replace(/index\.html$/, '') || '/';
