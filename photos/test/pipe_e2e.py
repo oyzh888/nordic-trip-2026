@@ -11,7 +11,7 @@
 两轮：第一轮传完 → 分析 + 聚类 → 用户认领「这是我」、给另一个簇起名 → 第二轮再传两张同一批人的新照片
 → 检查它们被自动归到认领过的人名下。结束时（包括失败）把本轮的文件、用户、人物、搜索词全部删掉。
 """
-import io, json, os, subprocess, sys, time
+import io, json, os, subprocess, sys, time, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import e2e
 from e2e import Client, check, results, upload
@@ -258,6 +258,13 @@ def run(A, B, P, r1, r2, logw):
           [f"{'★' if (m.get('memo') or 0) >= 4 else ''}{m['title']}({m['n']})" for m in mine])
     au = next((m for m in mine if m['id'] == (by['DSC01001.JPG'] or {}).get('mo')), {})
     check('极光那段被标成值得纪念（memo ≥ 4）', (au.get('memo') or 0) >= 4, au)
+    # ---- 打包下载按「日期_地点」分文件夹（地点取所在时刻的地点）
+    zfn = ['IMG_5001.JPG', 'DSC01001.JPG', 'VID_5032.mp4']
+    zu = A.post('/api/zip', {'ids': [H[f] for f in zfn], 'name': 'folders'}).json()['url']
+    zn = zipfile.ZipFile(io.BytesIO(A.get(zu[len('/photos'):]).content)).namelist()
+    want = {f: tk[f][:10] + '_' for f in zfn}
+    okz = len(zn) == 3 and all(any(n.startswith(want[f]) and n.endswith('/' + f) and any('一' <= ch <= '鿿' for ch in n.split('/')[0]) for n in zn) for f in zfn)
+    check('打包下载按「日期_地点」分文件夹', okz, zn)
     sc = L.get('scenes') or []
     check('按画面内容自动分出场景，并起了中文名', len(sc) >= 2 and all(s.get('label') for s in sc), [(s['label'], s['n']) for s in sc])
 

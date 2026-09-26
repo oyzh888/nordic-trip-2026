@@ -322,11 +322,16 @@ export class Album extends DurableObject {
     if (!z) return null;
     const ids = JSON.parse(z.ids);
     const rows = new Map();
-    for (const r of this.sql.exec(`SELECT h, name, size, crc, taken, created FROM media WHERE status='ready' AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) rows.set(r.h, r);
+    for (const r of this.sql.exec(`SELECT h, name, size, crc, taken, created, place, moment FROM media WHERE status='ready' AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) rows.set(r.h, r);
+    // 一个日期一个地点一个文件夹：「2026-09-20_塞里雅兰瀑布/」。地点优先用所在「时刻」的地点（一段经历里
+    // 零星几张落在隔壁景点的不会被拆成单独的文件夹），没有就用照片自己的，再没有就只按日期
+    const mplace = new Map(this.sql.exec(`SELECT id, place FROM moments`).toArray().map(m => [m.id, m.place]));
+    const safe = x => String(x || '').split(' · ')[0].replace(/[\\/:*?"<>|]/g, '_').trim().slice(0, 40);
     return ids.filter(h => rows.has(h)).map(h => {
       const r = rows.get(h);
       const t = r.taken || new Date(r.created).toISOString().slice(0, 19);
-      return { h, name: `${t.slice(5, 10)}/${r.name}`, size: r.size, crc: r.crc, mtime: t };
+      const pl = safe(mplace.get(r.moment) || r.place);
+      return { h, name: `${t.slice(0, 10)}${pl ? '_' + pl : ''}/${r.name}`, size: r.size, crc: r.crc, mtime: t };
     });
   }
 

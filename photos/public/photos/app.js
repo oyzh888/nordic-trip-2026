@@ -731,7 +731,10 @@ function enqueue(files) {
     if (old) { if (old.state === 'failed') { old.state = 'queued'; old.f = f; again++; } else same++; continue; }
     UQ.push({ f, key, state: 'queued', sent: 0, msg: '排队中' }); add++;
   }
-  if (skip || same) toast([skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`].filter(Boolean).join(' · '));
+  // 不拦，只提醒：几十 MB 一张的多半是相机原片，1000 张就是 50 GB
+  const big = files.filter(f => /^image\//.test(f.type) && f.size > 25 * 2 ** 20).length;
+  if (skip || same || big) toast([skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
+    big && `有 ${big} 张超过 25 MB，像是相机原片 —— 先用 Lightroom 导出 5 MB 版再传会快很多`].filter(Boolean).join(' · '), big ? 8000 : undefined);
   if (add || again) { openSheet(); pump(); }
   renderUp();
 }
@@ -984,6 +987,7 @@ function openSheet() { $('#upsheet').hidden = false; renderUp(); }
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
 $('#file').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
+$('#dir').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
 let listT; function listSoon() { clearTimeout(listT); listT = setTimeout(() => refresh(), 1200); }
 
 /* 电脑上直接把文件拖进窗口 */
