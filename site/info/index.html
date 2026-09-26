@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>路上用的 · 地址 / 时间 / 日历 · 北欧 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .cal { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .cal .card h3 { margin-bottom: 4px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .btn { display: inline-block; padding: 9px 14px; border-radius: 8px; border: 1px solid var(--hair2);
+         background: var(--panel2); color: var(--ink); text-decoration: none; font-size: 14px; }
+  .btn.pri { border-color: var(--acc); color: var(--acc); }
+  .tabs { display: flex; gap: 8px; margin: 6px 0 18px; }
+  .tabs button { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--hair2); background: none;
+                 color: var(--ink2); font-size: 14px; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { border-color: var(--acc); color: var(--acc); }
+  .day { margin: 26px 0 8px; font: 400 22px/1.3 var(--disp); }
+  .day .s { font: 13px var(--sans); margin-left: 8px; }
+  .ev { display: grid; grid-template-columns: 112px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--hair); }
+  .ev .tm { font: 600 15px/1.35 var(--mono); }
+  .ev .tm .z { display: block; font: 11px var(--sans); color: var(--ink3); margin-top: 2px; }
+  .ev .tt { font-weight: 600; }
+  .ev .ln { font-size: 14px; color: var(--ink2); margin-top: 4px; }
+  .ev .ln a { color: var(--acc); }
+  .ev .w { font-size: 13px; color: var(--alert); margin-top: 5px; }
+  .ev .acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 7px; font-size: 13px; }
+  .ev .acts a { color: var(--ink2); }
+  .pill { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--hair2);
+          color: var(--ink3); margin-left: 6px; vertical-align: 1px; font-weight: 400; }
+  .pill.ok { border-color: var(--acc); color: var(--acc); }
+  .pill.no { border-color: var(--alert); color: var(--alert); }
+  @media (max-width: 640px) { .ev { grid-template-columns: 78px 1fr; } }
+</style>
+</head>
+<body>
+
+<section style="padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">路上用的 · 手机上打开这一页就够了</div>
+    <h1 style="margin-bottom:16px">地址 · 时间 · 日历</h1>
+    <p class="lede">每一个要去的地方：<b>在哪（点一下就开地图）· 几点能进 / 几点集合 · 怎么进门</b>。
+      所有时间都是<b>当地时间</b>，旁边标了时区（冰岛比挪威慢 2 小时，这是最容易搞错的一条）。</p>
+    <p class="s" id="built"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">01</span>一键加到日历</h2>
+    <p class="lede"><b>推荐「订阅」</b>：之后我改了行程，你手机日历里会<b>自己更新</b>（约 6 小时同步一次），不用重新导入。
+      「下载」是一次性快照，改了就要重新下。</p>
+    <div class="cal">
+      <div class="card ok"><h3>🧭 全队 · 9/24 → 10/6</h3>
+        <p class="s">航班 · 8 处住宿（含入住时间和怎么进门）· 4 台车的取还 · 每天的活动</p>
+        <div class="btns">
+          <a class="btn pri" href="webcal://nordic.airacle.com/cal/nordic.ics">📱 iPhone / Mac 订阅</a>
+          <a class="btn pri" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fnordic.airacle.com%2Fcal%2Fnordic.ics" target="_blank" rel="noopener">📅 Google 日历订阅</a>
+          <a class="btn" href="/cal/nordic.ics" download>⬇ 下载 .ics</a>
+        </div></div>
+      <div class="card"><h3>🧳 Steve 后半段 · 10/6 → 10/17</h3>
+        <p class="s">尼斯 → 伦敦 → 里斯本 → SFO（方案 C）。<b>还没买的票和没订的住宿标了「待订」</b></p>
+        <div class="btns">
+          <a class="btn pri" href="webcal://nordic.airacle.com/cal/steve-solo.ics">📱 iPhone / Mac 订阅</a>
+          <a class="btn pri" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fnordic.airacle.com%2Fcal%2Fsteve-solo.ics" target="_blank" rel="noopener">📅 Google 日历订阅</a>
+          <a class="btn" href="/cal/steve-solo.ics" download>⬇ 下载 .ics</a>
+        </div></div>
+    </div>
+    <p class="s" style="margin-top:10px">每一条事件下面也有「＋ Google 日历」，只想加某一件的时候用。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">02</span>出发前要处理的</h2>
+    <div class="card amb" id="todo"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">03</span>住宿速查</h2>
+    <p class="lede">Booking 订的给了<b>完整地址</b>和精确坐标；Airbnb 订的房源页只公开到街区（坐标有一两百米模糊），
+      <b>精确门牌号和门锁密码在 Airbnb App 的订单里</b>，入住前一两天房东会发。</p>
+    <div class="tw"><table>
+      <thead><tr><th>住哪</th><th>哪几晚</th><th>地址</th><th>入住</th><th>退房</th><th>怎么进门</th><th></th></tr></thead>
+      <tbody id="stays"></tbody></table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">04</span>逐日 · 时间和地点</h2>
+    <div class="tabs"><button data-k="nordic" aria-pressed="true">全队 9/24 → 10/6</button><button data-k="solo" aria-pressed="false">Steve 后半段</button></div>
+    <div id="days"></div>
+  </div>
+</section>
+
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script src="/info/info.js"></script>
+<script>
+chrome();
+$('#built').textContent = `数据生成于 ${INFO.built} · 住宿地址和入住时间 9/26 从 Booking / Airbnb 房源页实抓`;
+
+const tzName = z => ({ 0: '冰岛 UTC+0', 1: '英国/葡萄牙 UTC+1', 2: '挪威/法国 UTC+2', '-7': '美西 PT', 8: '北京 UTC+8' })[z] || `UTC${z >= 0 ? '+' : ''}${z}`;
+const WD = '日一二三四五六';
+const dayKey = s => s.slice(0, 10);
+const dayLabel = s => { const d = new Date(s.slice(0, 10) + 'T12:00'); return `${d.getMonth() + 1}/${d.getDate()} 周${WD[d.getDay()]}`; };
+const hhmm = s => s.slice(11, 16);   /* app.js 里已有 hm（接 Date），这里接 ISO 字符串 */
+const pill = st => `<span class="pill ${st === '已订' ? 'ok' : /待/.test(st) ? 'no' : ''}">${st}</span>`;
+
+/* 出发前要处理：所有事件上的 ⚠️ 汇总 + 待订的票 */
+const todo = [];
+for (const e of INFO.nordic.concat(INFO.solo)) for (const w of (e.warn || [])) todo.push(`<b>${dayLabel(e.s)} · ${esc(e.title.replace(/^[^ ]+ /, ''))}</b>：${esc(w)}`);
+$('#todo').innerHTML = `<h3>⚠️ ${todo.length} 件（都是从时刻表和订单里自动对出来的）</h3><ul>${todo.map(t => `<li>${t}</li>`).join('')}</ul>`;
+
+$('#stays').innerHTML = INFO.stays.map(s => `<tr>
+  <td><b>${esc(s.name)}</b></td>
+  <td class="s">${s.nights.map(([a, b]) => `${+a.slice(0, 2)}/${+a.slice(3)} → ${+b.slice(0, 2)}/${+b.slice(3)}`).join('<br>')}</td>
+  <td>${s.exact ? esc(s.addr) : `${esc(s.area || '')}<div class="s">精确门牌号见 Airbnb 订单</div>`}
+      <div><a href="${s.gmap}" target="_blank" rel="noopener">地图 ↗</a></div></td>
+  <td>${s.checkin || '—'}</td><td>${s.checkout || '—'}</td><td class="s">${esc(s.how || '')}</td>
+  <td><a href="${s.url}" target="_blank" rel="noopener">房源页 ↗</a></td></tr>`).join('');
+
+function render(k) {
+  const list = INFO[k];
+  let out = '', cur = '';
+  for (const e of list) {
+    if (dayKey(e.s) !== cur) { cur = dayKey(e.s); out += `<div class="day">${dayLabel(e.s)}</div>`; }
+    const t2 = e.kind === 'fly' ? ` → ${hhmm(e.e)}<span class="z">起 ${tzName(e.tz_s)}<br>落 ${tzName(e.tz_e)}</span>`
+      : e.kind === 'stay' ? `<span class="z">到达 · ${tzName(e.tz_s)}</span>`
+      : (e.e !== e.s && e.kind !== 'car' ? `–${hhmm(e.e)}` : '') + `<span class="z">${tzName(e.tz_s)}</span>`;
+    const lines = [];
+    if (e.loc) lines.push(`📍 ${esc(e.loc)}${e.gmap ? ` · <a href="${e.gmap}" target="_blank" rel="noopener">Google 地图</a>` : ''}${e.amap ? ` · <a href="${e.amap}" target="_blank" rel="noopener">Apple 地图</a>` : ''}`);
+    if (e.loc2) lines.push(`🛬 落地：${esc(e.loc2)}${e.gmap2 ? ` · <a href="${e.gmap2}" target="_blank" rel="noopener">地图</a>` : ''}`);
+    if (e.checkin) lines.push(`🕒 入住 <b>${e.checkin}</b> · 退房 <b>${e.checkout}</b>${e.how ? ` · 🔑 ${esc(e.how)}` : ''}`);
+    if (e.hint) lines.push(`ℹ️ ${esc(e.hint)}`);
+    out += `<div class="ev">
+      <div class="tm">${hhmm(e.s)}${t2}</div>
+      <div><div class="tt">${esc(e.title)}${pill(e.st)}</div>
+        ${lines.map(l => `<div class="ln">${l}</div>`).join('')}
+        ${(e.warn || []).map(w => `<div class="w">⚠️ ${esc(w)}</div>`).join('')}
+        <div class="acts"><a href="${e.gcal}" target="_blank" rel="noopener">＋ Google 日历</a>
+          ${e.url ? `<a href="${e.url}" target="_blank" rel="noopener">预订 / 房源页 ↗</a>` : ''}</div>
+      </div></div>`;
+  }
+  $('#days').innerHTML = out;
+}
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  render(b.dataset.k);
+});
+render(location.hash === '#solo' ? 'solo' : 'nordic');
+if (location.hash === '#solo') document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x.dataset.k === 'solo'));
+</script>
+<script src="/anim.js"></script>
+</body>
+</html>

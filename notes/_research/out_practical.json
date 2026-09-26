@@ -1,0 +1,118 @@
+{
+ "radisson-osl": {
+  "src": "booking",
+  "url": "https://www.booking.com/hotel/no/radisson-blu-airport-oslo.html",
+  "addr": "Hotelvegen, 2061 Gardermoen, Norway",
+  "ll": [
+   60.192372084713625,
+   11.095515489578247
+  ],
+  "checkin": "From 3:00 PM to 12:00 AM",
+  "checkout": "From 4:00 AM to 12:00 PM",
+  "title": "Radisson Blu Airport Hotel, Oslo Gardermoen, Gardermoen"
+ },
+ "horgsland": {
+  "src": "booking",
+  "url": "https://www.booking.com/hotel/is/horgsland-cottages.html",
+  "addr": "Hörgsland 1, 880 Hörgsland, Iceland After booking, all of the property’s details, including telephone and address, are provided in your booking confirmation and your account. –Great location - show map",
+  "ll": [
+   63.842770114676455,
+   -17.949804067611694
+  ],
+  "checkin": "From 3:00 PM to 10:00 PM",
+  "checkout": "From 7:00 AM to 11:00 AM",
+  "title": "Hörgsland Cottages, Hörgsland"
+ },
+ "birkifell": {
+  "src": "booking",
+  "url": "https://www.booking.com/hotel/is/guesthouse-birkifell.html",
+  "addr": "Birkifell, 781 Nesjum, Iceland After booking, all of the property’s details, including telephone and address, are provided in your booking confirmation and your account. –Great location - show map",
+  "ll": [
+   64.39410022260867,
+   -15.334103107452393
+  ],
+  "checkin": "From 5:00 PM to 9:00 PM",
+  "checkout": "From 8:00 AM to 11:00 AM",
+  "title": "Guesthouse Birkifell, Nesjum"
+ },
+ "rvk": {
+  "src": "airbnb",
+  "url": "https://www.airbnb.com/rooms/1729852848905770040",
+  "where": "Reykjavík, Reykjavíkurborg, Iceland",
+  "ll": [
+   64.1506,
+   -21.9594
+  ],
+  "checkin": "Check-in after 3:00 PM",
+  "checkout": "Checkout before 11:00 AM",
+  "selfcheckin": null,
+  "title": "Aurora view 3BR 2BATH Luxury down town",
+  "checkin_t": "3:00 PM",
+  "checkout_t": "11:00 AM",
+  "how": null
+ },
+ "njardvik": {
+  "src": "airbnb",
+  "url": "https://www.airbnb.com/rooms/1139944377459145061",
+  "where": "Njarðvík, Reykjanesbær, Iceland",
+  "ll": [
+   63.9865,
+   -22.5537
+  ],
+  "checkin": "Self check-in",
+  "checkout": "Checkout before 11:00 AM",
+  "selfcheckin": "Self check-in",
+  "title": "Family friendly home!",
+  "checkin_t": "2:00 PM - 2:00 AM",
+  "checkout_t": "11:00 AM",
+  "how": "Check yourself in with the lockbox."
+ },
+ "lyngvaer": {
+  "src": "airbnb",
+  "url": "https://www.airbnb.com/rooms/1303545546783105490",
+  "where": "Vågan, Nordland, Norway",
+  "ll": [
+   68.23442,
+   14.22712
+  ],
+  "checkin": "Self check-in",
+  "checkout": "Checkout before 11:00 AM",
+  "selfcheckin": "Self check-in",
+  "title": "Nordic Lodge Retreat in Lofoten",
+  "checkin_t": "4:00 PM",
+  "checkout_t": "11:00 AM",
+  "how": "Check yourself in with the keypad."
+ },
+ "tromso": {
+  "src": "airbnb",
+  "url": "https://www.airbnb.com/rooms/825162133059470411",
+  "where": "Tromsø, Troms og Finnmark, Norway",
+  "ll": [
+   69.72227,
+   19.09603
+  ],
+  "checkin": "Self check-in",
+  "checkout": "Checkout before 11:00 AM",
+  "selfcheckin": "Self check-in",
+  "title": "Queen size beds | Fantastisk nordlys | Jaccuzi",
+  "checkin_t": "3:00 PM",
+  "checkout_t": "11:00 AM",
+  "how": "Check yourself in with the lockbox."
+ },
+ "konglehytta": {
+  "src": "airbnb",
+  "url": "https://www.airbnb.com/rooms/648419631702172808",
+  "where": "Find things to do",
+  "ll": [
+   60.4989,
+   11.2524
+  ],
+  "checkin": "Self check-in",
+  "checkout": "Checkout before 11:00 AM",
+  "selfcheckin": "Self check-in",
+  "title": "Konglehytta 3 · Star View · Sauna · 4 people",
+  "checkin_t": "3:00 PM",
+  "checkout_t": "11:00 AM",
+  "how": "Check yourself in with the lockbox."
+ }
+}

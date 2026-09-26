@@ -1,0 +1,588 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//nordic-trip-2026//info//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:北欧 2026 · 全队
+X-WR-CALDESC:9/24–10/6 · 4 人 · 航班 / 住宿 / 取还车 / 活动
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+BEGIN:VEVENT
+UID:2e0681054fa42480@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260923T192000Z
+DTEND:20260924T044500Z
+SUMMARY:✈ 海南航空 · 北京首都国际机场 → 奥斯陆加勒
+ 穆恩机场
+LOCATION:北京首都国际机场 T2
+DESCRIPTION:✈ 北京首都 → 奥斯陆 · 海南航空 · 03:20 → 06
+ :45 落地 （9h25 直飞，已出票）\n📍 北京首都国际机场 T
+ 2\n地图：https://www.google.com/maps/search/?api=1&query=Beijing%20Cap
+ ital%20International%20Airport%20Terminal%202\n完整行程：https://nor
+ dic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:d9638aa46ab42e93@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260924T051500Z
+DTEND:20260924T140000Z
+SUMMARY:奥斯陆一整天 
+LOCATION:
+DESCRIPTION:🆕🆕 奥斯陆一整天 （06:45 落地白得的）：机
+ 场存箱 → 市区\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:d9fe7ab0846cab53@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260924T140000Z
+DTEND:20260925T050000Z
+SUMMARY:🛏 Radisson Blu Airport Hotel\, Oslo
+LOCATION:Hotelvegen\, 2061 Gardermoen\, Norway
+DESCRIPTION:🆕🆕 Radisson Blu Airport Hotel ×2 间 · 连廊直通航
+ 站楼（Standard 含早）\n📍 Hotelvegen\, 2061 Gardermoen\, Norway\n
+ 地图：https://www.google.com/maps/search/?api=1&query=60.1923720847136
+ 25%2C11.095515489578247\n入住 15:00–24:00 · 退房 04:00–12:00 · 
+ 24 小时前台 · 从到达大厅走连廊约 5 分钟\n完整行程：h
+ ttps://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:4877846c70545c79@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T041500Z
+DTEND:20260925T070500Z
+SUMMARY:✈ SK4787 · 奥斯陆加勒穆恩机场 → 冰岛凯夫拉维
+ 克机场
+LOCATION:奥斯陆加勒穆恩机场 OSL
+DESCRIPTION:✈ SK4787 OSL 06:15 → KEF 07:05（计划；实际 06:32 起
+ 飞 · 已出票）\n📍 奥斯陆加勒穆恩机场 OSL\n地图：https
+ ://www.google.com/maps/search/?api=1&query=Oslo%20Airport%20Gardermoen\n
+ 完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:836ba8ad42111c78@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T080000Z
+DTEND:20260925T083000Z
+SUMMARY:🚗 取车 · 🇮🇸 冰岛 · Land Rover Defender 110 
+LOCATION:Avis · 凯夫拉维克机场
+DESCRIPTION:✅ 🇮🇸 冰岛 · Land Rover Defender 110 （Premium SUV 
+ · Avis）· 5 个计费日\n📍 Avis · 凯夫拉维克机场\n地图
+ ：https://www.google.com/maps/search/?api=1&query=Avis%20Keflav%C3%ADk%2
+ 0Airport\n航站楼外坐租车摆渡车（KEF 所有自动挡四驱都
+ 不在楼内）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:4a9bbdcc6708a2fc@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T090000Z
+DTEND:20260925T120000Z
+SUMMARY:【待定】蓝湖泡汤
+LOCATION:Norðurljósavegur 9\, 240 Grindavík\, Iceland
+DESCRIPTION:【待定】\n🆕 蓝湖泡汤（KEF 开车 20 min）\n📍 N
+ orðurljósavegur 9\, 240 Grindavík\, Iceland\n地图：https://www.goog
+ le.com/maps/search/?api=1&query=Blue%20Lagoon%20Iceland\n必须提前订
+ 时段票；有行李寄存\n完整行程：https://nordic.airacle.com/in
+ fo/
+END:VEVENT
+BEGIN:VEVENT
+UID:c4cf5a341f06135d@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T121500Z
+DTEND:20260925T153000Z
+SUMMARY:雷克雅内斯半岛小环线
+LOCATION:
+DESCRIPTION:🆕 雷克雅内斯半岛小环线（全在 KEF 15–50 min 
+ 圈内）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:7e1ae077fc43239e@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T150000Z
+DTEND:20260926T100000Z
+SUMMARY:🛏 雷克雅未克 · Aurora view 3BR 2BATH（Airbnb）
+LOCATION:Reykjavík\, Reykjavíkurborg\, Iceland（精确门牌号在 Airb
+ nb 订单 / App 里）
+DESCRIPTION:雷克雅未克 · Aurora view 3BR 2BATH（3房/3床/2卫）\n
+ 📍 Reykjavík\, Reykjavíkurborg\, Iceland（精确门牌号在 Airbnb 
+ 订单 / App 里）\n地图：https://www.google.com/maps/search/?api=1&q
+ uery=Reykjav%C3%ADk\n入住 15:00 · 退房 11:00\n完整行程：https:/
+ /nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:897f8a633dac55f3@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T153000Z
+DTEND:20260925T162000Z
+SUMMARY:雷克雅内斯 → 雷克雅未克 约 50 min
+LOCATION:
+DESCRIPTION:雷克雅内斯 → 雷克雅未克 约 50 min\n完整行程
+ ：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:fdb9e4079f75288c@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260925T170000Z
+DTEND:20260925T200000Z
+SUMMARY:雷市：Hallgrímskirkja · 老港 · Sun Voyager
+LOCATION:
+DESCRIPTION:雷市：Hallgrímskirkja · 老港 · Sun Voyager\n完整行
+ 程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:1b93119912535fe3@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260926T090000Z
+DTEND:20260926T173000Z
+SUMMARY:南岸 300 km / 3h45：Seljalandsfoss · Skógafoss · Dyrhólaey 
+ · Reynisfjara
+LOCATION:
+DESCRIPTION:南岸 300 km / 3h45：Seljalandsfoss · Skógafoss · Dyrhól
+ aey · Reynisfjara\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:aaef1509580b98aa@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260926T173000Z
+DTEND:20260927T100000Z
+SUMMARY:🛏 Hörgsland Cottages
+LOCATION:Hörgsland 1\, 880 Hörgsland\, Iceland
+DESCRIPTION:Hörgsland Cottages · 3 卧整栋（Klaustur 东 10 km）\n
+ 📍 Hörgsland 1\, 880 Hörgsland\, Iceland\n地图：https://www.google
+ .com/maps/search/?api=1&query=63.842770114676455%2C-17.949804067611694\n
+ 入住 15:00–22:00 · 退房 07:00–11:00 · 前台办理\n完整行
+ 程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:ae0b4fc6ba13c8f0@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260927T064500Z
+DTEND:20260927T170000Z
+SUMMARY:🧊 冰川徒步 09:30 → 🛶 冰河湖皮划艇 13:30（Troll.
+ is · 4 人已订）
+LOCATION:Troll.is 集合点 · 冰河湖停车场
+DESCRIPTION:🚗 Hörgsland→Jökulsárlón（OSRM约112 km/1h47） · 
+ 🧊 徒步09:30 → 🛶 皮划艇13:30（4人已订）\n📍 Troll.is 
+ 集合点 · 冰河湖停车场\n地图：https://www.google.com/maps/sea
+ rch/?api=1&query=J%C3%B6kuls%C3%A1rl%C3%B3n%20Glacier%20Lagoon%20parking\
+ n停车场里食物车后面、公共厕所旁边的 Troll.is 拖车。
+ 徒步 09:10、皮划艇 13:10 到（按票面）\n完整行程：https:/
+ /nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:80f0f25e65a77a55@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260927T170000Z
+DTEND:20260928T100000Z
+SUMMARY:🛏 Guesthouse Birkifell
+LOCATION:Birkifell\, 781 Nesjum\, Iceland
+DESCRIPTION:Guesthouse Birkifell · 2 卧整栋（Höfn 西 10 km）\n📍
+  Birkifell\, 781 Nesjum\, Iceland\n地图：https://www.google.com/maps/s
+ earch/?api=1&query=64.39410022260867%2C-15.334103107452393\n入住 17:00
+ –21:00 · 退房 08:00–11:00\n完整行程：https://nordic.airacle.c
+ om/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:1a59461e441cf381@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260927T220000Z
+DTEND:20260928T003000Z
+SUMMARY:夜：开去 Stokksnes 等极光
+LOCATION:
+DESCRIPTION:🆕 夜：开去 Stokksnes 等极光（ 22:00 之后 ，让
+ 开周日例会）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:30f6d19eeaa3ab6e@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260928T083000Z
+DTEND:20260928T173000Z
+SUMMARY:黄金圈
+LOCATION:
+DESCRIPTION:🆕 黄金圈（蓝湖已挪走）约 400 km / 5h：Þingvell
+ ir · Geysir · Gullfoss\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:c788a5ac12e9c806@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260928T193000Z
+DTEND:20260929T100000Z
+SUMMARY:🛏 Njarðvík · Ocean Break（Airbnb）
+LOCATION:Njarðvík\, Reykjanesbær\, Iceland（精确门牌号在 Airbnb 
+ 订单 / App 里）
+DESCRIPTION:Njarðvík · Hot tub & Sauna · Ocean Break（3房/3床/ 1卫
+  ）\n📍 Njarðvík\, Reykjanesbær\, Iceland（精确门牌号在 Airb
+ nb 订单 / App 里）\n地图：https://www.google.com/maps/search/?api=
+ 1&query=Njar%C3%B0v%C3%ADk%2C%20Reykjanesb%C3%A6r\n入住 14:00–02:00 
+ · 退房 11:00 · 密码箱自助取钥匙\n完整行程：https://nordi
+ c.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:c66380758472e892@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260929T100000Z
+DTEND:20260929T170000Z
+SUMMARY:真正的休息日：睡到自然醒 + 雷市城里
+LOCATION:
+DESCRIPTION:🆕 真正的休息日：睡到自然醒 + 雷市城里（雷
+ 克雅内斯已挪到 9/25）\n完整行程：https://nordic.airacle.com/
+ info/
+END:VEVENT
+BEGIN:VEVENT
+UID:560fd261e228b9be@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260929T180000Z
+DTEND:20260929T183000Z
+SUMMARY:🚗 还车 · 🇮🇸 冰岛 · Land Rover Defender 110 
+LOCATION:Avis · 凯夫拉维克机场
+DESCRIPTION:✅ 🇮🇸 冰岛 · Land Rover Defender 110 （Premium SUV 
+ · Avis）· 5 个计费日\n📍 Avis · 凯夫拉维克机场\n地图
+ ：https://www.google.com/maps/search/?api=1&query=Avis%20Keflav%C3%ADk%2
+ 0Airport\n航站楼外坐租车摆渡车（KEF 所有自动挡四驱都
+ 不在楼内）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:2480c5dcffc5f747@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260929T200500Z
+DTEND:20260929T224500Z
+SUMMARY:✈ DY1171 · 冰岛凯夫拉维克机场 → 奥斯陆加勒穆
+ 恩机场
+LOCATION:冰岛凯夫拉维克机场 KEF
+DESCRIPTION:✈ DY1171 KEF 20:05 → OSL 00:45+1（ 已出票 · 4 人齐 
+ ）\n📍 冰岛凯夫拉维克机场 KEF\n地图：https://www.google.co
+ m/maps/search/?api=1&query=Keflav%C3%ADk%20International%20Airport\n完
+ 整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:0f450b397b01f658@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260929T224500Z
+DTEND:20260929T230000Z
+SUMMARY:深夜走连廊到酒店 约 5 min
+LOCATION:
+DESCRIPTION:🆕 深夜走连廊到酒店 约 5 min（原方案是 01:30 
+ 才到 Nannestad）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:cd2dbfe990a6e3c0@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260929T230000Z
+DTEND:20260930T093000Z
+SUMMARY:🛏 Radisson Blu Airport Hotel\, Oslo
+LOCATION:Hotelvegen\, 2061 Gardermoen\, Norway
+DESCRIPTION:🆕🆕 Radisson Blu Airport Hotel ×2 间 · 连廊直通航
+ 站楼\n📍 Hotelvegen\, 2061 Gardermoen\, Norway\n地图：https://www.
+ google.com/maps/search/?api=1&query=60.192372084713625%2C11.0955154895782
+ 47\n入住 15:00–24:00 · 退房 04:00–12:00 · 24 小时前台 · 
+ 从到达大厅走连廊约 5 分钟\n⚠️ 01:00 才到，Booking 上
+ 写的入住截止是 24:00 —— 在 Booking 订单里给酒店留言
+ 「凌晨 1 点到」（24 小时前台，但先说一声）\n完整行
+ 程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:df36856df715bdae@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260930T112000Z
+DTEND:20260930T130000Z
+SUMMARY:【待定】✈ 挪威航空 · 奥斯陆加勒穆恩机场 → 
+ 哈尔斯塔/纳尔维克埃沃内斯机场
+LOCATION:奥斯陆加勒穆恩机场 OSL
+DESCRIPTION:【待定】\n✈ OSL → EVE 埃沃内斯 · 🆕 改推 13:2
+ 0 → 15:00 （Norwegian，1h40 直飞）\n📍 奥斯陆加勒穆恩机
+ 场 OSL\n地图：https://www.google.com/maps/search/?api=1&query=Oslo%20
+ Airport%20Gardermoen\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:6a01ff76d0b03939@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260930T133000Z
+DTEND:20260930T140000Z
+SUMMARY:🚗 取车 · 🇳🇴 车① · Toyota RAV 4WD · Standard · 
+ 自动挡 · SIXT
+LOCATION:SIXT · 埃沃内斯机场
+DESCRIPTION:✅ 🇳🇴 车① · Toyota RAV 4WD · Standard · 自动挡
+  · SIXT（EVE 取 → Leknes 还）\n📍 SIXT · 埃沃内斯机场\n
+ 地图：https://www.google.com/maps/search/?api=1&query=SIXT%20Harstad/N
+ arvik%20Airport%20Evenes\n航站楼内柜台\n⚠️ 订单说明里写
+ 的是 9/30 11:00 取车，时刻表是 15:30 —— 以租车单为准
+ ，对不上就改单\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:0723b10611e91744@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260930T134500Z
+DTEND:20260930T165000Z
+SUMMARY:EVE → Lyngvær 175 km / 3h02 
+LOCATION:
+DESCRIPTION:EVE → Lyngvær 175 km / 3h02 （OSRM 实测）\n完整行程
+ ：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:61ce3cd267e62718@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20260930T170000Z
+DTEND:20261002T080000Z
+SUMMARY:🛏 Nordic Lodge Retreat · Lyngvær（Airbnb）
+LOCATION:Vågan\, Nordland\, Norway（精确门牌号在 Airbnb 订单 / A
+ pp 里）
+DESCRIPTION:✅ Nordic Lodge Retreat · Lyngvær（4房/8床/2卫 · 桑
+ 拿+按摩浴缸）\n📍 Vågan\, Nordland\, Norway（精确门牌号在
+  Airbnb 订单 / App 里）\n地图：https://www.google.com/maps/search/
+ ?api=1&query=Lyngv%C3%A6r%2C%20V%C3%A5gan\n入住 16:00 · 退房 11:00 
+ · 门锁密码自助入住\n完整行程：https://nordic.airacle.com/in
+ fo/
+END:VEVENT
+BEGIN:VEVENT
+UID:89a25ed25f2a2b65@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261001T070000Z
+DTEND:20261001T150000Z
+SUMMARY:西行往返约 4h：Hamnøy 红屋 · Sakrisøy · Reine
+LOCATION:
+DESCRIPTION:西行往返约 4h：Hamnøy 红屋 · Sakrisøy · Reine（Re
+ inebringen 阶梯 1.5–2h）\n完整行程：https://nordic.airacle.com/
+ info/
+END:VEVENT
+BEGIN:VEVENT
+UID:fbbe3fb8b443c3d4@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261001T180000Z
+DTEND:20261001T213000Z
+SUMMARY:夜：极光
+LOCATION:
+DESCRIPTION:夜：极光（罗弗敦已开季）\n完整行程：https://n
+ ordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:607fb07588002511@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T090000Z
+DTEND:20261002T110000Z
+SUMMARY:上午： 11:00 之后 才出门
+LOCATION:
+DESCRIPTION:🆕 上午： 11:00 之后 才出门（让开周五例会）
+ → Henningsvær（28 min）\n完整行程：https://nordic.airacle.com/i
+ nfo/
+END:VEVENT
+BEGIN:VEVENT
+UID:43f721c278e64706@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T110000Z
+DTEND:20261002T121500Z
+SUMMARY:Lyngvær → Leknes 机场 63.6 km / 1h16
+LOCATION:
+DESCRIPTION:Lyngvær → Leknes 机场 63.6 km / 1h16（OSRM）\n完整行
+ 程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:2987d06f7e2e3c6e@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T123000Z
+DTEND:20261002T130000Z
+SUMMARY:🚗 还车 · 🇳🇴 车① · Toyota RAV 4WD · Standard · 
+ 自动挡 · SIXT
+LOCATION:SIXT 还车 · 莱克内斯机场
+DESCRIPTION:✅ 🇳🇴 车① · Toyota RAV 4WD · Standard · 自动挡
+  · SIXT（EVE 取 → Leknes 还）\n📍 SIXT 还车 · 莱克内斯机
+ 场\n地图：https://www.google.com/maps/search/?api=1&query=Leknes%20Ai
+ rport\n异地还车\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:fc8cd8709952295e@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T134000Z
+DTEND:20261002T143500Z
+SUMMARY:✈ WF816 · 莱克内斯机场 → 特罗姆瑟机场
+LOCATION:莱克内斯机场 LKN（罗弗敦）
+DESCRIPTION:✈ WF816 Leknes → 特罗姆瑟 （Widerøe Dash-8，直飞 
+ 55 min）\n📍 莱克内斯机场 LKN（罗弗敦）\n地图：https://w
+ ww.google.com/maps/search/?api=1&query=Leknes%20Airport\n完整行程：h
+ ttps://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:56573e38b347d5a5@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T150000Z
+DTEND:20261002T153000Z
+SUMMARY:🚗 取车 · 🇳🇴 车② · Volvo V90 4WD 或同级 Premium 
+ · 自动挡 · SIXT
+LOCATION:SIXT · 特罗姆瑟机场
+DESCRIPTION:✅ 🇳🇴 车② · Volvo V90 4WD 或同级 Premium · 自
+ 动挡 · SIXT（TOS 取还）\n📍 SIXT · 特罗姆瑟机场\n地图
+ ：https://www.google.com/maps/search/?api=1&query=SIXT%20Troms%C3%B8%20A
+ irport\n航站楼内柜台\n完整行程：https://nordic.airacle.com/inf
+ o/
+END:VEVENT
+BEGIN:VEVENT
+UID:789b6f07d4118200@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T160000Z
+DTEND:20261005T070000Z
+SUMMARY:🛏 特罗姆瑟 4 房公寓（Airbnb）
+LOCATION:Tromsø\, Troms og Finnmark\, Norway（精确门牌号在 Airbnb 
+ 订单 / App 里）
+DESCRIPTION:特罗姆瑟 4 房 · 4 床 · 2 卫（连住 3 晚）\n📍 T
+ romsø\, Troms og Finnmark\, Norway（精确门牌号在 Airbnb 订单 / 
+ App 里）\n地图：https://www.google.com/maps/search/?api=1&query=Trom
+ s%C3%B8\n入住 15:00 · 退房 11:00 · 密码箱自助取钥匙\n完整
+ 行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:bf6bb0f769e9d469@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261002T173000Z
+DTEND:20261002T213000Z
+SUMMARY:夜：第一场极光
+LOCATION:
+DESCRIPTION:夜：第一场极光（18:30 就天黑了，所以下午到
+ 不吃亏）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:01be378bc31972f1@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261003T080000Z
+DTEND:20261003T150000Z
+SUMMARY:市区：北极大教堂 · Fjellheisen 缆车上 Storsteinen
+LOCATION:
+DESCRIPTION:市区：北极大教堂 · Fjellheisen 缆车上 Storsteinen\
+ n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:4a659661923ab3de@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261003T173000Z
+DTEND:20261003T215900Z
+SUMMARY:夜：往内陆开，躲云追极光
+LOCATION:
+DESCRIPTION:夜：往内陆开，躲云追极光\n完整行程：https://n
+ ordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:5f9f784e1159d003@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261004T053000Z
+DTEND:20261004T170000Z
+SUMMARY:【待定】Senja 往返约 500 km / 路上 5–6h：Tungeneset ·
+  Bergsbotn · Ersfjord
+LOCATION:
+DESCRIPTION:【待定】\nSenja 往返约 500 km / 路上 5–6h：Tungene
+ set · Bergsbotn · Ersfjord\n完整行程：https://nordic.airacle.com/i
+ nfo/
+END:VEVENT
+BEGIN:VEVENT
+UID:87494cde5a57bc01@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261005T080000Z
+DTEND:20261005T083000Z
+SUMMARY:🚗 还车 · 🇳🇴 车② · Volvo V90 4WD 或同级 Premium 
+ · 自动挡 · SIXT
+LOCATION:SIXT · 特罗姆瑟机场
+DESCRIPTION:✅ 🇳🇴 车② · Volvo V90 4WD 或同级 Premium · 自
+ 动挡 · SIXT（TOS 取还）\n📍 SIXT · 特罗姆瑟机场\n地图
+ ：https://www.google.com/maps/search/?api=1&query=SIXT%20Troms%C3%B8%20A
+ irport\n航站楼内柜台\n⚠️ 订单说明里写的是 10/5 17:00 
+ 还车，时刻表是 10:00 —— 以租车单为准，对不上就改
+ 单\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:d953c63015567bfd@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261005T084500Z
+DTEND:20261005T104000Z
+SUMMARY:【待定】✈ 挪威航空 · 特罗姆瑟机场 → 奥斯陆
+ 加勒穆恩机场
+LOCATION:特罗姆瑟机场 TOS
+DESCRIPTION:【待定】\n✈ 特罗姆瑟 → OSL（🆕 改推 Norwegian
+  10:45→12:40 ）\n📍 特罗姆瑟机场 TOS\n地图：https://www.goo
+ gle.com/maps/search/?api=1&query=Troms%C3%B8%20Airport\n完整行程：ht
+ tps://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:22d909c6e15718aa@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261005T110000Z
+DTEND:20261005T113000Z
+SUMMARY:🚗 取车 · 🇳🇴 车③ · Porsche Macan 4WD
+LOCATION:SIXT · 奥斯陆机场
+DESCRIPTION:✅ 🇳🇴 车③ · Porsche Macan 4WD（纯电 · 保证车
+ 型） · SIXT（OSL 取还）\n📍 SIXT · 奥斯陆机场\n地图：ht
+ tps://www.google.com/maps/search/?api=1&query=SIXT%20Oslo%20Airport%20Gar
+ dermoen\n航站楼内柜台\n完整行程：https://nordic.airacle.com/in
+ fo/
+END:VEVENT
+BEGIN:VEVENT
+UID:c2d8b5a27a31ef81@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261005T112000Z
+DTEND:20261005T164500Z
+SUMMARY:OSL → Stange/Mjøsli 30–40 min，Mjøsa 湖畔
+LOCATION:
+DESCRIPTION:OSL → Stange/Mjøsli 30–40 min，Mjøsa 湖畔（18:45 天
+ 黑）\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:dda1f6d9b3460876@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261005T114000Z
+DTEND:20261006T090000Z
+SUMMARY:🛏 Konglehytta 3 · Star View（Airbnb）
+LOCATION:Stange\, Innlandet\, Norway（精确门牌号在 Airbnb 订单 / 
+ App 里）
+DESCRIPTION:Konglehytta 3 · Star View · 私人桑拿（2房/3床/ 1卫 
+ ）\n📍 Stange\, Innlandet\, Norway（精确门牌号在 Airbnb 订单 
+ / App 里）\n地图：https://www.google.com/maps/search/?api=1&query=St
+ ange%2C%20Innlandet%2C%20Norway\n入住 15:00 · 退房 11:00 · 密码
+ 箱自助取钥匙\n⚠️ 时刻表上 13:40 就到了，但 15:00 以
+ 后才能入住 —— 先去别处转转或寄存行李\n完整行程：
+ https://nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:89e60a1b9db80960@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261006T090000Z
+DTEND:20261006T110000Z
+SUMMARY:退房 → 开 30–40 min 回 OSL 还车
+LOCATION:
+DESCRIPTION:退房 → 开 30–40 min 回 OSL 还车（ 单子约 13:00 
+ ，洲际若在上午就得改早到 09:00）\n完整行程：https://nor
+ dic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:4b5f0a8e60f3bc2e@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261006T100000Z
+DTEND:20261006T120000Z
+SUMMARY:【待定】✈ 洲际（未定） · 奥斯陆加勒穆恩机场 
+ → 北京首都国际机场
+LOCATION:奥斯陆加勒穆恩机场 OSL
+DESCRIPTION:【待定】\n✈ OSL → 北京（10/6 还是 10/7 未定）\
+ n📍 奥斯陆加勒穆恩机场 OSL\n地图：https://www.google.com/ma
+ ps/search/?api=1&query=Oslo%20Airport%20Gardermoen\n完整行程：https:
+ //nordic.airacle.com/info/
+END:VEVENT
+BEGIN:VEVENT
+UID:e9d6fc97066196b2@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261006T110000Z
+DTEND:20261006T113000Z
+SUMMARY:🚗 还车 · 🇳🇴 车③ · Porsche Macan 4WD
+LOCATION:SIXT · 奥斯陆机场
+DESCRIPTION:✅ 🇳🇴 车③ · Porsche Macan 4WD（纯电 · 保证车
+ 型） · SIXT（OSL 取还）\n📍 SIXT · 奥斯陆机场\n地图：ht
+ tps://www.google.com/maps/search/?api=1&query=SIXT%20Oslo%20Airport%20Gar
+ dermoen\n航站楼内柜台\n完整行程：https://nordic.airacle.com/in
+ fo/
+END:VEVENT
+BEGIN:VEVENT
+UID:b9afb8f5f7e38b5b@nordic.airacle.com
+DTSTAMP:20260926T102720Z
+DTSTART:20261006T152000Z
+DTEND:20261006T181500Z
+SUMMARY:【待定】✈ Steve 单飞 · 挪威航空 · 奥斯陆加勒穆
+ 恩机场 → 尼斯蔚蓝海岸机场
+LOCATION:奥斯陆加勒穆恩机场 OSL
+DESCRIPTION:【待定】\n✈ Steve 单飞 ：OSL 17:20 → 尼斯 20:15
+ （直飞 2h55，$85）\n📍 奥斯陆加勒穆恩机场 OSL\n地图：h
+ ttps://www.google.com/maps/search/?api=1&query=Oslo%20Airport%20Gardermoe
+ n\n完整行程：https://nordic.airacle.com/info/
+END:VEVENT
+END:VCALENDAR
