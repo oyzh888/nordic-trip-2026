@@ -78,7 +78,7 @@ def main():
                     pass
                 body = pg.inner_text("body")
                 m = re.search(r"Prices are currently (\w+)[^\n]*", body)
-                m2 = re.search(r"usually cost between \$[\d,]+[–-]\$[\d,]+", body)
+                m2 = re.search(r"usually cost between \$[\d,]+\s*(?:[–-]|and)\s*\$[\d,]+", body)
                 insight = {"level": m.group(1) if m else None, "range": m2.group(0) if m2 else None}
                 rows = pg.locator("li").filter(has_text=re.compile(r"\$"))
                 seen = set()
