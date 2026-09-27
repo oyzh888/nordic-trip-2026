@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """演示走查：真上传 → 线上常驻 GPU 端真分析 → 真 AI 改图 → 每个界面截图 → 全部删掉。
 
-    python test/showcase.py https://nordic.airacle.com /mnt/localssd/colligo_cache/tmp/photos-showcase
+    python test/showcase.py https://nordic.airacle.com /tmp/photos-showcase
 
 和 pipe_e2e.py 用同一批素材，但**只用风景**（Wikimedia Commons，CC 授权）—— 截图要发出去，
 人物照（公众人物的公开照片、insightface 自带的合影）一张都不传。所以人物页在这里是空的，人脸识别的结果看 pipe_e2e。
