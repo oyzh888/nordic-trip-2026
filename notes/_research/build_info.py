@@ -75,9 +75,15 @@ def t24(s):
 ADDR_FIX = {
     "rvk":         "Hringbraut 120, Reykjavík, Reykjavíkurborg 101, Iceland",
     "njardvik":    "Gónhóll 18, Njarðvík, Reykjanesbær 260, Iceland",
-    "lyngvaer":    "Veg 2803, Vågan, Nordland 8313, Norway",
+    "lyngvaer":    "Veg 2803 5, 8313 Kleppstad, Norway",
     "tromso":      "Tønsvikvegen 444, Tromsø, Troms og Finnmark 9022, Norway",
     "konglehytta": "Lushattvegen 16 Konglehytte III, Stange, Innlandet 2338, Norway",
+}
+# 2026-09-28：订单实查的精确地图钉（Airbnb 订单「Getting there」）。
+# lyngvaer 原文字地址 "Veg 2803, Vågan" 定位不到精确位置（只能到城市级），
+# 订单内精确地址为 "Veg 2803 5, 8313 Kleppstad"，地图钉 68.233533,14.22621。
+LL_FIX = {
+    "lyngvaer": [68.233533, 14.22621],
 }
 def stay(key, name, q, how_note=""):
     p = PR[key]
@@ -88,7 +94,7 @@ def stay(key, name, q, how_note=""):
     area = p.get("where") if p.get("where") and "," in p.get("where", "") else q    # 「Find things to do」这种是抓错了
     return {"kind": "stay", "name": name, "addr": addr,
             "area": None if exact else area,
-            "exact": exact, "ll": p.get("ll"), "q": addr or q,
+            "exact": exact, "ll": LL_FIX.get(key) or p.get("ll"), "q": addr or q,
             "checkin": ci, "checkout": co,
             "how": {"lockbox": "密码箱自助取钥匙", "keypad": "门锁密码自助入住"}.get(
                 next((w for w in ("lockbox", "keypad") if w in (p.get("how") or "")), ""), "") or how_note,
@@ -131,6 +137,10 @@ PLACE = {
     "troll": {"kind": "act", "name": "Troll.is 集合点 · 冰河湖停车场", "q": "Jökulsárlón Glacier Lagoon parking",
               "hint": "停车场里食物车后面、公共厕所旁边的 Troll.is 拖车。徒步 09:10、皮划艇 13:10 到（按票面）"},
 }
+# 房东开车指引（2026-09-28 从 Airbnb 订单「Getting there」抄录）
+PLACE["lyngvaer"]["hint"] = ("Svolvær 沿 E10 开，过 Henningsvær 后注意蓝色 Lyngvær 路牌；"
+    "约 1 分钟后见 Lyngvær Lodges 牌左转，沿小路开、到路口前再左转，"
+    "小路尽头 5 号木屋就是")
 
 
 # ---------------- 北欧段：从 EV 变成「带地点的事件」 ----------------
@@ -280,8 +290,9 @@ def finish(it):
                  or ((p or {}).get("area") and f"{p['area']}（精确门牌号在 Airbnb 订单 / App 里）")
                  or (p or {}).get("name") or it.get("q") or "")
     if q:
-        it["gmap"] = gmaps(f"{ll[0]},{ll[1]}" if (ll and (p or {}).get("exact")) else q)
-        it["amap"] = amaps(q, ll if (p or {}).get("exact") else None)
+        pin = ll and ((p or {}).get("exact") or it.get("place") in LL_FIX)
+        it["gmap"] = gmaps(f"{ll[0]},{ll[1]}" if pin else q)
+        it["amap"] = amaps(q, ll if pin else None)
     if it.get("place2"):
         p2 = PLACE[it["place2"]]
         it["loc2"] = p2["name"]
@@ -365,7 +376,7 @@ for k in ("radisson", "rvk", "horgsland", "birkifell", "njardvik", "lyngvaer", "
     nights = [e for e in nordic if e.get("place") == k and e["kind"] == "stay"]
     stays_tbl.append({"name": p["name"], "addr": p.get("addr"), "area": p.get("area"), "exact": p["exact"],
                       "checkin": p["checkin"], "checkout": p["checkout"], "how": p.get("how"), "url": p["url"],
-                      "gmap": gmaps(f"{p['ll'][0]},{p['ll'][1]}" if p["exact"] and p.get("ll") else p["q"]),
+                      "gmap": gmaps(f"{p['ll'][0]},{p['ll'][1]}" if p.get("ll") and (p["exact"] or k in LL_FIX) else p["q"]),
                       "nights": [(n["local_s"][5:10], n["local_e"][5:10]) for n in nights]})
 
 (SITE / "info").mkdir(exist_ok=True)

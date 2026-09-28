@@ -405,17 +405,18 @@ const INFO = {
    "e": "2026-10-02T10:00",
    "tz_s": 2,
    "tz_e": 2,
-   "loc": "Veg 2803, Vågan, Nordland 8313, Norway",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Veg%202803%2C%20V%C3%A5gan%2C%20Nordland%208313%2C%20Norway",
-   "amap": "https://maps.apple.com/?q=Veg%202803%2C%20V%C3%A5gan%2C%20Nordland%208313%2C%20Norway",
+   "loc": "Veg 2803 5, 8313 Kleppstad, Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=68.233533%2C14.22621",
+   "amap": "https://maps.apple.com/?q=Veg%202803%205%2C%208313%20Kleppstad%2C%20Norway&ll=68.233533,14.22621",
    "exact": false,
    "area": "Vågan, Nordland, Norway",
    "checkin": "16:00",
    "checkout": "11:00",
    "how": "门锁密码自助入住",
+   "hint": "Svolvær 沿 E10 开，过 Henningsvær 后注意蓝色 Lyngvær 路牌；约 1 分钟后见 Lyngvær Lodges 牌左转，沿小路开、到路口前再左转，小路尽头 5 号木屋就是",
    "url": "https://www.airbnb.com/rooms/1303545546783105490",
    "detail": "✅ Nordic Lodge Retreat · Lyngvær（4房/8床/2卫 · 桑拿+按摩浴缸）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%88Airbnb%EF%BC%89&dates=20260930T170000Z%2F20261002T080000Z&location=Veg+2803%2C+V%C3%A5gan%2C+Nordland+8313%2C+Norway&details=%E2%9C%85+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%884%E6%88%BF%2F8%E5%BA%8A%2F2%E5%8D%AB+%C2%B7+%E6%A1%91%E6%8B%BF%2B%E6%8C%89%E6%91%A9%E6%B5%B4%E7%BC%B8%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%88Airbnb%EF%BC%89&dates=20260930T170000Z%2F20261002T080000Z&location=Veg+2803+5%2C+8313+Kleppstad%2C+Norway&details=%E2%9C%85+Nordic+Lodge+Retreat+%C2%B7+Lyngv%C3%A6r%EF%BC%884%E6%88%BF%2F8%E5%BA%8A%2F2%E5%8D%AB+%C2%B7+%E6%A1%91%E6%8B%BF%2B%E6%8C%89%E6%91%A9%E6%B5%B4%E7%BC%B8%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -1119,14 +1120,14 @@ const INFO = {
   },
   {
    "name": "Nordic Lodge Retreat · Lyngvær（Airbnb）",
-   "addr": "Veg 2803, Vågan, Nordland 8313, Norway",
+   "addr": "Veg 2803 5, 8313 Kleppstad, Norway",
    "area": "Vågan, Nordland, Norway",
    "exact": false,
    "checkin": "16:00",
    "checkout": "11:00",
    "how": "门锁密码自助入住",
    "url": "https://www.airbnb.com/rooms/1303545546783105490",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Veg%202803%2C%20V%C3%A5gan%2C%20Nordland%208313%2C%20Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=68.233533%2C14.22621",
    "nights": [
     [
      "09-30",
@@ -1169,5 +1170,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-26 10:37 UTC"
+ "built": "2026-09-28 21:11 UTC"
 };
