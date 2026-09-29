@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day by day · Nordic 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="hero" style="min-height:clamp(340px,58vh,520px)">
+  <img class="bg" id="heroimg" alt="">
+  <div class="in">
+    <div class="eyebrow">Thirteen days · five acts</div>
+    <h1>Day by day</h1>
+    <p class="sub">Each day: where to, how far the drive, where to sleep, what that night holds.
+      Scenery photos all from Wikimedia (CC licensed), stay photos from the listings —
+      the actual houses, not illustrations.</p>
+  </div>
+</div>
+
+<div id="acts"></div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">↗</span>Next</h2>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <a class="badge ok" href="/en/plan/">Final plan · timeline &amp; bill →</a>
+      <a class="badge" href="/en/cars/">The four cars →</a>
+      <a class="badge" href="/en/">Home</a>
+    </div>
+  </div>
+</section>
+
+<script src="/en/data.js"></script>
+<script src="/en/app.js"></script>
+<script>
+chrome();
+const findImg = slug => { for (const d of DAYS) for (const i of (d.imgs||[])) if (i.slug === slug) return i; };
+const hero = findImg('hamnoy') || findImg('lofoten') || DAYS[0].imgs[0];
+$('#heroimg').src = hero.src; $('#heroimg').alt = 'Hamnøy red cabins, Lofoten';
+
+/* one section per act — the long scroll gets to breathe instead of thirteen
+   cards in a row */
+$('#acts').innerHTML = ACTS.map((a, ai) => {
+  const mine = DAYS.filter(d => d.act === a.id);
+  if (!mine.length) return '';
+  /* data-hue = act index: the whole section (title, numbers, day numbers,
+     stay badges, background glow) shares one hue; the next act takes the next */
+  return `<section data-hue="${Math.min(4, ai)}">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--acc)">${esc(a.num)} · ${esc(a.en || '')}</div>
+      <h2><span class="n">${String(ai).padStart(2,'0')}</span>${esc(a.title)}</h2>
+      <p class="lede">${md(a.lede || '')}</p>
+    </div>
+    <div class="wrap">${mine.map(d => dayCard(d)).join('')}</div>
+  </section>`;
+}).join('');
+
+/* single day card: image left / text right, alternating rows (CSS does the
+   flip); days with more photos expand to show them all */
+function dayCard(d) {
+  const im = (d.imgs || [])[0];
+  const more = (d.imgs || []).slice(1);
+  const shots = d.shots || [];
+  return `<div class="day">
+    <div class="ph">${im ? `<img src="${im.src}" alt="${esc(d.t)}" loading="lazy">` : ''}</div>
+    <div class="tx">
+      <div class="no">DAY ${esc(d.n)} · ${esc(d.date)} ${esc(d.wd)}</div>
+      <h3>${esc(d.t)}</h3><div class="en">${esc(d.en || '')}</div>
+      <p>${md(d.body || '')}</p>
+      <div class="kv">
+        ${d.drive ? `<span class="badge">🚗 ${esc(d.drive)}</span>` : ''}
+        ${d.stayname ? `<span class="badge ok">🛏 ${esc(d.stayname)}</span>` : ''}
+      </div>
+      ${d.staymeta ? `<div class="s" style="margin-top:9px">${esc(d.staymeta)}</div>` : ''}
+      ${(more.length || shots.length) ? `<details class="det" style="margin-top:13px">
+        <summary>${more.length + shots.length} more (${more.length} scenery · ${shots.length} stays)</summary>
+        <div class="bd"><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:7px">
+          ${more.map(i => `<a href="${i.src}" target="_blank" rel="noopener"><img src="${i.src}" alt="${esc(i.slug||'')}" loading="lazy" style="aspect-ratio:1;object-fit:cover;border-radius:7px"></a>`).join('')}
+          ${shots.map(s => `<a href="${s}" target="_blank" rel="noopener"><img src="${s}" alt="stay" loading="lazy" style="aspect-ratio:1;object-fit:cover;border-radius:7px;outline:1px solid var(--hair2)"></a>`).join('')}
+        </div></div></details>` : ''}
+    </div></div>`;
+}
+</script>
+<script src="/en/anim.js"></script>
+</body>
+</html>

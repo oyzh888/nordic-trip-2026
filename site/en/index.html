@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nordic 2026 · 13 days · Final plan</title>
+<meta name="description" content="2026-09-24 → 10-06, 4 people, Oslo → Iceland → Lofoten → Tromsø / Senja → Oslo. Four cars booked, three flights ticketed, every price captured from real pages.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="hero">
+  <img class="bg" id="heroimg" alt="">
+  <div class="in">
+    <div class="eyebrow">2026 · 09 · 24 → 10 · 06 · thirteen days · four people</div>
+    <h1>North, to see the light</h1>
+    <p class="sub">Oslo → Iceland's south coast → Lofoten → Tromsø &amp; Senja → back to Oslo.
+      Two guys and a couple, four cars, eight flights, twelve nights.</p>
+    <div class="meta" id="herobadges"></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Where things stand</div>
+    <h2><span class="n">01</span>Status in one line</h2>
+    <p class="lede"><b>All four cars paid, three flights ticketed, the two Lofoten nights booked.</b>
+      What's left: <b>4 tickets for 10/2</b> (only 6 seats left — most urgent), <b>8 nights of stays</b>
+      (almost all free cancellation → book now, no downside),
+      and one thing to pin down: <b>what time the 10/6 intercontinental flight leaves</b> — it decides
+      whether the Oslo car's return must move earlier.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Five acts</div>
+    <h2><span class="n">02</span>How the thirteen days split</h2>
+    <p class="lede">Not thirteen average days, but five acts each with its own character — layovers,
+      Iceland's water and ice, Lofoten's postcards, Tromsø's aurora and Senja,
+      and a final buffer night by the lake.</p>
+    <div class="cards" id="acts"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">First four days</div>
+    <h2><span class="n">03</span>Itinerary preview</h2>
+    <p class="lede">The first four days below. <a href="/en/days/">Full thirteen days →</a></p>
+  </div>
+  <div class="wrap" id="days"></div>
+  <div class="wrap" style="margin-top:26px">
+    <a class="badge ok" href="/en/days/">See all thirteen days →</a>
+    <a class="badge" href="/en/plan/">Final plan &amp; bill →</a>
+    <a class="badge" href="/en/cars/">The four cars →</a>
+  </div>
+</section>
+
+<script src="/en/data.js"></script>
+<script src="/en/app.js"></script>
+<script>
+chrome();
+
+/* hero uses the Tromsø aurora shot — the theme of the whole trip */
+const findImg = slug => { for (const d of DAYS) for (const i of (d.imgs||[])) if (i.slug === slug) return i; };
+const hero = findImg('aurora_no') || findImg('aurora_lof') || DAYS[6].imgs[0];
+$('#heroimg').src = hero.src;
+$('#heroimg').alt = 'Aurora over Tromsø';
+
+$('#herobadges').innerHTML = [
+  ['ok',  '✅ 4 cars paid $2,409.83'],
+  ['ok',  '✅ 3 flights ticketed'],
+  ['ok',  '✅ Lofoten 2 nights booked'],
+  ['hot', '🔴 10/2 tickets: only 6 left'],
+  ['amb', '🟠 8 nights of stays to book'],
+].map(([c,t]) => `<span class="badge ${c}">${t}</span>`).join('');
+
+/* stat strip: compute from data wherever possible, never hand-write */
+const nights = EV.filter(e => e.lane === 'stay').length;
+const flights = EV.filter(e => e.lane === 'fly').length;
+$('#stats').innerHTML = [
+  ['13', 'days'], ['4', 'people'], [String(flights), 'flights'], ['4', 'cars'],
+  ['$2,409.83', 'car rental (half paid)'], ['≈¥71,400', 'total · ¥17,850 per person'],
+].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+
+/* the five act cards sit side by side, so they must NOT each take a color
+   (that is exactly what looks cheap). One --acc for the act, brightness steps
+   in order — shades of one family, not five colors.
+   Real hue changes happen on /en/days/: each act is its own full section there. */
+$('#acts').innerHTML = ACTS.map((a, i) => {
+  const w = 34 + i * 14;               // 34% → 90%, five brightness steps
+  return `<div class="card" style="border-top:2px solid color-mix(in srgb,var(--acc) ${w}%, var(--hair))">
+    <div class="s" style="font-family:var(--mono);letter-spacing:.12em;
+         color:color-mix(in srgb,var(--acc) ${Math.min(100, w + 20)}%, var(--ink3))">
+      ${esc(a.num)} · ${esc(a.en || '')}</div>
+    <h3 style="font:400 22px/1.25 var(--disp);margin:9px 0 3px">${esc(a.title)}</h3>
+    <div class="s" style="margin-bottom:9px">${esc(a.sub || '')}</div>
+    <div style="font-size:14px;color:var(--ink2)">${md(a.lede || '')}</div>
+  </div>`;
+}).join('');
+
+days($('#days'), 4);
+</script>
+<script src="/en/anim.js"></script>
+</body>
+</html>
