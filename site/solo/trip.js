@@ -76,7 +76,7 @@ const TDAYS = [
     blocks: [
       { k: 'sleep', a: 0.5, b: 7.5 },
       { k: 'move', a: 8.25, b: 9, t: '住处 → 尼斯机场（2 号线电车，法国时间 09:15 出门）' },
-      { k: 'fly', a: 10.58, b: 12.83, t: 'NCE → LHR 英国航空（法国 11:35 起飞）' },
+      { k: 'fly', a: 10.58, b: 12.83, t: 'NCE → LGW 英国航空 BA2575（法国 11:35 起飞）' },
       { k: 'move', a: 12.83, b: 14, t: '希思罗 → Paddington（Heathrow Express 15 分钟 + 出机场）' },
       { k: 'opt', a: 15, b: 17, t: '可选：Portobello 周六市集（周六是它一周最热闹的一天）' },
       { k: 'act', a: 19.5, b: 22, t: '🎭 西区看戏（周六夜场）', poi: 'westend', mode: '地铁 15 分钟' },

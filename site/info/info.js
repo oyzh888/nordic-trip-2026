@@ -828,8 +828,8 @@ const INFO = {
    "gmap": "https://www.google.com/maps/search/?api=1&query=Nice%20C%C3%B4te%20d%27Azur%20Airport",
    "amap": "https://maps.apple.com/?q=Nice%20C%C3%B4te%20d%27Azur%20Airport",
    "gmap2": "https://www.google.com/maps/search/?api=1&query=Gatwick%20Airport",
-   "detail": "NCE → LHR 英国航空（法国 11:35 起飞） · PNR ZL7DXD · 电子票 125-2245928831 · 含托运+登机箱",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA+BA2575+%C2%B7+%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+%E2%86%92+%E4%BC%A6%E6%95%A6%E7%9B%96%E7%89%B9%E5%A8%81%E5%85%8B%E6%9C%BA%E5%9C%BA&dates=20261010T093500Z%2F20261010T115000Z&location=%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+NCE&details=NCE+%E2%86%92+LHR+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA%EF%BC%88%E6%B3%95%E5%9B%BD+11%3A35+%E8%B5%B7%E9%A3%9E%EF%BC%89+%C2%B7+PNR+ZL7DXD+%C2%B7+%E7%94%B5%E5%AD%90%E7%A5%A8+125-2245928831+%C2%B7+%E5%90%AB%E6%89%98%E8%BF%90%2B%E7%99%BB%E6%9C%BA%E7%AE%B1%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "NCE → LGW 英国航空 BA2575（法国 11:35 起飞） · PNR ZL7DXD · 电子票 125-2245928831 · 含托运+登机箱",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA+BA2575+%C2%B7+%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+%E2%86%92+%E4%BC%A6%E6%95%A6%E7%9B%96%E7%89%B9%E5%A8%81%E5%85%8B%E6%9C%BA%E5%9C%BA&dates=20261010T093500Z%2F20261010T115000Z&location=%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+NCE&details=NCE+%E2%86%92+LGW+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA+BA2575%EF%BC%88%E6%B3%95%E5%9B%BD+11%3A35+%E8%B5%B7%E9%A3%9E%EF%BC%89+%C2%B7+PNR+ZL7DXD+%C2%B7+%E7%94%B5%E5%AD%90%E7%A5%A8+125-2245928831+%C2%B7+%E5%90%AB%E6%89%98%E8%BF%90%2B%E7%99%BB%E6%9C%BA%E7%AE%B1%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "stay",
@@ -1167,5 +1167,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-29 07:01 UTC"
+ "built": "2026-09-29 07:02 UTC"
 };
