@@ -12,7 +12,7 @@
 输出：
   site/info/info.js         页面数据
   site/cal/nordic.ics       全队 9/24–10/6（可订阅：改了行程重新生成，日历自己会更新）
-  site/cal/steve-solo.ics   Steve 10/6–10/17（没买的票标「待订」）
+  site/cal/steve-solo.ics   Steve 10/6–10/17（2026-09-26/27 机票已全部出票、住宿已订）
 
 时区：timeline.js 里的时刻都是**当地时间**。冰岛 UTC+0（不用夏令时），挪威 UTC+2（到 10/25），
 法国 UTC+2，英国 / 葡萄牙 UTC+1。航班的起止各按起降机场的时区算（SK4787 06:15 是奥斯陆时间、07:05 是冰岛时间）。
@@ -121,6 +121,7 @@ PLACE = {
     "TOS": {"kind": "air", "name": "特罗姆瑟机场 TOS", "q": "Tromsø Airport", "tz": 2},
     "NCE": {"kind": "air", "name": "尼斯蔚蓝海岸机场 NCE", "q": "Nice Côte d'Azur Airport", "tz": 2},
     "LHR": {"kind": "air", "name": "伦敦希思罗机场 LHR", "q": "Heathrow Airport", "tz": 1},
+    "LGW": {"kind": "air", "name": "伦敦盖特威克机场 LGW", "q": "Gatwick Airport", "tz": 1},
     "LTN": {"kind": "air", "name": "伦敦卢顿机场 LTN", "q": "London Luton Airport", "tz": 1},
     "LIS": {"kind": "air", "name": "里斯本 Humberto Delgado 机场 LIS", "q": "Lisbon Humberto Delgado Airport", "tz": 1},
     "SFO": {"kind": "air", "name": "旧金山国际机场 SFO", "q": "San Francisco International Airport", "tz": -7},
@@ -230,8 +231,12 @@ for e in TL["EV"]:
 
 # ---------------- Steve 后半段（方案 C） ----------------
 SOLO_FLY = {"10/6": None,   # 10/6 那班已经在北欧段里了
-            "10/10": ("NCE", "LHR", "英国航空"), "10/13": ("LTN", "LIS", "卢顿 → 里斯本"),
-            "10/17": ("LIS", "SFO", "葡萄牙航空 TAP 直飞")}
+            "10/10": ("NCE", "LGW", "英国航空 BA2575"), "10/13": ("LTN", "LIS", "easyJet U22461"),
+            "10/17": ("LIS", "SFO", "葡萄牙航空 TAP TP237")}
+# 2026-09-26/27 已全部出票（Trip.com，Rakuten返现下单）—— PNR / 电子票号 / 行李
+SOLO_TKT = {"10/10": "PNR ZL7DXD · 电子票 125-2245928831 · 含托运+登机箱",
+            "10/13": "PNR KDFXR7F · 含托运（无登机箱）",
+            "10/17": "PNR ZKC7CX · 电子票 047-2527404906 · 含 23kg 托运 · 10/16 13:10 开放在线值机"}
 solo = []
 for d in SOLO["TDAYS"]:
     mm, dd = d["d"].split("/")
@@ -252,9 +257,9 @@ for d in SOLO["TDAYS"]:
             start = utc(s_l, tz)                                   # trip.js 里统一按当天 tz 画
             dur = {"10/10": 2.25, "10/13": 2.92, "10/17": 12.42}[d["d"]]
             end = start + dt.timedelta(hours=dur)
-            solo.append({"kind": "fly", "st": "待订", "raw_st": "tbd", "title": f"✈ {name} · {A['name'].split(' ')[0]} → {B['name'].split(' ')[0]}",
+            solo.append({"kind": "fly", "st": "已订", "raw_st": "booked", "title": f"✈ {name} · {A['name'].split(' ')[0]} → {B['name'].split(' ')[0]}",
                          "s_utc": start, "e_utc": end, "tz_s": tz_s, "tz_e": B["tz"], "place": fa, "place2": fb,
-                         "detail": b["t"], "note": "", "warn": []})
+                         "detail": b["t"] + " · " + SOLO_TKT[d["d"]], "note": "", "warn": []})
         else:
             poi = SOLO["POI"].get(b.get("poi") or "", {})
             solo.append({"kind": "act", "st": "计划" if b["k"] == "act" else "可选", "raw_st": "ok",
@@ -262,16 +267,29 @@ for d in SOLO["TDAYS"]:
                          "s_utc": utc(s_l, tz), "e_utc": utc(e_l, tz), "tz_s": tz, "tz_e": tz,
                          "place": None, "q": poi.get("name"), "ll": poi.get("ll"),
                          "detail": b["t"] + (f" · 从住处：{b['mode']}" if b.get("mode") else ""), "note": "", "warn": []})
-# 三城住宿：还没订 → 用订票页每城「⚖️ 平衡最好」那套做占位
-for c, (ci, co, tz) in {"nice": ("2026-10-06T21:15", "2026-10-10T09:00", 2), "lon": ("2026-10-10T14:00", "2026-10-13T10:15", 1),
-                        "lis": ("2026-10-13T16:00", "2026-10-17T11:00", 1)}.items():
-    s = next(x for x in STAYS if x["key"] == c)
-    o = s["opts"][0]
-    solo.append({"kind": "stay", "st": "待订", "raw_st": "tbd",
-                 "title": f"🛏 {s['city']} {s['when'].split('·')[1].strip()}（还没订 · 首选：{o['name'][:40]}）",
-                 "s_utc": utc(ci, tz), "e_utc": utc(co, tz), "tz_s": tz, "tz_e": tz, "place": None,
-                 "q": o["name"], "ll": [o["lat"], o["lng"]] if o.get("lat") else None,
-                 "detail": f"订票页：https://nordic.airacle.com/solo/ · 首选 {o['name']} €{o['eur']}", "note": "", "warn": [], "url": o["url"]})
+# 三城住宿：2026-09-28 已全部订好（Airbnb 订单实查）—— 精确地址 / 入住退房时间 / 房东交接方式
+# 坐标 2026-09-29 geocode 实查（Nice FULL_ADDRESS，Lisbon FULL_ADDRESS，London street 级）
+SOLO_STAYS = {
+    "nice": {"city": "🇫🇷 尼斯", "name": "A Walk To The Sea - Perfect Location（Airbnb）",
+             "addr": "13 Rue Massenet, 06000 Nice, France", "ll": [43.69632, 7.26407],
+             "ci": "2026-10-06T21:15", "co": "2026-10-10T10:00", "tz": 2, "host": "Lucas",
+             "how": "FEEL HOME 办公室当面交钥匙（15 Rue du congrès, Nice）· 需信用卡押金 · 房东已告知约 21:00 late check-in"},
+    "lon": {"city": "🇬🇧 伦敦", "name": "King BED! Camden Room（Airbnb）",
+            "addr": "Saint Martins Close Flat 2 1, London NW1 0HR, UK", "ll": [51.53851, -0.13896],
+            "ci": "2026-10-10T14:00", "co": "2026-10-13T10:00", "tz": 1, "host": "Ben",
+            "how": "密码箱自助入住（房东临近发送完整指引）"},
+    "lis": {"city": "🇵🇹 里斯本", "name": "Rua Rui Barbosa 8 公寓（Airbnb）",
+            "addr": "Rua Rui Barbosa 8, 3º direito, 1171-331 Lisboa, Portugal", "ll": [38.71842, -9.12191],
+            "ci": "2026-10-13T16:00", "co": "2026-10-17T11:00", "tz": 1, "host": "Francisco E Ana",
+            "how": "入住方式待房东发送"},
+}
+for c, s in SOLO_STAYS.items():
+    solo.append({"kind": "stay", "st": "已订", "raw_st": "booked",
+                 "title": f"🛏 {s['city']} · {s['name']}",
+                 "s_utc": utc(s["ci"], s["tz"]), "e_utc": utc(s["co"], s["tz"]), "tz_s": s["tz"], "tz_e": s["tz"],
+                 "place": None, "q": s["addr"], "ll": s["ll"],
+                 "detail": f"房东 {s['host']} · 入住 {s['ci'][11:16]} 后 · 退房 {s['co'][11:16]} 前 · {s['how']}",
+                 "note": "", "warn": []})
 
 
 # ---------------- 统一成 UTC ----------------

@@ -722,8 +722,8 @@ const INFO = {
   },
   {
    "kind": "fly",
-   "st": "待定",
-   "raw": "tbd",
+   "st": "已订",
+   "raw": "booked",
    "title": "✈ Steve 单飞 · 挪威航空 · 奥斯陆加勒穆恩机场 → 尼斯蔚蓝海岸机场",
    "s": "2026-10-06T17:20",
    "e": "2026-10-06T20:15",
@@ -734,8 +734,8 @@ const INFO = {
    "gmap": "https://www.google.com/maps/search/?api=1&query=Oslo%20Airport%20Gardermoen",
    "amap": "https://maps.apple.com/?q=Oslo%20Airport%20Gardermoen",
    "gmap2": "https://www.google.com/maps/search/?api=1&query=Nice%20C%C3%B4te%20d%27Azur%20Airport",
-   "detail": "✈ Steve 单飞 ：OSL 17:20 → 尼斯 20:15（直飞 2h55，$85）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+Steve+%E5%8D%95%E9%A3%9E+%C2%B7+%E6%8C%AA%E5%A8%81%E8%88%AA%E7%A9%BA+%C2%B7+%E5%A5%A5%E6%96%AF%E9%99%86%E5%8A%A0%E5%8B%92%E7%A9%86%E6%81%A9%E6%9C%BA%E5%9C%BA+%E2%86%92+%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA&dates=20261006T152000Z%2F20261006T181500Z&location=%E5%A5%A5%E6%96%AF%E9%99%86%E5%8A%A0%E5%8B%92%E7%A9%86%E6%81%A9%E6%9C%BA%E5%9C%BA+OSL&details=%E2%9C%88+Steve+%E5%8D%95%E9%A3%9E+%EF%BC%9AOSL+17%3A20+%E2%86%92+%E5%B0%BC%E6%96%AF+20%3A15%EF%BC%88%E7%9B%B4%E9%A3%9E+2h55%EF%BC%8C%2485%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "✈ Steve 单飞 ：OSL 17:20 → 尼斯 20:15（直飞 2h55）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+Steve+%E5%8D%95%E9%A3%9E+%C2%B7+%E6%8C%AA%E5%A8%81%E8%88%AA%E7%A9%BA+%C2%B7+%E5%A5%A5%E6%96%AF%E9%99%86%E5%8A%A0%E5%8B%92%E7%A9%86%E6%81%A9%E6%9C%BA%E5%9C%BA+%E2%86%92+%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA&dates=20261006T152000Z%2F20261006T181500Z&location=%E5%A5%A5%E6%96%AF%E9%99%86%E5%8A%A0%E5%8B%92%E7%A9%86%E6%81%A9%E6%9C%BA%E5%9C%BA+OSL&details=%E2%9C%88+Steve+%E5%8D%95%E9%A3%9E+%EF%BC%9AOSL+17%3A20+%E2%86%92+%E5%B0%BC%E6%96%AF+20%3A15%EF%BC%88%E7%9B%B4%E9%A3%9E+2h55%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   }
  ],
  "solo": [
@@ -756,19 +756,18 @@ const INFO = {
   },
   {
    "kind": "stay",
-   "st": "待订",
-   "raw": "tbd",
-   "title": "🛏 🇫🇷 尼斯 4 晚（还没订 · 首选：Hidden Gem Behind the Famous Negresco）",
+   "st": "已订",
+   "raw": "booked",
+   "title": "🛏 🇫🇷 尼斯 · A Walk To The Sea - Perfect Location（Airbnb）",
    "s": "2026-10-06T21:15",
-   "e": "2026-10-10T09:00",
+   "e": "2026-10-10T10:00",
    "tz_s": 2,
    "tz_e": 2,
-   "loc": "Hidden Gem Behind the Famous Negresco",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Hidden%20Gem%20Behind%20the%20Famous%20Negresco",
-   "amap": "https://maps.apple.com/?q=Hidden%20Gem%20Behind%20the%20Famous%20Negresco",
-   "url": "https://www.airbnb.com/rooms/1521582374515348855?check_in=2026-10-06&check_out=2026-10-10&adults=1",
-   "detail": "订票页：https://nordic.airacle.com/solo/ · 首选 Hidden Gem Behind the Famous Negresco €454",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%F0%9F%87%AB%F0%9F%87%B7+%E5%B0%BC%E6%96%AF+4+%E6%99%9A%EF%BC%88%E8%BF%98%E6%B2%A1%E8%AE%A2+%C2%B7+%E9%A6%96%E9%80%89%EF%BC%9AHidden+Gem+Behind+the+Famous+Negresco%EF%BC%89&dates=20261006T191500Z%2F20261010T070000Z&location=Hidden+Gem+Behind+the+Famous+Negresco&details=%E8%AE%A2%E7%A5%A8%E9%A1%B5%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Fsolo%2F+%C2%B7+%E9%A6%96%E9%80%89+Hidden+Gem+Behind+the+Famous+Negresco+%E2%82%AC454%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "loc": "13 Rue Massenet, 06000 Nice, France",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=13%20Rue%20Massenet%2C%2006000%20Nice%2C%20France",
+   "amap": "https://maps.apple.com/?q=13%20Rue%20Massenet%2C%2006000%20Nice%2C%20France",
+   "detail": "房东 Lucas · 入住 21:15 后 · 退房 10:00 前 · FEEL HOME 办公室当面交钥匙（15 Rue du congrès, Nice）· 需信用卡押金 · 房东已告知约 21:00 late check-in",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%F0%9F%87%AB%F0%9F%87%B7+%E5%B0%BC%E6%96%AF+%C2%B7+A+Walk+To+The+Sea+-+Perfect+Location%EF%BC%88Airbnb%EF%BC%89&dates=20261006T191500Z%2F20261010T080000Z&location=13+Rue+Massenet%2C+06000+Nice%2C+France&details=%E6%88%BF%E4%B8%9C+Lucas+%C2%B7+%E5%85%A5%E4%BD%8F+21%3A15+%E5%90%8E+%C2%B7+%E9%80%80%E6%88%BF+10%3A00+%E5%89%8D+%C2%B7+FEEL+HOME+%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%BD%93%E9%9D%A2%E4%BA%A4%E9%92%A5%E5%8C%99%EF%BC%8815+Rue+du+congr%C3%A8s%2C+Nice%EF%BC%89%C2%B7+%E9%9C%80%E4%BF%A1%E7%94%A8%E5%8D%A1%E6%8A%BC%E9%87%91+%C2%B7+%E6%88%BF%E4%B8%9C%E5%B7%B2%E5%91%8A%E7%9F%A5%E7%BA%A6+21%3A00+late+check-in%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -817,36 +816,35 @@ const INFO = {
   },
   {
    "kind": "fly",
-   "st": "待订",
-   "raw": "tbd",
-   "title": "✈ 英国航空 · 尼斯蔚蓝海岸机场 → 伦敦希思罗机场",
+   "st": "已订",
+   "raw": "booked",
+   "title": "✈ 英国航空 BA2575 · 尼斯蔚蓝海岸机场 → 伦敦盖特威克机场",
    "s": "2026-10-10T11:35",
    "e": "2026-10-10T12:50",
    "tz_s": 2,
    "tz_e": 1,
    "loc": "尼斯蔚蓝海岸机场 NCE",
-   "loc2": "伦敦希思罗机场 LHR",
+   "loc2": "伦敦盖特威克机场 LGW",
    "gmap": "https://www.google.com/maps/search/?api=1&query=Nice%20C%C3%B4te%20d%27Azur%20Airport",
    "amap": "https://maps.apple.com/?q=Nice%20C%C3%B4te%20d%27Azur%20Airport",
-   "gmap2": "https://www.google.com/maps/search/?api=1&query=Heathrow%20Airport",
-   "detail": "NCE → LHR 英国航空（法国 11:35 起飞）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA+%C2%B7+%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+%E2%86%92+%E4%BC%A6%E6%95%A6%E5%B8%8C%E6%80%9D%E7%BD%97%E6%9C%BA%E5%9C%BA&dates=20261010T093500Z%2F20261010T115000Z&location=%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+NCE&details=NCE+%E2%86%92+LHR+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA%EF%BC%88%E6%B3%95%E5%9B%BD+11%3A35+%E8%B5%B7%E9%A3%9E%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gmap2": "https://www.google.com/maps/search/?api=1&query=Gatwick%20Airport",
+   "detail": "NCE → LHR 英国航空（法国 11:35 起飞） · PNR ZL7DXD · 电子票 125-2245928831 · 含托运+登机箱",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA+BA2575+%C2%B7+%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+%E2%86%92+%E4%BC%A6%E6%95%A6%E7%9B%96%E7%89%B9%E5%A8%81%E5%85%8B%E6%9C%BA%E5%9C%BA&dates=20261010T093500Z%2F20261010T115000Z&location=%E5%B0%BC%E6%96%AF%E8%94%9A%E8%93%9D%E6%B5%B7%E5%B2%B8%E6%9C%BA%E5%9C%BA+NCE&details=NCE+%E2%86%92+LHR+%E8%8B%B1%E5%9B%BD%E8%88%AA%E7%A9%BA%EF%BC%88%E6%B3%95%E5%9B%BD+11%3A35+%E8%B5%B7%E9%A3%9E%EF%BC%89+%C2%B7+PNR+ZL7DXD+%C2%B7+%E7%94%B5%E5%AD%90%E7%A5%A8+125-2245928831+%C2%B7+%E5%90%AB%E6%89%98%E8%BF%90%2B%E7%99%BB%E6%9C%BA%E7%AE%B1%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "stay",
-   "st": "待订",
-   "raw": "tbd",
-   "title": "🛏 🇬🇧 伦敦 3 晚（周末）（还没订 · 首选：Spacious Studio Flat Next To Hyde Park &）",
+   "st": "已订",
+   "raw": "booked",
+   "title": "🛏 🇬🇧 伦敦 · King BED! Camden Room（Airbnb）",
    "s": "2026-10-10T14:00",
-   "e": "2026-10-13T10:15",
+   "e": "2026-10-13T10:00",
    "tz_s": 1,
    "tz_e": 1,
-   "loc": "Spacious Studio Flat Next To Hyde Park & Transport",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Flat%20Next%20To%20Hyde%20Park%20%26%20Transport",
-   "amap": "https://maps.apple.com/?q=Spacious%20Studio%20Flat%20Next%20To%20Hyde%20Park%20%26%20Transport",
-   "url": "https://www.airbnb.com/rooms/35116851?check_in=2026-10-10&check_out=2026-10-13&adults=1",
-   "detail": "订票页：https://nordic.airacle.com/solo/ · 首选 Spacious Studio Flat Next To Hyde Park & Transport €637",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%F0%9F%87%AC%F0%9F%87%A7+%E4%BC%A6%E6%95%A6+3+%E6%99%9A%EF%BC%88%E5%91%A8%E6%9C%AB%EF%BC%89%EF%BC%88%E8%BF%98%E6%B2%A1%E8%AE%A2+%C2%B7+%E9%A6%96%E9%80%89%EF%BC%9ASpacious+Studio+Flat+Next+To+Hyde+Park+%26%EF%BC%89&dates=20261010T130000Z%2F20261013T091500Z&location=Spacious+Studio+Flat+Next+To+Hyde+Park+%26+Transport&details=%E8%AE%A2%E7%A5%A8%E9%A1%B5%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Fsolo%2F+%C2%B7+%E9%A6%96%E9%80%89+Spacious+Studio+Flat+Next+To+Hyde+Park+%26+Transport+%E2%82%AC637%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "loc": "Saint Martins Close Flat 2 1, London NW1 0HR, UK",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Saint%20Martins%20Close%20Flat%202%201%2C%20London%20NW1%200HR%2C%20UK",
+   "amap": "https://maps.apple.com/?q=Saint%20Martins%20Close%20Flat%202%201%2C%20London%20NW1%200HR%2C%20UK",
+   "detail": "房东 Ben · 入住 14:00 后 · 退房 10:00 前 · 密码箱自助入住（房东临近发送完整指引）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%F0%9F%87%AC%F0%9F%87%A7+%E4%BC%A6%E6%95%A6+%C2%B7+King+BED%21+Camden+Room%EF%BC%88Airbnb%EF%BC%89&dates=20261010T130000Z%2F20261013T090000Z&location=Saint+Martins+Close+Flat+2+1%2C+London+NW1+0HR%2C+UK&details=%E6%88%BF%E4%B8%9C+Ben+%C2%B7+%E5%85%A5%E4%BD%8F+14%3A00+%E5%90%8E+%C2%B7+%E9%80%80%E6%88%BF+10%3A00+%E5%89%8D+%C2%B7+%E5%AF%86%E7%A0%81%E7%AE%B1%E8%87%AA%E5%8A%A9%E5%85%A5%E4%BD%8F%EF%BC%88%E6%88%BF%E4%B8%9C%E4%B8%B4%E8%BF%91%E5%8F%91%E9%80%81%E5%AE%8C%E6%95%B4%E6%8C%87%E5%BC%95%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -919,9 +917,9 @@ const INFO = {
   },
   {
    "kind": "fly",
-   "st": "待订",
-   "raw": "tbd",
-   "title": "✈ 卢顿 → 里斯本 · 伦敦卢顿机场 → 里斯本",
+   "st": "已订",
+   "raw": "booked",
+   "title": "✈ easyJet U22461 · 伦敦卢顿机场 → 里斯本",
    "s": "2026-10-13T12:15",
    "e": "2026-10-13T15:10",
    "tz_s": 1,
@@ -931,24 +929,23 @@ const INFO = {
    "gmap": "https://www.google.com/maps/search/?api=1&query=London%20Luton%20Airport",
    "amap": "https://maps.apple.com/?q=London%20Luton%20Airport",
    "gmap2": "https://www.google.com/maps/search/?api=1&query=Lisbon%20Humberto%20Delgado%20Airport",
-   "detail": "LTN → LIS 直飞",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E5%8D%A2%E9%A1%BF+%E2%86%92+%E9%87%8C%E6%96%AF%E6%9C%AC+%C2%B7+%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+%E2%86%92+%E9%87%8C%E6%96%AF%E6%9C%AC&dates=20261013T111500Z%2F20261013T141012Z&location=%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+LTN&details=LTN+%E2%86%92+LIS+%E7%9B%B4%E9%A3%9E%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "LTN → LIS 直飞 · PNR KDFXR7F · 含托运（无登机箱）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+easyJet+U22461+%C2%B7+%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+%E2%86%92+%E9%87%8C%E6%96%AF%E6%9C%AC&dates=20261013T111500Z%2F20261013T141012Z&location=%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+LTN&details=LTN+%E2%86%92+LIS+%E7%9B%B4%E9%A3%9E+%C2%B7+PNR+KDFXR7F+%C2%B7+%E5%90%AB%E6%89%98%E8%BF%90%EF%BC%88%E6%97%A0%E7%99%BB%E6%9C%BA%E7%AE%B1%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "stay",
-   "st": "待订",
-   "raw": "tbd",
-   "title": "🛏 🇵🇹 里斯本 4 晚（还没订 · 首选：Stylish Apartment near Timeout Market）",
+   "st": "已订",
+   "raw": "booked",
+   "title": "🛏 🇵🇹 里斯本 · Rua Rui Barbosa 8 公寓（Airbnb）",
    "s": "2026-10-13T16:00",
    "e": "2026-10-17T11:00",
    "tz_s": 1,
    "tz_e": 1,
-   "loc": "Stylish Apartment near Timeout Market",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=Stylish%20Apartment%20near%20Timeout%20Market",
-   "amap": "https://maps.apple.com/?q=Stylish%20Apartment%20near%20Timeout%20Market",
-   "url": "https://www.airbnb.com/rooms/41844622?check_in=2026-10-13&check_out=2026-10-17&adults=1",
-   "detail": "订票页：https://nordic.airacle.com/solo/ · 首选 Stylish Apartment near Timeout Market €784",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%F0%9F%87%B5%F0%9F%87%B9+%E9%87%8C%E6%96%AF%E6%9C%AC+4+%E6%99%9A%EF%BC%88%E8%BF%98%E6%B2%A1%E8%AE%A2+%C2%B7+%E9%A6%96%E9%80%89%EF%BC%9AStylish+Apartment+near+Timeout+Market%EF%BC%89&dates=20261013T150000Z%2F20261017T100000Z&location=Stylish+Apartment+near+Timeout+Market&details=%E8%AE%A2%E7%A5%A8%E9%A1%B5%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Fsolo%2F+%C2%B7+%E9%A6%96%E9%80%89+Stylish+Apartment+near+Timeout+Market+%E2%82%AC784%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "loc": "Rua Rui Barbosa 8, 3º direito, 1171-331 Lisboa, Portugal",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Rua%20Rui%20Barbosa%208%2C%203%C2%BA%20direito%2C%201171-331%20Lisboa%2C%20Portugal",
+   "amap": "https://maps.apple.com/?q=Rua%20Rui%20Barbosa%208%2C%203%C2%BA%20direito%2C%201171-331%20Lisboa%2C%20Portugal",
+   "detail": "房东 Francisco E Ana · 入住 16:00 后 · 退房 11:00 前 · 入住方式待房东发送",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+%F0%9F%87%B5%F0%9F%87%B9+%E9%87%8C%E6%96%AF%E6%9C%AC+%C2%B7+Rua+Rui+Barbosa+8+%E5%85%AC%E5%AF%93%EF%BC%88Airbnb%EF%BC%89&dates=20261013T150000Z%2F20261017T100000Z&location=Rua+Rui+Barbosa+8%2C+3%C2%BA+direito%2C+1171-331+Lisboa%2C+Portugal&details=%E6%88%BF%E4%B8%9C+Francisco+E+Ana+%C2%B7+%E5%85%A5%E4%BD%8F+16%3A00+%E5%90%8E+%C2%B7+%E9%80%80%E6%88%BF+11%3A00+%E5%89%8D+%C2%B7+%E5%85%A5%E4%BD%8F%E6%96%B9%E5%BC%8F%E5%BE%85%E6%88%BF%E4%B8%9C%E5%8F%91%E9%80%81%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -1012,9 +1009,9 @@ const INFO = {
   },
   {
    "kind": "fly",
-   "st": "待订",
-   "raw": "tbd",
-   "title": "✈ 葡萄牙航空 TAP 直飞 · 里斯本 → 旧金山国际机场",
+   "st": "已订",
+   "raw": "booked",
+   "title": "✈ 葡萄牙航空 TAP TP237 · 里斯本 → 旧金山国际机场",
    "s": "2026-10-17T13:10",
    "e": "2026-10-17T17:35",
    "tz_s": 1,
@@ -1024,8 +1021,8 @@ const INFO = {
    "gmap": "https://www.google.com/maps/search/?api=1&query=Lisbon%20Humberto%20Delgado%20Airport",
    "amap": "https://maps.apple.com/?q=Lisbon%20Humberto%20Delgado%20Airport",
    "gmap2": "https://www.google.com/maps/search/?api=1&query=San%20Francisco%20International%20Airport",
-   "detail": "LIS → SFO 葡萄牙航空直飞（旧金山当地 17:35 落地）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA+TAP+%E7%9B%B4%E9%A3%9E+%C2%B7+%E9%87%8C%E6%96%AF%E6%9C%AC+%E2%86%92+%E6%97%A7%E9%87%91%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&dates=20261017T121000Z%2F20261018T003512Z&location=%E9%87%8C%E6%96%AF%E6%9C%AC+Humberto+Delgado+%E6%9C%BA%E5%9C%BA+LIS&details=LIS+%E2%86%92+SFO+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA%E7%9B%B4%E9%A3%9E%EF%BC%88%E6%97%A7%E9%87%91%E5%B1%B1%E5%BD%93%E5%9C%B0+17%3A35+%E8%90%BD%E5%9C%B0%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "LIS → SFO 葡萄牙航空直飞（旧金山当地 17:35 落地） · PNR ZKC7CX · 电子票 047-2527404906 · 含 23kg 托运 · 10/16 13:10 开放在线值机",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA+TAP+TP237+%C2%B7+%E9%87%8C%E6%96%AF%E6%9C%AC+%E2%86%92+%E6%97%A7%E9%87%91%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&dates=20261017T121000Z%2F20261018T003512Z&location=%E9%87%8C%E6%96%AF%E6%9C%AC+Humberto+Delgado+%E6%9C%BA%E5%9C%BA+LIS&details=LIS+%E2%86%92+SFO+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA%E7%9B%B4%E9%A3%9E%EF%BC%88%E6%97%A7%E9%87%91%E5%B1%B1%E5%BD%93%E5%9C%B0+17%3A35+%E8%90%BD%E5%9C%B0%EF%BC%89+%C2%B7+PNR+ZKC7CX+%C2%B7+%E7%94%B5%E5%AD%90%E7%A5%A8+047-2527404906+%C2%B7+%E5%90%AB+23kg+%E6%89%98%E8%BF%90+%C2%B7+10%2F16+13%3A10+%E5%BC%80%E6%94%BE%E5%9C%A8%E7%BA%BF%E5%80%BC%E6%9C%BA%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   }
  ],
  "stays": [
@@ -1170,5 +1167,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-28 21:11 UTC"
+ "built": "2026-09-29 07:01 UTC"
 };

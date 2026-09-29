@@ -9,7 +9,7 @@ X-WR-CALDESC:10/6–10/17 · 尼斯 → 伦敦 → 里斯本 → SFO（方
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 BEGIN:VEVENT
 UID:ec0c53a05335abab@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261006T093000Z
 DTEND:20261006T110000Z
 SUMMARY:和大家在奥斯陆机场还车 → 道别
@@ -20,22 +20,23 @@ DESCRIPTION:和大家在奥斯陆机场还车 → 道别\n📍 奥斯陆
  ordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
-UID:91fe90e684b8e18d@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+UID:df452fc255fe54ba@nordic.airacle.com
+DTSTAMP:20260929T070107Z
 DTSTART:20261006T191500Z
-DTEND:20261010T070000Z
-SUMMARY:【待订】🛏 🇫🇷 尼斯 4 晚（还没订 · 首选：Hid
- den Gem Behind the Famous Negresco）
-LOCATION:Hidden Gem Behind the Famous Negresco
-DESCRIPTION:【待订】\n订票页：https://nordic.airacle.com/solo/ · 
- 首选 Hidden Gem Behind the Famous Negresco €454\n📍 Hidden Gem Behi
- nd the Famous Negresco\n地图：https://www.google.com/maps/search/?api=
- 1&query=Hidden%20Gem%20Behind%20the%20Famous%20Negresco\n完整行程：h
- ttps://nordic.airacle.com/info/
+DTEND:20261010T080000Z
+SUMMARY:🛏 🇫🇷 尼斯 · A Walk To The Sea - Perfect Location（Air
+ bnb）
+LOCATION:13 Rue Massenet\, 06000 Nice\, France
+DESCRIPTION:房东 Lucas · 入住 21:15 后 · 退房 10:00 前 · FEEL H
+ OME 办公室当面交钥匙（15 Rue du congrès\, Nice）· 需信用
+ 卡押金 · 房东已告知约 21:00 late check-in\n📍 13 Rue Massenet
+ \, 06000 Nice\, France\n地图：https://www.google.com/maps/search/?api=
+ 1&query=13%20Rue%20Massenet%2C%2006000%20Nice%2C%20France\n完整行程
+ ：https://nordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
 UID:538bcab6e2f4d9f2@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261007T090000Z
 DTEND:20261007T143000Z
 SUMMARY:海滨大道走一段 → 沙滩躺椅
@@ -48,7 +49,7 @@ DESCRIPTION:海滨大道走一段 → 沙滩躺椅（海水 20–21°C）
 END:VEVENT
 BEGIN:VEVENT
 UID:8611e7636a88826a@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261008T090000Z
 DTEND:20261008T140000Z
 SUMMARY:火车 7 分钟 → 彩色老街 + 沙滩，在那吃午饭
@@ -61,7 +62,7 @@ DESCRIPTION:火车 7 分钟 → 彩色老街 + 沙滩，在那吃午饭 ·
 END:VEVENT
 BEGIN:VEVENT
 UID:db6bb07f9c9d5402@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261009T100000Z
 DTEND:20261009T130000Z
 SUMMARY:马蒂斯美术馆
@@ -73,36 +74,35 @@ DESCRIPTION:马蒂斯美术馆（1 小时）+ 橄榄树公园长椅 · 从
  完整行程：https://nordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
-UID:e8c95ea582e10d50@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+UID:846dc386b1837f40@nordic.airacle.com
+DTSTAMP:20260929T070107Z
 DTSTART:20261010T093500Z
 DTEND:20261010T115000Z
-SUMMARY:【待订】✈ 英国航空 · 尼斯蔚蓝海岸机场 → 伦
- 敦希思罗机场
+SUMMARY:✈ 英国航空 BA2575 · 尼斯蔚蓝海岸机场 → 伦敦盖
+ 特威克机场
 LOCATION:尼斯蔚蓝海岸机场 NCE
-DESCRIPTION:【待订】\nNCE → LHR 英国航空（法国 11:35 起飞
- ）\n📍 尼斯蔚蓝海岸机场 NCE\n地图：https://www.google.com/m
- aps/search/?api=1&query=Nice%20C%C3%B4te%20d%27Azur%20Airport\n完整行
- 程：https://nordic.airacle.com/info/
+DESCRIPTION:NCE → LHR 英国航空（法国 11:35 起飞） · PNR ZL7DX
+ D · 电子票 125-2245928831 · 含托运+登机箱\n📍 尼斯蔚蓝
+ 海岸机场 NCE\n地图：https://www.google.com/maps/search/?api=1&quer
+ y=Nice%20C%C3%B4te%20d%27Azur%20Airport\n完整行程：https://nordic.ai
+ racle.com/info/
 END:VEVENT
 BEGIN:VEVENT
-UID:c1adce70394083d4@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+UID:ff2576e1567fed60@nordic.airacle.com
+DTSTAMP:20260929T070107Z
 DTSTART:20261010T130000Z
-DTEND:20261013T091500Z
-SUMMARY:【待订】🛏 🇬🇧 伦敦 3 晚（周末）（还没订 · 
- 首选：Spacious Studio Flat Next To Hyde Park &）
-LOCATION:Spacious Studio Flat Next To Hyde Park & Transport
-DESCRIPTION:【待订】\n订票页：https://nordic.airacle.com/solo/ · 
- 首选 Spacious Studio Flat Next To Hyde Park & Transport €637\n📍 Sp
- acious Studio Flat Next To Hyde Park & Transport\n地图：https://www.go
- ogle.com/maps/search/?api=1&query=Spacious%20Studio%20Flat%20Next%20To%20
- Hyde%20Park%20%26%20Transport\n完整行程：https://nordic.airacle.com/
- info/
+DTEND:20261013T090000Z
+SUMMARY:🛏 🇬🇧 伦敦 · King BED! Camden Room（Airbnb）
+LOCATION:Saint Martins Close Flat 2 1\, London NW1 0HR\, UK
+DESCRIPTION:房东 Ben · 入住 14:00 后 · 退房 10:00 前 · 密码
+ 箱自助入住（房东临近发送完整指引）\n📍 Saint Martins C
+ lose Flat 2 1\, London NW1 0HR\, UK\n地图：https://www.google.com/maps
+ /search/?api=1&query=Saint%20Martins%20Close%20Flat%202%201%2C%20London%2
+ 0NW1%200HR%2C%20UK\n完整行程：https://nordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
 UID:94bff9f8e91d760e@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261010T140000Z
 DTEND:20261010T160000Z
 SUMMARY:（可选）Portobello 周六市集
@@ -112,7 +112,7 @@ DESCRIPTION:可选：Portobello 周六市集（周六是它一周最热闹
 END:VEVENT
 BEGIN:VEVENT
 UID:1862c121b2cf9f7e@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261010T183000Z
 DTEND:20261010T210000Z
 SUMMARY:🎭 西区看戏
@@ -125,7 +125,7 @@ DESCRIPTION:🎭 西区看戏（周六夜场） · 从住处：地铁 15
 END:VEVENT
 BEGIN:VEVENT
 UID:264802034e5e44e3@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261011T100000Z
 DTEND:20261011T133000Z
 SUMMARY:威斯敏斯特 → 格林威治，坐着看完半个伦敦
@@ -139,7 +139,7 @@ DESCRIPTION:威斯敏斯特 → 格林威治，坐着看完半个伦敦 ·
 END:VEVENT
 BEGIN:VEVENT
 UID:6a8a7bf1ba0cf1cb@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261011T160000Z
 DTEND:20261011T190000Z
 SUMMARY:（可选）和朋友吃晚饭
@@ -149,7 +149,7 @@ DESCRIPTION:可选：和朋友吃晚饭（21:30 有会，之前回来）\n
 END:VEVENT
 BEGIN:VEVENT
 UID:64c92cfbf69abb66@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261012T100000Z
 DTEND:20261012T123000Z
 SUMMARY:大英博物馆
@@ -160,34 +160,33 @@ DESCRIPTION:大英博物馆（或 V&A），2 小时就走 · 从住处：
  完整行程：https://nordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
-UID:d0463e7ce9125ec0@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+UID:34bebbb4f7cf240f@nordic.airacle.com
+DTSTAMP:20260929T070107Z
 DTSTART:20261013T111500Z
 DTEND:20261013T141012Z
-SUMMARY:【待订】✈ 卢顿 → 里斯本 · 伦敦卢顿机场 → 里
- 斯本
+SUMMARY:✈ easyJet U22461 · 伦敦卢顿机场 → 里斯本
 LOCATION:伦敦卢顿机场 LTN
-DESCRIPTION:【待订】\nLTN → LIS 直飞\n📍 伦敦卢顿机场 LTN\
- n地图：https://www.google.com/maps/search/?api=1&query=London%20Luton%
- 20Airport\n完整行程：https://nordic.airacle.com/info/
+DESCRIPTION:LTN → LIS 直飞 · PNR KDFXR7F · 含托运（无登机箱
+ ）\n📍 伦敦卢顿机场 LTN\n地图：https://www.google.com/maps/se
+ arch/?api=1&query=London%20Luton%20Airport\n完整行程：https://nordic
+ .airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
-UID:2fb5712b671ba7ca@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+UID:ba4f149ef63002ed@nordic.airacle.com
+DTSTAMP:20260929T070107Z
 DTSTART:20261013T150000Z
 DTEND:20261017T100000Z
-SUMMARY:【待订】🛏 🇵🇹 里斯本 4 晚（还没订 · 首选：
- Stylish Apartment near Timeout Market）
-LOCATION:Stylish Apartment near Timeout Market
-DESCRIPTION:【待订】\n订票页：https://nordic.airacle.com/solo/ · 
- 首选 Stylish Apartment near Timeout Market €784\n📍 Stylish Apartme
- nt near Timeout Market\n地图：https://www.google.com/maps/search/?api=
- 1&query=Stylish%20Apartment%20near%20Timeout%20Market\n完整行程：htt
- ps://nordic.airacle.com/info/
+SUMMARY:🛏 🇵🇹 里斯本 · Rua Rui Barbosa 8 公寓（Airbnb）
+LOCATION:Rua Rui Barbosa 8\, 3º direito\, 1171-331 Lisboa\, Portugal
+DESCRIPTION:房东 Francisco E Ana · 入住 16:00 后 · 退房 11:00 前
+  · 入住方式待房东发送\n📍 Rua Rui Barbosa 8\, 3º direito\, 1
+ 171-331 Lisboa\, Portugal\n地图：https://www.google.com/maps/search/?a
+ pi=1&query=Rua%20Rui%20Barbosa%208%2C%203%C2%BA%20direito%2C%201171-331%2
+ 0Lisboa%2C%20Portugal\n完整行程：https://nordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
 UID:fe33dfeb4a72dfe5@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261014T093000Z
 DTEND:20261014T140000Z
 SUMMARY:28 路电车坐一圈 → Alfama 随便走
@@ -200,7 +199,7 @@ DESCRIPTION:28 路电车坐一圈 → Alfama 随便走 · 从住处：步
 END:VEVENT
 BEGIN:VEVENT
 UID:215a7bc5688a7c61@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261015T090000Z
 DTEND:20261015T130000Z
 SUMMARY:热罗尼莫斯修道院 + 原版蛋挞
@@ -213,7 +212,7 @@ DESCRIPTION:热罗尼莫斯修道院 + 原版蛋挞（全是平地） ·
 END:VEVENT
 BEGIN:VEVENT
 UID:75f4470df4695877@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261016T093000Z
 DTEND:20261016T120000Z
 SUMMARY:院子里的咖啡馆 + 那家书店
@@ -224,7 +223,7 @@ DESCRIPTION:院子里的咖啡馆 + 那家书店 · 从住处：打车 10
 END:VEVENT
 BEGIN:VEVENT
 UID:963e71f9da5605dc@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+DTSTAMP:20260929T070107Z
 DTSTART:20261017T081500Z
 DTEND:20261017T094500Z
 SUMMARY:Ribeira das Naus 河边台阶 + 早午饭
@@ -235,16 +234,17 @@ DESCRIPTION:Ribeira das Naus 河边台阶 + 早午饭 · 从住处：步
  B0%E9%98%B6\n完整行程：https://nordic.airacle.com/info/
 END:VEVENT
 BEGIN:VEVENT
-UID:bf156ef6d4764b01@nordic.airacle.com
-DTSTAMP:20260928T211104Z
+UID:53cf7dfdea30d5d7@nordic.airacle.com
+DTSTAMP:20260929T070107Z
 DTSTART:20261017T121000Z
 DTEND:20261018T003512Z
-SUMMARY:【待订】✈ 葡萄牙航空 TAP 直飞 · 里斯本 → 旧金
- 山国际机场
+SUMMARY:✈ 葡萄牙航空 TAP TP237 · 里斯本 → 旧金山国际机
+ 场
 LOCATION:里斯本 Humberto Delgado 机场 LIS
-DESCRIPTION:【待订】\nLIS → SFO 葡萄牙航空直飞（旧金山当
- 地 17:35 落地）\n📍 里斯本 Humberto Delgado 机场 LIS\n地图
- ：https://www.google.com/maps/search/?api=1&query=Lisbon%20Humberto%20De
- lgado%20Airport\n完整行程：https://nordic.airacle.com/info/
+DESCRIPTION:LIS → SFO 葡萄牙航空直飞（旧金山当地 17:35 落
+ 地） · PNR ZKC7CX · 电子票 047-2527404906 · 含 23kg 托运 · 10
+ /16 13:10 开放在线值机\n📍 里斯本 Humberto Delgado 机场 LIS\
+ n地图：https://www.google.com/maps/search/?api=1&query=Lisbon%20Humber
+ to%20Delgado%20Airport\n完整行程：https://nordic.airacle.com/info/
 END:VEVENT
 END:VCALENDAR
