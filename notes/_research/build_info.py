@@ -105,6 +105,8 @@ PLACE = {
     # 住宿（9/26 实抓 Booking / Airbnb 房源页）
     "radisson": stay("radisson-osl", "Radisson Blu Airport Hotel, Oslo", "Radisson Blu Airport Hotel Oslo Gardermoen",
                      "24 小时前台 · 从到达大厅走连廊约 5 分钟"),
+    "nannestad": stay("nannestad-osl", "Nannestad · Airbnb（Øyavegen 13 Hus）", "Øyavegen 13 Hus, 2030 Nannestad",
+                     "密码键盘自助入住 · 房东 Roald / Vibeke"),
     "rvk": stay("rvk", "雷克雅未克 · Aurora view 3BR 2BATH（Airbnb）", "Reykjavík"),
     "horgsland": stay("horgsland", "Hörgsland Cottages", "Hörgsland Cottages", "前台办理"),
     "birkifell": stay("birkifell", "Guesthouse Birkifell", "Guesthouse Birkifell"),
@@ -157,6 +159,7 @@ FLIGHTS = [  # (匹配文本, 起飞机场, 降落机场, 航班号)
     ("OSL 17:20 → 尼斯", "OSL", "NCE", "Steve 单飞 · 挪威航空"), ("OSL → 北京", "OSL", "PEK", "洲际（未定）"),
 ]
 STAY_KEY = [("Radisson Blu Airport", "radisson"), ("Aurora view", "rvk"), ("Hörgsland", "horgsland"),
+            ("Nannestad", "nannestad"),
             ("Birkifell", "birkifell"), ("Njarðvík", "njardvik"), ("Nordic Lodge", "lyngvaer"),
             ("特罗姆瑟 4 房", "tromso"), ("Konglehytta", "kongle")]
 CAR_KEY = [("冰岛 · Land Rover", "car_kef", "car_kef"), ("车①", "car_eve", "car_lkn"),

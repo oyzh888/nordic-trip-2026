@@ -317,36 +317,33 @@ const INFO = {
    "kind": "act",
    "st": "计划",
    "raw": "ok",
-   "title": "深夜走连廊到酒店 约 5 min",
+   "title": "深夜打车去 Nannestad",
    "s": "2026-09-30T00:45",
-   "e": "2026-09-30T01:00",
+   "e": "2026-09-30T01:30",
    "tz_s": 2,
    "tz_e": 2,
-   "detail": "🆕 深夜走连廊到酒店 约 5 min（原方案是 01:30 才到 Nannestad）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E6%B7%B1%E5%A4%9C%E8%B5%B0%E8%BF%9E%E5%BB%8A%E5%88%B0%E9%85%92%E5%BA%97+%E7%BA%A6+5+min&dates=20260929T224500Z%2F20260929T230000Z&location=&details=%F0%9F%86%95+%E6%B7%B1%E5%A4%9C%E8%B5%B0%E8%BF%9E%E5%BB%8A%E5%88%B0%E9%85%92%E5%BA%97+%E7%BA%A6+5+min%EF%BC%88%E5%8E%9F%E6%96%B9%E6%A1%88%E6%98%AF+01%3A30+%E6%89%8D%E5%88%B0+Nannestad%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "🆕 深夜打车去 Nannestad（约 01:30 到住处）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E6%B7%B1%E5%A4%9C%E6%89%93%E8%BD%A6%E5%8E%BB+Nannestad&dates=20260929T224500Z%2F20260929T233000Z&location=&details=%F0%9F%86%95+%E6%B7%B1%E5%A4%9C%E6%89%93%E8%BD%A6%E5%8E%BB+Nannestad%EF%BC%88%E7%BA%A6+01%3A30+%E5%88%B0%E4%BD%8F%E5%A4%84%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "stay",
    "st": "已订",
    "raw": "booked",
-   "title": "🛏 Radisson Blu Airport Hotel, Oslo",
-   "s": "2026-09-30T01:00",
-   "e": "2026-09-30T11:30",
+   "title": "🛏 Nannestad · Airbnb（Øyavegen 13 Hus）",
+   "s": "2026-09-30T01:30",
+   "e": "2026-09-30T11:00",
    "tz_s": 2,
    "tz_e": 2,
-   "loc": "Hotelvegen, 2061 Gardermoen, Norway",
-   "gmap": "https://www.google.com/maps/search/?api=1&query=60.192372084713625%2C11.095515489578247",
-   "amap": "https://maps.apple.com/?q=Hotelvegen%2C%202061%20Gardermoen%2C%20Norway&ll=60.192372084713625,11.095515489578247",
+   "loc": "Øyavegen 13 Hus, Nannestad, Akershus 2030, Norway",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=60.17735%2C11.02012",
+   "amap": "https://maps.apple.com/?q=%C3%98yavegen%2013%20Hus%2C%20Nannestad%2C%20Akershus%202030%2C%20Norway&ll=60.17735,11.02012",
    "exact": true,
-   "checkin": "15:00–24:00",
-   "checkout": "04:00–12:00",
-   "how": "24 小时前台 · 从到达大厅走连廊约 5 分钟",
-   "warn": [
-    "01:00 才到，Booking 上写的入住截止是 24:00 —— 在 Booking 订单里给酒店留言「凌晨 1 点到」（24 小时前台，但先说一声）"
-   ],
-   "url": "https://www.booking.com/hotel/no/radisson-blu-airport-oslo.html",
-   "detail": "🆕🆕 Radisson Blu Airport Hotel ×2 间 · 连廊直通航站楼",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Radisson+Blu+Airport+Hotel%2C+Oslo&dates=20260929T230000Z%2F20260930T093000Z&location=Hotelvegen%2C+2061+Gardermoen%2C+Norway&details=%F0%9F%86%95%F0%9F%86%95+Radisson+Blu+Airport+Hotel+%C3%972+%E9%97%B4+%C2%B7+%E8%BF%9E%E5%BB%8A%E7%9B%B4%E9%80%9A%E8%88%AA%E7%AB%99%E6%A5%BC%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "checkin": "15:00",
+   "checkout": "11:00",
+   "how": "门锁密码自助入住",
+   "url": "https://www.google.com/maps/search/?api=1&query=Øyavegen%2013%20Hus%2C%202030%20Nannestad%2C%20Norway",
+   "detail": "🆕🆕 Nannestad · Airbnb（Øyavegen 13 Hus） · 密码键盘自助入住",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Nannestad+%C2%B7+Airbnb%EF%BC%88%C3%98yavegen+13+Hus%EF%BC%89&dates=20260929T233000Z%2F20260930T090000Z&location=%C3%98yavegen+13+Hus%2C+Nannestad%2C+Akershus+2030%2C+Norway&details=%F0%9F%86%95%F0%9F%86%95+Nannestad+%C2%B7+Airbnb%EF%BC%88%C3%98yavegen+13+Hus%EF%BC%89+%C2%B7+%E5%AF%86%E7%A0%81%E9%94%AE%E7%9B%98%E8%87%AA%E5%8A%A9%E5%85%A5%E4%BD%8F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "fly",
@@ -1040,10 +1037,6 @@ const INFO = {
     [
      "09-24",
      "09-25"
-    ],
-    [
-     "09-30",
-     "09-30"
     ]
    ]
   },
@@ -1167,5 +1160,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-29 07:02 UTC"
+ "built": "2026-09-29 07:08 UTC"
 };

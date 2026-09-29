@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The four cars · Nordic 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<section style="padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">All paid · 2026-09-06</div>
+    <h1 style="margin-bottom:16px">The four cars</h1>
+    <p class="lede">Thirteen days with <b>12 billing days</b> of driving, in four legs: five days in Iceland,
+      three in Lofoten, three in Tromsø, one in Oslo. All four booked on DiscoverCars (Avis and SIXT
+      behind it), <b>$2,662.47 total</b> — $1,102.18 paid, $1,560.29 at pick-up.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" id="cars"></div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">!</span>Three things to handle before departure</h2>
+    <div class="cards">
+      <div class="card hot"><h3>🔴 What time the 10/6 intercontinental flight leaves</h3>
+        <p style="font-size:14px;color:var(--ink2);margin:8px 0 0">The Oslo Macan is booked for a <b>10/6 13:00 return</b>.
+          If the intercontinental flight leaves in the morning or midday, <b>the return must move earlier to 09:00</b> —
+          counted from the 13:00 pick-up, within 24 hours is 1 billing day, <b>moving earlier costs nothing</b>,
+          and free cancellation runs until 10/3, with room to spare. Afternoon/evening departure → 13:00 is perfect,
+          with 4 free morning hours. <b>The only one of the four orders that could clash with the itinerary.</b></p></div>
+      <div class="card ok"><h3>✅ Senja's 500 km — range anxiety is void</h3>
+        <p style="font-size:14px;color:var(--ink2);margin:8px 0 0">🔴 <b>2026-09-22 update: the Tromsø car was rebooked
+          from a Mercedes EQS SUV (electric) to a Volvo V90 wagon (petrol), $54 cheaper.</b>
+          My repeated warning — “10/4 Senja 500 km round trip, October, mountain roads, night aurora chasing →
+          budget one charging stop” <b>no longer applies</b>: fill up and go. The Lofoten car also switched
+          from the electric Ford Explorer to a <b>petrol Toyota RAV4</b> (+$306).<br><b>Only the Oslo Macan
+          is still electric</b>, and it only drives 30–40 min one way — nothing to worry about.</p></div>
+      <div class="card"><h3>🛡 Three things to do at the counter</h3>
+        <ul>
+          <li><b>Confirm zero-deductible coverage</b>, especially the Iceland car (gravel + volcanic sand/ash
+            are real claim items). The supplier's counter coverage <b>waives the deductible on the spot</b>;
+            DiscoverCars' "Full Coverage" is third-party — <b>pay first, claim back later</b>.</li>
+          <li>Two drivers rotating → add <b>additional driver</b>.</li>
+          <li>Deposits total <b>$4,340</b> pre-auth → a credit card with enough limit, not debit.
+            📄 US licenses are accepted directly in Iceland and Norway.</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <a class="badge ok" href="/en/plan/">Final plan &amp; timeline →</a>
+      <a class="badge" href="/en/days/">Day by day →</a>
+      <a class="badge" href="/en/">Home</a>
+    </div>
+  </div>
+</section>
+
+<script src="/en/data.js"></script>
+<script src="/en/app.js"></script>
+<script>
+chrome();
+
+$('#stats').innerHTML = [
+  ['4','cars · 12 billing days'], ['$2,662.47','total car rental'], ['$1,102.18','paid'],
+  ['$1,560.29','due at pick-up'], ['1 / 4','are electric'], ['$4,340','deposit pre-auth'],
+].map(([v,k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+
+/* the four car cards stack vertically, so each can take one hue step — going
+   down the page the color walks with you. Same principle as "side by side must
+   share one color", seen from the other side. */
+$('#cars').innerHTML = CARS.map((c, i) => `<div class="carcard" data-hue="${Math.min(4, i + 1)}" style="--acc:var(--h${Math.min(4, i + 1)})">
+  <div class="cph">
+    <img src="${c.img.src}" alt="${esc(c.name)}" loading="lazy">
+    <div class="cred">Photo: ${esc(c.img.author)} · ${esc(c.img.lic)} ·
+      <a href="${c.img.page}" target="_blank" rel="noopener">Wikimedia Commons ↗</a>
+      <br>(same model for illustration, not a photo of our actual car)</div>
+  </div>
+  <div class="cbody">
+    <div class="seg">${esc(c.seg)}</div>
+    <h3>${esc(c.name)}</h3>
+    <div class="kl">${esc(c.klass)} · ${esc(c.supplier)}
+      ${c.ev ? '· <span style="color:var(--ice)">🔌 Electric</span>' : '· <span style="color:var(--amber)">⛽ Petrol</span>'}</div>
+    <dl>
+      <dt>Pick-up</dt><dd>${esc(c.pick)}</dd>
+      <dt>Return</dt><dd>${esc(c.drop)}</dd>
+      <dt>Total</dt><dd><b>${esc(c.total)}</b> <span class="s">${esc(c.paid)}</span></dd>
+      <dt>Free cancellation</dt><dd>until ${esc(c.cxl)}</dd>
+    </dl>
+    <p>${md(c.why)}</p>
+  </div></div>`).join('');
+</script>
+<script src="/en/anim.js"></script>
+</body>
+</html>

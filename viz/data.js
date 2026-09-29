@@ -45,7 +45,7 @@ const RATE = { EUR: 8.0, USD: 7.1, NOK: 0.67 };
 
 /* ---------- 地点坐标 ---------- */
 const P = {
-  osl:        [60.1939,  11.1004], nannestad: [60.2214, 11.0128],
+  osl:        [60.1939,  11.1004], nannestad: [60.17735, 11.02012],  // 2026-09-29 订单地址 Øyavegen 13 精确坐标
   kef:        [63.9850, -22.6056], rvk:       [64.1466, -21.9426],
   bluelagoon: [63.8804, -22.4495], thingvellir:[64.2559,-21.1300],
   geysir:     [64.3104, -20.3024], gullfoss:  [64.3271, -20.1199],
@@ -284,18 +284,13 @@ const DAYS = [
     legs:[{k:'drive',pts:[P.njardvik,P.gunnuhver,P.bridge,P.reykjanesviti,P.brimketill,P.skylagoon,P.kef]},
           {k:'fly',from:P.kef,to:P.osl}],
     drive:'约 2h 纯开车（原方案 7.5h）· 所有点都在 KEF 15–50 min 圈内',
-    stay:{name:'🆕🆕 Radisson Blu Airport Hotel ×2 间（连廊直通航站楼）',type:'酒店',rb:'1 间 Superior 大床 + 1 间 Standard 双床',
-          price:'€256 + €240 = €496（+12% VAT ≈ €556 ≈ ¥4,450）· 含早',cxl:'✅ 可退到当天 18:00',
-          url:U.rad29, pt:P.osl, place:'OSL 航站楼连廊尽头，走 5 分钟',
-          note:'🆕🆕 **2026-09-05 舒适优先，这一晚也换成连廊那家。**🔴🔴 **这是全程最紧的一夜，而且 DY1171 已出票 —— 00:45 落地是事实。**'+
-               '住这里 **01:00 进房、07:50 走（6.8 小时）**，中间一步不出楼；'+
-               '原方案（<a href="'+U.nann5br+'" target="_blank">Nannestad 5房1.5卫 €292</a>）要在**凌晨 1 点等出租车**、01:30 才到、07:30 就得走，'+
-               '而且只有 **1.5 个卫生间**、还要赌房东让不让深夜自助入住。'+
-               '<br>**换到的是：不在凌晨等车 · 多睡约 50 分钟 · 24h 前台 · 走前吃上早餐。** 多花约 ¥2,400。'+
-               '<br>🛏 同样**夫妻订 Superior 大床**。🟠 想少花就退回 <a href="'+U.clarion+'" target="_blank">Clarion €95/间 ×2</a>（走 5 分钟）。'+
-               '<br>🟠 **另一条治本的解法**：若 9/30 那班 EVE 改成同价的 **13:20→15:00**，这一夜能睡 10 小时以上 —— '+
-               '按舒适口径我倾向选它（连着两个短夜之后，进罗弗敦第一天本来也只是开车+入住）'},
-    spend:{stay:4450}, supply:'green',
+    stay:{name:'🆕🆕 Nannestad · Airbnb（Øyavegen 13 Hus）',type:'Airbnb',rb:'整套 · 密码键盘自助入住',
+          price:'€292 / 1晚 ≈ ¥2,336 · Airbnb 已订',cxl:'✅ 已订',
+          url:U.nann5br, pt:P.nannestad, place:'Nannestad（OSL 打车约 20 min）',
+          note:'🆕🆕 **2026-09-29 按 Airbnb 订单实查更正：这一晚实际订的是 Nannestad 的 Airbnb，旧版写的 Radisson Blu 连廊酒店是错的。**'+
+               'Øyavegen 13 Hus, 2030 Nannestad —— 房东 Roald / Vibeke；15:00 起可入住，9/30 11:00 前退房；密码键盘自助入住，无需见面。'+
+               '<br>DY1171 00:45 落地 → 打车约 20 分钟，约 01:30 到住处。<br>⚠️ Radisson Blu（€496 那单）如果不再需要，记得去退 —— 可退到当天 18:00。'},
+    spend:{stay:2336}, supply:'green',
     hi:['🎯 按「9/29 丢一些景点别那么累」改的：开车 7.5h → **2h**，起床 05:30 → **08:30**',
         '🟢 附带红利：**不再依赖 Kevin 的 KEF→OSL 起飞时间**（16:00 前就能回 KEF），原来那个"唯一硬前提"消失了',
         '🥈 还想多玩就用中档：斯奈山**只走南半段** Ytri-Tunga + Búðakirkja + Arnarstapi–Hellnar，**丢掉草帽山 Kirkjufell 和 Djúpalónssandur** → 开车 ~5h，08:00 出发 16:30 回 KEF',
@@ -492,7 +487,7 @@ const STAYTAB = [
   {st:'🆕 改档', d:'**9/26 → 9/27**',   place:'Hörgsland（Klaustur 东 10 km）', name:'Hörgsland Cottages · 3房整栋（🆕 买 €615 可退含早档）', url:U.horgsland, type:'酒店/木屋', rb:'3 卧 · 整栋 · 🔴 无双人床', tot:'€615 +税 ≈ €689', room:'2,756', cxl:'✅ 可退到 9/12 · 9/10 前不付钱'},
   {st:'☑️ 已选定', d:'**9/27 → 9/28**',   place:'Nesjahverfi（Höfn 西 10 km）',   name:'Guesthouse Birkifell · 2房整栋', url:U.birkifell, type:'酒店/整栋', rb:'2 卧 · 整栋', tot:'€565 含税', room:'2,260', cxl:'✅ 9/25 · 到店付'},
   {st:'☑️ 已选定', d:'**9/28 → 9/29**',   place:'Njarðvík（KEF 5 min）', name:'🆕 Hot tub & Sauna · Ocean Break ★5.0', url:U.njardvik3, type:'Airbnb', rb:'3房/3床/**1卫**', tot:'€531→€335', room:'1,340', cxl:'✅ 到 9/23'},
-  {st:'🆕 改推', d:'**9/29 → 9/30**',   place:'OSL 航站楼连廊（走 5 min）', name:'🆕🆕 Radisson Blu Airport ×2（Superior 大床 + Standard 双床）', url:U.rad29, type:'酒店', rb:'2 房 2 卫 · 含早', tot:'€496 +12% VAT',  room:'2,225', cxl:'✅ 可退到当天 18:00'},
+  {st:'✅ 已订', d:'**9/29 → 9/30**',   place:'Nannestad（OSL 打车约 20 min）', name:'🆕🆕 Nannestad · Airbnb（Øyavegen 13 Hus）', url:U.nann5br, type:'Airbnb', rb:'整套 · 密码键盘自助入住', tot:'€292',  room:'1,168', cxl:'✅ 已订'},
   {st:'✅ 已订', d:'**9/30 → 10/2**（2 晚）', place:'罗弗敦东侧 Lyngvær · Vågan', name:'🆕 Nordic Lodge Retreat ★4.92', url:U.lofnew,  type:'Airbnb', rb:'4房/8床/2卫', tot:'€898/2晚', room:'1,796', cxl:'✅ 24h / 9/23'},
   {st:'☑️ 已选定', d:'**10/2 → 10/5**（3 晚）', place:'特罗姆瑟',         name:'Tromsø 4房2卫（**3 晚，日期不用改了**）', url:U.tos4br3n,  type:'Airbnb', rb:'4房/4床/2卫', tot:'€1,526/3晚', room:'2,035', cxl:'✅ 到 10/1'},
   {st:'☑️ 已选定', d:'**10/5 → 10/6**',   place:'Stange / Mjøsli（OSL 30 min）', name:'🆕 Konglehytta 3 · Sauna ★4.98', url:U.konglehytta, type:'Airbnb', rb:'2房/3床/**1卫**', tot:'€306 可退', room:'1,224', cxl:'✅ 可退档只贵 €10'},
@@ -627,11 +622,11 @@ const URGENCY = [
   {rank:8, sev:'green', what:'🆕 Njarðvík 9/28 · Hot tub & Sauna ★5.0 €335',
    why:'供给充足（四个合格房源都有货），而且**这是全程最便宜的一晚**',
    deadline:'随时（可退到 9/23）', how:'Airbnb。🟠 它只有 1 个卫生间 —— 想要 2 卫就回到你第一个链接（Cozy home €445，贵 €110）'},
-  {rank:9, sev:'red', what:'🆕🆕 **两个奥斯陆中转夜 → Radisson Blu Airport（连廊直通航站楼）**，各订 1 间 Superior 大床 + 1 间 Standard 双床',
-   why:'🆕 **2026-09-05 舒适优先后，这条从「省钱建议」变成「最该先花的钱」。**两夜都是「落地→睡几小时→再起飞」'+
-       '（9/24 21:30 落地 / 06:15 起飞；9/29 **00:45 落地**）。Radisson 是 OSL 唯一走连廊直通航站楼的 → '+
-       '**四趟深夜打车全没了 · 两晚各多睡约 50 分钟 · 24h 前台**。9/24 €605 + 9/29 €496（+VAT ≈ ¥9,870），比原方案多约 ¥4,400',
-   deadline:'现在就能订（**可退到当天 18:00**，全程最宽）', how:'Booking。🛏 Standard = 双床、Superior = queen、Superior Airport View = king → **夫妻订 Superior**'},
+  {rank:9, sev:'red', what:'🆕🆕 **9/24 中转夜 → Radisson Blu Airport（连廊直通航站楼）**，订 1 间 Superior 大床 + 1 间 Standard 双床；**9/29 中转夜 → Nannestad Airbnb（2026-09-29 按订单更正）**',
+   why:'🆕 **2026-09-05 舒适优先：9/24 那夜换成连廊 Radisson** —— SK4787 06:15 起飞、05:00 就得出门，住连廊里走 5 分钟到值机。'+
+       '🆕 **2026-09-29 更正**：9/29 那晚旧版写的是 Radisson Blu（€496），但 Airbnb 订单（ground truth）显示实际订的是 Nannestad 的 Airbnb'+
+       '（Øyavegen 13 Hus，房东 Roald / Vibeke，密码键盘自助入住）—— 网站已按订单改成这家。⚠️ Radisson 那单如果不再需要记得去退（可退到当天 18:00）。',
+   deadline:'—', how:'Airbnb 订单即 ground truth'},
   {rank:10, sev:'done', what:'✅ ~~9/24 那一晚 Nannestad €260 不可退~~ → 已并入上面那条（Radisson）',
    why:'原来的约束是「不可退 → 必须等 Kevin 洲际票定」。换成可退到当天 18:00 的 Radisson 之后，**这个约束直接消失**',
    deadline:'—', how:'见 rank 9'}

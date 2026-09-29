@@ -114,5 +114,18 @@
   "checkin_t": "3:00 PM",
   "checkout_t": "11:00 AM",
   "how": "Check yourself in with the lockbox."
+ },
+ "nannestad-osl": {
+  "src": "booking",
+  "url": "https://www.google.com/maps/search/?api=1&query=Øyavegen%2013%20Hus%2C%202030%20Nannestad%2C%20Norway",
+  "addr": "Øyavegen 13 Hus, Nannestad, Akershus 2030, Norway",
+  "ll": [
+   60.17735,
+   11.02012
+  ],
+  "checkin": "From 3:00 PM",
+  "checkout": "To 11:00 AM",
+  "how": "keypad",
+  "title": "Nannestad Airbnb（Øyavegen 13 Hus）"
  }
 }

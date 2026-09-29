@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Final plan · Nordic 2026</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<section style="border-bottom:1px solid var(--hair);padding-top:clamp(38px,5vw,64px)">
+  <div class="wrap">
+    <div class="eyebrow">Finalized Plan · 2026-09-06</div>
+    <h1 style="margin-bottom:16px">Final plan</h1>
+    <p class="lede">This page is <b>the executable one</b>: who covers which stretch of time,
+      what's paid, what's still open. The four health checks below are <b>computed live</b>
+      from the timeline's real times — not hand-written conclusions; change the data and they follow.</p>
+    <div class="meta" id="badges" style="display:flex;gap:9px;flex-wrap:wrap"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">01</span>Timeline — who covers which stretch</h2>
+    <p class="lede">One row per day, four lanes per row: <b>stay / car / flight / activity</b>.
+      Each bar's ends are the real start and end times, so “a bed that night?” and “a car for that drive?”
+      read at a glance. Cyan outline = paid; stripes = not booked.</p>
+    <div id="gantt"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">02</span>Auto health checks</h2>
+    <p class="lede">The most useful thing on this page — independent of my judgment, computed straight
+      from the times. They've caught three real problems before: a 6-hour night, two “need to move
+      but no car” legs, and an intercontinental buffer too short.</p>
+    <div id="health"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">03</span>Booked + the bill</h2>
+    <p class="lede"><b>All four cars paid, three flights ticketed.</b> Confirmation codes stay in private
+      local logs, not on this page.</p>
+    <div class="tw"><table id="orders"></table></div>
+    <div class="cards" style="margin-top:18px" id="money"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">04</span>What's still open</h2>
+    <p class="lede">Sorted by urgency. <b>🔴🔴 = do it today</b> (inventory / seats will go) ·
+      🔴 = in the next couple of days · 🟠 = waiting on a precondition · 🟡 = before departure.</p>
+    <div id="fill"></div>
+  </div>
+</section>
+
+<script src="/en/data.js"></script>
+<script src="/en/app.js"></script>
+<script>
+chrome();
+
+$('#badges').innerHTML = [
+  ['ok','✅ 4 cars paid'], ['ok','✅ 3 flights ticketed'], ['ok','✅ Lofoten 2 nights booked'],
+  ['hot','🔴 10/2 tickets: only 6 left'], ['hot','🔴 10/6 intercontinental time TBD'], ['amb','🟠 8 nights of stays to book'],
+].map(([c,t]) => `<span class="badge ${c}">${t}</span>`).join('');
+
+gantt($('#gantt'));
+health($('#health'));
+tofill($('#fill'));
+
+/* orders table */
+$('#orders').innerHTML = `<thead><tr><th>Type</th><th>What</th><th>Pick → drop / dates</th><th>Amount</th><th>Free cancellation until</th></tr></thead>
+<tbody>${ORDERS.map(o => `<tr>
+  <td><span class="badge ok">✅ ${esc(o.kind)}</span></td>
+  <td>${md(o.what)}</td>
+  <td>${md(o.when)}</td>
+  <td class="num"><b>${esc(o.money)}</b>${o.sub ? `<div class="s">${esc(o.sub)}</div>` : ''}</td>
+  <td class="s">${esc(o.cxl)}</td></tr>`).join('')}
+<tr><td colspan="3"><b>Four cars total</b></td>
+    <td class="num"><b>$2,409.83 ≈ ¥17,110</b><div class="s">Paid $1,094.23 · $1,315.60 at pick-up</div></td>
+    <td class="s">Deposit pre-auth total $4,340 (hold, not a charge)</td></tr></tbody>`;
+
+$('#money').innerHTML = [
+  ['ok','🎯 Two things these four orders settled', [
+    '<b>“4 people + 4 suitcases won\'t fit” is gone</b> — the Iceland car went from a Compact SUV to a <b>Defender 110</b>, a different league of cargo space, and gravel roads are its home turf.',
+    '<b>The hardest one to get is locked in</b> — the Lofoten car needs a one-way return at Leknes, with only 5 quotes anywhere online (Evenes had 22 in the same period).']],
+  ['hot','🔴 Two things that really need handling', [
+    '<b>What time the 10/6 intercontinental flight leaves</b> — the Oslo Macan is booked for a 13:00 return. Morning/midday departure means the return <b>must move earlier to 09:00</b> (within 24 hours counts as 1 billing day, moving earlier costs nothing, free cancellation until 10/3); afternoon/evening is perfect, with 4 free morning hours.',
+    '<b>10/4 Senja 500 km round trip on the electric EQS SUV</b> — Norway has the densest chargers, but October + mountain roads + heating press on range → realistically budget <b>one charging stop</b>. Mark fast chargers around Finnsnes before departure, and confirm whether the three stays allow overnight slow charging.']],
+  ['amb','🛡 Don\'t forget at the counter', [
+    '<b>Confirm zero-deductible coverage</b>, especially the Iceland car — gravel + volcanic sand/ash coverage are real claim items. The supplier\'s own counter coverage is what <b>waives the deductible on the spot</b>; DiscoverCars\' own "Full Coverage" is third-party — <b>pay first, claim back later</b>.',
+    'Two drivers rotating → add <b>additional driver</b>. 📄 US licenses are accepted directly in Iceland and Norway, no international permit needed.',
+    'Deposits <b>$4,340</b> pre-auth → a credit card with enough limit, not debit.']],
+].map(([c,h,li]) => `<div class="card ${c}"><h3>${h}</h3><ul>${li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+</script>
+<script src="/en/anim.js"></script>
+</body>
+</html>
