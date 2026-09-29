@@ -243,8 +243,12 @@ const INFO = {
    "e": "2026-09-28T17:30",
    "tz_s": 0,
    "tz_e": 0,
+   "loc": "Norðurljósavegur 9, 240 Grindavík, Iceland",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Blue%20Lagoon%20Iceland",
+   "amap": "https://maps.apple.com/?q=Blue%20Lagoon%20Iceland",
+   "hint": "必须提前订时段票；有行李寄存",
    "detail": "🆕 黄金圈（蓝湖已挪走）约 400 km / 5h：Þingvellir · Geysir · Gullfoss",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%BB%84%E9%87%91%E5%9C%88&dates=20260928T083000Z%2F20260928T173000Z&location=&details=%F0%9F%86%95+%E9%BB%84%E9%87%91%E5%9C%88%EF%BC%88%E8%93%9D%E6%B9%96%E5%B7%B2%E6%8C%AA%E8%B5%B0%EF%BC%89%E7%BA%A6+400+km+%2F+5h%EF%BC%9A%C3%9Eingvellir+%C2%B7+Geysir+%C2%B7+Gullfoss%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%BB%84%E9%87%91%E5%9C%88&dates=20260928T083000Z%2F20260928T173000Z&location=Nor%C3%B0urlj%C3%B3savegur+9%2C+240+Grindav%C3%ADk%2C+Iceland&details=%F0%9F%86%95+%E9%BB%84%E9%87%91%E5%9C%88%EF%BC%88%E8%93%9D%E6%B9%96%E5%B7%B2%E6%8C%AA%E8%B5%B0%EF%BC%89%E7%BA%A6+400+km+%2F+5h%EF%BC%9A%C3%9Eingvellir+%C2%B7+Geysir+%C2%B7+Gullfoss%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "stay",
@@ -252,7 +256,7 @@ const INFO = {
    "raw": "booked",
    "title": "🛏 Njarðvík · Family friendly home!（Airbnb）",
    "s": "2026-09-28T19:30",
-   "e": "2026-09-29T10:00",
+   "e": "2026-09-29T08:30",
    "tz_s": 0,
    "tz_e": 0,
    "loc": "Gónhóll 18, Njarðvík, Reykjanesbær 260, Iceland",
@@ -265,19 +269,55 @@ const INFO = {
    "how": "密码箱自助取钥匙",
    "url": "https://www.airbnb.com/rooms/1139944377459145061",
    "detail": "Njarðvík · Hot tub & Sauna · Ocean Break（3房/3床/ 1卫 ）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Njar%C3%B0v%C3%ADk+%C2%B7+Family+friendly+home%21%EF%BC%88Airbnb%EF%BC%89&dates=20260928T193000Z%2F20260929T100000Z&location=G%C3%B3nh%C3%B3ll+18%2C+Njar%C3%B0v%C3%ADk%2C+Reykjanesb%C3%A6r+260%2C+Iceland&details=Njar%C3%B0v%C3%ADk+%C2%B7+Hot+tub+%26+Sauna+%C2%B7+Ocean+Break%EF%BC%883%E6%88%BF%2F3%E5%BA%8A%2F+1%E5%8D%AB+%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%9B%8F+Njar%C3%B0v%C3%ADk+%C2%B7+Family+friendly+home%21%EF%BC%88Airbnb%EF%BC%89&dates=20260928T193000Z%2F20260929T083000Z&location=G%C3%B3nh%C3%B3ll+18%2C+Njar%C3%B0v%C3%ADk%2C+Reykjanesb%C3%A6r+260%2C+Iceland&details=Njar%C3%B0v%C3%ADk+%C2%B7+Hot+tub+%26+Sauna+%C2%B7+Ocean+Break%EF%BC%883%E6%88%BF%2F3%E5%BA%8A%2F+1%E5%8D%AB+%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
    "st": "计划",
    "raw": "ok",
-   "title": "真正的休息日：睡到自然醒 + 雷市城里",
+   "title": "🌋 间歇泉 Strokkur",
    "s": "2026-09-29T10:00",
-   "e": "2026-09-29T17:00",
+   "e": "2026-09-29T10:45",
    "tz_s": 0,
    "tz_e": 0,
-   "detail": "🆕 真正的休息日：睡到自然醒 + 雷市城里（雷克雅内斯已挪到 9/25）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E7%9C%9F%E6%AD%A3%E7%9A%84%E4%BC%91%E6%81%AF%E6%97%A5%EF%BC%9A%E7%9D%A1%E5%88%B0%E8%87%AA%E7%84%B6%E9%86%92+%2B+%E9%9B%B7%E5%B8%82%E5%9F%8E%E9%87%8C&dates=20260929T100000Z%2F20260929T170000Z&location=&details=%F0%9F%86%95+%E7%9C%9F%E6%AD%A3%E7%9A%84%E4%BC%91%E6%81%AF%E6%97%A5%EF%BC%9A%E7%9D%A1%E5%88%B0%E8%87%AA%E7%84%B6%E9%86%92+%2B+%E9%9B%B7%E5%B8%82%E5%9F%8E%E9%87%8C%EF%BC%88%E9%9B%B7%E5%85%8B%E9%9B%85%E5%86%85%E6%96%AF%E5%B7%B2%E6%8C%AA%E5%88%B0+9%2F25%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "loc": "Strokkur, Haukadalsvegur, 806 Bláskógabyggð, Iceland",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Strokkur%20Geysir%20Iceland",
+   "amap": "https://maps.apple.com/?q=Strokkur%20Geysir%20Iceland",
+   "hint": "Strokkur 每 5–10 分钟喷发一次；免费停车",
+   "detail": "🆕🌋 间歇泉 Strokkur（08:30 从 Njarðvík 出发，约 1.5h 车程）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8C%8B+%E9%97%B4%E6%AD%87%E6%B3%89+Strokkur&dates=20260929T100000Z%2F20260929T104500Z&location=Strokkur%2C+Haukadalsvegur%2C+806+Bl%C3%A1sk%C3%B3gabygg%C3%B0%2C+Iceland&details=%F0%9F%86%95%F0%9F%8C%8B+%E9%97%B4%E6%AD%87%E6%B3%89+Strokkur%EF%BC%8808%3A30+%E4%BB%8E+Njar%C3%B0v%C3%ADk+%E5%87%BA%E5%8F%91%EF%BC%8C%E7%BA%A6+1.5h+%E8%BD%A6%E7%A8%8B%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+  },
+  {
+   "kind": "act",
+   "st": "计划",
+   "raw": "ok",
+   "title": "🌊 黄金瀑布 Gullfoss",
+   "s": "2026-09-29T11:00",
+   "e": "2026-09-29T11:45",
+   "tz_s": 0,
+   "tz_e": 0,
+   "loc": "Gullfoss, Brattholt, 806 Bláskógabyggð, Iceland",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Gullfoss%20waterfall%20Iceland",
+   "amap": "https://maps.apple.com/?q=Gullfoss%20waterfall%20Iceland",
+   "hint": "游客中心有餐厅，建议在这里吃午饭",
+   "detail": "🆕🌊 黄金瀑布 Gullfoss",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8C%8A+%E9%BB%84%E9%87%91%E7%80%91%E5%B8%83+Gullfoss&dates=20260929T110000Z%2F20260929T114500Z&location=Gullfoss%2C+Brattholt%2C+806+Bl%C3%A1sk%C3%B3gabygg%C3%B0%2C+Iceland&details=%F0%9F%86%95%F0%9F%8C%8A+%E9%BB%84%E9%87%91%E7%80%91%E5%B8%83+Gullfoss%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+  },
+  {
+   "kind": "act",
+   "st": "计划",
+   "raw": "ok",
+   "title": "💧 蓝湖 Blue Lagoon",
+   "s": "2026-09-29T14:00",
+   "e": "2026-09-29T16:30",
+   "tz_s": 0,
+   "tz_e": 0,
+   "loc": "Norðurljósavegur 9, 240 Grindavík, Iceland",
+   "gmap": "https://www.google.com/maps/search/?api=1&query=Blue%20Lagoon%20Iceland",
+   "amap": "https://maps.apple.com/?q=Blue%20Lagoon%20Iceland",
+   "hint": "必须提前订时段票；有行李寄存",
+   "detail": "🆕💧 蓝湖 Blue Lagoon（14:00 场）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%92%A7+%E8%93%9D%E6%B9%96+Blue+Lagoon&dates=20260929T140000Z%2F20260929T163000Z&location=Nor%C3%B0urlj%C3%B3savegur+9%2C+240+Grindav%C3%ADk%2C+Iceland&details=%F0%9F%86%95%F0%9F%92%A7+%E8%93%9D%E6%B9%96+Blue+Lagoon%EF%BC%8814%3A00+%E5%9C%BA%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "car",
@@ -1160,5 +1200,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-29 07:08 UTC"
+ "built": "2026-09-29 07:25 UTC"
 };

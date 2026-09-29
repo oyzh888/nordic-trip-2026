@@ -137,6 +137,13 @@ PLACE = {
     # 活动
     "bluelagoon": {"kind": "act", "name": "蓝湖温泉 Blue Lagoon", "addr": "Norðurljósavegur 9, 240 Grindavík, Iceland",
                    "q": "Blue Lagoon Iceland", "hint": "必须提前订时段票；有行李寄存"},
+    # 🆕 2026-09-29：草帽山取消，改走间歇泉+黄金瀑布+蓝湖（地址 2026-09-29 地图核查）
+    "geysir": {"kind": "act", "name": "间歇泉 Strokkur · 盖歇尔地热区",
+               "addr": "Strokkur, Haukadalsvegur, 806 Bláskógabyggð, Iceland",
+               "q": "Strokkur Geysir Iceland", "hint": "Strokkur 每 5–10 分钟喷发一次；免费停车"},
+    "gullfoss": {"kind": "act", "name": "黄金瀑布 Gullfoss",
+                 "addr": "Gullfoss, Brattholt, 806 Bláskógabyggð, Iceland",
+                 "q": "Gullfoss waterfall Iceland", "hint": "游客中心有餐厅，建议在这里吃午饭"},
     "troll": {"kind": "act", "name": "Troll.is 集合点 · 冰河湖停车场", "q": "Jökulsárlón Glacier Lagoon parking",
               "hint": "停车场里食物车后面、公共厕所旁边的 Troll.is 拖车。徒步 09:10、皮划艇 13:10 到（按票面）"},
 }
@@ -227,7 +234,11 @@ for e in TL["EV"]:
         items.append({**base, "kind": "car", "s": e["e"], "e": e["e"], "tz_s": zone(e["e"]), "tz_e": zone(e["e"]),
                       "title": f"🚗 还车 · {name}", "place": c[2], "detail": t, "warn": warn_ret, "dur": 0.5, "ret": True})
     elif e["lane"] == "act":
-        k = "bluelagoon" if "蓝湖泡汤" in t else ("troll" if "皮划艇" in t else None)
+        # 🆕 2026-09-29：9/29 新计划的三个站点（间歇泉 / 黄金瀑布 / 蓝湖）
+        k = ("bluelagoon" if "蓝湖" in t else
+             "geysir" if "间歇泉" in t else
+             "gullfoss" if "黄金瀑布" in t else
+             "troll" if "皮划艇" in t else None)
         items.append({**base, "kind": "act", "s": e["s"], "e": e["e"], "tz_s": zone(e["s"]), "tz_e": zone(e["e"]),
                       "title": ("🧊 冰川徒步 09:30 → 🛶 冰河湖皮划艇 13:30（Troll.is · 4 人已订）" if k == "troll"
                                 else re.sub(r"^🆕+\s*", "", t.split("（")[0])), "place": k, "detail": t, "warn": []})
