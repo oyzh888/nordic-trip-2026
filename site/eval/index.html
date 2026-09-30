@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>行程方案评估 · Nordic Trip 2026</title>
+<style>
+:root { --bg:#0f1420; --card:#18202f; --line:#2a3550; --txt:#e8ecf4; --mut:#9aa6bd; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.6; padding:16px; }
+.wrap { max-width:1060px; margin:0 auto; }
+h1 { font-size:22px; margin:8px 0 4px; }
+.sub { color:var(--mut); font-size:13px; margin-bottom:20px; }
+h2 { font-size:18px; margin:28px 0 10px; border-left:4px solid #5aa2ff; padding-left:10px; }
+h3 { font-size:16px; margin:20px 0 8px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:14px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th, td { border:1px solid var(--line); padding:6px 8px; text-align:center; }
+th { background:#202a40; font-weight:600; white-space:nowrap; }
+td:first-child, th:first-child { text-align:left; white-space:nowrap; }
+.bad { background:rgba(255,90,90,.16); color:#ff9a9a; font-weight:700; }
+.warn { background:rgba(255,170,60,.14); color:#ffc578; font-weight:700; }
+.ok { background:rgba(255,235,120,.10); color:#ffe9a8; }
+.good { background:rgba(90,220,140,.13); color:#9df0bd; font-weight:700; }
+.dim { display:inline-block; background:#202a40; border:1px solid var(--line);
+  border-radius:8px; padding:8px 10px; margin:0 8px 8px 0; font-size:13px; }
+.dim b { color:#8fc1ff; }
+.scale { font-size:12px; color:var(--mut); }
+details { margin-top:8px; }
+summary { cursor:pointer; color:#8fc1ff; font-size:13px; }
+.note { font-size:12.5px; color:var(--mut); margin:4px 0; }
+.note b { color:var(--txt); font-weight:600; }
+.total { font-size:15px; font-weight:700; }
+.kv { display:flex; gap:8px; flex-wrap:wrap; font-size:13px; margin:6px 0; }
+.kv span { background:#202a40; border-radius:6px; padding:2px 8px; }
+a { color:#8fc1ff; }
+@media (max-width:640px){ table{ font-size:11px; } th,td{ padding:4px 5px; } }
+</style>
+</head>
+<body><div class="wrap">
+<h1>🧭 行程方案评估</h1>
+<div class="sub">Nordic Trip 2026 · 9/30–10/6 挪威段 · 8 维度 × 1–6 分制 · 分数由评估器对照量表给出，依据见各天备注</div>
+
+<h2>评估维度</h2><div class='card'>
+<div class='dim'><b>时间账</b> · 这一天的时间够不够用? 有没有被赶着走?</div>
+<div class='dim'><b>路线账</b> · 路线顺不顺? 有没有走回头路、绕路?</div>
+<div class='dim'><b>体力账</b> · 节奏顶不顶得住? 连续作战几天了?</div>
+<div class='dim'><b>光线账</b> · 关键的光线窗口抓住了吗? 日落、极光?</div>
+<div class='dim'><b>订单账</b> · 机票/酒店/租车对得上吗? 都确认了吗?</div>
+<div class='dim'><b>钱账</b> · 花得值吗? 有没有价格异常?</div>
+<div class='dim'><b>风险账</b> · 最坏情况是什么? 有备份方案吗?</div>
+<div class='dim'><b>工作账</b> · 会议撞车吗? 开会有安静地方吗?</div>
+<div class='scale'>量表：1 很差（不可行/致命）· 2 差（大问题）· 3 及格偏下（偏紧/偏累）· 4 及格偏上（可接受）· 5 好 · 6 优秀</div></div>
+<h2>横向对比（维度平均分）</h2><div class='card' style='overflow-x:auto'>
+<table><tr><th>维度</th><th>当前计划<br><span class='total'>4.09</span></th><th>A·体力优先<br><span class='total'>4.61</span></th><th>B·体验拉满<br><span class='total'>4.3</span></th><th>C·稳妥优先<br><span class='total'>4.59</span></th></tr>
+<tr><td>时间账</td><td class='warn'>3.43</td><td class='ok'>4.29 ★</td><td class='ok'>3.57</td><td class='ok'>4.14</td></tr>
+<tr><td>路线账</td><td class='ok'>4.29</td><td class='good'>4.71 ★</td><td class='ok'>4.43</td><td class='good'>4.71 ★</td></tr>
+<tr><td>体力账</td><td class='ok'>3.86</td><td class='good'>4.71 ★</td><td class='ok'>3.71</td><td class='ok'>4.29</td></tr>
+<tr><td>光线账</td><td class='ok'>3.86</td><td class='ok'>4.00</td><td class='good'>4.57 ★</td><td class='ok'>4.14</td></tr>
+<tr><td>订单账</td><td class='ok'>4.29</td><td class='good'>5.14</td><td class='good'>5.00</td><td class='good'>5.29 ★</td></tr>
+<tr><td>钱账</td><td class='good'>5.00 ★</td><td class='good'>5.00 ★</td><td class='good'>5.00 ★</td><td class='good'>5.00 ★</td></tr>
+<tr><td>风险账</td><td class='warn'>3.43</td><td class='ok'>4.29</td><td class='ok'>3.57</td><td class='ok'>4.43 ★</td></tr>
+<tr><td>工作账</td><td class='good'>4.57</td><td class='good'>4.71 ★</td><td class='good'>4.57</td><td class='good'>4.71 ★</td></tr>
+</table><div class='scale'>★ = 该维度最高分 · 表头数字为方案总分</div></div>
+<h2>当前计划 <span class='total'>总分 4.09/6</span></h2>
+<div class='card' style='overflow-x:auto'><table><tr><th>日期</th><th>时间账</th><th>路线账</th><th>体力账</th><th>光线账</th><th>订单账</th><th>钱账</th><th>风险账</th><th>工作账</th></tr>
+<tr><td>9/30<br><span class='scale'>A版: EVE取车→Svolvær→Henningsvær→Hamnøy日落→Lyngvær</span></td><td class='warn'>3</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+<tr><td>10/1<br><span class='scale'>罗弗敦西线: Hamnøy/Sakrisøy/Reine, Reinebringen可选</span></td><td class='ok'>4</td><td class='ok'>4</td><td class='ok'>4</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/2<br><span class='scale'>转场: 还RAV4→飞Tromsø→取V90</span></td><td class='warn'>3</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='warn'>3</td><td class='good'>5</td><td class='warn'>3</td><td class='good'>5</td></tr>
+<tr><td>10/3<br><span class='scale'>Tromsø市区: 大教堂/Fjellheisen/Storsteinen, 晚极光</span></td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/4<br><span class='scale'>待定 (Senja已否, 替换方案未定)</span></td><td class='bad'>2</td><td class='bad'>2</td><td class='warn'>3</td><td class='warn'>3</td><td class='ok'>4</td><td class='good'>5</td><td class='bad'>2</td><td class='ok'>4</td></tr>
+<tr><td>10/5<br><span class='scale'>南下: TOS→OSL→取Macan→Stange/Mjøsa</span></td><td class='warn'>3</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='bad'>2</td><td class='good'>5</td><td class='warn'>3</td><td class='good'>5</td></tr>
+<tr><td>10/6<br><span class='scale'>还Macan, DY1406飞Nice</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+</table>
+<details><summary>9/30 打分依据</summary>
+<div class='note'><b>时间账 3：</b>驾驶约5.5h, 一天排满; 午饭Nihao周三14:00才开门, 13:30到需等</div>
+<div class='note'><b>路线账 4：</b>一路向西单向, 但Hamnøy→Lyngvær约100km折返</div>
+<div class='note'><b>体力账 3：</b>出来第7天+早班机+长驾驶日, 偏累</div>
+<div class='note'><b>光线账 5：</b>卡18:34日落金色时刻在Hamnøy; 云57%, 不给满分</div>
+<div class='note'><b>订单账 6：</b>RAV4双边一对一实锤, Airbnb门锁码到手, 已加日历</div>
+<div class='note'><b>钱账 5：</b>今日无异常消费</div>
+<div class='note'><b>风险账 4：</b>无硬伤; 午饭等半小时+多云看不到日落是已知隐忧</div>
+<div class='note'><b>工作账 4：</b>无会; 美股15:30-22:00正好在开车, 无法盯盘</div>
+</details>
+<details><summary>10/1 打分依据</summary>
+<div class='note'><b>时间账 4：</b>Lyngvær↔Reine各约1.5h, 全天灵活</div>
+<div class='note'><b>路线账 4：</b>以Lyngvær为基地往返, 可接受</div>
+<div class='note'><b>体力账 4：</b>Reinebringen可选, 可进可退</div>
+<div class='note'><b>光线账 5：</b>晚上20:00-23:30极光窗口已留</div>
+<div class='note'><b>订单账 5：</b>连住, 无新增订单</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>极光/爬山都看天气, 有备选</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/2 打分依据</summary>
+<div class='note'><b>时间账 3：</b>还车14:30→起飞15:40仅70分钟buffer, 偏紧</div>
+<div class='note'><b>路线账 5：</b>Lyngvær→Leknes→飞→Tromsø, 单向干净</div>
+<div class='note'><b>体力账 4：</b>转场日, 强度中等</div>
+<div class='note'><b>光线账 3：</b>转场日无光线安排</div>
+<div class='note'><b>订单账 3：</b>WF816未实时核票; Tromsø入住方式未知</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 3：</b>紧张转场+两个未核实项</div>
+<div class='note'><b>工作账 5：</b>09:00-11:00两个会开完再出发, 不冲突</div>
+</details>
+<details><summary>10/3 打分依据</summary>
+<div class='note'><b>时间账 5：</b>市区日, 时间充裕</div>
+<div class='note'><b>路线账 5：</b>本地活动, 无长途</div>
+<div class='note'><b>体力账 5：</b>休息节奏</div>
+<div class='note'><b>光线账 5：</b>晚上极光窗口</div>
+<div class='note'><b>订单账 4：</b>Tromsø入住方式仍未知 (延续10/2)</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>低风险日</div>
+<div class='note'><b>工作账 5：</b>仅07:00-07:30一个会</div>
+</details>
+<details><summary>10/4 打分依据</summary>
+<div class='note'><b>时间账 2：</b>无计划=时间账没法算</div>
+<div class='note'><b>路线账 2：</b>无计划=路线账没法算</div>
+<div class='note'><b>体力账 3：</b>未定, 中性</div>
+<div class='note'><b>光线账 3：</b>未定, 中性</div>
+<div class='note'><b>订单账 4：</b>V90在手, 无新增需求</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 2：</b>待定的一天本身就是风险</div>
+<div class='note'><b>工作账 4：</b>Dennis 30分钟会还没约</div>
+</details>
+<details><summary>10/5 打分依据</summary>
+<div class='note'><b>时间账 3：</b>飞+取车+开车挤在一天, 偏紧</div>
+<div class='note'><b>路线账 5：</b>一路向南, 干净</div>
+<div class='note'><b>体力账 4：</b>中等</div>
+<div class='note'><b>光线账 3：</b>转场日无光线安排</div>
+<div class='note'><b>订单账 2：</b>TOS→OSL仅候选未出票; Konglehytta门禁码待临近发送</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 3：</b>未出票的航班是最大风险点</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/6 打分依据</summary>
+<div class='note'><b>时间账 4：</b>还车+飞, 17:20起飞不赶</div>
+<div class='note'><b>路线账 5：</b>干净</div>
+<div class='note'><b>体力账 4：</b>中等</div>
+<div class='note'><b>光线账 3：</b>转场日</div>
+<div class='note'><b>订单账 6：</b>DY1406已出票; Nice lockbox已确认</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>低; 上午开完会再收拾行李</div>
+<div class='note'><b>工作账 4：</b>09:00-11:00两个会, 然后赶飞机, 可行</div>
+</details>
+</div>
+<h2>A·体力优先 <span class='total'>总分 4.61/6</span></h2>
+<div class='card' style='overflow-x:auto'><table><tr><th>日期</th><th>时间账</th><th>路线账</th><th>体力账</th><th>光线账</th><th>订单账</th><th>钱账</th><th>风险账</th><th>工作账</th></tr>
+<tr><td>9/30<br><span class='scale'>同当前 (已执行)</span></td><td class='warn'>3</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+<tr><td>10/1<br><span class='scale'>慢西线: 去掉Reinebringen, 早回桑拿回血</span></td><td class='good'>5</td><td class='ok'>4</td><td class='good'>6</td><td class='ok'>4</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td></tr>
+<tr><td>10/2<br><span class='scale'>转场+提前到Leknes(13:30), 出发前核WF816</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/3<br><span class='scale'>Tromsø慢市区+10/1晚已拿入住方式</span></td><td class='good'>5</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/4<br><span class='scale'>Chill本地: Ersfjordbotn/Kvaløya+市区+极光</span></td><td class='good'>5</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td></tr>
+<tr><td>10/5<br><span class='scale'>南下 (航班已提前出票)</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/6<br><span class='scale'>同当前</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+</table>
+<details><summary>9/30 打分依据</summary>
+<div class='note'><b>时间账 3：</b>同当前: 5.5h驾驶日已定</div>
+<div class='note'><b>路线账 4：</b>同当前</div>
+<div class='note'><b>体力账 3：</b>同当前: 今天累, 后面补回来</div>
+<div class='note'><b>光线账 5：</b>同当前</div>
+<div class='note'><b>订单账 6：</b>同当前</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 4：</b>同当前</div>
+</details>
+<details><summary>10/1 打分依据</summary>
+<div class='note'><b>时间账 5：</b>砍掉爬山, 时间一下松了</div>
+<div class='note'><b>路线账 4：</b>同当前</div>
+<div class='note'><b>体力账 6：</b>度假模式: 睡醒出发+下午桑拿</div>
+<div class='note'><b>光线账 4：</b>极光改在lodge门口看, 少跑路</div>
+<div class='note'><b>订单账 5：</b>连住无新增</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 5：</b>无高强度项, 风险最低</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/2 打分依据</summary>
+<div class='note'><b>时间账 4：</b>提前1小时到机场, buffer拉长</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 4：</b>WF816出发前实时核实, 去掉一个未知</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>buffer+核实, 风险降一档</div>
+<div class='note'><b>工作账 5：</b>同当前</div>
+</details>
+<details><summary>10/3 打分依据</summary>
+<div class='note'><b>时间账 5：</b>市区日从容</div>
+<div class='note'><b>路线账 5：</b>本地</div>
+<div class='note'><b>体力账 6：</b>Fjellheisen坐缆车不爬山, 纯休息</div>
+<div class='note'><b>光线账 5：</b>晚上极光</div>
+<div class='note'><b>订单账 5：</b>10/1晚上已找房东拿入住方式</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>低</div>
+<div class='note'><b>工作账 5：</b>仅早会</div>
+</details>
+<details><summary>10/4 打分依据</summary>
+<div class='note'><b>时间账 5：</b>100km内, 时间大把</div>
+<div class='note'><b>路线账 5：</b>Tromsø周边, 无折返</div>
+<div class='note'><b>体力账 6：</b>全程最松的一天</div>
+<div class='note'><b>光线账 5：</b>Ersfjordbotn日落+晚上极光</div>
+<div class='note'><b>订单账 5：</b>无新增需求</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 5：</b>本地活动, 天气不好随时回城</div>
+<div class='note'><b>工作账 5：</b>Dennis会可约在这天上午</div>
+</details>
+<details><summary>10/5 打分依据</summary>
+<div class='note'><b>时间账 4：</b>出票后心里踏实, 时间同当前</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 5：</b>TOS→OSL提前出票, 只剩Konglehytta门禁待发</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>航班落定, 风险降档</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/6 打分依据</summary>
+<div class='note'><b>时间账 4：</b>同当前</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 6：</b>同当前</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 4：</b>同当前</div>
+</details>
+</div>
+<h2>B·体验拉满 <span class='total'>总分 4.3/6</span></h2>
+<div class='card' style='overflow-x:auto'><table><tr><th>日期</th><th>时间账</th><th>路线账</th><th>体力账</th><th>光线账</th><th>订单账</th><th>钱账</th><th>风险账</th><th>工作账</th></tr>
+<tr><td>9/30<br><span class='scale'>同当前 (已执行)</span></td><td class='warn'>3</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+<tr><td>10/1<br><span class='scale'>全西线+Reinebringen+开车追极光</span></td><td class='warn'>3</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>6</td><td class='good'>5</td><td class='good'>5</td><td class='warn'>3</td><td class='good'>5</td></tr>
+<tr><td>10/2<br><span class='scale'>同当前转场</span></td><td class='warn'>3</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='warn'>3</td><td class='good'>5</td><td class='warn'>3</td><td class='good'>5</td></tr>
+<tr><td>10/3<br><span class='scale'>Tromsø市区+夜间开车追极光</span></td><td class='ok'>4</td><td class='ok'>4</td><td class='ok'>4</td><td class='good'>6</td><td class='good'>5</td><td class='good'>5</td><td class='warn'>3</td><td class='good'>5</td></tr>
+<tr><td>10/4<br><span class='scale'>Sommarøy+Ersfjordbotn日落</span></td><td class='ok'>4</td><td class='ok'>4</td><td class='ok'>4</td><td class='good'>6</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+<tr><td>10/5<br><span class='scale'>南下 (航班已提前出票)</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/6<br><span class='scale'>同当前</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+</table>
+<details><summary>9/30 打分依据</summary>
+<div class='note'><b>时间账 3：</b>同当前</div>
+<div class='note'><b>路线账 4：</b>同当前</div>
+<div class='note'><b>体力账 3：</b>同当前</div>
+<div class='note'><b>光线账 5：</b>同当前</div>
+<div class='note'><b>订单账 6：</b>同当前</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 4：</b>同当前</div>
+</details>
+<details><summary>10/1 打分依据</summary>
+<div class='note'><b>时间账 3：</b>爬山+追极光, 一天排满</div>
+<div class='note'><b>路线账 4：</b>同当前</div>
+<div class='note'><b>体力账 3：</b>连续第2天高强度</div>
+<div class='note'><b>光线账 6：</b>日落+极光追拍拉满</div>
+<div class='note'><b>订单账 5：</b>连住无新增</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 3：</b>爬山看天气, 夜间开车追极光</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/2 打分依据</summary>
+<div class='note'><b>时间账 3：</b>同当前</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>转场日回血</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 3：</b>同当前: WF816未核+Tromsø入住未知</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 3：</b>同当前</div>
+<div class='note'><b>工作账 5：</b>同当前</div>
+</details>
+<details><summary>10/3 打分依据</summary>
+<div class='note'><b>时间账 4：</b>白天市区+晚上追极光, 紧凑</div>
+<div class='note'><b>路线账 4：</b>夜间追极光有绕行</div>
+<div class='note'><b>体力账 4：</b>晚睡, 次日10/4是Sommarøy</div>
+<div class='note'><b>光线账 6：</b>市区日落+深夜极光双杀</div>
+<div class='note'><b>订单账 5：</b>10/2落地后已拿入住方式</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 3：</b>深夜开车+疲劳叠加</div>
+<div class='note'><b>工作账 5：</b>仅早会</div>
+</details>
+<details><summary>10/4 打分依据</summary>
+<div class='note'><b>时间账 4：</b>单程1h, 一天刚好</div>
+<div class='note'><b>路线账 4：</b>Sommarøy往返+Ersfjordbotn顺路</div>
+<div class='note'><b>体力账 4：</b>中等, 前一晚追极光有影响</div>
+<div class='note'><b>光线账 6：</b>海滩日落+极光, 光线拉满</div>
+<div class='note'><b>订单账 5：</b>无新增</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>天气决定体验上限</div>
+<div class='note'><b>工作账 4：</b>Dennis会改约10/1或10/3</div>
+</details>
+<details><summary>10/5 打分依据</summary>
+<div class='note'><b>时间账 4：</b>同A</div>
+<div class='note'><b>路线账 5：</b>同A</div>
+<div class='note'><b>体力账 4：</b>同A</div>
+<div class='note'><b>光线账 3：</b>同A</div>
+<div class='note'><b>订单账 5：</b>提前出票</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>航班落定</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/6 打分依据</summary>
+<div class='note'><b>时间账 4：</b>同当前</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 6：</b>同当前</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 4：</b>同当前</div>
+</details>
+</div>
+<h2>C·稳妥优先 <span class='total'>总分 4.59/6</span></h2>
+<div class='card' style='overflow-x:auto'><table><tr><th>日期</th><th>时间账</th><th>路线账</th><th>体力账</th><th>光线账</th><th>订单账</th><th>钱账</th><th>风险账</th><th>工作账</th></tr>
+<tr><td>9/30<br><span class='scale'>同当前 (已执行)</span></td><td class='warn'>3</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+<tr><td>10/1<br><span class='scale'>西线+晚上给Tromsø房东拿入住方式</span></td><td class='ok'>4</td><td class='ok'>4</td><td class='ok'>4</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/2<br><span class='scale'>转场: WF816已核实+13:30到Leknes</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>5</td><td class='ok'>4</td><td class='good'>5</td></tr>
+<tr><td>10/3<br><span class='scale'>Tromsø市区 (入住方式已在手)</span></td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td></tr>
+<tr><td>10/4<br><span class='scale'>Chill本地 (低风险选项)</span></td><td class='good'>5</td><td class='good'>5</td><td class='good'>6</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td></tr>
+<tr><td>10/5<br><span class='scale'>南下 (航班已出票+Konglehytta已确认)</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td><td class='good'>5</td></tr>
+<tr><td>10/6<br><span class='scale'>同当前</span></td><td class='ok'>4</td><td class='good'>5</td><td class='ok'>4</td><td class='warn'>3</td><td class='good'>6</td><td class='good'>5</td><td class='ok'>4</td><td class='ok'>4</td></tr>
+</table>
+<details><summary>9/30 打分依据</summary>
+<div class='note'><b>时间账 3：</b>同当前</div>
+<div class='note'><b>路线账 4：</b>同当前</div>
+<div class='note'><b>体力账 3：</b>同当前</div>
+<div class='note'><b>光线账 5：</b>同当前</div>
+<div class='note'><b>订单账 6：</b>同当前</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 4：</b>同当前</div>
+</details>
+<details><summary>10/1 打分依据</summary>
+<div class='note'><b>时间账 4：</b>同当前</div>
+<div class='note'><b>路线账 4：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 5：</b>同当前</div>
+<div class='note'><b>订单账 5：</b>当晚消息房东, 10/2落地前入住方式到手</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/2 打分依据</summary>
+<div class='note'><b>时间账 4：</b>提前到机场, buffer充足</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 5：</b>WF816已核实+Tromsø入住方式在手</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 4：</b>两个未知都消掉</div>
+<div class='note'><b>工作账 5：</b>同当前</div>
+</details>
+<details><summary>10/3 打分依据</summary>
+<div class='note'><b>时间账 5：</b>同当前</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 5：</b>同当前</div>
+<div class='note'><b>光线账 5：</b>同当前</div>
+<div class='note'><b>订单账 5：</b>入住方式已提前拿到</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 5：</b>无未知项, 当天零风险</div>
+<div class='note'><b>工作账 5：</b>仅早会</div>
+</details>
+<details><summary>10/4 打分依据</summary>
+<div class='note'><b>时间账 5：</b>100km内</div>
+<div class='note'><b>路线账 5：</b>无折返</div>
+<div class='note'><b>体力账 6：</b>最松</div>
+<div class='note'><b>光线账 5：</b>日落+极光</div>
+<div class='note'><b>订单账 5：</b>无新增</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 5：</b>本地活动随时可撤</div>
+<div class='note'><b>工作账 5：</b>Dennis会可约上午</div>
+</details>
+<details><summary>10/5 打分依据</summary>
+<div class='note'><b>时间账 4：</b>同A</div>
+<div class='note'><b>路线账 5：</b>同A</div>
+<div class='note'><b>体力账 4：</b>同A</div>
+<div class='note'><b>光线账 3：</b>同A</div>
+<div class='note'><b>订单账 5：</b>出票+门禁确认, 全齐</div>
+<div class='note'><b>钱账 5：</b>无异常</div>
+<div class='note'><b>风险账 5：</b>无未定项</div>
+<div class='note'><b>工作账 5：</b>无会</div>
+</details>
+<details><summary>10/6 打分依据</summary>
+<div class='note'><b>时间账 4：</b>同当前</div>
+<div class='note'><b>路线账 5：</b>同当前</div>
+<div class='note'><b>体力账 4：</b>同当前</div>
+<div class='note'><b>光线账 3：</b>同当前</div>
+<div class='note'><b>订单账 6：</b>同当前</div>
+<div class='note'><b>钱账 5：</b>同当前</div>
+<div class='note'><b>风险账 4：</b>同当前</div>
+<div class='note'><b>工作账 4：</b>同当前</div>
+</details>
+</div>
+<h2>结论</h2><div class="card">
+<div class="note"><b>当前计划 4.09：</b>最大三个坑 — 10/4 待定、10/5 航班未出票、10/2 转场紧+WF816未核实。</div>
+<div class="note"><b>A·体力优先 4.61：</b>10/1 砍爬山早回桑拿、10/4 纯 chill 本地日；体力拉到 4.71，代价是光线只到 4.00。</div>
+<div class="note"><b>B·体验拉满 4.30：</b>光线 4.57 全场最高，但体力 3.71、风险 3.57，第 7/8 天连轴转。</div>
+<div class="note"><b>C·稳妥优先 4.59：</b>不改行程、只做核实动作（拿 Tromsø 入住方式、核 WF816、10/5 提前出票、10/2 提前到机场）；订单 5.29、风险 4.43 全场最高。</div>
+<div class="note"><b>建议：</b>C 的核实动作是白捡分，先做；A+C 可叠加（chill 的 10/4 + C 的核实），预计 4.7+。</div>
+</div>
+<div class='sub'>由 trip_evaluator.py 生成 · 改行程后重跑 render_eval_page.py 即可更新</div>
+</div></body></html>
