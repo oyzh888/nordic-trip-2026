@@ -11,10 +11,11 @@
 
 <section style="padding-top:clamp(38px,5vw,64px)">
   <div class="wrap">
-    <div class="eyebrow">Steve 一个人 · 方案 C · 10/6 → 10/17 · 价格 2026-09-24 / 25 实抓</div>
+    <div class="eyebrow">Steve 一个人 · 方案 C · 10/6 → 10/17 · ✅ 2026-09-29 起机票和住宿全部订好</div>
     <h1 style="margin-bottom:16px">后半段 · 订票参考</h1>
     <p class="lede">🇫🇷 <b>尼斯 4 晚</b> → 🇬🇧 <b>伦敦 3 晚（周末）</b> → 🇵🇹 <b>里斯本 4 晚</b> → <b>10/17 周六里斯本直飞回旧金山</b>（周日在家）。
-      四张机票 + 三处住宿，<b>从上往下点、从上往下买</b>。全部都还<b>没下单</b>。
+      四张机票 + 三处住宿，<b><b>全部已订</b>：四张机票已出票，三城住宿已订。
+      地址、入住时间、怎么拿钥匙 → <a href="/info/#solo">📍 路上用的</a>。
       <a href="/solo/trip/">→ 地图 + 时间轴：确认每天在时间和空间上都轻松</a></p>
     <div class="stats" id="stats"></div>
   </div>
@@ -22,18 +23,19 @@
 
 <section>
   <div class="wrap">
-    <h2><span class="n">01</span>机票 · 按先后顺序</h2>
-    <p class="lede">链接是 Google Flights 按日期、单程、1 位成人预先填好的搜索，点开就能看到那一班。
-      廉价航空（挪威航空、瑞安航空）<b>在官网下单</b>，结算页再看一眼行李费。</p>
+    <h2><span class="n">01</span>机票 · 四张都已出票</h2>
+    <p class="lede">订单号和 PNR 不放在这个公开页面上 —— 在 Trip.com 订单里。网上值机走各航司官网。</p>
     <div class="tw"><table>
-      <thead><tr><th>#</th><th>日期</th><th>航班</th><th>价</th><th>为什么这班</th><th>去哪买</th></tr></thead>
+      <thead><tr><th>状态</th><th>日期</th><th>航班</th><th>价</th><th>备注</th><th>链接</th></tr></thead>
       <tbody id="fly"></tbody></table></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2><span class="n">02</span>住宿 · Airbnb 和直订酒店并排比</h2>
+    <h2><span class="n">02</span>住宿 · ✅ 已订的三处</h2>
+    <div class="cards" id="booked" style="margin-bottom:34px"></div>
+    <h3 style="font:400 22px/1.3 var(--disp);margin:10px 0 6px">订之前的比较（存档）</h3>
     <p class="lede">每城 <b>5 套 Airbnb + 4 家酒店</b>，每一张卡都写了<b>它好在哪</b>：
       ⚖️ 平衡最好 · 📍 离好玩的最近 · 🛋 住得最舒服 · 🏛 房子最有特色 · 💰 性价比。
       「🚶 步行」那行是我用房源坐标算的到这城几个核心点的步行分钟（Airbnb 坐标有一两百米模糊，按「约」看）。
@@ -90,21 +92,21 @@ const gf = (a, b, d) => `https://www.google.com/travel/flights?hl=en&curr=USD&q=
 const A = (h, t) => `<a href="${h}" target="_blank" rel="noopener">${t} ↗</a>`;
 
 const FLY = [
-  ['🔴🔴 1', '10/17 六', '里斯本 13:10 → SFO 17:35 · <b>直飞 12h25</b><br><span class="s">葡萄牙航空 TAP（捷蓝航空 JetBlue 也卖这班，是同一架飞机）</span>', '$1,066',
-   '周六能直飞回湾区的<b>只有这一班</b>，所以整条路线是倒着从它排出来的。周日在家倒时差、在家开例会',
-   [gf('LIS', 'SFO', '2026-10-17'), 'Google Flights'], ['https://www.flytap.com/', 'TAP 官网']],
-  ['🔴 2', '10/10 六', '尼斯 11:35 → 伦敦希思罗 12:50 · 直飞 2h15<br><span class="s">英国航空 British Airways（全服务，含随身行李）</span>', '$77',
-   '落希思罗 → Heathrow Express 15 分钟到 Paddington。周六下午 + 晚上都在伦敦（西区夜场）',
-   [gf('NCE', 'LHR', '2026-10-10'), 'Google Flights'], ['https://www.britishairways.com/', '英航官网']],
-  ['🔴 3', '10/6 二', '奥斯陆 17:20 → 尼斯 20:15 · 直飞 2h55<br><span class="s">挪威航空 Norwegian（廉价航空，托运行李另收费）</span>', '$85',
-   '10/6 你请了全天假，和大家在奥斯陆道别再走',
-   [gf('OSL', 'NCE', '2026-10-06'), 'Google Flights'], ['https://www.norwegian.com/', '挪威航空官网']],
-  ['🟠 4', '10/13 二', '伦敦卢顿 12:15 → 里斯本 15:10 · 直飞 2h55<br><span class="s">廉价航空（点进去看是哪家；卢顿出发的多是 easyJet / Wizz）</span>', '$107',
-   '08:00–10:00 的例会在伦敦开完再走；16:00 左右进里斯本住处，18:00 开工。⚠️ 卢顿离市区约 1 小时',
-   [gf('LTN', 'LIS', '2026-10-13'), 'Google Flights'], null],
+  ['✅ 已出票', '10/17 六', '里斯本 13:10 → SFO 17:35 · <b>TP237 直飞 12h25</b><br><span class="s">葡萄牙航空 TAP · 含 23kg 托运 · 10/16 13:10 开放网上值机</span>', '—',
+   '周六唯一一班直飞回湾区。周日在家倒时差、在家开例会',
+   [gf('LIS', 'SFO', '2026-10-17'), '航班信息'], ['https://www.flytap.com/', 'TAP 官网（值机）']],
+  ['✅ 已出票', '10/10 六', '尼斯 11:35 → <b>伦敦盖特威克 LGW</b> 12:50 · <b>BA2575</b><br><span class="s">英国航空 · 含托运 + 登机箱 · ⚠️ 落的是盖特威克，不是希思罗</span>', '—',
+   '盖特威克 → Camden：Gatwick Express 到 Victoria 30 分钟 + 地铁约 25 分钟（或 Thameslink 直达 St Pancras）',
+   [gf('NCE', 'LGW', '2026-10-10'), '航班信息'], ['https://www.britishairways.com/', '英航官网（值机）']],
+  ['✅ 已出票', '10/6 二', '奥斯陆 17:20 → 尼斯 20:15 · <b>DY1406</b><br><span class="s">挪威航空 · 含 23kg 托运，不含登机箱</span>', '$166.90',
+   '10/6 请了全天假，和大家在奥斯陆道别再走',
+   [gf('OSL', 'NCE', '2026-10-06'), '航班信息'], ['https://www.norwegian.com/', '挪威航空官网（值机）']],
+  ['✅ 已出票', '10/13 二', '伦敦卢顿 12:15 → 里斯本 15:10 · <b>easyJet U22461</b><br><span class="s">含托运，不含登机箱 —— 随身只能带一个能塞前排座位下的包</span>', '—',
+   '08:00–10:00 的例会在伦敦开完再走；Camden 走到 St Pancras 15 分钟 → Thameslink 约 35 分钟到卢顿',
+   [gf('LTN', 'LIS', '2026-10-13'), '航班信息'], ['https://www.easyjet.com/', 'easyJet 官网（值机）']],
 ];
 $('#fly').innerHTML = FLY.map(([p, d, f, $p, why, g, off]) => `<tr>
-  <td><span class="badge ${/🔴🔴/.test(p) ? 'hot' : 'amb'}">${p}</span></td>
+  <td><span class="badge ok">${p}</span></td>
   <td>${d}</td><td><b>${f}</b></td><td><b>${$p}</b></td><td class="s">${why}</td>
   <td>${A(...g)}${off ? '<br>' + A(...off) : ''}</td></tr>`).join('');
 
@@ -145,10 +147,21 @@ const PRE = [
 ];
 $('#pre').innerHTML = PRE.map(r => `<tr>${r.map((x, i) => `<td${i === 1 ? ' class="s"' : ''}>${x}</td>`).join('')}</tr>`).join('');
 
-const stayUsd = STAYS.reduce((s, c) => s + c.opts[0].usd, 0);   // 每城「⚖️ 平衡最好」那套
+/* 已订的三处（2026-09-28 Airbnb 订单实查；精确地址在 /info/ 也有） */
+const BOOKED = [
+  ['🇫🇷 尼斯 · 10/6 → 10/10', 'A Walk To The Sea - Perfect Location', '13 Rue Massenet, 06000 Nice',
+   '<b>21:00 左右到</b>（已告知房东晚到）→ 先去 FEEL HOME 办公室（15 Rue du Congrès）当面拿钥匙，<b>要刷信用卡押金</b>', '10/10 10:00 前退房', [43.69632, 7.26407]],
+  ['🇬🇧 伦敦 · 10/10 → 10/13', 'King BED! Camden Room', 'Saint Martins Close, London NW1 0HR',
+   '14:00 后入住 · <b>密码箱自助</b>（房东临近发完整指引）', '10/13 10:00 前退房', [51.53851, -0.13896]],
+  ['🇵🇹 里斯本 · 10/13 → 10/17', 'Rua Rui Barbosa 8 公寓', 'Rua Rui Barbosa 8, 1171-331 Lisboa',
+   '16:00 后入住 · 入住方式<b>房东还没发</b>，出发前留意 Airbnb 消息', '10/17 11:00 前退房', [38.71842, -9.12191]],
+];
+$('#booked').innerHTML = BOOKED.map(([c, n, a, ci, co, ll]) => `<div class="card ok"><h3>${c}</h3>
+  <div style="font-weight:600;margin:6px 0 2px">${esc(n)}</div>
+  <div class="s">📍 ${esc(a)} · <a href="https://www.google.com/maps/search/?api=1&query=${ll[0]},${ll[1]}" target="_blank" rel="noopener">地图 ↗</a></div>
+  <p style="font-size:14px;color:var(--ink2);margin:8px 0 0">🔑 ${ci}<br>🕚 ${co}</p></div>`).join('');
 $('#stats').innerHTML = [
-  ['$1,335', '四张机票'], [usd(stayUsd), '住宿（每城 ⚖️ 那套）'], ['≈' + usd(1335 + stayUsd), '合计'],
-  ['11', '晚'], ['0 / 7', '已下单'],
+  ['4 / 4', '机票已出票'], ['3 / 3', '住宿已订'], ['11', '晚'], ['0', '件待办'],
 ].map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
 </script>
 <script src="/anim.js"></script>

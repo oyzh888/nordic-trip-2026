@@ -818,8 +818,8 @@ const INFO = {
    "loc": "海滨大道 + 沙滩躺椅",
    "gmap": "https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93%20%2B%20%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85",
    "amap": "https://maps.apple.com/?q=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93%20%2B%20%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85",
-   "detail": "海滨大道走一段 → 沙滩躺椅（海水 20–21°C） · 从住处：步行",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93%E8%B5%B0%E4%B8%80%E6%AE%B5+%E2%86%92+%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85&dates=20261007T090000Z%2F20261007T143000Z&location=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93+%2B+%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85&details=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93%E8%B5%B0%E4%B8%80%E6%AE%B5+%E2%86%92+%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85%EF%BC%88%E6%B5%B7%E6%B0%B4+20%E2%80%9321%C2%B0C%EF%BC%89+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "海滨大道走一段 → 沙滩躺椅（海水 20–21°C） · 从住处：步行 5 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93%E8%B5%B0%E4%B8%80%E6%AE%B5+%E2%86%92+%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85&dates=20261007T090000Z%2F20261007T143000Z&location=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93+%2B+%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85&details=%E6%B5%B7%E6%BB%A8%E5%A4%A7%E9%81%93%E8%B5%B0%E4%B8%80%E6%AE%B5+%E2%86%92+%E6%B2%99%E6%BB%A9%E8%BA%BA%E6%A4%85%EF%BC%88%E6%B5%B7%E6%B0%B4+20%E2%80%9321%C2%B0C%EF%BC%89+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C+5+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -833,8 +833,8 @@ const INFO = {
    "loc": "Villefranche-sur-Mer 小渔村",
    "gmap": "https://www.google.com/maps/search/?api=1&query=Villefranche-sur-Mer%20%E5%B0%8F%E6%B8%94%E6%9D%91",
    "amap": "https://maps.apple.com/?q=Villefranche-sur-Mer%20%E5%B0%8F%E6%B8%94%E6%9D%91",
-   "detail": "火车 7 分钟 → 彩色老街 + 沙滩，在那吃午饭 · 从住处：TER 火车 7 分钟",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E7%81%AB%E8%BD%A6+7+%E5%88%86%E9%92%9F+%E2%86%92+%E5%BD%A9%E8%89%B2%E8%80%81%E8%A1%97+%2B+%E6%B2%99%E6%BB%A9%EF%BC%8C%E5%9C%A8%E9%82%A3%E5%90%83%E5%8D%88%E9%A5%AD&dates=20261008T090000Z%2F20261008T140000Z&location=Villefranche-sur-Mer+%E5%B0%8F%E6%B8%94%E6%9D%91&details=%E7%81%AB%E8%BD%A6+7+%E5%88%86%E9%92%9F+%E2%86%92+%E5%BD%A9%E8%89%B2%E8%80%81%E8%A1%97+%2B+%E6%B2%99%E6%BB%A9%EF%BC%8C%E5%9C%A8%E9%82%A3%E5%90%83%E5%8D%88%E9%A5%AD+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9ATER+%E7%81%AB%E8%BD%A6+7+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "火车 7 分钟 → 彩色老街 + 沙滩，在那吃午饭 · 从住处：步行 15 分钟到 Nice-Ville 站 + TER 火车 7 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E7%81%AB%E8%BD%A6+7+%E5%88%86%E9%92%9F+%E2%86%92+%E5%BD%A9%E8%89%B2%E8%80%81%E8%A1%97+%2B+%E6%B2%99%E6%BB%A9%EF%BC%8C%E5%9C%A8%E9%82%A3%E5%90%83%E5%8D%88%E9%A5%AD&dates=20261008T090000Z%2F20261008T140000Z&location=Villefranche-sur-Mer+%E5%B0%8F%E6%B8%94%E6%9D%91&details=%E7%81%AB%E8%BD%A6+7+%E5%88%86%E9%92%9F+%E2%86%92+%E5%BD%A9%E8%89%B2%E8%80%81%E8%A1%97+%2B+%E6%B2%99%E6%BB%A9%EF%BC%8C%E5%9C%A8%E9%82%A3%E5%90%83%E5%8D%88%E9%A5%AD+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C+15+%E5%88%86%E9%92%9F%E5%88%B0+Nice-Ville+%E7%AB%99+%2B+TER+%E7%81%AB%E8%BD%A6+7+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -848,8 +848,8 @@ const INFO = {
    "loc": "马蒂斯美术馆 + Cimiez 公园",
    "gmap": "https://www.google.com/maps/search/?api=1&query=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86%20%2B%20Cimiez%20%E5%85%AC%E5%9B%AD",
    "amap": "https://maps.apple.com/?q=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86%20%2B%20Cimiez%20%E5%85%AC%E5%9B%AD",
-   "detail": "马蒂斯美术馆（1 小时）+ 橄榄树公园长椅 · 从住处：公交 15 分钟",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86&dates=20261009T100000Z%2F20261009T130000Z&location=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86+%2B+Cimiez+%E5%85%AC%E5%9B%AD&details=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86%EF%BC%881+%E5%B0%8F%E6%97%B6%EF%BC%89%2B+%E6%A9%84%E6%A6%84%E6%A0%91%E5%85%AC%E5%9B%AD%E9%95%BF%E6%A4%85+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E5%85%AC%E4%BA%A4+15+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "马蒂斯美术馆（1 小时）+ 橄榄树公园长椅 · 从住处：公交 20 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86&dates=20261009T100000Z%2F20261009T130000Z&location=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86+%2B+Cimiez+%E5%85%AC%E5%9B%AD&details=%E9%A9%AC%E8%92%82%E6%96%AF%E7%BE%8E%E6%9C%AF%E9%A6%86%EF%BC%881+%E5%B0%8F%E6%97%B6%EF%BC%89%2B+%E6%A9%84%E6%A6%84%E6%A0%91%E5%85%AC%E5%9B%AD%E9%95%BF%E6%A4%85+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E5%85%AC%E4%BA%A4+20+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "fly",
@@ -887,13 +887,13 @@ const INFO = {
    "kind": "act",
    "st": "可选",
    "raw": "ok",
-   "title": "（可选）Portobello 周六市集",
-   "s": "2026-10-10T15:00",
+   "title": "（可选）Camden Market 周末市集",
+   "s": "2026-10-10T15:30",
    "e": "2026-10-10T17:00",
    "tz_s": 1,
    "tz_e": 1,
-   "detail": "可选：Portobello 周六市集（周六是它一周最热闹的一天）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89Portobello+%E5%91%A8%E5%85%AD%E5%B8%82%E9%9B%86&dates=20261010T140000Z%2F20261010T160000Z&location=&details=%E5%8F%AF%E9%80%89%EF%BC%9APortobello+%E5%91%A8%E5%85%AD%E5%B8%82%E9%9B%86%EF%BC%88%E5%91%A8%E5%85%AD%E6%98%AF%E5%AE%83%E4%B8%80%E5%91%A8%E6%9C%80%E7%83%AD%E9%97%B9%E7%9A%84%E4%B8%80%E5%A4%A9%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "可选：Camden Market 周末市集（就在住处旁边）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89Camden+Market+%E5%91%A8%E6%9C%AB%E5%B8%82%E9%9B%86&dates=20261010T143000Z%2F20261010T160000Z&location=&details=%E5%8F%AF%E9%80%89%EF%BC%9ACamden+Market+%E5%91%A8%E6%9C%AB%E5%B8%82%E9%9B%86%EF%BC%88%E5%B0%B1%E5%9C%A8%E4%BD%8F%E5%A4%84%E6%97%81%E8%BE%B9%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -907,8 +907,8 @@ const INFO = {
    "loc": "西区看戏（Leicester Square 一带）",
    "gmap": "https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F%EF%BC%88Leicester%20Square%20%E4%B8%80%E5%B8%A6%EF%BC%89",
    "amap": "https://maps.apple.com/?q=%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F%EF%BC%88Leicester%20Square%20%E4%B8%80%E5%B8%A6%EF%BC%89",
-   "detail": "🎭 西区看戏（周六夜场） · 从住处：地铁 15 分钟",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%AD+%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F&dates=20261010T183000Z%2F20261010T210000Z&location=%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F%EF%BC%88Leicester+Square+%E4%B8%80%E5%B8%A6%EF%BC%89&details=%F0%9F%8E%AD+%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F%EF%BC%88%E5%91%A8%E5%85%AD%E5%A4%9C%E5%9C%BA%EF%BC%89+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E5%9C%B0%E9%93%81+15+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "🎭 西区看戏（周六夜场） · 从住处：地铁 Northern 线 15 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%AD+%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F&dates=20261010T183000Z%2F20261010T210000Z&location=%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F%EF%BC%88Leicester+Square+%E4%B8%80%E5%B8%A6%EF%BC%89&details=%F0%9F%8E%AD+%E8%A5%BF%E5%8C%BA%E7%9C%8B%E6%88%8F%EF%BC%88%E5%91%A8%E5%85%AD%E5%A4%9C%E5%9C%BA%EF%BC%89+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E5%9C%B0%E9%93%81+Northern+%E7%BA%BF+15+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -949,8 +949,8 @@ const INFO = {
    "loc": "大英博物馆",
    "gmap": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86",
    "amap": "https://maps.apple.com/?q=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86",
-   "detail": "大英博物馆（或 V&A），2 小时就走 · 从住处：地铁 20 分钟",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86&dates=20261012T100000Z%2F20261012T123000Z&location=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86&details=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86%EF%BC%88%E6%88%96+V%26A%EF%BC%89%EF%BC%8C2+%E5%B0%8F%E6%97%B6%E5%B0%B1%E8%B5%B0+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E5%9C%B0%E9%93%81+20+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "大英博物馆（或 V&A），2 小时就走 · 从住处：步行 25 分钟 / 地铁 10 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86&dates=20261012T100000Z%2F20261012T123000Z&location=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86&details=%E5%A4%A7%E8%8B%B1%E5%8D%9A%E7%89%A9%E9%A6%86%EF%BC%88%E6%88%96+V%26A%EF%BC%89%EF%BC%8C2+%E5%B0%8F%E6%97%B6%E5%B0%B1%E8%B5%B0+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C+25+%E5%88%86%E9%92%9F+%2F+%E5%9C%B0%E9%93%81+10+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "fly",
@@ -966,8 +966,8 @@ const INFO = {
    "gmap": "https://www.google.com/maps/search/?api=1&query=London%20Luton%20Airport",
    "amap": "https://maps.apple.com/?q=London%20Luton%20Airport",
    "gmap2": "https://www.google.com/maps/search/?api=1&query=Lisbon%20Humberto%20Delgado%20Airport",
-   "detail": "LTN → LIS 直飞 · PNR KDFXR7F · 含托运（无登机箱）",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+easyJet+U22461+%C2%B7+%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+%E2%86%92+%E9%87%8C%E6%96%AF%E6%9C%AC&dates=20261013T111500Z%2F20261013T141012Z&location=%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+LTN&details=LTN+%E2%86%92+LIS+%E7%9B%B4%E9%A3%9E+%C2%B7+PNR+KDFXR7F+%C2%B7+%E5%90%AB%E6%89%98%E8%BF%90%EF%BC%88%E6%97%A0%E7%99%BB%E6%9C%BA%E7%AE%B1%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "LTN → LIS easyJet U22461 直飞 · PNR KDFXR7F · 含托运（无登机箱）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+easyJet+U22461+%C2%B7+%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+%E2%86%92+%E9%87%8C%E6%96%AF%E6%9C%AC&dates=20261013T111500Z%2F20261013T141012Z&location=%E4%BC%A6%E6%95%A6%E5%8D%A2%E9%A1%BF%E6%9C%BA%E5%9C%BA+LTN&details=LTN+%E2%86%92+LIS+easyJet+U22461+%E7%9B%B4%E9%A3%9E+%C2%B7+PNR+KDFXR7F+%C2%B7+%E5%90%AB%E6%89%98%E8%BF%90%EF%BC%88%E6%97%A0%E7%99%BB%E6%9C%BA%E7%AE%B1%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "stay",
@@ -996,8 +996,8 @@ const INFO = {
    "loc": "28 路电车（Martim Moniz 起点）→ Alfama",
    "gmap": "https://www.google.com/maps/search/?api=1&query=28%20%E8%B7%AF%E7%94%B5%E8%BD%A6%EF%BC%88Martim%20Moniz%20%E8%B5%B7%E7%82%B9%EF%BC%89%E2%86%92%20Alfama",
    "amap": "https://maps.apple.com/?q=28%20%E8%B7%AF%E7%94%B5%E8%BD%A6%EF%BC%88Martim%20Moniz%20%E8%B5%B7%E7%82%B9%EF%BC%89%E2%86%92%20Alfama",
-   "detail": "28 路电车坐一圈 → Alfama 随便走 · 从住处：步行 / 电车",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=28+%E8%B7%AF%E7%94%B5%E8%BD%A6%E5%9D%90%E4%B8%80%E5%9C%88+%E2%86%92+Alfama+%E9%9A%8F%E4%BE%BF%E8%B5%B0&dates=20261014T093000Z%2F20261014T140000Z&location=28+%E8%B7%AF%E7%94%B5%E8%BD%A6%EF%BC%88Martim+Moniz+%E8%B5%B7%E7%82%B9%EF%BC%89%E2%86%92+Alfama&details=28+%E8%B7%AF%E7%94%B5%E8%BD%A6%E5%9D%90%E4%B8%80%E5%9C%88+%E2%86%92+Alfama+%E9%9A%8F%E4%BE%BF%E8%B5%B0+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C+%2F+%E7%94%B5%E8%BD%A6%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "28 路电车坐一圈 → Alfama 随便走 · 从住处：步行 15 分钟到 Graça 坐 28 路",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=28+%E8%B7%AF%E7%94%B5%E8%BD%A6%E5%9D%90%E4%B8%80%E5%9C%88+%E2%86%92+Alfama+%E9%9A%8F%E4%BE%BF%E8%B5%B0&dates=20261014T093000Z%2F20261014T140000Z&location=28+%E8%B7%AF%E7%94%B5%E8%BD%A6%EF%BC%88Martim+Moniz+%E8%B5%B7%E7%82%B9%EF%BC%89%E2%86%92+Alfama&details=28+%E8%B7%AF%E7%94%B5%E8%BD%A6%E5%9D%90%E4%B8%80%E5%9C%88+%E2%86%92+Alfama+%E9%9A%8F%E4%BE%BF%E8%B5%B0+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C+15+%E5%88%86%E9%92%9F%E5%88%B0+Gra%C3%A7a+%E5%9D%90+28+%E8%B7%AF%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -1011,8 +1011,8 @@ const INFO = {
    "loc": "Belém 修道院 + 原版蛋挞",
    "gmap": "https://www.google.com/maps/search/?api=1&query=Bel%C3%A9m%20%E4%BF%AE%E9%81%93%E9%99%A2%20%2B%20%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E",
    "amap": "https://maps.apple.com/?q=Bel%C3%A9m%20%E4%BF%AE%E9%81%93%E9%99%A2%20%2B%20%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E",
-   "detail": "热罗尼莫斯修道院 + 原版蛋挞（全是平地） · 从住处：15 号电车 25 分钟",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E7%83%AD%E7%BD%97%E5%B0%BC%E8%8E%AB%E6%96%AF%E4%BF%AE%E9%81%93%E9%99%A2+%2B+%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E&dates=20261015T090000Z%2F20261015T130000Z&location=Bel%C3%A9m+%E4%BF%AE%E9%81%93%E9%99%A2+%2B+%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E&details=%E7%83%AD%E7%BD%97%E5%B0%BC%E8%8E%AB%E6%96%AF%E4%BF%AE%E9%81%93%E9%99%A2+%2B+%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E%EF%BC%88%E5%85%A8%E6%98%AF%E5%B9%B3%E5%9C%B0%EF%BC%89+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A15+%E5%8F%B7%E7%94%B5%E8%BD%A6+25+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "热罗尼莫斯修道院 + 原版蛋挞（全是平地） · 从住处：打车 20 分钟（或 15 号电车约 40 分钟）",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E7%83%AD%E7%BD%97%E5%B0%BC%E8%8E%AB%E6%96%AF%E4%BF%AE%E9%81%93%E9%99%A2+%2B+%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E&dates=20261015T090000Z%2F20261015T130000Z&location=Bel%C3%A9m+%E4%BF%AE%E9%81%93%E9%99%A2+%2B+%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E&details=%E7%83%AD%E7%BD%97%E5%B0%BC%E8%8E%AB%E6%96%AF%E4%BF%AE%E9%81%93%E9%99%A2+%2B+%E5%8E%9F%E7%89%88%E8%9B%8B%E6%8C%9E%EF%BC%88%E5%85%A8%E6%98%AF%E5%B9%B3%E5%9C%B0%EF%BC%89+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%89%93%E8%BD%A6+20+%E5%88%86%E9%92%9F%EF%BC%88%E6%88%96+15+%E5%8F%B7%E7%94%B5%E8%BD%A6%E7%BA%A6+40+%E5%88%86%E9%92%9F%EF%BC%89%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -1026,8 +1026,8 @@ const INFO = {
    "loc": "LX Factory",
    "gmap": "https://www.google.com/maps/search/?api=1&query=LX%20Factory",
    "amap": "https://maps.apple.com/?q=LX%20Factory",
-   "detail": "院子里的咖啡馆 + 那家书店 · 从住处：打车 10 分钟",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%99%A2%E5%AD%90%E9%87%8C%E7%9A%84%E5%92%96%E5%95%A1%E9%A6%86+%2B+%E9%82%A3%E5%AE%B6%E4%B9%A6%E5%BA%97&dates=20261016T093000Z%2F20261016T120000Z&location=LX+Factory&details=%E9%99%A2%E5%AD%90%E9%87%8C%E7%9A%84%E5%92%96%E5%95%A1%E9%A6%86+%2B+%E9%82%A3%E5%AE%B6%E4%B9%A6%E5%BA%97+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%89%93%E8%BD%A6+10+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "院子里的咖啡馆 + 那家书店 · 从住处：打车 20 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E9%99%A2%E5%AD%90%E9%87%8C%E7%9A%84%E5%92%96%E5%95%A1%E9%A6%86+%2B+%E9%82%A3%E5%AE%B6%E4%B9%A6%E5%BA%97&dates=20261016T093000Z%2F20261016T120000Z&location=LX+Factory&details=%E9%99%A2%E5%AD%90%E9%87%8C%E7%9A%84%E5%92%96%E5%95%A1%E9%A6%86+%2B+%E9%82%A3%E5%AE%B6%E4%B9%A6%E5%BA%97+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%89%93%E8%BD%A6+20+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "act",
@@ -1041,8 +1041,8 @@ const INFO = {
    "loc": "Ribeira das Naus 河边台阶",
    "gmap": "https://www.google.com/maps/search/?api=1&query=Ribeira%20das%20Naus%20%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6",
    "amap": "https://maps.apple.com/?q=Ribeira%20das%20Naus%20%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6",
-   "detail": "Ribeira das Naus 河边台阶 + 早午饭 · 从住处：步行",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ribeira+das+Naus+%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6+%2B+%E6%97%A9%E5%8D%88%E9%A5%AD&dates=20261017T081500Z%2F20261017T094500Z&location=Ribeira+das+Naus+%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6&details=Ribeira+das+Naus+%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6+%2B+%E6%97%A9%E5%8D%88%E9%A5%AD+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%AD%A5%E8%A1%8C%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "Ribeira das Naus 河边台阶 + 早午饭 · 从住处：打车 10 分钟",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ribeira+das+Naus+%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6+%2B+%E6%97%A9%E5%8D%88%E9%A5%AD&dates=20261017T081500Z%2F20261017T094500Z&location=Ribeira+das+Naus+%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6&details=Ribeira+das+Naus+%E6%B2%B3%E8%BE%B9%E5%8F%B0%E9%98%B6+%2B+%E6%97%A9%E5%8D%88%E9%A5%AD+%C2%B7+%E4%BB%8E%E4%BD%8F%E5%A4%84%EF%BC%9A%E6%89%93%E8%BD%A6+10+%E5%88%86%E9%92%9F%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   },
   {
    "kind": "fly",
@@ -1058,8 +1058,8 @@ const INFO = {
    "gmap": "https://www.google.com/maps/search/?api=1&query=Lisbon%20Humberto%20Delgado%20Airport",
    "amap": "https://maps.apple.com/?q=Lisbon%20Humberto%20Delgado%20Airport",
    "gmap2": "https://www.google.com/maps/search/?api=1&query=San%20Francisco%20International%20Airport",
-   "detail": "LIS → SFO 葡萄牙航空直飞（旧金山当地 17:35 落地） · PNR ZKC7CX · 电子票 047-2527404906 · 含 23kg 托运 · 10/16 13:10 开放在线值机",
-   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA+TAP+TP237+%C2%B7+%E9%87%8C%E6%96%AF%E6%9C%AC+%E2%86%92+%E6%97%A7%E9%87%91%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&dates=20261017T121000Z%2F20261018T003512Z&location=%E9%87%8C%E6%96%AF%E6%9C%AC+Humberto+Delgado+%E6%9C%BA%E5%9C%BA+LIS&details=LIS+%E2%86%92+SFO+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA%E7%9B%B4%E9%A3%9E%EF%BC%88%E6%97%A7%E9%87%91%E5%B1%B1%E5%BD%93%E5%9C%B0+17%3A35+%E8%90%BD%E5%9C%B0%EF%BC%89+%C2%B7+PNR+ZKC7CX+%C2%B7+%E7%94%B5%E5%AD%90%E7%A5%A8+047-2527404906+%C2%B7+%E5%90%AB+23kg+%E6%89%98%E8%BF%90+%C2%B7+10%2F16+13%3A10+%E5%BC%80%E6%94%BE%E5%9C%A8%E7%BA%BF%E5%80%BC%E6%9C%BA%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
+   "detail": "LIS → SFO 葡萄牙航空 TP237 直飞（旧金山当地 17:35 落地） · PNR ZKC7CX · 电子票 047-2527404906 · 含 23kg 托运 · 10/16 13:10 开放在线值机",
+   "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E2%9C%88+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA+TAP+TP237+%C2%B7+%E9%87%8C%E6%96%AF%E6%9C%AC+%E2%86%92+%E6%97%A7%E9%87%91%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&dates=20261017T121000Z%2F20261018T003512Z&location=%E9%87%8C%E6%96%AF%E6%9C%AC+Humberto+Delgado+%E6%9C%BA%E5%9C%BA+LIS&details=LIS+%E2%86%92+SFO+%E8%91%A1%E8%90%84%E7%89%99%E8%88%AA%E7%A9%BA+TP237+%E7%9B%B4%E9%A3%9E%EF%BC%88%E6%97%A7%E9%87%91%E5%B1%B1%E5%BD%93%E5%9C%B0+17%3A35+%E8%90%BD%E5%9C%B0%EF%BC%89+%C2%B7+PNR+ZKC7CX+%C2%B7+%E7%94%B5%E5%AD%90%E7%A5%A8+047-2527404906+%C2%B7+%E5%90%AB+23kg+%E6%89%98%E8%BF%90+%C2%B7+10%2F16+13%3A10+%E5%BC%80%E6%94%BE%E5%9C%A8%E7%BA%BF%E5%80%BC%E6%9C%BA%0A%E5%AE%8C%E6%95%B4%E8%A1%8C%E7%A8%8B%EF%BC%9Ahttps%3A%2F%2Fnordic.airacle.com%2Finfo%2F"
   }
  ],
  "stays": [
@@ -1200,5 +1200,5 @@ const INFO = {
    ]
   }
  ],
- "built": "2026-09-29 07:25 UTC"
+ "built": "2026-10-01 10:31 UTC"
 };

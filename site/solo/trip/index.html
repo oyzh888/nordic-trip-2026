@@ -65,7 +65,7 @@
     <p class="s" style="margin-top:8px">里斯本 → 旧金山那段直飞在地图外（往西 9,000 公里），用箭头示意。</p>
 
     <h2 style="margin-top:44px"><span class="n">02</span>地图 · 每天的那一件事</h2>
-    <p class="lede">⌂ 是住处（每城首选），数字是日期。线上的数字是<b>直线距离</b>，旁边写着实际怎么去。</p>
+    <p class="lede">⌂ 是<b>已经订好的住处</b>，数字是日期。线上的数字是<b>直线距离</b>，旁边写着实际怎么去。</p>
     <div class="cmaps" id="cmaps"></div>
   </div>
 </section>
@@ -198,18 +198,17 @@ STOPS.forEach(([k, n], i) =>
 /* 每城一张：住处 + 每天的锚点 */
 const CITY = [
   { key: 'nice', name: '🇫🇷 尼斯 · 10/6–10/10', fallback: [43.6975, 7.2703], zoom: 13, air: 'nce' },
-  { key: 'lon', name: '🇬🇧 伦敦 · 10/10–10/13（周末）', fallback: [51.5154, -0.1755], zoom: 12, air: 'lhr' },
+  { key: 'lon', name: '🇬🇧 伦敦 · 10/10–10/13（周末）', fallback: [51.5385, -0.1390], zoom: 12, air: 'lgw' },
   { key: 'lis', name: '🇵🇹 里斯本 · 10/13–10/17', fallback: [38.7115, -9.1390], zoom: 13, air: 'lis_ap' },
 ];
 $('#cmaps').innerHTML = CITY.map((c, i) => `<div><h3>${c.name}</h3><div class="map" id="mc${i}"></div><div class="s" id="mcs${i}" style="margin-top:6px"></div></div>`).join('');
 CITY.forEach((c, i) => {
-  const st = (typeof STAYS !== 'undefined' ? STAYS.find(s => s.key === c.key) : null);
-  const top = st && st.opts.find(o => o.lat);
-  const home = top ? [top.lat, top.lng] : c.fallback;
+  const H = HOMES[c.key];                                  // 已订的住处（trip.js）
+  const home = H ? H.ll : c.fallback;
   const m = L.map('mc' + i, { scrollWheelZoom: false }).setView(home, c.zoom);
   base(m);
   L.marker(home, { icon: icon('⌂', 'home'), zIndexOffset: 1000 }).addTo(m)
-    .bindTooltip(top ? `住处：${top.name || top.pick}` : '住处（首选还没定位，先放在街区中心）');
+    .bindTooltip(H ? `住处（已订）：${H.name}` : '住处');
   const pts = [home];
   TDAYS.filter(d => d.city === c.key || d.city.endsWith('→' + c.key) || d.city.startsWith(c.key + '→'))
     .forEach(d => d.blocks.filter(b => b.k === 'act' && b.poi && POI[b.poi]).forEach(b => {

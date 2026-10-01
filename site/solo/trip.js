@@ -1,6 +1,7 @@
 /* 后半段行程：时间 + 空间的唯一数据源（10/6 → 10/17）
  *
- * 🆕 2026-09-25 方案 C：尼斯 4 晚 → 伦敦 3 晚（正好是周末）→ 里斯本 4 晚 → 10/17 周六里斯本直飞 SFO。
+ * 🆕 2026-09-29 全部已订：四班机票已出票、三城住宿已订（地址见 HOMES）。
+ * 2026-09-25 方案 C：尼斯 4 晚 → 伦敦 3 晚（正好是周末）→ 里斯本 4 晚 → 10/17 周六里斯本直飞 SFO。
  *   为什么换顺序：加拿大转机那条对 Steve 不可行；周六能直飞回湾区的只有里斯本（葡萄牙航空 12h25）。
  *   顺带的好处：伦敦赶上周末（西区夜场、见朋友都回来了），里斯本变成工作日、Airbnb 便宜将近一半。
  *
@@ -19,6 +20,7 @@ const POI = {
   osl:  { name: '奥斯陆机场 OSL', ll: [60.1976, 11.1004] },
   nce:  { name: '尼斯机场 NCE', ll: [43.6584, 7.2159] },
   lhr:  { name: '希思罗机场 LHR', ll: [51.4700, -0.4543] },
+  lgw:  { name: '盖特威克机场 LGW', ll: [51.1537, -0.1821] },
   ltn:  { name: '卢顿机场 LTN', ll: [51.8747, -0.3683] },
   lis_ap: { name: '里斯本机场 LIS', ll: [38.7742, -9.1342] },
   sfo:  { name: '旧金山 SFO', ll: [37.6213, -122.3790] },
@@ -28,6 +30,7 @@ const POI = {
   matisse: { name: '马蒂斯美术馆 + Cimiez 公园', ll: [43.7196, 7.2759] },
 
   westend: { name: '西区看戏（Leicester Square 一带）', ll: [51.5103, -0.1300] },
+  camden: { name: 'Camden Market', ll: [51.5415, -0.1466] },
   portobello: { name: 'Portobello 周六市集', ll: [51.5152, -0.2050] },
   wpier: { name: '威斯敏斯特码头 → 格林威治游船', ll: [51.5016, -0.1234] },
   bm: { name: '大英博物馆', ll: [51.5194, -0.1270] },
@@ -38,14 +41,21 @@ const POI = {
   lxf: { name: 'LX Factory', ll: [38.7033, -9.1786] },
 };
 
+/* 三城实际订的住处（2026-09-28 Airbnb 订单实查，坐标 9/29 geocode）—— 地图上的 ⌂ 用这个，不再用订票页的「首选」 */
+const HOMES = {
+  nice: { name: '尼斯 · 13 Rue Massenet', ll: [43.69632, 7.26407] },
+  lon:  { name: '伦敦 Camden · Saint Martins Close, NW1 0HR', ll: [51.53851, -0.13896] },
+  lis:  { name: '里斯本 · Rua Rui Barbosa 8', ll: [38.71842, -9.12191] },
+};
+
 /* 城市之间的四段飞行（地图总览用）。toSfo = 往地图外画箭头 */
 const LEGS = [
-  { from: 'osl', to: 'nce', t: '10/6 二 17:20 → 20:15 · 挪威航空 · 直飞 2h55' },
-  { from: 'nce', to: 'lhr', t: '10/10 六 11:35 → 12:50 · 英国航空 · 直飞 2h15' },
-  { from: 'ltn', to: 'lis_ap', t: '10/13 二 12:15 → 15:10 · 卢顿出发 · 直飞 2h55' },
-  { from: 'lis_ap', to: 'sfo', toSfo: true, t: '10/17 六 13:10 → 17:35 · 葡萄牙航空 · 直飞 12h25' },
+  { from: 'osl', to: 'nce', t: '10/6 二 17:20 → 20:15 · 挪威航空 DY1406 · 直飞 2h55 · 已出票' },
+  { from: 'nce', to: 'lgw', t: '10/10 六 11:35 → 12:50 · 英国航空 BA2575 · 直飞 · 已出票' },
+  { from: 'ltn', to: 'lis_ap', t: '10/13 二 12:15 → 15:10 · easyJet U22461 · 直飞 · 已出票' },
+  { from: 'lis_ap', to: 'sfo', toSfo: true, t: '10/17 六 13:10 → 17:35 · 葡萄牙航空 TP237 · 直飞 12h25 · 已出票' },
 ];
-const STOPS = [['osl', '奥斯陆'], ['nce', '尼斯 4 晚'], ['lhr', '伦敦 3 晚（周末）'], ['lis_ap', '里斯本 4 晚']];
+const STOPS = [['osl', '奥斯陆'], ['nce', '尼斯 4 晚'], ['lgw', '伦敦 3 晚（周末）'], ['lis_ap', '里斯本 4 晚']];
 
 /* 一天 = 城市 + 一组块。h 用小数小时（13.5 = 13:30）。act.poi 指向 POI，act.mode 是从住处过去的方式。 */
 const TDAYS = [
@@ -54,22 +64,22 @@ const TDAYS = [
       { k: 'sleep', a: 0, b: 7.5 },
       { k: 'act', a: 11.5, b: 13, t: '和大家在奥斯陆机场还车 → 道别', poi: 'osl' },
       { k: 'fly', a: 17.33, b: 20.25, t: 'OSL → NCE 挪威航空' },
-      { k: 'move', a: 20.25, b: 21.25, t: '机场 → 住处（2 号线电车 25 分钟 / 打车 20 分钟）' },
+      { k: 'move', a: 20.25, b: 21.25, t: '机场 → 房东办公室取钥匙（15 Rue du Congrès，约 21:00 晚到已告知房东）→ 13 Rue Massenet' },
     ] },
   { d: '10/7', wd: '三', city: 'nice', tz: 2, title: '🏖 海边躺平日',
     blocks: [
       { k: 'sleep', a: 1.5, b: 9.5 },
-      { k: 'act', a: 11, b: 16.5, t: '海滨大道走一段 → 沙滩躺椅（海水 20–21°C）', poi: 'nice_beach', mode: '步行' },
+      { k: 'act', a: 11, b: 16.5, t: '海滨大道走一段 → 沙滩躺椅（海水 20–21°C）', poi: 'nice_beach', mode: '步行 5 分钟' },
     ] },
   { d: '10/8', wd: '四', city: 'nice', tz: 2, title: '🚂 Villefranche 小渔村',
     blocks: [
       { k: 'sleep', a: 1.5, b: 9.5 },
-      { k: 'act', a: 11, b: 16, t: '火车 7 分钟 → 彩色老街 + 沙滩，在那吃午饭', poi: 'villefranche', mode: 'TER 火车 7 分钟' },
+      { k: 'act', a: 11, b: 16, t: '火车 7 分钟 → 彩色老街 + 沙滩，在那吃午饭', poi: 'villefranche', mode: '步行 15 分钟到 Nice-Ville 站 + TER 火车 7 分钟' },
     ] },
   { d: '10/9', wd: '五', city: 'nice', tz: 2, title: '🎨 马蒂斯美术馆 · 最轻的一天',
     blocks: [
       { k: 'sleep', a: 1.5, b: 8.5 },
-      { k: 'act', a: 12, b: 15, t: '马蒂斯美术馆（1 小时）+ 橄榄树公园长椅', poi: 'matisse', mode: '公交 15 分钟' },
+      { k: 'act', a: 12, b: 15, t: '马蒂斯美术馆（1 小时）+ 橄榄树公园长椅', poi: 'matisse', mode: '公交 20 分钟' },
     ] },
   { d: '10/10', wd: '六', city: 'nice→lon', tz: 1, title: '✈️ 飞伦敦 · 周六晚看西区',
     note: '这天中途换时区：出发按法国时间，落地后按英国时间（慢 1 小时）。下面统一按英国时间画。',
@@ -77,9 +87,9 @@ const TDAYS = [
       { k: 'sleep', a: 0.5, b: 7.5 },
       { k: 'move', a: 8.25, b: 9, t: '住处 → 尼斯机场（2 号线电车，法国时间 09:15 出门）' },
       { k: 'fly', a: 10.58, b: 12.83, t: 'NCE → LGW 英国航空 BA2575（法国 11:35 起飞）' },
-      { k: 'move', a: 12.83, b: 14, t: '希思罗 → Paddington（Heathrow Express 15 分钟 + 出机场）' },
-      { k: 'opt', a: 15, b: 17, t: '可选：Portobello 周六市集（周六是它一周最热闹的一天）' },
-      { k: 'act', a: 19.5, b: 22, t: '🎭 西区看戏（周六夜场）', poi: 'westend', mode: '地铁 15 分钟' },
+      { k: 'move', a: 12.83, b: 14.5, t: '盖特威克 → Camden（Gatwick Express 30 分钟到 Victoria + 地铁约 25 分钟，或 Thameslink 直达 St Pancras）' },
+      { k: 'opt', a: 15.5, b: 17, t: '可选：Camden Market 周末市集（就在住处旁边）' },
+      { k: 'act', a: 19.5, b: 22, t: '🎭 西区看戏（周六夜场）', poi: 'westend', mode: '地铁 Northern 线 15 分钟' },
     ] },
   { d: '10/11', wd: '日', city: 'lon', tz: 1, title: '⛴ 泰晤士河游船 + 见朋友',
     blocks: [
@@ -90,37 +100,37 @@ const TDAYS = [
   { d: '10/12', wd: '一', city: 'lon', tz: 1, title: '🏛 只去一个博物馆',
     blocks: [
       { k: 'sleep', a: 0, b: 8.5 },
-      { k: 'act', a: 11, b: 13.5, t: '大英博物馆（或 V&A），2 小时就走', poi: 'bm', mode: '地铁 20 分钟' },
+      { k: 'act', a: 11, b: 13.5, t: '大英博物馆（或 V&A），2 小时就走', poi: 'bm', mode: '步行 25 分钟 / 地铁 10 分钟' },
     ] },
   { d: '10/13', wd: '二', city: 'lon→lis', tz: 1, title: '✈️ 开完会飞里斯本',
     note: '伦敦和里斯本同一个时区，这天不用换表。',
     blocks: [
       { k: 'sleep', a: 0.5, b: 7.5 },
-      { k: 'move', a: 10.25, b: 11.25, t: '住处 → 卢顿机场（火车 + 接驳巴士约 1 小时）' },
-      { k: 'fly', a: 12.25, b: 15.17, t: 'LTN → LIS 直飞' },
-      { k: 'move', a: 15.17, b: 16, t: '里斯本机场 → 住处（打车 20 分钟）' },
+      { k: 'move', a: 10.25, b: 11.25, t: '住处 → 卢顿机场（走到 St Pancras 15 分钟 → Thameslink 约 35 分钟 → 接驳车 5 分钟）' },
+      { k: 'fly', a: 12.25, b: 15.17, t: 'LTN → LIS easyJet U22461 直飞' },
+      { k: 'move', a: 15.17, b: 16, t: '里斯本机场 → Rua Rui Barbosa 8（打车 15 分钟）' },
     ] },
   { d: '10/14', wd: '三', city: 'lis', tz: 1, title: '🚋 28 路电车 + Alfama',
     blocks: [
       { k: 'sleep', a: 0.5, b: 8.5 },
-      { k: 'act', a: 10.5, b: 15, t: '28 路电车坐一圈 → Alfama 随便走', poi: 'tram28', mode: '步行 / 电车' },
+      { k: 'act', a: 10.5, b: 15, t: '28 路电车坐一圈 → Alfama 随便走', poi: 'tram28', mode: '步行 15 分钟到 Graça 坐 28 路' },
     ] },
   { d: '10/15', wd: '四', city: 'lis', tz: 1, title: '⛪ Belém 半天',
     blocks: [
       { k: 'sleep', a: 0.5, b: 8.5 },
-      { k: 'act', a: 10, b: 14, t: '热罗尼莫斯修道院 + 原版蛋挞（全是平地）', poi: 'belem', mode: '15 号电车 25 分钟' },
+      { k: 'act', a: 10, b: 14, t: '热罗尼莫斯修道院 + 原版蛋挞（全是平地）', poi: 'belem', mode: '打车 20 分钟（或 15 号电车约 40 分钟）' },
     ] },
   { d: '10/16', wd: '五', city: 'lis', tz: 1, title: '☕ LX Factory · 最轻的一天',
     blocks: [
       { k: 'sleep', a: 0.5, b: 7.5 },
-      { k: 'act', a: 10.5, b: 13, t: '院子里的咖啡馆 + 那家书店', poi: 'lxf', mode: '打车 10 分钟' },
+      { k: 'act', a: 10.5, b: 13, t: '院子里的咖啡馆 + 那家书店', poi: 'lxf', mode: '打车 20 分钟' },
     ] },
   { d: '10/17', wd: '六', city: 'lis→home', tz: 1, title: '🪑 河边早午饭 → 直飞回家',
     blocks: [
       { k: 'sleep', a: 0.5, b: 8.5 },
-      { k: 'act', a: 9.25, b: 10.75, t: 'Ribeira das Naus 河边台阶 + 早午饭', poi: 'ribeira', mode: '步行' },
-      { k: 'move', a: 11, b: 11.5, t: '住处 → 里斯本机场（打车 20 分钟）' },
-      { k: 'fly', a: 13.17, b: 24, t: 'LIS → SFO 葡萄牙航空直飞（旧金山当地 17:35 落地）' },
+      { k: 'act', a: 9.25, b: 10.75, t: 'Ribeira das Naus 河边台阶 + 早午饭', poi: 'ribeira', mode: '打车 10 分钟' },
+      { k: 'move', a: 11, b: 11.5, t: '回住处拿行李 → 里斯本机场（打车 15 分钟）' },
+      { k: 'fly', a: 13.17, b: 24, t: 'LIS → SFO 葡萄牙航空 TP237 直飞（旧金山当地 17:35 落地）' },
     ] },
 ];
 
