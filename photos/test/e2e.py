@@ -32,7 +32,7 @@ PIPE = os.environ.get('PIPE_TOKEN') or DV.get('PIPE_TOKEN')
 PART = 8 * 2 ** 20
 TAG = f'E2E{random.randrange(10**6):06d}'          # 每次运行唯一，线上并发跑也不会串
 UA, UB = f'{TAG}-甲', f'{TAG}-乙'
-RUN = {'hs': set(), 'qs': set()}
+RUN = {'hs': set(), 'qs': set(), 'ps': set()}
 results = []
 
 
@@ -303,6 +303,24 @@ def main():
     by = {x['h']: x for x in A.get('/api/list').json()['items']}
     check('重新分析后已确认的人脸归属保留', pid in by[H['group']]['p'])
 
+    # ---------- 同一个人两张卡：先「起个名字」叫自己，后来又点「这是我」→ 不再多出一个；多出来的能合并 ----------
+    ff = fids['falls'][0]
+    names = lambda: [p for p in A.get('/api/list').json()['persons'] if p['name'] in (UA, UA + '-别名')]
+    p1 = A.post('/api/people/claim', {'face': ff, 'name': UA}).json()['person']; RUN['ps'].add(p1)
+    r = A.post('/api/people/claim', {'face': ff, 'me': True}).json()
+    check('先按名字建过同名卡，再点「这是我」→ 认领那张卡，不新建', r.get('person') == p1 and len(names()) == 1 and names()[0]['uid'])
+    check('再起一次同样的名字 → 归到同一个人', A.post('/api/people/claim', {'face': ff, 'name': UA.upper()}).json().get('person') == p1)
+    p3 = A.post('/api/people/claim', {'face': ff, 'name': UA + '-别名'}).json()['person']; RUN['ps'].add(p3)
+    r = A.post('/api/people/merge', {'from': p3, 'into': p1})
+    lst = A.get('/api/list').json(); by = {x['h']: x for x in lst['items']}
+    check('两张卡合并：脸归过去、多余的卡删掉', r.status_code == 200 and p1 in by[H['falls']]['p'] and p3 not in by[H['falls']]['p']
+          and not any(p['id'] == p3 for p in lst['persons']))
+    r = A.post('/api/people/merge', {'from': p1, 'into': pid})
+    check('绑了两个不同账号的卡不能合并', r.status_code == 400 and any(p['id'] == p1 for p in A.get('/api/list').json()['persons']))
+    p4 = B.post('/api/people/claim', {'face': ff, 'name': UB + '-x'}).json()['person']; RUN['ps'].add(p4)
+    r = B.post('/api/people/merge', {'from': p4, 'into': 'me'}).json()
+    check('在人物卡上点「这是我」→ 并进自己已有的卡', r.get('person') == pid and not any(p['id'] == p4 for p in A.get('/api/list').json()['persons']))
+
     # ---------- 搜索 + 查询缓存 ----------
     r1 = A.get('/api/search', params={'q': '极光'}).json()
     check('关键词搜「极光」命中 3 张照片 + 1 个视频', set(r1['ids']) >= {H['aurora1'], H['aurora2'], H['aurora3'], H['vid']} and H['falls'] not in r1['ids'], f"{len(r1['ids'])} 张, {r1.get('took')} ms")
@@ -363,7 +381,7 @@ def main():
 def cleanup():
     if not PIPE: return
     P = Client(PIPE)
-    r = P.post('/api/pipe/purge', {'hs': sorted(RUN['hs']), 'users': [UA, UB], 'qs': sorted(RUN['qs'])})
+    r = P.post('/api/pipe/purge', {'hs': sorted(RUN['hs']), 'users': [UA, UB], 'qs': sorted(RUN['qs']), 'persons': sorted(RUN['ps'])})
     left = Client(); left.login(UA)
     rest = [x for x in left.get('/api/list').json()['items'] if x['h'] in RUN['hs']]
     P.post('/api/pipe/purge', {'users': [UA]})

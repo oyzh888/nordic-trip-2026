@@ -232,6 +232,11 @@ export default {
         return J(await album.claim({ cluster: b.cluster ?? null, face: b.face ?? null }, target));
       }
       if (p === '/api/people/unassign' && method === 'POST') { needUser(); return J(await album.unassign(Number((await body()).face))); }
+      if (p === '/api/people/merge' && method === 'POST') {
+        needUser(); const b = await body();
+        const r = b.into === 'me' ? await album.claimPerson(Number(b.from), uid) : await album.mergePersons(Number(b.from), Number(b.into));
+        return J(r, r.error ? 400 : 200);
+      }
       if (p === '/api/people/rename' && method === 'POST') { needUser(); const b = await body(); return J(await album.renamePerson(Number(b.person), b.name)); }
 
       /* ---- 打包下载：先 POST 选中的 id 拿 token，再用普通链接下载（走浏览器自带的下载管理器） ---- */

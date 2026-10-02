@@ -602,7 +602,9 @@ async function renderPeople() {
       <div class="pcard${p.uid === S.me.id ? ' me' : ''}">
         <div class="faces">${p.faces.map(f => `<span class="fw">${faceDiv(f)}<button class="fx" data-unassign="${f.id}" title="这张不是 TA">✕</button></span>`).join('')}</div>
         <div class="pn"><b>${esc(p.name || '未命名')}</b>${p.uid === S.me.id ? ' <span class="badge ok">就是你</span>' : ''}<span class="s">${p.n} 张</span></div>
-        <div class="pa"><button class="btn sm pri" data-see="${p.id}">看 TA 的照片</button><button class="btn sm ghost" data-rename="${p.id}">改名</button></div>
+        <div class="pa"><button class="btn sm pri" data-see="${p.id}">看 TA 的照片</button><button class="btn sm ghost" data-rename="${p.id}">改名</button>
+          ${!iAmKnown && !p.uid ? `<button class="btn sm ghost" data-mine="${p.id}">🙋 这是我</button>` : ''}
+          ${d.persons.length > 1 ? `<select data-pmerge="${p.id}"><option value="">和…是同一个人</option>${d.persons.filter(q => q.id !== p.id && !(p.uid && q.uid)).map(q => `<option value="${q.id}">${esc(q.name || '未命名')}</option>`).join('')}</select>` : ''}</div>
       </div>`).join('')}</div>` : ''}
     <h3>${d.persons.length ? '还没认领的脸' : 'AI 找到的脸（按长相分组）'}</h3>
     ${d.clusters.length ? `<div class="pgrid">${d.clusters.map(c => `
@@ -628,12 +630,21 @@ $('#people').addEventListener('click', async e => {
     }
     if (t.dataset.unassign) return ok('/people/unassign', { face: Number(t.dataset.unassign) }, '已移出，以后不会再自动归给 TA');
     if (t.dataset.rename) { const name = prompt('新名字'); if (!name) return; return ok('/people/rename', { person: Number(t.dataset.rename), name }, '已改名'); }
+    if (t.dataset.mine) return ok('/people/merge', { from: Number(t.dataset.mine), into: 'me' }, '好！「⭐ 与我相关」现在包括所有拍到你的照片了');
     if (t.dataset.see) { S.person = Number(t.dataset.see); S.quick = 'all'; goTab('grid'); return renderAll(); }
     const f = t.closest('[data-fh]');
     if (f) { const i = S.data.items.findIndex(x => x.h === f.dataset.fh); if (i >= 0) { S.view = [S.data.items[i]]; openLb(0); } }
   } catch (err) { toast(err.message); }
 });
 $('#people').addEventListener('change', async e => {
+  const pm = e.target.closest('[data-pmerge]');
+  if (pm && pm.value) {
+    const into = pm.selectedOptions[0].textContent;
+    if (!confirm(`把这张卡的照片都并到「${into}」，并删掉这张卡？`)) { pm.value = ''; return; }
+    try { await api('/people/merge', { method: 'POST', body: { from: Number(pm.dataset.pmerge), into: Number(pm.value) } }); toast('已合并到 ' + into); }
+    catch (err) { toast(err.message); }
+    await refresh(true); return renderPeople();
+  }
   const s = e.target.closest('[data-merge]'); if (!s || !s.value) return;
   await api('/people/claim', { method: 'POST', body: { cluster: Number(s.dataset.merge), person: Number(s.value) } });
   toast('已归到 ' + s.selectedOptions[0].textContent); await refresh(true); renderPeople();
@@ -986,7 +997,15 @@ $('#uplist').addEventListener('click', e => {
 function openSheet() { $('#upsheet').hidden = false; renderUp(); }
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
-$('#file').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
+// iPhone 上点完 ✓，系统要先把每张照片转好、拷给网页（几百张 + 视频要好几分钟），这段时间网页收不到任何东西 ——
+// 不提示的话看起来就是「点了上传没反应」。所以一点开选择器就挂一条常驻提示，文件到了再换成「收到 N 个」
+$('#file').addEventListener('click', () => toast('📲 正在等手机把选中的照片交过来…<br>选得多（几百张、有视频）要等几分钟，别关页面、别锁屏', 0));
+$('#file').addEventListener('cancel', () => { $('#toast').hidden = true; });
+$('#file').addEventListener('change', e => {
+  const fs = [...e.target.files]; e.target.value = '';
+  if (fs.length) toast(`收到 ${fs.length} 个文件，开始上传`); else $('#toast').hidden = true;
+  enqueue(fs);
+});
 $('#dir').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
 let listT; function listSoon() { clearTimeout(listT); listT = setTimeout(() => refresh(), 1200); }
 

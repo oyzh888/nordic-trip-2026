@@ -273,13 +273,22 @@ export class Album extends DurableObject {
       const p = this.sql.exec(`SELECT id FROM persons WHERE uid=?`, target.uid).toArray()[0];
       if (p) pid = p.id;
       else {
+        // 之前有人已经给自己起过同名的卡（「起个名字」→ Steve），就认领那张，别再新建一个 Steve
         const u = this.user(target.uid);
-        this.sql.exec(`INSERT INTO persons (name, uid) VALUES (?,?)`, u.name, u.id);
-        pid = this.sql.exec(`SELECT last_insert_rowid() id`).one().id;
+        const same = this.personNamed(u.name, true);
+        if (same) { this.sql.exec(`UPDATE persons SET uid=? WHERE id=?`, u.id, same); pid = same; }
+        else {
+          this.sql.exec(`INSERT INTO persons (name, uid) VALUES (?,?)`, u.name, u.id);
+          pid = this.sql.exec(`SELECT last_insert_rowid() id`).one().id;
+        }
       }
     } else if (!pid && target.name) {
-      this.sql.exec(`INSERT INTO persons (name) VALUES (?)`, String(target.name).slice(0, 24));
-      pid = this.sql.exec(`SELECT last_insert_rowid() id`).one().id;
+      const name = String(target.name).trim().slice(0, 24);
+      pid = this.personNamed(name, false);                    // 同名就是同一个人
+      if (!pid) {
+        this.sql.exec(`INSERT INTO persons (name) VALUES (?)`, name);
+        pid = this.sql.exec(`SELECT last_insert_rowid() id`).one().id;
+      }
     }
     if (!pid) throw new Error('no target');
     if (cluster != null) this.sql.exec(`UPDATE faces SET person=?, confirmed=1 WHERE cluster=? AND person IS NULL`, pid, cluster);
@@ -293,6 +302,33 @@ export class Album extends DurableObject {
     this.sql.exec(`UPDATE faces SET person=NULL, cluster=NULL, confirmed=1 WHERE id=?`, face);
     this.bump();
     return { ok: true };
+  }
+  personNamed(name, unclaimedOnly) {
+    const r = this.sql.exec(`SELECT id FROM persons WHERE lower(trim(name)) = lower(trim(?))${unclaimedOnly ? ' AND uid IS NULL' : ''} ORDER BY uid IS NULL, id LIMIT 1`, String(name || '')).toArray()[0];
+    return r ? r.id : null;
+  }
+  /** 两张人物卡其实是同一个人：from 的脸全部归到 into，删掉 from。账号绑定跟着走；两边绑了不同账号就是两个人，拒绝 */
+  mergePersons(from, into) {
+    const get = id => this.sql.exec(`SELECT id, name, uid FROM persons WHERE id=?`, id).toArray()[0];
+    const a = get(from), b = get(into);
+    if (!a || !b || a.id === b.id) return { error: '找不到这个人' };
+    if (a.uid && b.uid && a.uid !== b.uid) return { error: '这两张卡绑的是两个不同的账号，不能合并' };
+    if (a.uid && !b.uid) this.sql.exec(`UPDATE persons SET uid=? WHERE id=?`, a.uid, b.id);
+    if (!b.name && a.name) this.sql.exec(`UPDATE persons SET name=? WHERE id=?`, a.name, b.id);
+    this.sql.exec(`UPDATE faces SET person=? WHERE person=?`, b.id, a.id);
+    this.sql.exec(`DELETE FROM persons WHERE id=?`, a.id);
+    this.bump();
+    this.notifyPipe({ t: 'recluster' });
+    return { person: b.id };
+  }
+  /** 在已认出的人物卡上点「这是我」：自己已经有卡就合并过去，没有就把这张卡绑到自己账号 */
+  claimPerson(pid, uid) {
+    const mine = this.sql.exec(`SELECT id FROM persons WHERE uid=?`, uid).toArray()[0];
+    if (mine) return mine.id === pid ? { person: pid } : this.mergePersons(pid, mine.id);
+    this.sql.exec(`UPDATE persons SET uid=? WHERE id=? AND uid IS NULL`, uid, pid);
+    this.bump();
+    this.notifyPipe({ t: 'recluster' });
+    return { person: pid };
   }
   renamePerson(pid, name) {
     this.sql.exec(`UPDATE persons SET name=? WHERE id=?`, String(name).slice(0, 24), pid);

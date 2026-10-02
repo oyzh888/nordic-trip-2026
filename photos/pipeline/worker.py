@@ -15,6 +15,7 @@
 """
 import argparse
 import base64
+import io
 import json
 import os
 import sys
@@ -26,6 +27,7 @@ from pathlib import Path
 
 import numpy as np
 import requests
+from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -341,6 +343,37 @@ class Worker:
             path.unlink(missing_ok=True)
         return im, res
 
+    @staticmethod
+    def local_time(utc, cc, res):
+        """时间线按「拍摄地当时的钟点」排：有 UTC（相机记了时区 / 视频）就换成拍摄地时间。
+        拍摄地按 GPS 的国家；没 GPS 按行程表猜；都不知道就保留相机/手机自己的钟点，再不行才存 UTC"""
+        if cc is None and res.get('lat') is None:
+            cc = M.trip_country(utc)
+        return M.utc_to_local(utc, cc) or res.get('taken') or utc
+
+    def retime(self):
+        """一次性：把已经分析过的照片按上面的规则重算拍摄时间（只读原件开头的 EXIF，不重跑模型）"""
+        n = 0
+        for m in self.api.get('/api/pipe/media'):
+            if m['kind'] != 'image' or m.get('src'):            # 视频 / AI 改图出来的新图不动
+                continue
+            r = self.api.req('GET', f'/f/{m["h"]}/o', headers={'range': 'bytes=0-1048575'}, timeout=120)
+            try:
+                meta = M.image_meta(Image.open(io.BytesIO(r.content)))
+            except Exception as e:   # noqa: BLE001
+                log(f'  {m["h"][:10]} 读不了 EXIF: {e!r:.80}')
+                continue
+            if not meta.get('_utc'):
+                continue
+            _, cc = self.geo(m.get('lat'), m.get('lon'))
+            t = self.local_time(meta['_utc'], cc, {'lat': m.get('lat'), 'taken': meta.get('taken')})
+            if t != m['taken']:
+                self.api.post('/api/pipe/result', {'h': m['h'], 'taken': t, 'aver': AVER})
+                log(f'  {m["h"][:10]} {m.get("cam")}  {m["taken"]} → {t}')
+                n += 1
+        log(f'重算拍摄时间：改了 {n} 张')
+        return n
+
     def process(self, items):
         prepped = []
         for it in items:
@@ -373,9 +406,8 @@ class Worker:
             if place:
                 res['place'] = place
             utc = res.pop('_utc', None)
-            if utc and 'taken' not in res:
-                # 视频只有 UTC 时间 → 按拍摄地的国家换成当地时间（没 GPS 就按 UTC 存，误差在 0–2 小时）
-                res['taken'] = M.utc_to_local(utc, cc)
+            if utc:
+                res['taken'] = self.local_time(utc, cc, res)
             for k in [k for k in res if k.startswith('_')]:
                 res.pop(k)
             res['aver'] = AVER
@@ -434,6 +466,8 @@ class Worker:
     # ---------------- 主循环 ----------------
     def run(self):
         self.stop = False
+        if self.args.retime and self.retime():
+            self.dirty = True                           # 时间变了 → 时刻 / 连拍要重新切
         threading.Thread(target=self.ws_loop, daemon=True).start()
         if self.edit_keys:
             threading.Thread(target=self.edit_loop, daemon=True).start()
@@ -472,6 +506,7 @@ def main():
     ap.add_argument('--keep', action='store_true', help='保留下载的原件（默认分析完就删）')
     ap.add_argument('--no-vlm', action='store_true', help='不加载 Qwen（只做向量/人脸，调试用）')
     ap.add_argument('--no-edit', action='store_true', help='不开 AI 改图（不连模型网关）')
+    ap.add_argument('--retime', action='store_true', help='开工前把已分析的照片按拍摄地重算一遍拍摄时间（幂等）')
     # 语义搜索的两道门（SigLIP2 余弦）：绝对下限 + 离最高分多近。在 36 个中英文查询上量的，见 README
     ap.add_argument('--sem-floor', type=float, default=0.05)
     ap.add_argument('--sem-win', type=float, default=0.04)

@@ -21,6 +21,7 @@ TAG = e2e.TAG
 U = f'{TAG}-UI'
 U2 = f'{TAG}-UI2'
 hashes = set()
+ui_ps = set()          # 测试里建出来的人物卡（没绑账号的不会随用户一起删）
 
 
 BAR_JS = """() => { const q = document.querySelector('#q').getBoundingClientRect(),
@@ -238,6 +239,15 @@ def main():
         pg.locator('#people [data-claim="7001"][data-me]').click(); pg.wait_for_timeout(1500)
         me_pid = next((p['id'] for p in P.get('/api/list').json()['persons'] if p['name'] == U), None)
         check('人物页点「这是我」→ 建立「我」', me_pid is not None)
+        # 同一个人被建了两张卡 → 在多出来的那张上选「和…是同一个人」合并掉
+        p2 = pg.evaluate('''f => fetch('api/people/claim', {method: 'POST', headers: {'content-type': 'application/json'},
+            body: JSON.stringify({face: f, name: '同一个人的第二张卡'})}).then(r => r.json())''', fid[1])['person']
+        ui_ps.add(p2)
+        pg.click('[data-tab=grid]'); pg.click('[data-tab=people]'); pg.wait_for_selector(f'#people [data-pmerge="{p2}"]', timeout=8000)
+        pg.once('dialog', lambda d: d.accept())
+        pg.select_option(f'#people [data-pmerge="{p2}"]', str(me_pid)); pg.wait_for_timeout(1500)
+        ps = {p['id'] for p in P.get('/api/list').json()['persons']}
+        check('人物卡「和…是同一个人」→ 两张卡合成一张', me_pid in ps and p2 not in ps and pg.locator(f'#people [data-pmerge="{p2}"]').count() == 0)
         pg.click('[data-tab=grid]'); pg.click('[data-f=mine]')
         n_mine = vis()
         check('「⭐ 与我相关」= 我传的 + 拍到我的', n_mine >= 1, f'{n_mine} 张'); pg.click('[data-f=all]')
@@ -421,7 +431,7 @@ def ai_ui(pg, P, H, files, shot):
 
 def cleanup():
     P = Client(e2e.PIPE)
-    r = P.post('/api/pipe/purge', {'hs': sorted(hashes | ai_hs), 'users': [U, U2]})
+    r = P.post('/api/pipe/purge', {'hs': sorted(hashes | ai_hs), 'users': [U, U2], 'persons': sorted(ui_ps)})
     check('收尾：UI 测试数据全部删除', r.status_code == 200, r.text[:60])
 
 

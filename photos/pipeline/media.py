@@ -23,6 +23,11 @@ Image.MAX_IMAGE_PIXELS = 400_000_000
 TZ = {'is': 0, 'gb': 1, 'ie': 1, 'pt': 1, 'no': 2, 'se': 2, 'dk': 2, 'de': 2, 'fr': 2, 'nl': 2, 'be': 2,
       'es': 2, 'it': 2, 'ch': 2, 'at': 2, 'mc': 2, 'fi': 3, 'ee': 3, 'us': -7}
 DST_END = datetime(2026, 10, 25, 1)          # 欧洲夏令时结束（UTC 时间）；之后除冰岛外都少 1 小时
+TZ['cn'] = 8
+# 没 GPS 的照片（单反、相机）按行程判断当时在哪个国家：(从这个 UTC 时刻起, 国家)。只写全员同行的那几天 ——
+# 10/6 之后大家分头走（有人回北京、有人去尼斯），不知道是谁拍的，就不猜，保留相机自己的时间。
+TRIP = [('2026-09-23T19:20', 'cn'), ('2026-09-24T04:45', 'no'), ('2026-09-25T04:15', 'is'),
+        ('2026-09-29T20:05', 'no'), ('2026-10-06T15:20', None)]
 
 
 def cam_name(make, model):
@@ -56,6 +61,11 @@ def image_meta(im):
     m = re.match(r'(\d{4}):(\d\d):(\d\d)[ T](\d\d):(\d\d):(\d\d)', str(dt or ''))
     if m and m.group(1) != '0000':
         out['taken'] = '{}-{}-{}T{}:{}:{}'.format(*m.groups())
+        # 相机自己记的时区（「+08:00」）：相机没改时区时它和拍摄地不一样 → 先换成 UTC，worker 再按拍摄地换回当地时间
+        off = re.match(r'([+-])(\d\d):(\d\d)$', str(sub.get(0x9011) or sub.get(0x9010) or '').strip())
+        if off:
+            mins = (1 if off.group(1) == '+' else -1) * (int(off.group(2)) * 60 + int(off.group(3)))
+            out['_utc'] = (datetime.fromisoformat(out['taken']) - timedelta(minutes=mins)).strftime('%Y-%m-%dT%H:%M:%S')
     g = ex.get_ifd(0x8825)
     if g.get(2) and g.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
@@ -127,11 +137,21 @@ def video_meta(path):
     return out
 
 
+def trip_country(utc):
+    """按行程表猜某个 UTC 时刻人在哪个国家；行程之外返回 None"""
+    cc = None
+    for t, c in TRIP:
+        if utc >= t:
+            cc = c
+    return cc
+
+
 def utc_to_local(utc, country):
+    """UTC → 该国当地墙上时间；不认识的国家返回 None（调用方自己决定退路）"""
     t = datetime.fromisoformat(utc)
     off = TZ.get((country or '').lower())
     if off is None:
-        return utc
+        return None
     if country.lower() != 'is' and off > -5 and t >= DST_END:
         off -= 1
     return (t + timedelta(hours=off)).strftime('%Y-%m-%dT%H:%M:%S')
