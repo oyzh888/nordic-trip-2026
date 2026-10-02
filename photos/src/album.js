@@ -73,6 +73,7 @@ export class Album extends DurableObject {
       CREATE TABLE IF NOT EXISTS moments (id INTEGER PRIMARY KEY, title TEXT, start TEXT, end TEXT, place TEXT, n INTEGER, memo REAL, cover TEXT);
       CREATE TABLE IF NOT EXISTS zips (token TEXT PRIMARY KEY, ids TEXT, at INTEGER);
       CREATE TABLE IF NOT EXISTS fails (ip TEXT, at INTEGER);
+      CREATE TABLE IF NOT EXISTS keys (id INTEGER PRIMARY KEY, hash TEXT UNIQUE, uid INTEGER, name TEXT, created INTEGER, used INTEGER);
       CREATE TABLE IF NOT EXISTS edits (id INTEGER PRIMARY KEY, h TEXT, prompt TEXT, model TEXT, uid INTEGER,
         status TEXT, out_h TEXT, err TEXT, tries INTEGER DEFAULT 0, at INTEGER, started INTEGER, done INTEGER);
     `);
@@ -112,14 +113,21 @@ export class Album extends DurableObject {
     this.bump();
     return this.sql.exec(`SELECT id, name FROM users WHERE name=?`, name).one();
   }
+  /* ---------- API 密钥：给脚本 / 命令行批量上传用。只存 SHA-256，原文只在创建时返回一次 ---------- */
+  createKey(uid, name, hash) {
+    this.sql.exec(`INSERT INTO keys (hash, uid, name, created) VALUES (?,?,?,?)`, hash, uid, String(name || '脚本').slice(0, 40), now());
+    return { id: this.sql.exec(`SELECT last_insert_rowid() id`).one().id };
+  }
+  keyUser(hash) {
+    const k = this.sql.exec(`SELECT id, uid FROM keys WHERE hash=?`, hash).toArray()[0];
+    if (!k) return null;
+    this.sql.exec(`UPDATE keys SET used=? WHERE id=?`, now(), k.id);
+    return k.uid;
+  }
+  listKeys(uid) { return this.sql.exec(`SELECT id, name, created, used FROM keys WHERE uid=? ORDER BY id DESC`, uid).toArray(); }
+  revokeKey(uid, id) { this.sql.exec(`DELETE FROM keys WHERE uid=? AND id=?`, uid, Number(id)); return { ok: true }; }
   user(uid) { return this.sql.exec(`SELECT id, name FROM users WHERE id=?`, uid).toArray()[0] || null; }
 
-  /* ---------- 上传 ----------
-   * 内容 ID（h）= SHA-256( 每 8 MB 块的 SHA-256 依次拼接 )，和 Dropbox 的 content_hash 同一个思路：
-   * 浏览器可以逐块算（手机上 2 GB 的视频不用一次读进内存），服务端能用已收到的块哈希**复核**整份文件。
-   * 同一个 h = 同一份字节 → 秒传（只登记「我也有这张」）；
-   * 同一个 h 但还没传完 → 返回已经收到的块号，客户端只补缺的 → 断点续传，换页面、换网络都能接上。
-   */
   /** 选完一大批先整批问一次「这些（文件名 + 字节数）相册里有没有」，有的直接算秒传，不用读文件算指纹。
    * iPhone 每次导出照片 lastModified 都是新的，本机缓存认不出来；而同一张照片导出的文件名和字节数是稳定的。
    * 名字 + 大小都一样却是两张不同照片的概率可以忽略。命中的顺手记上「我也有这张」，和 init 秒传一样 */
@@ -135,6 +143,12 @@ export class Album extends DurableObject {
     return { hit };
   }
 
+  /* ---------- 上传 ----------
+   * 内容 ID（h）= SHA-256( 每 8 MB 块的 SHA-256 依次拼接 )，和 Dropbox 的 content_hash 同一个思路：
+   * 浏览器可以逐块算（手机上 2 GB 的视频不用一次读进内存），服务端能用已收到的块哈希**复核**整份文件。
+   * 同一个 h = 同一份字节 → 秒传（只登记「我也有这张」）；
+   * 同一个 h 但还没传完 → 返回已经收到的块号，客户端只补缺的 → 断点续传，换页面、换网络都能接上。
+   */
   async initUpload(uid, m) {
     const h = String(m.h || '');
     if (!/^[0-9a-f]{64}$/.test(h)) throw new Error('bad hash');
@@ -724,6 +738,7 @@ export class Album extends DurableObject {
       this.sql.exec(`DELETE FROM edits WHERE uid=?`, u.id);
       this.sql.exec(`DELETE FROM users WHERE id=?`, u.id);
       for (const p of this.sql.exec(`SELECT id FROM persons WHERE uid=?`, u.id).toArray()) persons.push(p.id);
+      this.sql.exec(`DELETE FROM keys WHERE uid=?`, u.id);
     }
     for (const pid of persons) {
       this.sql.exec(`UPDATE faces SET person=NULL, confirmed=0 WHERE person=?`, pid);

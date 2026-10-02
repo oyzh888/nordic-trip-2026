@@ -1059,6 +1059,34 @@ $('#uplist').addEventListener('click', e => {
   const r = e.target.closest('.ur.failed'); if (!r) return;
   const t = UQ.find(t => t.key === r.dataset.k); if (t) { t.state = 'queued'; t.msg = '排队中'; pump(); }
 });
+/* ---------- API 密钥：给脚本批量传用。原文只显示这一次（服务端只存哈希） ---------- */
+async function renderKeys(fresh) {
+  const box = $('#keys-box');
+  let ks = []; try { ks = await api('/keys'); } catch (e) { box.innerHTML = `<p class="err">${esc(e.message)}</p>`; return; }
+  const day = t => t ? new Date(t).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }) : '还没用过';
+  box.innerHTML = `
+    <p>电脑上一条命令把整个文件夹传上来（断点续传、自动去重、原图原样传）。<a href="api.html" target="_blank">📖 API 文档</a></p>
+    ${fresh ? `<div class="keynew"><b>新密钥（只显示这一次，复制好）：</b><code id="key-val">${esc(fresh)}</code>
+      <button class="btn sm" id="key-copy">复制</button>
+      <pre>curl -O ${location.origin}/photos/np_upload.py
+NP_KEY=${esc(fresh)} python3 np_upload.py ~/Pictures/冰岛</pre></div>` : ''}
+    <button class="btn sm pri" id="key-new">＋ 生成一个密钥</button>
+    ${ks.length ? `<ul class="keys">${ks.map(k => `<li>🔑 ${esc(k.name)} <span class="s">· ${day(k.created)} 建 · 最近使用 ${day(k.used)}</span>
+      <button class="btn ghost sm danger" data-revoke="${k.id}">撤销</button></li>`).join('')}</ul>` : ''}
+    <p class="s">密钥 = 你本人的身份，用它传的照片记在你名下。别发到群里；不用了就撤销。</p>`;
+}
+$('#apikeys').addEventListener('toggle', e => { if (e.target.open) renderKeys(); });
+$('#keys-box').addEventListener('click', async e => {
+  const t = e.target;
+  try {
+    if (t.id === 'key-new') {
+      const name = prompt('给这个密钥起个名字（比如「家里的 Mac」）', '我的电脑'); if (name == null) return;
+      const r = await api('/keys', { method: 'POST', body: { name } }); return renderKeys(r.key);
+    }
+    if (t.id === 'key-copy') { await navigator.clipboard.writeText($('#key-val').textContent); return toast('已复制'); }
+    if (t.dataset.revoke && confirm('撤销后用这个密钥的脚本马上就传不了了。撤销？')) { await api('/keys/revoke', { method: 'POST', body: { id: Number(t.dataset.revoke) } }); renderKeys(); }
+  } catch (err) { toast(err.message); }
+});
 function openSheet() { $('#upsheet').hidden = false; renderUp(); }
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };

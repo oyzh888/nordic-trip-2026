@@ -231,3 +231,8 @@ table.mini th{color:var(--ink3); font-weight:500}
   color:#fff; background:#0007; backdrop-filter:blur(6px); cursor:pointer; -webkit-user-select:none; user-select:none; touch-action:none}
 .live.play .livebtn{background:#fffd; color:#000}
 details.orig{margin:6px 0 10px} details.orig summary{cursor:pointer} details.orig ol{margin:6px 0; padding-left:20px} details.orig li{margin:3px 0}
+
+/* API 密钥 */
+.keynew{background:var(--bg2); border:1px solid var(--hair2); border-radius:10px; padding:10px 12px; margin:8px 0}
+.keynew code{word-break:break-all; user-select:all} .keynew pre{white-space:pre-wrap; word-break:break-all; font-size:12px; margin:8px 0 0}
+ul.keys{list-style:none; padding:0; margin:8px 0} ul.keys li{display:flex; gap:6px; align-items:center; flex-wrap:wrap; padding:4px 0}

@@ -1,0 +1,108 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>共享相册 · API 文档</title><meta name="robots" content="noindex">
+<style>
+:root{--bg:#0f0e0c;--fg:#ece6da;--mu:#9d968a;--ac:#5fd3a4;--card:#1a1916;--ln:#2c2a26}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","Noto Sans CJK SC",sans-serif}
+main{max-width:920px;margin:0 auto;padding:32px 20px 80px}h1{font-size:28px;margin:0 0 4px}h2{margin:44px 0 10px;font-size:21px;border-bottom:1px solid var(--ln);padding-bottom:6px}
+h3{margin:26px 0 6px;font-size:17px}.mu{color:var(--mu)}a{color:var(--ac)}
+code{background:#24221e;padding:1px 5px;border-radius:4px;font-size:.88em}
+pre{background:var(--card);border:1px solid var(--ln);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:13.5px;line-height:1.55}pre code{background:none;padding:0}
+.tldr{background:var(--card);border-left:3px solid var(--ac);padding:14px 18px;border-radius:8px}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:14.5px}td,th{border-bottom:1px solid var(--ln);padding:7px 9px;text-align:left;vertical-align:top}th{color:var(--mu);font-weight:500}
+.m{font:600 12px/1 ui-monospace,monospace;padding:3px 6px;border-radius:4px;background:#2b3a33;color:var(--ac);white-space:nowrap}
+.warn{border-left-color:#f0b35a}
+</style></head><body><main>
+<h1>📷 共享相册 · API 文档</h1>
+<p class="mu">北欧 2026 共享相册（<a href="./">nordic.airacle.com/photos/</a>）的上传 / 下载接口 · 给脚本、命令行、自动化用</p>
+
+<div class="tldr"><b>一句话：</b>在相册网页里生成一个<b>密钥</b>，然后一条命令把电脑上的整个文件夹传上来 ——
+断点续传、自动去重（相册里已有的不会再传）、原图原样传（HEIC / RAW / Live Photo 都行），网页能做的这里都能做。</div>
+
+<h2>1. 三分钟上手</h2>
+<h3>① 拿密钥</h3>
+<p>打开 <a href="./">相册</a> → 右上「＋ 上传」→ 展开「🔑 用脚本 / 命令行批量传」→「＋ 生成一个密钥」。
+密钥长这样：<code>np_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>，<b>只显示一次</b>，复制好。</p>
+<p class="mu">密钥 = 你本人：用它传的照片记在你名下，和你在网页上传的一模一样。别发到群里；不用了在同一个地方点「撤销」，马上失效。</p>
+
+<h3>② 一条命令传整个文件夹（推荐）</h3>
+<pre><code>curl -O https://nordic.airacle.com/photos/np_upload.py      # 只用 Python 标准库，不用装任何东西
+export NP_KEY=np_你的密钥
+python3 np_upload.py ~/Pictures/冰岛                         # 文件夹会递归进去
+python3 np_upload.py -j 8 /Volumes/SD卡/DCIM ~/Desktop/a.HEIC  # 多个路径、8 个文件同时传</code></pre>
+<ul>
+<li>只传照片 / 视频 / 相机 RAW，其它文件（<code>.AAE</code>、<code>.DS_Store</code>…）自动跳过</li>
+<li><b>中断了就重跑同一条命令</b>：传过的秒跳过，传一半的大视频只补缺的块</li>
+<li>Live Photo（同名的 <code>.HEIC</code> + <code>.MOV</code>）原样传上来，相册自动配成一张会动的照片</li>
+</ul>
+
+<h3>③ 或者用 curl 一个一个传（≤ 64 MB 的文件）</h3>
+<pre><code>curl -X PUT -H "Authorization: Bearer $NP_KEY" \
+     --data-binary @IMG_1234.HEIC \
+     "https://nordic.airacle.com/photos/api/upload/file?name=IMG_1234.HEIC"
+# → {"h":"9f2c…","status":"uploaded"}     已经有了 → "status":"exists"</code></pre>
+
+<h2>2. 鉴权</h2>
+<p>所有接口都在 <code>https://nordic.airacle.com/photos</code> 下，请求头带：</p>
+<pre><code>Authorization: Bearer np_你的密钥</code></pre>
+<p>没带 / 密钥不对 / 已撤销 → <code>401 {"error":"login"}</code>。浏览器里登录后的 cookie 也能调同样的接口。</p>
+
+<h2>3. 上传</h2>
+<h3>内容 ID（<code>h</code>）</h3>
+<p>每个文件用内容算一个 ID：<b>把文件按 8 MB 切块，每块算 SHA-256，把这些 32 字节的摘要依次拼起来，再算一次 SHA-256</b>，取十六进制。
+同样的字节 = 同样的 ID → 秒传；服务端会用收到的块自己复核一遍，对不上就拒收。</p>
+<pre><code>import hashlib
+def content_id(path):
+    shas = []
+    with open(path, 'rb') as f:
+        while b := f.read(8 * 2**20): shas.append(hashlib.sha256(b).digest())
+    return hashlib.sha256(b''.join(shas)).hexdigest()</code></pre>
+
+<table><tr><th>接口</th><th>做什么</th><th>请求</th><th>返回</th></tr>
+<tr><td><span class="m">POST</span> <code>/api/upload/probe</code></td><td>先整批问「这些相册里有没有」—— 按<b>文件名 + 字节数</b>，不用读文件</td>
+<td><code>{"items":[["IMG_1.HEIC",2345678],…]}</code>（一次 ≤ 5000）</td><td><code>{"hit":[0,3]}</code> = 第几个已经有了（顺带记在你名下）</td></tr>
+<tr><td><span class="m">PUT</span> <code>/api/upload/file?name=…</code></td><td>一步上传，适合 ≤ 64 MB 的照片</td><td>body = 文件字节；可选 <code>&amp;taken=2026-09-27T22:14:05</code>（没 EXIF 时用）</td>
+<td><code>{"h","status":"uploaded"|"exists"}</code></td></tr>
+<tr><td><span class="m">POST</span> <code>/api/upload/init</code></td><td>分块上传 ①：登记</td><td><code>{"h","size","name","type","crc"}</code>（crc = 整个文件的 CRC-32，打包下载用）</td>
+<td><code>{"status":"upload","nparts","psize","done":[已收到的块号]}</code> · <code>"exists"</code> = 秒传 · <code>"wait"</code> = 别处正在传同一个，3 秒后再问</td></tr>
+<tr><td><span class="m">PUT</span> <code>/api/upload/part?h=…&amp;n=1</code></td><td>分块上传 ②：传第 n 块（从 1 开始，每块 8 MB，最后一块是余数）</td><td>body = 块字节；可选头 <code>x-part-sha256</code></td><td><code>{"ok":true}</code>；大小不对 400，哈希不对 422</td></tr>
+<tr><td><span class="m">POST</span> <code>/api/upload/complete</code></td><td>分块上传 ③：收尾</td><td><code>{"h"}</code></td>
+<td><code>"done"</code> · <code>"missing"</code>+<code>done</code>（补缺的块再 complete）· <code>"corrupt"</code>（重新算 ID 再传）</td></tr>
+</table>
+<p class="mu">断点续传就是：再 init 一次，服务端返回 <code>done</code>，只传不在里面的块。块之间可以并行。传完之后 GPU 端会在几分钟内补上缩略图、描述、人脸、地点、拍摄地当地时间。</p>
+
+<h2>4. 浏览 / 下载</h2>
+<table><tr><th>接口</th><th>做什么</th></tr>
+<tr><td><span class="m">GET</span> <code>/api/me</code></td><td>当前身份 <code>{"user":{"id","name"}}</code> —— 拿来验密钥</td></tr>
+<tr><td><span class="m">GET</span> <code>/api/list</code></td><td>整个相册的元数据（一次全给，支持 <code>If-None-Match</code> → 304）。每项：<code>h</code> ID · <code>n</code> 文件名 · <code>k</code> <code>i</code>照片/<code>v</code>视频 · <code>t</code> 拍摄地当地时间 · <code>s</code> 字节 · <code>pl</code> 地点 · <code>la/lo</code> GPS · <code>cam</code> 相机 · <code>cap</code> AI 描述 · <code>tg</code> 标签 · <code>u</code> 上传者 id · <code>p</code> 照片里的人 · <code>lv</code> Live Photo 视频的 ID</td></tr>
+<tr><td><span class="m">GET</span> <code>/api/search?q=极光</code></td><td>搜索（关键词 + 以文搜图）→ <code>{"ids":[…]}</code></td></tr>
+<tr><td><span class="m">GET</span> <code>/f/{h}/o</code></td><td>原图 / 原视频（加 <code>?dl=1</code> 按原文件名下载；支持 Range）</td></tr>
+<tr><td><span class="m">GET</span> <code>/f/{h}/p</code> · <code>/t</code> · <code>/v</code></td><td>预览图（长边 1600 JPEG）· 缩略图 · 720p 视频预览</td></tr>
+<tr><td><span class="m">POST</span> <code>/api/zip</code></td><td><code>{"ids":[…]}</code>（≤ 500）→ <code>{"url"}</code>，GET 那个 url 拿到按「日期_地点/」分好文件夹的 zip</td></tr>
+<tr><td><span class="m">POST</span> <code>/api/delete</code></td><td><code>{"h"}</code> 撤回「我传过这张」；没人再认领才从相册里隐藏（Live Photo 连同视频）</td></tr>
+</table>
+<pre><code># 例：把相册里所有极光照片的原图下到本地
+curl -s -H "Authorization: Bearer $NP_KEY" "https://nordic.airacle.com/photos/api/search?q=极光" \
+ | python3 -c "import json,sys; print('\n'.join(json.load(sys.stdin)['ids']))" \
+ | while read h; do curl -s -OJ -H "Authorization: Bearer $NP_KEY" "https://nordic.airacle.com/photos/f/$h/o?dl=1"; done</code></pre>
+
+<h2>5. 密钥管理</h2>
+<table><tr><th>接口</th><th>做什么</th></tr>
+<tr><td><span class="m">POST</span> <code>/api/keys</code></td><td><code>{"name":"家里的 Mac"}</code> → <code>{"id","key"}</code>。<b>只能在登录的网页里调</b>（拿着密钥不能再生新密钥）</td></tr>
+<tr><td><span class="m">GET</span> <code>/api/keys</code></td><td>我的密钥列表（名字、创建、最近使用时间；不含密钥本身）</td></tr>
+<tr><td><span class="m">POST</span> <code>/api/keys/revoke</code></td><td><code>{"id"}</code> 撤销，马上失效</td></tr>
+</table>
+
+<h2>6. 支持的格式</h2>
+<p>照片：JPEG · HEIC/HEIF · AVIF · WebP · PNG · TIFF · GIF · 相机 RAW（CR3 · CR2 · ARW · NEF · DNG · RAF · ORF · RW2 · PEF · SRW…）<br>
+视频：MOV · MP4 · M4V · MKV · WebM · AVI · 3GP（HEVC / H.264 / ProRes / AV1）<br>
+<span class="mu">都原样保存、原样下载；浏览用的预览图 / 视频由 GPU 端统一转成所有浏览器都能看的格式。</span></p>
+
+<h2>7. 限制和错误</h2>
+<table><tr><th>情况</th><th>返回</th></tr>
+<tr><td>没登录 / 密钥无效</td><td><code>401</code></td></tr>
+<tr><td>一步上传超过 64 MB</td><td><code>413</code> → 用分块接口或 <code>np_upload.py</code></td></tr>
+<tr><td>分块大小不对 / 哈希不对</td><td><code>400</code> / <code>422</code></td></tr>
+<tr><td>服务端临时错误</td><td><code>5xx</code> → 退避重试（<code>np_upload.py</code> 会自动重试 6 次）</td></tr>
+</table>
+<p class="mu">单个文件最大约 80 GB（10,000 块 × 8 MB）。没有调用频率限制，但请别同时开几十个连接 —— 4～8 个最快。</p>
+</main></body></html>

@@ -53,9 +53,12 @@ function safeEq(a, b) {
   let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return d === 0;
 }
-async function who(req, env) {
+async function who(req, env, album) {
   const auth = req.headers.get('authorization') || '';
   if (env.PIPE_TOKEN && safeEq(auth, 'Bearer ' + env.PIPE_TOKEN)) return { pipe: true };
+  // 个人 API 密钥（np_ 开头）：和登录后的 cookie 等价，只是给脚本用；库里只存哈希
+  const k = /^Bearer (np_[A-Za-z0-9_-]{20,80})$/.exec(auth);
+  if (k) { const uid = await album.keyUser(hex(await crypto.subtle.digest('SHA-256', enc.encode(k[1])))); return uid ? { uid, key: true } : null; }
   const m = /(?:^|;\s*)np_sess=([^;]+)/.exec(req.headers.get('cookie') || '');
   if (!m) return null;
   const [uid, exp, sig] = m[1].split('.');
@@ -120,7 +123,7 @@ export default {
     }
     if (p === '/api/logout') return J({ ok: true }, 200, { 'set-cookie': `${COOKIE}=; Path=/photos; Max-Age=0; HttpOnly; Secure; SameSite=Lax` });
 
-    const me = await who(req, env);
+    const me = await who(req, env, album);
     if (!me) return J({ error: 'login' }, 401);
     const uid = me.uid;
     const needUser = () => { if (!uid) throw new HttpError(403, 'user only'); };
@@ -156,6 +159,48 @@ export default {
       }
       if (p === '/api/suggest') return J(await album.suggest());
       if (p === '/api/people') return J(await album.people());
+
+      /* ---- API 密钥：只能在登录的网页里建（拿着密钥不能再建密钥） ---- */
+      if (p === '/api/keys' && method === 'POST') {
+        needUser(); if (me.key) return J({ error: '请在网页里登录后创建' }, 403);
+        const key = 'np_' + b64u(crypto.getRandomValues(new Uint8Array(24)));
+        const r = await album.createKey(uid, (await body()).name, hex(await crypto.subtle.digest('SHA-256', enc.encode(key))));
+        return J({ ...r, key });
+      }
+      if (p === '/api/keys' && method === 'GET') { needUser(); return J(await album.listKeys(uid)); }
+      if (p === '/api/keys/revoke' && method === 'POST') { needUser(); return J(await album.revokeKey(uid, (await body()).id)); }
+
+      /* ---- 一步上传：一个请求传一个文件（≤ 64 MB，照片足够）。脚本最省事的接口；大视频走下面的分块接口 ---- */
+      if (p === '/api/upload/file' && (method === 'PUT' || method === 'POST')) {
+        needUser();
+        const name = (url.searchParams.get('name') || '').slice(0, 200);
+        if (!name) return J({ error: '缺 ?name=文件名' }, 400);
+        const len = Number(req.headers.get('content-length') || 0);
+        if (len > 64 * 2 ** 20) return J({ error: '超过 64 MB，用分块接口（/api/upload/init → part → complete）或 np_upload.py' }, 413);
+        const buf = new Uint8Array(await req.arrayBuffer());
+        if (!buf.byteLength) return J({ error: 'empty' }, 400);
+        const n = Math.max(1, Math.ceil(buf.byteLength / PART)), cat = new Uint8Array(n * 32), shas = [];
+        for (let i = 0; i < n; i++) {
+          const d = await crypto.subtle.digest('SHA-256', buf.subarray(i * PART, Math.min(buf.byteLength, (i + 1) * PART)));
+          cat.set(new Uint8Array(d), i * 32); shas.push(hex(d));
+        }
+        const h = hex(await crypto.subtle.digest('SHA-256', cat));
+        const type = req.headers.get('content-type') && !/octet-stream|form/.test(req.headers.get('content-type')) ? req.headers.get('content-type') : '';
+        const r = await album.initUpload(uid, { h, size: buf.byteLength, name, type, crc: crc32(buf), psize: PART, taken: url.searchParams.get('taken') || null });
+        if (r.status === 'exists') return J({ h, status: 'exists' });
+        if (r.status === 'wait') return J({ error: '同一个文件正在被另一处上传，稍后再试' }, 409);
+        const info = await album.partInfo(h);
+        for (let i = 1; i <= n; i++) {
+          if (r.done.includes(i)) continue;
+          const part = buf.subarray((i - 1) * PART, Math.min(buf.byteLength, i * PART));
+          let etag = '';
+          if (n === 1) await env.BUCKET.put('o/' + h, part, { httpMetadata: { contentType: info.type } });
+          else etag = (await env.BUCKET.resumeMultipartUpload('o/' + h, info.upload_id).uploadPart(i, part)).etag;
+          await album.partDone(h, i, etag, shas[i - 1]);
+        }
+        const c = await album.complete(h);
+        return J({ h, status: c.status === 'done' ? 'uploaded' : c.status }, c.status === 'done' || c.status === 'exists' ? 200 : 500);
+      }
 
       /* ---- 上传：init → part × N → complete ---- */
       if (p === '/api/upload/probe' && method === 'POST') { needUser(); return J(await album.probe(uid, (await body()).items)); }
@@ -306,5 +351,6 @@ export default {
     }
   },
 };
+
 
 class HttpError extends Error { constructor(status, msg) { super(msg); this.status = status; } }
