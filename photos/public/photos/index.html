@@ -120,7 +120,15 @@
       <span>点这里选照片 / 视频<br><span class="s">电脑上也可以直接把一堆文件拖进来 · 可以一次选几百个<br>📱 iPhone 上一次选 50 张以内最稳：点完 ✓ 手机要先把照片「交给」网页，选得多 / 有视频会等好几分钟</span></span>
     </label>
     <p class="s tip"><label class="btn ghost sm" id="pick-dir">📁 选整个文件夹（含子文件夹）<input id="dir" type="file" webkitdirectory multiple hidden></label>
-      相机原片请先用 Lightroom 导出成 5 MB 左右的 JPEG 再传（长边 6000 · 限制文件大小 5000K · 元数据选「全部」）</p>
+      什么格式都能传：JPEG / HEIC / PNG / WebP / AVIF，相机 RAW（CR3 / CR2 / ARW / NEF / DNG / RAF…），各种视频。</p>
+    <details class="tip orig"><summary>📱 iPhone 想传<b>原图</b>（HEIC 不转 JPEG）和 <b>Live Photo</b>？</summary>
+      <p>直接从「照片图库」选，iPhone 会先把照片转成 JPEG、视频重新压缩，Live Photo 也只剩一张静态图 —— 这是 Safari 的固定行为，网页改不了。
+      换成从「文件」选就是原样的：</p>
+      <ol><li>打开「照片」App，选好照片 → 左下角「分享」→ 顶上「选项」→ 打开<b>「所有照片数据」</b> → 完成</li>
+      <li>往下滑点<b>「存储到文件」</b>，存进一个新文件夹（比如「冰岛原图」）</li>
+      <li>回到这里点上面的选择框 → 选<b>「选取文件」</b>（不是「照片图库」）→ 进那个文件夹，右上角「选择」→ 全选</li></ol>
+      <p class="s">这样传上来的是 HEIC 原图 + Live Photo 那段视频，相册会自动把两个配成一张会动的照片。
+      存到「文件」里的照片也不怕页面被系统关掉 —— 重新选一遍，传过的秒跳过。电脑上：「照片」App →「文件 › 导出 › 导出未修改的原件」，再拖进来。</p></details>
     <p id="resume-hint" class="tip warn" hidden></p>
     <p class="s tip">📌 传的时候保持这个页面开着（手机会自动保持亮屏）。断网或关掉页面没关系：<b>重新选同样的文件，会从断点接着传</b>，已经传完的一秒跳过。</p>
     <div id="uplist" class="uplist"></div>

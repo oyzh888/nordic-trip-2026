@@ -78,7 +78,9 @@ export class Album extends DurableObject {
     `);
     // 后加的列（老库里没有）：AI 改图的产物记着它从哪张来、用什么改的
     const cols = new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name));
-    for (const [c, t] of [['src', 'TEXT'], ['ai', 'TEXT']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
+    // cid / pair / live：Live Photo —— 照片和它那段 3 秒视频是两个文件，配上对之后视频不单独出现在相册里，挂在照片上
+    for (const [c, t] of [['src', 'TEXT'], ['ai', 'TEXT'], ['cid', 'TEXT'], ['pair', 'TEXT'], ['live', 'INTEGER DEFAULT 0']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
+    this.sql.exec(`CREATE INDEX IF NOT EXISTS media_cid ON media(cid)`);
     if (!this.sql.exec(`SELECT v FROM kv WHERE k='ver'`).toArray().length)
       this.sql.exec(`INSERT INTO kv VALUES ('ver','1')`);
   }
@@ -206,9 +208,14 @@ export class Album extends DurableObject {
 
   /** 删除 = 撤回「我传过这张」；没人再认领它才真正从相册里隐藏（别人也传过的不会被我删掉） */
   remove(uid, h) {
-    this.sql.exec(`DELETE FROM contrib WHERE h=? AND uid=?`, h, uid);
-    const left = this.sql.exec(`SELECT COUNT(*) c FROM contrib WHERE h=?`, h).one().c;
-    if (!left) this.sql.exec(`UPDATE media SET deleted=1 WHERE h=?`, h);
+    const pair = this.sql.exec(`SELECT pair FROM media WHERE h=? AND kind='image'`, h).toArray()[0]?.pair;   // Live Photo 的视频一起撤
+    let left = 0;
+    for (const x of pair ? [h, pair] : [h]) {
+      this.sql.exec(`DELETE FROM contrib WHERE h=? AND uid=?`, x, uid);
+      const n = this.sql.exec(`SELECT COUNT(*) c FROM contrib WHERE h=?`, x).one().c;
+      if (!n) this.sql.exec(`UPDATE media SET deleted=1 WHERE h=?`, x);
+      if (x === h) left = n;
+    }
     this.bump();
     return { hidden: !left };
   }
@@ -228,8 +235,13 @@ export class Album extends DurableObject {
     const nf = new Map();
     for (const r of this.sql.exec(`SELECT h, COUNT(*) c FROM faces GROUP BY h`)) nf.set(r.h, r.c);
     const items = [];
-    for (const r of this.sql.exec(`SELECT * FROM media WHERE status='ready' AND deleted=0`)) {
+    const rows = this.sql.exec(`SELECT * FROM media WHERE status='ready' AND deleted=0`).toArray();
+    const lv = new Map(rows.filter(r => r.live).map(r => [r.h, r]));
+    for (const r of rows) {
+      if (r.live) continue;                                     // Live Photo 的视频挂在照片上（lv），不单独占一格
+      const v = r.pair && lv.get(r.pair);
       items.push({
+        ...(v ? { lv: v.h, lvf: v.flags, lvd: v.dur } : {}),
         h: r.h, k: r.kind === 'video' ? 'v' : 'i', n: r.name, s: r.size, t: r.taken, c: r.created,
         w: r.w, hh: r.hh, d: r.dur, f: r.flags, a: r.aver > 0 ? 1 : 0, pl: r.place,
         cap: r.caption, tg: r.tags ? JSON.parse(r.tags) : null,
@@ -390,6 +402,7 @@ export class Album extends DurableObject {
     const z = this.sql.exec(`SELECT ids FROM zips WHERE token=?`, token).toArray()[0];
     if (!z) return null;
     const ids = JSON.parse(z.ids);
+    if (ids.length) for (const r of this.sql.exec(`SELECT pair FROM media WHERE kind='image' AND pair IS NOT NULL AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) if (!ids.includes(r.pair)) ids.push(r.pair);   // Live Photo 连同视频一起打包
     const rows = new Map();
     for (const r of this.sql.exec(`SELECT h, name, size, crc, taken, created, place, moment FROM media WHERE status='ready' AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) rows.set(r.h, r);
     // 一个日期一个地点一个文件夹：「2026-09-20_塞里雅兰瀑布/」。地点优先用所在「时刻」的地点（一段经历里
@@ -431,7 +444,7 @@ export class Album extends DurableObject {
     }
     const docs = [], vocab = new Map();
     const mtitle = new Map(this.sql.exec(`SELECT id, title FROM moments`).toArray().map(m => [m.id, m.title]));
-    for (const r of this.sql.exec(`SELECT h, name, caption, tags, place, kind, cam, moment FROM media WHERE status='ready' AND deleted=0`)) {
+    for (const r of this.sql.exec(`SELECT h, name, caption, tags, place, kind, cam, moment FROM media WHERE status='ready' AND deleted=0 AND live=0`)) {
       const tags = new Set();
       const tg = r.tags ? JSON.parse(r.tags) : {};
       for (const k of ['objects', 'tags', 'scene', 'en', 'alias', 'special']) for (const t of (tg[k] || [])) tags.add(normQ(t));
@@ -607,7 +620,7 @@ export class Album extends DurableObject {
     const h = r.h;
     if (!this.partInfo(h)) return { error: 'unknown' };
     const set = [], args = [];
-    for (const k of ['taken', 'lat', 'lon', 'w', 'hh', 'dur', 'place', 'caption', 'sharp', 'cam', 'score']) if (r[k] !== undefined) { set.push(`${k}=?`); args.push(r[k]); }
+    for (const k of ['taken', 'lat', 'lon', 'w', 'hh', 'dur', 'place', 'caption', 'sharp', 'cam', 'score', 'cid']) if (r[k] !== undefined) { set.push(`${k}=?`); args.push(r[k]); }
     if (r.tags !== undefined) { set.push('tags=?'); args.push(JSON.stringify(r.tags)); }
     if (r.crc !== undefined) { set.push('crc=?'); args.push(r.crc >>> 0); }
     if (r.flags) { set.push('flags = flags | ?'); args.push(r.flags); }
@@ -615,6 +628,8 @@ export class Album extends DurableObject {
     this.sql.exec(`UPDATE media SET ${set.join(',')} WHERE h=?`, ...args, h);
     this.stamp('res_seq');
     const faceIds = [];
+    const live = this.sql.exec(`SELECT live FROM media WHERE h=?`, h).one().live;
+    if (live) { r.faces = null; r.emb = null; }               // Live Photo 的那段视频：人脸和向量算在照片上，不重复计
     if (r.faces) {
       // 保留人工确认过的归属：按位置（IoU）把旧脸的 person 过继给新脸
       const old = this.sql.exec(`SELECT x, y, w, hh, person, confirmed FROM faces WHERE h=? AND confirmed=1`, h).toArray();
@@ -627,8 +642,34 @@ export class Album extends DurableObject {
       }
     }
     if (r.emb) this.sql.exec(`INSERT OR REPLACE INTO emb VALUES (?,?,?)`, h, r.emb_scale, b64dec(r.emb).buffer);
+    this.pairLive(h);
     this.bump();
     return { ok: true, faces: faceIds };
+  }
+
+  /** Live Photo 配对：iPhone 给照片和视频写同一个 ID（cid）。没有 ID 的（别的工具导出的）退回
+   * 「文件名一样只是扩展名不同 + 拍摄时间差 ≤ 3 秒 + 视频不超过 5 秒」。配上之后视频标成 live，不再单独显示 */
+  pairLive(h) {
+    const m = this.sql.exec(`SELECT h, kind, name, taken, cid, dur, pair FROM media WHERE h=? AND deleted=0`, h).toArray()[0];
+    if (!m || m.pair || m.src) return false;
+    const other = m.kind === 'video' ? 'image' : 'video';
+    const cand = `kind=? AND h!=? AND status='ready' AND deleted=0 AND pair IS NULL AND src IS NULL`;
+    let p = m.cid && this.sql.exec(`SELECT h FROM media WHERE cid=? AND ${cand} LIMIT 1`, m.cid, other, h).toArray()[0];
+    if (!p && m.taken) {
+      const base = String(m.name).replace(/\.[^.]+$/, '').toLowerCase();
+      const t0 = Date.parse(m.taken);
+      p = this.sql.exec(`SELECT h, name, taken, dur, cid FROM media WHERE size > 0 AND ${cand} AND lower(name) LIKE ?`, other, h, base + '.%').toArray()
+        .find(x => String(x.name).replace(/\.[^.]+$/, '').toLowerCase() === base && !(x.cid && m.cid && x.cid !== m.cid)
+          && x.taken && Math.abs(Date.parse(x.taken) - t0) <= 3000 && ((m.kind === 'video' ? m.dur : x.dur) ?? 0) <= 5);
+    }
+    if (!p) return false;
+    const [img, vid] = m.kind === 'image' ? [m.h, p.h] : [p.h, m.h];
+    this.sql.exec(`UPDATE media SET pair=? WHERE h=?`, vid, img);
+    this.sql.exec(`UPDATE media SET pair=?, live=1, burst=NULL, moment=NULL, scene=NULL WHERE h=?`, img, vid);
+    this.sql.exec(`DELETE FROM faces WHERE h=?`, vid);
+    this.sql.exec(`DELETE FROM emb WHERE h=?`, vid);
+    this.notifyPipe({ t: 'recluster' });
+    return true;
   }
 
   /** 聚类结果整体下发：人脸簇/自动归人、连拍组、场景簇及其名字、SigLIP 标定参数 */
@@ -765,7 +806,7 @@ export class Album extends DurableObject {
     return this.sql.exec(`SELECT id, h, x, y, w, hh, score, emb, cluster, person, confirmed FROM faces`).toArray();
   }
   media4pipe() {
-    return this.sql.exec(`SELECT h, kind, taken, lat, lon, place, sharp, caption, tags, cam, score, pinned, created, src FROM media WHERE status='ready' AND deleted=0`).toArray();
+    return this.sql.exec(`SELECT h, kind, taken, lat, lon, place, sharp, caption, tags, cam, score, pinned, created, src FROM media WHERE status='ready' AND deleted=0 AND live=0`).toArray();
   }
   embs() {
     return this.sql.exec(`SELECT h, scale, vec FROM emb`).toArray().map(r => ({ h: r.h, scale: r.scale, vec: btoa(String.fromCharCode(...new Uint8Array(r.vec))) }));

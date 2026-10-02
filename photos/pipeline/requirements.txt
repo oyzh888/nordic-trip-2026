@@ -9,7 +9,10 @@ opencv-python-headless
 scikit-learn
 numpy
 pillow
-pillow-heif                # iPhone 的 HEIC
+pillow-heif                # iPhone 的 HEIC（Pillow ≥ 11.2 自带 AVIF）
+rawpy                      # 相机 RAW：DNG / CR2 / CR3 / NEF / ARW / RAF / ORF / RW2…（LibRaw）
+exifread                   # RAW 的 EXIF（拍摄时间 / 时区 / GPS / 相机）
+timezonefinder             # GPS → 时区（离线），时间线按拍摄地当地时间排
 requests
 websockets>=13             # 搜索词实时算向量的那条常连
 opencc                     # OSM 里的中文地名很多是繁体，统一转简体

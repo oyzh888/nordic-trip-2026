@@ -185,6 +185,7 @@ function tile(it) {
     bn > 1 && S.burst && !S.res ? `<em class="bd br" title="${bn} 张相似的，这张是${it.pn ? '你挑的' : ' AI 挑的'}最好的">▣ ${bn}</em>` : '',
     isHL(it) ? '<em class="bd hl">★</em>' : '',
     it.src ? '<em class="bd ai" title="AI 改过的">✨</em>' : '',
+    it.lv ? '<em class="bd lv" title="Live Photo：点开会动">◉ LIVE</em>' : '',
   ].join('');
   return `<a class="tl${S.sel.has(it.h) ? ' on' : ''}" data-h="${it.h}" href="${F(it.h, 'o')}">${img}${badges}<b class="ck"></b></a>`;
 }
@@ -411,9 +412,25 @@ function openLb(i) {
     const web = /\.(jpe?g|png|webp|gif|avif)$/i.test(it.n) && it.s < 25 * 2 ** 20;
     const src = it.f & 2 ? F(it.h, 'p') : web ? F(it.h, 'o') : poster;
     media.innerHTML = src ? `<img src="${src}" alt="">` : `<div class="ph0 big">🖼<i>这个格式浏览器显示不了，等 AI 生成预览<br>可以直接下载原图</i></div>`;
+    if (it.lv && src) livePhoto(media, it, src);
   }
   renderLbInfo(it);
   for (const j of [i + 1, i - 1]) { const n = S.view[j]; if (n && n.k === 'i' && n.f & 2) new Image().src = F(n.h, 'p'); }
+}
+// Live Photo：和 iPhone 相册一样，点开先动一遍再停在照片上；按住「◉ LIVE」（或按住照片）再看一遍
+function livePhoto(box, it, src) {
+  const vsrc = it.lvf & 4 ? F(it.lv, 'v') : F(it.lv, 'o');      // 720p H.264 预览所有浏览器都能放；还没转好就先用原件（Safari 能放 HEVC）
+  box.innerHTML = `<div class="live"><img src="${src}" alt=""><video muted playsinline preload="auto" src="${vsrc}"></video>
+    <button class="livebtn" title="按住看 Live Photo">◉ LIVE</button></div>`;
+  const w = box.firstElementChild, v = w.querySelector('video');
+  const play = () => { v.currentTime = 0; w.classList.add('play'); v.play().catch(() => w.classList.remove('play')); };
+  const stop = () => { w.classList.remove('play'); v.pause(); };
+  v.addEventListener('ended', stop);
+  v.addEventListener('canplay', () => { if (!w.dataset.once) { w.dataset.once = 1; play(); } }, { once: true });
+  for (const el of [w.querySelector('.livebtn'), w.querySelector('img')]) {
+    el.addEventListener('pointerdown', e => { e.preventDefault(); play(); });
+    el.addEventListener('pointerup', stop); el.addEventListener('pointerleave', () => w.classList.contains('play') && el.matches('.livebtn') && stop());
+  }
 }
 function renderLbInfo(it) {
   const tg = it.tg || {};
@@ -436,6 +453,7 @@ function renderLbInfo(it) {
     ${it.src ? aiSrcRow(it) : ''}
     <div class="lb-row acts">
       <a class="btn pri sm" href="${F(it.h, 'o')}?dl=1">⬇ 下载原${it.k === 'v' ? '视频' : '图'}</a>
+      ${it.lv ? `<a class="btn sm" href="${F(it.lv, 'o')}?dl=1">⬇ Live 视频</a>` : ''}
       <button class="btn sm" id="lb-share">📲 存到手机</button>
       <button class="btn sm" id="lb-sel">${S.sel.has(it.h) ? '✓ 已选' : '选中'}</button>
       ${it.k === 'v' && it.f & 4 ? `<button class="btn ghost sm" id="lb-orig">看原画质</button>` : ''}
@@ -740,12 +758,13 @@ const FP = {
   flush() { if (this.tm) { clearTimeout(this.tm); this.tm = 0; try { localStorage.np_fp = JSON.stringify(this.all()); } catch { /* */ } } },
 };
 addEventListener('pagehide', () => FP.flush());
-const MEDIA_EXT = /\.(jpe?g|png|webp|gif|avif|heic|heif|dng|tiff?|raw|arw|cr2|cr3|nef|orf|rw2|raf|mov|mp4|m4v|3gp|mkv|avi|webm|insv|insp)$/i;
+const MEDIA_EXT = /\.(jpe?g|png|webp|gif|avif|heic|heif|hif|dng|tiff?|raw|arw|srf|sr2|cr2|cr3|crw|nef|nrw|orf|rw2|raf|pef|srw|rwl|3fr|iiq|x3f|mov|mp4|m4v|3gp|mkv|avi|webm|insv|insp)$/i;
 
 function enqueue(files) {
-  let add = 0, skip = 0, same = 0, again = 0;
+  let add = 0, skip = 0, same = 0, again = 0, aae = 0;
   const fresh = [];
   for (const f of files) {
+    if (/\.aae$/i.test(f.name)) { aae++; continue; }       // iPhone「所有照片数据」里附带的编辑记录，不是照片
     if (!f.size || !(/^(image|video)\//.test(f.type) || MEDIA_EXT.test(f.name))) { skip++; continue; }
     const key = fkey(f);
     const old = UQ.find(t => t.key === key);
@@ -755,8 +774,8 @@ function enqueue(files) {
   }
   // 不拦，只提醒：几十 MB 一张的多半是相机原片，1000 张就是 50 GB
   const big = files.filter(f => /^image\//.test(f.type) && f.size > 25 * 2 ** 20).length;
-  if (skip || same || big) toast([skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
-    big && `有 ${big} 张超过 25 MB，像是相机原片 —— 先用 Lightroom 导出 5 MB 版再传会快很多`].filter(Boolean).join(' · '), big ? 8000 : undefined);
+  if (skip || same || big || aae) toast([aae && `跳过 ${aae} 个 .AAE（iPhone 的编辑记录，不是照片）`, skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
+    big && `有 ${big} 张超过 25 MB（相机原片 / RAW）—— 都能传、能看，就是传得慢一些`].filter(Boolean).join(' · '), big ? 8000 : undefined);
   if (add || again) openSheet();
   // 先整批问一次服务端「哪些已经有了」，有的直接秒传 —— 重选同一批几百张时，不用把每个文件读一遍算指纹
   if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); });
@@ -897,7 +916,10 @@ async function fingerprint(f, onp) {
 }
 function guessType(n) {
   const e = (n.split('.').pop() || '').toLowerCase();
-  return { heic: 'image/heic', heif: 'image/heif', mov: 'video/quicktime', mp4: 'video/mp4', m4v: 'video/mp4', dng: 'image/x-adobe-dng', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' }[e] || 'application/octet-stream';
+  return { heic: 'image/heic', heif: 'image/heif', hif: 'image/heif', avif: 'image/avif', webp: 'image/webp', gif: 'image/gif', tif: 'image/tiff', tiff: 'image/tiff',
+    mov: 'video/quicktime', mp4: 'video/mp4', m4v: 'video/mp4', mkv: 'video/x-matroska', webm: 'video/webm', avi: 'video/x-msvideo', '3gp': 'video/3gpp',
+    dng: 'image/x-adobe-dng', cr2: 'image/x-canon-cr2', cr3: 'image/x-canon-cr3', nef: 'image/x-nikon-nef', arw: 'image/x-sony-arw', raf: 'image/x-fuji-raf',
+    orf: 'image/x-olympus-orf', rw2: 'image/x-panasonic-rw2', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' }[e] || 'application/octet-stream';
 }
 
 /* ---------- EXIF（只读 JPEG 开头 256 KB）：拍摄时间、GPS、相机 ---------- */

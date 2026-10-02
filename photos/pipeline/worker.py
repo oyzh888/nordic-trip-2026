@@ -283,7 +283,7 @@ class Worker:
             path = self.cache / 'o' / f'edit-{eid}-{job["h"]}'
             self.api.download(job['h'], path)
             try:
-                im, _ = M.open_image(path)
+                im, _ = M.open_image(path, job.get('name', ''))
             finally:
                 path.unlink(missing_ok=True)
             out, mid = self.editor.edit(im, job['prompt'], job['model'])
@@ -315,7 +315,7 @@ class Worker:
         res, im = {'h': h}, None
         if it['kind'] == 'video':
             vm = M.video_meta(path)
-            res.update({k: vm[k] for k in ('w', 'hh', 'dur', 'lat', 'lon', 'cam', 'taken') if vm.get(k) is not None})
+            res.update({k: vm[k] for k in ('w', 'hh', 'dur', 'lat', 'lon', 'cam', 'taken', 'cid') if vm.get(k) is not None})
             res['_utc'] = vm.get('taken_utc')
             if vm.get('probe_ok'):
                 im = M.video_frame(path, min(1.0, (vm.get('dur') or 0) / 3))
@@ -327,7 +327,7 @@ class Worker:
                     out.unlink()
         else:
             try:
-                im, meta = M.open_image(path)
+                im, meta = M.open_image(path, it['name'])
                 res.update({k: v for k, v in meta.items() if v is not None})
             except Exception as e:   # noqa: BLE001 —— RAW 等解不了的格式：照样入库，只是没有 AI 标签
                 log(f'  {it["name"]} 解码失败: {e!r:.120}')
@@ -346,7 +346,10 @@ class Worker:
     @staticmethod
     def local_time(utc, cc, res):
         """时间线按「拍摄地当时的钟点」排：有 UTC（相机记了时区 / 视频）就换成拍摄地时间。
-        拍摄地按 GPS 的国家；没 GPS 按行程表猜；都不知道就保留相机/手机自己的钟点，再不行才存 UTC"""
+        拍摄地按 GPS 经纬度查时区；没 GPS 按行程表猜国家；都不知道就保留相机/手机自己的钟点，再不行才存 UTC"""
+        tz = M.tz_at(res.get('lat'), res.get('lon'))
+        if tz:
+            return M.utc_to_tz(utc, tz)
         if cc is None and res.get('lat') is None:
             cc = M.trip_country(utc)
         return M.utc_to_local(utc, cc) or res.get('taken') or utc
@@ -366,7 +369,7 @@ class Worker:
             if not meta.get('_utc'):
                 continue
             _, cc = self.geo(m.get('lat'), m.get('lon'))
-            t = self.local_time(meta['_utc'], cc, {'lat': m.get('lat'), 'taken': meta.get('taken')})
+            t = self.local_time(meta['_utc'], cc, {'lat': m.get('lat'), 'lon': m.get('lon'), 'taken': meta.get('taken')})
             if t != m['taken']:
                 self.api.post('/api/pipe/result', {'h': m['h'], 'taken': t, 'aver': AVER})
                 log(f'  {m["h"][:10]} {m.get("cam")}  {m["taken"]} → {t}')
@@ -386,7 +389,8 @@ class Worker:
             except Exception:        # noqa: BLE001 —— 一张坏文件不能卡住整条队列
                 log(f'  {it["name"]} 失败:\n' + traceback.format_exc(limit=3))
                 self.api.post('/api/pipe/result', {'h': it['h'], 'aver': AVER})
-        ok = [(it, im, res) for it, im, res in prepped if im is not None]
+        # Live Photo 的那 3 秒视频（带 cid 的视频）不跑模型：描述、人脸、向量都算在配对的那张照片上
+        ok = [(it, im, res) for it, im, res in prepped if im is not None and not (it['kind'] == 'video' and res.get('cid'))]
         t = time.time()
         if ok:
             ims = [im for _, im, _ in ok]

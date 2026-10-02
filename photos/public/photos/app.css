@@ -219,3 +219,15 @@ table.mini th{color:var(--ink3); font-weight:500}
   background:var(--panel2); border:1px solid var(--hair2); color:var(--ink); padding:11px 16px; border-radius:11px;
   font-size:14px; max-width:min(92vw, 560px); box-shadow:0 10px 30px #000a; line-height:1.6}
 .toast a{margin:0 4px}
+
+/* Live Photo */
+.tl .bd.lv{left:auto; right:5px; top:5px; bottom:auto; font-size:10px; letter-spacing:.04em}
+/* 框贴着照片本身（和 .lb-media 同一个高度上限），视频铺满这个框 → 同样的长宽比就严丝合缝地叠在一起，LIVE 按钮落在照片角上 */
+.live{position:relative; display:inline-block; line-height:0; max-width:100%}
+.lb-media .live img{display:block; max-width:100%; max-height:min(78vh, calc(100vh - 150px)); object-fit:contain}
+.live video{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .25s; pointer-events:none; background:transparent}
+.live.play video{opacity:1}
+.livebtn{position:absolute; left:10px; top:10px; z-index:2; border:0; border-radius:12px; padding:3px 10px; font:600 12px/1.6 inherit;
+  color:#fff; background:#0007; backdrop-filter:blur(6px); cursor:pointer; -webkit-user-select:none; user-select:none; touch-action:none}
+.live.play .livebtn{background:#fffd; color:#000}
+details.orig{margin:6px 0 10px} details.orig summary{cursor:pointer} details.orig ol{margin:6px 0; padding-left:20px} details.orig li{margin:3px 0}
