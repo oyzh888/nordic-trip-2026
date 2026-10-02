@@ -64,6 +64,7 @@ export class Album extends DurableObject {
       CREATE TABLE IF NOT EXISTS faces (id INTEGER PRIMARY KEY, h TEXT, x REAL, y REAL, w REAL, hh REAL,
         score REAL, emb TEXT, cluster INTEGER, person INTEGER, confirmed INTEGER DEFAULT 0);
       CREATE INDEX IF NOT EXISTS faces_h ON faces(h);
+      CREATE INDEX IF NOT EXISTS media_size ON media(size);
       CREATE TABLE IF NOT EXISTS persons (id INTEGER PRIMARY KEY, name TEXT, uid INTEGER);
       CREATE TABLE IF NOT EXISTS emb (h TEXT PRIMARY KEY, scale REAL, vec BLOB);
       CREATE TABLE IF NOT EXISTS qvec (q TEXT PRIMARY KEY, vec BLOB, at INTEGER);
@@ -117,6 +118,21 @@ export class Album extends DurableObject {
    * 同一个 h = 同一份字节 → 秒传（只登记「我也有这张」）；
    * 同一个 h 但还没传完 → 返回已经收到的块号，客户端只补缺的 → 断点续传，换页面、换网络都能接上。
    */
+  /** 选完一大批先整批问一次「这些（文件名 + 字节数）相册里有没有」，有的直接算秒传，不用读文件算指纹。
+   * iPhone 每次导出照片 lastModified 都是新的，本机缓存认不出来；而同一张照片导出的文件名和字节数是稳定的。
+   * 名字 + 大小都一样却是两张不同照片的概率可以忽略。命中的顺手记上「我也有这张」，和 init 秒传一样 */
+  probe(uid, items) {
+    const hit = [];
+    (items || []).slice(0, 5000).forEach(([name, size], i) => {
+      const r = this.sql.exec(`SELECT h FROM media WHERE size=? AND name=? AND status='ready' AND deleted=0 LIMIT 1`, Number(size), String(name)).toArray()[0];
+      if (!r) return;
+      this.sql.exec(`INSERT OR IGNORE INTO contrib VALUES (?,?,?)`, r.h, uid, now());
+      hit.push(i);
+    });
+    if (hit.length) this.bump();
+    return { hit };
+  }
+
   async initUpload(uid, m) {
     const h = String(m.h || '');
     if (!/^[0-9a-f]{64}$/.test(h)) throw new Error('bad hash');
@@ -251,7 +267,23 @@ export class Album extends DurableObject {
   /* ---------- 人物：GPU 端把人脸聚成簇，人在页面上点「这是我」认领 ----------
    * 认领后这些脸标为 confirmed，之后新照片里的脸由 GPU 端按「和已确认的脸最像」自动归到这个人；
    * 没认领的簇下次重新聚类可能换 ID，但已确认的归属永远不会被机器改掉。 */
+  /** 同名的人物卡就是同一个人（「起个名字」和「这是我」各建了一张 → 两个 Penny）：并成一张。
+   * 同名但绑了两个不同账号的不动（那真是两个人） */
+  dedupePersons() {
+    const g = new Map();
+    for (const p of this.sql.exec(`SELECT id, name, uid FROM persons WHERE name IS NOT NULL AND trim(name) != ''`).toArray()) {
+      const k = p.name.trim().toLowerCase(); if (!g.has(k)) g.set(k, []); g.get(k).push(p);
+    }
+    let n = 0;
+    for (const ps of g.values()) {
+      if (ps.length < 2 || new Set(ps.filter(p => p.uid).map(p => p.uid)).size > 1) continue;
+      const keep = ps.find(p => p.uid) || ps[0];
+      for (const p of ps) if (p.id !== keep.id && !this.mergePersons(p.id, keep.id).error) n++;
+    }
+    return n;
+  }
   people() {
+    this.dedupePersons();
     const persons = this.sql.exec(`
       SELECT p.id, p.name, p.uid, COUNT(DISTINCT f.h) n FROM persons p LEFT JOIN faces f ON f.person = p.id
       GROUP BY p.id ORDER BY n DESC`).toArray();
@@ -332,6 +364,7 @@ export class Album extends DurableObject {
   }
   renamePerson(pid, name) {
     this.sql.exec(`UPDATE persons SET name=? WHERE id=?`, String(name).slice(0, 24), pid);
+    this.dedupePersons();                                      // 改成和别人同名 = 说这俩是同一个人
     this.bump();
     return { ok: true };
   }

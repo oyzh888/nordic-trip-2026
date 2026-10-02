@@ -719,44 +719,71 @@ $('#me').onclick = async () => {
  */
 const UQ = [];
 let running = 0;
-const MAXF = 3, MAXP = 3;
+const MAXF = 4, MAXP = 2;                 // 同时传 4 个文件、每个文件 2 块 → 最多 8 个请求在飞（手机照片多数只有 1 块，以前实际只有 3 路）
 const fkey = f => `${f.name}|${f.size}|${f.lastModified}`;
+// 本机指纹缓存：内存里一份，写盘攒 400 ms 一次 —— 以前每次读写都把 4000 条 JSON 整个解析 + 序列化一遍，
+// 几百个文件同时在传时这就是手机上「卡」的主要来源之一
 const FP = {
-  all() { try { return JSON.parse(localStorage.np_fp || '{}'); } catch { return {}; } },
+  m: null, tm: 0,
+  all() { if (!this.m) { try { this.m = JSON.parse(localStorage.np_fp || '{}'); } catch { this.m = {}; } } return this.m; },
   get(k) { return this.all()[k] || null; },
-  put(k, v) {
-    const a = this.all(); a[k] = { ...(a[k] || {}), ...v, at: Date.now() };
-    const ks = Object.keys(a); if (ks.length > 4000) ks.sort((x, y) => a[x].at - a[y].at).slice(0, ks.length - 4000).forEach(x => delete a[x]);
-    try { localStorage.np_fp = JSON.stringify(a); } catch { /* 满了就不记，下次重算 */ }
+  put(k, v) { const a = this.all(); a[k] = { ...(a[k] || {}), ...v, at: Date.now() }; this.save(); },
+  del(k) { delete this.all()[k]; this.save(); },
+  save() {
+    clearTimeout(this.tm);
+    this.tm = setTimeout(() => {
+      const a = this.all(), ks = Object.keys(a);
+      if (ks.length > 4000) ks.sort((x, y) => a[x].at - a[y].at).slice(0, ks.length - 4000).forEach(x => delete a[x]);
+      try { localStorage.np_fp = JSON.stringify(a); } catch { /* 满了就不记，下次重算 */ }
+    }, 400);
   },
-  del(k) { const a = this.all(); delete a[k]; localStorage.np_fp = JSON.stringify(a); },
+  flush() { if (this.tm) { clearTimeout(this.tm); this.tm = 0; try { localStorage.np_fp = JSON.stringify(this.all()); } catch { /* */ } } },
 };
+addEventListener('pagehide', () => FP.flush());
 const MEDIA_EXT = /\.(jpe?g|png|webp|gif|avif|heic|heif|dng|tiff?|raw|arw|cr2|cr3|nef|orf|rw2|raf|mov|mp4|m4v|3gp|mkv|avi|webm|insv|insp)$/i;
 
 function enqueue(files) {
   let add = 0, skip = 0, same = 0, again = 0;
+  const fresh = [];
   for (const f of files) {
     if (!f.size || !(/^(image|video)\//.test(f.type) || MEDIA_EXT.test(f.name))) { skip++; continue; }
     const key = fkey(f);
     const old = UQ.find(t => t.key === key);
     if (old) { if (old.state === 'failed') { old.state = 'queued'; old.f = f; again++; } else same++; continue; }
-    UQ.push({ f, key, state: 'queued', sent: 0, msg: '排队中' }); add++;
+    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true }; UQ.push(t); fresh.push(t); add++;
+    if (!FP.get(key)?.done) FP.put(key, { q: 1, name: f.name });   // 页面万一被系统杀掉，下次打开能告诉你还剩哪些
   }
   // 不拦，只提醒：几十 MB 一张的多半是相机原片，1000 张就是 50 GB
   const big = files.filter(f => /^image\//.test(f.type) && f.size > 25 * 2 ** 20).length;
   if (skip || same || big) toast([skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
     big && `有 ${big} 张超过 25 MB，像是相机原片 —— 先用 Lightroom 导出 5 MB 版再传会快很多`].filter(Boolean).join(' · '), big ? 8000 : undefined);
-  if (add || again) { openSheet(); pump(); }
+  if (add || again) openSheet();
+  // 先整批问一次服务端「哪些已经有了」，有的直接秒传 —— 重选同一批几百张时，不用把每个文件读一遍算指纹
+  if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); });
+  else if (again) pump();
   renderUp();
+}
+async function probe(ts) {
+  for (let i = 0; i < ts.length; i += 1000) {
+    const part = ts.slice(i, i + 1000);
+    part.forEach(t => { t.msg = '和相册对一下…'; });
+    renderUpSoon();
+    try {
+      const r = await Promise.race([api('/upload/probe', { method: 'POST', body: { items: part.map(t => [t.f.name, t.f.size]) } }), sleep(8000).then(() => null)]);
+      for (const j of r?.hit || []) { const t = part[j]; t.state = 'dup'; t.sent = t.f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); }
+      if (r?.hit?.length) listSoon();
+    } catch { /* 问不到就一个个走正常流程，服务端照样会按指纹去重 */ }
+    part.forEach(t => { if (t.state === 'queued') t.msg = '排队中'; });
+  }
 }
 function pump() {
   while (running < MAXF) {
-    const t = UQ.find(t => t.state === 'queued'); if (!t) break;
+    const t = UQ.find(t => t.state === 'queued' && !t.hold); if (!t) break;
     running++; t.state = 'active'; t.t0 = Date.now();
     runTask(t).catch(e => { t.state = 'failed'; t.msg = '失败：' + e.message + ' · 点这行重试'; })
-      .finally(() => { running--; renderUp(); pump(); });
+      .finally(() => { running--; renderUpSoon(); pump(); });
   }
-  wake(); renderUp();
+  wake(); renderUpSoon();
 }
 
 async function retry(fn, t) {
@@ -792,8 +819,8 @@ async function runTask(t) {
     t.msg = '另一台设备正在传同一个文件，等一下…'; renderUpSoon(); await sleep(3000);
     if (++tries > 40) throw new Error('等太久了');
   }
-  if (r.status === 'exists') { t.state = 'dup'; t.sent = f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { done: 1 }); listSoon(); return; }
-  FP.put(t.key, { u: 1, name: f.name });
+  if (r.status === 'exists') { t.state = 'dup'; t.sent = f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); listSoon(); return; }
+  FP.put(t.key, { q: 0, u: 1, name: f.name });
   const thumbs = fp.tb ? Promise.resolve() : makeAux(t, fp).catch(() => { /* GPU 端会补 */ });
   const psize = r.psize, n = r.nparts;
   const done = new Set(r.done);
@@ -950,7 +977,11 @@ function canvasOf(src, W, H, scale) {
   return c;
 }
 const jpeg = (c, q) => new Promise(r => c.toBlob(r, 'image/jpeg', q));
-async function makeAux(t, fp) {
+// 缩略图一次只解一张：一张 2400 万像素的 iPhone 照片解码出来约 96 MB，以前 3 张同时解 ≈ 300 MB，
+// 几百张连续传时 Safari 会因为内存把整个页面杀掉（「卡死、选的全白选了」）
+let auxChain = Promise.resolve();
+function makeAux(t, fp) { const p = auxChain.then(() => makeAux1(t, fp)); auxChain = p.catch(() => {}); return p; }
+async function makeAux1(t, fp) {
   const kind = /^video\//.test(t.f.type) || /\.(mov|mp4|m4v|3gp|mkv|avi|webm)$/i.test(t.f.name) ? 'v' : 'i';
   const d = await decode(t.f, kind);
   if (!d || !d.W) return;
@@ -966,8 +997,12 @@ async function makeAux(t, fp) {
 }
 
 /* ---------- 上传面板 ---------- */
-let upRaf = 0;
-function renderUpSoon() { if (!upRaf) upRaf = requestAnimationFrame(() => { upRaf = 0; renderUp(); }); }
+// 进度一秒刷 4 次就够了；以前每一帧（60 次/秒）都重建 200 行列表
+let upRaf = 0, upLast = 0;
+function renderUpSoon() {
+  if (upRaf) return;
+  upRaf = setTimeout(() => requestAnimationFrame(() => { upRaf = 0; upLast = Date.now(); renderUp(); }), Math.max(0, 250 - (Date.now() - upLast)));
+}
 function renderUp() {
   const tot = UQ.reduce((s, t) => s + t.f.size, 0), sent = UQ.reduce((s, t) => s + (t.sent || 0), 0);
   const ok = UQ.filter(t => t.state === 'ok').length, dup = UQ.filter(t => t.state === 'dup').length;
@@ -986,10 +1021,18 @@ function renderUp() {
       <span class="um">${esc(t.msg)}</span>
       <span class="ub"><i style="width:${Math.round((t.sent || 0) / t.f.size * 100)}%"></i></span></div>`).join('') +
     (UQ.length > 200 ? `<p class="s">…还有 ${UQ.length - 200} 个</p>` : '');
-  const left = Object.values(FP.all()).filter(x => x.u === 1 && !UQ.some(t => t.f.name === x.name));
+  const names = new Set(UQ.map(t => t.f.name)), wk = Date.now() - 7 * 86400e3;
+  const left = Object.values(FP.all()).filter(x => (x.q === 1 || x.u === 1) && !x.done && x.at > wk && !names.has(x.name));
   $('#resume-hint').hidden = !left.length;
-  if (left.length) $('#resume-hint').innerHTML = `⏸ 上次有 ${left.length} 个文件没传完（${left.slice(0, 3).map(x => esc(x.name)).join('、')}${left.length > 3 ? '…' : ''}）—— 重新选这些文件，会从断点接着传。`;
+  if (left.length) $('#resume-hint').innerHTML = `⏸ 上次选的照片里还有 <b>${left.length}</b> 个没传完（${left.slice(0, 3).map(x => esc(x.name)).join('、')}${left.length > 3 ? '…' : ''}）。<br>
+    页面多半是被手机系统关掉了。<b>重新把那一批全选上就行</b> —— 已经传过的会秒跳过，传一半的从断点接着传。
+    <button class="btn ghost sm" id="resume-clear">不传了，清掉</button>`;
 }
+$('#resume-hint').addEventListener('click', e => {
+  if (e.target.id !== 'resume-clear') return;
+  const a = FP.all(); for (const k in a) if (a[k].q === 1 || a[k].u === 1) { a[k].q = 0; a[k].u = 0; }
+  FP.save(); renderUp();
+});
 $('#uplist').addEventListener('click', e => {
   const r = e.target.closest('.ur.failed'); if (!r) return;
   const t = UQ.find(t => t.key === r.dataset.k); if (t) { t.state = 'queued'; t.msg = '排队中'; pump(); }
@@ -1056,6 +1099,8 @@ async function boot() {
   $('#gate').hidden = true; $('#app').hidden = false;
   await refresh(true);
   loadSuggest();
+  // 上次没传完就被关掉了（多半是 iPhone 内存不够把页面杀了）→ 一进来就把上传面板打开，提示重选同一批
+  if (Object.values(FP.all()).some(x => (x.q === 1 || x.u === 1) && !x.done && x.at > Date.now() - 7 * 86400e3)) openSheet();
   setInterval(() => { if (document.visibilityState === 'visible') refresh(); }, 15000);
 }
 if (typeof nav === 'function') document.body.insertAdjacentHTML('afterbegin', nav());   // 全站统一导航（/app.js）

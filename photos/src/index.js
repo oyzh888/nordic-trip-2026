@@ -158,6 +158,7 @@ export default {
       if (p === '/api/people') return J(await album.people());
 
       /* ---- 上传：init → part × N → complete ---- */
+      if (p === '/api/upload/probe' && method === 'POST') { needUser(); return J(await album.probe(uid, (await body()).items)); }
       if (p === '/api/upload/init' && method === 'POST') {
         needUser();
         const m = await body();
