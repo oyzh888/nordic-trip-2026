@@ -361,6 +361,22 @@ def thumbs(im):
     return jpeg(t, 75), jpeg(p, 82), p
 
 
+FACE_PX = 160
+
+
+def face_sprite(im, faces):
+    """人脸小图条：这张照片里每张脸裁一个正方形（脸框边长 × 1.6，和页面上头像的取景一样）、缩到 160×160，按顺序横排。
+    人物页的头像从这里取（每张脸 ~10 KB），不用再下载整张 1600 像素的预览图（平均 313 KB）。faces 的顺序 = 服务端 id 的顺序"""
+    W, H = im.size
+    out = Image.new('RGB', (FACE_PX * len(faces), FACE_PX))
+    for i, f in enumerate(faces):
+        side = min(max(f['w'] * W, f['hh'] * H) * 1.6, W, H)
+        cx, cy = (f['x'] + f['w'] / 2) * W, (f['y'] + f['hh'] / 2) * H
+        x0 = min(max(cx - side / 2, 0), W - side); y0 = min(max(cy - side / 2, 0), H - side)
+        out.paste(im.crop((round(x0), round(y0), round(x0 + side), round(y0 + side))).resize((FACE_PX, FACE_PX), Image.LANCZOS), (i * FACE_PX, 0))
+    return jpeg(out, 80)
+
+
 def sharpness(gray):
     """拉普拉斯方差（越糊越低）→ 对数映射到 0–1。同一组连拍里分辨糊片最管用的单个信号"""
     v = cv2.Laplacian(gray, cv2.CV_64F).var()

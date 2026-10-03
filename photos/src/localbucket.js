@@ -20,7 +20,7 @@ export function localBucket(base, token) {
     const cr = /bytes (\d+)-(\d+)\/(\d+)/.exec(r.headers.get('content-range') || '');
     const o = {
       key, size, etag: (r.headers.get('etag') || '').replace(/"/g, ''), httpEtag: r.headers.get('etag') || '',
-      writeHttpMetadata(h) { h.set('content-type', /^v\/|\.mp4$/.test(key) ? 'video/mp4' : /^[tp]\//.test(key) ? 'image/jpeg' : 'application/octet-stream'); },
+      writeHttpMetadata(h) { h.set('content-type', /^v\/|\.mp4$/.test(key) ? 'video/mp4' : /^[tpf]\//.test(key) ? 'image/jpeg' : 'application/octet-stream'); },
       range: cr ? { offset: Number(cr[1]), length: Number(cr[2]) - Number(cr[1]) + 1 } : undefined,
     };
     if (withBody) { o.body = r.body; o.arrayBuffer = () => r.arrayBuffer(); }

@@ -23,11 +23,11 @@ const DIR = path.resolve(process.env.BLOBD_DIR || './files');
 const PORT = Number(process.env.BLOBD_PORT || 41071);
 const TOKEN = process.env.BLOBD_TOKEN || '';
 const PROCS = Number(process.env.BLOBD_PROCS || 8);
-const KEY_RE = /^(o\/[0-9a-f]{64}|[tp]\/[0-9a-f]{64}\.jpg|v\/[0-9a-f]{64}\.mp4|x\/[0-9A-Za-z._-]{1,120})$/;   // x/ = 测试用
+const KEY_RE = /^(o\/[0-9a-f]{64}|[tpf]\/[0-9a-f]{64}\.jpg|v\/[0-9a-f]{64}\.mp4|x\/[0-9A-Za-z._-]{1,120})$/;   // x/ = 测试用
 const TMP = path.join(DIR, '.tmp'), MP = path.join(DIR, '.mp');
 
 if (cluster.isPrimary) {
-  for (const d of [DIR, TMP, MP, ...['o', 't', 'p', 'v', 'x'].map(k => path.join(DIR, k))]) fs.mkdirSync(d, { recursive: true });
+  for (const d of [DIR, TMP, MP, ...['o', 't', 'p', 'v', 'f', 'x'].map(k => path.join(DIR, k))]) fs.mkdirSync(d, { recursive: true });
   for (let i = 0; i < PROCS; i++) cluster.fork();
   cluster.on('exit', (w, code) => { console.error(`[blobd] 进程 ${w.process.pid} 退出（${code}），重启`); cluster.fork(); });
   console.log(`[blobd] ${PROCS} 个进程 · 127.0.0.1:${PORT} · ${DIR}`);

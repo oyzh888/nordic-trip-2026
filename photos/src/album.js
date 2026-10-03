@@ -384,7 +384,11 @@ export class Album extends DurableObject {
     return { persons, clusters, loose };
   }
   sampleFaces(where, arg, n) {
-    return this.sql.exec(`SELECT id, h, x, y, w, hh FROM faces WHERE ${where} ORDER BY score * w DESC LIMIT ${n}`, arg).toArray();
+    // fi / fn：这张脸是这张照片里的第几张（按 id）、一共几张 —— 前端从人脸小图条（f/<h>.jpg，每张脸 160×160 横排）里取它
+    return this.sql.exec(`SELECT id, h, x, y, w, hh,
+        (SELECT COUNT(*) FROM faces g WHERE g.h = faces.h AND g.id < faces.id) fi,
+        (SELECT COUNT(*) FROM faces g WHERE g.h = faces.h) fn
+      FROM faces WHERE ${where} ORDER BY score * w DESC LIMIT ${n}`, arg).toArray();
   }
   /** 把一个簇（或单张脸）归给某人：target = {uid} 认领为自己 · {person} 并入已有的人 · {name} 新建一个人 */
   claim({ cluster, face }, target) {
@@ -908,7 +912,7 @@ export class Album extends DurableObject {
       if (!/^[0-9a-f]{64}$/.test(h)) continue;
       for (const t of ['media', 'contrib', 'parts', 'faces', 'emb', 'edits']) this.sql.exec(`DELETE FROM ${t} WHERE h=?`, h);
       this.sql.exec(`DELETE FROM edits WHERE out_h=?`, h);
-      keys.push('o/' + h, `t/${h}.jpg`, `p/${h}.jpg`, `v/${h}.mp4`);
+      keys.push('o/' + h, `t/${h}.jpg`, `p/${h}.jpg`, `v/${h}.mp4`, `f/${h}.jpg`);
     }
     for (const n of users) {
       const u = this.sql.exec(`SELECT id FROM users WHERE name=?`, n).toArray()[0];

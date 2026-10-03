@@ -152,7 +152,7 @@ export default {
 
     try {
       /* ---- 文件字节 ---- */
-      const fm = /^\/f\/([0-9a-f]{64})\/(o|t|p|v)$/.exec(p);
+      const fm = /^\/f\/([0-9a-f]{64})\/(o|t|p|v|f)$/.exec(p);   // f = 这张照片的人脸小图条
       if (fm && (method === 'GET' || method === 'HEAD')) {
         const [, h, k] = fm;
         if (k === 'o') {
@@ -313,14 +313,14 @@ export default {
       // 缩略图 / 预览图：上传时浏览器顺手生成（最快出图）；HEIC/视频浏览器做不了的，GPU 端补
       if (p === '/api/upload/aux' && method === 'PUT') {
         const h = url.searchParams.get('h'), k = url.searchParams.get('k');
-        if (!/^[0-9a-f]{64}$/.test(h || '') || !['t', 'p', 'v'].includes(k)) return J({ error: 'bad' }, 400);
+        if (!/^[0-9a-f]{64}$/.test(h || '') || !['t', 'p', 'v', 'f'].includes(k)) return J({ error: 'bad' }, 400);
         if (!me.pipe && !(await album.isContrib(h, uid))) return J({ error: 'not yours' }, 403);
-        if (k === 'v') needPipe();
+        if (k === 'v' || k === 'f') needPipe();
         const buf = await req.arrayBuffer();
         if (k !== 'v' && buf.byteLength > 3 * 2 ** 20) return J({ error: 'too big' }, 413);
         await env.BUCKET.put(`${k}/${h}.${k === 'v' ? 'mp4' : 'jpg'}`, buf, { httpMetadata: { contentType: k === 'v' ? 'video/mp4' : 'image/jpeg' } });
         if (url.searchParams.has('w')) await album.setDims(h, url.searchParams.get('w'), url.searchParams.get('hh'), url.searchParams.get('dur'));
-        await album.setFlag(h, { t: 1, p: 2, v: 4 }[k]);
+        await album.setFlag(h, { t: 1, p: 2, v: 4, f: 8 }[k]);
         return J({ ok: true });
       }
 
@@ -423,7 +423,7 @@ export default {
         if (p === '/api/pipe/purge' && method === 'POST') {
           const { keys } = await album.purge(await body());
           for (let i = 0; i < keys.length; i += 1000) await env.BUCKET.delete(keys.slice(i, i + 1000));
-          return J({ ok: true, deleted: keys.length / 4 });
+          return J({ ok: true, deleted: keys.filter(k => k.startsWith('o/')).length });
         }
       }
       return J({ error: 'not found' }, 404);

@@ -424,6 +424,9 @@ class Worker:
                 res.pop(k)
             res['aver'] = AVER
             r = self.api.post('/api/pipe/result', {k: v for k, v in res.items() if v is not None})
+            if r.get('ok') and res.get('faces') and im is not None:
+                try: self.api.aux(it['h'], 'f', M.face_sprite(im, res['faces']))
+                except Exception as e: log(f'  人脸小图条失败 {it["name"]}: {e}')  # noqa: BLE001 —— 不影响分析结果
             tg = res.get('tags') or {}
             log(f'  ✓ {it["name"]}  {res.get("taken", "")}  {place or ""}  人脸 {len(res.get("faces", []))}  '
                 f'分 {res.get("score", "-")}  {"/".join(tg.get("special") or [])}  「{res.get("caption", "")[:30]}」'
@@ -496,6 +499,32 @@ class Worker:
                 log(f'磁盘用量上报失败：{e}')
             time.sleep(60)
 
+    # ---------------- 人脸小图条补生成 ----------------
+    def backfill_sprites(self):
+        """有人脸、还没有小图条（flags 第 8 位）的照片：从预览图（没有就用原图）裁出来补上。之前分析过的老照片走这里"""
+        items = [i for i in self.api.get('/api/list')['items'] if i.get('nf') and not i['f'] & 8]
+        if not items: return 0
+        by = {}
+        for f in self.api.get('/api/pipe/faces'): by.setdefault(f['h'], []).append(f)
+        n = 0
+        for it in items:
+            fs = sorted(by.get(it['h'], []), key=lambda f: f['id'])
+            if not fs: continue
+            try:
+                r = self.api.req('GET', f"/f/{it['h']}/{'p' if it['f'] & 2 else 'o'}", timeout=300); r.raise_for_status()
+                if it['f'] & 2:
+                    im = Image.open(io.BytesIO(r.content)).convert('RGB')     # 预览图生成时已经按 EXIF 转正，和人脸坐标同一个方向
+                else:                                                         # 原图（HEIC / RAW…）要走同一套解码 + 转正
+                    tmp = Path(self.args.cache) / f'sprite-{it["h"]}'
+                    tmp.write_bytes(r.content)
+                    try: im = M.open_image(str(tmp), it['n'])[0]
+                    finally: tmp.unlink(missing_ok=True)
+                self.api.aux(it['h'], 'f', M.face_sprite(im, fs)); n += 1
+            except Exception as e:  # noqa: BLE001
+                log(f'  补人脸小图条失败 {it["n"]}: {e}')
+        log(f'补了 {n} 张照片的人脸小图条（共 {len(items)} 张缺）')
+        return n
+
     # ---------------- 主循环 ----------------
     def run(self):
         self.stop = False
@@ -525,6 +554,9 @@ class Worker:
             if self.dirty:
                 self.dirty = False
                 self.recluster()
+            if time.time() - getattr(self, 'last_sprites', 0) > 600:
+                self.last_sprites = time.time()
+                self.backfill_sprites()
             if self.args.once:
                 self.edit_pool.shutdown(wait=True)
                 self.stop = True

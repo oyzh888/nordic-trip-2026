@@ -51,7 +51,7 @@ function toast(msg, ms = 2600) {
 const S = {
   me: null, data: null, ver: 0, byH: new Map(), users: new Map(), persons: new Map(), moments: new Map(),
   myPerson: null,
-  tab: 'grid', group: localStorage.np_group || 'day', desc: localStorage.np_desc === '1',
+  tab: 'grid', group: localStorage.np_group || 'day', desc: localStorage.np_desc !== '0',          // 默认新的在前（点过「旧的在前」的人记住他的选择）
   quick: 'all', day: null, person: null, special: null, cam: null, burst: true,
   q: '', res: null, sel: new Set(), selMode: false, view: [], lb: -1,
   searches: [],
@@ -599,14 +599,19 @@ $('#lb-media').addEventListener('touchend', e => {
 /** 人脸头像：用 CSS 背景定位从预览图里裁出一个正方形（不另外存头像文件）。坐标是 0–1 的相对值 */
 function faceDiv(f, cls = 'fc') {
   const it = S.byH.get(f.h) || {};
+  // 有人脸小图条（GPU 端生成，每张脸 160×160 横排，~10 KB/张）就直接取第 fi 格
+  if (it.f & 8 && f.fn > 0 && f.fi < f.fn)
+    return `<span class="${cls}" data-face="${f.id}" data-fh="${f.h}" data-bg="${F(f.h, 'f')}" style="background-size:${f.fn * 100}% 100%;background-position:${f.fn > 1 ? f.fi / (f.fn - 1) * 100 : 0}% 0"></span>`;
   const W = it.w || 1, H = it.hh || 1;
   const side = Math.max(f.w * W, f.hh * H) * 1.6;
   const sw = Math.min(1, side / W), sh = Math.min(1, side / H);
   const cx = f.x + f.w / 2, cy = f.y + f.hh / 2;
   const x0 = Math.min(Math.max(cx - sw / 2, 0), 1 - sw), y0 = Math.min(Math.max(cy - sh / 2, 0), 1 - sh);
-  const src = it.f & 2 ? F(f.h, 'p') : F(f.h, 't');
+  // 缩略图（长边 ~480，平均 35 KB）里这张脸裁出来够 80 像素就用它；合照里的小脸才用预览图（1600，平均 313 KB）
+  const inThumb = Math.max(sw * W, sh * H) / Math.max(W, H) * 480;
+  const src = it.f & 1 && (inThumb >= 80 || !(it.f & 2)) ? F(f.h, 't') : it.f & 2 ? F(f.h, 'p') : F(f.h, 't');
   const px = sw >= 1 ? 50 : x0 / (1 - sw) * 100, py = sh >= 1 ? 50 : y0 / (1 - sh) * 100;
-  return `<span class="${cls}" data-face="${f.id}" data-fh="${f.h}" style="background-image:url('${src}');background-size:${100 / sw}% ${100 / sh}%;background-position:${px}% ${py}%"></span>`;
+  return `<span class="${cls}" data-face="${f.id}" data-fh="${f.h}" data-bg="${src}" style="background-size:${100 / sw}% ${100 / sh}%;background-position:${px}% ${py}%"></span>`;
 }
 async function renderPeople() {
   const el = $('#people');
@@ -636,6 +641,16 @@ async function renderPeople() {
         </div>
       </div>`).join('')}</div>` : `<p class="s">${S.data.pipe ? '还没有足够的人脸（同一个人至少出现在 2 张照片里才会成组）。' : 'AI 分析端离线 —— 上线后会自动找脸、分组。'}</p>`}
     ${d.loose ? `<p class="s">另有 ${d.loose} 张零散的脸（只出现一次，或者被标成「不是 TA」）。</p>` : ''}`;
+  lazyBg(el);
+}
+/** 头像是 CSS 背景图，浏览器的 loading=lazy 管不到 —— 滚到附近（上下 600px 内）才真正去下载 */
+const bgIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
+  for (const e of es) if (e.isIntersecting) { e.target.style.backgroundImage = `url('${e.target.dataset.bg}')`; bgIO.unobserve(e.target); }
+}, { rootMargin: '600px 0px' }) : null;
+function lazyBg(root) {
+  for (const n of root.querySelectorAll('[data-bg]')) {
+    if (bgIO) bgIO.observe(n); else n.style.backgroundImage = `url('${n.dataset.bg}')`;
+  }
 }
 $('#people').addEventListener('click', async e => {
   const t = e.target;
