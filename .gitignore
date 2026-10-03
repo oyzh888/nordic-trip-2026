@@ -31,3 +31,10 @@ test-results/
 .dev.vars
 .wrangler/
 photos/test/out/
+# Miniflare / wrangler dev 的 SQLite 旁路文件（-shm / -wal 每次运行都变，别进仓库）
+*.sqlite-shm
+*.sqlite-wal
+# ⚠️ 上面的 .wrangler/ 规则对**已经被提交过**的文件不生效：d7ba4ac（pack 页面）当年把 12 个 .wrangler/ 下的文件
+#    带进了仓库。要让规则真正生效，需要一次 `git rm -r --cached .wrangler`（只停止跟踪，不动历史、不删本地文件）—— 还没做，等确认。
+# 相册的权威存储是 Cloudflare R2 + Durable Object；本机 localssd（/mnt/localssd）会随 pod 重建清空，
+# 任何只放在那里的照片都不算有备份。
