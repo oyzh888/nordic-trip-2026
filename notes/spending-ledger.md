@@ -98,14 +98,14 @@
 | 日期 | 商户 | 金额 | 状态 | 备注 |
 |---|---|---|---|---|
 | 10/3 | Pastafabrikken AS | NOK 1,501.50（≈$164） | pending | Tromsø 晚餐，4 人，计入均分（用户 Chase 通知截图） |
+| 10/2 | Uno-X Leknes | 100.48 | pending | RAV4 在 Leknes 还车前加油，4 人均分（原始商户名 Uno-X Leknes 0736，加油站非餐厅；用户 10/3 确认） |
 
 ### 待用户确认（10/3 新增）
 - Sixt $376.30 pending（10/2）：疑似 V90 取车时到店余款 NOK 3,449.53，4 人均分？
 - Sixt $1,049.78 pending（10/2）：疑似 RAV4 还车结算（Evenes→Leknes 异地还车，可能含单程费/过路费），4 人均分？
-- Budget Car Rental $216.16 posted（10/2）：不明，是否租车相关？
-- Avis $105.45 posted（10/2）：不明，是否冰岛 Avis 尾款调整？
+- Budget Car Rental $216.16 posted（10/2）：用户倾向为冰岛租车尾款。佐证：Avis 与 Budget 同属 Avis Budget Group；授权日 9/29 正好是冰岛还车日；类别为 TRAVEL。待最终确认后计入 4 人均分。
+- Avis $105.45 posted（10/2）：同上，可能为冰岛 Avis 同一批结算的尾款调整，待确认。
 - Jobb Og $345.75 pending（10/2）：不明，挪威商户？
-- Uno $100.48 pending（10/2）：疑似 Tromsø 餐厅，是否 4 人消费？
 - TROMS PARKERIN $0.10 pending：停车卡验证小额，可忽略。
 
 ### 待用户确认（之前未结）
