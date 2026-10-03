@@ -34,6 +34,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import clock  # noqa: E402
+import video as VID  # noqa: E402
 import cluster  # noqa: E402
 import media as M  # noqa: E402
 from models import face_vec, q8  # noqa: E402  （不加载模型，只是两个小函数）
@@ -201,6 +202,7 @@ class Worker:
         self.titles_p = self.cache / 'titles.json'
         self.titles = json.loads(self.titles_p.read_text()) if self.titles_p.exists() else {}
         self.wake = threading.Event()
+        self.wake_transcode = threading.Event()
         self.dirty = True                  # 启动时先聚类一次（上一个 worker 可能没跑完）
         self.gpu = threading.Lock()        # WebSocket 线程和主循环共用模型
         log('加载模型 …')
@@ -255,12 +257,88 @@ class Worker:
                             if m['t'] == 'recluster':
                                 self.dirty = True
                             self.wake.set()
+                            if m['t'] == 'new':
+                                self.wake_transcode.set()       # 新传的视频不用等 60 秒轮询
             except Exception as e:           # noqa: BLE001 —— 断了就重连，不影响主循环
                 if not self.stop:
                     log('WebSocket 断开，5 秒后重连:', repr(e)[:160])
                     time.sleep(5)
 
     # ---------------- AI 改图 ----------------
+    # ---------------- 视频：转成 H.264 新版 + 调色（见 video.py）----------------
+    def transcode_loop(self):
+        """后台一个线程、一次一个：不挡照片分析。原片先照常上传、照常分析，这里再补一份「谁都能放、颜色正常」的新版"""
+        while not self.stop:
+            try:
+                todo = self.api.get('/api/pipe/transcode')
+            except Exception as e:   # noqa: BLE001
+                log('取转码任务失败:', repr(e)[:160]); todo = []
+            for it in todo:
+                if self.stop:
+                    return
+                self.transcode_one(it)
+            self.wake_transcode.wait(60 if not todo else 1)
+            self.wake_transcode.clear()
+
+    def canon_name(self, it):
+        """文件名像不像这个人传过的佳能照片（同一前缀，比如 _I6A / _63A），或者佳能默认的 MVI_"""
+        n = (it.get('name') or '').upper()
+        if n.startswith('MVI_'):
+            return True
+        try:
+            pre = {(m.get('name') or '')[:4].upper() for m in self.api.get('/api/pipe/media')
+                   if (m.get('cam') or '').lower().startswith('canon') and m.get('up') == it.get('up')}
+        except Exception:        # noqa: BLE001
+            return False
+        return bool(n[:4]) and n[:4] in pre and n[:4] not in ('IMG_', 'DSC_', 'DSC0')
+
+    def transcode_one(self, it):
+        h, t0 = it['h'], time.time()
+        src = self.cache / 'o' / f'tc-{h}'
+        out = self.cache / f'tc-{h}.mp4'
+        try:
+            self.api.download(h, src)
+            info, vs, aus = VID.probe(src)
+            plan, why = VID.plan_for(src, vs, info, cam=it.get('cam'), canon_name=self.canon_name(it))
+            if plan == 'none':
+                self.api.post('/api/pipe/gplan', {'h': h, 'plan': 'none'})
+                log(f'🎬 {it["name"]}: 不用转（{why}）')
+                return
+            log(f'🎬 {it["name"]}: {VID.LABEL[plan]} · {why} · 开始转（{it["size"] / 1e6:.0f} MB）')
+            sec = VID.convert(src, out, plan, vs, aus)
+            size, crc = out.stat().st_size, 0
+            with open(out, 'rb') as f:
+                while b := f.read(8 << 20):
+                    crc = zlib.crc32(b, crc)
+            up = self.api.post('/api/pipe/gmp/init', {'h': h})
+            parts = []
+            with open(out, 'rb') as f:
+                n = 0
+                while b := f.read(8 << 20):
+                    n += 1
+                    r = self.api.req('PUT', f'/api/pipe/gmp/part?h={h}&id={up["id"]}&n={n}', data=b,
+                                     headers={'content-type': 'application/octet-stream'}, timeout=600)
+                    r.raise_for_status()
+                    parts.append({'n': n, 'etag': r.json()['etag']})
+            self.api.post('/api/pipe/gmp/complete', {'h': h, 'id': up['id'], 'parts': parts, 'plan': plan, 'size': size, 'crc': crc & 0xFFFFFFFF})
+            if plan != 'transcode':
+                # 调过色的：时间线上的缩略图和 720p 预览也换成新版的颜色（原来是从灰蒙蒙的 Log 原片截的）
+                _, vo, _ = VID.probe(out)
+                im = M.video_frame(out, min(1.0, float(vo.get('duration') or 3) / 3))
+                if im is not None:
+                    tb, pv, _ = M.thumbs(im)
+                    self.api.aux(h, 't', tb); self.api.aux(h, 'p', pv)
+                prev = self.cache / f'tc-{h}-720.mp4'
+                M.video_preview(out, prev)
+                self.api.aux(h, 'v', prev.read_bytes()); prev.unlink(missing_ok=True)
+            log(f'🎬 {it["name"]}: 好了 · {VID.LABEL[plan]} · {it["size"] / 1e6:.0f} MB → {size / 1e6:.0f} MB · 转码 {sec:.0f}s · 共 {time.time() - t0:.0f}s')
+        except Exception as e:       # noqa: BLE001 —— 记下失败原因，不再自动重试（不然一个坏文件每分钟转一遍）
+            log(f'🎬 {it.get("name")}: 转码失败\n' + traceback.format_exc(limit=3))
+            try: self.api.post('/api/pipe/gplan', {'h': h, 'plan': f'fail:{str(e)[:150]}'})
+            except Exception: pass   # noqa: BLE001
+        finally:
+            src.unlink(missing_ok=True); out.unlink(missing_ok=True)
+
     def edit_loop(self):
         """服务端推 {t:'edit'} 就来取；WS 断着的时候每 20 秒兜底查一次"""
         while not self.stop:
@@ -589,6 +667,8 @@ class Worker:
             threading.Thread(target=self.disk_loop, daemon=True).start()
         if self.edit_keys:
             threading.Thread(target=self.edit_loop, daemon=True).start()
+        if not self.args.no_transcode:
+            threading.Thread(target=self.transcode_loop, daemon=True).start()
         last_check = 0
         while True:
             pend = self.api.get(f'/api/pipe/pending?aver={AVER}&limit={BATCH}')
@@ -628,6 +708,7 @@ def main():
     ap.add_argument('--no-vlm', action='store_true', help='不加载 Qwen（只做向量/人脸，调试用）')
     ap.add_argument('--no-edit', action='store_true', help='不开 AI 改图（不连模型网关）')
     ap.add_argument('--store', default=os.environ.get('PHOTOS_STORE', ''), help='相册存储目录（本机部署时）：每分钟上报磁盘用量')
+    ap.add_argument('--no-transcode', action='store_true', help='不转视频（H.264 新版 + 调色，见 video.py）')
     ap.add_argument('--retime', action='store_true', help='开工前把已分析的照片按拍摄地重算一遍拍摄时间（幂等）')
     # 语义搜索的两道门（SigLIP2 余弦）：绝对下限 + 离最高分多近。在 36 个中英文查询上量的，见 README
     ap.add_argument('--sem-floor', type=float, default=0.05)

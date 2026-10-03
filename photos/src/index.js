@@ -152,13 +152,18 @@ export default {
 
     try {
       /* ---- 文件字节 ---- */
-      const fm = /^\/f\/([0-9a-f]{64})\/(o|t|p|v|f)$/.exec(p);   // f = 这张照片的人脸小图条
+      const fm = /^\/f\/([0-9a-f]{64})\/(o|t|p|v|f|g)$/.exec(p);   // f = 这张照片的人脸小图条 · g = 视频的 H.264 新版
       if (fm && (method === 'GET' || method === 'HEAD')) {
         const [, h, k] = fm;
         if (k === 'o') {
           const m = await album.meta(h);
           if (!m || m.status !== 'ready') return J({ error: 'not found' }, 404);
           return serveObject(req, env, 'o/' + h, { dl: url.searchParams.has('dl'), name: m.name, type: m.type });
+        }
+        if (k === 'g') {                                   // 下载新版时文件名用原名 + .mp4（IMG_1234.MOV → IMG_1234.mp4）
+          const m = await album.meta(h);
+          if (!m || m.status !== 'ready') return J({ error: 'not found' }, 404);
+          return serveObject(req, env, `g/${h}.mp4`, { dl: url.searchParams.has('dl'), name: m.name.replace(/\.[^.]+$/, '') + '.mp4', type: 'video/mp4' });
         }
         return serveObject(req, env, `${k}/${h}.${k === 'v' ? 'mp4' : 'jpg'}`, { type: k === 'v' ? 'video/mp4' : 'image/jpeg' });
       }
@@ -371,7 +376,7 @@ export default {
         const names = uniqueNames(entries.map(e => e.name));
         const plan = zipPlan(entries.map((e, i) => ({ ...e, name: names[i] })));
         const { readable, writable } = new FixedLengthStream(plan.total);
-        ctx.waitUntil(zipWrite(writable, plan, async i => (await env.BUCKET.get('o/' + entries[i].h)).body));
+        ctx.waitUntil(zipWrite(writable, plan, async i => (await env.BUCKET.get(entries[i].key || 'o/' + entries[i].h)).body));
         return new Response(readable, { headers: {
           'content-type': 'application/zip', 'content-length': String(plan.total), 'cache-control': 'no-store',
           'content-disposition': `attachment; filename*=UTF-8''${zm[2]}`,
@@ -381,6 +386,28 @@ export default {
       /* ---- GPU 分析端专用 ---- */
       if (p.startsWith('/api/pipe/')) {
         needPipe();
+        /* ---- 视频新版：GPU 端转好的 H.264 分块传进 R2 g/<h>.mp4（可能几百 MB，免费版 Worker 一个请求最多 100 MB、
+         *      内存 128 MB，所以和用户上传一样按 8 MB 一块走 R2 分片上传）---- */
+        if (p === '/api/pipe/transcode') return J(await album.transcodeTodo());
+        if (p === '/api/pipe/gplan' && method === 'POST') { const b = await body(); return J(await album.setGplan(b.h, b.plan, b.size, b.crc)); }
+        if (p === '/api/pipe/gmp/init' && method === 'POST') {
+          const { h } = await body();
+          if (!/^[0-9a-f]{64}$/.test(h || '')) return J({ error: 'bad' }, 400);
+          const mp = await env.BUCKET.createMultipartUpload(`g/${h}.mp4`, { httpMetadata: { contentType: 'video/mp4' } });
+          return J({ id: mp.uploadId });
+        }
+        if (p === '/api/pipe/gmp/part' && method === 'PUT') {
+          const h = url.searchParams.get('h'), id = url.searchParams.get('id'), n = Number(url.searchParams.get('n'));
+          if (!/^[0-9a-f]{64}$/.test(h || '') || !id || !(n >= 1 && n <= 10000)) return J({ error: 'bad' }, 400);
+          const part = await env.BUCKET.resumeMultipartUpload(`g/${h}.mp4`, id).uploadPart(n, await req.arrayBuffer());
+          return J({ etag: part.etag });
+        }
+        if (p === '/api/pipe/gmp/complete' && method === 'POST') {
+          const b = await body();
+          if (!/^[0-9a-f]{64}$/.test(b.h || '')) return J({ error: 'bad' }, 400);
+          await env.BUCKET.resumeMultipartUpload(`g/${b.h}.mp4`, b.id).complete(b.parts.map(x => ({ partNumber: Number(x.n), etag: x.etag })));
+          return J(await album.setGplan(b.h, b.plan, b.size, b.crc));
+        }
         if (p === '/api/pipe/ws') {
           if (req.headers.get('upgrade') !== 'websocket') return J({ error: 'need websocket' }, 426);
           return album.fetch(req);

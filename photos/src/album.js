@@ -57,7 +57,7 @@ export class Album extends DurableObject {
     // 免费版 Durable Object 每天写入有上限，超了之后启动时这一步失败 → 整个相册连读都读不了（2026-10-03 出过一次）
     const have = new Set(this.sql.exec(`SELECT name FROM sqlite_master WHERE type IN ('table','index')`).toArray().map(r => r.name));
     const mcols = have.has('media') ? new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name)) : new Set();
-    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc'].every(c => mcols.has(c))) return;
+    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc', 'gsize', 'gcrc', 'gplan'].every(c => mcols.has(c))) return;
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT);
       CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT UNIQUE, created INTEGER);
@@ -92,7 +92,9 @@ export class Album extends DurableObject {
     // ctime / cser / tzsrc：相机表盘原始钟点、机身序列号、时间是怎么来的（offset:+08:00 / gps / video / none / aligned:+8.25h）
     // —— GPU 端的相机时钟对齐每次都从原始钟点重算，见 pipeline/clock.py
     for (const [c, t] of [['src', 'TEXT'], ['ai', 'TEXT'], ['cid', 'TEXT'], ['pair', 'TEXT'], ['live', 'INTEGER DEFAULT 0'],
-      ['ctime', 'TEXT'], ['cser', 'TEXT'], ['tzsrc', 'TEXT']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
+      ['ctime', 'TEXT'], ['cser', 'TEXT'], ['tzsrc', 'TEXT'],
+      // gsize / gcrc / gplan：视频的 H.264 新版（R2 g/<h>.mp4，GPU 端转码 + 调色；原片 o/<h> 不动）。gplan 为空 = 还没看过
+      ['gsize', 'INTEGER'], ['gcrc', 'INTEGER'], ['gplan', 'TEXT']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
     this.sql.exec(`CREATE INDEX IF NOT EXISTS media_cid ON media(cid)`);
     if (!this.sql.exec(`SELECT v FROM kv WHERE k='ver'`).toArray().length)
       this.sql.exec(`INSERT INTO kv VALUES ('ver','1')`);
@@ -201,7 +203,7 @@ export class Album extends DurableObject {
    * 另外整块盘剩余空间低于 MIN_FREE_BYTES 也拒绝 —— 盘上不只有相册 */
   quota() {
     const cap = Number(this.env.MAX_BYTES || 0), minFree = Number(this.env.MIN_FREE_BYTES || 0);
-    const book = Math.round(this.sql.exec(`SELECT COALESCE(SUM(size),0) s FROM media`).one().s * 1.05);
+    const book = Math.round(this.sql.exec(`SELECT COALESCE(SUM(size + COALESCE(gsize, 0)),0) s FROM media`).one().s * 1.05);   // 视频新版也算
     const d = this.disk && Date.now() - this.disk.at < 10 * 60e3 ? this.disk : null;
     return { cap, used: Math.max(book, d ? d.used : 0), book, disk: d ? d.used : null, free: d ? d.free : null, minFree };
   }
@@ -324,6 +326,7 @@ export class Album extends DurableObject {
         cap: r.caption, tg: r.tags ? JSON.parse(r.tags) : null,
         b: r.burst, bc: r.cover, sc: r.scene, u: contrib.get(r.h) || [], p: ppl.get(r.h) || [], nf: nf.get(r.h) || 0,
         cam: r.cam, q: r.score, mo: r.moment, pn: r.pinned, la: r.lat, lo: r.lon,
+        ...(r.flags & 16 ? { gs: r.gsize, gp: r.gplan } : {}),
         ...(r.src ? { src: r.src, ai: JSON.parse(r.ai || '{}') } : {}),
       });
     }
@@ -487,7 +490,7 @@ export class Album extends DurableObject {
     const ids = JSON.parse(z.ids);
     if (ids.length) for (const r of this.sql.exec(`SELECT pair FROM media WHERE kind='image' AND pair IS NOT NULL AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) if (!ids.includes(r.pair)) ids.push(r.pair);   // Live Photo 连同视频一起打包
     const rows = new Map();
-    for (const r of this.sql.exec(`SELECT h, name, size, crc, taken, created, place, moment FROM media WHERE status='ready' AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) rows.set(r.h, r);
+    for (const r of this.sql.exec(`SELECT h, name, size, crc, taken, created, place, moment, flags, gsize, gcrc FROM media WHERE status='ready' AND h IN (${ids.map(() => '?').join(',')})`, ...ids)) rows.set(r.h, r);
     // 一个日期一个地点一个文件夹：「2026-09-20_塞里雅兰瀑布/」。地点优先用所在「时刻」的地点（一段经历里
     // 零星几张落在隔壁景点的不会被拆成单独的文件夹），没有就用照片自己的，再没有就只按日期
     const mplace = new Map(this.sql.exec(`SELECT id, place FROM moments`).toArray().map(m => [m.id, m.place]));
@@ -496,7 +499,10 @@ export class Album extends DurableObject {
       const r = rows.get(h);
       const t = r.taken || new Date(r.created).toISOString().slice(0, 19);
       const pl = safe(mplace.get(r.moment) || r.place);
-      return { h, name: `${t.slice(0, 10)}${pl ? '_' + pl : ''}/${r.name}`, size: r.size, crc: r.crc, mtime: t };
+      const dir = `${t.slice(0, 10)}${pl ? '_' + pl : ''}/`;
+      // 视频有 H.264 新版就打包新版（大家要的是能直接放、颜色正常的那份；相机原片在大图里单独下）
+      if (r.flags & 16 && r.gsize) return { h, key: `g/${h}.mp4`, name: dir + r.name.replace(/\.[^.]+$/, '') + '.mp4', size: r.gsize, crc: r.gcrc >>> 0, mtime: t };
+      return { h, name: dir + r.name, size: r.size, crc: r.crc, mtime: t };
     });
   }
 
@@ -915,7 +921,7 @@ export class Album extends DurableObject {
       if (!/^[0-9a-f]{64}$/.test(h)) continue;
       for (const t of ['media', 'contrib', 'parts', 'faces', 'emb', 'edits']) this.sql.exec(`DELETE FROM ${t} WHERE h=?`, h);
       this.sql.exec(`DELETE FROM edits WHERE out_h=?`, h);
-      keys.push('o/' + h, `t/${h}.jpg`, `p/${h}.jpg`, `v/${h}.mp4`, `f/${h}.jpg`);
+      keys.push('o/' + h, `t/${h}.jpg`, `p/${h}.jpg`, `v/${h}.mp4`, `f/${h}.jpg`, `g/${h}.mp4`);
     }
     for (const n of users) {
       const u = this.sql.exec(`SELECT id FROM users WHERE name=?`, n).toArray()[0];
@@ -1007,6 +1013,18 @@ export class Album extends DurableObject {
   /** 给新起的 GPU 端恢复状态用：所有人脸向量 + 归属（pod 重建后不用重新跑人脸） */
   dumpFaces() {
     return this.sql.exec(`SELECT id, h, x, y, w, hh, score, emb, cluster, person, confirmed FROM faces`).toArray();
+  }
+  /** 视频转码队列：还没看过的视频（gplan 为空）。cam / up 给 GPU 端判断「是不是佳能拍的」 */
+  transcodeTodo() {
+    return this.sql.exec(`SELECT h, name, size, cam, flags, (SELECT uid FROM contrib c WHERE c.h = media.h ORDER BY at LIMIT 1) up
+      FROM media WHERE kind='video' AND status='ready' AND deleted=0 AND live=0 AND gplan IS NULL ORDER BY created LIMIT 20`).toArray();
+  }
+  /** GPU 端报转码结果：plan = none（不用转）/ fail:…（转失败，不再自动重试）/ 具体方案（带 size、crc = 新版已经传好了） */
+  setGplan(h, plan, size, crc) {
+    if (size) this.sql.exec(`UPDATE media SET gplan=?, gsize=?, gcrc=?, flags = flags | 16 WHERE h=?`, String(plan).slice(0, 80), Number(size), Number(crc) >>> 0, h);
+    else this.sql.exec(`UPDATE media SET gplan=? WHERE h=?`, String(plan).slice(0, 200), h);
+    this.bump();
+    return { ok: true };
   }
   media4pipe() {
     return this.sql.exec(`SELECT h, kind, name, taken, lat, lon, place, sharp, caption, tags, cam, score, pinned, created, src, ctime, cser, tzsrc, aver,

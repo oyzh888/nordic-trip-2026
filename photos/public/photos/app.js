@@ -450,16 +450,17 @@ async function shareFiles(ids, btn) {
     shareReady = null; btn.textContent = btn.dataset.l || '📲 存到手机'; return;
   }
   const items = ids.map(h => S.byH.get(h)).filter(Boolean);
-  const size = items.reduce((s, it) => s + it.s, 0);
+  const ss = it => it.gs || it.s;                               // 视频有 H.264 新版就存新版（手机相册直接能放、颜色正常）
+  const size = items.reduce((s, it) => s + ss(it), 0);
   if (items.length > 60 || size > 800 * 2 ** 20) return toast(`一次最多 60 个 / 800 MB（现在 ${items.length} 个 / ${fmtB(size)}），分几次选，或者用「打包下载」`, 5000);
   btn.dataset.l = btn.dataset.l || btn.textContent;
   const files = []; let got = 0;
   try {
     for (const it of items) {
       btn.textContent = `下载中 ${Math.round(got / size * 100)}%`;
-      const b = await (await fetch(F(it.h, 'o'), { credentials: 'same-origin' })).blob();
-      got += it.s;
-      files.push(new File([b], it.n, { type: b.type || 'application/octet-stream' }));
+      const b = await (await fetch(F(it.h, it.gs ? 'g' : 'o'), { credentials: 'same-origin' })).blob();
+      got += ss(it);
+      files.push(new File([b], it.gs ? it.n.replace(/\.[^.]+$/, '') + '.mp4' : it.n, { type: b.type || 'application/octet-stream' }));
     }
   } catch (e) { btn.textContent = btn.dataset.l; return toast('下载失败：' + e.message); }
   if (!navigator.canShare({ files })) { btn.textContent = btn.dataset.l; return toast('系统不接受这些文件的分享，用「打包下载」吧'); }
@@ -501,6 +502,9 @@ function livePhoto(box, it, src) {
     el.addEventListener('pointerup', stop); el.addEventListener('pointerleave', () => w.classList.contains('play') && el.matches('.livebtn') && stop());
   }
 }
+// 视频新版是怎么来的（GPU 端转码 + 调色，见 pipeline/video.py）
+const GP = { transcode: 'H.264（颜色没动）', 'clog3-cg': 'H.264 · 佳能 Canon Log 3 → Canon 709 调色', 'clog3-2020': 'H.264 · 佳能 Canon Log 3（BT.2020）→ BT.709 调色',
+  pq: 'H.264 · HDR（PQ）→ 普通屏幕', hlg: 'H.264 · HDR（HLG）→ 普通屏幕' };
 function renderLbInfo(it) {
   const tg = it.tg || {};
   const tags = [...new Set([...(tg.special || []), ...(tg.objects || []), ...(tg.tags || [])])].slice(0, 16);
@@ -510,7 +514,7 @@ function renderLbInfo(it) {
   const group = it.b ? S.data.items.filter(x => x.b === it.b).sort((a, b) => (b.q ?? -1) - (a.q ?? -1)) : [];
   $('#lb-info').innerHTML = `
     <div class="lb-row"><b>${md(it)}</b>${it.pl ? `<span>📍 ${esc(it.pl)}</span>` : ''}${it.cam ? `<span>📷 ${esc(it.cam)}</span>` : ''}
-      <span class="s">${esc(it.n)} · ${fmtB(it.s)}${it.w ? ` · ${it.w}×${it.hh}` : ''}${it.d ? ` · ${fmtD(it.d)}` : ''}</span></div>
+      <span class="s">${esc(it.n)} · ${fmtB(it.s)}${it.w ? ` · ${it.w}×${it.hh}` : ''}${it.d ? ` · ${fmtD(it.d)}` : ''}${it.gs ? ` · 🎞 ${esc(GP[it.gp] || 'H.264')}` : ''}</span></div>
     ${mo ? `<div class="lb-row s">${mo.memo >= 4 ? '★ ' : ''}时刻：${esc(mo.title)}</div>` : ''}
     ${it.cap ? `<p class="cap">${esc(it.cap)}</p>` : it.a ? '' : '<p class="s">AI 还没分析这张（分析端在线时几分钟内会有描述、标签和人脸）</p>'}
     <div class="lb-row">上传：${it.u.map(u => esc(S.users.get(u) || '?')).join('、')}
@@ -521,11 +525,13 @@ function renderLbInfo(it) {
       ${it.bc ? '' : `<button class="btn sm" id="lb-pick">👍 这张更好，设为这组的封面</button>`}</div>` : ''}
     ${it.src ? aiSrcRow(it) : ''}
     <div class="lb-row acts">
-      <a class="btn pri sm" href="${F(it.h, 'o')}?dl=1">⬇ 下载原${it.k === 'v' ? '视频' : '图'}</a>
+      ${it.gs ? `<a class="btn pri sm" href="${F(it.h, 'g')}?dl=1" title="${esc(GP[it.gp] || 'H.264')}">⬇ 下载视频 · ${fmtB(it.gs)}</a>
+        <a class="btn sm" href="${F(it.h, 'o')}?dl=1" title="上传上来的那份，一个字节没动">⬇ 相机原片 · ${fmtB(it.s)}</a>`
+        : `<a class="btn pri sm" href="${F(it.h, 'o')}?dl=1">⬇ 下载原${it.k === 'v' ? '视频' : '图'}</a>`}
       ${it.lv ? `<a class="btn sm" href="${F(it.lv, 'o')}?dl=1">⬇ Live 视频</a>` : ''}
       <button class="btn sm" id="lb-share">📲 存到手机</button>
       <button class="btn sm" id="lb-sel">${S.sel.has(it.h) ? '✓ 已选' : '选中'}</button>
-      ${it.k === 'v' && it.f & 4 ? `<button class="btn ghost sm" id="lb-orig">看原画质</button>` : ''}
+      ${it.k === 'v' && it.f & 4 ? `<button class="btn ghost sm" id="lb-orig">${it.gs ? '看高清' : '看原画质'}</button>` : ''}
       ${it.k === 'i' && S.data.ai && S.data.ai.length ? `<button class="btn sm" id="lb-ai">✨ AI 改图</button>` : ''}
       ${mine ? `<button class="btn ghost sm danger" id="lb-del">撤回我的上传</button>` : ''}
     </div>
@@ -633,7 +639,7 @@ $('#lb').addEventListener('click', async e => {
   if ((b = t.closest('[data-aip]'))) { $('#ai-p').value = b.dataset.aip; return; }
   if (t.id === 'ai-go') return aiGo(it, t);
   if (t.id === 'lb-sel') { S.selMode = true; toggleSel(it.h); renderGrid(); t.textContent = S.sel.has(it.h) ? '✓ 已选' : '选中'; return; }
-  if (t.id === 'lb-orig') { const v = $('#lb-media video'); const pos = v.currentTime; v.src = F(it.h, 'o'); v.currentTime = pos; v.play(); t.remove(); return; }
+  if (t.id === 'lb-orig') { const v = $('#lb-media video'); const pos = v.currentTime; v.src = F(it.h, it.gs ? 'g' : 'o'); v.currentTime = pos; v.play(); t.remove(); return; }
   if (t.id === 'lb-pick') { await api('/pick', { method: 'POST', body: { h: it.h } }); toast('好，以后这组就显示这张'); await refresh(true); const i = S.view.findIndex(x => x.h === it.h); return i >= 0 ? openLb(i) : closeLb(); }
   if (t.id === 'lb-del') {
     if (!confirm(it.u.length > 1 ? '撤回你的上传？（别人也传过这张，所以它会留在相册里）' : '撤回你的上传？这张会从相册里消失。')) return;
