@@ -89,3 +89,30 @@
 - 9/29 三笔 Airbnb（$644.07 / $364.91 / $491.04）对应 Nice / London / Lisbon 哪一单；是否为个人段（不参与 4 人均分）。
 - 非行程项（未计入）：Runpod.io $200、Apify $29.03、Resend $40（业务）。
 - 好消息：Tesla Insurance 玻璃理赔 $227.65 已到账 BofA checking …9744（9/29）。
+
+## 2026-10-03 更新（…4181，10/1–10/3 拉取 + 用户截图）
+- 数据来源：Plaid Chase business Ink …4181（10/1–10/3）。Chase 个人账户仍未恢复连接；Apple Card / Amex 仍是盲区；银行数据可能滞后，pending 以最终入账为准。
+- Tapperiet Bistro $162.00 已由 pending 转为 posted（10/2 入账），4 人 Reine 午餐，计入均分。
+
+### 新增行程消费
+| 日期 | 商户 | 金额 | 状态 | 备注 |
+|---|---|---|---|---|
+| 10/3 | Pastafabrikken AS | NOK 1,501.50（≈$164） | pending | Tromsø 晚餐，4 人，计入均分（用户 Chase 通知截图） |
+
+### 待用户确认（10/3 新增）
+- Sixt $376.30 pending（10/2）：疑似 V90 取车时到店余款 NOK 3,449.53，4 人均分？
+- Sixt $1,049.78 pending（10/2）：疑似 RAV4 还车结算（Evenes→Leknes 异地还车，可能含单程费/过路费），4 人均分？
+- Budget Car Rental $216.16 posted（10/2）：不明，是否租车相关？
+- Avis $105.45 posted（10/2）：不明，是否冰岛 Avis 尾款调整？
+- Jobb Og $345.75 pending（10/2）：不明，挪威商户？
+- Uno $100.48 pending（10/2）：疑似 Tromsø 餐厅，是否 4 人消费？
+- TROMS PARKERIN $0.10 pending：停车卡验证小额，可忽略。
+
+### 待用户确认（之前未结）
+- Road Assist 24 两笔（$1,258.08 + $104.06）是否为 Avis 冰岛租车结算。
+- 9/29 三笔 Airbnb（$644.07 / $364.91 / $491.04）对应 Nice / London / Lisbon 哪一单；是否为个人段（不参与 4 人均分）。
+- 10/1 中餐馆：…4181 未见，请用户提供金额/卡尾号后手工记入。
+- Troll.is $910、40,000 ISK 押金：仍未见。
+
+### 非行程项（未计入）
+- Runpod.io $200、Resend $40、Google Cloud $2.26、Cloudflare $1.67（业务）；Gusto $104（工资）；Apple Card 还款 $19.98、Chase 卡 autopay hold $83.58（还款类）。
