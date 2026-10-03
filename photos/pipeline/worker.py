@@ -33,6 +33,7 @@ from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
+import clock  # noqa: E402
 import cluster  # noqa: E402
 import media as M  # noqa: E402
 from models import face_vec, q8  # noqa: E402  （不加载模型，只是两个小函数）
@@ -362,6 +363,53 @@ class Worker:
             cc = M.trip_country(utc)
         return M.utc_to_local(utc, cc) or res.get('taken') or utc
 
+    @staticmethod
+    def clock_fields(meta, kind):
+        """存下相机表盘原始钟点 / 机身序列号 / 时间从哪来 —— 时钟对齐（clock.py）每次都从原始钟点重算，结果可重复"""
+        out = {'ctime': meta.get('_raw') or '', 'cser': meta.get('_ser')}
+        out['tzsrc'] = 'video' if kind == 'video' else 'gps' if meta.get('lat') is not None else meta.get('_tzsrc') or 'none'
+        return {k: v for k, v in out.items() if v is not None}
+
+    def backfill_clock(self):
+        """已经分析过、但还没记原始钟点的照片：只读原件开头的 EXIF 补上（一张一次，补过的 ctime 不再是 NULL）"""
+        # 只补已经分析过的：result 接口会顺手把 aver 写成当前版本，没分析过的照片要留给正常流程（它自己会记原始钟点）
+        todo = [m for m in self.api.get('/api/pipe/media') if m.get('ctime') is None and not m.get('src') and (m.get('aver') or 0) >= AVER]
+        if not todo:
+            return 0
+        log(f'补记 {len(todo)} 个文件的相机原始钟点 / 机身序列号（只读 EXIF，不重跑模型）')
+
+        def one(m):
+            out = {'ctime': '', 'tzsrc': 'video' if m['kind'] == 'video' else 'gps' if m.get('lat') is not None else 'none'}
+            if m['kind'] == 'image':
+                raw = (m.get('name') or '').rsplit('.', 1)[-1].lower() in M.RAW_EXT
+                try:
+                    r = self.api.req('GET', f'/f/{m["h"]}/o', headers={'range': f'bytes=0-{(4 << 20 if raw else 256 << 10) - 1}'}, timeout=120)
+                    if raw:
+                        p = self.cache / f'hdr-{m["h"]}'
+                        p.write_bytes(r.content)
+                        try: meta = M.raw_meta(p)
+                        finally: p.unlink(missing_ok=True)
+                    else:
+                        meta = M.image_meta(Image.open(io.BytesIO(r.content)))
+                    out = self.clock_fields({**meta, 'lat': m.get('lat')}, 'image')
+                except Exception as e:   # noqa: BLE001 —— 读不了就记成空，免得每次启动都重试
+                    log(f'  {m["h"][:10]} 读不了 EXIF: {e!r:.80}')
+            self.api.post('/api/pipe/result', {'h': m['h'], **out, 'aver': AVER})
+        with ThreadPoolExecutor(8) as ex:
+            list(ex.map(one, todo))
+        return len(todo)
+
+    def align_clocks(self, media, E):
+        """相机时钟对齐（见 clock.py）：没时区标签、没 GPS 的相机照片，按同场景的手机照片把时间对齐过来。
+        只改变化 ≥ 5 分钟的；返回改过的 h → 新时间（聚类要用新时间）"""
+        trip = lambda utc: M.CC_TZ.get(M.trip_country(utc) or '')
+        changes, report = clock.align(media, E, M.tz_at, M.utc_to_tz, trip)
+        for line in report:
+            log('  时钟对齐 ' + line)
+        for h, taken, how in changes:
+            self.api.post('/api/pipe/result', {'h': h, 'taken': taken, 'tzsrc': how, 'aver': AVER})
+        return {h: t for h, t, _ in changes}
+
     def retime(self):
         """一次性：把已经分析过的照片按上面的规则重算拍摄时间（只读原件开头的 EXIF，不重跑模型）"""
         n = 0
@@ -420,6 +468,7 @@ class Worker:
             utc = res.pop('_utc', None)
             if utc:
                 res['taken'] = self.local_time(utc, cc, res)
+            res.update(self.clock_fields(res, it['kind']))
             for k in [k for k in res if k.startswith('_')]:
                 res.pop(k)
             res['aver'] = AVER
@@ -450,6 +499,7 @@ class Worker:
     def recluster(self):
         t = time.time()
         faces = self.api.get('/api/pipe/faces')
+        self.backfill_clock()                           # 先补原始钟点，下面取的列表才带得上
         media = self.api.get('/api/pipe/media')
         for m in media:
             m['tags'] = json.loads(m['tags']) if m.get('tags') else {}
@@ -457,6 +507,10 @@ class Worker:
         for r in self.api.get('/api/pipe/embs'):
             v = np.frombuffer(base64.b64decode(r['vec']), dtype=np.int8).astype(np.float32) * r['scale']
             E[r['h']] = v / (np.linalg.norm(v) or 1)
+        moved = self.align_clocks(media, E)
+        for m in media:                                 # 时刻 / 连拍按对齐后的时间切
+            if m['h'] in moved:
+                m['taken'] = moved[m['h']]
         def unit(s):
             v = face_vec(s)
             return v / (np.linalg.norm(v) or 1)

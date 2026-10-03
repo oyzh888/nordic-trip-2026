@@ -83,11 +83,14 @@ def _set_taken(out, dt, off):
     if not m or m.group(1) == '0000':
         return
     out['taken'] = '{}-{}-{}T{}:{}:{}'.format(*m.groups())
+    out['_raw'] = out['taken']               # 相机表盘上的原始钟点：时钟对齐（clock.py）每次都从它重算，不从已经换算过的 taken 算
+    out['_tzsrc'] = 'none'
     # 相机自己记的时区（「+08:00」）：相机没改时区时它和拍摄地不一样 → 先换成 UTC，worker 再按拍摄地换回当地时间
     o = re.match(r'([+-])(\d\d):(\d\d)$', str(off or '').strip())
     if o:
         mins = (1 if o.group(1) == '+' else -1) * (int(o.group(2)) * 60 + int(o.group(3)))
         out['_utc'] = (datetime.fromisoformat(out['taken']) - timedelta(minutes=mins)).strftime('%Y-%m-%dT%H:%M:%S')
+        out['_tzsrc'] = f'offset:{o.group(0)}'
 
 
 def image_meta(im):
@@ -105,6 +108,8 @@ def image_meta(im):
     cid = apple_cid(sub.get(0x927C))
     if cid:
         out['cid'] = cid
+    if sub.get(0xA431):                      # 机身序列号：认「是不是同一台相机」（时钟对齐按机身分组）
+        out['_ser'] = str(sub.get(0xA431)).strip()[:40]
     g = ex.get_ifd(0x8825)
     if g.get(2) and g.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
@@ -143,6 +148,8 @@ def cr3_meta(path):
     if cam:
         out['cam'] = cam[:60]
     _set_taken(out, ex.get(0x9003) or ex.get(0x9004) or i0.get(0x0132), ex.get(0x9011) or ex.get(0x9010))
+    if ex.get(0xA431):
+        out['_ser'] = str(ex.get(0xA431)).strip()[:40]
     if gps.get(2) and gps.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
         la, lo = dms(gps[2]), dms(gps[4])
@@ -172,6 +179,9 @@ def raw_meta(path):
         out['cam'] = cam[:60]
     _set_taken(out, g('EXIF DateTimeOriginal') or g('EXIF DateTimeDigitized') or g('Image DateTime'),
                g('EXIF OffsetTimeOriginal') or g('EXIF OffsetTime'))
+    ser = g('EXIF BodySerialNumber') or g('MakerNote SerialNumber')
+    if ser:
+        out['_ser'] = ser.strip()[:40]
     def dms(k):
         v = t.get(k)
         try:

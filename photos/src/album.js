@@ -57,7 +57,7 @@ export class Album extends DurableObject {
     // 免费版 Durable Object 每天写入有上限，超了之后启动时这一步失败 → 整个相册连读都读不了（2026-10-03 出过一次）
     const have = new Set(this.sql.exec(`SELECT name FROM sqlite_master WHERE type IN ('table','index')`).toArray().map(r => r.name));
     const mcols = have.has('media') ? new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name)) : new Set();
-    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live'].every(c => mcols.has(c))) return;
+    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc'].every(c => mcols.has(c))) return;
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT);
       CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT UNIQUE, created INTEGER);
@@ -89,7 +89,10 @@ export class Album extends DurableObject {
     // 后加的列（老库里没有）：AI 改图的产物记着它从哪张来、用什么改的
     const cols = new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name));
     // cid / pair / live：Live Photo —— 照片和它那段 3 秒视频是两个文件，配上对之后视频不单独出现在相册里，挂在照片上
-    for (const [c, t] of [['src', 'TEXT'], ['ai', 'TEXT'], ['cid', 'TEXT'], ['pair', 'TEXT'], ['live', 'INTEGER DEFAULT 0']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
+    // ctime / cser / tzsrc：相机表盘原始钟点、机身序列号、时间是怎么来的（offset:+08:00 / gps / video / none / aligned:+8.25h）
+    // —— GPU 端的相机时钟对齐每次都从原始钟点重算，见 pipeline/clock.py
+    for (const [c, t] of [['src', 'TEXT'], ['ai', 'TEXT'], ['cid', 'TEXT'], ['pair', 'TEXT'], ['live', 'INTEGER DEFAULT 0'],
+      ['ctime', 'TEXT'], ['cser', 'TEXT'], ['tzsrc', 'TEXT']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
     this.sql.exec(`CREATE INDEX IF NOT EXISTS media_cid ON media(cid)`);
     if (!this.sql.exec(`SELECT v FROM kv WHERE k='ver'`).toArray().length)
       this.sql.exec(`INSERT INTO kv VALUES ('ver','1')`);
@@ -700,7 +703,7 @@ export class Album extends DurableObject {
     const h = r.h;
     if (!this.partInfo(h)) return { error: 'unknown' };
     const set = [], args = [];
-    for (const k of ['taken', 'lat', 'lon', 'w', 'hh', 'dur', 'place', 'caption', 'sharp', 'cam', 'score', 'cid']) if (r[k] !== undefined) { set.push(`${k}=?`); args.push(r[k]); }
+    for (const k of ['taken', 'lat', 'lon', 'w', 'hh', 'dur', 'place', 'caption', 'sharp', 'cam', 'score', 'cid', 'ctime', 'cser', 'tzsrc']) if (r[k] !== undefined) { set.push(`${k}=?`); args.push(r[k]); }
     if (r.tags !== undefined) { set.push('tags=?'); args.push(JSON.stringify(r.tags)); }
     if (r.crc !== undefined) { set.push('crc=?'); args.push(r.crc >>> 0); }
     if (r.flags) { set.push('flags = flags | ?'); args.push(r.flags); }
@@ -1006,7 +1009,8 @@ export class Album extends DurableObject {
     return this.sql.exec(`SELECT id, h, x, y, w, hh, score, emb, cluster, person, confirmed FROM faces`).toArray();
   }
   media4pipe() {
-    return this.sql.exec(`SELECT h, kind, taken, lat, lon, place, sharp, caption, tags, cam, score, pinned, created, src FROM media WHERE status='ready' AND deleted=0 AND live=0`).toArray();
+    return this.sql.exec(`SELECT h, kind, name, taken, lat, lon, place, sharp, caption, tags, cam, score, pinned, created, src, ctime, cser, tzsrc, aver,
+      (SELECT uid FROM contrib c WHERE c.h = media.h ORDER BY at LIMIT 1) up FROM media WHERE status='ready' AND deleted=0 AND live=0`).toArray();
   }
   embs() {
     return this.sql.exec(`SELECT h, scale, vec FROM emb`).toArray().map(r => ({ h: r.h, scale: r.scale, vec: btoa(String.fromCharCode(...new Uint8Array(r.vec))) }));

@@ -97,12 +97,36 @@ async function loadList() {
   for (const h of [...S.sel]) if (!S.byH.has(h)) S.sel.delete(h);
   return true;
 }
-async function refresh(force) {
+async function refresh(force, bg) {
+  const before = S.byH;
   const changed = await loadList();
   if (!changed && !force) return;
   if (S.q) await runSearch(S.q, true);
-  renderAll();
+  renderAll(before, bg);
 }
+
+/* ---- 后台刷新（上传完一张、每 15 秒轮询、切回页面）：不打断正在做的事 ----
+ * 以前每传完一张就整页重画：时间线是「新的在前」，新照片插在最上面把正在看的往下推；大图里的上一张 / 下一张
+ * 按位置算，位置一变就跳错；人物页整页重建，正开着的下拉框直接关掉。连续传几百张时这每一两秒发生一次。
+ * 现在：用户正在操作（开着大图、在输入框里、刚滚动 / 点过、开着下拉框）就先记下「有更新」，停手 2.5 秒后再画；
+ * 画的时候保持正在看的那张照片在屏幕上的位置不动；滚到下面时，新照片只在顶上冒一个「↑ N 张新照片」。 */
+S.touched = 0;
+for (const ev of ['pointerdown', 'keydown', 'wheel', 'touchmove', 'scroll']) addEventListener(ev, () => { S.touched = Date.now(); }, { passive: true, capture: true });
+function busy() {
+  if (S.lb >= 0) return true;                                   // 开着大图
+  const a = document.activeElement;
+  if (a && a.matches && a.matches('input, textarea, select, [contenteditable]')) return true;
+  if (document.querySelector('#people details[open], #people select:focus')) return true;
+  return Date.now() - S.touched < 2500;
+}
+let bgPending = false;
+async function bgRefresh() {
+  if (!S.me) return;
+  if (busy()) { bgPending = true; return; }
+  bgPending = false;
+  await refresh(false, true);
+}
+setInterval(() => { if (bgPending && !busy()) bgRefresh(); }, 800);
 
 /* ================= 筛选 / 分组 ================= */
 const isMine = it => it.u.includes(S.me.id) || (S.myPerson != null && it.p.includes(S.myPerson));
@@ -192,7 +216,12 @@ function tile(it) {
 
 function renderGrid() {
   if (!S.data) return;
+  const cur = S.lb >= 0 ? S.view[S.lb] : null;
   const xs = filtered(); S.view = xs;
+  if (cur) {                                                    // 开着大图时列表变了：大图还停在同一张，上一张 / 下一张按新列表走
+    const i = xs.findIndex(x => x.h === cur.h);
+    if (i >= 0) S.lb = i; else { xs.splice(Math.min(S.lb, xs.length), 0, cur); }
+  }
   const gs = groups(xs);
   const size = xs.reduce((s, it) => s + it.s, 0);
   const nv = xs.filter(it => it.k === 'v').length;
@@ -247,11 +276,51 @@ function renderTop() {
   p.textContent = `${d.pipe ? '● AI 在线' : '○ AI 离线'} · 已分析 ${done}/${d.items.length}`;
   const me = $('#me'); me.hidden = false; me.textContent = '👤 ' + S.me.name;
 }
-function renderAll() {
-  renderTop(); renderChips(); renderGrid(); renderSel();
+const uploading = () => UQ.some(t => t.state === 'active' || t.state === 'queued');
+function renderAll(before, bg) {
+  renderTop();
+  const fresh = before ? S.data.items.filter(it => !before.has(it.h)).length : 0;
+  // 正在上传时，后台刷新不重画时间线：重画 250 张在慢手机上要 0.25 秒，每隔几秒来一次会让翻看、编辑都一卡一卡
+  // （实测主线程最长卡顿 122 → 314 ms）。只在顶上数「↑ N 张新照片」，点一下立刻显示；全部传完再画一次
+  if (bg && uploading()) { if (fresh) newPill(fresh); S.gridStale = true; return; }
+  S.gridStale = false;
+  renderChips();
+  const anchor = gridAnchor();
+  renderGrid();
+  restoreAnchor(anchor);
+  if (anchor && fresh) newPill(fresh);                          // 滚在下面时，新来的照片只提示，不把画面往下推
+  else if (!anchor) hidePill();
+  renderSel();
   if (S.tab === 'people') renderPeople();
   if (S.tab === 'insight') renderInsight();
 }
+/** 记下屏幕最上面那张照片和它离窗口顶部的距离（滚在最顶上时不用记 —— 那时就该看到新的） */
+function gridAnchor() {
+  if (S.tab !== 'grid' || scrollY < 120) return null;
+  for (const el of document.querySelectorAll('#grid .tl')) {
+    const r = el.getBoundingClientRect();
+    if (r.bottom > 60) return { h: el.dataset.h, top: r.top };
+  }
+  return null;
+}
+function restoreAnchor(a) {
+  if (!a) return;
+  const el = document.querySelector(`#grid .tl[data-h="${a.h}"]`);
+  if (el) scrollBy(0, el.getBoundingClientRect().top - a.top);
+}
+function hidePill() { const p = $('#newpill'); if (p) { p.hidden = true; p.dataset.n = 0; } }
+function newPill(n) {
+  let p = $('#newpill');
+  if (!p) {
+    p = document.createElement('button'); p.id = 'newpill'; p.className = 'newpill';
+    p.onclick = () => { hidePill(); if (S.gridStale) { S.gridStale = false; renderChips(); renderGrid(); renderSel(); } scrollTo({ top: 0, behavior: 'smooth' }); };
+    document.body.appendChild(p);
+  }
+  p.dataset.n = Number(p.dataset.n || 0) + n;
+  p.textContent = `↑ ${p.dataset.n} 张新照片`;
+  p.hidden = false;
+}
+addEventListener('scroll', () => { const p = $('#newpill'); if (p && !p.hidden && scrollY < 120 && !S.gridStale) hidePill(); }, { passive: true });
 
 /* ---------- 搜索 ---------- */
 async function runSearch(q, silent) {
@@ -815,7 +884,7 @@ function pump() {
     const t = UQ.find(t => t.state === 'queued' && !t.hold); if (!t) break;
     running++; t.state = 'active'; t.t0 = Date.now();
     runTask(t).catch(e => { t.state = 'failed'; t.msg = '失败：' + e.message + ' · 点这行重试'; })
-      .finally(() => { running--; renderUpSoon(); pump(); });
+      .finally(() => { running--; renderUpSoon(); pump(); if (!uploading()) listSoon(); });   // 全部传完 → 补画一次时间线
   }
   wake(); renderUpSoon();
 }
@@ -1123,7 +1192,14 @@ $('#file').addEventListener('change', e => {
   enqueue(fs);
 });
 $('#dir').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
-let listT; function listSoon() { clearTimeout(listT); listT = setTimeout(() => refresh(), 1200); }
+// 上传完一张就要刷新列表：第一张 1.2 秒后刷，之后连续上传时最多每 10 秒刷一次（以前是每次都往后推，
+// 一直在传就一直不刷，传完才一下子全部跳出来）。重画 250 张的时间线在慢手机上约 0.25 秒，10 秒一次是折中
+let listT = 0, listLast = 0;
+function listSoon() {
+  if (listT) return;
+  const wait = Math.max(1200, 10000 - (Date.now() - listLast));
+  listT = setTimeout(() => { listT = 0; listLast = Date.now(); bgRefresh(); }, wait);
+}
 
 /* 电脑上直接把文件拖进窗口 */
 let dragN = 0;
@@ -1153,7 +1229,7 @@ async function wake() {
     try { lock = await navigator.wakeLock.request('screen'); lock.addEventListener('release', () => { lock = null; }); } catch { /* 不支持就算了 */ }
   } else if (!busy && lock) { lock.release(); lock = null; }
 }
-document.addEventListener('visibilitychange', () => { wake(); if (document.visibilityState === 'visible' && S.me) refresh(); });
+document.addEventListener('visibilitychange', () => { wake(); if (document.visibilityState === 'visible' && S.me) bgRefresh(); });
 addEventListener('beforeunload', e => { if (UQ.some(t => t.state === 'active' || t.state === 'queued')) { e.preventDefault(); e.returnValue = ''; } });
 
 /* ================= 启动 ================= */
@@ -1174,7 +1250,7 @@ async function boot() {
   loadSuggest();
   // 上次没传完就被关掉了（多半是 iPhone 内存不够把页面杀了）→ 一进来就把上传面板打开，提示重选同一批
   if (Object.values(FP.all()).some(x => (x.q === 1 || x.u === 1) && !x.done && x.at > Date.now() - 7 * 86400e3)) openSheet();
-  setInterval(() => { if (document.visibilityState === 'visible') refresh(); }, 15000);
+  setInterval(() => { if (document.visibilityState === 'visible') bgRefresh(); }, 15000);
 }
 if (typeof nav === 'function') document.body.insertAdjacentHTML('afterbegin', nav());   // 全站统一导航（/app.js）
 boot();
