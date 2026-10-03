@@ -14,6 +14,7 @@
  * 输对之后发一个 HMAC 签名的 cookie（30 天）。邀请链接 /photos/#k=口令 可以直接发到群里。
  */
 import { Album } from './album.js';
+import { withStore } from './localbucket.js';
 import { zipPlan, zipWrite, uniqueNames } from './zip.js';
 
 export { Album };
@@ -98,6 +99,7 @@ async function serveObject(req, env, key, { dl, name, type } = {}) {
 
 export default {
   async fetch(req, env, ctx) {
+    env = withStore(env);
     const url = new URL(req.url);
     let p = url.pathname;
     // 跑在本机时（ORIGIN_KEY 有值）：经 Cloudflare 进来的请求（带 cf-ray）必须是主站 Worker 转发的、带着共享密钥，
@@ -255,6 +257,7 @@ export default {
         if (!info || info.status !== 'uploading') return J({ error: 'no such upload' }, 404);
         if (!(n >= 1 && n <= info.nparts)) return J({ error: 'bad part' }, 400);
         const expect = n < info.nparts ? info.psize : info.size - info.psize * (info.nparts - 1);
+        if (env.BLOBD) return partStream(h, n, info, expect);
         // 整块读进内存、用原生 crypto 算哈希。试过边收边写的流式版本：免费版 Worker 每个请求只有 10 ms CPU，
         // 在 JS 里逐段喂哈希会超时（Worker exceeded CPU time limit），64 线程时全部失败；整块原生算反而稳（实测 64 线程全过）
         const buf = await req.arrayBuffer();
@@ -277,6 +280,29 @@ export default {
           throw e;
         }
         await album.partDone(h, n, etag, sha);
+        return J({ ok: true, n });
+      }
+      /* 本机部署：请求体原样流给 blobd，哈希由 blobd 边写边算、随结果带回来 —— 字节不进 JS，也不整块占内存 */
+      async function partStream(h, n, info, expect) {
+        const len = Number(req.headers.get('content-length'));
+        if (len !== expect || !req.body) return J({ error: `part size ${len} != ${expect}` }, 400);
+        const claimed = req.headers.get('x-part-sha256');
+        const lease = await album.leasePart(h, n);
+        if (lease === 'done') return J({ ok: true, n, skipped: true });
+        if (lease === 'busy') return busy(h);
+        let r;
+        try {
+          r = info.nparts === 1 ? await env.BUCKET.put('o/' + h, req.body) : await env.BUCKET.resumeMultipartUpload('o/' + h, info.upload_id).uploadPart(n, req.body);
+        } catch (e) {
+          await album.partFailed(h, n);
+          if (/10024|does not exist/.test(String(e)) && (await album.partInfo(h))?.status === 'ready') return J({ ok: true, n, skipped: true, complete: true });
+          throw e;
+        }
+        if (r.size !== expect || (claimed && claimed !== r.sha256)) {
+          await album.partFailed(h, n);
+          return J({ error: r.size !== expect ? `part size ${r.size} != ${expect}` : 'part hash mismatch' }, r.size !== expect ? 400 : 422);
+        }
+        await album.partDone(h, n, r.etag || '', r.sha256);
         return J({ ok: true, n });
       }
       if (p === '/api/upload/complete' && method === 'POST') {
@@ -384,6 +410,7 @@ export default {
           return J(await album.editDone(q.get('id'), { h, size: buf.byteLength, crc: crc32(buf), type, w: q.get('w'), hh: q.get('hh'), mid: q.get('mid') }));
         }
         if (p === '/api/pipe/dump' && method === 'GET') return J(await album.dumpAll());
+        if (p === '/api/pipe/reset-uploads' && method === 'POST') return J(await album.resetUploads());
         if (p === '/api/pipe/restore' && method === 'POST') return J(await album.restoreAll(await body()));
         if (p === '/api/pipe/import' && method === 'POST') return J(await album.importMedia((await body()).items));
         if (p === '/api/pipe/blob' && method === 'PUT') {      // 搬家：把本地存储里的字节原样写回 BUCKET

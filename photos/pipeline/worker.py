@@ -482,11 +482,13 @@ class Worker:
         root = self.args.store
         while not self.stop:
             try:
-                used = 0
+                used, seen = 0, set()
                 for d, _, fs in os.walk(root):
                     for f in fs:
-                        try: used += os.lstat(os.path.join(d, f)).st_blocks * 512
-                        except OSError: pass
+                        try: st = os.lstat(os.path.join(d, f))
+                        except OSError: continue
+                        if (st.st_dev, st.st_ino) in seen: continue     # 硬链接（换存储时导出的文件）只算一次
+                        seen.add((st.st_dev, st.st_ino)); used += st.st_blocks * 512
                 q = self.api.post('/api/pipe/disk', {'used': used, 'free': shutil.disk_usage(root).free})
                 if q.get('cap') and q['used'] > 0.9 * q['cap']:
                     log(f'⚠️ 相册存储 {q["used"] / 1e9:.1f} GB，上限 {q["cap"] / 1e9:.0f} GB')

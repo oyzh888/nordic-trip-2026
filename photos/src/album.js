@@ -12,6 +12,7 @@
  * 有没见过的搜索词就让它算向量。它掉线不影响上传/浏览/下载，只是新照片暂时没有 AI 标签。
  */
 import { DurableObject } from 'cloudflare:workers';
+import { withStore } from './localbucket.js';
 
 const PIPE_VERSION_KEY = 'pipe_ver';
 const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
@@ -38,6 +39,7 @@ export function normQ(q) {
 export class Album extends DurableObject {
   constructor(ctx, env) {
     super(ctx, env);
+    this.env = withStore(env);   // 本机部署时存储换成 blobd（见 localbucket.js）
     this.sql = ctx.storage.sql;
     this.idx = null;             // 内存搜索索引（按 ver 失效）
     this.leases = new Map();     // 「这一块正在被谁写」：h:n → 时间。同一块同时只让一个线程写（见 leasePart）
@@ -841,6 +843,20 @@ export class Album extends DurableObject {
     }
     if (n) { this.bump(); this.notifyPipe({ t: 'new' }); }
     return { ok: true, imported: n };
+  }
+
+  /** 换存储后（R2 模拟 → blobd）：没传完的分块上传在旧存储里，新存储不认识它的 upload_id。
+   * 清掉已收到的块记录、在新存储里重开分块任务；客户端下次 init 拿到 done=[]，会把这个文件从头传 */
+  async resetUploads() {
+    const rows = this.sql.exec(`SELECT h, nparts, type FROM media WHERE status='uploading'`).toArray();
+    for (const r of rows) {
+      this.sql.exec(`DELETE FROM parts WHERE h=?`, r.h);
+      let id = null;
+      if (r.nparts > 1) id = (await this.env.BUCKET.createMultipartUpload('o/' + r.h, { httpMetadata: { contentType: r.type } })).uploadId;
+      this.sql.exec(`UPDATE media SET upload_id=? WHERE h=?`, id, r.h);
+    }
+    this.leases.clear();
+    return { ok: true, reset: rows.length };
   }
 
   /** 整库还原：用 dumpAll() 的导出替换本地所有表（搬家用）。没传完的上传不还原 —— 它们的分片在原来的存储里，
