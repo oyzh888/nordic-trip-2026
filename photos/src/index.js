@@ -65,6 +65,8 @@ async function who(req, env, album) {
   const [uid, exp, sig] = m[1].split('.');
   if (!sig || Number(exp) < Date.now() / 1000) return null;
   if (!safeEq(sig, await sign(env, `${uid}.${exp}`))) return null;
+  // 签名对、但库里没有这个人（换过库 / 用户被删）→ 当没登录，让他重新报名字；否则旧 cookie 会冒充新库里同编号的另一个人
+  if (!(await album.user(Number(uid)))) return null;
   return { uid: Number(uid) };
 }
 
@@ -162,8 +164,8 @@ export default {
       if (p === '/api/me') { needUser(); return J({ user: await album.user(uid) }); }
 
       if (p === '/api/list') {
-        const { ver, body: b } = await album.list();
-        const etag = `"v${ver}"`;
+        const { ver, epoch, body: b } = await album.list();
+        const etag = `"v${epoch}-${ver}"`;           // 带库编号：换了库版本号会从头数，不能和浏览器缓存里旧库的撞上
         // CF 边缘压缩时会把强 ETag 改成弱的 W/"v12"，浏览器原样带回来 → 比较时去掉 W/
         const inm = (req.headers.get('if-none-match') || '').split(',').map(x => x.trim().replace(/^W\//, ''));
         if (inm.includes(etag)) return new Response(null, { status: 304, headers: { etag } });
@@ -382,6 +384,7 @@ export default {
           return J(await album.editDone(q.get('id'), { h, size: buf.byteLength, crc: crc32(buf), type, w: q.get('w'), hh: q.get('hh'), mid: q.get('mid') }));
         }
         if (p === '/api/pipe/dump' && method === 'GET') return J(await album.dumpAll());
+        if (p === '/api/pipe/restore' && method === 'POST') return J(await album.restoreAll(await body()));
         if (p === '/api/pipe/import' && method === 'POST') return J(await album.importMedia((await body()).items));
         if (p === '/api/pipe/blob' && method === 'PUT') {      // 搬家：把本地存储里的字节原样写回 BUCKET
           const k = url.searchParams.get('k') || '';

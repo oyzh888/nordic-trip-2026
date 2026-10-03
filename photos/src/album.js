@@ -330,7 +330,9 @@ export class Album extends DurableObject {
     // 能用哪些改图模型 = GPU 端连上来时报的（它那边拿不到网关凭证就是空的）；离线时一个都没有
     const ai = pipe ? JSON.parse(this.kvGet('edit_models', '[]')) : [];
     const body = JSON.stringify({ ver, items, users, persons, scenes, moments, pipe, ai });
-    this.listCache = { ver, body };
+    let epoch = this.kvGet('epoch', '');
+    if (!epoch) { epoch = crypto.randomUUID().slice(0, 8); this.kvSet('epoch', epoch); }
+    this.listCache = { ver, epoch, body };
     return this.listCache;
   }
 
@@ -839,6 +841,36 @@ export class Album extends DurableObject {
     }
     if (n) { this.bump(); this.notifyPipe({ t: 'new' }); }
     return { ok: true, imported: n };
+  }
+
+  /** 整库还原：用 dumpAll() 的导出替换本地所有表（搬家用）。没传完的上传不还原 —— 它们的分片在原来的存储里，
+   * 客户端重选同一批文件时会重新开始。版本号接着导出时的往上走，库编号换新（浏览器缓存的旧列表一律作废） */
+  restoreAll(dump) {
+    const T = dump.tables || {};
+    const skip = new Set(['parts', 'qqueue', 'zips', 'fails']);
+    const un = v => (v && typeof v === 'object' && 'b64' in v) ? Uint8Array.from(atob(v.b64), c => c.charCodeAt(0)).buffer : v;
+    const n = {}, before = this.ver;
+    this.ctx.storage.transactionSync(() => {
+      for (const name of Object.keys(T)) {
+        if (!/^[a-z_]+$/.test(name)) continue;
+        this.sql.exec(`DELETE FROM "${name}"`);
+        if (skip.has(name)) continue;
+        let rows = T[name].rows || [];
+        if (name === 'media') rows = rows.filter(r => r.status === 'ready');
+        if (name === 'kv') rows = rows.filter(r => r.k !== 'ver' && r.k !== 'epoch');
+        for (const r of rows) {
+          const cols = Object.keys(r);
+          this.sql.exec(`INSERT INTO "${name}" (${cols.map(c => `"${c}"`).join(',')}) VALUES (${cols.map(() => '?').join(',')})`, ...cols.map(c => un(r[c])));
+        }
+        n[name] = rows.length;
+      }
+      const ver = Math.max(before, Number((T.kv?.rows || []).find(r => r.k === 'ver')?.v) || 0) + 1;
+      this.sql.exec(`INSERT INTO kv VALUES ('ver', ?) ON CONFLICT(k) DO UPDATE SET v=excluded.v`, String(ver));
+    });
+    this.listCache = null; this.idx = null; this.rcache.clear();
+    this.bump();
+    this.notifyPipe({ t: 'recluster' });
+    return { ok: true, n };
   }
 
   /** 整库导出（只读）：每张表的全部行，BLOB 转 base64。搬家 / 备份用 */
