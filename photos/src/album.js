@@ -40,6 +40,7 @@ export class Album extends DurableObject {
     super(ctx, env);
     this.sql = ctx.storage.sql;
     this.idx = null;             // 内存搜索索引（按 ver 失效）
+    this.leases = new Map();     // 「这一块正在被谁写」：h:n → 时间。同一块同时只让一个线程写（见 leasePart）
     this.rcache = new Map();     // 查询结果 LRU：key = ver|query|hasVec
     this.qvecs = new Map();      // 查询向量（永不失效：模型不变，同一个词的向量就不变）
     this.waiters = new Map();    // 正在等 GPU 端算向量的查询
@@ -49,6 +50,11 @@ export class Album extends DurableObject {
   }
 
   migrate() {
+    // 库已经是最新结构就什么都不执行：建表 / 建索引语句即使 IF NOT EXISTS 也算「写」，
+    // 免费版 Durable Object 每天写入有上限，超了之后启动时这一步失败 → 整个相册连读都读不了（2026-10-03 出过一次）
+    const have = new Set(this.sql.exec(`SELECT name FROM sqlite_master WHERE type IN ('table','index')`).toArray().map(r => r.name));
+    const mcols = have.has('media') ? new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name)) : new Set();
+    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live'].every(c => mcols.has(c))) return;
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT);
       CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT UNIQUE, created INTEGER);
@@ -183,11 +189,32 @@ export class Album extends DurableObject {
   partInfo(h) {
     return this.sql.exec(`SELECT h, size, type, nparts, psize, upload_id, status FROM media WHERE h=?`, h).toArray()[0] || null;
   }
+  /** 多线程同时传同一个文件时，同一块只能有一个人在写：R2 分片上传里同一块号后写的覆盖先写的，
+   * 两边各记一个 etag，收尾时就会对不上（completeMultipartUpload 10025）。
+   * 返回 'go'（你来写）· 'done'（已经有了，跳过）· 'busy'（别人正在写，稍后重试）。占位 2 分钟没写完就作废 */
+  leasePart(h, n) {
+    if (this.sql.exec(`SELECT 1 FROM parts WHERE h=? AND n=?`, h, n).toArray().length) return 'done';
+    const k = `${h}:${n}`, t = this.leases.get(k);
+    if (t && Date.now() - t < 120e3) return 'busy';
+    this.leases.set(k, Date.now());
+    return 'go';
+  }
   partDone(h, n, etag, sha) {
     this.sql.exec(`INSERT OR REPLACE INTO parts VALUES (?,?,?,?)`, h, n, etag, sha);
+    this.leases.delete(`${h}:${n}`);
   }
+  partFailed(h, n) { this.leases.delete(`${h}:${n}`); }
 
-  async complete(h) {
+  /** 几个线程同时传同一个文件、同时来收尾：只让第一个真的去合并 R2 分片，其余的等它的结果
+   * （不然第二个去合并时 R2 会说「这个分片上传已经不存在」10024） */
+  complete(h) {
+    if (!this.completing) this.completing = new Map();
+    if (this.completing.has(h)) return this.completing.get(h).then(r => r.status === 'done' ? { status: 'exists' } : r);
+    const p = this.complete1(h).finally(() => this.completing.delete(h));
+    this.completing.set(h, p);
+    return p;
+  }
+  async complete1(h) {
     const m = this.partInfo(h);
     if (!m) throw new Error('unknown upload');
     if (m.status === 'ready') return { status: 'exists' };
@@ -203,7 +230,15 @@ export class Album extends DurableObject {
     }
     if (m.nparts > 1) {
       const mp = this.env.BUCKET.resumeMultipartUpload('o/' + h, m.upload_id);
-      await mp.complete(parts.map(p => ({ partNumber: p.n, etag: p.etag })));
+      try {
+        await mp.complete(parts.map(p => ({ partNumber: p.n, etag: p.etag })));
+      } catch (e) {
+        // 兜底：记下的 etag 和 R2 里的那块对不上（老版本客户端并发写同一块留下的）→ 清掉记录，让客户端重传
+        if (!/10025|could not be found/.test(String(e))) throw e;
+        if (this.partInfo(h).status === 'ready') return { status: 'exists' };
+        this.sql.exec(`DELETE FROM parts WHERE h=?`, h);
+        return { status: 'missing', done: [] };
+      }
     }
     this.sql.exec(`UPDATE media SET status='ready', upload_id=NULL WHERE h=?`, h);
     this.sql.exec(`DELETE FROM parts WHERE h=?`, h);

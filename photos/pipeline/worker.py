@@ -22,6 +22,7 @@ import sys
 import threading
 import time
 import traceback
+import zlib
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -313,6 +314,12 @@ class Worker:
         if not path.exists():
             self.api.download(h, path)
         res, im = {'h': h}, None
+        if not it.get('crc'):                           # 一步上传接口为了省 CPU 不算 CRC（打包下载要用），这里补上
+            crc = 0
+            with open(path, 'rb') as f:
+                while b := f.read(8 << 20):
+                    crc = zlib.crc32(b, crc)
+            res['crc'] = crc & 0xFFFFFFFF
         if it['kind'] == 'video':
             vm = M.video_meta(path)
             res.update({k: vm[k] for k in ('w', 'hh', 'dur', 'lat', 'lon', 'cam', 'taken', 'cid') if vm.get(k) is not None})

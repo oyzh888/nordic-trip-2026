@@ -35,7 +35,7 @@ python3 np_upload.py -j 8 /Volumes/SD卡/DCIM ~/Desktop/a.HEIC  # 多个路径�
 <li>Live Photo（同名的 <code>.HEIC</code> + <code>.MOV</code>）原样传上来，相册自动配成一张会动的照片</li>
 </ul>
 
-<h3>③ 或者用 curl 一个一个传（≤ 64 MB 的文件）</h3>
+<h3>③ 或者用 curl 一个一个传（≤ 8 MB 的文件）</h3>
 <pre><code>curl -X PUT -H "Authorization: Bearer $NP_KEY" \
      --data-binary @IMG_1234.HEIC \
      "https://nordic.airacle.com/photos/api/upload/file?name=IMG_1234.HEIC"
@@ -60,7 +60,7 @@ def content_id(path):
 <table><tr><th>接口</th><th>做什么</th><th>请求</th><th>返回</th></tr>
 <tr><td><span class="m">POST</span> <code>/api/upload/probe</code></td><td>先整批问「这些相册里有没有」—— 按<b>文件名 + 字节数</b>，不用读文件</td>
 <td><code>{"items":[["IMG_1.HEIC",2345678],…]}</code>（一次 ≤ 5000）</td><td><code>{"hit":[0,3]}</code> = 第几个已经有了（顺带记在你名下）</td></tr>
-<tr><td><span class="m">PUT</span> <code>/api/upload/file?name=…</code></td><td>一步上传，适合 ≤ 64 MB 的照片</td><td>body = 文件字节；可选 <code>&amp;taken=2026-09-27T22:14:05</code>（没 EXIF 时用）</td>
+<tr><td><span class="m">PUT</span> <code>/api/upload/file?name=…</code></td><td>一步上传，适合 ≤ 8 MB 的照片</td><td>body = 文件字节；可选 <code>&amp;taken=2026-09-27T22:14:05</code>（没 EXIF 时用）</td>
 <td><code>{"h","status":"uploaded"|"exists"}</code></td></tr>
 <tr><td><span class="m">POST</span> <code>/api/upload/init</code></td><td>分块上传 ①：登记</td><td><code>{"h","size","name","type","crc"}</code>（crc = 整个文件的 CRC-32，打包下载用）</td>
 <td><code>{"status":"upload","nparts","psize","done":[已收到的块号]}</code> · <code>"exists"</code> = 秒传 · <code>"wait"</code> = 别处正在传同一个，3 秒后再问</td></tr>
@@ -100,9 +100,23 @@ curl -s -H "Authorization: Bearer $NP_KEY" "https://nordic.airacle.com/photos/ap
 <h2>7. 限制和错误</h2>
 <table><tr><th>情况</th><th>返回</th></tr>
 <tr><td>没登录 / 密钥无效</td><td><code>401</code></td></tr>
-<tr><td>一步上传超过 64 MB</td><td><code>413</code> → 用分块接口或 <code>np_upload.py</code></td></tr>
+<tr><td>一步上传超过 8 MB</td><td><code>413</code> → 用分块接口或 <code>np_upload.py</code></td></tr>
 <tr><td>分块大小不对 / 哈希不对</td><td><code>400</code> / <code>422</code></td></tr>
 <tr><td>服务端临时错误</td><td><code>5xx</code> → 退避重试（<code>np_upload.py</code> 会自动重试 6 次）</td></tr>
 </table>
-<p class="mu">单个文件最大约 80 GB（10,000 块 × 8 MB）。没有调用频率限制，但请别同时开几十个连接 —— 4～8 个最快。</p>
+<p class="mu">单个文件最大约 80 GB（10,000 块 × 8 MB）。</p>
+
+<h2>8. 多线程 / 并发</h2>
+<p><b>可以多线程同时调，所有接口都是并发安全的。</b>线上实测（2026-10-02，从一台机器发起）：</p>
+<table><tr><th>场景</th><th>结果</th></tr>
+<tr><td>一步上传 3 MB × 192 个，64 线程</td><td>全部成功 · 162 MB/s · 每秒 54 个文件 · 单个延迟中位 0.8 秒</td></tr>
+<tr><td>分块上传 20 MB × 96 个，64 线程</td><td>全部成功 · 150 MB/s</td></tr>
+<tr><td>同一个文件被 32 个线程同时传</td><td>只存一份；其余返回 <code>exists</code>，或 <code>503</code> 让你稍后重试</td></tr>
+</table>
+<ul>
+<li><b>大于 8 MB 的文件一定走分块接口</b>（一步上传在服务端要整份算哈希，文件大了会超出每个请求的 CPU 时间）。块之间也可以并行。</li>
+<li><b>遇到 <code>503</code> / <code>429</code> / 网络错误就退避重试</b>（1、2、4、8 秒……）。<code>503</code> 带 <code>retry-after</code>，意思是「同一个文件正在被另一处同时写」，等一下再试就会拿到 <code>exists</code>。</li>
+<li>重试是安全的：同样的字节内容 ID 一样，重复 init / part / complete 不会产生重复照片。</li>
+<li>建议 16～64 个线程，再多一般不会更快（瓶颈变成你那边的上行带宽）。<code>np_upload.py -j 32</code> 就是 32 线程。</li>
+</ul>
 </main></body></html>

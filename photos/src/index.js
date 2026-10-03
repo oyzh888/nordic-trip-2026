@@ -18,7 +18,8 @@ import { zipPlan, zipWrite, uniqueNames } from './zip.js';
 
 export { Album };
 
-const PART = 8 * 2 ** 20;                      // 8 MB：R2 分片下限 5 MB，8 MB 在手机网络上重传代价也小
+const PART = 8 * 2 ** 20;
+const ONESHOT = 8 * 2 ** 20;                   // 一步上传（/api/upload/file）的上限 = 一块，见那里的注释                      // 8 MB：R2 分片下限 5 MB，8 MB 在手机网络上重传代价也小
 const COOKIE = 'np_sess';
 const enc = new TextEncoder();
 
@@ -129,6 +130,17 @@ export default {
     const needUser = () => { if (!uid) throw new HttpError(403, 'user only'); };
     const needPipe = () => { if (!me.pipe) throw new HttpError(403, 'pipeline only'); };
 
+    // 同一个文件被多个线程同时写（R2 对同一个对象有并发上限）：返回可重试的 503，而不是一个 500 错误页
+    const busy = h => J({ error: '同一个文件正在被另一处同时上传，稍后重试', h, retry: true }, 503, { 'retry-after': '2' });
+    const settle = async h => {
+      for (let i = 0; i < 20; i++) {
+        const m = await album.partInfo(h);
+        if (m && m.status === 'ready') return J({ h, status: 'exists' });
+        await new Promise(r => setTimeout(r, 500));
+      }
+      return busy(h);
+    };
+
     try {
       /* ---- 文件字节 ---- */
       const fm = /^\/f\/([0-9a-f]{64})\/(o|t|p|v)$/.exec(p);
@@ -170,15 +182,19 @@ export default {
       if (p === '/api/keys' && method === 'GET') { needUser(); return J(await album.listKeys(uid)); }
       if (p === '/api/keys/revoke' && method === 'POST') { needUser(); return J(await album.revokeKey(uid, (await body()).id)); }
 
-      /* ---- 一步上传：一个请求传一个文件（≤ 64 MB，照片足够）。脚本最省事的接口；大视频走下面的分块接口 ---- */
+      /* ---- 一步上传：一个请求传一个文件（≤ 8 MB，手机照片足够）。脚本最省事的接口；大文件走下面的分块接口。
+       * 上限是线上压测定的（2026-10-02，64 线程）：3 MB / 8 MB 全过，12 MB 起开始 500 ——
+       * 免费版 Worker 每个请求只有 10 ms CPU，文件越大算哈希越久。分块接口每块 8 MB，同样 64 线程全过 ---- */
       if (p === '/api/upload/file' && (method === 'PUT' || method === 'POST')) {
         needUser();
         const name = (url.searchParams.get('name') || '').slice(0, 200);
         if (!name) return J({ error: '缺 ?name=文件名' }, 400);
         const len = Number(req.headers.get('content-length') || 0);
-        if (len > 64 * 2 ** 20) return J({ error: '超过 64 MB，用分块接口（/api/upload/init → part → complete）或 np_upload.py' }, 413);
+        if (!(len > 0)) return J({ error: '要带 content-length' }, 411);
+        if (len > ONESHOT) return J({ error: '超过 8 MB，用分块接口（/api/upload/init → part → complete）或 np_upload.py' }, 413);
         const buf = new Uint8Array(await req.arrayBuffer());
         if (!buf.byteLength) return J({ error: 'empty' }, 400);
+        if (buf.byteLength > ONESHOT) return J({ error: '超过 8 MB，用分块接口' }, 413);
         const n = Math.max(1, Math.ceil(buf.byteLength / PART)), cat = new Uint8Array(n * 32), shas = [];
         for (let i = 0; i < n; i++) {
           const d = await crypto.subtle.digest('SHA-256', buf.subarray(i * PART, Math.min(buf.byteLength, (i + 1) * PART)));
@@ -186,19 +202,30 @@ export default {
         }
         const h = hex(await crypto.subtle.digest('SHA-256', cat));
         const type = req.headers.get('content-type') && !/octet-stream|form/.test(req.headers.get('content-type')) ? req.headers.get('content-type') : '';
-        const r = await album.initUpload(uid, { h, size: buf.byteLength, name, type, crc: crc32(buf), psize: PART, taken: url.searchParams.get('taken') || null });
+        // crc（打包下载要用）不在这里算：JS 逐字节算 CRC 很费 CPU，免费版每个请求只有 10 ms。填 0，GPU 端下载原件时补上
+        const r = await album.initUpload(uid, { h, size: buf.byteLength, name, type, crc: 0, psize: PART, taken: url.searchParams.get('taken') || null });
         if (r.status === 'exists') return J({ h, status: 'exists' });
-        if (r.status === 'wait') return J({ error: '同一个文件正在被另一处上传，稍后再试' }, 409);
+        if (r.status === 'wait') return busy(h);
         const info = await album.partInfo(h);
         for (let i = 1; i <= n; i++) {
           if (r.done.includes(i)) continue;
+          const lease = await album.leasePart(h, i);
+          if (lease === 'done') continue;
+          if (lease === 'busy') return await settle(h);
           const part = buf.subarray((i - 1) * PART, Math.min(buf.byteLength, i * PART));
           let etag = '';
-          if (n === 1) await env.BUCKET.put('o/' + h, part, { httpMetadata: { contentType: info.type } });
-          else etag = (await env.BUCKET.resumeMultipartUpload('o/' + h, info.upload_id).uploadPart(i, part)).etag;
+          try {
+            if (n === 1) await env.BUCKET.put('o/' + h, part, { httpMetadata: { contentType: info.type } });
+            else etag = (await env.BUCKET.resumeMultipartUpload('o/' + h, info.upload_id).uploadPart(i, part)).etag;
+          } catch (e) {
+            await album.partFailed(h, i);
+            if (!/concurrent request rate|10058/.test(String(e))) throw e;
+            return await settle(h);                     // 同一个文件被好几个线程同时传：等先到的那个传完，按「已存在」返回
+          }
           await album.partDone(h, i, etag, shas[i - 1]);
         }
         const c = await album.complete(h);
+        if (c.status === 'missing') return await settle(h);   // 还有块在别的线程手里 → 等它们传完
         return J({ h, status: c.status === 'done' ? 'uploaded' : c.status }, c.status === 'done' || c.status === 'exists' ? 200 : 500);
       }
 
@@ -215,21 +242,30 @@ export default {
         needUser();
         const h = url.searchParams.get('h'), n = Number(url.searchParams.get('n'));
         const info = await album.partInfo(h);
+        if (info && info.status === 'ready') return J({ ok: true, n, skipped: true, complete: true });   // 别的线程已经整份传完了
         if (!info || info.status !== 'uploading') return J({ error: 'no such upload' }, 404);
         if (!(n >= 1 && n <= info.nparts)) return J({ error: 'bad part' }, 400);
         const expect = n < info.nparts ? info.psize : info.size - info.psize * (info.nparts - 1);
+        // 整块读进内存、用原生 crypto 算哈希。试过边收边写的流式版本：免费版 Worker 每个请求只有 10 ms CPU，
+        // 在 JS 里逐段喂哈希会超时（Worker exceeded CPU time limit），64 线程时全部失败；整块原生算反而稳（实测 64 线程全过）
         const buf = await req.arrayBuffer();
         if (buf.byteLength !== expect) return J({ error: `part size ${buf.byteLength} != ${expect}` }, 400);
-        // 服务端自己算这一块的 SHA-256，不信客户端 —— complete 时要用它复核整份文件
         const sha = hex(await crypto.subtle.digest('SHA-256', buf));
         const claimed = req.headers.get('x-part-sha256');
         if (claimed && claimed !== sha) return J({ error: 'part hash mismatch' }, 422);
+        const lease = await album.leasePart(h, n);
+        if (lease === 'done') return J({ ok: true, n, skipped: true });       // 别的线程已经传过这一块
+        if (lease === 'busy') return busy(h);
         let etag = '';
-        if (info.nparts === 1) {
-          await env.BUCKET.put('o/' + h, buf, { httpMetadata: { contentType: info.type } });
-        } else {
-          const mp = env.BUCKET.resumeMultipartUpload('o/' + h, info.upload_id);
-          etag = (await mp.uploadPart(n, buf)).etag;
+        try {
+          if (info.nparts === 1) await env.BUCKET.put('o/' + h, buf, { httpMetadata: { contentType: info.type } });
+          else etag = (await env.BUCKET.resumeMultipartUpload('o/' + h, info.upload_id).uploadPart(n, buf)).etag;
+        } catch (e) {
+          await album.partFailed(h, n);
+          if (/concurrent request rate|10058/.test(String(e))) return busy(h);   // 同一块被多个线程同时写：让客户端退避重试
+          // 刚读完状态，别的线程就把整份收尾了（分片上传随之关闭）→ 不是错，告诉客户端已经完成
+          if (/10024|does not exist/.test(String(e)) && (await album.partInfo(h))?.status === 'ready') return J({ ok: true, n, skipped: true, complete: true });
+          throw e;
         }
         await album.partDone(h, n, etag, sha);
         return J({ ok: true, n });
