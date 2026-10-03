@@ -1087,7 +1087,15 @@ $('#keys-box').addEventListener('click', async e => {
     if (t.dataset.revoke && confirm('撤销后用这个密钥的脚本马上就传不了了。撤销？')) { await api('/keys/revoke', { method: 'POST', body: { id: Number(t.dataset.revoke) } }); renderKeys(); }
   } catch (err) { toast(err.message); }
 });
-function openSheet() { $('#upsheet').hidden = false; renderUp(); }
+function openSheet() { $('#upsheet').hidden = false; renderUp(); showQuota(); }
+// 存储用量（只有设了上限时才显示）：快满了标黄，满了标红
+async function showQuota() {
+  let q; try { q = (await api('/stats')).quota; } catch { return; }
+  const el = $('#quota'); if (!q || !q.cap) { el.hidden = true; return; }
+  const gb = b => (b / 1e9).toFixed(1), pct = q.used / q.cap;
+  el.hidden = false; el.classList.toggle('warn', pct > 0.9);
+  el.innerHTML = `💾 相册存储：已用 <b>${gb(q.used)}</b> / ${gb(q.cap)} GB${pct >= 1 ? ' —— <b>已满，暂停接收新文件</b>' : ''}`;
+}
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
 // iPhone 上点完 ✓，系统要先把每张照片转好、拷给网页（几百张 + 视频要好几分钟），这段时间网页收不到任何东西 ——

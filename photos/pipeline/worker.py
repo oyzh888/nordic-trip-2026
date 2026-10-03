@@ -19,6 +19,7 @@ import io
 import json
 import os
 import sys
+import shutil
 import threading
 import time
 import traceback
@@ -474,12 +475,33 @@ class Worker:
     def confirmed_sig(faces):
         return hash(tuple(sorted((f['id'], f['person']) for f in faces if f['confirmed'])))
 
+    # ---------------- 磁盘用量 ----------------
+    def disk_loop(self):
+        """相册自己跑在本机时（--store 指向它的存储目录）：每分钟量一次真实占用和整块盘的剩余空间，报给服务端，
+        服务端据此拒绝新上传（上限 MAX_BYTES / 最少剩余 MIN_FREE_BYTES，见 album.js quota）"""
+        root = self.args.store
+        while not self.stop:
+            try:
+                used = 0
+                for d, _, fs in os.walk(root):
+                    for f in fs:
+                        try: used += os.lstat(os.path.join(d, f)).st_blocks * 512
+                        except OSError: pass
+                q = self.api.post('/api/pipe/disk', {'used': used, 'free': shutil.disk_usage(root).free})
+                if q.get('cap') and q['used'] > 0.9 * q['cap']:
+                    log(f'⚠️ 相册存储 {q["used"] / 1e9:.1f} GB，上限 {q["cap"] / 1e9:.0f} GB')
+            except Exception as e:  # noqa: BLE001 —— 量不到就下一分钟再量，别拖垮主循环
+                log(f'磁盘用量上报失败：{e}')
+            time.sleep(60)
+
     # ---------------- 主循环 ----------------
     def run(self):
         self.stop = False
         if self.args.retime and self.retime():
             self.dirty = True                           # 时间变了 → 时刻 / 连拍要重新切
         threading.Thread(target=self.ws_loop, daemon=True).start()
+        if self.args.store:
+            threading.Thread(target=self.disk_loop, daemon=True).start()
         if self.edit_keys:
             threading.Thread(target=self.edit_loop, daemon=True).start()
         last_check = 0
@@ -517,6 +539,7 @@ def main():
     ap.add_argument('--keep', action='store_true', help='保留下载的原件（默认分析完就删）')
     ap.add_argument('--no-vlm', action='store_true', help='不加载 Qwen（只做向量/人脸，调试用）')
     ap.add_argument('--no-edit', action='store_true', help='不开 AI 改图（不连模型网关）')
+    ap.add_argument('--store', default=os.environ.get('PHOTOS_STORE', ''), help='相册存储目录（本机部署时）：每分钟上报磁盘用量')
     ap.add_argument('--retime', action='store_true', help='开工前把已分析的照片按拍摄地重算一遍拍摄时间（幂等）')
     # 语义搜索的两道门（SigLIP2 余弦）：绝对下限 + 离最高分多近。在 36 个中英文查询上量的，见 README
     ap.add_argument('--sem-floor', type=float, default=0.05)

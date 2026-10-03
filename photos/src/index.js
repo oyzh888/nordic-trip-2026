@@ -98,7 +98,12 @@ export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
     let p = url.pathname;
-    if (p === '/photos') return Response.redirect(url.origin + '/photos/' + url.search + url.hash, 301);
+    // 跑在本机时（ORIGIN_KEY 有值）：经 Cloudflare 进来的请求（带 cf-ray）必须是主站 Worker 转发的、带着共享密钥，
+    // 不许绕过主站直接打 tunnel 域名（否则可以伪造 x-real-ip 躲开登录失败限流）。本机直连（GPU 端）不受影响
+    if (env.ORIGIN_KEY && req.headers.get('cf-ray') && !safeEq(req.headers.get('x-origin-key') || '', env.ORIGIN_KEY))
+      return new Response('forbidden', { status: 403 });
+    // 相对地址：经主站转发时 url.origin 是 tunnel 域名，绝对地址会把浏览器带过去
+    if (p === '/photos') return new Response(null, { status: 301, headers: { location: '/photos/' + url.search } });
     if (!p.startsWith('/photos/api/') && !p.startsWith('/photos/f/')) return env.ASSETS.fetch(req);
 
     const album = env.ALBUM.get(env.ALBUM.idFromName('nordic-2026'));
@@ -108,7 +113,7 @@ export default {
 
     /* ---- 登录（唯一不需要身份的接口） ---- */
     if (p === '/api/login' && method === 'POST') {
-      const ip = req.headers.get('cf-connecting-ip') || 'x';
+      const ip = (env.ORIGIN_KEY && req.headers.get('x-real-ip')) || req.headers.get('cf-connecting-ip') || 'x';
       if (!(await album.loginAllowed(ip))) return J({ error: '尝试太多次了，一小时后再试' }, 429);
       const { pass, name } = await body();
       if (!env.ALBUM_PASS || !safeEq(normPass(pass), normPass(env.ALBUM_PASS))) {
@@ -205,6 +210,7 @@ export default {
         // crc（打包下载要用）不在这里算：JS 逐字节算 CRC 很费 CPU，免费版每个请求只有 10 ms。填 0，GPU 端下载原件时补上
         const r = await album.initUpload(uid, { h, size: buf.byteLength, name, type, crc: 0, psize: PART, taken: url.searchParams.get('taken') || null });
         if (r.status === 'exists') return J({ h, status: 'exists' });
+        if (r.status === 'full') return J({ h, status: 'full', error: r.error }, 413);
         if (r.status === 'wait') return busy(h);
         const info = await album.partInfo(h);
         for (let i = 1; i <= n; i++) {
@@ -236,6 +242,7 @@ export default {
         const m = await body();
         m.psize = PART;
         const r = await album.initUpload(uid, m);
+        if (r.status === 'full') return J(r, 413);     // 4xx：网页和 np_upload.py 都不会重试
         return J({ ...r, psize: PART });
       }
       if (p === '/api/upload/part' && method === 'PUT') {
@@ -374,6 +381,15 @@ export default {
           const q = url.searchParams;
           return J(await album.editDone(q.get('id'), { h, size: buf.byteLength, crc: crc32(buf), type, w: q.get('w'), hh: q.get('hh'), mid: q.get('mid') }));
         }
+        if (p === '/api/pipe/dump' && method === 'GET') return J(await album.dumpAll());
+        if (p === '/api/pipe/import' && method === 'POST') return J(await album.importMedia((await body()).items));
+        if (p === '/api/pipe/blob' && method === 'PUT') {      // 搬家：把本地存储里的字节原样写回 BUCKET
+          const k = url.searchParams.get('k') || '';
+          if (!/^(o\/[0-9a-f]{64}|[tp]\/[0-9a-f]{64}\.jpg|v\/[0-9a-f]{64}\.mp4)$/.test(k)) return J({ error: 'bad key' }, 400);
+          await env.BUCKET.put(k, await req.arrayBuffer(), { httpMetadata: { contentType: req.headers.get('content-type') || 'application/octet-stream' } });
+          return J({ ok: true });
+        }
+        if (p === '/api/pipe/disk' && method === 'POST') return J(await album.setDisk(await body()));
         if (p === '/api/pipe/purge' && method === 'POST') {
           const { keys } = await album.purge(await body());
           for (let i = 0; i < keys.length; i += 1000) await env.BUCKET.delete(keys.slice(i, i + 1000));

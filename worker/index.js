@@ -45,7 +45,19 @@ export default {
     const url = new URL(request.url);
 
     // 共享相册（photos/ 下的独立 worker，见 wrangler.jsonc 的 services）
-    if (url.pathname === '/photos' || url.pathname.startsWith('/photos/')) return env.PHOTOS.fetch(request);
+    if (url.pathname === '/photos' || url.pathname.startsWith('/photos/')) {
+      // 2026-10-03 起相册跑在我们自己的机器上（数据在本地 NVMe，见 photos/local/）：经 Cloudflare Tunnel 转过去，
+      // 地址、cookie 都不变。带一个共享密钥，相册只认主站转发的请求；真实 IP 单独带过去（登录失败限流要用）
+      if (env.PHOTOS_ORIGIN) {
+        const h = new Headers(request.headers);
+        h.set('x-origin-key', env.PHOTOS_ORIGIN_KEY || '');
+        h.set('x-real-ip', request.headers.get('cf-connecting-ip') || '');
+        return fetch(new URL(url.pathname + url.search, env.PHOTOS_ORIGIN), {
+          method: request.method, headers: h, body: request.body, redirect: 'manual',
+        });
+      }
+      return env.PHOTOS.fetch(request);
+    }
 
     if (url.pathname === '/api/pack') {
       const stored = (await env.PACK.get(KEY, 'json')) || {};

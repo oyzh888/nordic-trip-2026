@@ -270,6 +270,17 @@ def main():
                     'items': {H['aurora1']: 1, H['aurora2']: 1, H['aurora3']: 1, H['vid']: 1, H['falls']: 2, H['group']: 2}},
         'scenes': {'labels': [{'id': 1, 'label': '极光', 'n': 4}], 'items': {H['aurora1']: 1}}}).json()
     check('GPU 端下发聚类（人脸簇/连拍组/时刻/场景）', r.get('ok'))
+    # 免费版 Durable Object 每天只许写 10 万行：同一份聚类结果再发一遍，必须一行都不改（以前每次重写全部）
+    body = {'faces': {str(fids['group'][0]): 9001, str(fids['falls'][0]): 9001},
+            'bursts': {H['aurora1']: [burst, False], H['aurora2']: [burst, True], H['aurora3']: [burst, False]},
+            'moments': {'labels': [{'id': 1, 'title': f'第一晚的极光 {TAG}', 'start': '2026-09-27T22:14', 'end': '2026-09-27T22:20', 'place': '雷克雅未克', 'n': 4, 'memo': 5, 'cover': H['aurora2']},
+                                   {'id': 2, 'title': '瀑布', 'start': '2026-09-28T13:02', 'end': '2026-09-28T13:02', 'n': 2, 'memo': 3}],
+                        'items': {H['aurora1']: 1, H['aurora2']: 1, H['aurora3']: 1, H['vid']: 1, H['falls']: 2, H['group']: 2}},
+            'scenes': {'labels': [{'id': 1, 'label': '极光', 'n': 4}], 'items': {H['aurora1']: 1}}}
+    r2 = P.post('/api/pipe/clusters', body).json()
+    check('同一份聚类结果再发一遍 → 一行都不改（省免费额度）', r2.get('changed') == 0 and r2.get('wrote', 99) <= 4, r2)
+    r3 = P.post('/api/pipe/clusters', {**body, 'scenes': {'labels': [{'id': 1, 'label': '极光', 'n': 4}], 'items': {H['aurora1']: 1, H['aurora2']: 1}}}).json()
+    check('只有一张照片的场景变了 → 只改那一行', r3.get('changed') == 1, r3)
     lst = A.get('/api/list').json()
     by = {x['h']: x for x in lst['items']}
     check('连拍组：AI 选分最高的那张（aurora2）当封面', by[H['aurora2']]['bc'] == 1 and by[H['aurora1']]['bc'] == 0 and by[H['aurora1']]['b'] == burst)

@@ -24,6 +24,8 @@
   // 共享相册是单独的 worker（photos/，名字 nordic-photos），经 service binding 挂在 /photos/ 下：
   // 同域 → 同一套导航和样式、cookie 不跨站；相册自己挂了也不影响主站。
   "services": [{ "binding": "PHOTOS", "service": "nordic-photos" }],
+  // 相册跑在本机（photos/local/），经 Cloudflare Tunnel 转过去；PHOTOS_ORIGIN_KEY 是 secret
+  "vars": { "PHOTOS_ORIGIN": "https://photos-origin.airacle.com" },
   "kv_namespaces": [
     { "binding": "PACK", "id": "710b23e0205b43759cfd6eb6f75e9d08" }
   ],

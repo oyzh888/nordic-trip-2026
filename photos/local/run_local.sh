@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# 相册跑在本机：同一份 Worker 代码交给 workerd（wrangler dev 的本地运行时），
+# R2 / Durable Object 的数据全部落在 $STORE/state（本地 NVMe），不再用 Cloudflare 的存储，也就没有免费额度这回事。
+# 对外：Cloudflare Tunnel（photos.airacle.com → 127.0.0.1:$PORT），见 tunnel.sh。
+# 幂等：重复执行 = 用当前代码重启服务（数据不动）。
+#   用法：bash photos/local/run_local.sh            # 重启 Worker + GPU 端
+set -euo pipefail
+STORE=${PHOTOS_STORE:-/mnt/localssd/photos-store}
+PORT=${PHOTOS_PORT:-41069}
+SESS=${PHOTOS_SESSION:-photos-local}
+ENVF=${PHOTOS_ENV:-$HOME/.secrets/nordic-photos.env}
+MAX_BYTES=${MAX_BYTES:-500000000000}            # 500 GB：照片 + 缩略图 + 数据库合计，超了拒绝新上传
+MIN_FREE_BYTES=${MIN_FREE_BYTES:-200000000000}  # 整块盘剩余低于 200 GB 也拒绝（盘上不只有相册）
+HERE=$(cd "$(dirname "$0")/.." && pwd)
+
+mkdir -p "$STORE/app" "$STORE/state" "$STORE/logs"
+# 代码拷一份到 $STORE/app 再跑：在仓库里改代码不会让线上服务跟着热重载
+rsync -a --delete "$HERE/src" "$HERE/public" "$STORE/app/"
+sed 's/"workers_dev": true,/"workers_dev": false,/' "$HERE/wrangler.jsonc" > "$STORE/app/wrangler.jsonc"
+( set -a; . "$ENVF"; set +a
+  umask 077
+  { echo "ALBUM_PASS=$ALBUM_PASS"; echo "SESSION_SECRET=$SESSION_SECRET"; echo "PIPE_TOKEN=$PIPE_TOKEN"
+    [ -n "${ORIGIN_KEY:-}" ] && echo "ORIGIN_KEY=$ORIGIN_KEY"
+    echo "MAX_BYTES=$MAX_BYTES"; echo "MIN_FREE_BYTES=$MIN_FREE_BYTES"; } > "$STORE/app/.dev.vars" )
+
+tmux kill-session -t "$SESS" 2>/dev/null || true
+tmux new -d -s "$SESS" "cd '$STORE/app' && while true; do wrangler dev --local --ip 127.0.0.1 --port $PORT \
+  --persist-to '$STORE/state' --live-reload=false --show-interactive-dev-session=false 2>&1 | tee -a '$STORE/logs/worker.log'; sleep 3; done"
+for i in $(seq 60); do curl -s -o /dev/null -m 3 "http://127.0.0.1:$PORT/photos/" && break; sleep 1; done
+echo "worker: $(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:$PORT/photos/) on :$PORT"

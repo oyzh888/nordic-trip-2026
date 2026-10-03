@@ -45,7 +45,8 @@ export class Album extends DurableObject {
     this.qvecs = new Map();      // 查询向量（永不失效：模型不变，同一个词的向量就不变）
     this.waiters = new Map();    // 正在等 GPU 端算向量的查询
     this.listCache = null;       // list() 的序列化结果（按 ver 失效）
-    ctx.blockConcurrencyWhile(async () => this.migrate());
+    this.disk = null;            // GPU 端每分钟量一次的真实磁盘占用 { used, free, at }（见 quota）
+    ctx.blockConcurrencyWhile(async () => { try { this.migrate(); } catch (e) { this.migErr = String(e); } });  // 写额度用完时别连读也读不了
     ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair('ping', 'pong'));
   }
 
@@ -173,6 +174,8 @@ export class Album extends DurableObject {
       const done = this.sql.exec(`SELECT n FROM parts WHERE h=?`, h).toArray().map(r => r.n);
       return { status: 'upload', done, psize: cur.psize, nparts: cur.nparts };
     }
+    const full = this.quotaCheck(size);
+    if (full) return full;
     const kind = /^video\//.test(m.type) || /\.(mov|mp4|m4v|3gp|avi|mkv)$/i.test(m.name || '') ? 'video' : 'image';
     this.sql.exec(`INSERT INTO media (h, kind, type, name, size, crc, nparts, psize, status, created, taken, lat, lon, w, hh, dur, cam)
                    VALUES (?,?,?,?,?,?,?,?, 'uploading', ?,?,?,?,?,?,?,?)`,
@@ -185,6 +188,26 @@ export class Album extends DurableObject {
     }
     return { status: 'upload', done: [], psize, nparts };
   }
+
+  /* ---------- 存储上限 ----------
+   * 自己跑在本机上时（MAX_BYTES 有值）新文件进来前先算账，超了就拒绝，免得把盘写爆。两本账取大的：
+   *  · 账面：库里所有文件的字节数（含没传完的、标了删除但还没清掉的）× 1.05（缩略图 / 预览 / 720p 视频的余量）
+   *  · 实测：GPU 端每分钟 du 一次存储目录报上来的真实占用（能看到账面看不到的东西：SQLite、临时块）
+   * 另外整块盘剩余空间低于 MIN_FREE_BYTES 也拒绝 —— 盘上不只有相册 */
+  quota() {
+    const cap = Number(this.env.MAX_BYTES || 0), minFree = Number(this.env.MIN_FREE_BYTES || 0);
+    const book = Math.round(this.sql.exec(`SELECT COALESCE(SUM(size),0) s FROM media`).one().s * 1.05);
+    const d = this.disk && Date.now() - this.disk.at < 10 * 60e3 ? this.disk : null;
+    return { cap, used: Math.max(book, d ? d.used : 0), book, disk: d ? d.used : null, free: d ? d.free : null, minFree };
+  }
+  quotaCheck(size) {
+    const q = this.quota();
+    const gb = b => (b / 1e9).toFixed(1) + ' GB';
+    if (q.cap && q.used + size > q.cap) return { status: 'full', error: `相册存储满了：已用 ${gb(q.used)}，上限 ${gb(q.cap)}，这个文件放不下（${gb(size)}）` };
+    if (q.minFree && q.free != null && q.free - size < q.minFree) return { status: 'full', error: `服务器磁盘快满了（只剩 ${gb(q.free)}），暂停接收新文件` };
+    return null;
+  }
+  setDisk({ used, free }) { this.disk = { used: Number(used) || 0, free: Number(free) || 0, at: Date.now() }; return this.quota(); }
 
   partInfo(h) {
     return this.sql.exec(`SELECT h, size, type, nparts, psize, upload_id, status FROM media WHERE h=?`, h).toArray()[0] || null;
@@ -321,7 +344,7 @@ export class Album extends DurableObject {
       faces: q(`SELECT COUNT(*) c FROM faces`).c,
       persons: q(`SELECT COUNT(*) c FROM persons`).c,
       qvecs: q(`SELECT COUNT(*) c FROM qvec`).c,
-      rcache: this.rcache.size, pipe: this.pipeOnline(),
+      rcache: this.rcache.size, pipe: this.pipeOnline(), quota: this.quota(),
     };
   }
 
@@ -721,43 +744,116 @@ export class Album extends DurableObject {
     return true;
   }
 
-  /** 聚类结果整体下发：人脸簇/自动归人、连拍组、场景簇及其名字、SigLIP 标定参数 */
+  /** 聚类结果整体下发：人脸簇/自动归人、连拍组、场景簇及其名字、SigLIP 标定参数。
+   *
+   * 只写**有变化**的行。以前是「先把全部清空、再逐行写回」—— 相册有 800 张照片时一次聚类要写 5,000 多行，
+   * 哪怕什么都没变；而免费版 Durable Object 每天只许写 10 万行，GPU 端一晚聚类几十次就把整个相册锁死了
+   * （2026-10-03 出过一次）。现在是：先读出当前值，和要写的值比，不一样才写；没变化的聚类只写两个序号。
+   * 返回 changed（改了几行）和 wrote（库报告的实际写入行数，含索引），方便看额度花在哪。 */
   clusters(c) {
-    if (c.faces) for (const [id, cl] of Object.entries(c.faces)) this.sql.exec(`UPDATE faces SET cluster=? WHERE id=?`, cl, Number(id));
-    if (c.auto) {
-      this.sql.exec(`UPDATE faces SET person=NULL WHERE confirmed=0`);
-      for (const [id, p] of Object.entries(c.auto)) this.sql.exec(`UPDATE faces SET person=? WHERE id=? AND confirmed=0`, p, Number(id));
+    let changed = 0, wrote = 0;
+    const put = (sql, ...a) => { const r = this.sql.exec(sql, ...a); changed++; wrote += r.rowsWritten ?? 0; };
+    const rows = (sql, ...a) => this.sql.exec(sql, ...a).toArray();
+    const nul = v => (v === undefined ? null : v);
+
+    if (c.faces) {
+      const cur = new Map(rows(`SELECT id, cluster FROM faces`).map(r => [r.id, r.cluster]));
+      for (const [id, cl] of Object.entries(c.faces)) if (cur.has(Number(id)) && cur.get(Number(id)) !== cl) put(`UPDATE faces SET cluster=? WHERE id=?`, cl, Number(id));
     }
-    if (c.bursts) {
-      this.sql.exec(`UPDATE media SET burst=NULL, cover=1`);
-      for (const [h, [b, cover]] of Object.entries(c.bursts)) this.sql.exec(`UPDATE media SET burst=?, cover=? WHERE h=?`, b, cover ? 1 : 0, h);
-      // 人工挑过的那张永远是封面：组被重新划分后，只要它还在某个组里，那个组就听它的
-      for (const r of this.sql.exec(`SELECT h, burst FROM media WHERE pinned=1 AND burst IS NOT NULL`).toArray()) {
-        this.sql.exec(`UPDATE media SET cover=0 WHERE burst=?`, r.burst);
-        this.sql.exec(`UPDATE media SET cover=1 WHERE h=?`, r.h);
+    if (c.auto) {
+      // 没人工确认过的脸：归谁就是 c.auto 说的，没提到的就是没人
+      const want = new Map(Object.entries(c.auto).map(([id, p]) => [Number(id), p]));
+      for (const r of rows(`SELECT id, person FROM faces WHERE confirmed=0`)) {
+        const w = nul(want.get(r.id));
+        if (r.person !== w) put(`UPDATE faces SET person=? WHERE id=?`, w, r.id);
       }
     }
+    if (c.bursts) {
+      const cur = rows(`SELECT h, burst, cover, pinned FROM media`);
+      const want = new Map(cur.map(r => [r.h, { burst: null, cover: 1 }]));
+      for (const [h, [b, cover]] of Object.entries(c.bursts)) if (want.has(h)) want.set(h, { burst: b, cover: cover ? 1 : 0 });
+      // 人工挑过的那张永远是封面：组被重新划分后，只要它还在某个组里，那个组就听它的
+      for (const r of cur) {
+        if (!r.pinned) continue;
+        const burst = want.get(r.h).burst;
+        if (burst == null) continue;
+        for (const [, v] of want) if (v.burst === burst) v.cover = 0;
+        want.get(r.h).cover = 1;
+      }
+      for (const r of cur) {
+        const w = want.get(r.h);
+        if (r.burst !== w.burst || r.cover !== w.cover) put(`UPDATE media SET burst=?, cover=? WHERE h=?`, w.burst, w.cover, r.h);
+      }
+    }
+    // 「时刻」和「场景」：先把标签表对齐（只增删改有差别的），再对齐每张照片属于哪个
+    const syncLabels = (table, cols, labels) => {
+      const key = o => JSON.stringify(cols.map(k => nul(o[k])));
+      const cur = new Map(rows(`SELECT * FROM ${table}`).map(r => [r.id, key(r)]));
+      const ids = new Set();
+      for (const l of labels) {
+        ids.add(l.id);
+        if (cur.get(l.id) !== key(l)) put(`INSERT OR REPLACE INTO ${table} (${cols.join(',')}) VALUES (${cols.map(() => '?').join(',')})`, ...cols.map(k => nul(l[k])));
+      }
+      for (const id of cur.keys()) if (!ids.has(id)) put(`DELETE FROM ${table} WHERE id=?`, id);
+    };
+    const syncMembers = (col, items) => {
+      for (const r of rows(`SELECT h, ${col} FROM media`)) {
+        const w = nul(items[r.h]);
+        if (r[col] !== w) put(`UPDATE media SET ${col}=? WHERE h=?`, w, r.h);
+      }
+    };
     if (c.moments) {
-      this.sql.exec(`DELETE FROM moments`);
-      this.sql.exec(`UPDATE media SET moment=NULL`);
-      for (const m of c.moments.labels) this.sql.exec(`INSERT INTO moments VALUES (?,?,?,?,?,?,?,?)`, m.id, m.title, m.start, m.end, m.place || null, m.n, m.memo ?? null, m.cover || null);
-      for (const [h, id] of Object.entries(c.moments.items)) this.sql.exec(`UPDATE media SET moment=? WHERE h=?`, id, h);
+      syncLabels('moments', ['id', 'title', 'start', 'end', 'place', 'n', 'memo', 'cover'],
+        c.moments.labels.map(m => ({ ...m, place: m.place || null, memo: m.memo ?? null, cover: m.cover || null })));
+      syncMembers('moment', c.moments.items);
     }
     if (c.scenes) {
-      this.sql.exec(`DELETE FROM scenes`);
-      for (const s of c.scenes.labels) this.sql.exec(`INSERT INTO scenes VALUES (?,?,?)`, s.id, s.label, s.n);
-      for (const [h, s] of Object.entries(c.scenes.items)) this.sql.exec(`UPDATE media SET scene=? WHERE h=?`, s, h);
+      syncLabels('scenes', ['id', 'label', 'n'], c.scenes.labels);
+      syncMembers('scene', c.scenes.items);
     }
-    if (c.siglip) { this.kvSet('siglip_a', c.siglip.a); this.kvSet('siglip_b', c.siglip.b); }
-    if (c.sem_floor != null) this.kvSet('sem_floor', c.sem_floor);
-    if (c.sem_win != null) this.kvSet('sem_win', c.sem_win);
+    const kvPut = (k, v) => { if (this.kvGet(k) !== String(v)) { this.kvSet(k, v); changed++; } };
+    if (c.siglip) { kvPut('siglip_a', c.siglip.a); kvPut('siglip_b', c.siglip.b); }
+    if (c.sem_floor != null) kvPut('sem_floor', c.sem_floor);
+    if (c.sem_win != null) kvPut('sem_win', c.sem_win);
     this.stamp('cl_seq');
-    this.bump();
-    return { ok: true };
+    if (changed) this.bump();                                  // 什么都没变就不用让列表 / 搜索缓存失效
+    return { ok: true, changed, wrote };
   }
 
   /** 真删除（只有 GPU 端令牌能调）：清掉行、人脸、向量，返回要从 R2 删掉的键。
    *  页面上的「撤回」只是隐藏；这个是给测试收尾和「这张必须彻底删掉」用的。 */
+  /** 搬家用：直接登记已经在存储里的文件（字节已由 /api/pipe/blob 写好），状态就是 ready，等 GPU 端重新分析。
+   * 原文件名、上传者这些元数据另行合并（见 test/migrate_merge.py），这里先给个占位名 */
+  importMedia(items) {
+    let n = 0;
+    for (const it of items || []) {
+      const h = String(it.h || ''); if (!/^[0-9a-f]{64}$/.test(h)) continue;
+      const size = Number(it.size) || 0, type = String(it.type || 'application/octet-stream').slice(0, 80);
+      const kind = /^video\//.test(type) ? 'video' : 'image';
+      const ext = { 'image/jpeg': 'jpg', 'image/heic': 'heic', 'image/png': 'png', 'video/quicktime': 'mov', 'video/mp4': 'mp4' }[type] || 'bin';
+      const r = this.sql.exec(`INSERT OR IGNORE INTO media (h, kind, type, name, size, crc, nparts, psize, status, created, flags)
+                               VALUES (?,?,?,?,?,0,?,?, 'ready', ?, ?)`,
+        h, kind, type, String(it.name || `IMG_${h.slice(0, 8)}.${ext}`).slice(0, 200), size,
+        Math.max(1, Math.ceil(size / (8 * 2 ** 20))), 8 * 2 ** 20, Number(it.created) || now(), Number(it.flags) || 0);
+      n += r.rowsWritten ? 1 : 0;
+    }
+    if (n) { this.bump(); this.notifyPipe({ t: 'new' }); }
+    return { ok: true, imported: n };
+  }
+
+  /** 整库导出（只读）：每张表的全部行，BLOB 转 base64。搬家 / 备份用 */
+  dumpAll() {
+    const out = { migErr: this.migErr || null, tables: {} };
+    for (const { name, sql } of this.sql.exec(`SELECT name, sql FROM sqlite_master WHERE type='table' AND name NOT LIKE '\\_%' ESCAPE '\\' AND name NOT LIKE 'sqlite%'`).toArray()) {
+      const rows = this.sql.exec(`SELECT * FROM "${name}"`).toArray().map(r => {
+        for (const k in r) if (r[k] instanceof ArrayBuffer) r[k] = { b64: btoa(String.fromCharCode(...new Uint8Array(r[k]))) };
+        return r;
+      });
+      out.tables[name] = { sql, rows };
+    }
+    return out;
+  }
+
   purge({ hs = [], users = [], persons = [], qs = [] } = {}) {
     const keys = [];
     for (const h of hs) {
@@ -794,6 +890,8 @@ export class Album extends DurableObject {
     const m = this.meta(h);
     if (!m || m.status !== 'ready' || m.deleted) return { error: '照片不存在' };
     if (m.kind !== 'image') return { error: '视频不能改' };
+    const full = this.quotaCheck(m.size);
+    if (full) return { error: full.error };
     if (!this.pipeOnline()) return { error: 'AI 分析端离线，现在改不了' };
     if (!JSON.parse(this.kvGet('edit_models', '[]')).includes(model)) return { error: '这个模型现在用不了' };
     const busy = this.sql.exec(`SELECT COUNT(*) c FROM edits WHERE uid=? AND status IN ('queued','running')`, uid).one().c;
