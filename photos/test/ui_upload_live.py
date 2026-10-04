@@ -39,7 +39,10 @@ def main():
     with sync_playwright() as pw:
         br = pw.chromium.launch(channel='chrome', headless=True)
         dev = dict(pw.devices['iPhone 13']); dev.pop('default_browser_type', None)
-        pg = br.new_context(**dev, locale='zh-CN').new_page()
+        ctx = br.new_context(**dev, locale='zh-CN'); pg = ctx.new_page()
+        cdp = ctx.new_cdp_session(pg); cdp.send('Network.enable')
+        net = lambda mbps: cdp.send('Network.emulateNetworkConditions', {'offline': False, 'latency': 20, 'downloadThroughput': -1,
+                                                                        'uploadThroughput': mbps * 1e6 / 8 if mbps else -1})
         errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
         pg.goto(BASE + '/photos/#k=' + e2e.PASS); pg.wait_for_selector('#f-name:not([hidden])', timeout=15000)
         pg.fill('#name', U); pg.click('#f-name button.pri'); pg.wait_for_selector('#app:not([hidden])', timeout=15000)
@@ -60,7 +63,9 @@ def main():
             if (r.bottom > 60) return { h: el.dataset.h, top: r.top }; } }""")
 
         # 3) 后台再传 40 张「更新的」（10 月 3 日）→ 会排在最上面
-        pg.evaluate(f"async () => {{ window.__b = await ({MAKE})([1000, 160, Date.UTC(2026, 9, 3, 10), 60000]); __album.enqueue(window.__b); }}")
+        pg.evaluate(f"async () => {{ window.__b = await ({MAKE})([1000, 160, Date.UTC(2026, 9, 3, 10), 60000]); }}")
+        net(2)                                                          # 上行限到 2 Mbps：保证下面检查时还在传（现在本地传得太快）
+        pg.evaluate("() => __album.enqueue(window.__b)")
         pg.evaluate("() => { const s = document.querySelector('#upsheet'); if (s) s.hidden = true; }")
         # 上传期间后台刷新最多 10 秒一次 → 等到「↑ N 张新照片」冒出来（= 已经经过一次后台刷新），趁还在传的时候量
         pg.wait_for_function("() => { const p = document.querySelector('#newpill'); return p && !p.hidden; }", timeout=30000)
@@ -73,6 +78,13 @@ def main():
         pill = pg.evaluate("() => { const p = document.querySelector('#newpill'); return p && !p.hidden ? p.textContent : '' }")
         check('顶上提示「↑ N 张新照片」，而不是把画面推走', '张新照片' in pill, pill)
         pg.screenshot(path=os.path.join(OUT, 'live-upload-pill.png'))
+        net(0)                                                          # 放开网速，等这一批传完、看最后那一次重画
+        pg.wait_for_function("() => !__album.UQ.some(t => t.state === 'active' || t.state === 'queued')", timeout=120000)
+        pg.wait_for_function("() => document.querySelectorAll('#grid .tl').length > 30", timeout=30000)
+        pg.wait_for_timeout(1500)
+        drift2 = pg.evaluate(f"""() => {{ const el = document.querySelector('#grid .tl[data-h="{a0['h']}"]');
+            return el ? el.getBoundingClientRect().top - {a0['top']} : null; }}""")
+        check('全部传完、时间线补画那一下：正在看的那张照片还是一动不动', drift2 is not None and abs(drift2) <= 4, f'挪了 {drift2} 像素')
         pg.click('#newpill'); pg.wait_for_timeout(1200)
         n_pill = pg.locator('#grid .tl').count()
         check('点「↑ N 张新照片」→ 立刻显示新照片、回到顶上', n_pill > 30 and pg.evaluate('scrollY') < 50, f'{n_pill} 张')

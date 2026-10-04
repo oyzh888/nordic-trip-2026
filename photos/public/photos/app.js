@@ -306,14 +306,16 @@ function gridAnchor() {
 function restoreAnchor(a) {
   if (!a) return;
   const el = document.querySelector(`#grid .tl[data-h="${a.h}"]`);
-  if (el) scrollBy(0, el.getBoundingClientRect().top - a.top);
+  // 必须瞬间跳：页面开了平滑滚动（scroll-behavior: smooth），普通 scrollBy 会「先被推下去再滑回来」，看着更晃
+  if (el) scrollBy({ top: el.getBoundingClientRect().top - a.top, behavior: 'instant' });
 }
 function hidePill() { const p = $('#newpill'); if (p) { p.hidden = true; p.dataset.n = 0; } }
 function newPill(n) {
   let p = $('#newpill');
   if (!p) {
     p = document.createElement('button'); p.id = 'newpill'; p.className = 'newpill';
-    p.onclick = () => { hidePill(); if (S.gridStale) { S.gridStale = false; renderChips(); renderGrid(); renderSel(); } scrollTo({ top: 0, behavior: 'smooth' }); };
+    // 离顶上远（几千像素）就直接跳，平滑滚要好几秒；近的才平滑滚
+    p.onclick = () => { hidePill(); if (S.gridStale) { S.gridStale = false; renderChips(); renderGrid(); renderSel(); } scrollTo({ top: 0, behavior: scrollY > 3000 ? 'instant' : 'smooth' }); };
     document.body.appendChild(p);
   }
   p.dataset.n = Number(p.dataset.n || 0) + n;
@@ -850,16 +852,40 @@ const FP = {
 addEventListener('pagehide', () => FP.flush());
 const MEDIA_EXT = /\.(jpe?g|png|webp|gif|avif|heic|heif|hif|dng|tiff?|raw|arw|srf|sr2|cr2|cr3|crw|nef|nrw|orf|rw2|raf|pef|srw|rwl|3fr|iiq|x3f|mov|mp4|m4v|3gp|mkv|avi|webm|insv|insp)$/i;
 
-function enqueue(files) {
+/* ---- 每一批的用时记下来（一批一行，存服务端）：同学说「传得特别慢」时，看得出是慢在手机准备、还是慢在网络 ---- */
+// 页面在后台的累计时间（锁屏 / 切到别的 App 时 iPhone 会暂停网页，上传也停）
+let hidAcc = 0, hidAt = document.visibilityState === 'hidden' ? Date.now() : 0;
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') hidAt = Date.now(); else if (hidAt) { hidAcc += Date.now() - hidAt; hidAt = 0; }
+});
+const hiddenTotal = () => hidAcc + (hidAt ? Date.now() - hidAt : 0);
+function newBatch(files, info) {
+  const kinds = {};
+  for (const f of files) { const e = (f.name.split('.').pop() || '?').toLowerCase(); kinds[e] = (kinds[e] || 0) + 1; }
+  return { t0: Date.now(), h0: hiddenTotal(), pickMs: info?.pickMs ?? null, src: info?.src || 'drop', n: 0, bytes: 0, kinds, left: 0, tasks: [] };
+}
+function batchDone(b) {
+  const ts = b.tasks, ok = ts.filter(t => t.state === 'ok'), tm = k => ok.length ? Math.round(ok.reduce((s, t) => s + (t.tm?.[k] || 0), 0) / ok.length) : null;
+  const upMs = Date.now() - b.t0, sent = ok.reduce((s, t) => s + t.f.size, 0);
+  const sum = { src: b.src, pickMs: b.pickMs, upMs, n: ts.length, ok: ok.length, dup: ts.filter(t => t.state === 'dup').length,
+    fail: ts.filter(t => t.state === 'failed').length, bytes: b.bytes, sent, kinds: b.kinds, fp: tm('fp'), init: tm('init'), net: tm('net'),
+    mbps: upMs ? +(sent * 8 / upMs / 1000).toFixed(1) : null, ua: navigator.userAgent.slice(0, 160),
+    conn: navigator.connection?.effectiveType || null, hiddenMs: hiddenTotal() - b.h0 };
+  S.lastBatch = sum; renderUp();
+  api('/uplog', { method: 'POST', body: sum }).catch(() => { /* 记不上就算了 */ });
+}
+function enqueue(files, info) {
   let add = 0, skip = 0, same = 0, again = 0, aae = 0;
   const fresh = [];
+  const batch = newBatch(files, info);
   for (const f of files) {
     if (/\.aae$/i.test(f.name)) { aae++; continue; }       // iPhone「所有照片数据」里附带的编辑记录，不是照片
     if (!f.size || !(/^(image|video)\//.test(f.type) || MEDIA_EXT.test(f.name))) { skip++; continue; }
     const key = fkey(f);
     const old = UQ.find(t => t.key === key);
     if (old) { if (old.state === 'failed') { old.state = 'queued'; old.f = f; again++; } else same++; continue; }
-    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true }; UQ.push(t); fresh.push(t); add++;
+    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true, b: batch }; UQ.push(t); fresh.push(t); add++;
+    batch.tasks.push(t); batch.n++; batch.bytes += f.size; batch.left++;
     if (!FP.get(key)?.done) FP.put(key, { q: 1, name: f.name });   // 页面万一被系统杀掉，下次打开能告诉你还剩哪些
   }
   // 不拦，只提醒：几十 MB 一张的多半是相机原片，1000 张就是 50 GB
@@ -879,18 +905,19 @@ async function probe(ts) {
     renderUpSoon();
     try {
       const r = await Promise.race([api('/upload/probe', { method: 'POST', body: { items: part.map(t => [t.f.name, t.f.size]) } }), sleep(8000).then(() => null)]);
-      for (const j of r?.hit || []) { const t = part[j]; t.state = 'dup'; t.sent = t.f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); }
+      for (const j of r?.hit || []) { const t = part[j]; t.state = 'dup'; t.sent = t.f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); settled(t); }
       if (r?.hit?.length) listSoon();
     } catch { /* 问不到就一个个走正常流程，服务端照样会按指纹去重 */ }
     part.forEach(t => { if (t.state === 'queued') t.msg = '排队中'; });
   }
 }
+function settled(t) { if (t.b && !t.counted) { t.counted = true; if (--t.b.left === 0) batchDone(t.b); } }
 function pump() {
   while (running < MAXF) {
     const t = UQ.find(t => t.state === 'queued' && !t.hold); if (!t) break;
     running++; t.state = 'active'; t.t0 = Date.now();
     runTask(t).catch(e => { t.state = 'failed'; t.msg = '失败：' + e.message + ' · 点这行重试'; })
-      .finally(() => { running--; renderUpSoon(); pump(); if (!uploading()) listSoon(); });   // 全部传完 → 补画一次时间线
+      .finally(() => { running--; settled(t); renderUpSoon(); pump(); if (!uploading()) listSoon(); });   // 全部传完 → 补画一次时间线
   }
   wake(); renderUpSoon();
 }
@@ -908,12 +935,15 @@ async function retry(fn, t) {
 
 async function runTask(t) {
   const f = t.f;
+  // 每个文件各阶段用时（毫秒）：fp 算指纹 · init 和相册对一下 · net 传字节 · thumb 等缩略图 —— 慢在哪一看就知道
+  const tm = t.tm = { t0: performance.now() }, lap = k => { tm[k] = Math.round(performance.now() - (tm._ || tm.t0)); tm._ = performance.now(); };
   let fp = FP.get(t.key);
   if (!fp || !fp.h) {
     t.msg = '计算指纹…';
     fp = await fingerprint(f, p => { t.msg = `计算指纹 ${Math.round(p * 100)}%`; renderUpSoon(); });
     FP.put(t.key, fp);
   }
+  lap('fp');
   t.h = fp.h;
   const ex = /^image\/jpe?g$/i.test(f.type) || /\.jpe?g$/i.test(f.name) ? await readExif(f).catch(() => ({})) : {};
   const meta = {
@@ -928,9 +958,12 @@ async function runTask(t) {
     t.msg = '另一台设备正在传同一个文件，等一下…'; renderUpSoon(); await sleep(3000);
     if (++tries > 40) throw new Error('等太久了');
   }
+  lap('init');
   if (r.status === 'exists') { t.state = 'dup'; t.sent = f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); listSoon(); return; }
   FP.put(t.key, { q: 0, u: 1, name: f.name });
-  const thumbs = fp.tb ? Promise.resolve() : makeAux(t, fp).catch(() => { /* GPU 端会补 */ });
+  // 缩略图在后台补，不占上传名额：以前每个文件传完还要排队等自己那张缩略图（一次只解一张，防 Safari 内存不够），
+  // 网快的时候 78% 的时间花在等缩略图上（实测：每张 1.4 秒里有 1.1 秒在等）。现在字节传完、服务端确认就算完成
+  if (!fp.tb) makeAux(t, fp).catch(() => { /* GPU 端会补 */ });
   const psize = r.psize, n = r.nparts;
   const done = new Set(r.done);
   for (let round = 0; round < 3; round++) {
@@ -956,7 +989,7 @@ async function runTask(t) {
     t.msg = '收尾…';
     const c = await retry(() => api('/upload/complete', { method: 'POST', body: { h: fp.h } }), t);
     if (c.status === 'done' || c.status === 'exists') {
-      await thumbs;
+      lap('net'); tm.total = Math.round(performance.now() - tm.t0);
       t.state = 'ok'; t.sent = f.size; t.msg = t.resumed ? `完成（断点续传，省了 ${t.resumed} 块）` : '完成';
       FP.put(t.key, { u: 0, done: 1 }); listSoon(); return;
     }
@@ -1062,9 +1095,38 @@ function parseTiff(v, T) {
 }
 
 /* ---------- 缩略图 / 预览图：浏览器自己能解码的就当场做，最快出图；做不了的（HEIC 在 Chrome 上等）GPU 端补 ---------- */
-async function decode(f, kind) {
+/** JPEG 的尺寸（已按 EXIF 方向转正）：从 SOF 段读宽高、从 EXIF 读方向（5–8 = 转了 90°，宽高互换）。只读前 128 KB */
+async function jpegDims(f) {
+  if (!(/^image\/jpe?g$/i.test(f.type) || /\.jpe?g$/i.test(f.name))) return null;
+  const v = new DataView(await f.slice(0, 128 * 1024).arrayBuffer());
+  if (v.getUint16(0) !== 0xFFD8) return null;
+  let o = 2, w = 0, h = 0, rot = 1;
+  while (o + 9 < v.byteLength) {
+    const mk = v.getUint16(o), len = v.getUint16(o + 2);
+    if (mk === 0xFFE1 && v.getUint32(o + 4) === 0x45786966) {
+      const T = o + 10, le = v.getUint16(T) === 0x4949, i0 = T + v.getUint32(T + 4, le), n = v.getUint16(i0, le);
+      for (let i = 0; i < n; i++) { const e = i0 + 2 + i * 12; if (e + 10 <= v.byteLength && v.getUint16(e, le) === 0x0112) rot = v.getUint16(e + 8, le); }
+    }
+    if (mk >= 0xFFC0 && mk <= 0xFFCF && ![0xFFC4, 0xFFC8, 0xFFCC].includes(mk)) { h = v.getUint16(o + 5); w = v.getUint16(o + 7); break; }
+    if ((mk & 0xFF00) !== 0xFF00 || mk === 0xFFDA) break;
+    o += 2 + len;
+  }
+  if (!w || !h) return null;
+  return rot >= 5 && rot <= 8 ? { w: h, h: w } : { w, h };
+}
+async function decode(f, kind, max) {
   if (kind === 'v') return videoFrame(f);
-  try { const b = await createImageBitmap(f, { imageOrientation: 'from-image' }); return { src: b, W: b.width, H: b.height, close: () => b.close() }; } catch { /* 走 <img> */ }
+  try {
+    // 解码时直接缩到预览图的尺寸（长边 1600）：JPEG 能按 1/2、1/4 直接解，比先解出 1200 万像素再缩快得多、也省内存。
+    // 只给宽度，高度按比例；竖图就只给高度。不认这个参数的浏览器会忽略它，照旧解全尺寸
+    const p = max ? await jpegDims(f).catch(() => null) : null;   // 只读文件头拿尺寸 + 方向，不解码
+    const sc = p ? Math.min(1, max / Math.max(p.w, p.h)) : 1;
+    if (sc < 1) {                                                // 只给一条边：不管浏览器先转方向还是先缩放，长宽比都不会错
+      const b = await createImageBitmap(f, { imageOrientation: 'from-image', resizeQuality: 'medium', ...(p.w >= p.h ? { resizeWidth: Math.round(p.w * sc) } : { resizeHeight: Math.round(p.h * sc) }) });
+      return { src: b, W: p.w, H: p.h, close: () => b.close() };
+    }
+    const b = await createImageBitmap(f, { imageOrientation: 'from-image' }); return { src: b, W: b.width, H: b.height, close: () => b.close() };
+  } catch { /* 走 <img> */ }
   const url = URL.createObjectURL(f);
   try { const img = new Image(); img.src = url; await img.decode(); return { src: img, W: img.naturalWidth, H: img.naturalHeight, close: () => URL.revokeObjectURL(url) }; }
   catch { URL.revokeObjectURL(url); return null; }
@@ -1094,11 +1156,14 @@ const jpeg = (c, q) => new Promise(r => c.toBlob(r, 'image/jpeg', q));
 let auxChain = Promise.resolve();
 function makeAux(t, fp) { const p = auxChain.then(() => makeAux1(t, fp)); auxChain = p.catch(() => {}); return p; }
 async function makeAux1(t, fp) {
+  const it = S.byH.get(fp.h);
+  if (it && (it.f & 3) === 3) return;                           // 排到它的时候 GPU 端已经做好了：省下手机的 CPU
   const kind = /^video\//.test(t.f.type) || /\.(mov|mp4|m4v|3gp|mkv|avi|webm)$/i.test(t.f.name) ? 'v' : 'i';
-  const d = await decode(t.f, kind);
+  const d = await decode(t.f, kind, 1600);
   if (!d || !d.W) return;
   try {
-    const pc = canvasOf(d.src, d.W, d.H, Math.min(1, 1600 / Math.max(d.W, d.H)));
+    const sw = d.src.width || d.W, sh = d.src.height || d.H;     // 解码时可能已经缩过了
+    const pc = canvasOf(d.src, sw, sh, Math.min(1, 1600 / Math.max(sw, sh)));
     const tc = canvasOf(pc, pc.width, pc.height, Math.min(1, 360 / Math.min(pc.width, pc.height)));
     const [pb, tb] = [await jpeg(pc, 0.82), await jpeg(tc, 0.75)];
     const dims = `&w=${d.W}&hh=${d.H}${d.dur ? `&dur=${d.dur.toFixed(2)}` : ''}`;
@@ -1133,6 +1198,12 @@ function renderUp() {
       <span class="um">${esc(t.msg)}</span>
       <span class="ub"><i style="width:${Math.round((t.sent || 0) / t.f.size * 100)}%"></i></span></div>`).join('') +
     (UQ.length > 200 ? `<p class="s">…还有 ${UQ.length - 200} 个</p>` : '');
+  const lb = S.lastBatch, el = $('#up-last');
+  if (el) {
+    el.hidden = !lb;
+    if (lb) el.innerHTML = `上一批 ${lb.n} 个 · ${lb.pickMs != null ? `手机准备 <b>${mmss(lb.pickMs)}</b>（从 iCloud 下载 + 转格式）· ` : ''}上传 <b>${mmss(lb.upMs)}</b>`
+      + `${lb.mbps ? `（${lb.mbps} Mbps）` : ''}${lb.dup ? ` · ${lb.dup} 个秒传` : ''}${lb.hiddenMs > 5000 ? ` · 其中 ${mmss(lb.hiddenMs)} 页面在后台（暂停了）` : ''}`;
+  }
   const names = new Set(UQ.map(t => t.f.name)), wk = Date.now() - 7 * 86400e3;
   const left = Object.values(FP.all()).filter(x => (x.q === 1 || x.u === 1) && !x.done && x.at > wk && !names.has(x.name));
   $('#resume-hint').hidden = !left.length;
@@ -1190,14 +1261,24 @@ $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
 // iPhone 上点完 ✓，系统要先把每张照片转好、拷给网页（几百张 + 视频要好几分钟），这段时间网页收不到任何东西 ——
 // 不提示的话看起来就是「点了上传没反应」。所以一点开选择器就挂一条常驻提示，文件到了再换成「收到 N 个」
-$('#file').addEventListener('click', () => toast('📲 正在等手机把选中的照片交过来…<br>选得多（几百张、有视频）要等几分钟，别关页面、别锁屏', 0));
-$('#file').addEventListener('cancel', () => { $('#toast').hidden = true; });
-$('#file').addEventListener('change', e => {
-  const fs = [...e.target.files]; e.target.value = '';
-  if (fs.length) toast(`收到 ${fs.length} 个文件，开始上传`); else $('#toast').hidden = true;
-  enqueue(fs);
+// 「手机准备照片」这一段（从 iCloud 下载原图 + 转 JPEG / 重新压缩视频）网页看不见，只能量「点开选择器 → 拿到文件」一共多久
+let pickT0 = 0, pickTick = 0;
+const mmss = ms => { const s = Math.round(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+$('#file').addEventListener('click', () => {
+  pickT0 = Date.now(); clearInterval(pickTick);
+  const show = () => toast(`📲 正在等手机把选中的照片交过来… 已等 ${mmss(Date.now() - pickT0)}<br>手机这时在从 iCloud 下载原图、转成 JPEG（视频要重新压缩）——
+    选得多、有视频会等好几分钟，别关页面、别锁屏`, 0);
+  show(); pickTick = setInterval(() => { if (document.visibilityState === 'visible') show(); }, 1000);
 });
-$('#dir').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
+$('#file').addEventListener('cancel', () => { clearInterval(pickTick); $('#toast').hidden = true; });
+$('#file').addEventListener('change', e => {
+  clearInterval(pickTick);
+  const fs = [...e.target.files]; e.target.value = '';
+  const pickMs = pickT0 && Date.now() - pickT0 < 3 * 3600e3 ? Date.now() - pickT0 : null; pickT0 = 0;
+  if (fs.length) toast(`收到 ${fs.length} 个文件${pickMs > 5000 ? `（手机准备用了 ${mmss(pickMs)}）` : ''}，开始上传`); else $('#toast').hidden = true;
+  enqueue(fs, { src: 'picker', pickMs });
+});
+$('#dir').addEventListener('change', e => { enqueue([...e.target.files], { src: 'dir' }); e.target.value = ''; });
 // 上传完一张就要刷新列表：第一张 1.2 秒后刷，之后连续上传时最多每 10 秒刷一次（以前是每次都往后推，
 // 一直在传就一直不刷，传完才一下子全部跳出来）。重画 250 张的时间线在慢手机上约 0.25 秒，10 秒一次是折中
 let listT = 0, listLast = 0;

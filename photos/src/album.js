@@ -57,7 +57,7 @@ export class Album extends DurableObject {
     // 免费版 Durable Object 每天写入有上限，超了之后启动时这一步失败 → 整个相册连读都读不了（2026-10-03 出过一次）
     const have = new Set(this.sql.exec(`SELECT name FROM sqlite_master WHERE type IN ('table','index')`).toArray().map(r => r.name));
     const mcols = have.has('media') ? new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name)) : new Set();
-    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc', 'gsize', 'gcrc', 'gplan'].every(c => mcols.has(c))) return;
+    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits', 'uplog'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc', 'gsize', 'gcrc', 'gplan'].every(c => mcols.has(c))) return;
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT);
       CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT UNIQUE, created INTEGER);
@@ -82,6 +82,7 @@ export class Album extends DurableObject {
       CREATE TABLE IF NOT EXISTS moments (id INTEGER PRIMARY KEY, title TEXT, start TEXT, end TEXT, place TEXT, n INTEGER, memo REAL, cover TEXT);
       CREATE TABLE IF NOT EXISTS zips (token TEXT PRIMARY KEY, ids TEXT, at INTEGER);
       CREATE TABLE IF NOT EXISTS fails (ip TEXT, at INTEGER);
+      CREATE TABLE IF NOT EXISTS uplog (id INTEGER PRIMARY KEY, uid INTEGER, at INTEGER, j TEXT);
       CREATE TABLE IF NOT EXISTS keys (id INTEGER PRIMARY KEY, hash TEXT UNIQUE, uid INTEGER, name TEXT, created INTEGER, used INTEGER);
       CREATE TABLE IF NOT EXISTS edits (id INTEGER PRIMARY KEY, h TEXT, prompt TEXT, model TEXT, uid INTEGER,
         status TEXT, out_h TEXT, err TEXT, tries INTEGER DEFAULT 0, at INTEGER, started INTEGER, done INTEGER);
@@ -1013,6 +1014,17 @@ export class Album extends DurableObject {
   /** 给新起的 GPU 端恢复状态用：所有人脸向量 + 归属（pod 重建后不用重新跑人脸） */
   dumpFaces() {
     return this.sql.exec(`SELECT id, h, x, y, w, hh, score, emb, cluster, person, confirmed FROM faces`).toArray();
+  }
+  /** 每一批上传的用时（浏览器在一批传完时报一次）：手机准备多久、上传多久、多少 Mbps、页面在后台多久。只留最近 1000 批 */
+  uplog(uid, j) {
+    this.sql.exec(`INSERT INTO uplog (uid, at, j) VALUES (?,?,?)`, uid, now(), JSON.stringify(j).slice(0, 4000));
+    const id = this.sql.exec(`SELECT last_insert_rowid() id`).one().id;
+    if (id % 100 === 0) this.sql.exec(`DELETE FROM uplog WHERE id <= ?`, id - 1000);
+    return { ok: true };
+  }
+  uplogs(limit = 300) {
+    return this.sql.exec(`SELECT l.id, l.uid, u.name, l.at, l.j FROM uplog l LEFT JOIN users u ON u.id = l.uid ORDER BY l.id DESC LIMIT ?`, limit)
+      .toArray().map(r => ({ ...r, j: JSON.parse(r.j) }));
   }
   /** 视频转码队列：还没看过的视频（gplan 为空）。cam / up 给 GPU 端判断「是不是佳能拍的」 */
   transcodeTodo() {

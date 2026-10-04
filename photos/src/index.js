@@ -244,6 +244,8 @@ export default {
         return J({ h, status: c.status === 'done' ? 'uploaded' : c.status }, c.status === 'done' || c.status === 'exists' ? 200 : 500);
       }
 
+      if (p === '/api/uplog' && method === 'POST') { needUser(); return J(await album.uplog(uid, await body())); }
+
       /* ---- 上传：init → part × N → complete ---- */
       if (p === '/api/upload/probe' && method === 'POST') { needUser(); return J(await album.probe(uid, (await body()).items)); }
       if (p === '/api/upload/init' && method === 'POST') {
@@ -389,6 +391,7 @@ export default {
         /* ---- 视频新版：GPU 端转好的 H.264 分块传进 R2 g/<h>.mp4（可能几百 MB，免费版 Worker 一个请求最多 100 MB、
          *      内存 128 MB，所以和用户上传一样按 8 MB 一块走 R2 分片上传）---- */
         if (p === '/api/pipe/transcode') return J(await album.transcodeTodo());
+        if (p === '/api/pipe/uplog') return J(await album.uplogs(Number(url.searchParams.get('limit') || 300)));
         if (p === '/api/pipe/gplan' && method === 'POST') { const b = await body(); return J(await album.setGplan(b.h, b.plan, b.size, b.crc)); }
         if (p === '/api/pipe/gmp/init' && method === 'POST') {
           const { h } = await body();
