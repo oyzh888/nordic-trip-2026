@@ -251,3 +251,11 @@ ul.keys{list-style:none; padding:0; margin:8px 0} ul.keys li{display:flex; gap:6
 .more-pick{display:block; width:100%; margin:0 0 8px; padding:12px 14px; font-size:16px}
 .more-pick[hidden]{display:none}
 .more-pick .s{color:inherit; opacity:.75; font-size:13px}
+
+/* 稳定性：相册几千张时 Safari 画不过来会露出黑块 / 细条 ——
+   ① 不在屏幕附近的分组不画（content-visibility），画的量从几千张降到眼前这几屏；auto 会记住画过的真实高度，滚动不跳
+   ② 开着大图时把底下的时间线整个藏起来（visibility 不丢滚动位置）：大图是不透明的，下面的几千张没必要再画，
+      Safari 也就不会把它们「透」到大图上来 */
+.grp{content-visibility:auto; contain-intrinsic-size:auto 900px}
+body.lbopen #app{visibility:hidden}
+.gh[hidden]{display:none}

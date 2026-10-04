@@ -214,6 +214,17 @@ function tile(it) {
   return `<a class="tl${S.sel.has(it.h) ? ' on' : ''}" data-h="${it.h}" href="${F(it.h, 'o')}">${img}${badges}<b class="ck"></b></a>`;
 }
 
+const tileCache = new Map(), grpCache = new Map();
+/** 同一张照片、tile() 生成的 HTML 一个字都没变 → 直接复用上次那个元素（图片不用重新加载 / 解码） */
+function tileEl(it) {
+  const html = tile(it), c = tileCache.get(it.h);
+  if (c && c.html === html) return c.el;
+  const t = document.createElement('template'); t.innerHTML = html;
+  const el = t.content.firstElementChild;
+  tileCache.set(it.h, { html, el });
+  return el;
+}
+const sameKids = (parent, nodes) => parent.children.length === nodes.length && nodes.every((n, i) => parent.children[i] === n);
 function renderGrid() {
   if (!S.data) return;
   const cur = S.lb >= 0 ? S.view[S.lb] : null;
@@ -233,11 +244,31 @@ function renderGrid() {
   if (anyF && !S.res) sum += `<button class="chip" id="f-x">✕ 清除筛选</button>`;
   if (xs.length) sum += `<button class="chip" id="dl-all">⬇ 下载这 ${xs.length} 个</button>`;
   $('#sum').innerHTML = sum;
-  $('#grid').innerHTML = gs.map(g => `<div class="grp" data-g="${esc(g.key)}">
-      ${g.title ? `<div class="gh"><h3>${esc(g.title)}</h3><span class="s">${esc(g.sub || '')} · ${g.items.length}</span>
+  // 不再整片拆掉重建：相册几千张时，每次 innerHTML 重建都要重新创建几千个 <img>、重新解码，
+  // Safari 来不及画就露出黑块 / 细条（「闪」）。现在按 h 复用已有的缩略图元素，只有内容真变了的那几张才新建；
+  // 什么都没变就一个节点都不动
+  const used = new Set(), usedG = new Set();
+  const groupsEls = gs.map(g => {
+    const head = g.title ? `<h3>${esc(g.title)}</h3><span class="s">${esc(g.sub || '')} · ${g.items.length}</span>
         ${g.map ? `<a class="s" href="${g.map}" target="_blank" rel="noopener">地图 ↗</a>` : ''}
-        <span class="grow"></span><button class="chip sm" data-selg="${esc(g.key)}">选这组</button></div>` : ''}
-      <div class="tiles">${g.items.map(tile).join('')}</div></div>`).join('');
+        <span class="grow"></span><button class="chip sm" data-selg="${esc(g.key)}">选这组</button>` : '';
+    let c = grpCache.get(g.key);
+    if (!c) {
+      const el = document.createElement('div'); el.className = 'grp'; el.dataset.g = g.key;
+      const gh = document.createElement('div'); gh.className = 'gh';
+      const tiles = document.createElement('div'); tiles.className = 'tiles';
+      el.append(gh, tiles); c = { el, gh, tiles, head: null }; grpCache.set(g.key, c);
+    }
+    usedG.add(g.key);
+    if (c.head !== head) { c.gh.innerHTML = head; c.gh.hidden = !head; c.head = head; }
+    const nodes = g.items.map(it => { used.add(it.h); return tileEl(it); });
+    if (!sameKids(c.tiles, nodes)) c.tiles.replaceChildren(...nodes);
+    return c.el;
+  });
+  const grid = $('#grid');
+  if (!sameKids(grid, groupsEls)) grid.replaceChildren(...groupsEls);
+  for (const k of tileCache.keys()) if (!used.has(k)) tileCache.delete(k);
+  for (const k of grpCache.keys()) if (!usedG.has(k)) grpCache.delete(k);
   $('#empty').hidden = !!xs.length;
   $('#empty').textContent = S.data.items.length ? '没有符合条件的照片 —— 换个筛选或搜索词试试。' : '还没有照片 —— 点右上角「＋ 上传」，或者直接把文件拖进来。';
   S.groupsNow = gs;
@@ -694,6 +725,10 @@ async function renderPeople() {
   const el = $('#people');
   if (!el.innerHTML) el.innerHTML = '<p class="s">加载中…</p>';
   let d; try { d = await api('/people'); } catch (e) { el.innerHTML = `<p class="err">${esc(e.message)}</p>`; return; }
+  // 人物数据一个字都没变就不重画（后台每 15 秒刷新一次，以前每次都把整页人物和头像重建一遍 → 一闪）
+  const sig = JSON.stringify(d) + '|' + S.me.id;
+  if (sig === S.peopleSig && el.querySelector('.pcard, .s')) return;
+  S.peopleSig = sig;
   S.peopleData = d;
   const iAmKnown = d.persons.some(p => p.uid === S.me.id);
   const opts = d.persons.map(p => `<option value="${p.id}">${esc(p.name || '未命名')}</option>`).join('');
