@@ -1,0 +1,102 @@
+{
+ "best_order": [
+  "start",
+  "bergsbotn",
+  "tungeneset",
+  "ersfjord",
+  "mefjordvaer",
+  "fjordgard",
+  "husoy",
+  "botnhamn"
+ ],
+ "total_min": 152.5,
+ "total_km": 141.3,
+ "marginal": {
+  "bergsbotn": {
+   "min": 10.8,
+   "km": 7.7
+  },
+  "tungeneset": {
+   "min": 0.3,
+   "km": 0.0
+  },
+  "ersfjord": {
+   "min": 0.2,
+   "km": 0.0
+  },
+  "mefjordvaer": {
+   "min": 14.5,
+   "km": 11.0
+  },
+  "fjordgard": {
+   "min": 11.9,
+   "km": 10.9
+  },
+  "husoy": {
+   "min": 23.5,
+   "km": 23.3
+  }
+ },
+ "direct_start_botnhamn": {
+  "min": 38.2,
+  "km": 35.1
+ },
+ "ferry": [
+  {
+   "dep": "11:15",
+   "arr": "11:50",
+   "min": 35
+  },
+  {
+   "dep": "16:00",
+   "arr": "16:35",
+   "min": 35
+  },
+  {
+   "dep": "18:00",
+   "arr": "18:35",
+   "min": 35
+  }
+ ],
+ "after_ferry_to_home": {
+  "min": 80,
+  "km": 66
+ },
+ "miss_ferry_drive_around": {
+  "min": 227,
+  "km": 219
+ },
+ "home": {
+  "lat": 69.72227,
+  "lon": 19.09603
+ },
+ "brensholmen": {
+  "lat": 69.607837,
+  "lon": 18.031359
+ },
+ "sun": {
+  "sunrise": "07:16",
+  "sunset": "17:58",
+  "dusk": "18:58"
+ },
+ "segla": [
+  {
+   "name": "Segla, Fjordgård, Senja, Troms, 9388, Norge",
+   "lat": 69.5073661,
+   "lon": 17.5957204,
+   "type": "peak"
+  },
+  {
+   "name": "Segla, Fjordgård, Senja, Troms, 9388, Norge",
+   "lat": 69.508003,
+   "lon": 17.6244381,
+   "type": "residential"
+  },
+  {
+   "name": "Segla, Fjordgård, Senja, Troms, 9388, Norge",
+   "lat": 69.5060173,
+   "lon": 17.6271301,
+   "type": "service"
+  }
+ ]
+}

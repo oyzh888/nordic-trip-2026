@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Senja 今天的线路 · 2026-10-04</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+<style>
+  .map { height: min(62vh, 560px); min-height: 380px; border-radius: 10px; border: 1px solid var(--hair); background: var(--bg2); }
+  .leaflet-container { font: 12px/1.4 var(--sans); background: var(--bg2); }
+  .leaflet-tooltip { background: var(--panel); color: var(--ink); border: 1px solid var(--hair2); box-shadow: none; }
+  .leaflet-tooltip:before { display: none; }
+  .pin { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 700 13px/1 var(--mono);
+         color: #0F0E0C; background: var(--acc); border: 2px solid #0F0E0C; }
+  .pin.sk { background: #4a4740; color: #a8a29a; border-style: dashed; border-color: #726C63; }
+  .pin.sp { background: var(--ink); } .pin.fy { background: #6E9FD0; }
+  .ctl { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 14px 0 16px; align-items: end; }
+  .ctl label { display: block; font-size: 12px; color: var(--ink3); margin-bottom: 5px; }
+  .ctl input[type=time], .st { background: var(--panel2); color: var(--ink); border: 1px solid var(--hair2); border-radius: 8px;
+         padding: 9px 11px; font: 600 17px var(--mono); width: 100%; box-sizing: border-box; }
+  .st { width: 64px; padding: 6px 8px; font-size: 15px; text-align: center; }
+  .btn { display: inline-block; padding: 9px 13px; border-radius: 8px; border: 1px solid var(--hair2); background: var(--panel2);
+         color: var(--ink); font-size: 14px; cursor: pointer; text-decoration: none; }
+  .btn.pri { border-color: var(--acc); color: var(--acc); }
+  .pre { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .pre button { text-align: left; background: var(--panel); color: var(--ink); border: 1px solid var(--hair2); border-radius: 10px;
+         padding: 12px 14px; cursor: pointer; font: inherit; }
+  .pre button[aria-pressed="true"] { border-color: var(--acc); background: var(--panel2); }
+  .pre b { display: block; font-size: 15px; margin-bottom: 3px; } .pre span { font-size: 12px; color: var(--ink2); display: block; }
+  .pre .arr { margin-top: 6px; font: 600 13px var(--mono); }
+  td.t { font: 600 15px var(--mono); white-space: nowrap; } td.lt { font: 600 15px var(--mono); white-space: nowrap; color: var(--acc); }
+  td.bad { color: var(--alert) !important; } tr.sk td { opacity: .5; }
+  .nt { font-size: 12px; color: var(--ink3); margin-top: 3px; max-width: 46ch; font-weight: 400; }
+  .g { font-size: 15px; } .g b { color: var(--acc); }
+  /* 手机：隐藏「离开」「本段驾驶」两列，把「最晚离开」和「导航」留在第一屏里 */
+  @media (max-width: 640px) {
+    .nt { display: none; }
+    #schedtbl th:nth-child(4), #schedtbl td:nth-child(4), #schedtbl th:nth-child(6), #schedtbl td:nth-child(6) { display: none; }
+    #schedtbl { min-width: 0; }   /* 站点样式给所有表格设了 min-width:560px，手机上会把右边两列挤出屏幕 */
+    #schedtbl th, #schedtbl td { padding-left: 7px; padding-right: 7px; }
+    #schedtbl .st { width: 50px; padding: 5px 4px; } #schedtbl .btn { padding: 7px 9px; white-space: nowrap; }
+    #schedtbl td.t, #schedtbl td.lt { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<section style="padding-top:clamp(28px,4vw,52px)">
+  <div class="wrap">
+    <div class="eyebrow">2026-10-04 周日 · 挪威时间 · 塞尼亚岛 Senja 一日自驾</div>
+    <h1 style="margin-bottom:14px">今天的线路，按真实道路重排</h1>
+    <div class="card" id="verdict" style="margin-bottom:16px"></div>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">01</span>选线路，调出发时间</h2>
+    <div class="pre" id="presets"></div>
+    <div class="ctl">
+      <div><label>出发时间（从 Lanesbogen 出发；已经开出一段就往前调）</label><input type="time" id="t0" step="300"></div>
+      <div><label>&nbsp;</label><button class="btn pri" id="now">⏱ 现在出发</button>
+        <label style="display:inline-block;margin:0 0 0 12px"><input type="checkbox" id="buf" checked> 行驶时间 +10%（弯路、会车、拍照停车）</label></div>
+    </div>
+    <div class="map" id="map"></div>
+    <p class="s" style="margin-top:8px">绿线 = 今天要开的路（OpenStreetMap 道路网，两个独立路由引擎算的；灰色圆点 = 本方案不去的站；
+      <span style="color:var(--alert)">红色虚线</span> = 原图顺序会来回多走的那 3 公里）。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">02</span>时间表 · 到几点、最晚几点必须走</h2>
+    <p class="lede">「<b>最晚离开</b>」是从末班船倒推的：要在 <b>17:30</b> 前到码头排队（周日 18:00 是最后一班；据资料这条航线不能预订车位、先到先上，我没能在官网核实，所以留 30 分钟），
+      所以每一站最晚几点必须动身。超过的用红色标出。停留分钟可以直接改。</p>
+    <div class="tw"><table id="schedtbl">
+      <thead><tr><th>站</th><th>到达</th><th>停留</th><th>离开</th><th>最晚离开</th><th>本段驾驶</th><th>导航</th></tr></thead>
+      <tbody id="sched"></tbody></table></div>
+    <div class="card amb" id="gate" style="margin-top:18px"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:16px" id="links"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">03</span>渡轮 · 今天只有三班</h2>
+    <div class="cards" id="ferry"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="n">04</span>和原图对比：改了什么</h2>
+    <div class="tw"><table>
+      <thead><tr><th>项目</th><th>原图</th><th>实测</th></tr></thead>
+      <tbody id="diff"></tbody></table></div>
+    <p class="s" style="margin-top:10px" id="src"></p>
+  </div>
+</section>
+
+<script src="/app.js"></script>
+<script src="/senja/data.js"></script>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script>
+chrome();
+(() => {
+  const S = SENJA, P = S.points;
+  const $$ = s => document.querySelectorAll(s);
+  const pad = n => String(n).padStart(2, '0');
+  const fmt = m => { m = Math.round(m); return pad(Math.floor(m / 60)) + ':' + pad(m % 60); };
+  const parse = s => { const [h, m] = (s || '13:20').split(':').map(Number); return h * 60 + m; };
+  const LAST = 18 * 60, DEADLINE = LAST - 30;             // 末班 18:00；建议 17:30 前到码头
+  const ACC = getComputedStyle(document.documentElement).getPropertyValue('--h3').trim() || '#63D0A0';
+  const state = { pid: 'A', t0: '13:20', buf: true, stays: {} };
+
+  /* 默认出发时间：今天在挪威就用「现在」（向上取整到 5 分钟），否则 13:20 */
+  function osloNow() {
+    const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Oslo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
+    const o = Object.fromEntries(f.formatToParts(new Date()).map(p => [p.type, p.value]));
+    return { date: `${o.year}-${o.month}-${o.day}`, min: (+o.hour % 24) * 60 + +o.minute };
+  }
+  const n0 = osloNow();
+  if (n0.date === '2026-10-04' && n0.min >= 8 * 60 && n0.min <= 16 * 60) state.t0 = fmt(Math.ceil(n0.min / 5) * 5);
+
+  function compute(pid) {
+    const p = S.presets.find(x => x.id === pid), f = state.buf ? 1.1 : 1;
+    let t = parse(state.t0); const rows = [];
+    for (let i = 1; i < p.order.length; i++) {
+      const a = p.order[i - 1], b = p.order[i], leg = S.legs[a + '>' + b];
+      const drive = leg.min * f; t += drive;
+      const stay = b === 'botnhamn' ? 0 : (state.stays[b] ?? P[b].stay);
+      rows.push({ key: b, a, drive, arrive: t, stay, leave: t + stay, leg });
+      t += stay;
+    }
+    rows[rows.length - 1].latestArrive = DEADLINE;
+    for (let i = rows.length - 2; i >= 0; i--) {
+      rows[i].latestLeave = rows[i + 1].latestArrive - rows[i + 1].drive;
+      rows[i].latestArrive = rows[i].latestLeave - rows[i].stay;
+    }
+    const q = rows[rows.length - 1];
+    return { p, rows, quay: q.arrive, slack: DEADLINE - q.arrive, drive: rows.reduce((s, r) => s + r.drive, 0) };
+  }
+  const status = c => c.quay <= DEADLINE ? ['ok', '✅'] : c.quay <= LAST - 12 ? ['amb', '🟠'] : ['hot', '🔴'];
+
+  /* ---- 地图 ---- */
+  const map = L.map('map', { scrollWheelZoom: false });
+  const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_';
+  L.tileLayer(ESRI + 'Base/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © Esri · © OpenStreetMap contributors', maxZoom: 16 }).addTo(map);
+  L.tileLayer(ESRI + 'Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16 }).addTo(map);
+  const layer = L.layerGroup().addTo(map);
+  const pin = (txt, cls = '') => L.divIcon({ className: '', html: `<div class="pin ${cls}">${txt}</div>`, iconSize: [28, 28], iconAnchor: [14, 14] });
+  const ll = k => [P[k].lat, P[k].lon];
+  const flip = cs => cs.map(c => [c[1], c[0]]);
+  const gnav = k => `https://www.google.com/maps/dir/?api=1&destination=${P[k].lat},${P[k].lon}&travelmode=driving`;
+  let fitted = false;
+
+  function draw(c) {
+    layer.clearLayers();
+    const order = c.p.order, on = new Set(order);
+    order.slice(1).forEach((b, i) => {
+      const leg = S.legs[order[i] + '>' + b];
+      L.polyline(flip(leg.coords), { color: ACC, weight: 5, opacity: .9 }).addTo(layer)
+        .bindTooltip(`${P[order[i]].name.split('（')[0]} → ${P[b].name.split('（')[0]}<br>${leg.min} 分钟 · ${leg.km} km<br><span style="color:#a8a29a">${leg.roads.join(' › ')}</span>`, { sticky: true });
+    });
+    const t2e = S.legs['tungeneset>ersfjord'];
+    if (t2e) L.polyline(flip(t2e.coords), { color: '#D08163', weight: 5, opacity: .95, dashArray: '7 7' }).addTo(layer)
+      .bindTooltip('原图把 Ersfjordstranda 排在 Tungeneset 前面：这 3 公里要来回走一趟（多 6 公里 / 6 分钟）', { sticky: true });
+    Object.keys(P).forEach(k => {
+      if (k === 'start' || k === 'botnhamn' || on.has(k)) return;
+      L.marker(ll(k), { icon: pin('×', 'sk') }).addTo(layer).bindTooltip(`${P[k].name}（本方案不去）`, { direction: 'top' });
+    });
+    let n = 0;
+    order.forEach(k => {
+      const r = c.rows.find(x => x.key === k);
+      const icon = k === 'start' ? pin('S', 'sp') : k === 'botnhamn' ? pin('⛴', 'fy') : pin(++n);
+      const tip = k === 'start' ? `${P[k].name}<br>出发 ${state.t0}` :
+        `<b>${P[k].name}</b><br>到 ${fmt(r.arrive)}${r.stay ? ` · 停 ${r.stay} 分 · 走 ${fmt(r.leave)}` : ''}`;
+      L.marker(ll(k), { icon, zIndexOffset: 500 }).addTo(layer).bindTooltip(tip, { direction: 'top' });
+    });
+    if (S.segla) L.marker([S.segla.lat, S.segla.lon], { icon: L.divIcon({ className: '', html: '<div style="color:#D2AE72;font-size:17px;text-shadow:0 0 3px #000">▲</div>', iconSize: [16, 16], iconAnchor: [8, 10] }) })
+      .addTo(layer).bindTooltip('Segla 山峰', { direction: 'top' });
+    const F = S.ferry, b = ll('botnhamn'), br = [F.bren.lat, F.bren.lon];
+    L.polyline([b, br], { color: '#6E9FD0', weight: 3, dashArray: '2 7', opacity: .9 }).addTo(layer).bindTooltip(`渡轮 ${F.cross_min} 分钟`, { sticky: true });
+    L.polyline(flip(F.home_line), { color: '#6E9FD0', weight: 3, opacity: .7 }).addTo(layer).bindTooltip(`Brensholmen → 住处 ${F.after_min} 分钟 · ${F.after_km} km`, { sticky: true });
+    L.marker(br, { icon: pin('⛴', 'fy') }).addTo(layer).bindTooltip('Brensholmen（渡轮对岸）', { direction: 'top' });
+    L.marker([F.home.lat, F.home.lon], { icon: pin('⌂', 'sp') }).addTo(layer).bindTooltip('特罗姆瑟住处', { direction: 'top' });
+    if (!fitted) { map.fitBounds(L.latLngBounds(order.map(ll).concat([br])).pad(0.08)); fitted = true; }
+  }
+
+  /* ---- 渲染 ---- */
+  function render() {
+    const c = compute(state.pid), [cls, ico] = status(c), q = c.rows[c.rows.length - 1];
+    const left = LAST - q.arrive;
+    $('#verdict').className = 'card ' + cls;
+    $('#verdict').innerHTML = `<h3 style="margin:0 0 6px">${ico} ${c.p.name}：${fmt(q.arrive)} 到码头</h3>
+      <div class="g">${cls === 'ok' ? `比建议的 <b>17:30</b> 早 <b>${Math.round(c.slack)}</b> 分钟，比 18:00 末班早 <b>${Math.round(left)}</b> 分钟。`
+      : cls === 'amb' ? `只比 18:00 末班早 <b>${Math.round(left)}</b> 分钟 —— 据资料车位不能预订、先到先上，<b>很冒险</b>。砍一两站，或者选下面更短的线路。`
+      : `<b>赶不上 18:00 这班</b>（最后一班）。换更短的线路，或者把停留改短。`}
+      今天 Botnhamn 只有 11:15 / 16:00 / 18:00 三班，<b>18:00 是最后一班</b>；错过只能走陆路绕回特罗姆瑟 <b>${Math.floor(S.ferry.miss_min / 60)} 小时 ${S.ferry.miss_min % 60} 分钟</b>。</div>`;
+    $('#stats').innerHTML = [[fmt(parse(state.t0)), '出发'], [fmt(q.arrive), '到码头'], [Math.round(c.drive) + ' 分', '驾驶合计' + (state.buf ? '（+10%）' : '')],
+      [c.p.drive_km + ' km', '路程'], ['18:00', '末班船'], [fmt(LAST + S.ferry.cross_min + S.ferry.after_min), '约到住处（赶 18:00 那班）']]
+      .map(([v, k]) => `<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+
+    $('#presets').innerHTML = S.presets.map(p => {
+      const cc = compute(p.id), [k2, i2] = status(cc);
+      return `<button data-p="${p.id}" aria-pressed="${p.id === state.pid}"><b>${p.id === 'A' ? '⭐ ' : ''}${p.name}</b><span>${p.desc}</span>
+        <div class="arr" style="color:var(${k2 === 'ok' ? '--acc' : '--alert'})">${i2} ${fmt(cc.quay)} 到码头 · 驾驶 ${Math.round(cc.drive)} 分</div></button>`;
+    }).join('');
+    $$('#presets button').forEach(b => b.onclick = () => { state.pid = b.dataset.p; render(); });
+
+    $('#sched').innerHTML = `<tr><td><b>S</b> ${esc(P.start.name)}</td><td class="t">—</td><td>—</td><td class="t">${state.t0}</td><td class="lt">—</td><td>—</td><td>—</td></tr>` +
+      c.rows.map((r, i) => {
+        const late = r.latestLeave != null && r.leave > r.latestLeave + 0.5;
+        const quay = r.key === 'botnhamn';
+        return `<tr><td><b>${quay ? '⛴' : i + 1}</b> ${esc(P[r.key].name)}<div class="nt">${esc(P[r.key].note)}</div></td>
+          <td class="t">${fmt(r.arrive)}</td>
+          <td>${quay ? '—' : `<input class="st" type="number" min="0" max="90" step="5" value="${r.stay}" data-k="${r.key}"> 分`}</td>
+          <td class="t">${quay ? '—' : fmt(r.leave)}</td>
+          <td class="lt ${late ? 'bad' : ''}">${quay ? '17:30' : fmt(r.latestLeave)}${late ? ' ⚠️' : ''}</td>
+          <td>${Math.round(r.drive)} 分 · ${r.leg.km} km</td>
+          <td><a class="btn" href="${gnav(r.key)}" target="_blank" rel="noopener">导航 ↗</a></td></tr>`;
+      }).join('');
+    $$('#sched .st').forEach(i => i.onchange = () => { state.stays[i.dataset.k] = Math.max(0, +i.value || 0); render(); });
+
+    /* Husøy 判断点：无论当前选哪个方案，都按「6 站」算 */
+    const cb = compute('B'), fj = cb.rows.find(r => r.key === 'fjordgard');
+    $('#gate').innerHTML = `<h3 style="margin:0 0 6px">🚦 Husøy 判断点（整条线最贵的一站：多开 ${P.husoy.marginal.min} 分钟）</h3>
+      <div class="g">到了 Fjordgård，看表：<b>${fmt(fj.latestLeave)} 之前能动身</b> → 去 Husøy；<b>晚于 ${fmt(fj.latestLeave)}</b> → 直接开去码头
+      （Fjordgård 开到码头 ${S.legs['fjordgard>botnhamn'].min} 分钟）。按你现在选的出发时间，预计 ${fmt(fj.leave)} 离开 Fjordgård —— ${fj.leave <= fj.latestLeave + .5 ? '<b>来得及，可以去</b>' : '<b>来不及，别去</b>'}。</div>`;
+
+    const o = c.p.order, wp = o.slice(1, -1).map(k => P[k].lat + ',' + P[k].lon).join('|');
+    $('#links').innerHTML = `<a class="btn pri" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=${P.start.lat},${P.start.lon}&destination=${P.botnhamn.lat},${P.botnhamn.lon}&waypoints=${wp}&travelmode=driving">📍 整条线路用 Google 地图打开（核对用）</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://maps.apple.com/?daddr=${P.botnhamn.lat},${P.botnhamn.lon}&dirflg=d">苹果地图：直接导航到码头</a>`;
+    draw(c);
+  }
+
+  $('#t0').value = state.t0;
+  $('#t0').onchange = e => { state.t0 = e.target.value || state.t0; render(); };
+  $('#buf').onchange = e => { state.buf = e.target.checked; render(); };
+  $('#now').onclick = () => { const n = osloNow(); state.t0 = fmt(Math.ceil(n.min / 5) * 5); $('#t0').value = state.t0; render(); };
+
+  /* 渡轮 + 对比 */
+  const F = S.ferry;
+  $('#ferry').innerHTML = `
+    <div class="card ok"><h3>Botnhamn → Brensholmen</h3><div class="g">${F.departures.map((d, i) => `<b>${d}</b>${i === 2 ? ' <span class="badge hot">最后一班</span>' : ''}`).join(' · ')}</div>
+      <p class="s" style="margin:8px 0 0">航程 <b>${F.cross_min} 分钟</b>（18:00 开 → 18:35 到）。Torghatten Nord 181 线。来源：Entur 官方实时数据（今天 10/4）。</p></div>
+    <div class="card"><h3>Brensholmen → Botnhamn（反方向）</h3><div class="g">${F.from_bren.join(' · ')}</div>
+      <p class="s" style="margin:8px 0 0">今天 Brensholmen 出发的只有这三班。</p></div>
+    <div class="card"><h3>上岸后</h3><p class="g" style="margin:0">18:35 到 Brensholmen → 开 <b>${F.after_min} 分钟</b>（${F.after_km} km）到住处 → 约 <b>${fmt(LAST + F.cross_min + F.after_min)}</b> 到。</p></div>
+    <div class="card hot"><h3>错过 18:00 这班</h3><p class="g" style="margin:0">没有下一班。只能走陆路绕回去：<b>${Math.floor(F.miss_min / 60)} 小时 ${F.miss_min % 60} 分钟</b>（${F.miss_km} km），到住处会是半夜。日落 ${S.sun.sunset}，天黑透 ${S.sun.dusk}。</p></div>`;
+
+  const I = S.image;
+  const rows = [
+    ['Tungeneset / Ersfjordstranda 顺序', 'Ersfjordstranda → Tungeneset', '<b>反过来</b>：路上先到 Tungeneset，再过 3 公里到 Ersfjordstranda。原图的顺序要来回多走 <b>6 公里 / 6 分钟</b>'],
+    ['渡轮航程', '45 分钟（18:45 到）', `<b>${F.cross_min} 分钟</b>（18:35 到）· Entur`],
+    ['末班船', '没提', '<b>18:00 是周日最后一班</b>（只有 11:15 / 16:00 / 18:00）'],
+    ['路段分钟数', '51 / 45 / 20 / 20 …（与右边时间表、与道路网都对不上）', '48.7 / 17.6 / 3.0 / 11.6 / 27.7 …（OSRM，全部重算）'],
+    ['6 站全走的驾驶时间', `${I.min} 分钟 / ${I.km} km`, `<b>${I.best_min} 分钟 / ${I.best_km} km</b>（穷举 720 种顺序取最短）`],
+    ['直接开到码头', '—', `${S.direct_min} 分钟 / ${S.direct_km} km（整圈比直达多 ${Math.round(I.best_min - S.direct_min)} 分钟）`],
+    ['返回特罗姆瑟', '约 20:00 到', `18:35 上岸 + ${F.after_min} 分钟 → 约 <b>${fmt(LAST + F.cross_min + F.after_min)}</b> 到住处`],
+  ];
+  $('#diff').innerHTML = rows.map(r => `<tr><td><b>${r[0]}</b></td><td class="s">${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+  $('#src').innerHTML = `怎么验证的：坐标来自 OpenStreetMap；行驶时间 / 路线来自 OSRM 路由引擎，并用第二个引擎（routing.openstreetmap.de）复核，总时间 ${Object.values(S.engines).map(e => e.best_min).join(' / ')} 分钟一致
+    （⚠️ 两者用同一份 OpenStreetMap 数据，是一致性检查，不是独立验证 —— 所以上面放了 Google 地图的核对链接，你手机上一点就能对一遍实时路况）。
+    渡轮班次：Entur（挪威国家公共交通数据平台）实时数据。日落：天文算法。<b>没能核实的</b>：渡轮能不能预订车位（运营商官网打不开，据资料是先到先上）、无人机规则（沿用原图，请自行查 Avinor 无人机地图）。`;
+  render();
+})();
+</script>
+</body>
+</html>

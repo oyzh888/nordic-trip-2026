@@ -25,7 +25,9 @@ def client():
         return get_google_genai(location="global")
     except Exception:  # noqa: BLE001
         pass
-    token = open(TOKEN_FILE).read().strip()
+    import os
+    # pod 上 Pluto 自动注入 PLUTO_AUTH_TOKEN（固定 token 文件是 5 月的，早过期了）；只用它换 GCP 凭证，不打印
+    token = os.environ.get("PLUTO_AUTH_TOKEN") or open(TOKEN_FILE).read().strip()
     data = requests.get(
         "https://foundry-aws-pluto.adobe.io/iam/credentials/gcp",
         headers={"x-pluto-token": token},
