@@ -90,6 +90,9 @@ def main():
         M = 40
         pg.reload(); pg.wait_for_selector('#app:not([hidden])', timeout=15000)
         pg.evaluate(MAKE, [N, M, 1600, 1200]); slow(pg)
+        # 上行限到 2 Mbps：现在传得很快，不限的话等到第 8 张传完时 40 张早就全完了，测不到「传一半被杀」
+        cdp = ctx.new_cdp_session(pg); cdp.send('Network.enable')
+        cdp.send('Network.emulateNetworkConditions', {'offline': False, 'latency': 20, 'downloadThroughput': -1, 'uploadThroughput': 2e6 / 8})
         pg.evaluate('() => __album.enqueue(window.__bulk)')
         pg.wait_for_function('() => __album.UQ.filter(t => t.state === "ok").length >= 8', timeout=120000)
         pg.wait_for_timeout(600)                                   # 让本机缓存落盘（攒 400 ms 写一次）

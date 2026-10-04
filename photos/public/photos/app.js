@@ -911,7 +911,10 @@ async function probe(ts) {
     part.forEach(t => { if (t.state === 'queued') t.msg = '排队中'; });
   }
 }
-function settled(t) { if (t.b && !t.counted) { t.counted = true; if (--t.b.left === 0) batchDone(t.b); } }
+function settled(t) {
+  if (t.b && !t.counted) { t.counted = true; if (--t.b.left === 0) batchDone(t.b); }
+  if (!uploading()) setTimeout(drainAux, 0);                    // 上传队列空了 → 开始补缩略图
+}
 function pump() {
   while (running < MAXF) {
     const t = UQ.find(t => t.state === 'queued' && !t.hold); if (!t) break;
@@ -1153,8 +1156,21 @@ function canvasOf(src, W, H, scale) {
 const jpeg = (c, q) => new Promise(r => c.toBlob(r, 'image/jpeg', q));
 // 缩略图一次只解一张：一张 2400 万像素的 iPhone 照片解码出来约 96 MB，以前 3 张同时解 ≈ 300 MB，
 // 几百张连续传时 Safari 会因为内存把整个页面杀掉（「卡死、选的全白选了」）
-let auxChain = Promise.resolve();
-function makeAux(t, fp) { const p = auxChain.then(() => makeAux1(t, fp)); auxChain = p.catch(() => {}); return p; }
+// 上传和后处理完全分开：缩略图（解码 + 两次 JPEG 编码 + 两个小上传）等这一批全部传完、上传队列空了才开始，
+// 不和上传抢手机 CPU、抢上行带宽；排到时 GPU 端已经做好了就跳过（GPU 端本来就会补）
+const auxQ = [];
+let auxRunning = false;
+function makeAux(t, fp) { auxQ.push([t, fp]); drainAux(); return Promise.resolve(); }
+async function drainAux() {
+  if (auxRunning) return;
+  auxRunning = true;
+  try {
+    while (auxQ.length && !uploading()) {
+      const [t, fp] = auxQ.shift();
+      await makeAux1(t, fp).catch(() => { /* GPU 端会补 */ });
+    }
+  } finally { auxRunning = false; }
+}
 async function makeAux1(t, fp) {
   const it = S.byH.get(fp.h);
   if (it && (it.f & 3) === 3) return;                           // 排到它的时候 GPU 端已经做好了：省下手机的 CPU

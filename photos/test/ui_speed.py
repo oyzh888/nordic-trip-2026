@@ -44,6 +44,9 @@ def main():
         pg.goto(BASE + '/photos/#k=' + e2e.PASS); pg.wait_for_selector('#f-name:not([hidden])', timeout=15000)
         pg.fill('#name', U); pg.click('#f-name button.pri'); pg.wait_for_selector('#app:not([hidden])', timeout=15000)
         mb = pg.evaluate(MAKE, [N]) / 2 ** 20
+        reqs = []                                                       # 记每个请求发出 / 完成的时间：缩略图必须在所有上传完成之后才开始
+        pg.on('request', lambda r: reqs.append(('send', r.url, time.time())))
+        pg.on('requestfinished', lambda r: reqs.append(('done', r.url, time.time())))
         cdp = ctx.new_cdp_session(pg)
         cdp.send('Emulation.setCPUThrottlingRate', {'rate': CPU})
         if UP:
@@ -64,7 +67,16 @@ def main():
         logs = [l for l in Client(e2e.PIPE).get('/api/pipe/uplog?limit=20').json() if l.get('name') == U]
         j = logs[0]['j'] if logs else {}
         check('这一批的用时记到了服务端（一批一行）', len(logs) == 1 and j.get('n') == N and j.get('ok') == N and j.get('upMs') and j.get('kinds') == {'jpeg': N},
-              {k: j.get(k) for k in ('n', 'ok', 'upMs', 'mbps', 'fp', 'init', 'net', 'kinds')})
+              {'rows': len(logs), 'all': [(l['id'], l.get('name'), l['j'].get('n')) for l in Client(e2e.PIPE).get('/api/pipe/uplog?limit=4').json()], **{k: j.get(k) for k in ('n', 'ok', 'upMs', 'kinds')}})
+        pg.wait_for_function(f"() => [...__album.S.byH.values()].length >= {N}", timeout=30000)
+        t_end = time.time() + 60
+        while time.time() < t_end and sum(1 for k, u, _ in reqs if k == 'done' and '/upload/aux' in u) < 2 * N:
+            pg.wait_for_timeout(500)
+        last_up = max(t for k, u, t in reqs if k == 'done' and '/upload/complete' in u)
+        aux = sorted(t for k, u, t in reqs if k == 'send' and '/upload/aux' in u)
+        check('后处理和上传完全分开：缩略图请求全部在最后一个文件传完之后才发', aux and aux[0] >= last_up,
+              f'缩略图 {len(aux)} 个请求，第一个在最后一个上传完成后 {(aux[0] - last_up) if aux else 0:.2f} 秒')
+        check('缩略图最后都补齐了（每张 2 个：缩略图 + 预览）', len(aux) >= 2 * N, len(aux))
         last = pg.evaluate("() => { const e = document.querySelector('#up-last'); return e && !e.hidden ? e.textContent : '' }")
         check('上传面板里显示「上一批：上传用了多久、多少 Mbps」', '上传' in last and 'Mbps' in last, last)
         json.dump({'n': N, 'mb': mb, 'cpu': CPU, 'up': UP, 'sec': dt, 'tm': tms}, open(os.path.join(e2e.HERE, 'out', f'speed-{CPU:g}x-{UP:g}.json'), 'w'))

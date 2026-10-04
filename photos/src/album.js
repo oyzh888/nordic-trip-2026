@@ -147,6 +147,7 @@ export class Album extends DurableObject {
    * iPhone 每次导出照片 lastModified 都是新的，本机缓存认不出来；而同一张照片导出的文件名和字节数是稳定的。
    * 名字 + 大小都一样却是两张不同照片的概率可以忽略。命中的顺手记上「我也有这张」，和 init 秒传一样 */
   probe(uid, items) {
+    this.lastUp = Date.now();
     const hit = [];
     (items || []).slice(0, 5000).forEach(([name, size], i) => {
       const r = this.sql.exec(`SELECT h FROM media WHERE size=? AND name=? AND status='ready' AND deleted=0 LIMIT 1`, Number(size), String(name)).toArray()[0];
@@ -165,6 +166,7 @@ export class Album extends DurableObject {
    * 同一个 h 但还没传完 → 返回已经收到的块号，客户端只补缺的 → 断点续传，换页面、换网络都能接上。
    */
   async initUpload(uid, m) {
+    this.lastUp = Date.now();
     const h = String(m.h || '');
     if (!/^[0-9a-f]{64}$/.test(h)) throw new Error('bad hash');
     const psize = Number(m.psize), size = Number(m.size);
@@ -231,6 +233,7 @@ export class Album extends DurableObject {
     return 'go';
   }
   partDone(h, n, etag, sha) {
+    this.lastUp = Date.now();
     this.sql.exec(`INSERT OR REPLACE INTO parts VALUES (?,?,?,?)`, h, n, etag, sha);
     this.leases.delete(`${h}:${n}`);
   }
@@ -246,6 +249,7 @@ export class Album extends DurableObject {
     return p;
   }
   async complete1(h) {
+    this.lastUp = Date.now();
     const m = this.partInfo(h);
     if (!m) throw new Error('unknown upload');
     if (m.status === 'ready') return { status: 'exists' };
@@ -701,12 +705,24 @@ export class Album extends DurableObject {
       WHERE status='ready' AND deleted=0 AND aver < ? ORDER BY created LIMIT ?`, aver, limit).toArray();
     const queries = this.sql.exec(`SELECT q FROM qqueue LIMIT 200`).toArray().map(r => r.q);
     const known = this.sql.exec(`SELECT q FROM qvec`).toArray().map(r => r.q);
-    return { items, queries, edits: this.editsPending(), known_queries: known.length, total: this.sql.exec(`SELECT COUNT(*) c FROM media WHERE status='ready' AND deleted=0`).one().c };
+    // conf：「人工确认过的人脸」的小签名 —— 有人点了「这是我」/ 合并 / 摘掉一张，它就变；GPU 端拿它判断要不要重新聚类，
+    //       不用再每分钟把 3 MB 的全部人脸拉回去比（那个请求本身就会让正在上传的人多等）
+    // upAgo：距离最近一次有人在上传过去了几秒（null = 这个实例起来后还没人传过）—— GPU 端据此把重的后处理往后推
+    const c = this.sql.exec(`SELECT COUNT(*) n, COALESCE(SUM(id * 7919 + COALESCE(person, 0)), 0) s FROM faces WHERE confirmed=1`).one();
+    return { items, queries, edits: this.editsPending(), known_queries: known.length, total: this.sql.exec(`SELECT COUNT(*) c FROM media WHERE status='ready' AND deleted=0`).one().c,
+      conf: `${c.n}:${c.s}`, upAgo: this.lastUp ? Math.round((Date.now() - this.lastUp) / 1000) : null };
   }
   knownQueries() { return this.sql.exec(`SELECT q FROM qvec`).toArray().map(r => r.q); }
 
   /** 一张照片的分析结果：EXIF/地点/描述/标签/人脸/图像向量。重新分析会整体替换这张的人脸 */
-  result(r) {
+  /** 一次写回很多条（对齐时间、补原始钟点这种成百上千条的）：每条照常写，最后只刷新一次缓存 / 序号 ——
+   * 以前一条一个请求，几百个请求轮流占着数据库，正在上传的人每个请求都要排在它们后面 */
+  results(list) {
+    const out = (list || []).slice(0, 200).map(r => this.result(r, true));
+    this.stamp('res_seq'); this.bump();
+    return { ok: true, n: out.length, res: out };
+  }
+  result(r, batch = false) {
     const h = r.h;
     if (!this.partInfo(h)) return { error: 'unknown' };
     const set = [], args = [];
@@ -716,7 +732,7 @@ export class Album extends DurableObject {
     if (r.flags) { set.push('flags = flags | ?'); args.push(r.flags); }
     set.push('aver=?'); args.push(r.aver || 1);
     this.sql.exec(`UPDATE media SET ${set.join(',')} WHERE h=?`, ...args, h);
-    this.stamp('res_seq');
+    if (!batch) this.stamp('res_seq');
     const faceIds = [];
     const live = this.sql.exec(`SELECT live FROM media WHERE h=?`, h).one().live;
     if (live) { r.faces = null; r.emb = null; }               // Live Photo 的那段视频：人脸和向量算在照片上，不重复计
@@ -733,7 +749,7 @@ export class Album extends DurableObject {
     }
     if (r.emb) this.sql.exec(`INSERT OR REPLACE INTO emb VALUES (?,?,?)`, h, r.emb_scale, b64dec(r.emb).buffer);
     this.pairLive(h);
-    this.bump();
+    if (!batch) this.bump();
     return { ok: true, faces: faceIds };
   }
 
@@ -932,6 +948,7 @@ export class Album extends DurableObject {
       this.sql.exec(`DELETE FROM users WHERE id=?`, u.id);
       for (const p of this.sql.exec(`SELECT id FROM persons WHERE uid=?`, u.id).toArray()) persons.push(p.id);
       this.sql.exec(`DELETE FROM keys WHERE uid=?`, u.id);
+      this.sql.exec(`DELETE FROM uplog WHERE uid=?`, u.id);
     }
     for (const pid of persons) {
       this.sql.exec(`UPDATE faces SET person=NULL, confirmed=0 WHERE person=?`, pid);
@@ -1015,16 +1032,25 @@ export class Album extends DurableObject {
   dumpFaces() {
     return this.sql.exec(`SELECT id, h, x, y, w, hh, score, emb, cluster, person, confirmed FROM faces`).toArray();
   }
+  /** 增量版：人脸的位置 / 归属（小，每次全量）+ 人脸特征向量只给 id > since 的（大，id 只增不改：重新分析会删掉旧脸、插新 id）*/
+  facesLight() {
+    return this.sql.exec(`SELECT id, h, x, y, w, hh, score, cluster, person, confirmed FROM faces`).toArray();
+  }
+  faceEmbs(since) {
+    return this.sql.exec(`SELECT id, emb FROM faces WHERE id > ? ORDER BY id`, Number(since) || 0).toArray();
+  }
   /** 每一批上传的用时（浏览器在一批传完时报一次）：手机准备多久、上传多久、多少 Mbps、页面在后台多久。只留最近 1000 批 */
   uplog(uid, j) {
-    this.sql.exec(`INSERT INTO uplog (uid, at, j) VALUES (?,?,?)`, uid, now(), JSON.stringify(j).slice(0, 4000));
+    // 记下当时的名字：用户被彻底删掉后 id 会被下一个新用户重用（SQLite 的 INTEGER PRIMARY KEY），光存 uid 会张冠李戴
+    const name = this.user(uid)?.name || null;
+    this.sql.exec(`INSERT INTO uplog (uid, at, j) VALUES (?,?,?)`, uid, now(), JSON.stringify({ ...j, who: name }).slice(0, 4000));
     const id = this.sql.exec(`SELECT last_insert_rowid() id`).one().id;
     if (id % 100 === 0) this.sql.exec(`DELETE FROM uplog WHERE id <= ?`, id - 1000);
     return { ok: true };
   }
   uplogs(limit = 300) {
     return this.sql.exec(`SELECT l.id, l.uid, u.name, l.at, l.j FROM uplog l LEFT JOIN users u ON u.id = l.uid ORDER BY l.id DESC LIMIT ?`, limit)
-      .toArray().map(r => ({ ...r, j: JSON.parse(r.j) }));
+      .toArray().map(r => { const j = JSON.parse(r.j); return { ...r, name: j.who ?? r.name, j }; });
   }
   /** 视频转码队列：还没看过的视频（gplan 为空）。cam / up 给 GPU 端判断「是不是佳能拍的」 */
   transcodeTodo() {
@@ -1044,6 +1070,12 @@ export class Album extends DurableObject {
   }
   embs() {
     return this.sql.exec(`SELECT h, scale, vec FROM emb`).toArray().map(r => ({ h: r.h, scale: r.scale, vec: btoa(String.fromCharCode(...new Uint8Array(r.vec))) }));
+  }
+  /** 增量版图像向量：只给 rowid > since 的（新写入 / 重写的行 rowid 都会变大）。全量一次 8 MB、占着数据库近 1 秒 */
+  embsSince(since) {
+    const rows = this.sql.exec(`SELECT rowid r, h, scale, vec FROM emb WHERE rowid > ? ORDER BY rowid LIMIT 2000`, Number(since) || 0).toArray();
+    return { rows: rows.map(r => ({ h: r.h, scale: r.scale, vec: btoa(String.fromCharCode(...new Uint8Array(r.vec))) })),
+      max: rows.length ? rows[rows.length - 1].r : Number(since) || 0, more: rows.length === 2000 };
   }
 }
 

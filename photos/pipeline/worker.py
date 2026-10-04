@@ -39,6 +39,8 @@ import cluster  # noqa: E402
 import media as M  # noqa: E402
 from models import face_vec, q8  # noqa: E402  （不加载模型，只是两个小函数）
 
+UP_QUIET = 30                 # 秒：最近这么久内有人上传，就先不做重的后处理（见 run）
+MAX_DEFER = 15 * 60           # 一直有人在传，最多推迟这么久
 AVER = 1                     # 分析版本：换模型/改提示词后 +1，服务端 aver < 这个的都会被重新分析
 BATCH = 8
 UA = 'nordic-photos-pipeline/1.0 (github.com/oyzh888/nordic-trip-2026)'
@@ -211,6 +213,7 @@ class Worker:
         self.m = Models(vlm=not args.no_vlm)
         log(f'模型就绪 {time.time() - t:.0f}s')
         self.conf_sig = None
+        self.conf_srv = None
         self.editor, self.edit_keys = None, []
         if not args.no_edit:
             import aiedit
@@ -458,6 +461,12 @@ class Worker:
 
         def one(m):
             out = {'ctime': '', 'tzsrc': 'video' if m['kind'] == 'video' else 'gps' if m.get('lat') is not None else 'none'}
+            try:
+                return read(m, out)
+            except Exception as e:   # noqa: BLE001
+                log(f'  {m["h"][:10]} 补原始钟点失败: {e!r:.80}'); return {'h': m['h'], **out, 'aver': AVER}
+
+        def read(m, out):
             if m['kind'] == 'image':
                 raw = (m.get('name') or '').rsplit('.', 1)[-1].lower() in M.RAW_EXT
                 try:
@@ -472,9 +481,10 @@ class Worker:
                     out = self.clock_fields({**meta, 'lat': m.get('lat')}, 'image')
                 except Exception as e:   # noqa: BLE001 —— 读不了就记成空，免得每次启动都重试
                     log(f'  {m["h"][:10]} 读不了 EXIF: {e!r:.80}')
-            self.api.post('/api/pipe/result', {'h': m['h'], **out, 'aver': AVER})
+            return {'h': m['h'], **out, 'aver': AVER}
         with ThreadPoolExecutor(8) as ex:
-            list(ex.map(one, todo))
+            rows = list(ex.map(one, todo))
+        self.post_results(rows)                         # 一次写回，不是一千个请求
         return len(todo)
 
     def align_clocks(self, media, E):
@@ -484,8 +494,7 @@ class Worker:
         changes, report = clock.align(media, E, M.tz_at, M.utc_to_tz, trip)
         for line in report:
             log('  时钟对齐 ' + line)
-        for h, taken, how in changes:
-            self.api.post('/api/pipe/result', {'h': h, 'taken': taken, 'tzsrc': how, 'aver': AVER})
+        self.post_results([{'h': h, 'taken': taken, 'tzsrc': how, 'aver': AVER} for h, taken, how in changes])
         return {h: t for h, t, _ in changes}
 
     def retime(self):
@@ -574,17 +583,46 @@ class Worker:
         self.titles_p.write_text(json.dumps(self.titles, ensure_ascii=False))
         return t
 
+    # ---------------- 增量读：图像向量 / 人脸特征在本机留一份，每次只拉新增的 ----------------
+    def load_embs(self):
+        """h → 单位化的图像向量。全量一次 8 MB、占着数据库近 1 秒；增量只拉 rowid 变大的（新写的 / 重写的）"""
+        if not hasattr(self, 'E'):
+            self.E, self.emb_max = {}, 0
+        while True:
+            r = self.api.get(f'/api/pipe/embs?since={self.emb_max}')
+            for x in r['rows']:
+                v = np.frombuffer(base64.b64decode(x['vec']), dtype=np.int8).astype(np.float32) * x['scale']
+                self.E[x['h']] = v / (np.linalg.norm(v) or 1)
+            self.emb_max = r['max']
+            if not r.get('more'):
+                return self.E
+
+    def load_faces(self):
+        """全部人脸：位置 / 归属每次全量（小），特征向量只拉 id 变大的（id 只增不改）"""
+        if not hasattr(self, 'FE'):
+            self.FE, self.fe_max = {}, 0
+        light = self.api.get('/api/pipe/faces?light=1')
+        for x in self.api.get(f'/api/pipe/faceemb?since={self.fe_max}'):
+            self.FE[x['id']] = x['emb']
+            self.fe_max = max(self.fe_max, x['id'])
+        live = {f['id'] for f in light}
+        for k in [k for k in self.FE if k not in live]:   # 删掉的脸（重新分析 / 删照片）别一直留在内存里
+            del self.FE[k]
+        return [{**f, 'emb': self.FE.get(f['id'])} for f in light if self.FE.get(f['id'])]
+
+    def post_results(self, items):
+        """成百上千条写回：50 条一个请求（服务端每批只刷新一次缓存）"""
+        for i in range(0, len(items), 50):
+            self.api.post('/api/pipe/results', {'items': items[i:i + 50]})
+
     def recluster(self):
         t = time.time()
-        faces = self.api.get('/api/pipe/faces')
+        faces = self.load_faces()
         self.backfill_clock()                           # 先补原始钟点，下面取的列表才带得上
         media = self.api.get('/api/pipe/media')
         for m in media:
             m['tags'] = json.loads(m['tags']) if m.get('tags') else {}
-        E = {}
-        for r in self.api.get('/api/pipe/embs'):
-            v = np.frombuffer(base64.b64decode(r['vec']), dtype=np.int8).astype(np.float32) * r['scale']
-            E[r['h']] = v / (np.linalg.norm(v) or 1)
+        E = self.load_embs()
         moved = self.align_clocks(media, E)
         for m in media:                                 # 时刻 / 连拍按对齐后的时间切
             if m['h'] in moved:
@@ -637,7 +675,7 @@ class Worker:
         items = [i for i in self.api.get('/api/list')['items'] if i.get('nf') and not i['f'] & 8]
         if not items: return 0
         by = {}
-        for f in self.api.get('/api/pipe/faces'): by.setdefault(f['h'], []).append(f)
+        for f in self.api.get('/api/pipe/faces?light=1'): by.setdefault(f['h'], []).append(f)
         n = 0
         for it in items:
             fs = sorted(by.get(it['h'], []), key=lambda f: f['id'])
@@ -669,9 +707,20 @@ class Worker:
             threading.Thread(target=self.edit_loop, daemon=True).start()
         if not self.args.no_transcode:
             threading.Thread(target=self.transcode_loop, daemon=True).start()
-        last_check = 0
+        last_check, defer_since = 0, None
         while True:
             pend = self.api.get(f'/api/pipe/pending?aver={AVER}&limit={BATCH}')
+            # 上传和后处理分开：相册的数据库同一时间只处理一个请求，聚类 / 对齐时间 / 补小图条这些重活
+            # 一次要占着它零点几秒到几秒（读 8 MB 向量、写几百行），这时候用户的上传请求就得排队（实测 p95 120 → 400 ms）。
+            # 所以有人在上传（最近 UP_QUIET 秒内有上传动作）就先不做，等上传停了再做；一直有人传也最多推迟 MAX_DEFER。
+            # 逐张分析新照片（看图、认脸）照常做 —— 它对数据库很轻，而且大家想尽快看到描述和人脸
+            busy = pend.get('upAgo') is not None and pend['upAgo'] < UP_QUIET
+            if busy and defer_since is None:
+                defer_since = time.time()
+                log(f'有人在上传 —— 聚类 / 对齐时间 / 补小图条先等上传停 {UP_QUIET} 秒（最多推迟 {MAX_DEFER // 60} 分钟）')
+            if not busy:
+                defer_since = None
+            hold = busy and time.time() - defer_since < MAX_DEFER
             if pend['queries']:
                 self.api.post('/api/pipe/vecs', {'items': self.embed_qs(pend['queries'])})
                 log(f'补算了 {len(pend["queries"])} 个排队的搜索词向量')
@@ -680,15 +729,17 @@ class Worker:
                 self.process(pend['items'])
                 self.dirty = True
                 continue                    # 积压没处理完就不聚类，全部处理完再做一次
-            if not self.dirty and time.time() - last_check > 60:
-                # 认领是在页面上发生的：服务端会推 recluster，但万一 WS 断着就靠这里兜底
+            if not hold and not self.dirty and time.time() - last_check > 60:
+                # 认领是在页面上发生的：服务端会推 recluster，但万一 WS 断着就靠这里兜底。
+                # 比服务端给的「已确认人脸」小签名，不再每分钟拉 3 MB 的全部人脸回来比
                 last_check = time.time()
-                if self.confirmed_sig(self.api.get('/api/pipe/faces')) != self.conf_sig:
+                if pend.get('conf') is not None and pend['conf'] != self.conf_srv:
                     self.dirty = True
-            if self.dirty:
+            if self.dirty and not hold:
                 self.dirty = False
+                self.conf_srv = pend.get('conf')
                 self.recluster()
-            if time.time() - getattr(self, 'last_sprites', 0) > 600:
+            if not hold and time.time() - getattr(self, 'last_sprites', 0) > 600:
                 self.last_sprites = time.time()
                 self.backfill_sprites()
             if self.args.once:

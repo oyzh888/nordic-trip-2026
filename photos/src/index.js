@@ -417,13 +417,15 @@ export default {
         }
         if (p === '/api/pipe/pending') return J(await album.pending(Number(url.searchParams.get('aver') || 1), Number(url.searchParams.get('limit') || 50)));
         if (p === '/api/pipe/result' && method === 'POST') return J(await album.result(await body()));
+        if (p === '/api/pipe/results' && method === 'POST') return J(await album.results((await body()).items));
         if (p === '/api/pipe/clusters' && method === 'POST') return J(await album.clusters(await body()));
         if (p === '/api/pipe/vecs' && method === 'POST') return J(await album.putQvecs((await body()).items));
         if (p === '/api/pipe/status') return J(await album.pipeStatus());
         if (p === '/api/pipe/known') return J(await album.knownQueries());
-        if (p === '/api/pipe/faces') return J(await album.dumpFaces());
+        if (p === '/api/pipe/faces') return J(url.searchParams.has('light') ? await album.facesLight() : await album.dumpFaces());
+        if (p === '/api/pipe/faceemb') return J(await album.faceEmbs(url.searchParams.get('since')));
         if (p === '/api/pipe/media') return J(await album.media4pipe());
-        if (p === '/api/pipe/embs') return J(await album.embs());
+        if (p === '/api/pipe/embs') return J(url.searchParams.has('since') ? await album.embsSince(url.searchParams.get('since')) : await album.embs());
         if (p === '/api/pipe/edits') return J(await album.editsPending());
         if (p === '/api/pipe/edit/start' && method === 'POST') return J(await album.editStart((await body()).id));
         if (p === '/api/pipe/edit/fail' && method === 'POST') { const b = await body(); return J(await album.editFail(b.id, b.err)); }

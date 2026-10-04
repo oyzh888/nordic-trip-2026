@@ -64,7 +64,7 @@ def main():
 
         # 3) 后台再传 40 张「更新的」（10 月 3 日）→ 会排在最上面
         pg.evaluate(f"async () => {{ window.__b = await ({MAKE})([1000, 160, Date.UTC(2026, 9, 3, 10), 60000]); }}")
-        net(2)                                                          # 上行限到 2 Mbps：保证下面检查时还在传（现在本地传得太快）
+        net(0.25)                                                       # 上行限到 0.25 Mbps：测试图很小（160 张共 ~1 MB），不限的话检查时早传完了
         pg.evaluate("() => __album.enqueue(window.__b)")
         pg.evaluate("() => { const s = document.querySelector('#upsheet'); if (s) s.hidden = true; }")
         # 上传期间后台刷新最多 10 秒一次 → 等到「↑ N 张新照片」冒出来（= 已经经过一次后台刷新），趁还在传的时候量
