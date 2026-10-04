@@ -116,8 +116,13 @@
       <button class="btn ghost" id="up-close">收起</button>
     </div>
     <label class="drop" id="drop">
-      <input id="file" type="file" multiple accept="image/*,video/*,.heic,.heif,.dng,.mov">
-      <span>点这里选照片 / 视频<br><span class="s">电脑上也可以直接把一堆文件拖进来 · 可以一次选几百个<br>📱 iPhone 上一次选 50 张以内最稳：点完 ✓ 手机要先把照片「交给」网页，选得多 / 有视频会等好几分钟</span></span>
+      <input id="file" type="file" multiple accept="image/*,.heic,.heif,.dng">
+      <span>📷 点这里选照片<br><span class="s">电脑上也可以直接把一堆文件（照片、视频都行）拖进来 · 可以一次选几百个<br>📱 iPhone 上一次选 50 张以内最稳：点完 ✓ 手机要先从 iCloud 下载原图、转成 JPEG 才交给网页</span></span>
+    </label>
+    <!-- 照片和视频分开选：选照片时夹着视频，iPhone 要先把每段视频重新压缩一遍才交出任何文件（一分钟的视频要压一分钟左右） -->
+    <label class="drop sm" id="drop-v">
+      <input id="file-v" type="file" multiple accept="video/*,.mov,.mp4,.m4v">
+      <span>🎬 选视频<br><span class="s">从「照片图库」选，iPhone 会先把视频重新压缩一遍（很慢）——<b>建议点开后选「选取文件」</b>，原片直接传、不转码，颜色和格式我们服务器来处理</span></span>
     </label>
     <p class="s tip"><label class="btn ghost sm" id="pick-dir">📁 选整个文件夹（含子文件夹）<input id="dir" type="file" webkitdirectory multiple hidden></label>
       什么格式都能传：JPEG / HEIC / PNG / WebP / AVIF，相机 RAW（CR3 / CR2 / ARW / NEF / DNG / RAF…），各种视频。</p>

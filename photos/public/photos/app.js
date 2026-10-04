@@ -852,6 +852,50 @@ const FP = {
 addEventListener('pagehide', () => FP.flush());
 const MEDIA_EXT = /\.(jpe?g|png|webp|gif|avif|heic|heif|hif|dng|tiff?|raw|arw|srf|sr2|cr2|cr3|crw|nef|nrw|orf|rw2|raf|pef|srw|rwl|3fr|iiq|x3f|mov|mp4|m4v|3gp|mkv|avi|webm|insv|insp)$/i;
 
+/* ---- 选中的文件本身存进浏览器（IndexedDB），页面被系统杀掉后重新打开能自动接着传，不用重选 ----
+ * 学的是 Uppy 的 Golden Retriever 插件：iPhone 内存不够时会把 Safari 标签页杀掉，以前选的几百张就白选了 ——
+ * 重选还得让手机再从 iCloud 下载、再转一遍 JPEG。现在没传完的文件先在浏览器里存一份，传完一张删一张。
+ * 一次只存一个、在后台存；正在传或已经传完的不存；单个超过 200 MB（大视频）不存；浏览器剩余配额不够就不存；存了 3 天还没传完就丢掉 */
+const KEEP_MAX = 200 * 2 ** 20, KEEP_DAYS = 3;
+const keepDB = (() => {
+  let p = null;
+  return () => p || (p = new Promise((res, rej) => {
+    const r = indexedDB.open('np-upload', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('files');
+    r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+  }).catch(() => null));
+})();
+const idb = async (mode, fn) => { const db = await keepDB(); if (!db) return null;
+  return new Promise((res, rej) => { const tx = db.transaction('files', mode), st = tx.objectStore('files'); const r = fn(st);
+    tx.oncomplete = () => res(r && 'result' in r ? r.result : undefined); tx.onerror = tx.onabort = () => rej(tx.error); }); };
+const keepQ = [];
+let keeping = false;
+function keepLater(ts) { keepQ.push(...ts); keepNext(); }
+async function keepNext() {
+  if (keeping) return;
+  keeping = true;
+  try {
+    while (keepQ.length) {
+      const t = keepQ.shift();
+      if (t.state !== 'queued' || t.f.size > KEEP_MAX || t.kept) continue;       // 已经在传 / 传完了，存它没意义
+      const est = await navigator.storage?.estimate?.().catch(() => null);
+      if (est && est.quota && est.usage + t.f.size > est.quota * 0.8) break;    // 浏览器配额快满了：不存了
+      try { await idb('readwrite', st => st.put({ f: t.f, name: t.f.name, at: Date.now() }, t.key)); t.kept = true; }
+      catch { break; }                                                           // 存不进去（隐私模式等）：算了
+      if (t.state !== 'queued') unkeep(t);                                       // 存的时候它已经传完了
+    }
+  } finally { keeping = false; }
+}
+function unkeep(t) { if (t.kept) { t.kept = false; idb('readwrite', st => st.delete(t.key)).catch(() => {}); } }
+async function keptFiles() {
+  const rows = await idb('readonly', st => st.getAll()).catch(() => null);
+  const keys = await idb('readonly', st => st.getAllKeys()).catch(() => null);
+  if (!rows || !keys) return [];
+  const old = Date.now() - KEEP_DAYS * 86400e3, out = [];
+  rows.forEach((r, i) => { if (r && r.f && r.at > old) out.push(r.f); else idb('readwrite', st => st.delete(keys[i])).catch(() => {}); });
+  return out;
+}
+
 /* ---- 每一批的用时记下来（一批一行，存服务端）：同学说「传得特别慢」时，看得出是慢在手机准备、还是慢在网络 ---- */
 // 页面在后台的累计时间（锁屏 / 切到别的 App 时 iPhone 会暂停网页，上传也停）
 let hidAcc = 0, hidAt = document.visibilityState === 'hidden' ? Date.now() : 0;
@@ -894,7 +938,7 @@ function enqueue(files, info) {
     big && `有 ${big} 张超过 25 MB（相机原片 / RAW）—— 都能传、能看，就是传得慢一些`].filter(Boolean).join(' · '), big ? 8000 : undefined);
   if (add || again) openSheet();
   // 先整批问一次服务端「哪些已经有了」，有的直接秒传 —— 重选同一批几百张时，不用把每个文件读一遍算指纹
-  if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); });
+  if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); if (info?.src !== 'restore') keepLater(fresh); });
   else if (again) pump();
   renderUp();
 }
@@ -912,6 +956,7 @@ async function probe(ts) {
   }
 }
 function settled(t) {
+  if (t.state === 'ok' || t.state === 'dup') unkeep(t);         // 传完了：浏览器里存的那份删掉
   if (t.b && !t.counted) { t.counted = true; if (--t.b.left === 0) batchDone(t.b); }
   if (!uploading()) setTimeout(drainAux, 0);                    // 上传队列空了 → 开始补缩略图
 }
@@ -1027,7 +1072,42 @@ function crc32(u8, crc) {
   return ~c >>> 0;
 }
 const hexOf = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+// 指纹（每 8 MB 一块的 SHA-256 + 整个文件的 CRC32）放到后台线程（Web Worker）里算 —— Immich 网页版也是这么做的。
+// CRC32 是逐字节的 JS 循环，在主线程上算会让页面一卡一卡（慢手机上一张 3 MB 的照片约 50 ms）；两个后台线程还能并行算。
+// 后台线程起不来（老浏览器）就退回在主线程算
+const FP_SRC = `
+const T = new Uint32Array(256);
+for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; T[n] = c >>> 0; }
+const crc32 = (u8, crc) => { let c = ~crc >>> 0; for (let i = 0; i < u8.length; i++) c = T[(c ^ u8[i]) & 0xFF] ^ (c >>> 8); return ~c >>> 0; };
+const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+onmessage = async e => {
+  const { id, f, PART } = e.data;
+  try {
+    const n = Math.max(1, Math.ceil(f.size / PART)), cat = new Uint8Array(n * 32), shas = [];
+    let crc = 0;
+    for (let i = 0; i < n; i++) {
+      const buf = await f.slice(i * PART, Math.min(f.size, (i + 1) * PART)).arrayBuffer();
+      const d = await crypto.subtle.digest('SHA-256', buf);
+      cat.set(new Uint8Array(d), i * 32); shas.push(hex(d));
+      crc = crc32(new Uint8Array(buf), crc);
+      postMessage({ id, p: (i + 1) / n });
+    }
+    postMessage({ id, done: { h: hex(await crypto.subtle.digest('SHA-256', cat)), crc, shas: n > 1 ? shas : undefined } });
+  } catch (err) { postMessage({ id, err: String(err) }); }
+};`;
+const fpPool = (() => {
+  try {
+    const url = URL.createObjectURL(new Blob([FP_SRC], { type: 'text/javascript' }));
+    const ws = [0, 1].map(() => new Worker(url)), jobs = new Map();
+    let next = 0, seq = 0;
+    for (const w of ws) w.onmessage = e => { const j = jobs.get(e.data.id); if (!j) return;
+      if (e.data.p != null) j.onp(e.data.p);
+      else { jobs.delete(e.data.id); e.data.err ? j.rej(new Error(e.data.err)) : j.res(e.data.done); } };
+    return (f, onp) => new Promise((res, rej) => { const id = ++seq; jobs.set(id, { res, rej, onp }); ws[next++ % ws.length].postMessage({ id, f, PART }); });
+  } catch { return null; }
+})();
 async function fingerprint(f, onp) {
+  if (fpPool) { try { return await fpPool(f, onp); } catch { /* 后台线程出错 → 主线程再算一次 */ } }
   const n = Math.max(1, Math.ceil(f.size / PART));
   const cat = new Uint8Array(n * 32), shas = [];
   let crc = 0;
@@ -1230,7 +1310,7 @@ function renderUp() {
 $('#resume-hint').addEventListener('click', e => {
   if (e.target.id !== 'resume-clear') return;
   const a = FP.all(); for (const k in a) if (a[k].q === 1 || a[k].u === 1) { a[k].q = 0; a[k].u = 0; }
-  FP.save(); renderUp();
+  FP.save(); idb('readwrite', st => st.clear()).catch(() => {}); renderUp();
 });
 $('#uplist').addEventListener('click', e => {
   const r = e.target.closest('.ur.failed'); if (!r) return;
@@ -1280,20 +1360,23 @@ $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
 // 「手机准备照片」这一段（从 iCloud 下载原图 + 转 JPEG / 重新压缩视频）网页看不见，只能量「点开选择器 → 拿到文件」一共多久
 let pickT0 = 0, pickTick = 0;
 const mmss = ms => { const s = Math.round(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
-$('#file').addEventListener('click', () => {
-  pickT0 = Date.now(); clearInterval(pickTick);
-  const show = () => toast(`📲 正在等手机把选中的照片交过来… 已等 ${mmss(Date.now() - pickT0)}<br>手机这时在从 iCloud 下载原图、转成 JPEG（视频要重新压缩）——
-    选得多、有视频会等好几分钟，别关页面、别锁屏`, 0);
-  show(); pickTick = setInterval(() => { if (document.visibilityState === 'visible') show(); }, 1000);
-});
-$('#file').addEventListener('cancel', () => { clearInterval(pickTick); $('#toast').hidden = true; });
-$('#file').addEventListener('change', e => {
-  clearInterval(pickTick);
-  const fs = [...e.target.files]; e.target.value = '';
-  const pickMs = pickT0 && Date.now() - pickT0 < 3 * 3600e3 ? Date.now() - pickT0 : null; pickT0 = 0;
-  if (fs.length) toast(`收到 ${fs.length} 个文件${pickMs > 5000 ? `（手机准备用了 ${mmss(pickMs)}）` : ''}，开始上传`); else $('#toast').hidden = true;
-  enqueue(fs, { src: 'picker', pickMs });
-});
+for (const sel of ['#file', '#file-v']) {
+  const kind = sel === '#file' ? '照片' : '视频';
+  $(sel).addEventListener('click', () => {
+    pickT0 = Date.now(); clearInterval(pickTick);
+    const show = () => toast(`📲 正在等手机把选中的${kind}交过来… 已等 ${mmss(Date.now() - pickT0)}<br>${kind === '照片'
+      ? '手机这时在从 iCloud 下载原图、转成 JPEG —— 选得多会等好几分钟' : '手机这时在把每段视频重新压缩 —— 视频越长越久；下次可以选「选取文件」，不用压缩'}，别关页面、别锁屏`, 0);
+    show(); pickTick = setInterval(() => { if (document.visibilityState === 'visible') show(); }, 1000);
+  });
+  $(sel).addEventListener('cancel', () => { clearInterval(pickTick); $('#toast').hidden = true; });
+  $(sel).addEventListener('change', e => {
+    clearInterval(pickTick);
+    const fs = [...e.target.files]; e.target.value = '';
+    const pickMs = pickT0 && Date.now() - pickT0 < 3 * 3600e3 ? Date.now() - pickT0 : null; pickT0 = 0;
+    if (fs.length) toast(`收到 ${fs.length} 个文件${pickMs > 5000 ? `（手机准备用了 ${mmss(pickMs)}）` : ''}，开始上传`); else $('#toast').hidden = true;
+    enqueue(fs, { src: sel === '#file' ? 'picker' : 'picker-video', pickMs });
+  });
+}
 $('#dir').addEventListener('change', e => { enqueue([...e.target.files], { src: 'dir' }); e.target.value = ''; });
 // 上传完一张就要刷新列表：第一张 1.2 秒后刷，之后连续上传时最多每 10 秒刷一次（以前是每次都往后推，
 // 一直在传就一直不刷，传完才一下子全部跳出来）。重画 250 张的时间线在慢手机上约 0.25 秒，10 秒一次是折中
@@ -1352,6 +1435,13 @@ async function boot() {
   await refresh(true);
   loadSuggest();
   // 上次没传完就被关掉了（多半是 iPhone 内存不够把页面杀了）→ 一进来就把上传面板打开，提示重选同一批
+  // 上次没传完：浏览器里存着的文件直接接着传（不用重选）；没存下来的（太大 / 配额不够）照旧提示重选同一批
+  const kept = await keptFiles();
+  if (kept.length) {
+    toast(`📦 上次没传完的 ${kept.length} 个文件还在这台手机的浏览器里，接着传`, 6000);
+    enqueue(kept, { src: 'restore' });
+    UQ.forEach(t => { if (kept.includes(t.f)) t.kept = true; });              // 传完删存档
+  }
   if (Object.values(FP.all()).some(x => (x.q === 1 || x.u === 1) && !x.done && x.at > Date.now() - 7 * 86400e3)) openSheet();
   setInterval(() => { if (document.visibilityState === 'visible') bgRefresh(); }, 15000);
 }
