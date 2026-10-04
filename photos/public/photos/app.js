@@ -1283,6 +1283,12 @@ function renderUp() {
   const now = Date.now();
   if (!renderUp.s || now - renderUp.s.t > 1500) { const s0 = renderUp.s; renderUp.s = { t: now, b: sent, rate: s0 ? Math.max(0, (sent - s0.b) / ((now - s0.t) / 1000)) : 0 }; }
   const rate = renderUp.s.rate;
+  const act2 = UQ.some(t => t.state === 'active' || t.state === 'queued');
+  $('#pick-more').hidden = !act2;
+  const k = PREP.batch(), tip = $('#pick-tip');
+  tip.hidden = !k;
+  if (k) tip.innerHTML = `📱 这台手机准备一张照片约 <b>${PREP.get().toFixed(1)} 秒</b>（从 iCloud 下载 + 转 JPEG，这段在手机里做，网页插不上手）→
+    建议<b>每批选 ${k} 张左右</b>（只等 ~20 秒），这批传的时候就可以选下一批`;
   const line = UQ.length ? `${ok + dup}/${UQ.length} 完成${dup ? ` · ${dup} 个秒传` : ''}${bad ? ` · <span class="err">${bad} 个失败</span>` : ''} · ${fmtB(sent)} / ${fmtB(tot)}${act && rate > 1e4 ? ` · ${fmtB(rate)}/s` : ''}` : '';
   $('#up-sum').innerHTML = line;
   const btn = $('#btn-up');
@@ -1355,8 +1361,15 @@ async function showQuota() {
 }
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
+$('#pick-more').onclick = () => $('#file').click();   // 和点大框一样：开照片选择器，选中的排在正在传的后面
 // iPhone 上点完 ✓，系统要先把每张照片转好、拷给网页（几百张 + 视频要好几分钟），这段时间网页收不到任何东西 ——
 // 不提示的话看起来就是「点了上传没反应」。所以一点开选择器就挂一条常驻提示，文件到了再换成「收到 N 个」
+// 这台手机准备一张照片要几秒（指数平均，存本机）：用来建议「每批选多少张」—— 让每次只等 ~20 秒，等的同时上一批在传
+const PREP = {
+  get() { const v = Number(localStorage.np_prep); return v > 0 ? v : null; },
+  add(ms, n) { if (!(ms > 2000 && n > 0)) return; const per = ms / n / 1000, o = this.get(); localStorage.np_prep = String(o ? o * 0.6 + per * 0.4 : per); },
+  batch() { const v = this.get(); return v ? Math.max(10, Math.min(100, Math.round(20 / v / 5) * 5)) : null; },
+};
 // 「手机准备照片」这一段（从 iCloud 下载原图 + 转 JPEG / 重新压缩视频）网页看不见，只能量「点开选择器 → 拿到文件」一共多久
 let pickT0 = 0, pickTick = 0;
 const mmss = ms => { const s = Math.round(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
@@ -1373,7 +1386,11 @@ for (const sel of ['#file', '#file-v']) {
     clearInterval(pickTick);
     const fs = [...e.target.files]; e.target.value = '';
     const pickMs = pickT0 && Date.now() - pickT0 < 3 * 3600e3 ? Date.now() - pickT0 : null; pickT0 = 0;
-    if (fs.length) toast(`收到 ${fs.length} 个文件${pickMs > 5000 ? `（手机准备用了 ${mmss(pickMs)}）` : ''}，开始上传`); else $('#toast').hidden = true;
+    if (sel === '#file') PREP.add(pickMs, fs.length);
+    const k = PREP.batch();
+    if (fs.length) toast(`收到 ${fs.length} 个文件${pickMs > 5000 ? `（手机准备用了 ${mmss(pickMs)}）` : ''}，开始上传` +
+      (k && fs.length > k * 1.5 ? `<br>💡 这台手机每张要准备约 ${PREP.get().toFixed(1)} 秒，下次每批选 ${k} 张左右，传的同时点「再选一批」会更顺` : ''), 7000);
+    else $('#toast').hidden = true;
     enqueue(fs, { src: sel === '#file' ? 'picker' : 'picker-video', pickMs });
   });
 }

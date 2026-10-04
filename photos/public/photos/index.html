@@ -115,9 +115,13 @@
       <b>上传</b><span id="up-sum" class="s"></span><span class="grow"></span>
       <button class="btn ghost" id="up-close">收起</button>
     </div>
+    <!-- 边选边传：上传进行中一直显示。手机准备照片（从 iCloud 下载 + 转 JPEG）是一批一批的、整批做完才交给网页，
+         所以一次选少一点、传的同时选下一批，等待就和上传重叠起来了 -->
+    <button class="btn pri more-pick" id="pick-more" hidden>📷 再选一批 <span class="s">（这批还在传，不用等）</span></button>
+    <p id="pick-tip" class="s tip" hidden></p>
     <label class="drop" id="drop">
       <input id="file" type="file" multiple accept="image/*,.heic,.heif,.dng">
-      <span>📷 点这里选照片<br><span class="s">电脑上也可以直接把一堆文件（照片、视频都行）拖进来 · 可以一次选几百个<br>📱 iPhone 上一次选 50 张以内最稳：点完 ✓ 手机要先从 iCloud 下载原图、转成 JPEG 才交给网页</span></span>
+      <span>📷 点这里选照片<br><span class="s">电脑上也可以直接把一堆文件（照片、视频都行）拖进来 · 可以一次选几百个<br>📱 iPhone 上一次少选点（二三十张），传的时候再点「再选一批」最顺：点完 ✓ 手机要先从 iCloud 下载原图、转成 JPEG，整批做完才交给网页</span></span>
     </label>
     <!-- 照片和视频分开选：选照片时夹着视频，iPhone 要先把每段视频重新压缩一遍才交出任何文件（一分钟的视频要压一分钟左右） -->
     <label class="drop sm" id="drop-v">
