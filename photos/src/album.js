@@ -46,9 +46,16 @@ export class Album extends DurableObject {
     this.rcache = new Map();     // 查询结果 LRU：key = ver|query|hasVec
     this.qvecs = new Map();      // 查询向量（永不失效：模型不变，同一个词的向量就不变）
     this.waiters = new Map();    // 正在等 GPU 端算向量的查询
-    this.listCache = null;       // list() 的序列化结果（按 ver 失效）
+    this.listCache = null;       // list() 的序列化结果（按 ver 失效；增量客户端可以先拿旧的再补增量，见 listFor）
+    // 变更日志（只在内存里，不写库 —— 免费版每天写入有上限）：bump(hs) 记下「这几张在第几版变了」，
+    // 前端带着它手上的版本号来要增量，只回变过的那几张。j0 = 这个实例起来时的版本号，早于它的问不了；
+    // jall = 最近一次「说不清哪几张变了」的版本（整库恢复、改人物名）；jg = 最近一次全局小表（人 / 人物 / 时刻 / 场景 / GPU 在线）变了的版本
+    this.jh = new Map(); this.j0 = Infinity; this.jall = 0; this.jg = 0;
     this.disk = null;            // GPU 端每分钟量一次的真实磁盘占用 { used, free, at }（见 quota）
-    ctx.blockConcurrencyWhile(async () => { try { this.migrate(); } catch (e) { this.migErr = String(e); } });  // 写额度用完时别连读也读不了
+    ctx.blockConcurrencyWhile(async () => {
+      try { this.migrate(); } catch (e) { this.migErr = String(e); }  // 写额度用完时别连读也读不了
+      try { this.j0 = this.ver; } catch { /* 库读不了：增量一律退回全量 */ }
+    });
     ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair('ping', 'pong'));
   }
 
@@ -101,11 +108,19 @@ export class Album extends DurableObject {
       this.sql.exec(`INSERT INTO kv VALUES ('ver','1')`);
   }
 
-  /* ---------- 版本号：任何影响「列表/搜索结果」的写入都要 bump，所有缓存按它失效 ---------- */
+  /* ---------- 版本号：任何影响「列表/搜索结果」的写入都要 bump，所有缓存按它失效 ----------
+   * hs 说清楚改了哪几张，前端就只补这几张（增量）：
+   *   bump()          说不清（整库恢复、改人物名……）→ 早于这一版的客户端只能重拉全量
+   *   bump([])        只动了全局小表（用户、人物、时刻、场景、GPU 在线）
+   *   bump(h | [h…])  改了这几张；glob=true 表示全局小表也动了
+   * 一张照片的 Live Photo 另一半不用自己列：出增量时会顺着 pair 带上 */
   get ver() { return Number(this.sql.exec(`SELECT v FROM kv WHERE k='ver'`).one().v); }
-  bump() {
-    this.sql.exec(`UPDATE kv SET v = CAST(v AS INTEGER) + 1 WHERE k='ver'`);
-    this.idx = null; this.listCache = null; this.rcache.clear();
+  bump(hs, glob = false) {
+    const v = Number(this.sql.exec(`UPDATE kv SET v = CAST(v AS INTEGER) + 1 WHERE k='ver' RETURNING v`).one().v);
+    if (hs === undefined) this.jall = v;
+    else for (const h of [].concat(hs)) this.jh.set(h, v);
+    if (hs === undefined || glob || (Array.isArray(hs) && !hs.length)) this.jg = v;
+    this.idx = null; this.rcache.clear();
   }
   kvGet(k, d = null) { const r = this.sql.exec(`SELECT v FROM kv WHERE k=?`, k).toArray(); return r.length ? r[0].v : d; }
   kvSet(k, v) { this.sql.exec(`INSERT INTO kv VALUES (?,?) ON CONFLICT(k) DO UPDATE SET v=excluded.v`, k, String(v)); }
@@ -125,7 +140,7 @@ export class Album extends DurableObject {
     const r = this.sql.exec(`SELECT id, name FROM users WHERE name=?`, name).toArray();
     if (r.length) return r[0];
     this.sql.exec(`INSERT INTO users (name, created) VALUES (?,?)`, name, now());
-    this.bump();
+    this.bump([]);
     return this.sql.exec(`SELECT id, name FROM users WHERE name=?`, name).one();
   }
   /* ---------- API 密钥：给脚本 / 命令行批量上传用。只存 SHA-256，原文只在创建时返回一次 ---------- */
@@ -148,14 +163,14 @@ export class Album extends DurableObject {
    * 名字 + 大小都一样却是两张不同照片的概率可以忽略。命中的顺手记上「我也有这张」，和 init 秒传一样 */
   probe(uid, items) {
     this.lastUp = Date.now();
-    const hit = [];
+    const hit = [], hs = [];
     (items || []).slice(0, 5000).forEach(([name, size], i) => {
       const r = this.sql.exec(`SELECT h FROM media WHERE size=? AND name=? AND status='ready' AND deleted=0 LIMIT 1`, Number(size), String(name)).toArray()[0];
       if (!r) return;
       this.sql.exec(`INSERT OR IGNORE INTO contrib VALUES (?,?,?)`, r.h, uid, now());
-      hit.push(i);
+      hit.push(i); hs.push(r.h);
     });
-    if (hit.length) this.bump();
+    if (hit.length) this.bump(hs);
     return { hit };
   }
 
@@ -176,7 +191,7 @@ export class Album extends DurableObject {
     this.sql.exec(`INSERT OR IGNORE INTO contrib VALUES (?,?,?)`, h, uid, now());
     if (cur && cur.status === 'ready') {
       if (cur.deleted) this.sql.exec(`UPDATE media SET deleted=0 WHERE h=?`, h);
-      this.bump();
+      this.bump(h);
       return { status: 'exists' };
     }
     if (cur) {
@@ -232,10 +247,27 @@ export class Album extends DurableObject {
     this.leases.set(k, Date.now());
     return 'go';
   }
-  partDone(h, n, etag, sha) {
+  /** 一块开始写之前：状态 + 占位一次问完（以前是 partInfo、leasePart 两次 —— 引擎在欧洲边缘、相册数据库在美国西部，每次来回 ~150 ms） */
+  partBegin(h, n, lease = true) {
+    const info = this.partInfo(h);
+    if (!lease || !info || info.status !== 'uploading' || !(n >= 1 && n <= info.nparts)) return { info };
+    return { info, lease: this.leasePart(h, n) };
+  }
+  /** 一块写完。finish = 收齐了就顺手收尾（单块的文件 —— 绝大多数手机照片 —— 客户端就不用再单独发 complete） */
+  async partDone(h, n, etag, sha, finish = false) {
     this.lastUp = Date.now();
     this.sql.exec(`INSERT OR REPLACE INTO parts VALUES (?,?,?,?)`, h, n, etag, sha);
     this.leases.delete(`${h}:${n}`);
+    if (!finish) return null;
+    const m = this.partInfo(h);
+    if (!m || this.sql.exec(`SELECT COUNT(*) c FROM parts WHERE h=?`, h).one().c !== m.nparts) return null;
+    const c = await this.complete(h);
+    // 记几分钟：老客户端（np_upload.py、浏览器里没刷新的旧页面）随后照样会来 complete，要回给它和以前一样的结论
+    //（done 而不是「已存在」—— 不然会被算成秒传；corrupt 而不是「缺块」—— 不然它会重传三轮再报一个看不懂的错）
+    if (!this.finished) this.finished = new Map();
+    for (const [k, v] of this.finished) if (Date.now() - v.at > 600e3) this.finished.delete(k);
+    if (c.status === 'done' || c.status === 'corrupt') this.finished.set(h, { s: c.status, at: Date.now() });
+    return c;
   }
   partFailed(h, n) { this.leases.delete(`${h}:${n}`); }
 
@@ -252,6 +284,8 @@ export class Album extends DurableObject {
     this.lastUp = Date.now();
     const m = this.partInfo(h);
     if (!m) throw new Error('unknown upload');
+    const f = this.finished?.get(h);
+    if (f) { this.finished.delete(h); if (f.s === 'corrupt' || m.status === 'ready') return { status: f.s }; }
     if (m.status === 'ready') return { status: 'exists' };
     const parts = this.sql.exec(`SELECT n, etag, sha FROM parts WHERE h=? ORDER BY n`, h).toArray();
     if (parts.length !== m.nparts) return { status: 'missing', done: parts.map(p => p.n) };
@@ -277,7 +311,7 @@ export class Album extends DurableObject {
     }
     this.sql.exec(`UPDATE media SET status='ready', upload_id=NULL WHERE h=?`, h);
     this.sql.exec(`DELETE FROM parts WHERE h=?`, h);
-    this.bump();
+    this.bump(h);
     this.notifyPipe({ t: 'new', h });
     return { status: 'done' };
   }
@@ -286,7 +320,7 @@ export class Album extends DurableObject {
   setDims(h, w, hh, dur) {
     this.sql.exec(`UPDATE media SET w=COALESCE(w,?), hh=COALESCE(hh,?), dur=COALESCE(dur,?) WHERE h=?`, num(w), num(hh), num(dur), h);
   }
-  setFlag(h, bit) { this.sql.exec(`UPDATE media SET flags = flags | ? WHERE h=?`, bit, h); this.bump(); }
+  setFlag(h, bit) { this.sql.exec(`UPDATE media SET flags = flags | ? WHERE h=?`, bit, h); this.bump(h); }
   meta(h) { return this.sql.exec(`SELECT h, kind, type, name, size, crc, taken, status, deleted FROM media WHERE h=?`, h).toArray()[0] || null; }
   isContrib(h, uid) { return this.sql.exec(`SELECT 1 FROM contrib WHERE h=? AND uid=?`, h, uid).toArray().length > 0; }
 
@@ -300,53 +334,106 @@ export class Album extends DurableObject {
       if (!n) this.sql.exec(`UPDATE media SET deleted=1 WHERE h=?`, x);
       if (x === h) left = n;
     }
-    this.bump();
+    this.bump(h);
     return { hidden: !left };
   }
 
-  /* ---------- 列表：前端拿到全量元数据后，按天/人/类型筛选都在本机做（瞬时，不用再请求） ---------- */
+  /* ---------- 列表：前端拿到全量元数据后，按天/人/类型筛选都在本机做（瞬时，不用再请求） ----------
+   * 1.4 万张时全量是 9 MB（压缩后 1.7 MB），在库里拼一次要 1 秒左右 —— 这一秒里相册的数据库谁的请求都接不了，
+   * 正在上传的人只能排队。而 GPU 端一直在写结果，版本号几秒一变，以前每个打开着页面的人每 15 秒就要整份重拉一次。
+   * 现在：页面第一次打开拿全量（可以是几分钟前拼好的那份，见 listFor），之后只要增量（listDelta）。 */
+  itemOf(r, v, contrib, ppl, nf) {
+    return {
+      ...(v ? { lv: v.h, lvf: v.flags, lvd: v.dur } : {}),
+      h: r.h, k: r.kind === 'video' ? 'v' : 'i', n: r.name, s: r.size, t: r.taken, c: r.created,
+      w: r.w, hh: r.hh, d: r.dur, f: r.flags, a: r.aver > 0 ? 1 : 0, pl: r.place,
+      cap: r.caption, tg: r.tags ? JSON.parse(r.tags) : null,
+      b: r.burst, bc: r.cover, sc: r.scene, u: contrib.get(r.h) || [], p: ppl.get(r.h) || [], nf: nf.get(r.h) || 0,
+      cam: r.cam, q: r.score, mo: r.moment, pn: r.pinned, la: r.lat, lo: r.lon,
+      ...(r.flags & 16 ? { gs: r.gsize, gp: r.gplan } : {}),
+      ...(r.src ? { src: r.src, ai: JSON.parse(r.ai || '{}') } : {}),
+    };
+  }
+  /** 照片之外的几张小表：用户、人物、场景、时刻、GPU 在不在线、能用哪些改图模型 */
+  globals() {
+    const pipe = this.pipeOnline();
+    return {
+      users: this.sql.exec(`SELECT id, name FROM users`).toArray(),
+      persons: this.sql.exec(`SELECT id, name, uid FROM persons`).toArray(),
+      scenes: this.sql.exec(`SELECT id, label, n FROM scenes ORDER BY n DESC`).toArray(),
+      moments: this.sql.exec(`SELECT * FROM moments ORDER BY start`).toArray(),
+      // 能用哪些改图模型 = GPU 端连上来时报的（它那边拿不到网关凭证就是空的）；离线时一个都没有
+      pipe, ai: pipe ? JSON.parse(this.kvGet('edit_models', '[]')) : [],
+    };
+  }
+  /** 一批照片的 contrib / 人物 / 人脸数（hs = null 是全库） */
+  sideMaps(hs) {
+    const w = hs ? ` WHERE h IN (SELECT value FROM json_each(?))` : '', a = hs ? [JSON.stringify(hs)] : [];
+    const contrib = new Map(), ppl = new Map(), nf = new Map();
+    for (const r of this.sql.exec(`SELECT h, uid FROM contrib${w} ORDER BY at`, ...a)) {
+      if (!contrib.has(r.h)) contrib.set(r.h, []); contrib.get(r.h).push(r.uid);
+    }
+    for (const r of this.sql.exec(`SELECT DISTINCT h, person FROM faces WHERE person IS NOT NULL${w.replace(' WHERE', ' AND')}`, ...a)) {
+      if (!ppl.has(r.h)) ppl.set(r.h, []); ppl.get(r.h).push(r.person);
+    }
+    for (const r of this.sql.exec(`SELECT h, COUNT(*) c FROM faces${w} GROUP BY h`, ...a)) nf.set(r.h, r.c);
+    return { contrib, ppl, nf };
+  }
   list() {
     const ver = this.ver;
     if (this.listCache && this.listCache.ver === ver) return this.listCache;
-    const contrib = new Map();
-    for (const r of this.sql.exec(`SELECT h, uid FROM contrib ORDER BY at`)) {
-      if (!contrib.has(r.h)) contrib.set(r.h, []); contrib.get(r.h).push(r.uid);
-    }
-    const ppl = new Map();
-    for (const r of this.sql.exec(`SELECT DISTINCT h, person FROM faces WHERE person IS NOT NULL`)) {
-      if (!ppl.has(r.h)) ppl.set(r.h, []); ppl.get(r.h).push(r.person);
-    }
-    const nf = new Map();
-    for (const r of this.sql.exec(`SELECT h, COUNT(*) c FROM faces GROUP BY h`)) nf.set(r.h, r.c);
+    const { contrib, ppl, nf } = this.sideMaps(null);
     const items = [];
     const rows = this.sql.exec(`SELECT * FROM media WHERE status='ready' AND deleted=0`).toArray();
     const lv = new Map(rows.filter(r => r.live).map(r => [r.h, r]));
     for (const r of rows) {
       if (r.live) continue;                                     // Live Photo 的视频挂在照片上（lv），不单独占一格
-      const v = r.pair && lv.get(r.pair);
-      items.push({
-        ...(v ? { lv: v.h, lvf: v.flags, lvd: v.dur } : {}),
-        h: r.h, k: r.kind === 'video' ? 'v' : 'i', n: r.name, s: r.size, t: r.taken, c: r.created,
-        w: r.w, hh: r.hh, d: r.dur, f: r.flags, a: r.aver > 0 ? 1 : 0, pl: r.place,
-        cap: r.caption, tg: r.tags ? JSON.parse(r.tags) : null,
-        b: r.burst, bc: r.cover, sc: r.scene, u: contrib.get(r.h) || [], p: ppl.get(r.h) || [], nf: nf.get(r.h) || 0,
-        cam: r.cam, q: r.score, mo: r.moment, pn: r.pinned, la: r.lat, lo: r.lon,
-        ...(r.flags & 16 ? { gs: r.gsize, gp: r.gplan } : {}),
-        ...(r.src ? { src: r.src, ai: JSON.parse(r.ai || '{}') } : {}),
-      });
+      items.push(this.itemOf(r, r.pair && lv.get(r.pair), contrib, ppl, nf));
     }
-    const users = this.sql.exec(`SELECT id, name FROM users`).toArray();
-    const persons = this.sql.exec(`SELECT id, name, uid FROM persons`).toArray();
-    const scenes = this.sql.exec(`SELECT id, label, n FROM scenes ORDER BY n DESC`).toArray();
-    const moments = this.sql.exec(`SELECT * FROM moments ORDER BY start`).toArray();
-    const pipe = this.pipeOnline();
-    // 能用哪些改图模型 = GPU 端连上来时报的（它那边拿不到网关凭证就是空的）；离线时一个都没有
-    const ai = pipe ? JSON.parse(this.kvGet('edit_models', '[]')) : [];
-    const body = JSON.stringify({ ver, items, users, persons, scenes, moments, pipe, ai });
+    const body = JSON.stringify({ ver, items, ...this.globals() });
     let epoch = this.kvGet('epoch', '');
     if (!epoch) { epoch = crypto.randomUUID().slice(0, 8); this.kvSet('epoch', epoch); }
-    this.listCache = { ver, epoch, body };
+    this.listCache = { ver, epoch, body, at: Date.now() };
     return this.listCache;
+  }
+  /** 增量：since 之后变过的那几张 + （变过的话）全局小表。答不了（日志不够早 / 中间有说不清的改动 / 变得太多）→ null，调用方回全量 */
+  listDelta(since) {
+    const ver = this.ver;
+    if (!(since >= this.j0) || since < this.jall || since > ver) return null;
+    if (since === ver) return { ver, delta: true, items: [], gone: [] };
+    const hs = new Set();
+    for (const [h, v] of this.jh) if (v > since) hs.add(h);
+    if (hs.size > 3000) return null;
+    const items = [], gone = [];
+    if (hs.size) {
+      // Live Photo 的另一半一起看：视频变了 → 挂着它的那张照片重发；照片配上了视频 → 视频从格子里撤掉
+      for (const r of this.sql.exec(`SELECT pair FROM media WHERE pair IS NOT NULL AND h IN (SELECT value FROM json_each(?))`, JSON.stringify([...hs]))) hs.add(r.pair);
+      const list = [...hs], arg = JSON.stringify(list);
+      // 按入库顺序（和全量一样）：新照片接在前端列表后面，顺序和刷新页面看到的一致
+      const rs = this.sql.exec(`SELECT * FROM media WHERE h IN (SELECT value FROM json_each(?)) ORDER BY rowid`, arg).toArray();
+      const rows = new Map(rs.map(r => [r.h, r]));
+      const { contrib, ppl, nf } = this.sideMaps(list);
+      for (const h of list) if (!rows.has(h)) gone.push(h);
+      for (const r of rs) {
+        if (r.status !== 'ready' || r.deleted || r.live) { gone.push(r.h); continue; }
+        const v = r.pair && rows.get(r.pair);
+        items.push(this.itemOf(r, v && v.live && v.status === 'ready' && !v.deleted ? v : null, contrib, ppl, nf));
+      }
+    }
+    return { ver, delta: true, items, gone, ...(this.jg > since ? this.globals() : {}) };
+  }
+  /** /api/list 的入口。since = 增量；stale = 前端拿到之后马上会再要增量 → 几分钟内拼好的那份旧全量就够了，不用为它再占数据库一秒 */
+  listFor({ since, stale } = {}) {
+    if (since != null) {
+      const d = this.listDelta(since);
+      if (d) return { delta: JSON.stringify(d) };
+    }
+    const c = this.listCache;
+    if (stale && c && Date.now() - c.at < 10 * 60e3 && c.ver >= this.j0 && c.ver >= this.jall) {
+      let n = 0; for (const v of this.jh.values()) if (v > c.ver) n++;
+      if (n <= 3000) return c;
+    }
+    return this.list();
   }
 
   stats() {
@@ -426,16 +513,20 @@ export class Album extends DurableObject {
       }
     }
     if (!pid) throw new Error('no target');
+    const hs = [
+      ...(cluster != null ? this.sql.exec(`SELECT DISTINCT h FROM faces WHERE cluster=? AND person IS NULL`, cluster).toArray() : []),
+      ...(face != null ? this.sql.exec(`SELECT h FROM faces WHERE id=?`, face).toArray() : [])].map(r => r.h);
     if (cluster != null) this.sql.exec(`UPDATE faces SET person=?, confirmed=1 WHERE cluster=? AND person IS NULL`, pid, cluster);
     if (face != null) this.sql.exec(`UPDATE faces SET person=?, confirmed=1 WHERE id=?`, pid, face);
-    this.bump();
+    this.bump(hs, true);
     this.notifyPipe({ t: 'recluster' });
     return { person: pid };
   }
   unassign(face) {
     // 「这张不是他」：标成已确认的「无主」（person=NULL, confirmed=1），机器以后不会再把它自动归回去
+    const fh = this.sql.exec(`SELECT h FROM faces WHERE id=?`, face).toArray().map(r => r.h);
     this.sql.exec(`UPDATE faces SET person=NULL, cluster=NULL, confirmed=1 WHERE id=?`, face);
-    this.bump();
+    this.bump(fh);
     return { ok: true };
   }
   personNamed(name, unclaimedOnly) {
@@ -450,9 +541,10 @@ export class Album extends DurableObject {
     if (a.uid && b.uid && a.uid !== b.uid) return { error: '这两张卡绑的是两个不同的账号，不能合并' };
     if (a.uid && !b.uid) this.sql.exec(`UPDATE persons SET uid=? WHERE id=?`, a.uid, b.id);
     if (!b.name && a.name) this.sql.exec(`UPDATE persons SET name=? WHERE id=?`, a.name, b.id);
+    const hs = this.sql.exec(`SELECT DISTINCT h FROM faces WHERE person=?`, a.id).toArray().map(r => r.h);
     this.sql.exec(`UPDATE faces SET person=? WHERE person=?`, b.id, a.id);
     this.sql.exec(`DELETE FROM persons WHERE id=?`, a.id);
-    this.bump();
+    this.bump(hs, true);
     this.notifyPipe({ t: 'recluster' });
     return { person: b.id };
   }
@@ -461,7 +553,7 @@ export class Album extends DurableObject {
     const mine = this.sql.exec(`SELECT id FROM persons WHERE uid=?`, uid).toArray()[0];
     if (mine) return mine.id === pid ? { person: pid } : this.mergePersons(pid, mine.id);
     this.sql.exec(`UPDATE persons SET uid=? WHERE id=? AND uid IS NULL`, uid, pid);
-    this.bump();
+    this.bump([]);
     this.notifyPipe({ t: 'recluster' });
     return { person: pid };
   }
@@ -478,7 +570,7 @@ export class Album extends DurableObject {
     if (!r || !r.burst) return { error: 'not in a group' };
     this.sql.exec(`UPDATE media SET cover=0, pinned=0 WHERE burst=?`, r.burst);
     this.sql.exec(`UPDATE media SET cover=1, pinned=1 WHERE h=?`, h);
-    this.bump();
+    this.bump(this.sql.exec(`SELECT h FROM media WHERE burst=?`, r.burst).toArray().map(x => x.h));
     return { ok: true };
   }
 
@@ -676,16 +768,16 @@ export class Album extends DurableObject {
     // 只有 /pipe/ws 会走到这里（外层 Worker 已经验过 PIPE_TOKEN）
     const pair = new WebSocketPair();
     this.ctx.acceptWebSocket(pair[1], ['pipe']);
-    this.bump();                  // 列表里带着「GPU 在线」状态，而列表是按版本号缓存的 —— 上下线也得算一次写入
+    this.bump([]);                  // 列表里带着「GPU 在线」状态，而列表是按版本号缓存的 —— 上下线也得算一次写入
     return new Response(null, { status: 101, webSocket: pair[0] });
   }
   async webSocketMessage(ws, data) {
     let m; try { m = JSON.parse(data); } catch { return; }
     if (m.t === 'vecs') this.putQvecs(m.items);
-    if (m.t === 'hello') { this.kvSet('edit_models', JSON.stringify((m.edit || []).filter(k => EDIT_MODELS[k]))); this.bump(); }
+    if (m.t === 'hello') { this.kvSet('edit_models', JSON.stringify((m.edit || []).filter(k => EDIT_MODELS[k]))); this.bump([]); }
   }
-  async webSocketClose(ws) { try { ws.close(); } catch { /* 已关闭 */ } this.bump(); }
-  async webSocketError() { this.bump(); }
+  async webSocketClose(ws) { try { ws.close(); } catch { /* 已关闭 */ } this.bump([]); }
+  async webSocketError() { this.bump([]); }
 
   putQvecs(items) {
     for (const { q, vec } of items || []) {
@@ -712,6 +804,12 @@ export class Album extends DurableObject {
     return { items, queries, edits: this.editsPending(), known_queries: known.length, total: this.sql.exec(`SELECT COUNT(*) c FROM media WHERE status='ready' AND deleted=0`).one().c,
       conf: `${c.n}:${c.s}`, upAgo: this.lastUp ? Math.round((Date.now() - this.lastUp) / 1000) : null };
   }
+  /** 缩略图快车道（GPU 端）：还没缩略图 / 预览的照片，新传的在前 —— 时间线上的灰格子先补。
+   * 只要还没分析过的（aver < 当前版本）：分析过还没有缩略图 = 解不了码，再试也没用 */
+  noThumb(aver, limit = 48) {
+    return this.sql.exec(`SELECT h, kind, name, size, flags FROM media WHERE status='ready' AND deleted=0 AND live=0 AND kind='image'
+      AND (flags & 3) != 3 AND aver < ? ORDER BY created DESC LIMIT ?`, aver, Math.min(200, limit)).toArray();
+  }
   knownQueries() { return this.sql.exec(`SELECT q FROM qvec`).toArray().map(r => r.q); }
 
   /** 一张照片的分析结果：EXIF/地点/描述/标签/人脸/图像向量。重新分析会整体替换这张的人脸 */
@@ -719,7 +817,7 @@ export class Album extends DurableObject {
    * 以前一条一个请求，几百个请求轮流占着数据库，正在上传的人每个请求都要排在它们后面 */
   results(list) {
     const out = (list || []).slice(0, 200).map(r => this.result(r, true));
-    this.stamp('res_seq'); this.bump();
+    this.stamp('res_seq'); this.bump((list || []).slice(0, 200).map(r => r.h));
     return { ok: true, n: out.length, res: out };
   }
   result(r, batch = false) {
@@ -749,7 +847,7 @@ export class Album extends DurableObject {
     }
     if (r.emb) this.sql.exec(`INSERT OR REPLACE INTO emb VALUES (?,?,?)`, h, r.emb_scale, b64dec(r.emb).buffer);
     this.pairLive(h);
-    if (!batch) this.bump();
+    if (!batch) this.bump(h);
     return { ok: true, faces: faceIds };
   }
 
@@ -785,7 +883,8 @@ export class Album extends DurableObject {
    * （2026-10-03 出过一次）。现在是：先读出当前值，和要写的值比，不一样才写；没变化的聚类只写两个序号。
    * 返回 changed（改了几行）和 wrote（库报告的实际写入行数，含索引），方便看额度花在哪。 */
   clusters(c) {
-    let changed = 0, wrote = 0;
+    let changed = 0, wrote = 0, glob = false;
+    const hs = new Set();                                       // 列表里看得到变化的照片（增量只发这些）
     const put = (sql, ...a) => { const r = this.sql.exec(sql, ...a); changed++; wrote += r.rowsWritten ?? 0; };
     const rows = (sql, ...a) => this.sql.exec(sql, ...a).toArray();
     const nul = v => (v === undefined ? null : v);
@@ -797,9 +896,9 @@ export class Album extends DurableObject {
     if (c.auto) {
       // 没人工确认过的脸：归谁就是 c.auto 说的，没提到的就是没人
       const want = new Map(Object.entries(c.auto).map(([id, p]) => [Number(id), p]));
-      for (const r of rows(`SELECT id, person FROM faces WHERE confirmed=0`)) {
+      for (const r of rows(`SELECT id, h, person FROM faces WHERE confirmed=0`)) {
         const w = nul(want.get(r.id));
-        if (r.person !== w) put(`UPDATE faces SET person=? WHERE id=?`, w, r.id);
+        if (r.person !== w) { put(`UPDATE faces SET person=? WHERE id=?`, w, r.id); hs.add(r.h); }
       }
     }
     if (c.bursts) {
@@ -816,7 +915,7 @@ export class Album extends DurableObject {
       }
       for (const r of cur) {
         const w = want.get(r.h);
-        if (r.burst !== w.burst || r.cover !== w.cover) put(`UPDATE media SET burst=?, cover=? WHERE h=?`, w.burst, w.cover, r.h);
+        if (r.burst !== w.burst || r.cover !== w.cover) { put(`UPDATE media SET burst=?, cover=? WHERE h=?`, w.burst, w.cover, r.h); hs.add(r.h); }
       }
     }
     // 「时刻」和「场景」：先把标签表对齐（只增删改有差别的），再对齐每张照片属于哪个
@@ -826,14 +925,14 @@ export class Album extends DurableObject {
       const ids = new Set();
       for (const l of labels) {
         ids.add(l.id);
-        if (cur.get(l.id) !== key(l)) put(`INSERT OR REPLACE INTO ${table} (${cols.join(',')}) VALUES (${cols.map(() => '?').join(',')})`, ...cols.map(k => nul(l[k])));
+        if (cur.get(l.id) !== key(l)) { put(`INSERT OR REPLACE INTO ${table} (${cols.join(',')}) VALUES (${cols.map(() => '?').join(',')})`, ...cols.map(k => nul(l[k]))); glob = true; }
       }
-      for (const id of cur.keys()) if (!ids.has(id)) put(`DELETE FROM ${table} WHERE id=?`, id);
+      for (const id of cur.keys()) if (!ids.has(id)) { put(`DELETE FROM ${table} WHERE id=?`, id); glob = true; }
     };
     const syncMembers = (col, items) => {
       for (const r of rows(`SELECT h, ${col} FROM media`)) {
         const w = nul(items[r.h]);
-        if (r[col] !== w) put(`UPDATE media SET ${col}=? WHERE h=?`, w, r.h);
+        if (r[col] !== w) { put(`UPDATE media SET ${col}=? WHERE h=?`, w, r.h); hs.add(r.h); }
       }
     };
     if (c.moments) {
@@ -850,7 +949,7 @@ export class Album extends DurableObject {
     if (c.sem_floor != null) kvPut('sem_floor', c.sem_floor);
     if (c.sem_win != null) kvPut('sem_win', c.sem_win);
     this.stamp('cl_seq');
-    if (changed) this.bump();                                  // 什么都没变就不用让列表 / 搜索缓存失效
+    if (changed) this.bump([...hs], glob);                     // 什么都没变就不用让列表 / 搜索缓存失效
     return { ok: true, changed, wrote };
   }
 
@@ -1023,7 +1122,7 @@ export class Album extends DurableObject {
     } else this.sql.exec(`UPDATE media SET deleted=0 WHERE h=?`, h);
     this.sql.exec(`INSERT OR IGNORE INTO contrib VALUES (?,?,?)`, h, e.uid, now());
     this.sql.exec(`UPDATE edits SET status='done', out_h=?, err=NULL, done=? WHERE id=?`, h, now(), e.id);
-    this.bump();
+    this.bump(h);
     this.notifyPipe({ t: 'new', h });
     return { ok: true, h, name };
   }
@@ -1061,7 +1160,7 @@ export class Album extends DurableObject {
   setGplan(h, plan, size, crc) {
     if (size) this.sql.exec(`UPDATE media SET gplan=?, gsize=?, gcrc=?, flags = flags | 16 WHERE h=?`, String(plan).slice(0, 80), Number(size), Number(crc) >>> 0, h);
     else this.sql.exec(`UPDATE media SET gplan=? WHERE h=?`, String(plan).slice(0, 200), h);
-    this.bump();
+    this.bump(h);
     return { ok: true };
   }
   media4pipe() {

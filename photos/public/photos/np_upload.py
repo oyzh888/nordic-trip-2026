@@ -66,14 +66,16 @@ def upload(api, path, size, log):
     if r.get('status') == 'exists': return 'dup'
     n, done = r['nparts'], set(r.get('done') or [])
     for _round in range(3):
+        c = None
         with open(path, 'rb') as f:
             for i in range(1, n + 1):
                 if i in done: continue
                 f.seek((i - 1) * PART); b = f.read(PART)
-                api.call('PUT', f'/api/upload/part?h={h}&n={i}', data=b, headers={'content-type': 'application/octet-stream', 'x-part-sha256': shas[i - 1]})
+                pr = api.call('PUT', f'/api/upload/part?h={h}&n={i}', data=b, headers={'content-type': 'application/octet-stream', 'x-part-sha256': shas[i - 1]})
+                if pr.get('status') in ('done', 'corrupt') or pr.get('complete'): c = {'status': pr.get('status') or 'done'}   # 单块：服务端顺手收了尾
                 done.add(i)
                 if n > 1: log(f'  {name}  {len(done)}/{n} 块')
-        c = api.call('POST', '/api/upload/complete', {'h': h})
+        c = c or api.call('POST', '/api/upload/complete', {'h': h})
         if c.get('status') in ('done', 'exists'): return 'ok' if not r.get('done') else 'resumed'
         if c.get('status') == 'missing': done = set(c.get('done') or []); continue
         raise RuntimeError(f'complete: {c}')

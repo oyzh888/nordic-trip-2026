@@ -72,11 +72,15 @@ def main():
         t_end = time.time() + 60
         while time.time() < t_end and sum(1 for k, u, _ in reqs if k == 'done' and '/upload/aux' in u) < 2 * N:
             pg.wait_for_timeout(500)
-        last_up = max(t for k, u, t in reqs if k == 'done' and '/upload/complete' in u)
+        last_up = max(t for k, u, t in reqs if k == 'done' and ('/upload/complete' in u or '/upload/part' in u))
         aux = sorted(t for k, u, t in reqs if k == 'send' and '/upload/aux' in u)
         check('后处理和上传完全分开：缩略图请求全部在最后一个文件传完之后才发', aux and aux[0] >= last_up,
               f'缩略图 {len(aux)} 个请求，第一个在最后一个上传完成后 {(aux[0] - last_up) if aux else 0:.2f} 秒')
         check('缩略图最后都补齐了（每张 2 个：缩略图 + 预览）', len(aux) >= 2 * N, len(aux))
+        per = lambda k: sum(1 for kk, u, _ in reqs if kk == 'send' and k in u)
+        check('≤ 8 MB 的照片：服务端在传那一块时顺手收尾，浏览器不再单独发 complete（每张省一个跨洋来回）',
+              per('/upload/complete') == 0 and per('/upload/part') == N and per('/upload/init') == N,
+              {k: per(k) for k in ('/upload/init', '/upload/part', '/upload/complete')})
         last = pg.evaluate("() => { const e = document.querySelector('#up-last'); return e && !e.hidden ? e.textContent : '' }")
         check('上传面板里显示「上一批：上传用了多久、多少 Mbps」', '上传' in last and 'Mbps' in last, last)
         json.dump({'n': N, 'mb': mb, 'cpu': CPU, 'up': UP, 'sec': dt, 'tm': tms}, open(os.path.join(e2e.HERE, 'out', f'speed-{CPU:g}x-{UP:g}.json'), 'w'))

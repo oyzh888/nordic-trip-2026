@@ -45,6 +45,7 @@ python3 np_upload.py -j 8 /Volumes/SD卡/DCIM ~/Desktop/a.HEIC  # 多个路径�
 <p>所有接口都在 <code>https://nordic.airacle.com/photos</code> 下，请求头带：</p>
 <pre><code>Authorization: Bearer np_你的密钥</code></pre>
 <p>没带 / 密钥不对 / 已撤销 → <code>401 {"error":"login"}</code>。浏览器里登录后的 cookie 也能调同样的接口。</p>
+<p><b>版本</b>：<code>/api/v1/…</code> 和 <code>/api/…</code> 现在是同一套。写新的前端 / 工具请用 <code>/api/v1/</code> —— 以后有不兼容的改动会开 v2，v1 不动。</p>
 
 <h2>3. 上传</h2>
 <h3>内容 ID（<code>h</code>）</h3>
@@ -73,7 +74,10 @@ def content_id(path):
 <h2>4. 浏览 / 下载</h2>
 <table><tr><th>接口</th><th>做什么</th></tr>
 <tr><td><span class="m">GET</span> <code>/api/me</code></td><td>当前身份 <code>{"user":{"id","name"}}</code> —— 拿来验密钥</td></tr>
-<tr><td><span class="m">GET</span> <code>/api/list</code></td><td>整个相册的元数据（一次全给，支持 <code>If-None-Match</code> → 304）。每项：<code>h</code> ID · <code>n</code> 文件名 · <code>k</code> <code>i</code>照片/<code>v</code>视频 · <code>t</code> 拍摄地当地时间 · <code>s</code> 字节 · <code>pl</code> 地点 · <code>la/lo</code> GPS · <code>cam</code> 相机 · <code>cap</code> AI 描述 · <code>tg</code> 标签 · <code>u</code> 上传者 id · <code>p</code> 照片里的人 · <code>lv</code> Live Photo 视频的 ID</td></tr>
+<tr><td><span class="m">GET</span> <code>/api/list?since={ver}</code></td><td><b>增量</b>：只给 <code>ver</code> 那一版之后变了的 → <code>{"ver","delta":true,"items":[…],"gone":[h…]}</code>（用户 / 人物 / 时刻这几张小表变了才带）。
+合并：<code>gone</code> 里的拿掉，<code>items</code> 里已有的原地替换、没有的接在后面。答不了的时候（服务端重启过、中间改动太多）直接回全量 —— 看有没有 <code>delta</code> 字段就行。
+轮询请用这个：相册 1.4 万张时全量是 1.7 MB，增量通常几百字节到几 KB</td></tr>
+<tr><td><span class="m">GET</span> <code>/api/list</code></td><td>整个相册的元数据（全量，支持 <code>If-None-Match</code> → 304；加 <code>?stale=1</code> 可以拿几分钟前拼好的那份，之后马上用 <code>since</code> 补齐）。每项：<code>h</code> ID · <code>n</code> 文件名 · <code>k</code> <code>i</code>照片/<code>v</code>视频 · <code>t</code> 拍摄地当地时间 · <code>s</code> 字节 · <code>pl</code> 地点 · <code>la/lo</code> GPS · <code>cam</code> 相机 · <code>cap</code> AI 描述 · <code>tg</code> 标签 · <code>u</code> 上传者 id · <code>p</code> 照片里的人 · <code>lv</code> Live Photo 视频的 ID</td></tr>
 <tr><td><span class="m">GET</span> <code>/api/search?q=极光</code></td><td>搜索（关键词 + 以文搜图）→ <code>{"ids":[…]}</code></td></tr>
 <tr><td><span class="m">GET</span> <code>/f/{h}/o</code></td><td>原图 / 原视频（加 <code>?dl=1</code> 按原文件名下载；支持 Range）</td></tr>
 <tr><td><span class="m">GET</span> <code>/f/{h}/p</code> · <code>/t</code> · <code>/v</code></td><td>预览图（长边 1600 JPEG）· 缩略图 · 720p 视频预览</td></tr>

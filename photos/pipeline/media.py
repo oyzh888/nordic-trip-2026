@@ -355,6 +355,28 @@ def video_preview(src, dst):
         raise RuntimeError('ffmpeg: ' + r.stderr[-300:])
 
 
+def open_small(path, name='', long=1600):
+    """只为做缩略图 / 预览：JPEG 让解码器直接按 1/2、1/4、1/8 缩着解（libjpeg 的 DCT 缩放），
+    2,400 万像素的相机直出 JPEG 从 ~1 秒降到 ~0.2 秒。返回 (转正后的 RGB 图, 原图宽, 原图高)"""
+    ext = (name or '').rsplit('.', 1)[-1].lower() if '.' in (name or '') else ''
+    if ext in RAW_EXT:
+        im = open_raw(path); return im, *im.size
+    try:
+        im = Image.open(path)
+    except Exception:            # noqa: BLE001
+        im = open_raw(path); return im, *im.size
+    W, H = im.size
+    rot = (im.getexif() or {}).get(274) in (5, 6, 7, 8)
+    if im.format == 'JPEG':
+        s = long / max(W, H)
+        if s < 1:
+            im.draft('RGB', (max(1, int(W * s)), max(1, int(H * s))))
+    im = ImageOps.exif_transpose(im)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
+    return im, (H if rot else W), (W if rot else H)
+
+
 def jpeg(im, q):
     b = io.BytesIO()
     im.save(b, 'JPEG', quality=q, optimize=True)

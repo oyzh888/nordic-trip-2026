@@ -41,6 +41,8 @@ from models import face_vec, q8  # noqa: E402  （不加载模型，只是两个
 
 UP_QUIET = 30                 # 秒：最近这么久内有人上传，就先不做重的后处理（见 run）
 MAX_DEFER = 15 * 60           # 一直有人在传，最多推迟这么久
+THUMB_PAR = 6                 # 缩略图快车道并行几路（下载 + 缩着解码，主要等网络）
+PREP_PAR = 6                  # 分析前的预处理（下载、EXIF、解码）并行几路 —— 以前一张一张来，8 张要 14 秒，模型只要 8 秒
 AVER = 1                     # 分析版本：换模型/改提示词后 +1，服务端 aver < 这个的都会被重新分析
 BATCH = 8
 UA = 'nordic-photos-pipeline/1.0 (github.com/oyzh888/nordic-trip-2026)'
@@ -83,10 +85,11 @@ class Api:
                 r = self.s.request(method, self.base + path, **kw)
                 if r.status_code < 500:
                     return r
+                err = f'{r.status_code} {r.text[:200]!r}'       # 记下服务端说了什么：以前只记了 500，查不出原因
             except requests.RequestException as e:
-                r = e
+                err = repr(e)[:200]
             time.sleep(2 ** i)
-        raise RuntimeError(f'{method} {path}: {r}')
+        raise RuntimeError(f'{method} {path}: {err}')
 
     def get(self, p, **kw):
         r = self.req('GET', p, **kw); r.raise_for_status(); return r.json()
@@ -107,7 +110,7 @@ class Api:
     def download(self, h, dst):
         with self.s.get(f'{self.base}/f/{h}/o', stream=True, timeout=600) as r:
             r.raise_for_status()
-            tmp = dst.with_suffix('.part')
+            tmp = dst.with_suffix(f'.part{threading.get_ident()}')     # 缩略图快车道和分析可能同时下同一张
             with open(tmp, 'wb') as f:
                 for c in r.iter_content(1 << 20):
                     f.write(c)
@@ -204,7 +207,9 @@ class Worker:
         self.titles_p = self.cache / 'titles.json'
         self.titles = json.loads(self.titles_p.read_text()) if self.titles_p.exists() else {}
         self.wake = threading.Event()
+        self.fails = {}                    # h → 写回失败次数（见 post_one）
         self.wake_transcode = threading.Event()
+        self.wake_thumb = threading.Event()
         self.dirty = True                  # 启动时先聚类一次（上一个 worker 可能没跑完）
         self.gpu = threading.Lock()        # WebSocket 线程和主循环共用模型
         log('加载模型 …')
@@ -262,10 +267,53 @@ class Worker:
                             self.wake.set()
                             if m['t'] == 'new':
                                 self.wake_transcode.set()       # 新传的视频不用等 60 秒轮询
+                                self.wake_thumb.set()
             except Exception as e:           # noqa: BLE001 —— 断了就重连，不影响主循环
                 if not self.stop:
                     log('WebSocket 断开，5 秒后重连:', repr(e)[:160])
                     time.sleep(5)
+
+    # ---------------- 缩略图快车道 ----------------
+    def thumb_loop(self):
+        """没有缩略图的照片在时间线上是灰格子（相机卡里倒出来的整批、页面没等到补缩略图就关了的）。
+        以前它们排在 AI 分析后面（每张约 3 秒，一千多张要一个多小时）；这里只做「下载 → 缩着解码 → 传两张小图」，
+        几路并行、和分析互不等待，几分钟补齐。分析时再按原尺寸解码，互不影响"""
+        bad = set()                                     # 解不了码的：这次进程里不再试（分析那边会记失败）
+        with ThreadPoolExecutor(THUMB_PAR, thread_name_prefix='thumb') as ex:
+            while not self.stop:
+                try:
+                    todo = [it for it in self.api.get(f'/api/pipe/nothumb?aver={AVER}&limit=48') if it['h'] not in bad]
+                except Exception as e:   # noqa: BLE001
+                    log('取缩略图任务失败:', repr(e)[:160]); todo = []
+                if todo:
+                    t, ok = time.time(), 0
+                    for h, r in zip([it['h'] for it in todo], ex.map(self.thumb_one, todo)):
+                        if r: ok += 1
+                        else: bad.add(h)
+                    log(f'缩略图快车道：{ok}/{len(todo)} 张 {time.time() - t:.1f}s')
+                    continue
+                self.wake_thumb.wait(60)
+                if self.wake_thumb.is_set():
+                    self.wake_thumb.clear(); time.sleep(10)   # 刚传完的那批：等一会儿攒一起；手机自己也可能正在做
+        # 线程池退出时等在跑的做完
+
+    def thumb_one(self, it):
+        d = self.cache / 'th'; d.mkdir(exist_ok=True)
+        path = d / it['h']
+        try:
+            self.api.download(it['h'], path)
+            im, W, H = M.open_small(path, it['name'])
+            t, p, _ = M.thumbs(im)
+            if not it['flags'] & 1:
+                self.api.aux(it['h'], 't', t, {'w': W, 'hh': H})
+            if not it['flags'] & 2:
+                self.api.aux(it['h'], 'p', p)
+            return True
+        except Exception as e:   # noqa: BLE001 —— 一张坏文件不卡别的
+            log(f'  缩略图失败 {it["name"]}: {e!r:.160}')
+            return False
+        finally:
+            path.unlink(missing_ok=True)
 
     # ---------------- AI 改图 ----------------
     # ---------------- 视频：转成 H.264 新版 + 调色（见 video.py）----------------
@@ -522,16 +570,23 @@ class Worker:
 
     def process(self, items):
         prepped = []
-        for it in items:
+
+        def prep(it):
             t = time.time()
             try:
                 im, res = self.prepare(it)
-                prepped.append((it, im, res))
                 log(f'  {it["name"]}: 预处理 {time.time() - t:.1f}s' + (' · 补了缩略图' if res.get('_thumb') else '') +
                     (f' · 视频预览 {res["_v"] / 1e6:.1f} MB' if res.get('_v') else ''))
+                return it, im, res
             except Exception:        # noqa: BLE001 —— 一张坏文件不能卡住整条队列
                 log(f'  {it["name"]} 失败:\n' + traceback.format_exc(limit=3))
-                self.api.post('/api/pipe/result', {'h': it['h'], 'aver': AVER})
+                return it, None, None
+        with ThreadPoolExecutor(PREP_PAR, thread_name_prefix='prep') as ex:
+            for it, im, res in ex.map(prep, items):
+                if res is None:
+                    self.post_one({'h': it['h'], 'aver': AVER}, it)
+                else:
+                    prepped.append((it, im, res))
         # Live Photo 的那 3 秒视频（带 cid 的视频）不跑模型：描述、人脸、向量都算在配对的那张照片上
         ok = [(it, im, res) for it, im, res in prepped if im is not None and not (it['kind'] == 'video' and res.get('cid'))]
         t = time.time()
@@ -548,6 +603,7 @@ class Worker:
                     res['caption'], res['tags'] = d['caption'], d['tags']
                 res['faces'] = [{k: v for k, v in f.items() if not k.startswith('_')} for f in fs]
                 res.update(M.quality(im, fs, d and d['quality']))
+        out = []
         for it, im, res in prepped:
             place, cc = self.geo(res.get('lat'), res.get('lon'))
             if place:
@@ -559,12 +615,19 @@ class Worker:
             for k in [k for k in res if k.startswith('_')]:
                 res.pop(k)
             res['aver'] = AVER
-            r = self.api.post('/api/pipe/result', {k: v for k, v in res.items() if v is not None})
+            out.append({k: v for k, v in res.items() if v is not None})
+        # 一批一个请求（以前 8 张 8 个请求，每个都要排进相册数据库）；整批失败就退回逐张，坏的那张单独跳过
+        try:
+            rs = self.api.post('/api/pipe/results', {'items': out})['res'] if out else []
+        except Exception as e:   # noqa: BLE001
+            log(f'  批量写回失败，改逐张: {e!s:.200}')
+            rs = [self.post_one(r, it) for r, (it, _, _) in zip(out, prepped)]
+        for (it, im, res), r in zip(prepped, rs):
             if r.get('ok') and res.get('faces') and im is not None:
                 try: self.api.aux(it['h'], 'f', M.face_sprite(im, res['faces']))
                 except Exception as e: log(f'  人脸小图条失败 {it["name"]}: {e}')  # noqa: BLE001 —— 不影响分析结果
             tg = res.get('tags') or {}
-            log(f'  ✓ {it["name"]}  {res.get("taken", "")}  {place or ""}  人脸 {len(res.get("faces", []))}  '
+            log(f'  ✓ {it["name"]}  {res.get("taken", "")}  {res.get("place") or ""}  人脸 {len(res.get("faces", []))}  '
                 f'分 {res.get("score", "-")}  {"/".join(tg.get("special") or [])}  「{res.get("caption", "")[:30]}」'
                 + ('' if r.get('ok') else f'  !! {r}'))
         return len(prepped)
@@ -609,6 +672,19 @@ class Worker:
         for k in [k for k in self.FE if k not in live]:   # 删掉的脸（重新分析 / 删照片）别一直留在内存里
             del self.FE[k]
         return [{**f, 'emb': self.FE.get(f['id'])} for f in light if self.FE.get(f['id'])]
+
+    def post_one(self, r, it):
+        """写回一张。服务端一直 5xx（重试 5 次后）就记下来跳过，不让整个进程退出重启（重新加载模型要 20 秒，还得重做整批）；
+        同一张连着失败 3 次，就只写一个「分析过了」，免得它永远排在队头"""
+        try:
+            return self.api.post('/api/pipe/result', r)
+        except Exception as e:   # noqa: BLE001
+            n = self.fails[r['h']] = self.fails.get(r['h'], 0) + 1
+            log(f'  !! 写回失败（第 {n} 次）{it.get("name")}: {e!s:.200}')
+            if n >= 3:
+                try: self.api.post('/api/pipe/result', {'h': r['h'], 'aver': AVER})
+                except Exception: pass   # noqa: BLE001
+            return {'error': str(e)[:200]}
 
     def post_results(self, items):
         """成百上千条写回：50 条一个请求（服务端每批只刷新一次缓存）"""
@@ -707,6 +783,8 @@ class Worker:
             threading.Thread(target=self.edit_loop, daemon=True).start()
         if not self.args.no_transcode:
             threading.Thread(target=self.transcode_loop, daemon=True).start()
+        if not self.args.no_thumb_lane:
+            threading.Thread(target=self.thumb_loop, daemon=True).start()
         last_check, defer_since = 0, None
         while True:
             pend = self.api.get(f'/api/pipe/pending?aver={AVER}&limit={BATCH}')
@@ -760,6 +838,7 @@ def main():
     ap.add_argument('--no-edit', action='store_true', help='不开 AI 改图（不连模型网关）')
     ap.add_argument('--store', default=os.environ.get('PHOTOS_STORE', ''), help='相册存储目录（本机部署时）：每分钟上报磁盘用量')
     ap.add_argument('--no-transcode', action='store_true', help='不转视频（H.264 新版 + 调色，见 video.py）')
+    ap.add_argument('--no-thumb-lane', action='store_true', help='不开缩略图快车道（缩略图只在分析时顺手补）')
     ap.add_argument('--retime', action='store_true', help='开工前把已分析的照片按拍摄地重算一遍拍摄时间（幂等）')
     # 语义搜索的两道门（SigLIP2 余弦）：绝对下限 + 离最高分多近。在 36 个中英文查询上量的，见 README
     ap.add_argument('--sem-floor', type=float, default=0.05)

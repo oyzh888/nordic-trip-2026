@@ -39,7 +39,7 @@ def main():
     with sync_playwright() as pw:
         br = pw.chromium.launch(channel='chrome', headless=True)
         ctx = br.new_context(viewport={'width': 1440, 'height': 900}, locale='zh-CN'); pg = ctx.new_page()
-        pg.route('**/photos/api/list', lambda r: r.fulfill(status=200, content_type='application/json', body=json.dumps(fake_list(N, state['ver'], me, state['bump']))))
+        pg.route('**/photos/api/list*', lambda r: r.fulfill(status=200, content_type='application/json', body=json.dumps(fake_list(N, state['ver'], me, state['bump']))))
         pg.route('**/photos/f/**', lambda r: r.fulfill(status=200, content_type='image/jpeg', body=thumb))
         pg.goto(BASE + '/photos/#k=' + e2e.PASS); pg.wait_for_selector('#f-name:not([hidden])', timeout=15000)
         pg.fill('#name', U); pg.click('#f-name button.pri'); pg.wait_for_selector('#app:not([hidden])', timeout=30000)

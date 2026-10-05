@@ -1,6 +1,6 @@
 /* 北欧 2026 · 共享相册前端 —— 一个 ES module，无依赖、无构建，手机和电脑同一份
  *
- * 数据流：/api/list 一次拿全量元数据（几千张也只有几百 KB，带 ETag，没变化时 304）
+ * 数据流：/api/list 第一次拿全量元数据，之后每次只拿增量（变过的那几张，见 §列表）
  *        → 筛选 / 分组 / 排序全部在本机做（瞬时）；只有「文字搜索」去问服务端（它有向量索引和结果缓存）。
  *
  * 上传（最要紧的部分，见 §上传）：
@@ -82,12 +82,11 @@ $('#f-pass').addEventListener('submit', e => { e.preventDefault(); doPass($('#pa
 $('#f-name').addEventListener('submit', e => { e.preventDefault(); doName($('#name').value); });
 $('#names').addEventListener('click', e => { const b = e.target.closest('[data-n]'); if (b) doName(b.dataset.n); });
 
-/* ================= 列表 ================= */
-async function loadList() {
-  const r = await fetch(API + '/list', { credentials: 'same-origin', cache: 'no-cache' });
-  if (r.status === 401) { showGate(); return false; }
-  const d = await r.json();
-  if (S.data && d.ver === S.ver) return false;
+/* ================= 列表 =================
+ * 第一次打开拿全量（?stale=1：服务端可以给几分钟前拼好的那份），之后每次只要「我手上这一版之后变了什么」（?since=）：
+ * 1.4 万张时全量 1.7 MB（压缩后），而 GPU 端一直在写结果、版本号几秒一变 —— 以前每 15 秒整份重下一遍，
+ * 手机上解析 9 MB 的 JSON 也卡。增量通常几百字节；服务端答不了的时候（它重启过、中间有大改动）自己回全量。 */
+function setList(d) {
   S.data = d; S.ver = d.ver;
   S.byH = new Map(d.items.map(it => [it.h, it]));
   S.users = new Map(d.users.map(u => [u.id, u.name]));
@@ -95,6 +94,36 @@ async function loadList() {
   S.moments = new Map((d.moments || []).map(m => [m.id, m]));
   S.myPerson = d.persons.find(p => p.uid === S.me.id)?.id ?? null;
   for (const h of [...S.sel]) if (!S.byH.has(h)) S.sel.delete(h);
+}
+/** 把增量合进手上的列表：改了的原地换（同一时刻拍的几张顺序不变）、新的接在后面、撤掉的拿走 */
+function mergeDelta(d) {
+  const upd = new Map(d.items.map(it => [it.h, it])), gone = new Set(d.gone);
+  const items = [];
+  for (const it of S.data.items) {
+    if (gone.has(it.h)) continue;
+    const n = upd.get(it.h);
+    if (n) upd.delete(it.h);
+    items.push(n || it);
+  }
+  for (const it of upd.values()) items.push(it);
+  const g = {};
+  for (const k of ['users', 'persons', 'scenes', 'moments', 'pipe', 'ai']) g[k] = k in d ? d[k] : S.data[k];
+  setList({ ...S.data, ...g, ver: d.ver, items });
+}
+async function loadList() {
+  const get = q => fetch(API + '/list' + q, { credentials: 'same-origin', cache: 'no-cache' });
+  let r = await get(S.data ? `?since=${S.ver}` : '?stale=1');
+  if (r.status === 401) { showGate(); return false; }
+  let d = await r.json(), first = false;
+  if (!S.data) {                                               // 第一次：全量（可能是几分钟前的）→ 马上补一次增量
+    setList(d); first = true;
+    r = await get(`?since=${S.ver}`);
+    if (!r.ok) return true;
+    d = await r.json();
+  }
+  if (d.ver === S.ver) return first;
+  if (d.delta) mergeDelta(d);
+  else setList(d);
   return true;
 }
 async function refresh(force, bg) {
@@ -1057,20 +1086,23 @@ async function runTask(t) {
     const prog = () => { t.sent = base + [...inflight.values()].reduce((a, b) => a + b, 0); renderUpSoon(); };
     if (done.size) t.resumed = done.size;
     t.msg = done.size ? `接着传（已有 ${done.size}/${n} 块）` : '上传中';
-    let next = 0;
+    let next = 0, finished = false;
     const worker = async () => {
       while (next < todo.length) {
         const i = todo[next++];
         const blob = f.slice((i - 1) * psize, (i - 1) * psize + partLen(i));
         const hdr = fp.shas && fp.shas[i - 1] ? { 'x-part-sha256': fp.shas[i - 1] } : {};
-        await retry(() => xput(`${API}/upload/part?h=${fp.h}&n=${i}`, blob, hdr, l => { inflight.set(i, l); prog(); }), t);
+        const pr = await retry(() => xput(`${API}/upload/part?h=${fp.h}&n=${i}`, blob, hdr, l => { inflight.set(i, l); prog(); }), t);
+        if (pr && (pr.status === 'done' || pr.complete)) finished = 'done';   // 单块的文件服务端顺手收了尾
+        if (pr && pr.status === 'corrupt') finished = 'corrupt';
         inflight.delete(i); base += partLen(i); done.add(i); prog();
         t.msg = n > 1 ? `上传中 ${done.size}/${n} 块` : '上传中';
       }
     };
     await Promise.all(Array.from({ length: Math.min(MAXP, todo.length) }, worker));
     t.msg = '收尾…';
-    const c = await retry(() => api('/upload/complete', { method: 'POST', body: { h: fp.h } }), t);
+    // 单块文件（绝大多数手机照片）在传那一块时服务端已经收尾了：省一个来回（手机 → 边缘 → 美国西部的数据库）
+    const c = finished ? { status: finished } : await retry(() => api('/upload/complete', { method: 'POST', body: { h: fp.h } }), t);
     if (c.status === 'done' || c.status === 'exists') {
       lap('net'); tm.total = Math.round(performance.now() - tm.t0);
       t.state = 'ok'; t.sent = f.size; t.msg = t.resumed ? `完成（断点续传，省了 ${t.resumed} 块）` : '完成';
