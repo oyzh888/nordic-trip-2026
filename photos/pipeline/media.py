@@ -109,7 +109,7 @@ def image_meta(im):
     if cid:
         out['cid'] = cid
     if sub.get(0xA431):                      # 机身序列号：认「是不是同一台相机」（时钟对齐按机身分组）
-        out['_ser'] = str(sub.get(0xA431)).strip()[:40]
+        out['_ser'] = str(sub.get(0xA431)).strip('\x00 \t')[:40]   # 有的机身（富士）后面补着 NUL
     g = ex.get_ifd(0x8825)
     if g.get(2) and g.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
@@ -149,7 +149,7 @@ def cr3_meta(path):
         out['cam'] = cam[:60]
     _set_taken(out, ex.get(0x9003) or ex.get(0x9004) or i0.get(0x0132), ex.get(0x9011) or ex.get(0x9010))
     if ex.get(0xA431):
-        out['_ser'] = str(ex.get(0xA431)).strip()[:40]
+        out['_ser'] = str(ex.get(0xA431)).strip('\x00 \t')[:40]
     if gps.get(2) and gps.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
         la, lo = dms(gps[2]), dms(gps[4])
@@ -181,7 +181,7 @@ def raw_meta(path):
                g('EXIF OffsetTimeOriginal') or g('EXIF OffsetTime'))
     ser = g('EXIF BodySerialNumber') or g('MakerNote SerialNumber')
     if ser:
-        out['_ser'] = ser.strip()[:40]
+        out['_ser'] = ser.strip('\x00 \t')[:40]
     def dms(k):
         v = t.get(k)
         try:

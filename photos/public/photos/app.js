@@ -978,28 +978,38 @@ function batchDone(b) {
   const sum = { src: b.src, pickMs: b.pickMs, upMs, n: ts.length, ok: ok.length, dup: ts.filter(t => t.state === 'dup').length,
     fail: ts.filter(t => t.state === 'failed').length, bytes: b.bytes, sent, kinds: b.kinds, fp: tm('fp'), init: tm('init'), net: tm('net'),
     mbps: upMs ? +(sent * 8 / upMs / 1000).toFixed(1) : null, ua: navigator.userAgent.slice(0, 160),
-    conn: navigator.connection?.effectiveType || null, hiddenMs: hiddenTotal() - b.h0 };
+    conn: navigator.connection?.effectiveType || null, hiddenMs: hiddenTotal() - b.h0,
+    ...(b.rawN || b.rawKept ? { raw: { jpg: b.rawN || 0, kept: b.rawKept || 0, inMB: +((b.rawIn || 0) / 1e6).toFixed(1), outMB: +((b.rawOut || 0) / 1e6).toFixed(1) } } : {}) };
   S.lastBatch = sum; renderUp();
   api('/uplog', { method: 'POST', body: sum }).catch(() => { /* 记不上就算了 */ });
 }
 function enqueue(files, info) {
-  let add = 0, skip = 0, same = 0, again = 0, aae = 0;
+  let add = 0, skip = 0, same = 0, again = 0, aae = 0, rawN = 0, rawPair = 0;
   const fresh = [];
   const batch = newBatch(files, info);
+  // 相机设成 RAW+JPEG 时卡里每张都有两个文件：转 JPEG 模式下同名的 JPEG 已经在这一批里了（相机直出的比 RAW 里内嵌的那张更好），RAW 就不用再转一份
+  const conv = rawMode() === 'jpeg';
+  const base = n => n.replace(/\.[^.]+$/, '').toLowerCase();
+  const jpgs = conv ? new Set(files.filter(f => /\.(jpe?g|heic|heif|hif)$/i.test(f.name)).map(f => base(f.name))) : new Set();
   for (const f of files) {
     if (/\.aae$/i.test(f.name)) { aae++; continue; }       // iPhone「所有照片数据」里附带的编辑记录，不是照片
     if (!f.size || !(/^(image|video)\//.test(f.type) || MEDIA_EXT.test(f.name))) { skip++; continue; }
-    const key = fkey(f);
+    const raw = RAW_EXT.test(f.name);
+    if (raw && conv && jpgs.has(base(f.name))) { rawPair++; continue; }
+    if (raw && conv) rawN++;
+    const key = fkey(f) + (raw && conv ? '|jpg' : '');      // 转不转是两份不同的字节：指纹分开记
     const old = UQ.find(t => t.key === key);
     if (old) { if (old.state === 'failed') { old.state = 'queued'; old.f = f; again++; } else same++; continue; }
-    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true, b: batch }; UQ.push(t); fresh.push(t); add++;
+    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true, b: batch, cv: raw && conv }; UQ.push(t); fresh.push(t); add++;
     batch.tasks.push(t); batch.n++; batch.bytes += f.size; batch.left++;
     if (!FP.get(key)?.done) FP.put(key, { q: 1, name: f.name });   // 页面万一被系统杀掉，下次打开能告诉你还剩哪些
   }
   // 不拦，只提醒：几十 MB 一张的多半是相机原片，1000 张就是 50 GB
-  const big = files.filter(f => /^image\//.test(f.type) && f.size > 25 * 2 ** 20).length;
-  if (skip || same || big || aae) toast([aae && `跳过 ${aae} 个 .AAE（iPhone 的编辑记录，不是照片）`, skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
-    big && `有 ${big} 张超过 25 MB（相机原片 / RAW）—— 都能传、能看，就是传得慢一些`].filter(Boolean).join(' · '), big ? 8000 : undefined);
+  const big = files.filter(f => (/^image\//.test(f.type) || RAW_EXT.test(f.name)) && f.size > 25 * 2 ** 20 && !(conv && RAW_EXT.test(f.name))).length;
+  if (skip || same || big || aae || rawN || rawPair) toast([aae && `跳过 ${aae} 个 .AAE（iPhone 的编辑记录，不是照片）`, skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
+    rawN && `${rawN} 张 RAW 先取出相机里的 JPEG 再传（几 MB 一张）—— 要传 RAW 原片在上传面板里切换`,
+    rawPair && `${rawPair} 张 RAW 跳过：同名的 JPEG 也选了（相机 RAW+JPEG 拍的），传 JPEG 就够`,
+    big && `有 ${big} 张超过 25 MB（相机原片 / RAW）—— 都能传、能看，就是传得慢一些`].filter(Boolean).join(' · '), big || rawN || rawPair ? 8000 : undefined);
   if (add || again) openSheet();
   // 先整批问一次服务端「哪些已经有了」，有的直接秒传 —— 重选同一批几百张时，不用把每个文件读一遍算指纹
   if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); if (info?.src !== 'restore') keepLater(fresh); });
@@ -1046,6 +1056,14 @@ async function retry(fn, t) {
 }
 
 async function runTask(t) {
+  if (t.cv && !t.raw) {                                         // RAW → 相机内嵌的那张 JPEG（见 §相机 RAW → JPEG）
+    t.msg = '从 RAW 里取出 JPEG…'; renderUpSoon();
+    const r = await rawJpeg(t.f);
+    if (r.file) {
+      t.raw = t.f; t.f = r.file;
+      if (t.b) { t.b.rawIn = (t.b.rawIn || 0) + t.raw.size; t.b.rawOut = (t.b.rawOut || 0) + t.f.size; t.b.rawN = (t.b.rawN || 0) + 1; }
+    } else { t.cv = false; t.rawWhy = r.why; if (t.b) t.b.rawKept = (t.b.rawKept || 0) + 1; }   // 转不了（内嵌的太小 / 没有）：原样传 RAW，什么都不丢
+  }
   const f = t.f;
   // 每个文件各阶段用时（毫秒）：fp 算指纹 · init 和相册对一下 · net 传字节 · thumb 等缩略图 —— 慢在哪一看就知道
   const tm = t.tm = { t0: performance.now() }, lap = k => { tm[k] = Math.round(performance.now() - (tm._ || tm.t0)); tm._ = performance.now(); };
@@ -1106,6 +1124,8 @@ async function runTask(t) {
     if (c.status === 'done' || c.status === 'exists') {
       lap('net'); tm.total = Math.round(performance.now() - tm.t0);
       t.state = 'ok'; t.sent = f.size; t.msg = t.resumed ? `完成（断点续传，省了 ${t.resumed} 块）` : '完成';
+      if (t.raw) t.msg += `（RAW ${fmtB(t.raw.size)} → JPEG ${fmtB(f.size)}）`;
+      if (t.rawWhy) t.msg += `（原样传了 RAW：${t.rawWhy}）`;
       FP.put(t.key, { u: 0, done: 1 }); listSoon(); return;
     }
     if (c.status === 'missing') { done.clear(); c.done.forEach(x => done.add(x)); continue; }
@@ -1243,6 +1263,212 @@ function parseTiff(v, T) {
   }
   return r;
 }
+
+/* ---------- 相机 RAW → JPEG（默认）：取相机自己渲染好、存在 RAW 里的那张全尺寸 JPEG，补上 EXIF，传它 ----------
+ * 不解码 RAW（手机上也做不动）：RAW 文件里本来就存着一张相机渲染的 JPEG（机背回放用的），颜色和机背一致。
+ * CR3 / CR2 / NEF / 新的 ARW / DNG 里通常是全尺寸，RAF / ORF 稍小；太小的（比如松下 RW2 只有 1920 宽）就原样传 RAW，什么都不丢。
+ * 内嵌的 JPEG 一般不带拍摄信息，这里从 RAW 本身（TIFF 结构的 IFD，或 CR3 的 CMT1/2/4 盒子）把时间、时区、机身、序列号、
+ * 镜头、曝光、GPS、方向抄进一段新的 EXIF。同一个 RAW 每次转出来的字节一模一样 → 重选同一批照样秒传。
+ * 在后台线程里做（要把整个 RAW 读进来扫一遍，几十 MB），一次一个，免得手机内存一下子吃满。 */
+const RAW_EXT = /\.(dng|cr2|cr3|crw|nef|nrw|arw|srf|sr2|raf|orf|rw2|pef|srw|rwl|3fr|iiq|x3f|erf|mef|mos|kdc|dcr|raw)$/i;
+const RAW_MIN = 2560;                       // 内嵌 JPEG 长边至少这么大才用它，不然原样传 RAW
+const rawMode = () => localStorage.np_raw === 'raw' ? 'raw' : 'jpeg';
+const RAW_SRC = `
+const RAW_MIN = ${RAW_MIN};
+const be16 = (u, p) => u[p] << 8 | u[p + 1];
+const r16 = (u, p, le) => le ? u[p] | u[p + 1] << 8 : u[p] << 8 | u[p + 1];
+const r32 = (u, p, le) => (le ? u[p] | u[p + 1] << 8 | u[p + 2] << 16 | u[p + 3] << 24 : u[p] << 24 | u[p + 1] << 16 | u[p + 2] << 8 | u[p + 3]) >>> 0;
+const SZ = [0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8, 4];           // TIFF 各类型每个值几字节（13 = IFD 指针）
+const UNIT = [0, 1, 1, 2, 4, 4, 1, 1, 2, 4, 4, 4, 8, 4];         // 换字节序时的单位（分数是两个 4 字节）
+
+// 从 s（FFD8）开始按段结构走到 EOI。只认基线 / 渐进（SOF0/1/2）：CR2、DNG 的传感器数据本身也是「无损 JPEG」（SOF3），浏览器解不了
+function jpegAt(u, s) {
+  const n = u.length;
+  let p = s + 2, w = 0, h = 0, exif = null, tables = 0;
+  while (p + 4 <= n) {
+    if (u[p] !== 0xFF) return null;
+    const m = u[p + 1];
+    if (m === 0xFF) { p++; continue; }
+    if (m === 0x01 || (m >= 0xD0 && m <= 0xD7)) { p += 2; continue; }
+    if (m === 0xD8 || m === 0xD9) return null;
+    const len = be16(u, p + 2);
+    if (len < 2 || p + 2 + len > n) return null;
+    if (m === 0xC0 || m === 0xC1 || m === 0xC2) { h = be16(u, p + 5); w = be16(u, p + 7); }
+    else if (m >= 0xC3 && m <= 0xCF && m !== 0xC4 && m !== 0xC8 && m !== 0xCC) return null;
+    else if (m === 0xDB || m === 0xC4) tables++;
+    else if (m === 0xE1 && u[p + 4] === 0x45 && u[p + 5] === 0x78 && u[p + 6] === 0x69 && u[p + 7] === 0x66) exif = [p, p + 2 + len];
+    else if (!(m >= 0xE0 && m <= 0xEF) && m !== 0xDD && m !== 0xFE && m !== 0xDA) return null;
+    p += 2 + len;
+    if (m !== 0xDA) continue;
+    if (!w || !h || !tables) return null;
+    for (;;) {                                                     // 压缩数据：FF 后面跟 00 / RSTn 都还是数据
+      p = u.indexOf(0xFF, p);
+      if (p < 0 || p + 1 >= n) return null;
+      const x = u[p + 1];
+      if (x === 0x00 || (x >= 0xD0 && x <= 0xD7)) { p += 2; continue; }
+      if (x === 0xFF) { p++; continue; }
+      break;
+    }
+    if (u[p + 1] === 0xD9) return { s, e: p + 2, w, h, exif };
+  }
+  return null;
+}
+function bestJpeg(u) {
+  let best = null, i = 0;
+  while ((i = u.indexOf(0xFF, i)) >= 0 && i + 3 < u.length) {
+    if (u[i + 1] === 0xD8 && u[i + 2] === 0xFF) {
+      const j = jpegAt(u, i);
+      if (j) { if (!best || j.w * j.h > best.w * best.h) best = j; i = j.e; continue; }
+    }
+    i++;
+  }
+  return best;
+}
+
+function readIfd(u, T, off, le) {
+  const out = new Map(), p = T + off;
+  if (!off || p + 2 > u.length) return out;
+  const n = r16(u, p, le);
+  if (n > 1000) return out;
+  for (let k = 0; k < n; k++) {
+    const e = p + 2 + k * 12;
+    if (e + 12 > u.length) break;
+    const tag = r16(u, e, le), type = r16(u, e + 2, le), cnt = r32(u, e + 4, le), sz = (SZ[type] || 0) * cnt;
+    if (!sz || sz > 65536) continue;
+    const vp = sz > 4 ? T + r32(u, e + 8, le) : e + 8;
+    if (vp + sz > u.length) continue;
+    out.set(tag, { type, cnt, b: u.subarray(vp, vp + sz), le });
+  }
+  return out;
+}
+const ptr = (m, t) => { const v = m && m.get(t); return v && v.b.length >= 4 ? r32(v.b, 0, v.le) : 0; };
+function tiffMeta(u) {                                             // DNG / CR2 / NEF / ARW / ORF（IIRO）/ RW2（IIU）/ PEF …
+  const le = u[0] === 0x49;
+  if (!(le || u[0] === 0x4D) || u[1] !== u[0]) return null;
+  const i0 = readIfd(u, 0, r32(u, 4, le), le);
+  if (!i0.has(0x010F) && !i0.has(0x8769)) return null;
+  return { i0, ex: readIfd(u, 0, ptr(i0, 0x8769), le), gps: readIfd(u, 0, ptr(i0, 0x8825), le) };
+}
+function boxes(u, s, e, fn) {
+  let p = s;
+  while (p + 8 <= e) {
+    let sz = r32(u, p, false), hd = 8;
+    const ty = String.fromCharCode(u[p + 4], u[p + 5], u[p + 6], u[p + 7]);
+    if (sz === 1) { sz = r32(u, p + 8, false) * 4294967296 + r32(u, p + 12, false); hd = 16; } else if (sz === 0) sz = e - p;
+    if (sz < hd || p + sz > e) break;
+    fn(ty, p + hd, p + sz);
+    p += sz;
+  }
+}
+function cr3Meta(u) {                                              // 佳能 CR3：moov / uuid(85c0b687…) / CMT1 = IFD0 · CMT2 = Exif · CMT4 = GPS
+  if (String.fromCharCode(u[4], u[5], u[6], u[7]) !== 'ftyp') return null;
+  let out = null;
+  boxes(u, 0, u.length, (t, s, e) => {
+    if (t !== 'moov') return;
+    boxes(u, s, e, (t2, s2, e2) => {
+      if (t2 !== 'uuid' || [...u.subarray(s2, s2 + 4)].map(x => x.toString(16).padStart(2, '0')).join('') !== '85c0b687') return;
+      const at = {};
+      boxes(u, s2 + 16, e2, (t3, s3) => { if (/^CMT[124]$/.test(t3)) at[t3] = s3; });
+      const rd = T => { if (T == null) return new Map(); const le = u[T] === 0x49; return readIfd(u, T, r32(u, T + 4, le), le); };
+      out = { i0: rd(at.CMT1), ex: rd(at.CMT2), gps: rd(at.CMT4) };
+    });
+  });
+  return out && out.i0.size ? out : null;
+}
+
+// 抄哪些：IFD0 的相机 / 方向 / 时间 / 作者；Exif 里和拍摄有关的（曝光、时间时区、序列号、镜头……，不抄像素尺寸 —— 那是 RAW 的）；GPS 全抄
+const K0 = [0x010F, 0x0110, 0x0112, 0x0132, 0x013B, 0x8298];
+const KX = [0x829A, 0x829D, 0x8822, 0x8827, 0x8830, 0x8832, 0x9000, 0x9003, 0x9004, 0x9010, 0x9011, 0x9012, 0x9201, 0x9202, 0x9204, 0x9205,
+  0x9207, 0x9208, 0x9209, 0x920A, 0x9290, 0x9291, 0x9292, 0xA401, 0xA402, 0xA403, 0xA405, 0xA406, 0xA430, 0xA431, 0xA432, 0xA433, 0xA434, 0xA435];
+const toLE = v => {                                                 // 统一写成小端
+  if (v.le || UNIT[v.type] === 1) return v.b.slice();
+  const out = new Uint8Array(v.b.length), w = UNIT[v.type];
+  for (let i = 0; i < v.b.length; i += w) for (let k = 0; k < w; k++) out[i + k] = v.b[i + w - 1 - k];
+  return out;
+};
+const ascii = s => { const b = new Uint8Array(s.length + 1); for (let i = 0; i < s.length; i++) b[i] = s.charCodeAt(i) & 0x7F; return { type: 2, cnt: b.length, b, le: true }; };
+function exifSeg(meta, note) {
+  const pick = (m, ks) => { const o = new Map(); if (m) for (const k of ks || [...m.keys()]) if (m.has(k)) o.set(k, m.get(k)); return o; };
+  const i0 = pick(meta.i0, K0), ex = pick(meta.ex, KX), gps = pick(meta.gps, null);
+  i0.set(0x0131, ascii(note));
+  if (!ex.has(0x9000)) ex.set(0x9000, { type: 7, cnt: 4, b: new Uint8Array([48, 50, 51, 50]), le: true });
+  const ifds = [i0, ex];
+  if (gps.size) ifds.push(gps);
+  const P4 = { type: 4, cnt: 1, b: new Uint8Array(4), le: true };
+  i0.set(0x8769, { ...P4, b: new Uint8Array(4) });
+  if (gps.size) i0.set(0x8825, { ...P4, b: new Uint8Array(4) });
+  // 排版：表头 8 字节 → 每个 IFD（条目按标签号排好）后面紧跟它放不下 4 字节的值
+  const lay = [];
+  let off = 8;
+  for (const m of ifds) {
+    const ents = [...m.entries()].sort((a, b) => a[0] - b[0]).map(([tag, v]) => ({ tag, v, b: toLE(v) }));
+    const at = off;
+    off += 2 + ents.length * 12 + 4;
+    for (const e of ents) if (e.b.length > 4) { e.at = off; off += e.b.length + (e.b.length & 1); }
+    lay.push({ at, ents });
+  }
+  const w32 = (b, x) => { b[0] = x & 255; b[1] = x >> 8 & 255; b[2] = x >> 16 & 255; b[3] = x >>> 24; };
+  w32(lay[0].ents.find(e => e.tag === 0x8769).b, lay[1].at);
+  if (gps.size) w32(lay[0].ents.find(e => e.tag === 0x8825).b, lay[2].at);
+  const t = new Uint8Array(off), dv = new DataView(t.buffer);
+  t.set([0x49, 0x49, 42, 0]); dv.setUint32(4, 8, true);
+  for (const { at, ents } of lay) {
+    dv.setUint16(at, ents.length, true);
+    ents.forEach((e, i) => {
+      const q = at + 2 + i * 12;
+      dv.setUint16(q, e.tag, true); dv.setUint16(q + 2, e.v.type, true); dv.setUint32(q + 4, e.v.cnt, true);
+      if (e.b.length > 4) { dv.setUint32(q + 8, e.at, true); t.set(e.b, e.at); } else t.set(e.b, q + 8);
+    });
+    dv.setUint32(at + 2 + ents.length * 12, 0, true);
+  }
+  if (t.length + 8 > 65533) return null;
+  const seg = new Uint8Array(t.length + 10);
+  seg.set([0xFF, 0xE1, (t.length + 8) >> 8, (t.length + 8) & 255, 0x45, 0x78, 0x69, 0x66, 0, 0]); seg.set(t, 10);
+  return seg;
+}
+
+onmessage = async e => {
+  const { id, f } = e.data;
+  try {
+    const u = new Uint8Array(await f.arrayBuffer());
+    const j = bestJpeg(u);
+    if (!j) return postMessage({ id, why: '这个 RAW 里没有内嵌的 JPEG' });
+    if (Math.max(j.w, j.h) < RAW_MIN) return postMessage({ id, why: \`内嵌的 JPEG 只有 \${j.w}×\${j.h}\`, w: j.w, h: j.h });
+    const meta = cr3Meta(u) || tiffMeta(u);
+    let out = u.subarray(j.s, j.e);
+    if (meta) {                                                     // 有 RAW 自己的元数据：换掉 JPEG 里可能有的那段 EXIF
+      const seg = exifSeg(meta, ('nordic-photos: embedded JPEG of ' + f.name).replace(/[^\\x20-\\x7e]/g, '_'));
+      if (seg) {
+        const body = j.exif ? [u.subarray(j.s + 2, j.exif[0]), u.subarray(j.exif[1], j.e)] : [u.subarray(j.s + 2, j.e)];
+        const parts = [u.subarray(j.s, j.s + 2), seg, ...body];
+        out = new Uint8Array(parts.reduce((a, b) => a + b.length, 0));
+        let o = 0; for (const b of parts) { out.set(b, o); o += b.length; }
+      }
+    }                                                               // 没认出容器（RAF 等）：它的内嵌 JPEG 自带完整 EXIF，原样用
+    const buf = out.slice().buffer;
+    postMessage({ id, buf, w: j.w, h: j.h, meta: !!meta, exif: !!(meta || j.exif) }, [buf]);
+  } catch (err) { postMessage({ id, why: '读 RAW 出错：' + String(err).slice(0, 80) }); }
+};`;
+const rawJpeg = (() => {
+  let w = null, seq = 0, chain = Promise.resolve();
+  const jobs = new Map();
+  const get = () => {
+    if (w) return w;
+    w = new Worker(URL.createObjectURL(new Blob([RAW_SRC], { type: 'text/javascript' })));
+    w.onmessage = e => { const j = jobs.get(e.data.id); if (j) { jobs.delete(e.data.id); j(e.data); } };
+    return w;
+  };
+  /** → { file, w, h, raw } 或 { why }。一次只转一个（整个 RAW 要读进内存） */
+  return f => (chain = chain.then(() => new Promise(res => {
+    let wk; try { wk = get(); } catch (err) { return res({ why: '浏览器不支持后台线程' }); }
+    const id = ++seq; jobs.set(id, d => {
+      if (!d.buf) return res({ why: d.why });
+      const name = f.name.replace(/\.[^.]+$/, '') + '.JPG';
+      res({ file: new File([d.buf], name, { type: 'image/jpeg', lastModified: f.lastModified }), w: d.w, h: d.h, raw: f });
+    });
+    wk.postMessage({ id, f });
+  })));
+})();
 
 /* ---------- 缩略图 / 预览图：浏览器自己能解码的就当场做，最快出图；做不了的（HEIC 在 Chrome 上等）GPU 端补 ---------- */
 /** JPEG 的尺寸（已按 EXIF 方向转正）：从 SOF 段读宽高、从 EXIF 读方向（5–8 = 转了 90°，宽高互换）。只读前 128 KB */
@@ -1428,6 +1654,11 @@ async function showQuota() {
 }
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
+// 相机 RAW：转 JPEG（默认）还是原样传。每个人自己选、记在本机；只影响之后选的文件
+for (const r of $$('input[name="rawm"]')) {
+  r.checked = r.value === rawMode();
+  r.onchange = () => { localStorage.np_raw = r.value; toast(r.value === 'raw' ? '之后选的 RAW 原样传（几十 MB 一张）' : '之后选的 RAW 先取出相机里的 JPEG 再传'); };
+}
 $('#pick-more').onclick = () => $('#file').click();   // 和点大框一样：开照片选择器，选中的排在正在传的后面
 // iPhone 上点完 ✓，系统要先把每张照片转好、拷给网页（几百张 + 视频要好几分钟），这段时间网页收不到任何东西 ——
 // 不提示的话看起来就是「点了上传没反应」。所以一点开选择器就挂一条常驻提示，文件到了再换成「收到 N 个」
@@ -1533,4 +1764,4 @@ if (typeof nav === 'function') document.body.insertAdjacentHTML('afterbegin', na
 boot();
 
 // 给自动化测试用：不影响正常使用
-window.__album = { S, enqueue, UQ, refresh, runSearch };
+window.__album = { S, enqueue, UQ, refresh, runSearch, rawJpeg };

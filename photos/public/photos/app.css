@@ -250,6 +250,8 @@ ul.keys{list-style:none; padding:0; margin:8px 0} ul.keys li{display:flex; gap:6
 /* 边选边传：上传进行中一直在面板顶上 */
 .more-pick{display:block; width:100%; margin:0 0 8px; padding:12px 14px; font-size:16px}
 .more-pick[hidden]{display:none}
+.rawopt{display:flex; flex-wrap:wrap; gap:4px 14px; align-items:baseline; margin:6px 0}
+.rawopt label{display:inline-flex; gap:4px; align-items:baseline; cursor:pointer}
 .more-pick .s{color:inherit; opacity:.75; font-size:13px}
 
 /* 稳定性：相册几千张时 Safari 画不过来会露出黑块 / 细条 ——

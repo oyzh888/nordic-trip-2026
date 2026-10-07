@@ -120,7 +120,7 @@
     <button class="btn pri more-pick" id="pick-more" hidden>📷 再选一批 <span class="s">（这批还在传，不用等）</span></button>
     <p id="pick-tip" class="s tip" hidden></p>
     <label class="drop" id="drop">
-      <input id="file" type="file" multiple accept="image/*,.heic,.heif,.dng">
+      <input id="file" type="file" multiple accept="image/*,.heic,.heif,.dng,.cr3,.cr2,.nef,.arw,.raf,.orf,.rw2,.pef,.srw">
       <span>📷 点这里选照片<br><span class="s">电脑上也可以直接把一堆文件（照片、视频都行）拖进来 · 可以一次选几百个<br>📱 iPhone 上一次少选点（二三十张），传的时候再点「再选一批」最顺：点完 ✓ 手机要先从 iCloud 下载原图、转成 JPEG，整批做完才交给网页</span></span>
     </label>
     <!-- 照片和视频分开选：选照片时夹着视频，iPhone 要先把每段视频重新压缩一遍才交出任何文件（一分钟的视频要压一分钟左右） -->
@@ -130,6 +130,10 @@
     </label>
     <p class="s tip"><label class="btn ghost sm" id="pick-dir">📁 选整个文件夹（含子文件夹）<input id="dir" type="file" webkitdirectory multiple hidden></label>
       什么格式都能传：JPEG / HEIC / PNG / WebP / AVIF，相机 RAW（CR3 / CR2 / ARW / NEF / DNG / RAF…），各种视频。</p>
+    <!-- 相机卡里直接选 RAW：默认取 RAW 里相机渲染好的全尺寸 JPEG 传（几 MB），想留原片做后期就切成「原样传」 -->
+    <div class="tip rawopt" id="rawopt"><span class="s">📷 相机 RAW：</span>
+      <label><input type="radio" name="rawm" value="jpeg"> 转成 JPEG 再传 <span class="s">（推荐 · 用相机自己渲染的全尺寸 JPEG，几 MB 一张，快）</span></label>
+      <label><input type="radio" name="rawm" value="raw"> 原样传 RAW <span class="s">（几十 MB 一张，留着以后修图）</span></label></div>
     <details class="tip orig"><summary>📱 iPhone 想传<b>原图</b>（HEIC 不转 JPEG）和 <b>Live Photo</b>？</summary>
       <p>直接从「照片图库」选，iPhone 会先把照片转成 JPEG、视频重新压缩，Live Photo 也只剩一张静态图 —— 这是 Safari 的固定行为，网页改不了。
       换成从「文件」选就是原样的：</p>
