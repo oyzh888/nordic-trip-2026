@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""相册端到端测试：真的走一遍 HTTP，本地 wrangler dev 和线上共用。
+"""相册端到端测试：真的走一遍 HTTP。**只在本地跑**（main() 里拦着）；别的测试把这里当工具库导入，对线上做只读检查不受影响。
 
     python test/e2e.py http://localhost:8787            # 口令/令牌默认读 photos/.dev.vars
-    ALBUM_PASS=… PIPE_TOKEN=… python test/e2e.py https://nordic.airacle.com
+
+⛔ 不要对线上跑：它会模拟 GPU 端发聚类结果，而聚类接口是「整库应该是什么样」—— 没提到的照片会被清掉连拍组 / 时刻 / 场景。
+   在有 1.4 万张真照片的相册上，这是几万行写入（免费版每天只许 10 万行），GPU 端再重新聚类又是几万行。
+   线上的上传 / 鉴权冒烟测试用 api_e2e.py。
 
 测试数据全部用 E2E- 前缀的用户名和随机字节，结束时（包括中途失败）调 /api/pipe/purge 彻底删掉：
 行、人脸、向量、R2 里的原件和缩略图都不留。口令和令牌只从环境变量读，从不打印。
@@ -120,6 +123,7 @@ def unit(v):
 
 
 def main():
+    assert 'localhost' in BASE or '127.0.0.1' in BASE, '只在本地跑（会发整库聚类结果，见文件开头）；线上冒烟用 api_e2e.py'
     assert PASS and PIPE, '需要 ALBUM_PASS 和 PIPE_TOKEN（环境变量或 photos/.dev.vars）'
     print(f'目标 {BASE}  · 本轮标记 {TAG}  · 口令 {len(PASS)} 位 · 令牌 {len(PIPE)} 位\n')
     anon, A, B, P = Client(), Client(), Client(), Client(PIPE)

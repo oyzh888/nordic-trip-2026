@@ -33,10 +33,16 @@ from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
+import clock  # noqa: E402
+import video as VID  # noqa: E402
 import cluster  # noqa: E402
 import media as M  # noqa: E402
 from models import face_vec, q8  # noqa: E402  （不加载模型，只是两个小函数）
 
+UP_QUIET = 30                 # 秒：最近这么久内有人上传，就先不做重的后处理（见 run）
+MAX_DEFER = 15 * 60           # 一直有人在传，最多推迟这么久
+THUMB_PAR = 6                 # 缩略图快车道并行几路（下载 + 缩着解码，主要等网络）
+PREP_PAR = 6                  # 分析前的预处理（下载、EXIF、解码）并行几路 —— 以前一张一张来，8 张要 14 秒，模型只要 8 秒
 AVER = 1                     # 分析版本：换模型/改提示词后 +1，服务端 aver < 这个的都会被重新分析
 BATCH = 8
 UA = 'nordic-photos-pipeline/1.0 (github.com/oyzh888/nordic-trip-2026)'
@@ -79,10 +85,11 @@ class Api:
                 r = self.s.request(method, self.base + path, **kw)
                 if r.status_code < 500:
                     return r
+                err = f'{r.status_code} {r.text[:200]!r}'       # 记下服务端说了什么：以前只记了 500，查不出原因
             except requests.RequestException as e:
-                r = e
+                err = repr(e)[:200]
             time.sleep(2 ** i)
-        raise RuntimeError(f'{method} {path}: {r}')
+        raise RuntimeError(f'{method} {path}: {err}')
 
     def get(self, p, **kw):
         r = self.req('GET', p, **kw); r.raise_for_status(); return r.json()
@@ -103,7 +110,7 @@ class Api:
     def download(self, h, dst):
         with self.s.get(f'{self.base}/f/{h}/o', stream=True, timeout=600) as r:
             r.raise_for_status()
-            tmp = dst.with_suffix('.part')
+            tmp = dst.with_suffix(f'.part{threading.get_ident()}')     # 缩略图快车道和分析可能同时下同一张
             with open(tmp, 'wb') as f:
                 for c in r.iter_content(1 << 20):
                     f.write(c)
@@ -200,6 +207,9 @@ class Worker:
         self.titles_p = self.cache / 'titles.json'
         self.titles = json.loads(self.titles_p.read_text()) if self.titles_p.exists() else {}
         self.wake = threading.Event()
+        self.fails = {}                    # h → 写回失败次数（见 post_one）
+        self.wake_transcode = threading.Event()
+        self.wake_thumb = threading.Event()
         self.dirty = True                  # 启动时先聚类一次（上一个 worker 可能没跑完）
         self.gpu = threading.Lock()        # WebSocket 线程和主循环共用模型
         log('加载模型 …')
@@ -208,6 +218,7 @@ class Worker:
         self.m = Models(vlm=not args.no_vlm)
         log(f'模型就绪 {time.time() - t:.0f}s')
         self.conf_sig = None
+        self.conf_srv = None
         self.editor, self.edit_keys = None, []
         if not args.no_edit:
             import aiedit
@@ -254,12 +265,131 @@ class Worker:
                             if m['t'] == 'recluster':
                                 self.dirty = True
                             self.wake.set()
+                            if m['t'] == 'new':
+                                self.wake_transcode.set()       # 新传的视频不用等 60 秒轮询
+                                self.wake_thumb.set()
             except Exception as e:           # noqa: BLE001 —— 断了就重连，不影响主循环
                 if not self.stop:
                     log('WebSocket 断开，5 秒后重连:', repr(e)[:160])
                     time.sleep(5)
 
+    # ---------------- 缩略图快车道 ----------------
+    def thumb_loop(self):
+        """没有缩略图的照片在时间线上是灰格子（相机卡里倒出来的整批、页面没等到补缩略图就关了的）。
+        以前它们排在 AI 分析后面（每张约 3 秒，一千多张要一个多小时）；这里只做「下载 → 缩着解码 → 传两张小图」，
+        几路并行、和分析互不等待，几分钟补齐。分析时再按原尺寸解码，互不影响"""
+        bad = set()                                     # 解不了码的：这次进程里不再试（分析那边会记失败）
+        with ThreadPoolExecutor(THUMB_PAR, thread_name_prefix='thumb') as ex:
+            while not self.stop:
+                try:
+                    todo = [it for it in self.api.get(f'/api/pipe/nothumb?aver={AVER}&limit=48') if it['h'] not in bad]
+                except Exception as e:   # noqa: BLE001
+                    log('取缩略图任务失败:', repr(e)[:160]); todo = []
+                if todo:
+                    t, ok = time.time(), 0
+                    for h, r in zip([it['h'] for it in todo], ex.map(self.thumb_one, todo)):
+                        if r: ok += 1
+                        else: bad.add(h)
+                    log(f'缩略图快车道：{ok}/{len(todo)} 张 {time.time() - t:.1f}s')
+                    continue
+                self.wake_thumb.wait(60)
+                if self.wake_thumb.is_set():
+                    self.wake_thumb.clear(); time.sleep(10)   # 刚传完的那批：等一会儿攒一起；手机自己也可能正在做
+        # 线程池退出时等在跑的做完
+
+    def thumb_one(self, it):
+        d = self.cache / 'th'; d.mkdir(exist_ok=True)
+        path = d / it['h']
+        try:
+            self.api.download(it['h'], path)
+            im, W, H = M.open_small(path, it['name'])
+            t, p, _ = M.thumbs(im)
+            if not it['flags'] & 1:
+                self.api.aux(it['h'], 't', t, {'w': W, 'hh': H})
+            if not it['flags'] & 2:
+                self.api.aux(it['h'], 'p', p)
+            return True
+        except Exception as e:   # noqa: BLE001 —— 一张坏文件不卡别的
+            log(f'  缩略图失败 {it["name"]}: {e!r:.160}')
+            return False
+        finally:
+            path.unlink(missing_ok=True)
+
     # ---------------- AI 改图 ----------------
+    # ---------------- 视频：转成 H.264 新版 + 调色（见 video.py）----------------
+    def transcode_loop(self):
+        """后台一个线程、一次一个：不挡照片分析。原片先照常上传、照常分析，这里再补一份「谁都能放、颜色正常」的新版"""
+        while not self.stop:
+            try:
+                todo = self.api.get('/api/pipe/transcode')
+            except Exception as e:   # noqa: BLE001
+                log('取转码任务失败:', repr(e)[:160]); todo = []
+            for it in todo:
+                if self.stop:
+                    return
+                self.transcode_one(it)
+            self.wake_transcode.wait(60 if not todo else 1)
+            self.wake_transcode.clear()
+
+    def canon_name(self, it):
+        """文件名像不像这个人传过的佳能照片（同一前缀，比如 _I6A / _63A），或者佳能默认的 MVI_"""
+        n = (it.get('name') or '').upper()
+        if n.startswith('MVI_'):
+            return True
+        try:
+            pre = {(m.get('name') or '')[:4].upper() for m in self.api.get('/api/pipe/media')
+                   if (m.get('cam') or '').lower().startswith('canon') and m.get('up') == it.get('up')}
+        except Exception:        # noqa: BLE001
+            return False
+        return bool(n[:4]) and n[:4] in pre and n[:4] not in ('IMG_', 'DSC_', 'DSC0')
+
+    def transcode_one(self, it):
+        h, t0 = it['h'], time.time()
+        src = self.cache / 'o' / f'tc-{h}'
+        out = self.cache / f'tc-{h}.mp4'
+        try:
+            self.api.download(h, src)
+            info, vs, aus = VID.probe(src)
+            plan, why = VID.plan_for(src, vs, info, cam=it.get('cam'), canon_name=self.canon_name(it))
+            if plan == 'none':
+                self.api.post('/api/pipe/gplan', {'h': h, 'plan': 'none'})
+                log(f'🎬 {it["name"]}: 不用转（{why}）')
+                return
+            log(f'🎬 {it["name"]}: {VID.LABEL[plan]} · {why} · 开始转（{it["size"] / 1e6:.0f} MB）')
+            sec = VID.convert(src, out, plan, vs, aus)
+            size, crc = out.stat().st_size, 0
+            with open(out, 'rb') as f:
+                while b := f.read(8 << 20):
+                    crc = zlib.crc32(b, crc)
+            up = self.api.post('/api/pipe/gmp/init', {'h': h})
+            parts = []
+            with open(out, 'rb') as f:
+                n = 0
+                while b := f.read(8 << 20):
+                    n += 1
+                    r = self.api.req('PUT', f'/api/pipe/gmp/part?h={h}&id={up["id"]}&n={n}', data=b,
+                                     headers={'content-type': 'application/octet-stream'}, timeout=600)
+                    r.raise_for_status()
+                    parts.append({'n': n, 'etag': r.json()['etag']})
+            self.api.post('/api/pipe/gmp/complete', {'h': h, 'id': up['id'], 'parts': parts, 'plan': plan, 'size': size, 'crc': crc & 0xFFFFFFFF})
+            if plan != 'transcode':
+                # 调过色的：时间线上的缩略图和 720p 预览也换成新版的颜色（原来是从灰蒙蒙的 Log 原片截的）
+                _, vo, _ = VID.probe(out)
+                im = M.video_frame(out, min(1.0, float(vo.get('duration') or 3) / 3))
+                if im is not None:
+                    tb, pv, _ = M.thumbs(im)
+                    self.api.aux(h, 't', tb); self.api.aux(h, 'p', pv)
+                prev = self.cache / f'tc-{h}-720.mp4'
+                M.video_preview(out, prev)
+                self.api.aux(h, 'v', prev.read_bytes()); prev.unlink(missing_ok=True)
+            log(f'🎬 {it["name"]}: 好了 · {VID.LABEL[plan]} · {it["size"] / 1e6:.0f} MB → {size / 1e6:.0f} MB · 转码 {sec:.0f}s · 共 {time.time() - t0:.0f}s')
+        except Exception as e:       # noqa: BLE001 —— 记下失败原因，不再自动重试（不然一个坏文件每分钟转一遍）
+            log(f'🎬 {it.get("name")}: 转码失败\n' + traceback.format_exc(limit=3))
+            try: self.api.post('/api/pipe/gplan', {'h': h, 'plan': f'fail:{str(e)[:150]}'})
+            except Exception: pass   # noqa: BLE001
+        finally:
+            src.unlink(missing_ok=True); out.unlink(missing_ok=True)
+
     def edit_loop(self):
         """服务端推 {t:'edit'} 就来取；WS 断着的时候每 20 秒兜底查一次"""
         while not self.stop:
@@ -362,6 +492,59 @@ class Worker:
             cc = M.trip_country(utc)
         return M.utc_to_local(utc, cc) or res.get('taken') or utc
 
+    @staticmethod
+    def clock_fields(meta, kind):
+        """存下相机表盘原始钟点 / 机身序列号 / 时间从哪来 —— 时钟对齐（clock.py）每次都从原始钟点重算，结果可重复"""
+        out = {'ctime': meta.get('_raw') or '', 'cser': meta.get('_ser')}
+        out['tzsrc'] = 'video' if kind == 'video' else 'gps' if meta.get('lat') is not None else meta.get('_tzsrc') or 'none'
+        return {k: v for k, v in out.items() if v is not None}
+
+    def backfill_clock(self):
+        """已经分析过、但还没记原始钟点的照片：只读原件开头的 EXIF 补上（一张一次，补过的 ctime 不再是 NULL）"""
+        # 只补已经分析过的：result 接口会顺手把 aver 写成当前版本，没分析过的照片要留给正常流程（它自己会记原始钟点）
+        todo = [m for m in self.api.get('/api/pipe/media') if m.get('ctime') is None and not m.get('src') and (m.get('aver') or 0) >= AVER]
+        if not todo:
+            return 0
+        log(f'补记 {len(todo)} 个文件的相机原始钟点 / 机身序列号（只读 EXIF，不重跑模型）')
+
+        def one(m):
+            out = {'ctime': '', 'tzsrc': 'video' if m['kind'] == 'video' else 'gps' if m.get('lat') is not None else 'none'}
+            try:
+                return read(m, out)
+            except Exception as e:   # noqa: BLE001
+                log(f'  {m["h"][:10]} 补原始钟点失败: {e!r:.80}'); return {'h': m['h'], **out, 'aver': AVER}
+
+        def read(m, out):
+            if m['kind'] == 'image':
+                raw = (m.get('name') or '').rsplit('.', 1)[-1].lower() in M.RAW_EXT
+                try:
+                    r = self.api.req('GET', f'/f/{m["h"]}/o', headers={'range': f'bytes=0-{(4 << 20 if raw else 256 << 10) - 1}'}, timeout=120)
+                    if raw:
+                        p = self.cache / f'hdr-{m["h"]}'
+                        p.write_bytes(r.content)
+                        try: meta = M.raw_meta(p)
+                        finally: p.unlink(missing_ok=True)
+                    else:
+                        meta = M.image_meta(Image.open(io.BytesIO(r.content)))
+                    out = self.clock_fields({**meta, 'lat': m.get('lat')}, 'image')
+                except Exception as e:   # noqa: BLE001 —— 读不了就记成空，免得每次启动都重试
+                    log(f'  {m["h"][:10]} 读不了 EXIF: {e!r:.80}')
+            return {'h': m['h'], **out, 'aver': AVER}
+        with ThreadPoolExecutor(8) as ex:
+            rows = list(ex.map(one, todo))
+        self.post_results(rows)                         # 一次写回，不是一千个请求
+        return len(todo)
+
+    def align_clocks(self, media, E):
+        """相机时钟对齐（见 clock.py）：没时区标签、没 GPS 的相机照片，按同场景的手机照片把时间对齐过来。
+        只改变化 ≥ 5 分钟的；返回改过的 h → 新时间（聚类要用新时间）"""
+        trip = lambda utc: M.CC_TZ.get(M.trip_country(utc) or '')
+        changes, report = clock.align(media, E, M.tz_at, M.utc_to_tz, trip)
+        for line in report:
+            log('  时钟对齐 ' + line)
+        self.post_results([{'h': h, 'taken': taken, 'tzsrc': how, 'aver': AVER} for h, taken, how in changes])
+        return {h: t for h, t, _ in changes}
+
     def retime(self):
         """一次性：把已经分析过的照片按上面的规则重算拍摄时间（只读原件开头的 EXIF，不重跑模型）"""
         n = 0
@@ -387,16 +570,23 @@ class Worker:
 
     def process(self, items):
         prepped = []
-        for it in items:
+
+        def prep(it):
             t = time.time()
             try:
                 im, res = self.prepare(it)
-                prepped.append((it, im, res))
                 log(f'  {it["name"]}: 预处理 {time.time() - t:.1f}s' + (' · 补了缩略图' if res.get('_thumb') else '') +
                     (f' · 视频预览 {res["_v"] / 1e6:.1f} MB' if res.get('_v') else ''))
+                return it, im, res
             except Exception:        # noqa: BLE001 —— 一张坏文件不能卡住整条队列
                 log(f'  {it["name"]} 失败:\n' + traceback.format_exc(limit=3))
-                self.api.post('/api/pipe/result', {'h': it['h'], 'aver': AVER})
+                return it, None, None
+        with ThreadPoolExecutor(PREP_PAR, thread_name_prefix='prep') as ex:
+            for it, im, res in ex.map(prep, items):
+                if res is None:
+                    self.post_one({'h': it['h'], 'aver': AVER}, it)
+                else:
+                    prepped.append((it, im, res))
         # Live Photo 的那 3 秒视频（带 cid 的视频）不跑模型：描述、人脸、向量都算在配对的那张照片上
         ok = [(it, im, res) for it, im, res in prepped if im is not None and not (it['kind'] == 'video' and res.get('cid'))]
         t = time.time()
@@ -413,6 +603,7 @@ class Worker:
                     res['caption'], res['tags'] = d['caption'], d['tags']
                 res['faces'] = [{k: v for k, v in f.items() if not k.startswith('_')} for f in fs]
                 res.update(M.quality(im, fs, d and d['quality']))
+        out = []
         for it, im, res in prepped:
             place, cc = self.geo(res.get('lat'), res.get('lon'))
             if place:
@@ -420,12 +611,23 @@ class Worker:
             utc = res.pop('_utc', None)
             if utc:
                 res['taken'] = self.local_time(utc, cc, res)
+            res.update(self.clock_fields(res, it['kind']))
             for k in [k for k in res if k.startswith('_')]:
                 res.pop(k)
             res['aver'] = AVER
-            r = self.api.post('/api/pipe/result', {k: v for k, v in res.items() if v is not None})
+            out.append({k: v for k, v in res.items() if v is not None})
+        # 一批一个请求（以前 8 张 8 个请求，每个都要排进相册数据库）；整批失败就退回逐张，坏的那张单独跳过
+        try:
+            rs = self.api.post('/api/pipe/results', {'items': out})['res'] if out else []
+        except Exception as e:   # noqa: BLE001
+            log(f'  批量写回失败，改逐张: {e!s:.200}')
+            rs = [self.post_one(r, it) for r, (it, _, _) in zip(out, prepped)]
+        for (it, im, res), r in zip(prepped, rs):
+            if r.get('ok') and res.get('faces') and im is not None:
+                try: self.api.aux(it['h'], 'f', M.face_sprite(im, res['faces']))
+                except Exception as e: log(f'  人脸小图条失败 {it["name"]}: {e}')  # noqa: BLE001 —— 不影响分析结果
             tg = res.get('tags') or {}
-            log(f'  ✓ {it["name"]}  {res.get("taken", "")}  {place or ""}  人脸 {len(res.get("faces", []))}  '
+            log(f'  ✓ {it["name"]}  {res.get("taken", "")}  {res.get("place") or ""}  人脸 {len(res.get("faces", []))}  '
                 f'分 {res.get("score", "-")}  {"/".join(tg.get("special") or [])}  「{res.get("caption", "")[:30]}」'
                 + ('' if r.get('ok') else f'  !! {r}'))
         return len(prepped)
@@ -444,16 +646,63 @@ class Worker:
         self.titles_p.write_text(json.dumps(self.titles, ensure_ascii=False))
         return t
 
+    # ---------------- 增量读：图像向量 / 人脸特征在本机留一份，每次只拉新增的 ----------------
+    def load_embs(self):
+        """h → 单位化的图像向量。全量一次 8 MB、占着数据库近 1 秒；增量只拉 rowid 变大的（新写的 / 重写的）"""
+        if not hasattr(self, 'E'):
+            self.E, self.emb_max = {}, 0
+        while True:
+            r = self.api.get(f'/api/pipe/embs?since={self.emb_max}')
+            for x in r['rows']:
+                v = np.frombuffer(base64.b64decode(x['vec']), dtype=np.int8).astype(np.float32) * x['scale']
+                self.E[x['h']] = v / (np.linalg.norm(v) or 1)
+            self.emb_max = r['max']
+            if not r.get('more'):
+                return self.E
+
+    def load_faces(self):
+        """全部人脸：位置 / 归属每次全量（小），特征向量只拉 id 变大的（id 只增不改）"""
+        if not hasattr(self, 'FE'):
+            self.FE, self.fe_max = {}, 0
+        light = self.api.get('/api/pipe/faces?light=1')
+        for x in self.api.get(f'/api/pipe/faceemb?since={self.fe_max}'):
+            self.FE[x['id']] = x['emb']
+            self.fe_max = max(self.fe_max, x['id'])
+        live = {f['id'] for f in light}
+        for k in [k for k in self.FE if k not in live]:   # 删掉的脸（重新分析 / 删照片）别一直留在内存里
+            del self.FE[k]
+        return [{**f, 'emb': self.FE.get(f['id'])} for f in light if self.FE.get(f['id'])]
+
+    def post_one(self, r, it):
+        """写回一张。服务端一直 5xx（重试 5 次后）就记下来跳过，不让整个进程退出重启（重新加载模型要 20 秒，还得重做整批）；
+        同一张连着失败 3 次，就只写一个「分析过了」，免得它永远排在队头"""
+        try:
+            return self.api.post('/api/pipe/result', r)
+        except Exception as e:   # noqa: BLE001
+            n = self.fails[r['h']] = self.fails.get(r['h'], 0) + 1
+            log(f'  !! 写回失败（第 {n} 次）{it.get("name")}: {e!s:.200}')
+            if n >= 3:
+                try: self.api.post('/api/pipe/result', {'h': r['h'], 'aver': AVER})
+                except Exception: pass   # noqa: BLE001
+            return {'error': str(e)[:200]}
+
+    def post_results(self, items):
+        """成百上千条写回：50 条一个请求（服务端每批只刷新一次缓存）"""
+        for i in range(0, len(items), 50):
+            self.api.post('/api/pipe/results', {'items': items[i:i + 50]})
+
     def recluster(self):
         t = time.time()
-        faces = self.api.get('/api/pipe/faces')
+        faces = self.load_faces()
+        self.backfill_clock()                           # 先补原始钟点，下面取的列表才带得上
         media = self.api.get('/api/pipe/media')
         for m in media:
             m['tags'] = json.loads(m['tags']) if m.get('tags') else {}
-        E = {}
-        for r in self.api.get('/api/pipe/embs'):
-            v = np.frombuffer(base64.b64decode(r['vec']), dtype=np.int8).astype(np.float32) * r['scale']
-            E[r['h']] = v / (np.linalg.norm(v) or 1)
+        E = self.load_embs()
+        moved = self.align_clocks(media, E)
+        for m in media:                                 # 时刻 / 连拍按对齐后的时间切
+            if m['h'] in moved:
+                m['taken'] = moved[m['h']]
         def unit(s):
             v = face_vec(s)
             return v / (np.linalg.norm(v) or 1)
@@ -496,6 +745,32 @@ class Worker:
                 log(f'磁盘用量上报失败：{e}')
             time.sleep(60)
 
+    # ---------------- 人脸小图条补生成 ----------------
+    def backfill_sprites(self):
+        """有人脸、还没有小图条（flags 第 8 位）的照片：从预览图（没有就用原图）裁出来补上。之前分析过的老照片走这里"""
+        items = [i for i in self.api.get('/api/list')['items'] if i.get('nf') and not i['f'] & 8]
+        if not items: return 0
+        by = {}
+        for f in self.api.get('/api/pipe/faces?light=1'): by.setdefault(f['h'], []).append(f)
+        n = 0
+        for it in items:
+            fs = sorted(by.get(it['h'], []), key=lambda f: f['id'])
+            if not fs: continue
+            try:
+                r = self.api.req('GET', f"/f/{it['h']}/{'p' if it['f'] & 2 else 'o'}", timeout=300); r.raise_for_status()
+                if it['f'] & 2:
+                    im = Image.open(io.BytesIO(r.content)).convert('RGB')     # 预览图生成时已经按 EXIF 转正，和人脸坐标同一个方向
+                else:                                                         # 原图（HEIC / RAW…）要走同一套解码 + 转正
+                    tmp = Path(self.args.cache) / f'sprite-{it["h"]}'
+                    tmp.write_bytes(r.content)
+                    try: im = M.open_image(str(tmp), it['n'])[0]
+                    finally: tmp.unlink(missing_ok=True)
+                self.api.aux(it['h'], 'f', M.face_sprite(im, fs)); n += 1
+            except Exception as e:  # noqa: BLE001
+                log(f'  补人脸小图条失败 {it["n"]}: {e}')
+        log(f'补了 {n} 张照片的人脸小图条（共 {len(items)} 张缺）')
+        return n
+
     # ---------------- 主循环 ----------------
     def run(self):
         self.stop = False
@@ -506,9 +781,24 @@ class Worker:
             threading.Thread(target=self.disk_loop, daemon=True).start()
         if self.edit_keys:
             threading.Thread(target=self.edit_loop, daemon=True).start()
-        last_check = 0
+        if not self.args.no_transcode:
+            threading.Thread(target=self.transcode_loop, daemon=True).start()
+        if not self.args.no_thumb_lane:
+            threading.Thread(target=self.thumb_loop, daemon=True).start()
+        last_check, defer_since = 0, None
         while True:
             pend = self.api.get(f'/api/pipe/pending?aver={AVER}&limit={BATCH}')
+            # 上传和后处理分开：相册的数据库同一时间只处理一个请求，聚类 / 对齐时间 / 补小图条这些重活
+            # 一次要占着它零点几秒到几秒（读 8 MB 向量、写几百行），这时候用户的上传请求就得排队（实测 p95 120 → 400 ms）。
+            # 所以有人在上传（最近 UP_QUIET 秒内有上传动作）就先不做，等上传停了再做；一直有人传也最多推迟 MAX_DEFER。
+            # 逐张分析新照片（看图、认脸）照常做 —— 它对数据库很轻，而且大家想尽快看到描述和人脸
+            busy = pend.get('upAgo') is not None and pend['upAgo'] < UP_QUIET
+            if busy and defer_since is None:
+                defer_since = time.time()
+                log(f'有人在上传 —— 聚类 / 对齐时间 / 补小图条先等上传停 {UP_QUIET} 秒（最多推迟 {MAX_DEFER // 60} 分钟）')
+            if not busy:
+                defer_since = None
+            hold = busy and time.time() - defer_since < MAX_DEFER
             if pend['queries']:
                 self.api.post('/api/pipe/vecs', {'items': self.embed_qs(pend['queries'])})
                 log(f'补算了 {len(pend["queries"])} 个排队的搜索词向量')
@@ -517,14 +807,19 @@ class Worker:
                 self.process(pend['items'])
                 self.dirty = True
                 continue                    # 积压没处理完就不聚类，全部处理完再做一次
-            if not self.dirty and time.time() - last_check > 60:
-                # 认领是在页面上发生的：服务端会推 recluster，但万一 WS 断着就靠这里兜底
+            if not hold and not self.dirty and time.time() - last_check > 60:
+                # 认领是在页面上发生的：服务端会推 recluster，但万一 WS 断着就靠这里兜底。
+                # 比服务端给的「已确认人脸」小签名，不再每分钟拉 3 MB 的全部人脸回来比
                 last_check = time.time()
-                if self.confirmed_sig(self.api.get('/api/pipe/faces')) != self.conf_sig:
+                if pend.get('conf') is not None and pend['conf'] != self.conf_srv:
                     self.dirty = True
-            if self.dirty:
+            if self.dirty and not hold:
                 self.dirty = False
+                self.conf_srv = pend.get('conf')
                 self.recluster()
+            if not hold and time.time() - getattr(self, 'last_sprites', 0) > 600:
+                self.last_sprites = time.time()
+                self.backfill_sprites()
             if self.args.once:
                 self.edit_pool.shutdown(wait=True)
                 self.stop = True
@@ -542,6 +837,8 @@ def main():
     ap.add_argument('--no-vlm', action='store_true', help='不加载 Qwen（只做向量/人脸，调试用）')
     ap.add_argument('--no-edit', action='store_true', help='不开 AI 改图（不连模型网关）')
     ap.add_argument('--store', default=os.environ.get('PHOTOS_STORE', ''), help='相册存储目录（本机部署时）：每分钟上报磁盘用量')
+    ap.add_argument('--no-transcode', action='store_true', help='不转视频（H.264 新版 + 调色，见 video.py）')
+    ap.add_argument('--no-thumb-lane', action='store_true', help='不开缩略图快车道（缩略图只在分析时顺手补）')
     ap.add_argument('--retime', action='store_true', help='开工前把已分析的照片按拍摄地重算一遍拍摄时间（幂等）')
     # 语义搜索的两道门（SigLIP2 余弦）：绝对下限 + 离最高分多近。在 36 个中英文查询上量的，见 README
     ap.add_argument('--sem-floor', type=float, default=0.05)

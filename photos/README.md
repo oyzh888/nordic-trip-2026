@@ -32,9 +32,10 @@ GPU 机上的 pipeline/worker.py ── 主动连过来（HTTP 轮询 + 一条 W
 
 | 部分 | 在哪 | 做什么 |
 |---|---|---|
-| `src/index.js` | Worker | 口令鉴权（HMAC cookie 30 天）；分片上传 → R2；Range 下载 / 视频拖动；zip 流式打包 |
+| `src/index.js` | Worker（宿主） | 网页静态文件；把 `/photos/api/*`、`/photos/f/*` 交给引擎 |
+| `src/engine.js` | Worker（引擎） | 鉴权（口令 cookie / 个人 API 密钥 / GPU 令牌）；分片上传 → R2；列表全量 + 增量；Range 下载 / 视频拖动；zip 流式打包 |
 | `src/album.js` | Durable Object | 元数据、去重、断点续传状态、搜索（关键词 + 向量）、查询缓存、人物 / 聚类 / 改图队列 |
-| `public/photos/` | 静态资源 | 前端（原生 JS，无框架、无构建） |
+| `public/photos/` | 静态资源 | 网页前端（原生 JS，无框架、无构建）—— 引擎的客户端之一，分层和接口契约见 [ENGINE.md](ENGINE.md) |
 | `pipeline/` | 任意一台有 GPU 的机器 | 补 EXIF、缩略图、转码；三个模型；聚类；AI 改图 |
 
 **去重和断点续传**：内容 ID = 按 8 MB 分块各算 SHA-256、再对这串哈希算一次 SHA-256。浏览器边读边算，传之前先问服务端「这个 ID 有没有、传到第几块了」，所以重复的文件一个字节都不用传，断掉的从下一块接着传。

@@ -38,6 +38,8 @@ MAKE = """async ([from, n, w, h]) => {
 LAG = """() => { window.__lag = { max: 0, n200: 0 }; let t = performance.now();
   clearInterval(window.__lagT); window.__lagT = setInterval(() => { const now = performance.now(), d = now - t - 50; t = now;
     if (d > window.__lag.max) window.__lag.max = d; if (d > 200) window.__lag.n200++; }, 50); }"""
+KEPT = """() => new Promise(r => { const q = indexedDB.open('np-upload', 1); q.onupgradeneeded = () => q.result.createObjectStore('files');
+  q.onsuccess = () => { const c = q.result.transaction('files').objectStore('files').count(); c.onsuccess = () => r(c.result); }; q.onerror = () => r(-1); })"""
 STATE = """() => { const q = __album.UQ, c = s => q.filter(t => t.state === s).length;
   return { n: q.length, ok: c('ok'), dup: c('dup'), failed: c('failed'), left: c('queued') + c('active'), lag: window.__lag }; }"""
 
@@ -90,19 +92,29 @@ def main():
         M = 40
         pg.reload(); pg.wait_for_selector('#app:not([hidden])', timeout=15000)
         pg.evaluate(MAKE, [N, M, 1600, 1200]); slow(pg)
+        # 上行限到 2 Mbps：现在传得很快，不限的话等到第 8 张传完时 40 张早就全完了，测不到「传一半被杀」
+        cdp = ctx.new_cdp_session(pg); cdp.send('Network.enable')
+        cdp.send('Network.emulateNetworkConditions', {'offline': False, 'latency': 20, 'downloadThroughput': -1, 'uploadThroughput': 2e6 / 8})
         pg.evaluate('() => __album.enqueue(window.__bulk)')
         pg.wait_for_function('() => __album.UQ.filter(t => t.state === "ok").length >= 8', timeout=120000)
         pg.wait_for_timeout(600)                                   # 让本机缓存落盘（攒 400 ms 写一次）
         done1 = pg.evaluate(STATE)['ok']
+        kept = pg.evaluate(KEPT)
+        check('传到一半：还没传的文件已经存进浏览器（IndexedDB）', kept >= M - done1 - 6 and kept > 0, f'已传 {done1} · 浏览器里存着 {kept} 个')
         pg.reload(); pg.wait_for_selector('#app:not([hidden])', timeout=15000)
-        pg.wait_for_timeout(800)
-        hint = pg.locator('#resume-hint')
-        txt = hint.text_content() if hint.is_visible() else ''
-        check('页面被杀后重新打开 → 上传面板自动打开，提示还剩几张', pg.is_visible('#upsheet') and '没传完' in txt, txt[:60])
+        # 不重选：页面自己从浏览器里把文件拿回来接着传（2 Mbps 还在限着）
+        pg.wait_for_function('() => __album.UQ.length > 0', timeout=15000)
+        n_restored = pg.evaluate('() => __album.UQ.length')
         pg.screenshot(path=os.path.join(e2e.HERE, 'out', 'ui', 'bulk-resume.png'))
-        pg.evaluate(MAKE, [N, M, 1600, 1200])
-        c = run(f'重选那 {M} 张', '() => __album.enqueue(window.__bulk)')
-        check('重选后：传过的秒传、没传的补上', c['dup'] >= done1 and c['ok'] + c['dup'] == M and not c['failed'], c)
+        check('页面被杀后重新打开 → 不用重选，自动接着传', n_restored >= M - done1 - 6, f'自动恢复 {n_restored} 个（被杀前已传完 {done1} 个）')
+        cdp.send('Network.emulateNetworkConditions', {'offline': False, 'latency': 0, 'downloadThroughput': -1, 'uploadThroughput': -1})
+        pg.wait_for_function("() => __album.UQ.every(t => t.state === 'ok' || t.state === 'dup' || t.state === 'failed')", timeout=300000)
+        c = pg.evaluate(STATE)
+        pg.evaluate("() => __album.refresh(true)")
+        mine = pg.evaluate(f"() => __album.S.data.items.filter(x => x.n.startsWith('IMG_') && Number(x.n.slice(4, 8)) >= {N}).length")
+        check(f'这 {M} 张最后全在相册里，没有失败、没有重复', mine == M and not c['failed'], f'相册里 {mine} 张 · {c}')
+        pg.wait_for_timeout(1500)
+        check('传完之后浏览器里存的副本全删了（不长期占手机空间）', pg.evaluate(KEPT) == 0, pg.evaluate(KEPT))
         check('补完之后「没传完」的提示消失', not pg.is_visible('#resume-hint'))
         check('整个过程没有 JS 报错', not errs, errs[:3])
         br.close()

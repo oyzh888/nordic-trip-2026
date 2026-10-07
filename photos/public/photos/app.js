@@ -1,6 +1,6 @@
 /* 北欧 2026 · 共享相册前端 —— 一个 ES module，无依赖、无构建，手机和电脑同一份
  *
- * 数据流：/api/list 一次拿全量元数据（几千张也只有几百 KB，带 ETag，没变化时 304）
+ * 数据流：/api/list 第一次拿全量元数据，之后每次只拿增量（变过的那几张，见 §列表）
  *        → 筛选 / 分组 / 排序全部在本机做（瞬时）；只有「文字搜索」去问服务端（它有向量索引和结果缓存）。
  *
  * 上传（最要紧的部分，见 §上传）：
@@ -51,7 +51,7 @@ function toast(msg, ms = 2600) {
 const S = {
   me: null, data: null, ver: 0, byH: new Map(), users: new Map(), persons: new Map(), moments: new Map(),
   myPerson: null,
-  tab: 'grid', group: localStorage.np_group || 'day', desc: localStorage.np_desc === '1',
+  tab: 'grid', group: localStorage.np_group || 'day', desc: localStorage.np_desc !== '0',          // 默认新的在前（点过「旧的在前」的人记住他的选择）
   quick: 'all', day: null, person: null, special: null, cam: null, burst: true,
   q: '', res: null, sel: new Set(), selMode: false, view: [], lb: -1,
   searches: [],
@@ -82,12 +82,11 @@ $('#f-pass').addEventListener('submit', e => { e.preventDefault(); doPass($('#pa
 $('#f-name').addEventListener('submit', e => { e.preventDefault(); doName($('#name').value); });
 $('#names').addEventListener('click', e => { const b = e.target.closest('[data-n]'); if (b) doName(b.dataset.n); });
 
-/* ================= 列表 ================= */
-async function loadList() {
-  const r = await fetch(API + '/list', { credentials: 'same-origin', cache: 'no-cache' });
-  if (r.status === 401) { showGate(); return false; }
-  const d = await r.json();
-  if (S.data && d.ver === S.ver) return false;
+/* ================= 列表 =================
+ * 第一次打开拿全量（?stale=1：服务端可以给几分钟前拼好的那份），之后每次只要「我手上这一版之后变了什么」（?since=）：
+ * 1.4 万张时全量 1.7 MB（压缩后），而 GPU 端一直在写结果、版本号几秒一变 —— 以前每 15 秒整份重下一遍，
+ * 手机上解析 9 MB 的 JSON 也卡。增量通常几百字节；服务端答不了的时候（它重启过、中间有大改动）自己回全量。 */
+function setList(d) {
   S.data = d; S.ver = d.ver;
   S.byH = new Map(d.items.map(it => [it.h, it]));
   S.users = new Map(d.users.map(u => [u.id, u.name]));
@@ -95,14 +94,68 @@ async function loadList() {
   S.moments = new Map((d.moments || []).map(m => [m.id, m]));
   S.myPerson = d.persons.find(p => p.uid === S.me.id)?.id ?? null;
   for (const h of [...S.sel]) if (!S.byH.has(h)) S.sel.delete(h);
+}
+/** 把增量合进手上的列表：改了的原地换（同一时刻拍的几张顺序不变）、新的接在后面、撤掉的拿走 */
+function mergeDelta(d) {
+  const upd = new Map(d.items.map(it => [it.h, it])), gone = new Set(d.gone);
+  const items = [];
+  for (const it of S.data.items) {
+    if (gone.has(it.h)) continue;
+    const n = upd.get(it.h);
+    if (n) upd.delete(it.h);
+    items.push(n || it);
+  }
+  for (const it of upd.values()) items.push(it);
+  const g = {};
+  for (const k of ['users', 'persons', 'scenes', 'moments', 'pipe', 'ai']) g[k] = k in d ? d[k] : S.data[k];
+  setList({ ...S.data, ...g, ver: d.ver, items });
+}
+async function loadList() {
+  const get = q => fetch(API + '/list' + q, { credentials: 'same-origin', cache: 'no-cache' });
+  let r = await get(S.data ? `?since=${S.ver}` : '?stale=1');
+  if (r.status === 401) { showGate(); return false; }
+  let d = await r.json(), first = false;
+  if (!S.data) {                                               // 第一次：全量（可能是几分钟前的）→ 马上补一次增量
+    setList(d); first = true;
+    r = await get(`?since=${S.ver}`);
+    if (!r.ok) return true;
+    d = await r.json();
+  }
+  if (d.ver === S.ver) return first;
+  if (d.delta) mergeDelta(d);
+  else setList(d);
   return true;
 }
-async function refresh(force) {
+async function refresh(force, bg) {
+  const before = S.byH;
   const changed = await loadList();
   if (!changed && !force) return;
   if (S.q) await runSearch(S.q, true);
-  renderAll();
+  renderAll(before, bg);
 }
+
+/* ---- 后台刷新（上传完一张、每 15 秒轮询、切回页面）：不打断正在做的事 ----
+ * 以前每传完一张就整页重画：时间线是「新的在前」，新照片插在最上面把正在看的往下推；大图里的上一张 / 下一张
+ * 按位置算，位置一变就跳错；人物页整页重建，正开着的下拉框直接关掉。连续传几百张时这每一两秒发生一次。
+ * 现在：用户正在操作（开着大图、在输入框里、刚滚动 / 点过、开着下拉框）就先记下「有更新」，停手 2.5 秒后再画；
+ * 画的时候保持正在看的那张照片在屏幕上的位置不动；滚到下面时，新照片只在顶上冒一个「↑ N 张新照片」。 */
+S.touched = 0;
+for (const ev of ['pointerdown', 'keydown', 'wheel', 'touchmove', 'scroll']) addEventListener(ev, () => { S.touched = Date.now(); }, { passive: true, capture: true });
+function busy() {
+  if (S.lb >= 0) return true;                                   // 开着大图
+  const a = document.activeElement;
+  if (a && a.matches && a.matches('input, textarea, select, [contenteditable]')) return true;
+  if (document.querySelector('#people details[open], #people select:focus')) return true;
+  return Date.now() - S.touched < 2500;
+}
+let bgPending = false;
+async function bgRefresh() {
+  if (!S.me) return;
+  if (busy()) { bgPending = true; return; }
+  bgPending = false;
+  await refresh(false, true);
+}
+setInterval(() => { if (bgPending && !busy()) bgRefresh(); }, 800);
 
 /* ================= 筛选 / 分组 ================= */
 const isMine = it => it.u.includes(S.me.id) || (S.myPerson != null && it.p.includes(S.myPerson));
@@ -190,9 +243,25 @@ function tile(it) {
   return `<a class="tl${S.sel.has(it.h) ? ' on' : ''}" data-h="${it.h}" href="${F(it.h, 'o')}">${img}${badges}<b class="ck"></b></a>`;
 }
 
+const tileCache = new Map(), grpCache = new Map();
+/** 同一张照片、tile() 生成的 HTML 一个字都没变 → 直接复用上次那个元素（图片不用重新加载 / 解码） */
+function tileEl(it) {
+  const html = tile(it), c = tileCache.get(it.h);
+  if (c && c.html === html) return c.el;
+  const t = document.createElement('template'); t.innerHTML = html;
+  const el = t.content.firstElementChild;
+  tileCache.set(it.h, { html, el });
+  return el;
+}
+const sameKids = (parent, nodes) => parent.children.length === nodes.length && nodes.every((n, i) => parent.children[i] === n);
 function renderGrid() {
   if (!S.data) return;
+  const cur = S.lb >= 0 ? S.view[S.lb] : null;
   const xs = filtered(); S.view = xs;
+  if (cur) {                                                    // 开着大图时列表变了：大图还停在同一张，上一张 / 下一张按新列表走
+    const i = xs.findIndex(x => x.h === cur.h);
+    if (i >= 0) S.lb = i; else { xs.splice(Math.min(S.lb, xs.length), 0, cur); }
+  }
   const gs = groups(xs);
   const size = xs.reduce((s, it) => s + it.s, 0);
   const nv = xs.filter(it => it.k === 'v').length;
@@ -204,11 +273,31 @@ function renderGrid() {
   if (anyF && !S.res) sum += `<button class="chip" id="f-x">✕ 清除筛选</button>`;
   if (xs.length) sum += `<button class="chip" id="dl-all">⬇ 下载这 ${xs.length} 个</button>`;
   $('#sum').innerHTML = sum;
-  $('#grid').innerHTML = gs.map(g => `<div class="grp" data-g="${esc(g.key)}">
-      ${g.title ? `<div class="gh"><h3>${esc(g.title)}</h3><span class="s">${esc(g.sub || '')} · ${g.items.length}</span>
+  // 不再整片拆掉重建：相册几千张时，每次 innerHTML 重建都要重新创建几千个 <img>、重新解码，
+  // Safari 来不及画就露出黑块 / 细条（「闪」）。现在按 h 复用已有的缩略图元素，只有内容真变了的那几张才新建；
+  // 什么都没变就一个节点都不动
+  const used = new Set(), usedG = new Set();
+  const groupsEls = gs.map(g => {
+    const head = g.title ? `<h3>${esc(g.title)}</h3><span class="s">${esc(g.sub || '')} · ${g.items.length}</span>
         ${g.map ? `<a class="s" href="${g.map}" target="_blank" rel="noopener">地图 ↗</a>` : ''}
-        <span class="grow"></span><button class="chip sm" data-selg="${esc(g.key)}">选这组</button></div>` : ''}
-      <div class="tiles">${g.items.map(tile).join('')}</div></div>`).join('');
+        <span class="grow"></span><button class="chip sm" data-selg="${esc(g.key)}">选这组</button>` : '';
+    let c = grpCache.get(g.key);
+    if (!c) {
+      const el = document.createElement('div'); el.className = 'grp'; el.dataset.g = g.key;
+      const gh = document.createElement('div'); gh.className = 'gh';
+      const tiles = document.createElement('div'); tiles.className = 'tiles';
+      el.append(gh, tiles); c = { el, gh, tiles, head: null }; grpCache.set(g.key, c);
+    }
+    usedG.add(g.key);
+    if (c.head !== head) { c.gh.innerHTML = head; c.gh.hidden = !head; c.head = head; }
+    const nodes = g.items.map(it => { used.add(it.h); return tileEl(it); });
+    if (!sameKids(c.tiles, nodes)) c.tiles.replaceChildren(...nodes);
+    return c.el;
+  });
+  const grid = $('#grid');
+  if (!sameKids(grid, groupsEls)) grid.replaceChildren(...groupsEls);
+  for (const k of tileCache.keys()) if (!used.has(k)) tileCache.delete(k);
+  for (const k of grpCache.keys()) if (!usedG.has(k)) grpCache.delete(k);
   $('#empty').hidden = !!xs.length;
   $('#empty').textContent = S.data.items.length ? '没有符合条件的照片 —— 换个筛选或搜索词试试。' : '还没有照片 —— 点右上角「＋ 上传」，或者直接把文件拖进来。';
   S.groupsNow = gs;
@@ -247,11 +336,53 @@ function renderTop() {
   p.textContent = `${d.pipe ? '● AI 在线' : '○ AI 离线'} · 已分析 ${done}/${d.items.length}`;
   const me = $('#me'); me.hidden = false; me.textContent = '👤 ' + S.me.name;
 }
-function renderAll() {
-  renderTop(); renderChips(); renderGrid(); renderSel();
+const uploading = () => UQ.some(t => t.state === 'active' || t.state === 'queued');
+function renderAll(before, bg) {
+  renderTop();
+  const fresh = before ? S.data.items.filter(it => !before.has(it.h)).length : 0;
+  // 正在上传时，后台刷新不重画时间线：重画 250 张在慢手机上要 0.25 秒，每隔几秒来一次会让翻看、编辑都一卡一卡
+  // （实测主线程最长卡顿 122 → 314 ms）。只在顶上数「↑ N 张新照片」，点一下立刻显示；全部传完再画一次
+  if (bg && uploading()) { if (fresh) newPill(fresh); S.gridStale = true; return; }
+  S.gridStale = false;
+  renderChips();
+  const anchor = gridAnchor();
+  renderGrid();
+  restoreAnchor(anchor);
+  if (anchor && fresh) newPill(fresh);                          // 滚在下面时，新来的照片只提示，不把画面往下推
+  else if (!anchor) hidePill();
+  renderSel();
   if (S.tab === 'people') renderPeople();
   if (S.tab === 'insight') renderInsight();
 }
+/** 记下屏幕最上面那张照片和它离窗口顶部的距离（滚在最顶上时不用记 —— 那时就该看到新的） */
+function gridAnchor() {
+  if (S.tab !== 'grid' || scrollY < 120) return null;
+  for (const el of document.querySelectorAll('#grid .tl')) {
+    const r = el.getBoundingClientRect();
+    if (r.bottom > 60) return { h: el.dataset.h, top: r.top };
+  }
+  return null;
+}
+function restoreAnchor(a) {
+  if (!a) return;
+  const el = document.querySelector(`#grid .tl[data-h="${a.h}"]`);
+  // 必须瞬间跳：页面开了平滑滚动（scroll-behavior: smooth），普通 scrollBy 会「先被推下去再滑回来」，看着更晃
+  if (el) scrollBy({ top: el.getBoundingClientRect().top - a.top, behavior: 'instant' });
+}
+function hidePill() { const p = $('#newpill'); if (p) { p.hidden = true; p.dataset.n = 0; } }
+function newPill(n) {
+  let p = $('#newpill');
+  if (!p) {
+    p = document.createElement('button'); p.id = 'newpill'; p.className = 'newpill';
+    // 离顶上远（几千像素）就直接跳，平滑滚要好几秒；近的才平滑滚
+    p.onclick = () => { hidePill(); if (S.gridStale) { S.gridStale = false; renderChips(); renderGrid(); renderSel(); } scrollTo({ top: 0, behavior: scrollY > 3000 ? 'instant' : 'smooth' }); };
+    document.body.appendChild(p);
+  }
+  p.dataset.n = Number(p.dataset.n || 0) + n;
+  p.textContent = `↑ ${p.dataset.n} 张新照片`;
+  p.hidden = false;
+}
+addEventListener('scroll', () => { const p = $('#newpill'); if (p && !p.hidden && scrollY < 120 && !S.gridStale) hidePill(); }, { passive: true });
 
 /* ---------- 搜索 ---------- */
 async function runSearch(q, silent) {
@@ -381,16 +512,17 @@ async function shareFiles(ids, btn) {
     shareReady = null; btn.textContent = btn.dataset.l || '📲 存到手机'; return;
   }
   const items = ids.map(h => S.byH.get(h)).filter(Boolean);
-  const size = items.reduce((s, it) => s + it.s, 0);
+  const ss = it => it.gs || it.s;                               // 视频有 H.264 新版就存新版（手机相册直接能放、颜色正常）
+  const size = items.reduce((s, it) => s + ss(it), 0);
   if (items.length > 60 || size > 800 * 2 ** 20) return toast(`一次最多 60 个 / 800 MB（现在 ${items.length} 个 / ${fmtB(size)}），分几次选，或者用「打包下载」`, 5000);
   btn.dataset.l = btn.dataset.l || btn.textContent;
   const files = []; let got = 0;
   try {
     for (const it of items) {
       btn.textContent = `下载中 ${Math.round(got / size * 100)}%`;
-      const b = await (await fetch(F(it.h, 'o'), { credentials: 'same-origin' })).blob();
-      got += it.s;
-      files.push(new File([b], it.n, { type: b.type || 'application/octet-stream' }));
+      const b = await (await fetch(F(it.h, it.gs ? 'g' : 'o'), { credentials: 'same-origin' })).blob();
+      got += ss(it);
+      files.push(new File([b], it.gs ? it.n.replace(/\.[^.]+$/, '') + '.mp4' : it.n, { type: b.type || 'application/octet-stream' }));
     }
   } catch (e) { btn.textContent = btn.dataset.l; return toast('下载失败：' + e.message); }
   if (!navigator.canShare({ files })) { btn.textContent = btn.dataset.l; return toast('系统不接受这些文件的分享，用「打包下载」吧'); }
@@ -432,6 +564,9 @@ function livePhoto(box, it, src) {
     el.addEventListener('pointerup', stop); el.addEventListener('pointerleave', () => w.classList.contains('play') && el.matches('.livebtn') && stop());
   }
 }
+// 视频新版是怎么来的（GPU 端转码 + 调色，见 pipeline/video.py）
+const GP = { transcode: 'H.264（颜色没动）', 'clog3-cg': 'H.264 · 佳能 Canon Log 3 → Canon 709 调色', 'clog3-2020': 'H.264 · 佳能 Canon Log 3（BT.2020）→ BT.709 调色',
+  pq: 'H.264 · HDR（PQ）→ 普通屏幕', hlg: 'H.264 · HDR（HLG）→ 普通屏幕' };
 function renderLbInfo(it) {
   const tg = it.tg || {};
   const tags = [...new Set([...(tg.special || []), ...(tg.objects || []), ...(tg.tags || [])])].slice(0, 16);
@@ -441,7 +576,7 @@ function renderLbInfo(it) {
   const group = it.b ? S.data.items.filter(x => x.b === it.b).sort((a, b) => (b.q ?? -1) - (a.q ?? -1)) : [];
   $('#lb-info').innerHTML = `
     <div class="lb-row"><b>${md(it)}</b>${it.pl ? `<span>📍 ${esc(it.pl)}</span>` : ''}${it.cam ? `<span>📷 ${esc(it.cam)}</span>` : ''}
-      <span class="s">${esc(it.n)} · ${fmtB(it.s)}${it.w ? ` · ${it.w}×${it.hh}` : ''}${it.d ? ` · ${fmtD(it.d)}` : ''}</span></div>
+      <span class="s">${esc(it.n)} · ${fmtB(it.s)}${it.w ? ` · ${it.w}×${it.hh}` : ''}${it.d ? ` · ${fmtD(it.d)}` : ''}${it.gs ? ` · 🎞 ${esc(GP[it.gp] || 'H.264')}` : ''}</span></div>
     ${mo ? `<div class="lb-row s">${mo.memo >= 4 ? '★ ' : ''}时刻：${esc(mo.title)}</div>` : ''}
     ${it.cap ? `<p class="cap">${esc(it.cap)}</p>` : it.a ? '' : '<p class="s">AI 还没分析这张（分析端在线时几分钟内会有描述、标签和人脸）</p>'}
     <div class="lb-row">上传：${it.u.map(u => esc(S.users.get(u) || '?')).join('、')}
@@ -452,11 +587,13 @@ function renderLbInfo(it) {
       ${it.bc ? '' : `<button class="btn sm" id="lb-pick">👍 这张更好，设为这组的封面</button>`}</div>` : ''}
     ${it.src ? aiSrcRow(it) : ''}
     <div class="lb-row acts">
-      <a class="btn pri sm" href="${F(it.h, 'o')}?dl=1">⬇ 下载原${it.k === 'v' ? '视频' : '图'}</a>
+      ${it.gs ? `<a class="btn pri sm" href="${F(it.h, 'g')}?dl=1" title="${esc(GP[it.gp] || 'H.264')}">⬇ 下载视频 · ${fmtB(it.gs)}</a>
+        <a class="btn sm" href="${F(it.h, 'o')}?dl=1" title="上传上来的那份，一个字节没动">⬇ 相机原片 · ${fmtB(it.s)}</a>`
+        : `<a class="btn pri sm" href="${F(it.h, 'o')}?dl=1">⬇ 下载原${it.k === 'v' ? '视频' : '图'}</a>`}
       ${it.lv ? `<a class="btn sm" href="${F(it.lv, 'o')}?dl=1">⬇ Live 视频</a>` : ''}
       <button class="btn sm" id="lb-share">📲 存到手机</button>
       <button class="btn sm" id="lb-sel">${S.sel.has(it.h) ? '✓ 已选' : '选中'}</button>
-      ${it.k === 'v' && it.f & 4 ? `<button class="btn ghost sm" id="lb-orig">看原画质</button>` : ''}
+      ${it.k === 'v' && it.f & 4 ? `<button class="btn ghost sm" id="lb-orig">${it.gs ? '看高清' : '看原画质'}</button>` : ''}
       ${it.k === 'i' && S.data.ai && S.data.ai.length ? `<button class="btn sm" id="lb-ai">✨ AI 改图</button>` : ''}
       ${mine ? `<button class="btn ghost sm danger" id="lb-del">撤回我的上传</button>` : ''}
     </div>
@@ -564,7 +701,7 @@ $('#lb').addEventListener('click', async e => {
   if ((b = t.closest('[data-aip]'))) { $('#ai-p').value = b.dataset.aip; return; }
   if (t.id === 'ai-go') return aiGo(it, t);
   if (t.id === 'lb-sel') { S.selMode = true; toggleSel(it.h); renderGrid(); t.textContent = S.sel.has(it.h) ? '✓ 已选' : '选中'; return; }
-  if (t.id === 'lb-orig') { const v = $('#lb-media video'); const pos = v.currentTime; v.src = F(it.h, 'o'); v.currentTime = pos; v.play(); t.remove(); return; }
+  if (t.id === 'lb-orig') { const v = $('#lb-media video'); const pos = v.currentTime; v.src = F(it.h, it.gs ? 'g' : 'o'); v.currentTime = pos; v.play(); t.remove(); return; }
   if (t.id === 'lb-pick') { await api('/pick', { method: 'POST', body: { h: it.h } }); toast('好，以后这组就显示这张'); await refresh(true); const i = S.view.findIndex(x => x.h === it.h); return i >= 0 ? openLb(i) : closeLb(); }
   if (t.id === 'lb-del') {
     if (!confirm(it.u.length > 1 ? '撤回你的上传？（别人也传过这张，所以它会留在相册里）' : '撤回你的上传？这张会从相册里消失。')) return;
@@ -599,19 +736,28 @@ $('#lb-media').addEventListener('touchend', e => {
 /** 人脸头像：用 CSS 背景定位从预览图里裁出一个正方形（不另外存头像文件）。坐标是 0–1 的相对值 */
 function faceDiv(f, cls = 'fc') {
   const it = S.byH.get(f.h) || {};
+  // 有人脸小图条（GPU 端生成，每张脸 160×160 横排，~10 KB/张）就直接取第 fi 格
+  if (it.f & 8 && f.fn > 0 && f.fi < f.fn)
+    return `<span class="${cls}" data-face="${f.id}" data-fh="${f.h}" data-bg="${F(f.h, 'f')}" style="background-size:${f.fn * 100}% 100%;background-position:${f.fn > 1 ? f.fi / (f.fn - 1) * 100 : 0}% 0"></span>`;
   const W = it.w || 1, H = it.hh || 1;
   const side = Math.max(f.w * W, f.hh * H) * 1.6;
   const sw = Math.min(1, side / W), sh = Math.min(1, side / H);
   const cx = f.x + f.w / 2, cy = f.y + f.hh / 2;
   const x0 = Math.min(Math.max(cx - sw / 2, 0), 1 - sw), y0 = Math.min(Math.max(cy - sh / 2, 0), 1 - sh);
-  const src = it.f & 2 ? F(f.h, 'p') : F(f.h, 't');
+  // 缩略图（长边 ~480，平均 35 KB）里这张脸裁出来够 80 像素就用它；合照里的小脸才用预览图（1600，平均 313 KB）
+  const inThumb = Math.max(sw * W, sh * H) / Math.max(W, H) * 480;
+  const src = it.f & 1 && (inThumb >= 80 || !(it.f & 2)) ? F(f.h, 't') : it.f & 2 ? F(f.h, 'p') : F(f.h, 't');
   const px = sw >= 1 ? 50 : x0 / (1 - sw) * 100, py = sh >= 1 ? 50 : y0 / (1 - sh) * 100;
-  return `<span class="${cls}" data-face="${f.id}" data-fh="${f.h}" style="background-image:url('${src}');background-size:${100 / sw}% ${100 / sh}%;background-position:${px}% ${py}%"></span>`;
+  return `<span class="${cls}" data-face="${f.id}" data-fh="${f.h}" data-bg="${src}" style="background-size:${100 / sw}% ${100 / sh}%;background-position:${px}% ${py}%"></span>`;
 }
 async function renderPeople() {
   const el = $('#people');
   if (!el.innerHTML) el.innerHTML = '<p class="s">加载中…</p>';
   let d; try { d = await api('/people'); } catch (e) { el.innerHTML = `<p class="err">${esc(e.message)}</p>`; return; }
+  // 人物数据一个字都没变就不重画（后台每 15 秒刷新一次，以前每次都把整页人物和头像重建一遍 → 一闪）
+  const sig = JSON.stringify(d) + '|' + S.me.id;
+  if (sig === S.peopleSig && el.querySelector('.pcard, .s')) return;
+  S.peopleSig = sig;
   S.peopleData = d;
   const iAmKnown = d.persons.some(p => p.uid === S.me.id);
   const opts = d.persons.map(p => `<option value="${p.id}">${esc(p.name || '未命名')}</option>`).join('');
@@ -636,6 +782,16 @@ async function renderPeople() {
         </div>
       </div>`).join('')}</div>` : `<p class="s">${S.data.pipe ? '还没有足够的人脸（同一个人至少出现在 2 张照片里才会成组）。' : 'AI 分析端离线 —— 上线后会自动找脸、分组。'}</p>`}
     ${d.loose ? `<p class="s">另有 ${d.loose} 张零散的脸（只出现一次，或者被标成「不是 TA」）。</p>` : ''}`;
+  lazyBg(el);
+}
+/** 头像是 CSS 背景图，浏览器的 loading=lazy 管不到 —— 滚到附近（上下 600px 内）才真正去下载 */
+const bgIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
+  for (const e of es) if (e.isIntersecting) { e.target.style.backgroundImage = `url('${e.target.dataset.bg}')`; bgIO.unobserve(e.target); }
+}, { rootMargin: '600px 0px' }) : null;
+function lazyBg(root) {
+  for (const n of root.querySelectorAll('[data-bg]')) {
+    if (bgIO) bgIO.observe(n); else n.style.backgroundImage = `url('${n.dataset.bg}')`;
+  }
 }
 $('#people').addEventListener('click', async e => {
   const t = e.target;
@@ -760,25 +916,103 @@ const FP = {
 addEventListener('pagehide', () => FP.flush());
 const MEDIA_EXT = /\.(jpe?g|png|webp|gif|avif|heic|heif|hif|dng|tiff?|raw|arw|srf|sr2|cr2|cr3|crw|nef|nrw|orf|rw2|raf|pef|srw|rwl|3fr|iiq|x3f|mov|mp4|m4v|3gp|mkv|avi|webm|insv|insp)$/i;
 
-function enqueue(files) {
-  let add = 0, skip = 0, same = 0, again = 0, aae = 0;
+/* ---- 选中的文件本身存进浏览器（IndexedDB），页面被系统杀掉后重新打开能自动接着传，不用重选 ----
+ * 学的是 Uppy 的 Golden Retriever 插件：iPhone 内存不够时会把 Safari 标签页杀掉，以前选的几百张就白选了 ——
+ * 重选还得让手机再从 iCloud 下载、再转一遍 JPEG。现在没传完的文件先在浏览器里存一份，传完一张删一张。
+ * 一次只存一个、在后台存；正在传或已经传完的不存；单个超过 200 MB（大视频）不存；浏览器剩余配额不够就不存；存了 3 天还没传完就丢掉 */
+const KEEP_MAX = 200 * 2 ** 20, KEEP_DAYS = 3;
+const keepDB = (() => {
+  let p = null;
+  return () => p || (p = new Promise((res, rej) => {
+    const r = indexedDB.open('np-upload', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('files');
+    r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+  }).catch(() => null));
+})();
+const idb = async (mode, fn) => { const db = await keepDB(); if (!db) return null;
+  return new Promise((res, rej) => { const tx = db.transaction('files', mode), st = tx.objectStore('files'); const r = fn(st);
+    tx.oncomplete = () => res(r && 'result' in r ? r.result : undefined); tx.onerror = tx.onabort = () => rej(tx.error); }); };
+const keepQ = [];
+let keeping = false;
+function keepLater(ts) { keepQ.push(...ts); keepNext(); }
+async function keepNext() {
+  if (keeping) return;
+  keeping = true;
+  try {
+    while (keepQ.length) {
+      const t = keepQ.shift();
+      if (t.state !== 'queued' || t.f.size > KEEP_MAX || t.kept) continue;       // 已经在传 / 传完了，存它没意义
+      const est = await navigator.storage?.estimate?.().catch(() => null);
+      if (est && est.quota && est.usage + t.f.size > est.quota * 0.8) break;    // 浏览器配额快满了：不存了
+      try { await idb('readwrite', st => st.put({ f: t.f, name: t.f.name, at: Date.now() }, t.key)); t.kept = true; }
+      catch { break; }                                                           // 存不进去（隐私模式等）：算了
+      if (t.state !== 'queued') unkeep(t);                                       // 存的时候它已经传完了
+    }
+  } finally { keeping = false; }
+}
+function unkeep(t) { if (t.kept) { t.kept = false; idb('readwrite', st => st.delete(t.key)).catch(() => {}); } }
+async function keptFiles() {
+  const rows = await idb('readonly', st => st.getAll()).catch(() => null);
+  const keys = await idb('readonly', st => st.getAllKeys()).catch(() => null);
+  if (!rows || !keys) return [];
+  const old = Date.now() - KEEP_DAYS * 86400e3, out = [];
+  rows.forEach((r, i) => { if (r && r.f && r.at > old) out.push(r.f); else idb('readwrite', st => st.delete(keys[i])).catch(() => {}); });
+  return out;
+}
+
+/* ---- 每一批的用时记下来（一批一行，存服务端）：同学说「传得特别慢」时，看得出是慢在手机准备、还是慢在网络 ---- */
+// 页面在后台的累计时间（锁屏 / 切到别的 App 时 iPhone 会暂停网页，上传也停）
+let hidAcc = 0, hidAt = document.visibilityState === 'hidden' ? Date.now() : 0;
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') hidAt = Date.now(); else if (hidAt) { hidAcc += Date.now() - hidAt; hidAt = 0; }
+});
+const hiddenTotal = () => hidAcc + (hidAt ? Date.now() - hidAt : 0);
+function newBatch(files, info) {
+  const kinds = {};
+  for (const f of files) { const e = (f.name.split('.').pop() || '?').toLowerCase(); kinds[e] = (kinds[e] || 0) + 1; }
+  return { t0: Date.now(), h0: hiddenTotal(), pickMs: info?.pickMs ?? null, src: info?.src || 'drop', n: 0, bytes: 0, kinds, left: 0, tasks: [] };
+}
+function batchDone(b) {
+  const ts = b.tasks, ok = ts.filter(t => t.state === 'ok'), tm = k => ok.length ? Math.round(ok.reduce((s, t) => s + (t.tm?.[k] || 0), 0) / ok.length) : null;
+  const upMs = Date.now() - b.t0, sent = ok.reduce((s, t) => s + t.f.size, 0);
+  const sum = { src: b.src, pickMs: b.pickMs, upMs, n: ts.length, ok: ok.length, dup: ts.filter(t => t.state === 'dup').length,
+    fail: ts.filter(t => t.state === 'failed').length, bytes: b.bytes, sent, kinds: b.kinds, fp: tm('fp'), init: tm('init'), net: tm('net'),
+    mbps: upMs ? +(sent * 8 / upMs / 1000).toFixed(1) : null, ua: navigator.userAgent.slice(0, 160),
+    conn: navigator.connection?.effectiveType || null, hiddenMs: hiddenTotal() - b.h0,
+    ...(b.rawN || b.rawKept ? { raw: { jpg: b.rawN || 0, kept: b.rawKept || 0, inMB: +((b.rawIn || 0) / 1e6).toFixed(1), outMB: +((b.rawOut || 0) / 1e6).toFixed(1) } } : {}) };
+  S.lastBatch = sum; renderUp();
+  api('/uplog', { method: 'POST', body: sum }).catch(() => { /* 记不上就算了 */ });
+}
+function enqueue(files, info) {
+  let add = 0, skip = 0, same = 0, again = 0, aae = 0, rawN = 0, rawPair = 0;
   const fresh = [];
+  const batch = newBatch(files, info);
+  // 相机设成 RAW+JPEG 时卡里每张都有两个文件：转 JPEG 模式下同名的 JPEG 已经在这一批里了（相机直出的比 RAW 里内嵌的那张更好），RAW 就不用再转一份
+  const conv = rawMode() === 'jpeg';
+  const base = n => n.replace(/\.[^.]+$/, '').toLowerCase();
+  const jpgs = conv ? new Set(files.filter(f => /\.(jpe?g|heic|heif|hif)$/i.test(f.name)).map(f => base(f.name))) : new Set();
   for (const f of files) {
     if (/\.aae$/i.test(f.name)) { aae++; continue; }       // iPhone「所有照片数据」里附带的编辑记录，不是照片
     if (!f.size || !(/^(image|video)\//.test(f.type) || MEDIA_EXT.test(f.name))) { skip++; continue; }
-    const key = fkey(f);
+    const raw = RAW_EXT.test(f.name);
+    if (raw && conv && jpgs.has(base(f.name))) { rawPair++; continue; }
+    if (raw && conv) rawN++;
+    const key = fkey(f) + (raw && conv ? '|jpg' : '');      // 转不转是两份不同的字节：指纹分开记
     const old = UQ.find(t => t.key === key);
     if (old) { if (old.state === 'failed') { old.state = 'queued'; old.f = f; again++; } else same++; continue; }
-    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true }; UQ.push(t); fresh.push(t); add++;
+    const t = { f, key, state: 'queued', sent: 0, msg: '排队中', hold: true, b: batch, cv: raw && conv }; UQ.push(t); fresh.push(t); add++;
+    batch.tasks.push(t); batch.n++; batch.bytes += f.size; batch.left++;
     if (!FP.get(key)?.done) FP.put(key, { q: 1, name: f.name });   // 页面万一被系统杀掉，下次打开能告诉你还剩哪些
   }
   // 不拦，只提醒：几十 MB 一张的多半是相机原片，1000 张就是 50 GB
-  const big = files.filter(f => /^image\//.test(f.type) && f.size > 25 * 2 ** 20).length;
-  if (skip || same || big || aae) toast([aae && `跳过 ${aae} 个 .AAE（iPhone 的编辑记录，不是照片）`, skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
-    big && `有 ${big} 张超过 25 MB（相机原片 / RAW）—— 都能传、能看，就是传得慢一些`].filter(Boolean).join(' · '), big ? 8000 : undefined);
+  const big = files.filter(f => (/^image\//.test(f.type) || RAW_EXT.test(f.name)) && f.size > 25 * 2 ** 20 && !(conv && RAW_EXT.test(f.name))).length;
+  if (skip || same || big || aae || rawN || rawPair) toast([aae && `跳过 ${aae} 个 .AAE（iPhone 的编辑记录，不是照片）`, skip && `跳过 ${skip} 个不是照片/视频的文件`, same && `${same} 个这次已经选过了，不重复传`,
+    rawN && `${rawN} 张 RAW 先取出相机里的 JPEG 再传（几 MB 一张）—— 要传 RAW 原片在上传面板里切换`,
+    rawPair && `${rawPair} 张 RAW 跳过：同名的 JPEG 也选了（相机 RAW+JPEG 拍的），传 JPEG 就够`,
+    big && `有 ${big} 张超过 25 MB（相机原片 / RAW）—— 都能传、能看，就是传得慢一些`].filter(Boolean).join(' · '), big || rawN || rawPair ? 8000 : undefined);
   if (add || again) openSheet();
   // 先整批问一次服务端「哪些已经有了」，有的直接秒传 —— 重选同一批几百张时，不用把每个文件读一遍算指纹
-  if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); });
+  if (fresh.length) probe(fresh).finally(() => { fresh.forEach(t => { t.hold = false; }); pump(); if (info?.src !== 'restore') keepLater(fresh); });
   else if (again) pump();
   renderUp();
 }
@@ -789,18 +1023,23 @@ async function probe(ts) {
     renderUpSoon();
     try {
       const r = await Promise.race([api('/upload/probe', { method: 'POST', body: { items: part.map(t => [t.f.name, t.f.size]) } }), sleep(8000).then(() => null)]);
-      for (const j of r?.hit || []) { const t = part[j]; t.state = 'dup'; t.sent = t.f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); }
+      for (const j of r?.hit || []) { const t = part[j]; t.state = 'dup'; t.sent = t.f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); settled(t); }
       if (r?.hit?.length) listSoon();
     } catch { /* 问不到就一个个走正常流程，服务端照样会按指纹去重 */ }
     part.forEach(t => { if (t.state === 'queued') t.msg = '排队中'; });
   }
+}
+function settled(t) {
+  if (t.state === 'ok' || t.state === 'dup') unkeep(t);         // 传完了：浏览器里存的那份删掉
+  if (t.b && !t.counted) { t.counted = true; if (--t.b.left === 0) batchDone(t.b); }
+  if (!uploading()) setTimeout(drainAux, 0);                    // 上传队列空了 → 开始补缩略图
 }
 function pump() {
   while (running < MAXF) {
     const t = UQ.find(t => t.state === 'queued' && !t.hold); if (!t) break;
     running++; t.state = 'active'; t.t0 = Date.now();
     runTask(t).catch(e => { t.state = 'failed'; t.msg = '失败：' + e.message + ' · 点这行重试'; })
-      .finally(() => { running--; renderUpSoon(); pump(); });
+      .finally(() => { running--; settled(t); renderUpSoon(); pump(); if (!uploading()) listSoon(); });   // 全部传完 → 补画一次时间线
   }
   wake(); renderUpSoon();
 }
@@ -817,13 +1056,24 @@ async function retry(fn, t) {
 }
 
 async function runTask(t) {
+  if (t.cv && !t.raw) {                                         // RAW → 相机内嵌的那张 JPEG（见 §相机 RAW → JPEG）
+    t.msg = '从 RAW 里取出 JPEG…'; renderUpSoon();
+    const r = await rawJpeg(t.f);
+    if (r.file) {
+      t.raw = t.f; t.f = r.file;
+      if (t.b) { t.b.rawIn = (t.b.rawIn || 0) + t.raw.size; t.b.rawOut = (t.b.rawOut || 0) + t.f.size; t.b.rawN = (t.b.rawN || 0) + 1; }
+    } else { t.cv = false; t.rawWhy = r.why; if (t.b) t.b.rawKept = (t.b.rawKept || 0) + 1; }   // 转不了（内嵌的太小 / 没有）：原样传 RAW，什么都不丢
+  }
   const f = t.f;
+  // 每个文件各阶段用时（毫秒）：fp 算指纹 · init 和相册对一下 · net 传字节 · thumb 等缩略图 —— 慢在哪一看就知道
+  const tm = t.tm = { t0: performance.now() }, lap = k => { tm[k] = Math.round(performance.now() - (tm._ || tm.t0)); tm._ = performance.now(); };
   let fp = FP.get(t.key);
   if (!fp || !fp.h) {
     t.msg = '计算指纹…';
     fp = await fingerprint(f, p => { t.msg = `计算指纹 ${Math.round(p * 100)}%`; renderUpSoon(); });
     FP.put(t.key, fp);
   }
+  lap('fp');
   t.h = fp.h;
   const ex = /^image\/jpe?g$/i.test(f.type) || /\.jpe?g$/i.test(f.name) ? await readExif(f).catch(() => ({})) : {};
   const meta = {
@@ -838,9 +1088,12 @@ async function runTask(t) {
     t.msg = '另一台设备正在传同一个文件，等一下…'; renderUpSoon(); await sleep(3000);
     if (++tries > 40) throw new Error('等太久了');
   }
+  lap('init');
   if (r.status === 'exists') { t.state = 'dup'; t.sent = f.size; t.msg = '相册里已经有了（秒传）'; FP.put(t.key, { q: 0, done: 1 }); listSoon(); return; }
   FP.put(t.key, { q: 0, u: 1, name: f.name });
-  const thumbs = fp.tb ? Promise.resolve() : makeAux(t, fp).catch(() => { /* GPU 端会补 */ });
+  // 缩略图在后台补，不占上传名额：以前每个文件传完还要排队等自己那张缩略图（一次只解一张，防 Safari 内存不够），
+  // 网快的时候 78% 的时间花在等缩略图上（实测：每张 1.4 秒里有 1.1 秒在等）。现在字节传完、服务端确认就算完成
+  if (!fp.tb) makeAux(t, fp).catch(() => { /* GPU 端会补 */ });
   const psize = r.psize, n = r.nparts;
   const done = new Set(r.done);
   for (let round = 0; round < 3; round++) {
@@ -851,23 +1104,28 @@ async function runTask(t) {
     const prog = () => { t.sent = base + [...inflight.values()].reduce((a, b) => a + b, 0); renderUpSoon(); };
     if (done.size) t.resumed = done.size;
     t.msg = done.size ? `接着传（已有 ${done.size}/${n} 块）` : '上传中';
-    let next = 0;
+    let next = 0, finished = false;
     const worker = async () => {
       while (next < todo.length) {
         const i = todo[next++];
         const blob = f.slice((i - 1) * psize, (i - 1) * psize + partLen(i));
         const hdr = fp.shas && fp.shas[i - 1] ? { 'x-part-sha256': fp.shas[i - 1] } : {};
-        await retry(() => xput(`${API}/upload/part?h=${fp.h}&n=${i}`, blob, hdr, l => { inflight.set(i, l); prog(); }), t);
+        const pr = await retry(() => xput(`${API}/upload/part?h=${fp.h}&n=${i}`, blob, hdr, l => { inflight.set(i, l); prog(); }), t);
+        if (pr && (pr.status === 'done' || pr.complete)) finished = 'done';   // 单块的文件服务端顺手收了尾
+        if (pr && pr.status === 'corrupt') finished = 'corrupt';
         inflight.delete(i); base += partLen(i); done.add(i); prog();
         t.msg = n > 1 ? `上传中 ${done.size}/${n} 块` : '上传中';
       }
     };
     await Promise.all(Array.from({ length: Math.min(MAXP, todo.length) }, worker));
     t.msg = '收尾…';
-    const c = await retry(() => api('/upload/complete', { method: 'POST', body: { h: fp.h } }), t);
+    // 单块文件（绝大多数手机照片）在传那一块时服务端已经收尾了：省一个来回（手机 → 边缘 → 美国西部的数据库）
+    const c = finished ? { status: finished } : await retry(() => api('/upload/complete', { method: 'POST', body: { h: fp.h } }), t);
     if (c.status === 'done' || c.status === 'exists') {
-      await thumbs;
+      lap('net'); tm.total = Math.round(performance.now() - tm.t0);
       t.state = 'ok'; t.sent = f.size; t.msg = t.resumed ? `完成（断点续传，省了 ${t.resumed} 块）` : '完成';
+      if (t.raw) t.msg += `（RAW ${fmtB(t.raw.size)} → JPEG ${fmtB(f.size)}）`;
+      if (t.rawWhy) t.msg += `（原样传了 RAW：${t.rawWhy}）`;
       FP.put(t.key, { u: 0, done: 1 }); listSoon(); return;
     }
     if (c.status === 'missing') { done.clear(); c.done.forEach(x => done.add(x)); continue; }
@@ -901,7 +1159,42 @@ function crc32(u8, crc) {
   return ~c >>> 0;
 }
 const hexOf = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+// 指纹（每 8 MB 一块的 SHA-256 + 整个文件的 CRC32）放到后台线程（Web Worker）里算 —— Immich 网页版也是这么做的。
+// CRC32 是逐字节的 JS 循环，在主线程上算会让页面一卡一卡（慢手机上一张 3 MB 的照片约 50 ms）；两个后台线程还能并行算。
+// 后台线程起不来（老浏览器）就退回在主线程算
+const FP_SRC = `
+const T = new Uint32Array(256);
+for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; T[n] = c >>> 0; }
+const crc32 = (u8, crc) => { let c = ~crc >>> 0; for (let i = 0; i < u8.length; i++) c = T[(c ^ u8[i]) & 0xFF] ^ (c >>> 8); return ~c >>> 0; };
+const hex = b => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+onmessage = async e => {
+  const { id, f, PART } = e.data;
+  try {
+    const n = Math.max(1, Math.ceil(f.size / PART)), cat = new Uint8Array(n * 32), shas = [];
+    let crc = 0;
+    for (let i = 0; i < n; i++) {
+      const buf = await f.slice(i * PART, Math.min(f.size, (i + 1) * PART)).arrayBuffer();
+      const d = await crypto.subtle.digest('SHA-256', buf);
+      cat.set(new Uint8Array(d), i * 32); shas.push(hex(d));
+      crc = crc32(new Uint8Array(buf), crc);
+      postMessage({ id, p: (i + 1) / n });
+    }
+    postMessage({ id, done: { h: hex(await crypto.subtle.digest('SHA-256', cat)), crc, shas: n > 1 ? shas : undefined } });
+  } catch (err) { postMessage({ id, err: String(err) }); }
+};`;
+const fpPool = (() => {
+  try {
+    const url = URL.createObjectURL(new Blob([FP_SRC], { type: 'text/javascript' }));
+    const ws = [0, 1].map(() => new Worker(url)), jobs = new Map();
+    let next = 0, seq = 0;
+    for (const w of ws) w.onmessage = e => { const j = jobs.get(e.data.id); if (!j) return;
+      if (e.data.p != null) j.onp(e.data.p);
+      else { jobs.delete(e.data.id); e.data.err ? j.rej(new Error(e.data.err)) : j.res(e.data.done); } };
+    return (f, onp) => new Promise((res, rej) => { const id = ++seq; jobs.set(id, { res, rej, onp }); ws[next++ % ws.length].postMessage({ id, f, PART }); });
+  } catch { return null; }
+})();
 async function fingerprint(f, onp) {
+  if (fpPool) { try { return await fpPool(f, onp); } catch { /* 后台线程出错 → 主线程再算一次 */ } }
   const n = Math.max(1, Math.ceil(f.size / PART));
   const cat = new Uint8Array(n * 32), shas = [];
   let crc = 0;
@@ -971,10 +1264,245 @@ function parseTiff(v, T) {
   return r;
 }
 
+/* ---------- 相机 RAW → JPEG（默认）：取相机自己渲染好、存在 RAW 里的那张全尺寸 JPEG，补上 EXIF，传它 ----------
+ * 不解码 RAW（手机上也做不动）：RAW 文件里本来就存着一张相机渲染的 JPEG（机背回放用的），颜色和机背一致。
+ * CR3 / CR2 / NEF / 新的 ARW / DNG 里通常是全尺寸，RAF / ORF 稍小；太小的（比如松下 RW2 只有 1920 宽）就原样传 RAW，什么都不丢。
+ * 内嵌的 JPEG 一般不带拍摄信息，这里从 RAW 本身（TIFF 结构的 IFD，或 CR3 的 CMT1/2/4 盒子）把时间、时区、机身、序列号、
+ * 镜头、曝光、GPS、方向抄进一段新的 EXIF。同一个 RAW 每次转出来的字节一模一样 → 重选同一批照样秒传。
+ * 在后台线程里做（要把整个 RAW 读进来扫一遍，几十 MB），一次一个，免得手机内存一下子吃满。 */
+const RAW_EXT = /\.(dng|cr2|cr3|crw|nef|nrw|arw|srf|sr2|raf|orf|rw2|pef|srw|rwl|3fr|iiq|x3f|erf|mef|mos|kdc|dcr|raw)$/i;
+const RAW_MIN = 2560;                       // 内嵌 JPEG 长边至少这么大才用它，不然原样传 RAW
+const rawMode = () => localStorage.np_raw === 'raw' ? 'raw' : 'jpeg';
+const RAW_SRC = `
+const RAW_MIN = ${RAW_MIN};
+const be16 = (u, p) => u[p] << 8 | u[p + 1];
+const r16 = (u, p, le) => le ? u[p] | u[p + 1] << 8 : u[p] << 8 | u[p + 1];
+const r32 = (u, p, le) => (le ? u[p] | u[p + 1] << 8 | u[p + 2] << 16 | u[p + 3] << 24 : u[p] << 24 | u[p + 1] << 16 | u[p + 2] << 8 | u[p + 3]) >>> 0;
+const SZ = [0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8, 4];           // TIFF 各类型每个值几字节（13 = IFD 指针）
+const UNIT = [0, 1, 1, 2, 4, 4, 1, 1, 2, 4, 4, 4, 8, 4];         // 换字节序时的单位（分数是两个 4 字节）
+
+// 从 s（FFD8）开始按段结构走到 EOI。只认基线 / 渐进（SOF0/1/2）：CR2、DNG 的传感器数据本身也是「无损 JPEG」（SOF3），浏览器解不了
+function jpegAt(u, s) {
+  const n = u.length;
+  let p = s + 2, w = 0, h = 0, exif = null, tables = 0;
+  while (p + 4 <= n) {
+    if (u[p] !== 0xFF) return null;
+    const m = u[p + 1];
+    if (m === 0xFF) { p++; continue; }
+    if (m === 0x01 || (m >= 0xD0 && m <= 0xD7)) { p += 2; continue; }
+    if (m === 0xD8 || m === 0xD9) return null;
+    const len = be16(u, p + 2);
+    if (len < 2 || p + 2 + len > n) return null;
+    if (m === 0xC0 || m === 0xC1 || m === 0xC2) { h = be16(u, p + 5); w = be16(u, p + 7); }
+    else if (m >= 0xC3 && m <= 0xCF && m !== 0xC4 && m !== 0xC8 && m !== 0xCC) return null;
+    else if (m === 0xDB || m === 0xC4) tables++;
+    else if (m === 0xE1 && u[p + 4] === 0x45 && u[p + 5] === 0x78 && u[p + 6] === 0x69 && u[p + 7] === 0x66) exif = [p, p + 2 + len];
+    else if (!(m >= 0xE0 && m <= 0xEF) && m !== 0xDD && m !== 0xFE && m !== 0xDA) return null;
+    p += 2 + len;
+    if (m !== 0xDA) continue;
+    if (!w || !h || !tables) return null;
+    for (;;) {                                                     // 压缩数据：FF 后面跟 00 / RSTn 都还是数据
+      p = u.indexOf(0xFF, p);
+      if (p < 0 || p + 1 >= n) return null;
+      const x = u[p + 1];
+      if (x === 0x00 || (x >= 0xD0 && x <= 0xD7)) { p += 2; continue; }
+      if (x === 0xFF) { p++; continue; }
+      break;
+    }
+    if (u[p + 1] === 0xD9) return { s, e: p + 2, w, h, exif };
+  }
+  return null;
+}
+function bestJpeg(u) {
+  let best = null, i = 0;
+  while ((i = u.indexOf(0xFF, i)) >= 0 && i + 3 < u.length) {
+    if (u[i + 1] === 0xD8 && u[i + 2] === 0xFF) {
+      const j = jpegAt(u, i);
+      if (j) { if (!best || j.w * j.h > best.w * best.h) best = j; i = j.e; continue; }
+    }
+    i++;
+  }
+  return best;
+}
+
+function readIfd(u, T, off, le) {
+  const out = new Map(), p = T + off;
+  if (!off || p + 2 > u.length) return out;
+  const n = r16(u, p, le);
+  if (n > 1000) return out;
+  for (let k = 0; k < n; k++) {
+    const e = p + 2 + k * 12;
+    if (e + 12 > u.length) break;
+    const tag = r16(u, e, le), type = r16(u, e + 2, le), cnt = r32(u, e + 4, le), sz = (SZ[type] || 0) * cnt;
+    if (!sz || sz > 65536) continue;
+    const vp = sz > 4 ? T + r32(u, e + 8, le) : e + 8;
+    if (vp + sz > u.length) continue;
+    out.set(tag, { type, cnt, b: u.subarray(vp, vp + sz), le });
+  }
+  return out;
+}
+const ptr = (m, t) => { const v = m && m.get(t); return v && v.b.length >= 4 ? r32(v.b, 0, v.le) : 0; };
+function tiffMeta(u) {                                             // DNG / CR2 / NEF / ARW / ORF（IIRO）/ RW2（IIU）/ PEF …
+  const le = u[0] === 0x49;
+  if (!(le || u[0] === 0x4D) || u[1] !== u[0]) return null;
+  const i0 = readIfd(u, 0, r32(u, 4, le), le);
+  if (!i0.has(0x010F) && !i0.has(0x8769)) return null;
+  return { i0, ex: readIfd(u, 0, ptr(i0, 0x8769), le), gps: readIfd(u, 0, ptr(i0, 0x8825), le) };
+}
+function boxes(u, s, e, fn) {
+  let p = s;
+  while (p + 8 <= e) {
+    let sz = r32(u, p, false), hd = 8;
+    const ty = String.fromCharCode(u[p + 4], u[p + 5], u[p + 6], u[p + 7]);
+    if (sz === 1) { sz = r32(u, p + 8, false) * 4294967296 + r32(u, p + 12, false); hd = 16; } else if (sz === 0) sz = e - p;
+    if (sz < hd || p + sz > e) break;
+    fn(ty, p + hd, p + sz);
+    p += sz;
+  }
+}
+function cr3Meta(u) {                                              // 佳能 CR3：moov / uuid(85c0b687…) / CMT1 = IFD0 · CMT2 = Exif · CMT4 = GPS
+  if (String.fromCharCode(u[4], u[5], u[6], u[7]) !== 'ftyp') return null;
+  let out = null;
+  boxes(u, 0, u.length, (t, s, e) => {
+    if (t !== 'moov') return;
+    boxes(u, s, e, (t2, s2, e2) => {
+      if (t2 !== 'uuid' || [...u.subarray(s2, s2 + 4)].map(x => x.toString(16).padStart(2, '0')).join('') !== '85c0b687') return;
+      const at = {};
+      boxes(u, s2 + 16, e2, (t3, s3) => { if (/^CMT[124]$/.test(t3)) at[t3] = s3; });
+      const rd = T => { if (T == null) return new Map(); const le = u[T] === 0x49; return readIfd(u, T, r32(u, T + 4, le), le); };
+      out = { i0: rd(at.CMT1), ex: rd(at.CMT2), gps: rd(at.CMT4) };
+    });
+  });
+  return out && out.i0.size ? out : null;
+}
+
+// 抄哪些：IFD0 的相机 / 方向 / 时间 / 作者；Exif 里和拍摄有关的（曝光、时间时区、序列号、镜头……，不抄像素尺寸 —— 那是 RAW 的）；GPS 全抄
+const K0 = [0x010F, 0x0110, 0x0112, 0x0132, 0x013B, 0x8298];
+const KX = [0x829A, 0x829D, 0x8822, 0x8827, 0x8830, 0x8832, 0x9000, 0x9003, 0x9004, 0x9010, 0x9011, 0x9012, 0x9201, 0x9202, 0x9204, 0x9205,
+  0x9207, 0x9208, 0x9209, 0x920A, 0x9290, 0x9291, 0x9292, 0xA401, 0xA402, 0xA403, 0xA405, 0xA406, 0xA430, 0xA431, 0xA432, 0xA433, 0xA434, 0xA435];
+const toLE = v => {                                                 // 统一写成小端
+  if (v.le || UNIT[v.type] === 1) return v.b.slice();
+  const out = new Uint8Array(v.b.length), w = UNIT[v.type];
+  for (let i = 0; i < v.b.length; i += w) for (let k = 0; k < w; k++) out[i + k] = v.b[i + w - 1 - k];
+  return out;
+};
+const ascii = s => { const b = new Uint8Array(s.length + 1); for (let i = 0; i < s.length; i++) b[i] = s.charCodeAt(i) & 0x7F; return { type: 2, cnt: b.length, b, le: true }; };
+function exifSeg(meta, note) {
+  const pick = (m, ks) => { const o = new Map(); if (m) for (const k of ks || [...m.keys()]) if (m.has(k)) o.set(k, m.get(k)); return o; };
+  const i0 = pick(meta.i0, K0), ex = pick(meta.ex, KX), gps = pick(meta.gps, null);
+  i0.set(0x0131, ascii(note));
+  if (!ex.has(0x9000)) ex.set(0x9000, { type: 7, cnt: 4, b: new Uint8Array([48, 50, 51, 50]), le: true });
+  const ifds = [i0, ex];
+  if (gps.size) ifds.push(gps);
+  const P4 = { type: 4, cnt: 1, b: new Uint8Array(4), le: true };
+  i0.set(0x8769, { ...P4, b: new Uint8Array(4) });
+  if (gps.size) i0.set(0x8825, { ...P4, b: new Uint8Array(4) });
+  // 排版：表头 8 字节 → 每个 IFD（条目按标签号排好）后面紧跟它放不下 4 字节的值
+  const lay = [];
+  let off = 8;
+  for (const m of ifds) {
+    const ents = [...m.entries()].sort((a, b) => a[0] - b[0]).map(([tag, v]) => ({ tag, v, b: toLE(v) }));
+    const at = off;
+    off += 2 + ents.length * 12 + 4;
+    for (const e of ents) if (e.b.length > 4) { e.at = off; off += e.b.length + (e.b.length & 1); }
+    lay.push({ at, ents });
+  }
+  const w32 = (b, x) => { b[0] = x & 255; b[1] = x >> 8 & 255; b[2] = x >> 16 & 255; b[3] = x >>> 24; };
+  w32(lay[0].ents.find(e => e.tag === 0x8769).b, lay[1].at);
+  if (gps.size) w32(lay[0].ents.find(e => e.tag === 0x8825).b, lay[2].at);
+  const t = new Uint8Array(off), dv = new DataView(t.buffer);
+  t.set([0x49, 0x49, 42, 0]); dv.setUint32(4, 8, true);
+  for (const { at, ents } of lay) {
+    dv.setUint16(at, ents.length, true);
+    ents.forEach((e, i) => {
+      const q = at + 2 + i * 12;
+      dv.setUint16(q, e.tag, true); dv.setUint16(q + 2, e.v.type, true); dv.setUint32(q + 4, e.v.cnt, true);
+      if (e.b.length > 4) { dv.setUint32(q + 8, e.at, true); t.set(e.b, e.at); } else t.set(e.b, q + 8);
+    });
+    dv.setUint32(at + 2 + ents.length * 12, 0, true);
+  }
+  if (t.length + 8 > 65533) return null;
+  const seg = new Uint8Array(t.length + 10);
+  seg.set([0xFF, 0xE1, (t.length + 8) >> 8, (t.length + 8) & 255, 0x45, 0x78, 0x69, 0x66, 0, 0]); seg.set(t, 10);
+  return seg;
+}
+
+onmessage = async e => {
+  const { id, f } = e.data;
+  try {
+    const u = new Uint8Array(await f.arrayBuffer());
+    const j = bestJpeg(u);
+    if (!j) return postMessage({ id, why: '这个 RAW 里没有内嵌的 JPEG' });
+    if (Math.max(j.w, j.h) < RAW_MIN) return postMessage({ id, why: \`内嵌的 JPEG 只有 \${j.w}×\${j.h}\`, w: j.w, h: j.h });
+    const meta = cr3Meta(u) || tiffMeta(u);
+    let out = u.subarray(j.s, j.e);
+    if (meta) {                                                     // 有 RAW 自己的元数据：换掉 JPEG 里可能有的那段 EXIF
+      const seg = exifSeg(meta, ('nordic-photos: embedded JPEG of ' + f.name).replace(/[^\\x20-\\x7e]/g, '_'));
+      if (seg) {
+        const body = j.exif ? [u.subarray(j.s + 2, j.exif[0]), u.subarray(j.exif[1], j.e)] : [u.subarray(j.s + 2, j.e)];
+        const parts = [u.subarray(j.s, j.s + 2), seg, ...body];
+        out = new Uint8Array(parts.reduce((a, b) => a + b.length, 0));
+        let o = 0; for (const b of parts) { out.set(b, o); o += b.length; }
+      }
+    }                                                               // 没认出容器（RAF 等）：它的内嵌 JPEG 自带完整 EXIF，原样用
+    const buf = out.slice().buffer;
+    postMessage({ id, buf, w: j.w, h: j.h, meta: !!meta, exif: !!(meta || j.exif) }, [buf]);
+  } catch (err) { postMessage({ id, why: '读 RAW 出错：' + String(err).slice(0, 80) }); }
+};`;
+const rawJpeg = (() => {
+  let w = null, seq = 0, chain = Promise.resolve();
+  const jobs = new Map();
+  const get = () => {
+    if (w) return w;
+    w = new Worker(URL.createObjectURL(new Blob([RAW_SRC], { type: 'text/javascript' })));
+    w.onmessage = e => { const j = jobs.get(e.data.id); if (j) { jobs.delete(e.data.id); j(e.data); } };
+    return w;
+  };
+  /** → { file, w, h, raw } 或 { why }。一次只转一个（整个 RAW 要读进内存） */
+  return f => (chain = chain.then(() => new Promise(res => {
+    let wk; try { wk = get(); } catch (err) { return res({ why: '浏览器不支持后台线程' }); }
+    const id = ++seq; jobs.set(id, d => {
+      if (!d.buf) return res({ why: d.why });
+      const name = f.name.replace(/\.[^.]+$/, '') + '.JPG';
+      res({ file: new File([d.buf], name, { type: 'image/jpeg', lastModified: f.lastModified }), w: d.w, h: d.h, raw: f });
+    });
+    wk.postMessage({ id, f });
+  })));
+})();
+
 /* ---------- 缩略图 / 预览图：浏览器自己能解码的就当场做，最快出图；做不了的（HEIC 在 Chrome 上等）GPU 端补 ---------- */
-async function decode(f, kind) {
+/** JPEG 的尺寸（已按 EXIF 方向转正）：从 SOF 段读宽高、从 EXIF 读方向（5–8 = 转了 90°，宽高互换）。只读前 128 KB */
+async function jpegDims(f) {
+  if (!(/^image\/jpe?g$/i.test(f.type) || /\.jpe?g$/i.test(f.name))) return null;
+  const v = new DataView(await f.slice(0, 128 * 1024).arrayBuffer());
+  if (v.getUint16(0) !== 0xFFD8) return null;
+  let o = 2, w = 0, h = 0, rot = 1;
+  while (o + 9 < v.byteLength) {
+    const mk = v.getUint16(o), len = v.getUint16(o + 2);
+    if (mk === 0xFFE1 && v.getUint32(o + 4) === 0x45786966) {
+      const T = o + 10, le = v.getUint16(T) === 0x4949, i0 = T + v.getUint32(T + 4, le), n = v.getUint16(i0, le);
+      for (let i = 0; i < n; i++) { const e = i0 + 2 + i * 12; if (e + 10 <= v.byteLength && v.getUint16(e, le) === 0x0112) rot = v.getUint16(e + 8, le); }
+    }
+    if (mk >= 0xFFC0 && mk <= 0xFFCF && ![0xFFC4, 0xFFC8, 0xFFCC].includes(mk)) { h = v.getUint16(o + 5); w = v.getUint16(o + 7); break; }
+    if ((mk & 0xFF00) !== 0xFF00 || mk === 0xFFDA) break;
+    o += 2 + len;
+  }
+  if (!w || !h) return null;
+  return rot >= 5 && rot <= 8 ? { w: h, h: w } : { w, h };
+}
+async function decode(f, kind, max) {
   if (kind === 'v') return videoFrame(f);
-  try { const b = await createImageBitmap(f, { imageOrientation: 'from-image' }); return { src: b, W: b.width, H: b.height, close: () => b.close() }; } catch { /* 走 <img> */ }
+  try {
+    // 解码时直接缩到预览图的尺寸（长边 1600）：JPEG 能按 1/2、1/4 直接解，比先解出 1200 万像素再缩快得多、也省内存。
+    // 只给宽度，高度按比例；竖图就只给高度。不认这个参数的浏览器会忽略它，照旧解全尺寸
+    const p = max ? await jpegDims(f).catch(() => null) : null;   // 只读文件头拿尺寸 + 方向，不解码
+    const sc = p ? Math.min(1, max / Math.max(p.w, p.h)) : 1;
+    if (sc < 1) {                                                // 只给一条边：不管浏览器先转方向还是先缩放，长宽比都不会错
+      const b = await createImageBitmap(f, { imageOrientation: 'from-image', resizeQuality: 'medium', ...(p.w >= p.h ? { resizeWidth: Math.round(p.w * sc) } : { resizeHeight: Math.round(p.h * sc) }) });
+      return { src: b, W: p.w, H: p.h, close: () => b.close() };
+    }
+    const b = await createImageBitmap(f, { imageOrientation: 'from-image' }); return { src: b, W: b.width, H: b.height, close: () => b.close() };
+  } catch { /* 走 <img> */ }
   const url = URL.createObjectURL(f);
   try { const img = new Image(); img.src = url; await img.decode(); return { src: img, W: img.naturalWidth, H: img.naturalHeight, close: () => URL.revokeObjectURL(url) }; }
   catch { URL.revokeObjectURL(url); return null; }
@@ -1001,14 +1529,30 @@ function canvasOf(src, W, H, scale) {
 const jpeg = (c, q) => new Promise(r => c.toBlob(r, 'image/jpeg', q));
 // 缩略图一次只解一张：一张 2400 万像素的 iPhone 照片解码出来约 96 MB，以前 3 张同时解 ≈ 300 MB，
 // 几百张连续传时 Safari 会因为内存把整个页面杀掉（「卡死、选的全白选了」）
-let auxChain = Promise.resolve();
-function makeAux(t, fp) { const p = auxChain.then(() => makeAux1(t, fp)); auxChain = p.catch(() => {}); return p; }
+// 上传和后处理完全分开：缩略图（解码 + 两次 JPEG 编码 + 两个小上传）等这一批全部传完、上传队列空了才开始，
+// 不和上传抢手机 CPU、抢上行带宽；排到时 GPU 端已经做好了就跳过（GPU 端本来就会补）
+const auxQ = [];
+let auxRunning = false;
+function makeAux(t, fp) { auxQ.push([t, fp]); drainAux(); return Promise.resolve(); }
+async function drainAux() {
+  if (auxRunning) return;
+  auxRunning = true;
+  try {
+    while (auxQ.length && !uploading()) {
+      const [t, fp] = auxQ.shift();
+      await makeAux1(t, fp).catch(() => { /* GPU 端会补 */ });
+    }
+  } finally { auxRunning = false; }
+}
 async function makeAux1(t, fp) {
+  const it = S.byH.get(fp.h);
+  if (it && (it.f & 3) === 3) return;                           // 排到它的时候 GPU 端已经做好了：省下手机的 CPU
   const kind = /^video\//.test(t.f.type) || /\.(mov|mp4|m4v|3gp|mkv|avi|webm)$/i.test(t.f.name) ? 'v' : 'i';
-  const d = await decode(t.f, kind);
+  const d = await decode(t.f, kind, 1600);
   if (!d || !d.W) return;
   try {
-    const pc = canvasOf(d.src, d.W, d.H, Math.min(1, 1600 / Math.max(d.W, d.H)));
+    const sw = d.src.width || d.W, sh = d.src.height || d.H;     // 解码时可能已经缩过了
+    const pc = canvasOf(d.src, sw, sh, Math.min(1, 1600 / Math.max(sw, sh)));
     const tc = canvasOf(pc, pc.width, pc.height, Math.min(1, 360 / Math.min(pc.width, pc.height)));
     const [pb, tb] = [await jpeg(pc, 0.82), await jpeg(tc, 0.75)];
     const dims = `&w=${d.W}&hh=${d.H}${d.dur ? `&dur=${d.dur.toFixed(2)}` : ''}`;
@@ -1032,6 +1576,12 @@ function renderUp() {
   const now = Date.now();
   if (!renderUp.s || now - renderUp.s.t > 1500) { const s0 = renderUp.s; renderUp.s = { t: now, b: sent, rate: s0 ? Math.max(0, (sent - s0.b) / ((now - s0.t) / 1000)) : 0 }; }
   const rate = renderUp.s.rate;
+  const act2 = UQ.some(t => t.state === 'active' || t.state === 'queued');
+  $('#pick-more').hidden = !act2;
+  const k = PREP.batch(), tip = $('#pick-tip');
+  tip.hidden = !k;
+  if (k) tip.innerHTML = `📱 这台手机准备一张照片约 <b>${PREP.get().toFixed(1)} 秒</b>（从 iCloud 下载 + 转 JPEG，这段在手机里做，网页插不上手）→
+    建议<b>每批选 ${k} 张左右</b>（只等 ~20 秒），这批传的时候就可以选下一批`;
   const line = UQ.length ? `${ok + dup}/${UQ.length} 完成${dup ? ` · ${dup} 个秒传` : ''}${bad ? ` · <span class="err">${bad} 个失败</span>` : ''} · ${fmtB(sent)} / ${fmtB(tot)}${act && rate > 1e4 ? ` · ${fmtB(rate)}/s` : ''}` : '';
   $('#up-sum').innerHTML = line;
   const btn = $('#btn-up');
@@ -1043,6 +1593,12 @@ function renderUp() {
       <span class="um">${esc(t.msg)}</span>
       <span class="ub"><i style="width:${Math.round((t.sent || 0) / t.f.size * 100)}%"></i></span></div>`).join('') +
     (UQ.length > 200 ? `<p class="s">…还有 ${UQ.length - 200} 个</p>` : '');
+  const lb = S.lastBatch, el = $('#up-last');
+  if (el) {
+    el.hidden = !lb;
+    if (lb) el.innerHTML = `上一批 ${lb.n} 个 · ${lb.pickMs != null ? `手机准备 <b>${mmss(lb.pickMs)}</b>（从 iCloud 下载 + 转格式）· ` : ''}上传 <b>${mmss(lb.upMs)}</b>`
+      + `${lb.mbps ? `（${lb.mbps} Mbps）` : ''}${lb.dup ? ` · ${lb.dup} 个秒传` : ''}${lb.hiddenMs > 5000 ? ` · 其中 ${mmss(lb.hiddenMs)} 页面在后台（暂停了）` : ''}`;
+  }
   const names = new Set(UQ.map(t => t.f.name)), wk = Date.now() - 7 * 86400e3;
   const left = Object.values(FP.all()).filter(x => (x.q === 1 || x.u === 1) && !x.done && x.at > wk && !names.has(x.name));
   $('#resume-hint').hidden = !left.length;
@@ -1053,7 +1609,7 @@ function renderUp() {
 $('#resume-hint').addEventListener('click', e => {
   if (e.target.id !== 'resume-clear') return;
   const a = FP.all(); for (const k in a) if (a[k].q === 1 || a[k].u === 1) { a[k].q = 0; a[k].u = 0; }
-  FP.save(); renderUp();
+  FP.save(); idb('readwrite', st => st.clear()).catch(() => {}); renderUp();
 });
 $('#uplist').addEventListener('click', e => {
   const r = e.target.closest('.ur.failed'); if (!r) return;
@@ -1098,17 +1654,53 @@ async function showQuota() {
 }
 $('#btn-up').onclick = () => openSheet();
 $('#up-close').onclick = () => { $('#upsheet').hidden = true; };
+// 相机 RAW：转 JPEG（默认）还是原样传。每个人自己选、记在本机；只影响之后选的文件
+for (const r of $$('input[name="rawm"]')) {
+  r.checked = r.value === rawMode();
+  r.onchange = () => { localStorage.np_raw = r.value; toast(r.value === 'raw' ? '之后选的 RAW 原样传（几十 MB 一张）' : '之后选的 RAW 先取出相机里的 JPEG 再传'); };
+}
+$('#pick-more').onclick = () => $('#file').click();   // 和点大框一样：开照片选择器，选中的排在正在传的后面
 // iPhone 上点完 ✓，系统要先把每张照片转好、拷给网页（几百张 + 视频要好几分钟），这段时间网页收不到任何东西 ——
 // 不提示的话看起来就是「点了上传没反应」。所以一点开选择器就挂一条常驻提示，文件到了再换成「收到 N 个」
-$('#file').addEventListener('click', () => toast('📲 正在等手机把选中的照片交过来…<br>选得多（几百张、有视频）要等几分钟，别关页面、别锁屏', 0));
-$('#file').addEventListener('cancel', () => { $('#toast').hidden = true; });
-$('#file').addEventListener('change', e => {
-  const fs = [...e.target.files]; e.target.value = '';
-  if (fs.length) toast(`收到 ${fs.length} 个文件，开始上传`); else $('#toast').hidden = true;
-  enqueue(fs);
-});
-$('#dir').addEventListener('change', e => { enqueue([...e.target.files]); e.target.value = ''; });
-let listT; function listSoon() { clearTimeout(listT); listT = setTimeout(() => refresh(), 1200); }
+// 这台手机准备一张照片要几秒（指数平均，存本机）：用来建议「每批选多少张」—— 让每次只等 ~20 秒，等的同时上一批在传
+const PREP = {
+  get() { const v = Number(localStorage.np_prep); return v > 0 ? v : null; },
+  add(ms, n) { if (!(ms > 2000 && n > 0)) return; const per = ms / n / 1000, o = this.get(); localStorage.np_prep = String(o ? o * 0.6 + per * 0.4 : per); },
+  batch() { const v = this.get(); return v ? Math.max(10, Math.min(100, Math.round(20 / v / 5) * 5)) : null; },
+};
+// 「手机准备照片」这一段（从 iCloud 下载原图 + 转 JPEG / 重新压缩视频）网页看不见，只能量「点开选择器 → 拿到文件」一共多久
+let pickT0 = 0, pickTick = 0;
+const mmss = ms => { const s = Math.round(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+for (const sel of ['#file', '#file-v']) {
+  const kind = sel === '#file' ? '照片' : '视频';
+  $(sel).addEventListener('click', () => {
+    pickT0 = Date.now(); clearInterval(pickTick);
+    const show = () => toast(`📲 正在等手机把选中的${kind}交过来… 已等 ${mmss(Date.now() - pickT0)}<br>${kind === '照片'
+      ? '手机这时在从 iCloud 下载原图、转成 JPEG —— 选得多会等好几分钟' : '手机这时在把每段视频重新压缩 —— 视频越长越久；下次可以选「选取文件」，不用压缩'}，别关页面、别锁屏`, 0);
+    show(); pickTick = setInterval(() => { if (document.visibilityState === 'visible') show(); }, 1000);
+  });
+  $(sel).addEventListener('cancel', () => { clearInterval(pickTick); $('#toast').hidden = true; });
+  $(sel).addEventListener('change', e => {
+    clearInterval(pickTick);
+    const fs = [...e.target.files]; e.target.value = '';
+    const pickMs = pickT0 && Date.now() - pickT0 < 3 * 3600e3 ? Date.now() - pickT0 : null; pickT0 = 0;
+    if (sel === '#file') PREP.add(pickMs, fs.length);
+    const k = PREP.batch();
+    if (fs.length) toast(`收到 ${fs.length} 个文件${pickMs > 5000 ? `（手机准备用了 ${mmss(pickMs)}）` : ''}，开始上传` +
+      (k && fs.length > k * 1.5 ? `<br>💡 这台手机每张要准备约 ${PREP.get().toFixed(1)} 秒，下次每批选 ${k} 张左右，传的同时点「再选一批」会更顺` : ''), 7000);
+    else $('#toast').hidden = true;
+    enqueue(fs, { src: sel === '#file' ? 'picker' : 'picker-video', pickMs });
+  });
+}
+$('#dir').addEventListener('change', e => { enqueue([...e.target.files], { src: 'dir' }); e.target.value = ''; });
+// 上传完一张就要刷新列表：第一张 1.2 秒后刷，之后连续上传时最多每 10 秒刷一次（以前是每次都往后推，
+// 一直在传就一直不刷，传完才一下子全部跳出来）。重画 250 张的时间线在慢手机上约 0.25 秒，10 秒一次是折中
+let listT = 0, listLast = 0;
+function listSoon() {
+  if (listT) return;
+  const wait = Math.max(1200, 10000 - (Date.now() - listLast));
+  listT = setTimeout(() => { listT = 0; listLast = Date.now(); bgRefresh(); }, wait);
+}
 
 /* 电脑上直接把文件拖进窗口 */
 let dragN = 0;
@@ -1138,7 +1730,7 @@ async function wake() {
     try { lock = await navigator.wakeLock.request('screen'); lock.addEventListener('release', () => { lock = null; }); } catch { /* 不支持就算了 */ }
   } else if (!busy && lock) { lock.release(); lock = null; }
 }
-document.addEventListener('visibilitychange', () => { wake(); if (document.visibilityState === 'visible' && S.me) refresh(); });
+document.addEventListener('visibilitychange', () => { wake(); if (document.visibilityState === 'visible' && S.me) bgRefresh(); });
 addEventListener('beforeunload', e => { if (UQ.some(t => t.state === 'active' || t.state === 'queued')) { e.preventDefault(); e.returnValue = ''; } });
 
 /* ================= 启动 ================= */
@@ -1158,11 +1750,18 @@ async function boot() {
   await refresh(true);
   loadSuggest();
   // 上次没传完就被关掉了（多半是 iPhone 内存不够把页面杀了）→ 一进来就把上传面板打开，提示重选同一批
+  // 上次没传完：浏览器里存着的文件直接接着传（不用重选）；没存下来的（太大 / 配额不够）照旧提示重选同一批
+  const kept = await keptFiles();
+  if (kept.length) {
+    toast(`📦 上次没传完的 ${kept.length} 个文件还在这台手机的浏览器里，接着传`, 6000);
+    enqueue(kept, { src: 'restore' });
+    UQ.forEach(t => { if (kept.includes(t.f)) t.kept = true; });              // 传完删存档
+  }
   if (Object.values(FP.all()).some(x => (x.q === 1 || x.u === 1) && !x.done && x.at > Date.now() - 7 * 86400e3)) openSheet();
-  setInterval(() => { if (document.visibilityState === 'visible') refresh(); }, 15000);
+  setInterval(() => { if (document.visibilityState === 'visible') bgRefresh(); }, 15000);
 }
 if (typeof nav === 'function') document.body.insertAdjacentHTML('afterbegin', nav());   // 全站统一导航（/app.js）
 boot();
 
 // 给自动化测试用：不影响正常使用
-window.__album = { S, enqueue, UQ, refresh, runSearch };
+window.__album = { S, enqueue, UQ, refresh, runSearch, rawJpeg };

@@ -1,0 +1,3 @@
+# 不往线上传：本地跑 py_compile / python 时生成的字节码
+__pycache__
+*.pyc
