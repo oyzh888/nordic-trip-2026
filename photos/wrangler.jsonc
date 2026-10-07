@@ -16,6 +16,8 @@
   "durable_objects": { "bindings": [{ "name": "ALBUM", "class_name": "Album" }] },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Album"] }],
   "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "nordic-photos" }],
+  // 存储上限（预算控制）：照片 + 缩略图合计超过 500 GB 就拒绝新上传。R2 标准存储 $0.015/GB-月 → 满了约 $7.35/月
+  "vars": { "MAX_BYTES": "500000000000" },
   "workers_dev": true,
   "observability": { "enabled": true }
 }

@@ -83,11 +83,14 @@ def _set_taken(out, dt, off):
     if not m or m.group(1) == '0000':
         return
     out['taken'] = '{}-{}-{}T{}:{}:{}'.format(*m.groups())
+    out['_raw'] = out['taken']               # 相机表盘上的原始钟点：时钟对齐（clock.py）每次都从它重算，不从已经换算过的 taken 算
+    out['_tzsrc'] = 'none'
     # 相机自己记的时区（「+08:00」）：相机没改时区时它和拍摄地不一样 → 先换成 UTC，worker 再按拍摄地换回当地时间
     o = re.match(r'([+-])(\d\d):(\d\d)$', str(off or '').strip())
     if o:
         mins = (1 if o.group(1) == '+' else -1) * (int(o.group(2)) * 60 + int(o.group(3)))
         out['_utc'] = (datetime.fromisoformat(out['taken']) - timedelta(minutes=mins)).strftime('%Y-%m-%dT%H:%M:%S')
+        out['_tzsrc'] = f'offset:{o.group(0)}'
 
 
 def image_meta(im):
@@ -105,6 +108,8 @@ def image_meta(im):
     cid = apple_cid(sub.get(0x927C))
     if cid:
         out['cid'] = cid
+    if sub.get(0xA431):                      # 机身序列号：认「是不是同一台相机」（时钟对齐按机身分组）
+        out['_ser'] = str(sub.get(0xA431)).strip('\x00 \t')[:40]   # 有的机身（富士）后面补着 NUL
     g = ex.get_ifd(0x8825)
     if g.get(2) and g.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
@@ -143,6 +148,8 @@ def cr3_meta(path):
     if cam:
         out['cam'] = cam[:60]
     _set_taken(out, ex.get(0x9003) or ex.get(0x9004) or i0.get(0x0132), ex.get(0x9011) or ex.get(0x9010))
+    if ex.get(0xA431):
+        out['_ser'] = str(ex.get(0xA431)).strip('\x00 \t')[:40]
     if gps.get(2) and gps.get(4):
         dms = lambda a: sum(_rat(v) / d for v, d in zip(a, (1, 60, 3600))) if len(a) == 3 else None
         la, lo = dms(gps[2]), dms(gps[4])
@@ -172,6 +179,9 @@ def raw_meta(path):
         out['cam'] = cam[:60]
     _set_taken(out, g('EXIF DateTimeOriginal') or g('EXIF DateTimeDigitized') or g('Image DateTime'),
                g('EXIF OffsetTimeOriginal') or g('EXIF OffsetTime'))
+    ser = g('EXIF BodySerialNumber') or g('MakerNote SerialNumber')
+    if ser:
+        out['_ser'] = ser.strip('\x00 \t')[:40]
     def dms(k):
         v = t.get(k)
         try:
@@ -345,6 +355,28 @@ def video_preview(src, dst):
         raise RuntimeError('ffmpeg: ' + r.stderr[-300:])
 
 
+def open_small(path, name='', long=1600):
+    """只为做缩略图 / 预览：JPEG 让解码器直接按 1/2、1/4、1/8 缩着解（libjpeg 的 DCT 缩放），
+    2,400 万像素的相机直出 JPEG 从 ~1 秒降到 ~0.2 秒。返回 (转正后的 RGB 图, 原图宽, 原图高)"""
+    ext = (name or '').rsplit('.', 1)[-1].lower() if '.' in (name or '') else ''
+    if ext in RAW_EXT:
+        im = open_raw(path); return im, *im.size
+    try:
+        im = Image.open(path)
+    except Exception:            # noqa: BLE001
+        im = open_raw(path); return im, *im.size
+    W, H = im.size
+    rot = (im.getexif() or {}).get(274) in (5, 6, 7, 8)
+    if im.format == 'JPEG':
+        s = long / max(W, H)
+        if s < 1:
+            im.draft('RGB', (max(1, int(W * s)), max(1, int(H * s))))
+    im = ImageOps.exif_transpose(im)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
+    return im, (H if rot else W), (W if rot else H)
+
+
 def jpeg(im, q):
     b = io.BytesIO()
     im.save(b, 'JPEG', quality=q, optimize=True)
@@ -359,6 +391,22 @@ def thumbs(im):
     s2 = min(1, 360 / min(p.size))
     t = p.resize((max(1, round(p.size[0] * s2)), max(1, round(p.size[1] * s2))), Image.LANCZOS) if s2 < 1 else p
     return jpeg(t, 75), jpeg(p, 82), p
+
+
+FACE_PX = 160
+
+
+def face_sprite(im, faces):
+    """人脸小图条：这张照片里每张脸裁一个正方形（脸框边长 × 1.6，和页面上头像的取景一样）、缩到 160×160，按顺序横排。
+    人物页的头像从这里取（每张脸 ~10 KB），不用再下载整张 1600 像素的预览图（平均 313 KB）。faces 的顺序 = 服务端 id 的顺序"""
+    W, H = im.size
+    out = Image.new('RGB', (FACE_PX * len(faces), FACE_PX))
+    for i, f in enumerate(faces):
+        side = min(max(f['w'] * W, f['hh'] * H) * 1.6, W, H)
+        cx, cy = (f['x'] + f['w'] / 2) * W, (f['y'] + f['hh'] / 2) * H
+        x0 = min(max(cx - side / 2, 0), W - side); y0 = min(max(cy - side / 2, 0), H - side)
+        out.paste(im.crop((round(x0), round(y0), round(x0 + side), round(y0 + side))).resize((FACE_PX, FACE_PX), Image.LANCZOS), (i * FACE_PX, 0))
+    return jpeg(out, 80)
 
 
 def sharpness(gray):
