@@ -7,6 +7,9 @@
 删掉它，剩下的文档就从「实抓」退化成「据说」。
 
 > 一句话：**`notes/*.md` 是结论，这里是证据。** 想核对某个数字，按下面的约定顺着找。
+>
+> 🗺 9/24 之后新增的脚本（`senja_*` · `entur_ferry` · `practical_scrape` · `build_info` · `build_solo` · `abnb_detail2/rank` …）
+> 不是价格抓取，而是「把地点变成路线和页面」—— 做法见 [`../HOWTO-route-planning.md`](../HOWTO-route-planning.md)。
 
 ---
 

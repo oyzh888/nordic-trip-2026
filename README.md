@@ -145,6 +145,9 @@ python3 flights_isdom.py jobs_...       out_isdom/      # Google Flights
 需要 Playwright + Chromium 且能出网。哪个脚本配哪组 job、每组在回答什么问题，
 全部写在 [`notes/_research/INDEX.md`](notes/_research/INDEX.md)。
 
+**做「路线 + 地图 + 时间表」**（地址 → 坐标 → 路网算最短顺序 → 官方班次 → 地图页 → 日历）：
+看 [`notes/HOWTO-route-planning.md`](notes/HOWTO-route-planning.md)，里面有每一步对应的脚本和全部踩过的坑。
+
 ---
 
 ## 🌐 官网是怎么部署的（nordic.airacle.com）
