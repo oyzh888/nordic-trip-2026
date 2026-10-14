@@ -15,6 +15,7 @@ services:
     image: node:22-alpine
     restart: unless-stopped
     command: ["node", "/app/blobd.mjs"]
+    user: "${COLD_UID:-1000}:${COLD_GID:-10}"          # 以普通用户身份读写数据目录（不用 root）：文件归你、文件管理器和备份工具都读得到
     environment:
       BLOBD_DIR: /data
       BLOBD_PORT: "41071"
@@ -38,7 +39,7 @@ services:
     restart: unless-stopped
     command: ["tunnel", "--no-autoupdate", "run"]
     environment:
-      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?在 .env 里设 TUNNEL_TOKEN（Cloudflare Zero Trust 里这条隧道的令牌）}
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:-}              # 只有 --profile tunnel 起隧道时才用；不用 :? 必填校验 —— compose 会先插值所有服务，空值会让「只起 blobd」也失败
     depends_on:
       blobd: { condition: service_healthy }
     networks: [cold]
@@ -50,8 +51,8 @@ services:
     # MOVER_ARGS 例：--limit 20（金丝雀）· 留空 = 一直守着搬 · --release-after-days 14（阶段 5 才加）
     command: ["sh", "-c", "exec python /app/cold_mover.py run --engine \"$$ENGINE_URL\" --blobd http://blobd:41071 $$MOVER_ARGS"]
     environment:
-      ENGINE_URL: ${ENGINE_URL:?在 .env 里设 ENGINE_URL（相册地址，https://…，不带 /photos）}
-      PIPE_TOKEN: ${PIPE_TOKEN:?在 .env 里设 PIPE_TOKEN}
+      ENGINE_URL: ${ENGINE_URL:-}                  # 缺了 cold_mover.py 自己会报「需要 --engine 和 PIPE_TOKEN」并退出，不在这里卡住别的服务
+      PIPE_TOKEN: ${PIPE_TOKEN:-}
       BLOBD_TOKEN: ${BLOBD_TOKEN}
       MOVER_ARGS: ${MOVER_ARGS:---limit 20}
     volumes:
