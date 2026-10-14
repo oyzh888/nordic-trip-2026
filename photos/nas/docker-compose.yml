@@ -1,0 +1,64 @@
+# NAS 上的冷存储：blobd（存原件）+ 搬运工（从相册拷过来）+ 可选的隧道（让 Cloudflare 上的 Worker 读得到）。
+# 说明和上线步骤见 ../docs/COLD-STORE.md；给 NAS 上的 agent 的交接在 HANDOVER.md。
+#
+#   cp .env.example .env   # 填好；令牌用 openssl rand -hex 32 生成，.env 不进 git
+#   docker compose up -d blobd                    # 阶段 0：先只起存储
+#   docker compose --profile tunnel up -d         # 带隧道（如果 NAS 上已经有 cloudflared，见 HANDOVER.md 的另一条路）
+#   docker compose up -d mover                    # 搬运工（默认金丝雀：MOVER_ARGS=--limit 20）
+#
+# blobd 的端口不映射到宿主机：只有同一个 compose 网络里的容器（隧道、搬运工）够得着它，外面要经隧道 + 令牌。
+name: photos-cold
+
+services:
+  blobd:
+    image: node:22-alpine
+    restart: unless-stopped
+    command: ["node", "/app/blobd.mjs"]
+    environment:
+      BLOBD_DIR: /data
+      BLOBD_PORT: "41071"
+      BLOBD_HOST: 0.0.0.0
+      BLOBD_PROCS: ${BLOBD_PROCS:-4}
+      BLOBD_TOKEN: ${BLOBD_TOKEN:?在 .env 里设 BLOBD_TOKEN}
+      BLOBD_EDGE_TOKEN: ${BLOBD_EDGE_TOKEN:?在 .env 里设 BLOBD_EDGE_TOKEN}
+    volumes:
+      - ${COLD_DATA_DIR:?在 .env 里设 COLD_DATA_DIR（NAS 上放原件的大盘目录）}:/data
+      - ../local/blobd.mjs:/app/blobd.mjs:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- --header \"x-blobd-token: $$BLOBD_TOKEN\" http://127.0.0.1:41071/health >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks: [cold]
+
+  cloudflared:
+    profiles: ["tunnel"]
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: ["tunnel", "--no-autoupdate", "run"]
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?在 .env 里设 TUNNEL_TOKEN（Cloudflare Zero Trust 里这条隧道的令牌）}
+    depends_on:
+      blobd: { condition: service_healthy }
+    networks: [cold]
+    # 隧道的 Public Hostname 指到 http://blobd:41071（同一个 compose 网络里就是这个名字）
+
+  mover:
+    image: python:3.12-alpine
+    restart: unless-stopped
+    # MOVER_ARGS 例：--limit 20（金丝雀）· 留空 = 一直守着搬 · --release-after-days 14（阶段 5 才加）
+    command: ["sh", "-c", "exec python /app/cold_mover.py run --engine \"$$ENGINE_URL\" --blobd http://blobd:41071 $$MOVER_ARGS"]
+    environment:
+      ENGINE_URL: ${ENGINE_URL:?在 .env 里设 ENGINE_URL（相册地址，https://…，不带 /photos）}
+      PIPE_TOKEN: ${PIPE_TOKEN:?在 .env 里设 PIPE_TOKEN}
+      BLOBD_TOKEN: ${BLOBD_TOKEN}
+      MOVER_ARGS: ${MOVER_ARGS:---limit 20}
+    volumes:
+      - ./cold_mover.py:/app/cold_mover.py:ro
+      - ${COLD_DATA_DIR}:/data:ro          # 只给 gc（找孤儿文件）读目录用；搬运工写文件走 blobd 的 HTTP，不直接写盘
+    depends_on:
+      blobd: { condition: service_healthy }
+    networks: [cold]
+
+networks:
+  cold: {}

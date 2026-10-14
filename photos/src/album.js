@@ -64,7 +64,7 @@ export class Album extends DurableObject {
     // 免费版 Durable Object 每天写入有上限，超了之后启动时这一步失败 → 整个相册连读都读不了（2026-10-03 出过一次）
     const have = new Set(this.sql.exec(`SELECT name FROM sqlite_master WHERE type IN ('table','index')`).toArray().map(r => r.name));
     const mcols = have.has('media') ? new Set(this.sql.exec(`PRAGMA table_info(media)`).toArray().map(r => r.name)) : new Set();
-    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits', 'uplog'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc', 'gsize', 'gcrc', 'gplan'].every(c => mcols.has(c))) return;
+    if (['keys', 'media_cid', 'media_size', 'faces_h', 'edits', 'uplog'].every(t => have.has(t)) && ['src', 'ai', 'cid', 'pair', 'live', 'ctime', 'cser', 'tzsrc', 'gsize', 'gcrc', 'gplan', 'cold_at'].every(c => mcols.has(c))) return;
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT);
       CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT UNIQUE, created INTEGER);
@@ -102,7 +102,9 @@ export class Album extends DurableObject {
     for (const [c, t] of [['src', 'TEXT'], ['ai', 'TEXT'], ['cid', 'TEXT'], ['pair', 'TEXT'], ['live', 'INTEGER DEFAULT 0'],
       ['ctime', 'TEXT'], ['cser', 'TEXT'], ['tzsrc', 'TEXT'],
       // gsize / gcrc / gplan：视频的 H.264 新版（R2 g/<h>.mp4，GPU 端转码 + 调色；原片 o/<h> 不动）。gplan 为空 = 还没看过
-      ['gsize', 'INTEGER'], ['gcrc', 'INTEGER'], ['gplan', 'TEXT']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
+      ['gsize', 'INTEGER'], ['gcrc', 'INTEGER'], ['gplan', 'TEXT'],
+      // cold_at：NAS 上的那份核对无误的时间（flags 的 32 位）—— 「热里那份留几天再删」从这时候算起
+      ['cold_at', 'INTEGER']]) if (!cols.has(c)) this.sql.exec(`ALTER TABLE media ADD COLUMN ${c} ${t}`);
     this.sql.exec(`CREATE INDEX IF NOT EXISTS media_cid ON media(cid)`);
     if (!this.sql.exec(`SELECT v FROM kv WHERE k='ver'`).toArray().length)
       this.sql.exec(`INSERT INTO kv VALUES ('ver','1')`);
@@ -1163,6 +1165,56 @@ export class Album extends DurableObject {
     this.bump(h);
     return { ok: true };
   }
+  /* ---------- 冷存储（NAS）：原件 o/ 和视频新版 g/ 搬过去，缩略图 / 预览 / 720p 视频留在热（R2）----------
+   * flags 的 32 位 = NAS 上有一份核对过的副本（热里那份还在，读的时候先热后冷，谁在都行）
+   *          64 位 = 热里那份已经删了（只剩 NAS 的 —— 这之后 NAS 就是唯一副本）
+   * 谁能搬：已经分析完、缩略图和预览（视频是 720p + 新版转码的结论）都做好的 —— GPU 端不会再来下原件；
+   * 过了 24 小时还没做好的（解不了码的 RAW 之类）也放行，别永远留在热里。*/
+  coldWhere(minAgeMin) {
+    const t = Date.now() - minAgeMin * 60e3, day = Date.now() - 86400e3;
+    return [`status='ready' AND deleted=0 AND (flags & 32)=0 AND aver>0 AND created < ? AND (
+        (kind='image' AND ((flags & 3)=3 OR created < ?)) OR (kind='video' AND gplan IS NOT NULL AND ((flags & 4)=4 OR created < ?)))`, [t, day, day]];
+  }
+  coldTodo(limit = 30, minAgeMin = 10) {
+    const [w, a] = this.coldWhere(minAgeMin);
+    const items = this.sql.exec(`SELECT h, kind, size, gsize, gcrc, flags FROM media WHERE ${w} ORDER BY created LIMIT ?`, ...a, Math.min(200, limit)).toArray()
+      .map(r => ({ h: r.h, kind: r.kind, size: r.size, ...(r.flags & 16 ? { gsize: r.gsize, gcrc: r.gcrc } : {}) }));
+    const left = this.sql.exec(`SELECT COUNT(*) n, COALESCE(SUM(size + COALESCE(gsize, 0)), 0) b FROM media WHERE ${w}`, ...a).one();
+    return { items, left: left.n, leftBytes: left.b };
+  }
+  /** 引擎核对 NAS 上的文件要对哪几个键、多大 */
+  coldExpect(hs) {
+    return this.sql.exec(`SELECT h, size, flags, gsize FROM media WHERE h IN (SELECT value FROM json_each(?))`, JSON.stringify(hs)).toArray()
+      .map(r => ({ h: r.h, flags: r.flags, keys: [{ key: 'o/' + r.h, size: r.size }, ...(r.flags & 16 ? [{ key: `g/${r.h}.mp4`, size: r.gsize }] : [])] }));
+  }
+  coldMark(hs) {
+    if (!hs.length) return { marked: 0 };
+    this.sql.exec(`UPDATE media SET flags = flags | 32, cold_at = ? WHERE (flags & 32)=0 AND h IN (SELECT value FROM json_each(?))`, Date.now(), JSON.stringify(hs));
+    this.bump(hs);
+    return { marked: hs.length };
+  }
+  /** 核对过 NAS 副本、并且已经过了宽限期（从 cold_at 算）、热里还没删的 */
+  coldReleasable(olderThanDays, limit = 100) {
+    return this.sql.exec(`SELECT h FROM media WHERE (flags & 32)=32 AND (flags & 64)=0 AND cold_at < ? ORDER BY cold_at LIMIT ?`,
+      Date.now() - Number(olderThanDays) * 86400e3, Math.min(500, limit)).toArray().map(r => r.h);
+  }
+  coldReleased(hs) {
+    if (!hs.length) return { released: 0 };
+    this.sql.exec(`UPDATE media SET flags = flags | 64 WHERE h IN (SELECT value FROM json_each(?))`, JSON.stringify(hs));
+    this.bump(hs);
+    return { released: hs.length };
+  }
+  /** 给巡检用：已核对过的，按 h 排好，分页 */
+  coldList(after = '', limit = 500) {
+    return this.sql.exec(`SELECT h, size, gsize, flags FROM media WHERE (flags & 32)=32 AND h > ? ORDER BY h LIMIT ?`, String(after), Math.min(2000, limit)).toArray()
+      .map(r => ({ h: r.h, size: r.size, ...(r.flags & 16 ? { gsize: r.gsize } : {}), released: !!(r.flags & 64) }));
+  }
+  coldStatus() {
+    const q = (w) => this.sql.exec(`SELECT COUNT(*) n, COALESCE(SUM(size + COALESCE(gsize, 0)), 0) b FROM media WHERE status='ready' AND deleted=0 ${w}`).one();
+    const all = q(''), cold = q('AND (flags & 32)=32'), rel = q('AND (flags & 64)=64'), w = this.coldTodo(0);
+    return { total: all, onCold: cold, hotReleased: rel, hotOnly: { n: all.n - cold.n, b: all.b - cold.b }, eligibleNow: { n: w.left, b: w.leftBytes } };
+  }
+
   media4pipe() {
     return this.sql.exec(`SELECT h, kind, name, taken, lat, lon, place, sharp, caption, tags, cam, score, pinned, created, src, ctime, cser, tzsrc, aver,
       (SELECT uid FROM contrib c WHERE c.h = media.h ORDER BY at LIMIT 1) up FROM media WHERE status='ready' AND deleted=0 AND live=0`).toArray();

@@ -83,11 +83,53 @@ export function localBucket(base, token) {
   }
 }
 
-/** 本机部署（配了 BLOBD）时把 BUCKET 换成直接读写磁盘的 blobd；其余绑定原样不动 */
-let storeEnv = null;
-export function withStore(env) {
-  if (!env.BLOBD) return env;
-  if (!storeEnv || storeEnv.base !== env) storeEnv = { base: env, env: Object.create(env, { BUCKET: { value: localBucket(env.BLOBD, env.BLOBD_TOKEN) } }) };
-  return storeEnv.env;
+/**
+ * 分层存储（热 R2 + 冷 NAS）：同一份对象「在哪就从哪读」，上层代码（engine / album）不用知道。
+ *   · 写：永远写热（R2）—— 上传又快又稳，不依赖家里的网
+ *   · 读：先热后冷。只有冷前缀（默认 o = 原件、g = 视频 H.264 新版）在热里没有时才去问冷；缩略图 / 预览 / 720p 视频永远在热里，
+ *     所以翻相册一次也不碰 NAS，只有「看原图 / 下载 / 打包」才会
+ *   · 删：两边都删
+ * 搬运工（NAS 上的 cold_mover.py）把原件拷到冷、核对无误后，由引擎删掉热里那份 —— 搬了一半的、没搬的、搬完的，读起来都一样。
+ * 冷存储连不上时：读冷前缀返回 503（不是 500、也不卡住），上传 / 翻相册 / 缩略图 / 预览照常。
+ */
+export function tieredBucket(hot, cold, prefixes = ['o', 'g']) {
+  const isCold = key => prefixes.includes(String(key).split('/', 1)[0]);
+  const down = e => Object.assign(new Error('冷存储暂时连不上（原件和视频新版暂时取不到，缩略图 / 预览不受影响）：' + String(e && e.message || e).slice(0, 100)), { status: 503 });
+  return {
+    hot, cold, isCold,
+    async get(key, opts) {
+      const r = await hot.get(key, opts);
+      if (r || !isCold(key)) return r;
+      try { return await cold.get(key, opts); } catch (e) { throw down(e); }
+    },
+    async head(key) {
+      const r = await hot.head(key);
+      if (r || !isCold(key)) return r;
+      try { return await cold.head(key); } catch (e) { throw down(e); }
+    },
+    put: (...a) => hot.put(...a),
+    createMultipartUpload: (...a) => hot.createMultipartUpload(...a),
+    resumeMultipartUpload: (...a) => hot.resumeMultipartUpload(...a),
+    async delete(keys) {
+      keys = [].concat(keys);
+      await hot.delete(keys);
+      const c = keys.filter(isCold);
+      if (c.length) await cold.delete(c).catch(e => console.error('[cold] delete 失败（冷存储里可能留着孤儿文件，之后 cold_mover.py gc 会清）', String(e).slice(0, 120)));
+    },
+  };
 }
 
+/** 换存储：BLOBD（整个本机部署，全部走 blobd）或 COLD_URL（热 R2 + 冷 NAS 分层）；都没配就原样用 R2。其余绑定原样不动 */
+const stores = new WeakMap();
+export function withStore(env) {
+  if (!env.BLOBD && !env.COLD_URL) return env;
+  let w = stores.get(env);
+  if (!w) {
+    const bucket = env.BLOBD ? localBucket(env.BLOBD, env.BLOBD_TOKEN)
+      : tieredBucket(env.BUCKET, localBucket(env.COLD_URL.replace(/\/+$/, ''), env.COLD_TOKEN),
+        String(env.COLD_PREFIXES || 'o,g').split(',').map(x => x.trim()).filter(Boolean));
+    w = Object.create(env, { BUCKET: { value: bucket } });
+    stores.set(env, w);
+  }
+  return w;
+}

@@ -11,6 +11,10 @@
 //   POST   /delete                          {keys:[…]}
 // 多进程（node:cluster）：每个进程各自收流、算哈希、写盘，能用上多个核。
 //   用法：BLOBD_DIR=… BLOBD_TOKEN=… BLOBD_PORT=41071 BLOBD_PROCS=8 node blobd.mjs
+//
+// 也用作 NAS 上的「冷存储」（见 docs/COLD-STORE.md）：容器里绑 0.0.0.0（BLOBD_HOST），再经隧道对外。两把令牌：
+//   BLOBD_TOKEN       全权限（读写删）—— 只给同一个内网里的搬运工用，不出隧道
+//   BLOBD_EDGE_TOKEN  只许 GET / HEAD / POST /delete —— 给 Cloudflare 上的 Worker 用（它只读照片、撤回时删；从不往这里写）
 import cluster from 'node:cluster';
 import http from 'node:http';
 import fs from 'node:fs';
@@ -22,21 +26,24 @@ import { pipeline } from 'node:stream/promises';
 const DIR = path.resolve(process.env.BLOBD_DIR || './files');
 const PORT = Number(process.env.BLOBD_PORT || 41071);
 const TOKEN = process.env.BLOBD_TOKEN || '';
+const EDGE = process.env.BLOBD_EDGE_TOKEN || '';
+const HOST = process.env.BLOBD_HOST || '127.0.0.1';
 const PROCS = Number(process.env.BLOBD_PROCS || 8);
-const KEY_RE = /^(o\/[0-9a-f]{64}|[tpf]\/[0-9a-f]{64}\.jpg|v\/[0-9a-f]{64}\.mp4|x\/[0-9A-Za-z._-]{1,120})$/;   // x/ = 测试用
+const KEY_RE = /^(o\/[0-9a-f]{64}|[tpf]\/[0-9a-f]{64}\.jpg|[vg]\/[0-9a-f]{64}\.mp4|x\/[0-9A-Za-z._-]{1,120})$/;   // g = 视频的 H.264 新版 · x/ = 测试用
 const TMP = path.join(DIR, '.tmp'), MP = path.join(DIR, '.mp');
 
 if (cluster.isPrimary) {
-  for (const d of [DIR, TMP, MP, ...['o', 't', 'p', 'v', 'f', 'x'].map(k => path.join(DIR, k))]) fs.mkdirSync(d, { recursive: true });
+  for (const d of [DIR, TMP, MP, ...['o', 't', 'p', 'v', 'f', 'g', 'x'].map(k => path.join(DIR, k))]) fs.mkdirSync(d, { recursive: true });
   for (let i = 0; i < PROCS; i++) cluster.fork();
   cluster.on('exit', (w, code) => { console.error(`[blobd] 进程 ${w.process.pid} 退出（${code}），重启`); cluster.fork(); });
-  console.log(`[blobd] ${PROCS} 个进程 · 127.0.0.1:${PORT} · ${DIR}`);
+  console.log(`[blobd] ${PROCS} 个进程 · ${HOST}:${PORT} · ${DIR}`);
 } else {
-  http.createServer(handle).listen(PORT, '127.0.0.1');
+  http.createServer(handle).listen(PORT, HOST);
 }
 
 const J = (res, code, obj) => { const b = JSON.stringify(obj); res.writeHead(code, { 'content-type': 'application/json', 'content-length': Buffer.byteLength(b) }); res.end(b); };
 const rid = () => crypto.randomBytes(12).toString('hex');
+const same = (a, b) => { const x = Buffer.from(a), y = Buffer.from(b); return x.length === y.length && crypto.timingSafeEqual(x, y); };
 const fpath = key => path.join(DIR, key);
 
 /** 把请求体流式写进 file，边写边算 sha256；写完再原子改名到 dest（dest 为空就留在 file） */
@@ -56,8 +63,13 @@ async function handle(req, res) {
   // 报「Network connection lost」（实测 np_upload 并发时偶发）。本机建连接几乎不花时间，干脆每次都关
   res.shouldKeepAlive = false;
   try {
-    if (TOKEN && req.headers['x-blobd-token'] !== TOKEN) return J(res, 403, { error: 'token' });
     const u = new URL(req.url, 'http://x'); const p = decodeURIComponent(u.pathname); const m = req.method;
+    if (TOKEN) {
+      const t = String(req.headers['x-blobd-token'] || '');
+      const full = same(t, TOKEN);
+      const edge = !full && EDGE && same(t, EDGE) && (m === 'GET' || m === 'HEAD' || (m === 'POST' && p === '/delete'));
+      if (!full && !edge) return J(res, 403, { error: 'token' });
+    }
 
     if (p.startsWith('/o/')) {
       const key = p.slice(3);

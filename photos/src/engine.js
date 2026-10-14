@@ -146,14 +146,14 @@ export async function handle(req, env, ctx, { base = '/photos' } = {}) {
       if (k === 'o') {
         const m = await album.meta(h);
         if (!m || m.status !== 'ready') return J({ error: 'not found' }, 404);
-        return serveObject(req, env, 'o/' + h, { dl: url.searchParams.has('dl'), name: m.name, type: m.type });
+        return await serveObject(req, env, 'o/' + h, { dl: url.searchParams.has('dl'), name: m.name, type: m.type });
       }
       if (k === 'g') {                                   // 下载新版时文件名用原名 + .mp4（IMG_1234.MOV → IMG_1234.mp4）
         const m = await album.meta(h);
         if (!m || m.status !== 'ready') return J({ error: 'not found' }, 404);
-        return serveObject(req, env, `g/${h}.mp4`, { dl: url.searchParams.has('dl'), name: m.name.replace(/\.[^.]+$/, '') + '.mp4', type: 'video/mp4' });
+        return await serveObject(req, env, `g/${h}.mp4`, { dl: url.searchParams.has('dl'), name: m.name.replace(/\.[^.]+$/, '') + '.mp4', type: 'video/mp4' });
       }
-      return serveObject(req, env, `${k}/${h}.${k === 'v' ? 'mp4' : 'jpg'}`, { type: k === 'v' ? 'video/mp4' : 'image/jpeg' });
+      return await serveObject(req, env, `${k}/${h}.${k === 'v' ? 'mp4' : 'jpg'}`, { type: k === 'v' ? 'video/mp4' : 'image/jpeg' });
     }
 
     if (p === '/api/me') { needUser(); return J({ user: await album.user(uid) }); }
@@ -422,6 +422,43 @@ export async function handle(req, env, ctx, { base = '/photos' } = {}) {
       if (p === '/api/pipe/vecs' && method === 'POST') return J(await album.putQvecs((await body()).items));
       if (p === '/api/pipe/status') return J(await album.pipeStatus());
       if (p === '/api/pipe/known') return J(await album.knownQueries());
+      /* ---- 冷存储（NAS）搬运：见 docs/COLD-STORE.md ---- */
+      if (p.startsWith('/api/pipe/cold-')) {
+        const tier = env.BUCKET.cold ? env.BUCKET : null;
+        const q = url.searchParams;
+        if (p === '/api/pipe/cold-status') return J({ configured: !!tier, ...(await album.coldStatus()) });
+        if (p === '/api/pipe/cold-todo') return J(await album.coldTodo(Number(q.get('limit') || 30), Number(q.get('minAgeMin') || 10)));
+        if (p === '/api/pipe/cold-list') return J(await album.coldList(q.get('after') || '', Number(q.get('limit') || 500)));
+        if (!tier) return J({ error: '冷存储没配（Worker 没有 COLD_URL / COLD_TOKEN）' }, 409);
+        // 免费版每个请求最多 50 次外部调用：一批核对 / 释放最多 15 / 12 个（每个 1～2 次 HEAD）
+        const verify = async e => {
+          for (const k of e.keys) {
+            let o; try { o = await tier.cold.head(k.key); } catch (err) { return { h: e.h, ok: false, why: '冷存储连不上：' + String(err.message || err).slice(0, 80) }; }
+            if (!o) return { h: e.h, ok: false, why: `${k.key} 不在冷存储里` };
+            if (o.size !== k.size) return { h: e.h, ok: false, why: `${k.key} 大小 ${o.size} ≠ 应有 ${k.size}` };
+          }
+          return { h: e.h, ok: true };
+        };
+        const hashes = a => (Array.isArray(a) ? a : []).filter(h => /^[0-9a-f]{64}$/.test(h));
+        if (p === '/api/pipe/cold-done' && method === 'POST') {          // 搬运工说「这几张拷到 NAS 了」→ 引擎亲自去 NAS 核对大小，对了才记下
+          const hs = hashes((await body()).items).slice(0, 15);
+          const res = await Promise.all((await album.coldExpect(hs)).map(verify));
+          await album.coldMark(res.filter(r => r.ok).map(r => r.h));
+          return J({ ok: res.filter(r => r.ok).map(r => r.h), bad: res.filter(r => !r.ok) });
+        }
+        if (p === '/api/pipe/cold-release' && method === 'POST') {       // 热（R2）里那份：核对过 NAS 副本、过了宽限期的才删 —— 这之后 NAS 就是唯一副本
+          const b = await body(), days = Number(b.olderThanDays);
+          if (!(days >= 0)) return J({ error: 'olderThanDays 必填（天数，0 = 不等）' }, 400);
+          const exp = await album.coldExpect(await album.coldReleasable(days, Math.min(12, Number(b.limit || 12))));
+          const res = await Promise.all(exp.map(verify));
+          const ok = res.filter(r => r.ok).map(r => r.h);
+          if (ok.length) {
+            await tier.hot.delete(exp.filter(e => ok.includes(e.h)).flatMap(e => e.keys.map(k => k.key)));
+            await album.coldReleased(ok);
+          }
+          return J({ released: ok.length, bytes: exp.filter(e => ok.includes(e.h)).reduce((a, e) => a + e.keys.reduce((x, k) => x + k.size, 0), 0), bad: res.filter(r => !r.ok) });
+        }
+      }
       if (p === '/api/pipe/nothumb') return J(await album.noThumb(Number(url.searchParams.get('aver') || 1), Number(url.searchParams.get('limit') || 48)));
       if (p === '/api/pipe/faces') return J(url.searchParams.has('light') ? await album.facesLight() : await album.dumpFaces());
       if (p === '/api/pipe/faceemb') return J(await album.faceEmbs(url.searchParams.get('since')));
@@ -462,6 +499,7 @@ export async function handle(req, env, ctx, { base = '/photos' } = {}) {
     return J({ error: 'not found' }, 404);
   } catch (e) {
     if (e instanceof HttpError) return J({ error: e.message }, e.status);
+    if (e && e.status === 503) return J({ error: e.message, retry: true }, 503, { 'retry-after': '30' });   // 冷存储暂时连不上
     return J({ error: String(e && e.message || e) }, 500);
   }
 }
