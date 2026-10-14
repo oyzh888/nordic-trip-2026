@@ -18,7 +18,7 @@
 |---|---|
 | `photos/docs/COLD-STORE.md` | **设计 + 安全阀 + 分阶段上线 + 接口 + 配置（必读）** |
 | `photos/ENGINE.md` | 相册引擎的分层和接口契约（了解背景） |
-| `photos/nas/docker-compose.yml` + `.env.example` | 你要部署的东西：blobd + 搬运工 + 可选隧道 |
+| `photos/nas/docker-compose.yml` + `cold.env.example` | 你要部署的东西：blobd + 搬运工 + 可选隧道 |
 | `photos/nas/cold_mover.py` | 搬运工（纯标准库）。`--help` 看全部子命令：`run / status / scrub / check / gc` |
 | `photos/local/blobd.mjs` | NAS 上的文件存储服务（Node，约 140 行，读它就知道它做什么） |
 | `photos/test/cold_e2e.py` | 43 项端到端测试，说明了每个行为的预期（本机跑过，全过） |
@@ -40,19 +40,19 @@
 先定义一个小函数（后面所有 `mv …` 都是它；它在搬运工容器里跑，令牌从 `.env` 来，不用你导出环境变量）：
 ```bash
 cd photos/nas
-mv() { docker compose run --rm --no-deps mover sh -c 'exec python /app/cold_mover.py "$@" --engine "$ENGINE_URL" --blobd http://blobd:41071' sh "$@"; }
+mv() { docker compose --env-file ~/photos-cold.env run --rm --no-deps mover sh -c 'exec python /app/cold_mover.py "$@" --engine "$ENGINE_URL" --blobd http://blobd:41071' sh "$@"; }
 ```
 没有 Docker 的话：`export` 好 `PIPE_TOKEN` `BLOBD_TOKEN`（别回显），直接 `python3 cold_mover.py … --engine https://… --blobd http://127.0.0.1:41071`。
 
-1. 克隆仓库（上面的分支）；`cd photos/nas && cp .env.example .env`。
-2. **自己生成两把令牌**写进 `.env`（`chmod 600 .env`）：
+1. 克隆仓库（上面的分支）；`cd photos/nas && cp cold.env.example ~/photos-cold.env && chmod 600 ~/photos-cold.env`（配置放在 git 工作区**之外**）。后面所有 `docker compose` 命令都加 `--env-file ~/photos-cold.env`。
+2. **自己生成两把令牌**写进 `~/photos-cold.env`（`chmod 600`）：
    ```
    openssl rand -hex 32   # → BLOBD_TOKEN       全权限，只在内网用，绝不出隧道
    openssl rand -hex 32   # → BLOBD_EDGE_TOKEN  只读 + 删，给 Cloudflare 上的 Worker 用
    ```
    ⛔ **令牌不要打印到终端 / 日志 / 回复里，也不要写进任何会进 git 的文件。** 汇报时只说长度和文件路径。
-3. 设 `COLD_DATA_DIR`（阶段 A 选好的目录）、`ENGINE_URL=https://nordic.airacle.com`。
-4. `docker compose up -d blobd`，等 healthy。验证（在 NAS 上，端口没映射到宿主机，所以要进容器网络里验）：
+3. 设 `COLD_DATA_DIR`（阶段 A 选好的目录；这台 NAS 用 `/volume2/UserFolder/photos-cold`，RAID1）、`ENGINE_URL=https://nordic.airacle.com`。
+4. `docker compose --env-file ~/photos-cold.env up -d blobd`，等 healthy。验证（在 NAS 上，端口没映射到宿主机，所以要进容器网络里验）：
    ```bash
    docker compose exec blobd wget -qO- --header "x-blobd-token: $BLOBD_TOKEN" http://127.0.0.1:41071/health   # 应返回 {"ok":true,...}
    docker compose exec blobd wget -S -qO- http://127.0.0.1:41071/health 2>&1 | head -1                         # 无令牌应是 403

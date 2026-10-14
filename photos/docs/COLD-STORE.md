@@ -106,7 +106,7 @@
 
 不配 `COLD_URL` = 完全是原来的行为（只有 R2）。
 
-**NAS（`nas/.env`，见 `nas/.env.example`）**：`BLOBD_TOKEN`（全权限，只在内网）、`BLOBD_EDGE_TOKEN`、`COLD_DATA_DIR`、`PIPE_TOKEN`、`ENGINE_URL`、（隧道的话）`TUNNEL_TOKEN`。令牌一律用 `openssl rand -hex 32` 生成，**不进 git、不打印**。
+**NAS（放在 git 工作区之外，如 `~/photos-cold.env`，模板见 `nas/cold.env.example`；compose 命令带 `--env-file`）**：`BLOBD_TOKEN`（全权限，只在内网）、`BLOBD_EDGE_TOKEN`、`COLD_DATA_DIR`、`PIPE_TOKEN`、`ENGINE_URL`、（隧道的话）`TUNNEL_TOKEN`。令牌一律用 `openssl rand -hex 32` 生成，**不进 git、不打印**。
 
 ## 测试
 

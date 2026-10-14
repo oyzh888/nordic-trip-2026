@@ -1,8 +1,9 @@
 # NAS 上的冷存储：blobd（存原件）+ 搬运工（从相册拷过来）+ 可选的隧道（让 Cloudflare 上的 Worker 读得到）。
 # 说明和上线步骤见 ../docs/COLD-STORE.md；给 NAS 上的 agent 的交接在 HANDOVER.md。
 #
-#   cp .env.example .env   # 填好；令牌用 openssl rand -hex 32 生成，.env 不进 git
-#   docker compose up -d blobd                    # 阶段 0：先只起存储
+#   cp cold.env.example ~/photos-cold.env   # 填好（放在 git 工作区之外）；令牌用 openssl rand -hex 32 生成
+#   之后所有命令都带 --env-file ~/photos-cold.env（下面的例子省略了）
+#   docker compose --env-file ~/photos-cold.env up -d blobd   # 阶段 0：先只起存储
 #   docker compose --profile tunnel up -d         # 带隧道（如果 NAS 上已经有 cloudflared，见 HANDOVER.md 的另一条路）
 #   docker compose up -d mover                    # 搬运工（默认金丝雀：MOVER_ARGS=--limit 20）
 #
@@ -56,6 +57,21 @@ services:
     volumes:
       - ./cold_mover.py:/app/cold_mover.py:ro
       - ${COLD_DATA_DIR}:/data:ro          # 只给 gc（找孤儿文件）读目录用；搬运工写文件走 blobd 的 HTTP，不直接写盘
+    depends_on:
+      blobd: { condition: service_healthy }
+    networks: [cold]
+
+  # 每周巡检一次（抽样）：把 NAS 上已登记的文件读回来重算内容 ID，防静默坏块。结果在日志里（docker compose logs scrub）
+  scrub:
+    image: python:3.12-alpine
+    restart: unless-stopped
+    command: ["sh", "-c", "while true; do python /app/cold_mover.py scrub --sample ${SCRUB_SAMPLE:-300} --engine \"$$ENGINE_URL\" --blobd http://blobd:41071 || echo '!! 巡检发现不对的文件，见上面'; sleep 604800; done"]
+    environment:
+      ENGINE_URL: ${ENGINE_URL}
+      PIPE_TOKEN: ${PIPE_TOKEN}
+      BLOBD_TOKEN: ${BLOBD_TOKEN}
+    volumes:
+      - ./cold_mover.py:/app/cold_mover.py:ro
     depends_on:
       blobd: { condition: service_healthy }
     networks: [cold]
