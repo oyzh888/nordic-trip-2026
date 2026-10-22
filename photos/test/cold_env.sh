@@ -25,6 +25,7 @@ SESSION_SECRET=$SESSION_SECRET
 PIPE_TOKEN=$PIPE_TOKEN
 COLD_URL=http://127.0.0.1:41191
 COLD_TOKEN=$BLOBD_EDGE_TOKEN
+COLD_FIRST=${COLD_FIRST:-0}
 EOT
 )
 # e2e.py 从 photos/.dev.vars 读口令（它是 .gitignore 的）—— 这里只放口令和令牌，不放 COLD_*，免得默认实例也走冷存储

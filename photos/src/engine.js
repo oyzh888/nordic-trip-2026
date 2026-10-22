@@ -73,6 +73,7 @@ async function serveObject(req, env, key, { dl, name, type } = {}) {
   obj.writeHttpMetadata(h);
   if (type) h.set('content-type', type);
   h.set('etag', obj.httpEtag);
+  if (obj.store) h.set('x-store', obj.store);   // nas / r2-fallback（只有分层存储才有，见 localbucket.js tieredBucket）
   // 内容寻址（文件名就是内容哈希）→ 永远不会变 → 浏览器可以永久缓存，翻相册第二次是零流量
   h.set('cache-control', 'private, max-age=31536000, immutable');
   h.set('accept-ranges', 'bytes');

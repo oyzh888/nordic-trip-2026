@@ -92,12 +92,23 @@ export function localBucket(base, token) {
  * 搬运工（NAS 上的 cold_mover.py）把原件拷到冷、核对无误后，由引擎删掉热里那份 —— 搬了一半的、没搬的、搬完的，读起来都一样。
  * 冷存储连不上时：读冷前缀返回 503（不是 500、也不卡住），上传 / 翻相册 / 缩略图 / 预览照常。
  */
-export function tieredBucket(hot, cold, prefixes = ['o', 'g']) {
+export function tieredBucket(hot, cold, prefixes = ['o', 'g'], coldFirst = false) {
   const isCold = key => prefixes.includes(String(key).split('/', 1)[0]);
   const down = e => Object.assign(new Error('冷存储暂时连不上（原件和视频新版暂时取不到，缩略图 / 预览不受影响）：' + String(e && e.message || e).slice(0, 100)), { status: 503 });
   return {
     hot, cold, isCold,
     async get(key, opts) {
+      if (coldFirst && isCold(key)) {
+        // NAS 优先（COLD_FIRST）：先问 NAS，NAS 没有（还没搬 / 新传的）或连不上就用 R2 里的；两边都没有才 404 / 503。
+        // 回包的 store 字段 = 'nas'，serveObject 会写进 x-store 响应头，方便确认读的是哪边
+        let err;
+        try { const c = await cold.get(key, opts); if (c) { c.store = 'nas'; return c; } }
+        catch (e) { err = e; console.error('[cold] NAS 读失败，退回 R2：', key, String(e && e.message || e).slice(0, 100)); }
+        const r = await hot.get(key, opts);
+        if (r) { if (err) try { r.store = 'r2-fallback'; } catch {} return r; }
+        if (err) throw down(err);
+        return null;
+      }
       const r = await hot.get(key, opts);
       if (r || !isCold(key)) return r;
       try { return await cold.get(key, opts); } catch (e) { throw down(e); }
@@ -127,7 +138,7 @@ export function withStore(env) {
   if (!w) {
     const bucket = env.BLOBD ? localBucket(env.BLOBD, env.BLOBD_TOKEN)
       : tieredBucket(env.BUCKET, localBucket(env.COLD_URL.replace(/\/+$/, ''), env.COLD_TOKEN),
-        String(env.COLD_PREFIXES || 'o,g').split(',').map(x => x.trim()).filter(Boolean));
+        String(env.COLD_PREFIXES || 'o,g').split(',').map(x => x.trim()).filter(Boolean), env.COLD_FIRST === '1');
     w = Object.create(env, { BUCKET: { value: bucket } });
     stores.set(env, w);
   }
